@@ -14,4 +14,11 @@ public class Trainer {
 	 * @param tokenizedText
 	 */
 	public String addIdentifiers(String tokenizedText){};
+	/**
+	 * Returns the the token count for a specific token
+	 * @param token
+	 * @return
+	 */
+	public int getTokenCount(String token){};
+	
 }
