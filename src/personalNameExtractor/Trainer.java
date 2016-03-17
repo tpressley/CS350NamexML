@@ -20,5 +20,9 @@ public class Trainer {
 	 * @return
 	 */
 	public int getTokenCount(String token){};
+	/**
+	 * Initializes the trainer and gets the training materials from std input
+	 */
+	public Trainer();
 	
 }
