@@ -31,7 +31,7 @@ public class Trainer {
 	 *
 	 * @param inputText
 	 */
-	public String tokenize(String trainingMaterial){ /* should be easy enough to implement, java has a StringTokenizer class*/ };
+	public String[] tokenize(String trainingMaterial){ /* should be easy enough to implement, java has a StringTokenizer class*/ };
 	
 	/**
 	 * Uses the tokenized text to convert the text into a form using identifiers 
