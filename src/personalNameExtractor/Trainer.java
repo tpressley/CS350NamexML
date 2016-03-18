@@ -43,5 +43,13 @@ public class Trainer {
 	public Trainer() {
 
 	};
+	
+	
+	/**
+	 * prepare training data for Learning Machine
+	 */
+	public void prepareData(){
+		
+	}
 
 }

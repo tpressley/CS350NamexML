@@ -65,5 +65,32 @@ public class TestLibrarian {
 		// is it possible to even create a JUnit test to see if the PNE was
 		// packaged in a fat jar?
 	}
+	
+	
+	
+	//User Story #852 As a Librarian, I want names of places to be identified correctly
+	@Test
+	public void testNamesOfPlaces() {
+		
+		arraylist<String> place1 = "George Washington Bridge";
+		arraylist<String> place2 = "Washington State";
+		arraylist<String> place3 = "James Madison University";
+		arraylist<String> place4 = "";
+		
+		arraylist<String> name1 = "George Washington";
+		arraylist<String> name2 = "James Madison";
+		
+		Librarian lib = new Librarian();
+		
+		assertEquals( "George Washington Bridge/Plc" , lib.nameOfPlace(place1) );
+		assertEquals( "Washington State/Plc" , lib.nameOfPlace(place2) );
+		assertEquals( "James Madison University/Plc", lib.nameOfPlace(place3) );
+		assertEquals("", lib.nameOfPlace(place4));
+		
+		assertEquals(name1, lib.nameOfPlace(name1));
+		assertEquals(name2, lib.nameOfPlace(name2));
+		
+	}
+
 
 }
