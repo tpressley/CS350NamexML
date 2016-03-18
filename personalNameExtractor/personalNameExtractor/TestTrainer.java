@@ -18,8 +18,6 @@ public class TestTrainer {
 		
 		Trainer trainer = new Trainer();
 		assertEquals(tokenizedOutput, trainer.tokenize("<NER>\"Oh, no,\" she\'s saying, \"our $400 blender can\'t handle something this hard!\"</NER>"));
-		
-		fail("Not yet implemented");
 	}
 
 	@Test
@@ -29,7 +27,9 @@ public class TestTrainer {
 
 	@Test
 	public void testGetTokenCount() {
-		fail("Not yet implemented");
+		Trainer trainer = new Trainer();
+		trainer.tokenize("<NER>\"Oh, no,\" she\'s saying, \"our $400 blender can\'t handle something this hard!\"</NER>");
+		assertEquals(3, trainer.getTokenCount(","));
 	}
 
 	@Test
