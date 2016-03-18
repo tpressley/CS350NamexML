@@ -1,12 +1,18 @@
 package personalNameExtractor;
-
+import java.lang.String;
 public class Librarian
 {
 
-  public static void main(String[] args)
+  public String extractPersonalNames(String name)
   {
-    // TODO Auto-generated method stub
-
+    return name;
+    
+  }
+  
+  public void trainOn(String paragraph)
+  {
+    // 
+    
   }
 
 }
