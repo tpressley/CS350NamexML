@@ -6,17 +6,19 @@ import java.util.ArrayList;
 public class Librarian {
 
 	public ArrayList<String> extractPersonalNames(String textBlock) {
-		
-		return null;  // return an ArrayList of names found within a block of text
+
+		return null; // return an ArrayList of names found within a block of
+						// text
 	}
 
 	public void trainOn(String paragraph) {
-		
+
 	}
-	
+
 	// identify a name of a place correctly
 	public ArrayList<String> nameOfPlace(String textBlock) {
 
-		return null; // return an ArrayList of names of places found within a block of text
+		return null; // return an ArrayList of names of places found within a
+						// block of text
 	}
 }
