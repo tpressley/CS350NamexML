@@ -1,5 +1,6 @@
 package personalNameExtractor;
 
+
 public class Trainer {
 	
 	/**
@@ -49,6 +50,9 @@ public class Trainer {
 	/**
 	 * Initializes the trainer and gets the training materials from std input
 	 */
-	public Trainer();
+	public Trainer(){
+	  
+	};
+	
 	
 }
