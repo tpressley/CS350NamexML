@@ -48,6 +48,8 @@ public class Trainer {
 
 	};
 
+	public String getTrainingMaterials(){
+	};
 	/**
 	 * prepare training data for Learning Machine
 	 */

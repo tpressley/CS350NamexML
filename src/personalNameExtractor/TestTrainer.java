@@ -42,7 +42,9 @@ public class TestTrainer {
 
 	@Test
 	public void testTrainer() {
-		fail("Not yet implemented");
+		Trainer trainer = new Trainer();
+		
+		assertTrue(trainer.getTrainingMaterials() != null);
 	}
 	
 	
