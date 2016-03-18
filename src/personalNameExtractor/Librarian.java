@@ -15,9 +15,9 @@ public class Librarian {
 	}
 	
 	
-	public arraylist<String> nameOfPlace(arraylist<String> str){
-		//identify a name of a place correctly
-		
+	public arraylist<String> nameOfPlace(arraylist<String> str) {
+		// identify a name of a place correctly
+
 	}
 
 }

@@ -42,11 +42,11 @@ public class TestTrainer {
 	}
 	
 	
-	//User Story #851 As an Trainer, I want the program to properly prepare data to train the learning machine.
+	// User Story #851 As an Trainer, I want the program to properly prepare
+	// data to train the learning machine.
 	@Test
-	public void testPrepareData(){
-		
-		
+	public void testPrepareData() {
+
 	}
 
 	
