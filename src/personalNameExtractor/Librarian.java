@@ -1,23 +1,22 @@
 package personalNameExtractor;
 
 import java.lang.String;
+import java.util.ArrayList;
 
 public class Librarian {
 
-	public String extractPersonalNames(String name) {
-		return name;
-
+	public ArrayList<String> extractPersonalNames(String textBlock) {
+		
+		return null;  // return an ArrayList of names found within a block of text
 	}
 
 	public void trainOn(String paragraph) {
-		//
-
+		
 	}
 	
-	
-	public arraylist<String> nameOfPlace(arraylist<String> str) {
-		// identify a name of a place correctly
+	// identify a name of a place correctly
+	public ArrayList<String> nameOfPlace(String textBlock) {
 
+		return null; // return an ArrayList of names of places found within a block of text
 	}
-
 }
