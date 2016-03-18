@@ -1,8 +1,8 @@
 package personalNameExtractor;
+
 //import weka.core.Instances;
 import java.io.BufferedReader;
 import java.io.FileReader;
-
 
 public class Trainer {
 
@@ -48,8 +48,9 @@ public class Trainer {
 
 	};
 
-	public String getTrainingMaterials(){
+	public String getTrainingMaterials() {
 	};
+
 	/**
 	 * prepare training data for Learning Machine
 	 */
