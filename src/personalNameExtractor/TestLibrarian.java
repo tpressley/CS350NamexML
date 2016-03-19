@@ -71,33 +71,51 @@ public class TestLibrarian {
 
 	
 	
-	// User Story #852 As a Librarian, I want names of places to be identified
-	// correctly
+	// User Story #852 As a Librarian, I want names of places to be identified correctly
 	@Test
-	public void testNamesOfPlaces() {
+	public void testNameOfPlace() {
 		//"George Washington Bridge";
 		ArrayList<String> place1 = new ArrayList<String>();
 		place1.add("George"); 
 		place1.add("Washington");
 		place1.add("Bridge");
 		
+		//"Washington State";
+		ArrayList<String> place2 = new ArrayList<String>();
+		place2.add("Washington");
+		place2.add("State");
 		
-		arraylist<String> place2 = "Washington State";
-		arraylist<String> place3 = "James Madison University";
-		arraylist<String> place4 = "";
-
-		arraylist<String> name1 = "George Washington";
-		arraylist<String> name2 = "James Madison";
+		
+		//"James Madison University";
+		ArrayList<String> place3 = new ArrayList<String>();
+		place3.add("James");
+		place3.add("Madison");
+		place3.add("University");
+		
+		//"" empty string
+		ArrayList<String> place4 = new ArrayList<String>();
+		place4.add("");
+		
+		
+		// "George Washington";
+		ArrayList<String> name1 = new ArrayList<String>(); 
+		name1.add("George");
+		name1.add("Washington");
+		
+		//"James Madison";
+		ArrayList<String> name2 = new ArrayList<String>(); 
+		name2.add("James");
+		name2.add("Madison");
 
 		Librarian lib = new Librarian();
 
-		assertEquals("George Washington Bridge/Plc", lib.nameOfPlace(place1));
-		assertEquals("Washington State/Plc", lib.nameOfPlace(place2));
-		assertEquals("James Madison University/Plc", lib.nameOfPlace(place3));
-		assertEquals("", lib.nameOfPlace(place4));
+		assertEquals("George Washington Bridge/Plc", lib.nameOfPlace(place1.toString()));
+		assertEquals("Washington State/Plc", lib.nameOfPlace(place2.toString()));
+		assertEquals("James Madison University/Plc", lib.nameOfPlace(place3.toString()));
+		assertEquals("", lib.nameOfPlace(place4.toString()));
 
-		assertEquals(name1, lib.nameOfPlace(name1));
-		assertEquals(name2, lib.nameOfPlace(name2));
+		assertEquals(name1, lib.nameOfPlace(name1.toString()));
+		assertEquals(name2, lib.nameOfPlace(name2.toString()));
 
 	}
 
