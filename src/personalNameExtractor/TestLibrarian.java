@@ -118,5 +118,32 @@ public class TestLibrarian {
 		assertEquals(name2, lib.nameOfPlace(name2.toString()));
 
 	}
+	
+	
+	
+	
+	//User Story #843 As a Librarian/application developer, I want text identified as names marked with <PER> tags
+	@Test
+	public void testMarkPERtag(){
+		
+		Librarian lib = new Librarian();
+		
+		String text1 = "Hello, my name is John Doe.";
+		String text2 = "This paper was written by Pythagoras.";
+		String text3 = "Queen Elizabeth II authored this book.";
+		String text4 = "written by Martin Luther King Jr.";
+		
+		assertEquals("<PER>John Doe</PER>" , lib.markPERtag(text1));
+		assertEquals("<PER>Pythagoras</PER>" , lib.markPERtag(text2));
+		assertEquals("<PER>Queen Elizabeth II</PER>" , lib.markPERtag(text3));
+		assertEquals("<PER>Martin Luther King Jr.</PER>" , lib.markPERtag(text4));
+		
+		String text5 = "The sky is blue today."; //no personal name here
+		assertEquals(text5 , lib.markPERtag(text5));
+		
+		String text6 = ""; //empty string
+		assertEquals(text6 , lib.markPERtag(text6));
+	}
+
 
 }

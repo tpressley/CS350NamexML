@@ -24,4 +24,13 @@ public class Librarian {
 		return null; // return an ArrayList of names of places found within a
 						// block of text
 	}
+	
+	
+	//mark personal names with <PER></PER>
+	public ArrayList<String> markPERtag(String textBlock) {
+		return null;
+		//returns personal name marked with <PER> </PER>
+		//e.g. "<PER>John Doe</PER>"
+		
+	}
 }
