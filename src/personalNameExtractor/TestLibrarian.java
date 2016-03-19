@@ -9,6 +9,7 @@ import static org.junit.Assert.assertEquals;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import org.junit.Test;
@@ -68,12 +69,19 @@ public class TestLibrarian {
 		// packaged in a fat jar?
 	}
 
+	
+	
 	// User Story #852 As a Librarian, I want names of places to be identified
 	// correctly
 	@Test
 	public void testNamesOfPlaces() {
-
-		arraylist<String> place1 = "George Washington Bridge";
+		//"George Washington Bridge";
+		ArrayList<String> place1 = new ArrayList<String>();
+		place1.add("George"); 
+		place1.add("Washington");
+		place1.add("Bridge");
+		
+		
 		arraylist<String> place2 = "Washington State";
 		arraylist<String> place3 = "James Madison University";
 		arraylist<String> place4 = "";
