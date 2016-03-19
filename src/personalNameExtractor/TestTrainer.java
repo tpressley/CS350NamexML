@@ -62,7 +62,25 @@ public class TestTrainer {
 	@Test
 	public void testTrainer() {
 		Trainer trainer = new Trainer();
-		assertTrue(trainer.getTrainingMaterials() != null);
+		assertTrue(trainer.getTrainingData() != null);
 	}
+	
+	
+	//User Story #851 As a Trainer, I want the program to properly prepare data to train the learning machine.
+	@Test
+	public void testGetTrainingData() {
+		
+		Trainer t1 = new Trainer();
+		assertTrue(t1.getTrainingData() != null);
+		
+		Trainer t2 = new Trainer();
+		assertTrue(t2.getTrainingData() != null);
+		
+		String in = "this is a test.";
+		
+		assertEquals(t1.prepareData(in) , t2.prepareData(in));
+	}
+
+	
 
 }

@@ -17,6 +17,7 @@ public class Trainer {
 	 * @param inputText
 	 */
 	public String[] tokenize(String trainingMaterial) {
+		return null;
 		/*
 		 * should be easy enough to implement, java has a StringTokenizer class
 		 */ };
@@ -31,7 +32,9 @@ public class Trainer {
 		/*
 		 * Still looking into formatting I/O, probably will work like the
 		 * Stanford NL Parser
-		 */ };
+		 */ 
+		return null;
+	};
 
 	/**
 	 * Returns the the token count for a specific token
@@ -39,22 +42,28 @@ public class Trainer {
 	 * @param token
 	 */
 	public int getTokenCount(String token) {
+		
+		return 0;
 	};
 
 	/**
-	 * Initializes the trainer and gets the training materials from std input
+	 * Initializes the trainer and gets the training data from std input
 	 */
 	public Trainer() {
 
 	};
 
-	public String getTrainingMaterials() {
+	public String getTrainingData() {
+		
+		return null;
 	};
 
 	/**
-	 * prepare training data for Learning Machine
+	 * prepare training data for Learning Machine based on input parameter?
 	 */
-	public void prepareData() {
+	public String prepareData(String in) {
+		
+		return null;
 
 	}
 
