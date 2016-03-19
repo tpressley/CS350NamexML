@@ -82,5 +82,29 @@ public class TestTrainer {
 	}
 
 	
+	//User Story #853 As Trainer, I want to use existing data to train the learning machine
+	@Test
+	public void testTrainLM() {
+		
+		Trainer t1 = new Trainer();
+		Trainer t2 = new Trainer();
+		Librarian lib = new Librarian();
+		
+		String s = "We were crossing the George Washington Bridge.";
+		String ss = "It was an honor to be accepted to George Mason University.";
+		String sss = "Dr.Carson wrote this book.";
+		
+		assertTrue(t1.trainLM(s));
+		assertTrue(t2.trainLM(s));
+		assertTrue(t2.trainLM(ss));
+		assertTrue(t1.trainLM(sss) && lib.markPERtag(sss).equals("<PER>Dr.Carson</PER>") );
+		assert(t1.trainLM(ss) == t2.trainLM(ss));
+		
+	}
+	
+	
+	
+	
+
 
 }

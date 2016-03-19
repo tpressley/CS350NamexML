@@ -66,5 +66,14 @@ public class Trainer {
 		return null;
 
 	}
+	
+	/**
+	 * use existing data to train Learning Machine
+	 */
+	public boolean trainLM(String data) {
+		//returns true if successful
+		return false;
+		
+	}
 
 }
