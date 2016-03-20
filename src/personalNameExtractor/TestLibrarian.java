@@ -14,6 +14,8 @@ import java.util.Scanner;
 
 import org.junit.Test;
 
+import edu.odu.cs.cs350.Librarian;
+
 public class TestLibrarian {
 
 	// As a Librarian/application developer, I want a program that will accept
@@ -51,7 +53,7 @@ public class TestLibrarian {
 	// maybe L)
 	@Test
 	public void testProcessText() {
-		String input1 = "<NER>Hello Gerard Silverio</NER>";
+		String input1 = "<NER>Hello Gerard Silverio</NER><NER>Hello world! My name is Addy Alago</NER>";
 
 		ByteArrayInputStream input = new ByteArrayInputStream(input1.getBytes());
 		System.setIn(input);
@@ -59,7 +61,11 @@ public class TestLibrarian {
 		Scanner scan = new Scanner(System.in);
 
 		Librarian librarian = new Librarian();
-		assertEquals("Gerard Silverio", librarian.extractPersonalNames(scan.nextLine()));
+		
+		ArrayList<String> names = librarian.extractPersonalNames(scan.nextLine());
+		
+		assertEquals("Gerard Silverio", names.get(1));
+		assertEquals("Addy Alago", names.get(2));
 	}
 
 	// PNE packaged for deployment in fat jar (A)
