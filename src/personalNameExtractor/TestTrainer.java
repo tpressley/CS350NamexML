@@ -105,6 +105,16 @@ public class TestTrainer {
 	
 	
 	
+	public void testLoadLM(){
+		Trainer t1 = new Trainer();
+		String fileLoc = "";//declare file location
+		
+		assertTrue(t1.LoadLM(fileLoc));
+		
+		
+		
+	}
+	
 
 
 }
