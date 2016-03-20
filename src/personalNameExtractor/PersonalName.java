@@ -35,10 +35,13 @@ public class PersonalName
 
   };
 
-  public String getName()
+  public boolean getName()
   { // returns full name
-    return null;
-
+    boolean check = true;
+    
+    return check;
+	  
+	  
   };
 
   public String getHonorific()
