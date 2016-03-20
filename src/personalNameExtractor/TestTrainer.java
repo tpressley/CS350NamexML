@@ -12,6 +12,7 @@ import java.util.*;
 public class TestTrainer {
 
 	/**
+	 * User story #860
 	 * Tests to see if the function properly tokenizes the output by comparing
 	 * to the output when using StringTokenizer
 	 * User Story #847 As a Trainer I want the PNE to convert tokens into a set of symbols and identifiers
@@ -33,6 +34,7 @@ public class TestTrainer {
 	}
 
 	/**
+	 * User story #859
 	 * The parsing should have the same output as the Stanford Natural Language
 	 * parser
 	 */
@@ -46,6 +48,7 @@ public class TestTrainer {
 	}
 
 	/**
+	 * User story #858, #857
 	 * The total token count for any token should be equal to the number of
 	 * times that token appears in the input
 	 */
@@ -106,6 +109,23 @@ public class TestTrainer {
 	
 	
 	
+	public void testLoadLM(){
+		Trainer t1 = new Trainer();
+		String fileLoc = "";//declare file location
+		
+		assertTrue(t1.LoadLM(fileLoc));
+		
+		
+		
+	}
+	
+	public void testSaveLM(){
+		Trainer t1 = new Trainer();
+		String fileLoc = "";//declare file location
+		
+		assertTrue(t1.SaveLM(fileLoc));
+		
+	}
 
 
 }
