@@ -41,4 +41,13 @@ public class Librarian {
 		
 		
 	}
+	
+	/**
+	 * 
+	 */
+	public void checkName(String textBlock){
+		
+		
+		
+	}//end checkName
 }
