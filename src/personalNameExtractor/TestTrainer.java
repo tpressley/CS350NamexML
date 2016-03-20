@@ -115,6 +115,15 @@ public class TestTrainer {
 		
 	}
 	
+	public void testSaveLM(){
+		Trainer t1 = new Trainer();
+		String fileLoc = "";//declare file location
+		
+		assertTrue(t1.SaveLM(fileLoc));
+		
+		
+		
+	}
 
 
 }

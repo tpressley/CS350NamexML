@@ -80,7 +80,7 @@ public class Trainer {
  * @param fileLoc
  * Loads a trained learning machine from file
  */
-	public void LoadLM(String fileLoc){
+	public boolean LoadLM(String fileLoc){
 	//returns true if successful
 	}
 	/**
@@ -88,7 +88,7 @@ public class Trainer {
 	 * @param fileLoc
 	 * Saves a trained learning machine to a file
 	 */
-	public void SaveLM(String fileLoc){
+	public boolean SaveLM(String fileLoc){
 	//returns true if successful
 		
 	}
