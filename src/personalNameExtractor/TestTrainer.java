@@ -12,6 +12,7 @@ import java.util.*;
 public class TestTrainer {
 
 	/**
+	 * User story #860
 	 * Tests to see if the function properly tokenizes the output by comparing
 	 * to the output when using StringTokenizer
 	 */
@@ -32,6 +33,7 @@ public class TestTrainer {
 	}
 
 	/**
+	 * User story #859
 	 * The parsing should have the same output as the Stanford Natural Language
 	 * parser
 	 */
@@ -45,6 +47,7 @@ public class TestTrainer {
 	}
 
 	/**
+	 * User story #858, #857
 	 * The total token count for any token should be equal to the number of
 	 * times that token appears in the input
 	 */
