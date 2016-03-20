@@ -124,8 +124,6 @@ public class TestTrainer {
 		
 		assertTrue(t1.SaveLM(fileLoc));
 		
-		
-		
 	}
 
 
