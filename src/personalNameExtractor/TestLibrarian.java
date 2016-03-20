@@ -142,7 +142,7 @@ public class TestLibrarian {
 		assertEquals(text5 , lib.markPERtag(text5));
 		
 		String text6 = ""; //empty string
-		assertEquals(text6 , lib.markPERtag(text6));
+		assertEquals("" , lib.markPERtag(text6));
 	}
 	
 	 //User Story #843 As a Librarian/application developer, I want text identified as names marked with <PER> tags
