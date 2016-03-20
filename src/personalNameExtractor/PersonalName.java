@@ -2,6 +2,7 @@ package personalNameExtractor;
 
 import java.util.ArrayList;
 
+
 /*
  * The personal name class stores a personal name as an arraylist
  * The prefix (IE: Mr, Dr, Mrs)will be stored in the first index of the
@@ -22,7 +23,7 @@ public class PersonalName
 
   }
 
-  public void setName(String name)
+  PersonalName(String name)
   {
     /*
      * This constructor would check for an honorific first, if none is found set
