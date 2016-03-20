@@ -3,7 +3,7 @@ package personalNameExtractor;
 //import weka.core.Instances;
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.StringReader;;
+import java.io.StringReader;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
@@ -24,6 +24,7 @@ public class TestTrainer {
 		while (scanner.hasNext()) {
 				tokenizedOutput.add(scanner.next());
 		}
+
 
 		Trainer trainer = new Trainer();
 		assertEquals(tokenizedOutput, trainer.tokenize(
