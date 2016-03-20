@@ -34,7 +34,7 @@ public class TestPersonalName
 
     PersonalName name = new PersonalName("Mr. Addy Alago,Jr.");
 
-    assertTrue(name.getName().equals("Mr. Addy Alago,Jr."));
+    assertEquals(name.getName(),"Mr. Addy Alago,Jr.");
 
   }
 
