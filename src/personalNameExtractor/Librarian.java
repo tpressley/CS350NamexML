@@ -33,4 +33,12 @@ public class Librarian {
 		//e.g. "<PER>John Doe</PER>"
 		
 	}
+	/**
+	 * Sets tokens 
+	 * @param textBlock
+	 */
+	public void classifyToken(String textBlock){
+		
+		
+	}
 }
