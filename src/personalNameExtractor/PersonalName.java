@@ -67,6 +67,7 @@ public class PersonalName
   { // returns Suffix (ie jr, sr, II) if it exists. This will store in the
     // second
     return null;
+    
   }
 
 }
