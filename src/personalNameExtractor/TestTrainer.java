@@ -3,7 +3,7 @@ package personalNameExtractor;
 //import weka.core.Instances;
 import java.io.BufferedReader;
 import java.io.FileReader;
-
+import java.io.StringReader;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
@@ -18,13 +18,13 @@ public class TestTrainer {
 	@Test
 	public void testTokenize() {
 		ArrayList<String> tokenizedOutput = new ArrayList();
-		StringTokenizer st = new StringTokenizer(
-				"\"Oh, no,\" she\'s saying, \"our $400 blender can\'t handle something this hard!\"",
-				",.:;\'\"/?[]{}\\|=-!@#$%^&*()_+ ");
+		Scanner scanner = new Scanner(new BufferedReader(new StringReader("<NER>\"Oh, no,\" she\'s saying, \"our $400 blender can\'t handle something this hard!\"</NER>")));
 
-		while (st.hasMoreElements()) {
-			tokenizedOutput.add(st.nextToken());
+		scanner.useDelimiter("\\s|(?=\\p{Punct})");
+		while (scanner.hasNext()) {
+				tokenizedOutput.add(scanner.next());
 		}
+
 
 		Trainer trainer = new Trainer();
 		assertEquals(tokenizedOutput, trainer.tokenize(
