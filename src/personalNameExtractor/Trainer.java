@@ -75,5 +75,21 @@ public class Trainer {
 		return false;
 		
 	}
+/**
+ * *
+ * @param fileLoc
+ * Loads a trained learning machine from file
+ */
+	public void LoadLM(String fileLoc){
+	
+	}
+	/**
+	 * 
+	 * @param fileLoc
+	 * Saves a trained learning machine to a file
+	 */
+	public void SaveLM(String fileLoc){
+		
+	}
 
 }
