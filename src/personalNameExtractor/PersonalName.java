@@ -35,7 +35,7 @@ public class PersonalName
 
   };
 
-  public boolean getName()
+  public boolean getName(PersonalName n1)
   { // returns full name
     boolean check = true;
     
