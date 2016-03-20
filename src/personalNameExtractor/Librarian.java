@@ -33,6 +33,13 @@ public class Librarian {
 		//e.g. "<PER>John Doe</PER>"
 		
 	}
+	//
+	 public ArrayList<String> markNERtag(String textBlock) {
+	    return null;
+	    //returns personal name marked with <PER> </PER>
+	    //e.g. "<PER>John Doe</PER>"
+	    
+	  }
 	/**
 	 * Sets tokens 
 	 * @param textBlock

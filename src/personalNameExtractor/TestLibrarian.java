@@ -144,6 +144,29 @@ public class TestLibrarian {
 		String text6 = ""; //empty string
 		assertEquals(text6 , lib.markPERtag(text6));
 	}
+	
+	 //User Story #843 As a Librarian/application developer, I want text identified as names marked with <PER> tags
+  @Test
+  public void testMarkNERtag(){
+    
+    Librarian lib = new Librarian();
+    
+    String text1 = "Hello, my name is John Doe.";
+    String text2 = "This paper was written by Pythagoras.";
+    String text3 = "Queen Elizabeth II authored this book.";
+    String text4 = "written by Martin Luther King Jr.";
+    
+    assertEquals("<NER>Hello, my name is John Doe.</NER>" , lib.markNERtag(text1));
+    assertEquals("<NER>This paper was written by Pythagoras.</NER>" , lib.markNERtag(text2));
+    assertEquals("<NER>Queen Elizabeth II authored this book.</NER>" , lib.markNERtag(text3));
+    assertEquals("<NER>written by Martin Luther King Jr.</NER>" , lib.markNERtag(text4));
+    
+    String text5 = "The sky is blue today."; //no personal name here
+    assertEquals(text5 , lib.markPERtag(text5));
+    
+    String text6 = "<NER>The sky is blue today.</NER>"; //empty string
+    assertEquals(text6 , lib.markPERtag(text6));
+  }
 
 
 }

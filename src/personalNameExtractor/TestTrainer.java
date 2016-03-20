@@ -14,6 +14,7 @@ public class TestTrainer {
 	/**
 	 * Tests to see if the function properly tokenizes the output by comparing
 	 * to the output when using StringTokenizer
+	 * User Story #847 As a Trainer I want the PNE to convert tokens into a set of symbols and identifiers
 	 */
 	@Test
 	public void testTokenize() {

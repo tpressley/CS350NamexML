@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 /**
- * @author addyb_000
+ * @author addy Alago
  * User story 854: As a Librarian, I want miscellaneous words such as honorifics and kill words to be identified correctly.
  */
 public class TestPersonalName
