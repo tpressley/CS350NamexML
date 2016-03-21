@@ -32,7 +32,7 @@ public class Trainer {
 		/*
 		 * Still looking into formatting I/O, probably will work like the
 		 * Stanford NL Parser
-		 */ 
+		 */
 		return null;
 	};
 
@@ -42,7 +42,7 @@ public class Trainer {
 	 * @param token
 	 */
 	public int getTokenCount(String token) {
-		
+
 		return 0;
 	};
 
@@ -54,7 +54,7 @@ public class Trainer {
 	};
 
 	public String getTrainingData() {
-		
+
 		return null;
 	};
 
@@ -62,35 +62,38 @@ public class Trainer {
 	 * prepare training data for Learning Machine based on input parameter?
 	 */
 	public String prepareData(String in) {
-		
+
 		return null;
 
 	}
-	
+
 	/**
 	 * use existing data to train Learning Machine
 	 */
 	public boolean trainLM(String data) {
-		//returns true if successful
+		// returns true if successful
 		return false;
-		
+
 	}
-/**
- * *
- * @param fileLoc
- * Loads a trained learning machine from file
- */
-	public boolean LoadLM(String fileLoc){
-	//returns true if successful
+
+	/**
+	 * *
+	 * 
+	 * @param fileLoc
+	 *            Loads a trained learning machine from file
+	 */
+	public boolean LoadLM(String fileLoc) {
+		// returns true if successful
 	}
+
 	/**
 	 * 
 	 * @param fileLoc
-	 * Saves a trained learning machine to a file
+	 *            Saves a trained learning machine to a file
 	 */
-	public boolean SaveLM(String fileLoc){
-	//returns true if successful
-		
+	public boolean SaveLM(String fileLoc) {
+		// returns true if successful
+
 	}
 
 }
