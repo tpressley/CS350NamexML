@@ -36,10 +36,17 @@ public class Librarian {
 	//
 	 public ArrayList<String> markNERtag(String textBlock) {
 	    return null;
-	    //returns personal name marked with <PER> </PER>
+	    //returns block of text   marked with <NER> </NER>
 	    //e.g. "<PER>John Doe</PER>"
 	    
 	  }
+	 
+   public ArrayList<String> markClassificationtag(String textBlock) {
+     return null;
+     //returns text with <NOUN>,<VERB>,<ADJ> tags
+     
+   }
+	 
 	/**
 	 * Sets tokens 
 	 * @param textBlock

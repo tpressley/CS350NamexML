@@ -168,11 +168,23 @@ public class TestLibrarian {
     assertEquals("<NER>written by Martin Luther King Jr.</NER>" , lib.markNERtag(text4));
     
     String text5 = "The sky is blue today."; //no personal name here
-    assertEquals(text5 , lib.markPERtag(text5));
+    assertEquals(text5 , lib.markNERtag(text5));
     
     String text6 = "<NER>The sky is blue today.</NER>"; //empty string
-    assertEquals(text6 , lib.markPERtag(text6));
+    assertEquals(text6 , lib.markNERtag(text6));
   }
+  public void testMarkClassificationtag(){
+    
+    Librarian lib = new Librarian();
+    
 
+    String text1 = "This small paper was written by Pythagoras.";
+   
+    
+    assertEquals("This <ADJ>small</ADJ> paper was <VERB>written</VERB> by <NOUN>Pythagoras</NOUN>." , lib.markClassificationtag(text1));
+
+    
+
+  }
 
 }
