@@ -24,37 +24,42 @@ public class Librarian {
 		return null; // return an ArrayList of names of places found within a
 						// block of text
 	}
-	
-	
-	//mark personal names with <PER></PER>
+
+	// mark personal names with <PER></PER>
 	public ArrayList<String> markPERtag(String textBlock) {
 		return null;
-		//returns personal name marked with <PER> </PER>
-		//e.g. "<PER>John Doe</PER>"
-		
+		// returns personal name marked with <PER> </PER>
+		// e.g. "<PER>John Doe</PER>"
+
 	}
+
 	//
-	 public ArrayList<String> markNERtag(String textBlock) {
-	    return null;
-	    //returns personal name marked with <PER> </PER>
-	    //e.g. "<PER>John Doe</PER>"
-	    
-	  }
+	public ArrayList<String> markNERtag(String textBlock) {
+		return null;
+		// returns block of text marked with <NER> </NER>
+		// e.g. "<PER>John Doe</PER>"
+
+	}
+
+	public ArrayList<String> markClassificationtag(String textBlock) {
+		return null;
+		// returns text with <NOUN>,<VERB>,<ADJ> tags
+
+	}
+
 	/**
-	 * Sets tokens 
+	 * Sets tokens
+	 * 
 	 * @param textBlock
 	 */
-	public void classifyToken(String textBlock){
-		
-		
-	}//end classifyToken
-	
+	public void classifyToken(String textBlock) {
+
+	}// end classifyToken
+
 	/**
 	 * 
 	 */
-	public void checkName(String textBlock){
-		
-		
-		
-	}//end checkName
+	public void checkName(String textBlock) {
+
+	}// end checkName
 }

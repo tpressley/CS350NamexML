@@ -6,13 +6,21 @@
   <property name="src" location="src"/>
   <property name="build" location="build"/>
   <property name="dist" location="dist"/>
+  <property name="lib" location="lib"/>
+	
 
+	
   <target name="init">
     <!-- Create the time stamp -->
     <tstamp/>
     <!-- Create the build directory structure used by compile -->
     <mkdir dir="${build}"/>
+  	<mkdir dir="${lib}"/>
+  	<get src="http://archive350.cs.odu.edu:8080/artifactory/jcenter-cache/junit/junit/4.11/junit-4.11.jar" dest="${lib}/junit.jar"/>
+  	<get src="http://archive350.cs.odu.edu:8080/artifactory/jcenter-cache/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar" dest="${lib}/hamcrest.jar"/>
+  	
   </target>
+	
 
   <target name="compile" depends="init"
         description="compile the source">
