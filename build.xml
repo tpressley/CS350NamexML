@@ -3,11 +3,22 @@
     Build file for the PersonalNameExtractor project in CS350
   </description>
   <!-- set global properties for this build -->
-  <property name="src" location="src"/>
-  <property name="build" location="build"/>
+  <property name="src.main" location="src/main"/>
+  <property name="src.test" location="src/test"/>
+  <property name="build" location="lib"/>
   <property name="dist" location="dist"/>
   <property name="lib" location="lib"/>
-	
+  <path id="classpath">
+  	<fileset dir="lib">
+    <include name="**/*.jar"/>
+    </fileset>
+  </path>
+  <path id="test.compilation.path">
+  	<pathelement path="${src.main}"/>
+  	<pathelement path="${src.test}"/>
+  	<pathelement path="lib/junit.jar"/>
+  	<pathelement path="lib/hamcrest.jar	"/>
+  </path>
 
 	
   <target name="init">
@@ -25,7 +36,14 @@
   <target name="compile" depends="init"
         description="compile the source">
     <!-- Compile the java code from ${src} into ${build} -->
-    <javac srcdir="${src}" destdir="${build}"/>
+    <javac srcdir="${src.main}" destdir="${build}">
+    	<!-- <classpath path="${lib}">
+    	  		           	<path refid="test.compilation.path" />
+    	  					<fileset dir="${lib}">
+    	  			            <include name="**/junit.jar" />
+    	  			        </fileset> 
+    	  		</classpath>-->
+    	</javac>
   </target>
 
   <target name="dist" depends="compile"
@@ -36,7 +54,18 @@
     <!-- Put everything in ${build} into the PersonalNameExtractor-${DSTAMP}.jar file -->
     <jar jarfile="${dist}/lib/PersonalNameExtractor-${DSTAMP}.jar" basedir="${build}"/>
   </target>
-
+	
+  <target name="test" depends="compile"
+  		description="run the junit tests">
+  	<junit fork="yes">
+  		<classpath path="${lib}">
+  		           	<path refid="test.compilation.path" />\
+  					<fileset dir="${lib}">
+  			            <include name="**/junit.jar" />
+  			        </fileset>
+  		</classpath>
+  	  </junit>
+  </target>
   <target name="clean"
         description="clean up">
 

@@ -146,8 +146,7 @@ public class TestLibrarian {
 		assertEquals("", lib.markPERtag(text6));
 	}
 
-	// User Story #843 As a Librarian/application developer, I want text
-	// identified as names marked with <PER> tags
+	
 	@Test
 	public void testMarkNERtag() {
 
