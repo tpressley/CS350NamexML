@@ -1,6 +1,8 @@
 package personalNameExtractor;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /*
  * The personal name class stores a personal name as an arraylist
@@ -14,54 +16,91 @@ import java.util.ArrayList;
  */
 
 public class PersonalName {
+  private String honorific;
+  private String givenName; 
+  private String middleNames; 
+  private String surName; 
+  private String suffix; 
 
 	PersonalName() {
-		// default constructor for PersonalName
+	  
+	  honorific="";
+	  givenName=""; 
+	  middleNames=""; 
+	  surName=""; 
+	  suffix="";
 
 	}
+  /*
+   * Assume 2 string constructor only has first and last name 
+   */
+	 PersonalName(String givenNameInput, String surNameInput) {
+     honorific="";
+     givenName=givenNameInput; 
+     middleNames=""; 
+     surName=surNameInput; 
+     suffix="";
+   
 
-	PersonalName(String name) {
-		/*
-		 * This constructor would check for an honorific first, if none is found
-		 * set first arraylist item to null, It will then check for a suffix and
-		 * store that as the second index. The remaining parts of the name will
-		 * be stored from the third index on.
-		 */
+ };
+ 
+ 
+
+	PersonalName(String honorificInput, String givenNameInput,String middleNameInput, String surNameInput, String suffixInput) {
+	    honorific=honorificInput;
+	    givenName=givenNameInput; 
+	    middleNames=middleNameInput; 
+	    surName=surNameInput; 
+	    suffix=suffixInput;
+	  
 
 	};
+	
 
-	public boolean getName() { // returns full name
-		boolean check = true;
+	  
 
-		return check;
+
+	public String getName() { // returns full name
+		
+
+		return this.toString();
+		
 
 	};
 
 	public String getHonorific() { // returns honorific if it exists
-		return null;
+		return honorific;
 	}
 
 	public String getGivenName() { // returns second String of arraylist
-		return null;
+		return givenName;
 
 	}
 
 	public String getMiddleNames() { // returns all Strings between second and
 										// last Strings in array list
-		return null;
+		return middleNames;
 
 	}
 
 	public String getSurName() { // returns final arraylist String
-		return null;
+		return surName;
 
 	}
 
 	public String getSuffix() { // returns Suffix (ie jr, sr, II) if it exists.
 								// This will store in the
 								// second
-		return null;
+		return suffix;
 
+	}
+	public String toString()
+	{
+    String nameString = honorific + " " +givenName+ " " +middleNames+ " " +surName+ " " +suffix;
+    
+    nameString = nameString.replaceAll("\\s+", " ");
+    return nameString.trim();
+	  
 	}
 
 }
