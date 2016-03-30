@@ -1,0 +1,8 @@
+<ivy-module version="2.0">
+      <info organisation="edu.odu.cs" module="myProject" />
+      <dependencies defaultconfmapping="*->default">
+        <dependency org="junit" name="junit" 
+            rev="4.11" />
+        <dependency org="nz.ac.waikato.cms.weka" name="weka-stable" rev="3.6.6"/>
+      </dependencies>
+    </ivy-module>
