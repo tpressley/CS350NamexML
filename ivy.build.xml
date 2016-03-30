@@ -1,0 +1,44 @@
+<project 
+    xmlns:ivy="antlib:org.apache.ivy.ant"
+    xmlns:antcontrib="antlib:net.sf.antcontrib">
+
+  <!--
+    "Boiler-plate" for use with Ivy.
+
+    Downloads Ivy if it is not present, then uses it to resolve 
+    dependencies.
+  -->
+
+
+  <property name="ivy.install.version" value="2.3.0"/>
+  <property name="ivy.jar.dir" value="${basedir}/ivy"/>
+  <property name="ivy.jar.file" value="${ivy.jar.dir}/ivy.jar"/>
+
+  <available property="ivy.jar.available" file="${ivy.jar.file}"/>
+
+  <target name="download-ivy" unless="ivy.jar.available">
+    <mkdir dir="${ivy.jar.dir}"/>
+    <echo message="installing ivy..."/>
+    <get src="http://repo1.maven.org/maven2/org/apache/ivy/ivy/${ivy.install.version}/ivy-${ivy.install.version}.jar" 
+	 dest="${ivy.jar.file}" usetimestamp="true"/>
+  </target>
+    
+  <target name="install-ivy" depends="download-ivy" 
+	  description="--> install ivy">
+    <path id="ivy.lib.path">
+      <fileset dir="${ivy.jar.dir}" includes="*.jar"/>
+    </path>
+    <taskdef resource="org/apache/ivy/ant/antlib.xml" 
+	     uri="antlib:org.apache.ivy.ant" classpathref="ivy.lib.path"/>
+  </target>
+
+  <target name="resolve-ivy" depends="install-ivy" 
+	  description="Retrieve dependencies with Ivy.">
+    <ivy:resolve/> <!--  log="download-only"/> -->
+
+    <!-- ivy.cachepath will point to the downloaded jars  -->
+    <ivy:cachepath pathid="ivy.classpath" conf="default" />
+  </target>
+
+
+</project>
