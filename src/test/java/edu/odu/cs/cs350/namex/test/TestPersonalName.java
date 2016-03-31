@@ -1,11 +1,13 @@
 /**
  * 
  */
-package personalNameExtractor;
+package edu.odu.cs.cs350.namex.test;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import edu.odu.cs.cs350.namex.PersonalName;
 
 /**
  * @author addy Alago User story 854: As a Librarian, I want miscellaneous words

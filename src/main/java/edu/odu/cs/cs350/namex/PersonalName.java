@@ -1,4 +1,4 @@
-package personalNameExtractor;
+package edu.odu.cs.cs350.namex;
 
 import java.util.ArrayList;
 import java.util.Arrays;

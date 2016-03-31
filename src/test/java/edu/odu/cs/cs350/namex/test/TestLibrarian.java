@@ -1,4 +1,4 @@
-package personalNameExtractor;
+package edu.odu.cs.cs350.namex.test;
 
 //import weka.core.Instances;
 import java.io.BufferedReader;
@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import org.junit.Test;
+
+import edu.odu.cs.cs350.namex.Librarian;
 
 //import edu.odu.cs.cs350.Librarian;
 

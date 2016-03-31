@@ -1,12 +1,17 @@
-package personalNameExtractor;
+package edu.odu.cs.cs350.namex.test;
 
 //import weka.core.Instances;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.StringReader;
+
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import edu.odu.cs.cs350.namex.Librarian;
+import edu.odu.cs.cs350.namex.Trainer;
+
 import java.util.*;
 
 public class TestTrainer {
