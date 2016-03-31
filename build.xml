@@ -1,8 +1,4 @@
 <project name="PersonalNameExtractor" default="dist" basedir=".">
-	
-	  <presetdef name="javac">
-	    <javac includeantruntime="false" />
-	  </presetdef>
 
 	
 	<description>
