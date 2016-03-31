@@ -1,12 +1,17 @@
 <project name="PersonalNameExtractor" default="dist" basedir=".">
+	
+	  <presetdef name="javac">
+	    <javac includeantruntime="false" />
+	  </presetdef>
 
+	
 	<description>
     Build file for the PersonalNameExtractor project in CS350
   </description>
   <!-- set global properties for this build -->
   <property name="src.main" location="src/main"/>
   <property name="src.test" location="src/test"/>
-  <property name="build" location="build"/>
+  <property name="build" location="lib"/>
   <property name="dist" location="dist"/>
   <property name="lib" location="lib"/>
 	
@@ -29,9 +34,8 @@
     <!-- Create the time stamp -->
     <tstamp/>
     <!-- Create the build directory structure used by compile -->
-    
+    <mkdir dir="${build}"/>
   	<mkdir dir="${lib}"/>
-  	
   	<get src="http://archive350.cs.odu.edu:8080/artifactory/jcenter-cache/junit/junit/4.11/junit-4.11.jar" dest="${lib}/junit.jar"/>
   	<get src="http://archive350.cs.odu.edu:8080/artifactory/jcenter-cache/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar" dest="${lib}/hamcrest.jar"/>
   	<get src="http://archive350.cs.odu.edu:8080/artifactory/jcenter-cache/nz/ac/waikato/cms/weka/weka-stable/3.6.13/weka-stable-3.6.13.jar" dest="${lib}/weka.jar"/>
@@ -40,27 +44,24 @@
 
   <target name="compile" depends="resolve-ivy"
         description="compile the source">
-  	<mkdir dir="${build}"/>
-  	<!-- Compile the java code from ${src} into ${build} -->
+    <!-- Compile the java code from ${src} into ${build} -->
     <javac srcdir="${src.main}" destdir="${build}">
-    	
-    	<classpath path="${lib}">
+    	<!-- <classpath path="${lib}">
     	  		           	<path refid="test.compilation.path" />
     	  					<fileset dir="${lib}">
     	  			            <include name="**/junit.jar" />
     	  			        </fileset> 
-    	  		</classpath>
+    	  		</classpath>-->
     	</javac>
   </target>
 
   <target name="dist" depends="compile"
         description="generate the distribution">
-  	<mkdir dir="${dist}"/>
     <!-- Create the distribution directory -->
-    
+    <mkdir dir="${dist}/lib"/>
 
     <!-- Put everything in ${build} into the PersonalNameExtractor-${DSTAMP}.jar file -->
-    <jar jarfile="${dist}/PersonalNameExtractor-${DSTAMP}.jar" basedir="${build}"/>
+    <jar jarfile="${dist}/lib/PersonalNameExtractor-${DSTAMP}.jar" basedir="${build}"/>
   </target>
 	
   <target name="test" depends="compile"
