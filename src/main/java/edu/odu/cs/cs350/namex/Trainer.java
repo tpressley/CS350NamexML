@@ -36,8 +36,8 @@ public class Trainer {
 	 */
   
   
-	public ArrayList<String> tokenize(String trainingMaterial) {
-	  ArrayList<String> trainingSentence = new ArrayList<String>();
+	public ArrayList<Token> tokenize(String trainingMaterial) {
+	  ArrayList<Token> trainingSentence = new ArrayList<Token>();
 	  
 	  StringTokenizer tokenizer = new StringTokenizer(trainingMaterial, " \t\n\r\f,.:;?![]'",true);
 	  

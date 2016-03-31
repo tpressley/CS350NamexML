@@ -24,18 +24,25 @@ public class TestTrainer {
 	 */
 	@Test
 	public void testTokenize() {
-		ArrayList<String> tokenizedOutput = new ArrayList();
+		/*ArrayList<String> tokenizedOutput = new ArrayList();
 		Scanner scanner = new Scanner(new BufferedReader(new StringReader(
 				"<NER>\"Oh, no,\" she\'s saying, \"our $400 blender can\'t handle something this hard!\"</NER>")));
 
 		scanner.useDelimiter("\\s|(?=\\p{Punct})");
 		while (scanner.hasNext()) {
 			tokenizedOutput.add(scanner.next());
-		}
+		}*/
 
 		Trainer trainer = new Trainer();
-		assertEquals(tokenizedOutput, trainer.tokenize(
-				"<NER>\"Oh, no,\" she\'s saying, \"our $400 blender can\'t handle something this hard!\"</NER>"));
+		Token token = new Token();
+		token.setText("Oh");
+		token.setArticle(false);
+		token.setCapitalized(true);
+		token.setKillWord(false);
+		assertEquals(token.getText(), trainer.tokenize(
+				"<NER>\"Oh, no,\" she\'s saying, \"our $400 blender can\'t handle something this hard!\"</NER>").get(1).getText());
+		assertEquals(token.isCapitalized(), trainer.tokenize(
+				"<NER>\"Oh, no,\" she\'s saying, \"our $400 blender can\'t handle something this hard!\"</NER>").get(1).isCapitalized());
 	}
 
 	/**
