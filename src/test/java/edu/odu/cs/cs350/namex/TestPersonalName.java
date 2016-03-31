@@ -1,7 +1,7 @@
 /**
  * 
  */
-package edu.odu.cs.cs350.namex.test;
+package edu.odu.cs.cs350.namex;
 
 import static org.junit.Assert.*;
 

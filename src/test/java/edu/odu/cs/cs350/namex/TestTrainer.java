@@ -1,4 +1,4 @@
-package edu.odu.cs.cs350.namex.test;
+package edu.odu.cs.cs350.namex;
 
 //import weka.core.Instances;
 import java.io.BufferedReader;
