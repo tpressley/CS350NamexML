@@ -52,10 +52,11 @@ public class TestTrainer {
 	@Test
 	public void testParse() {
 		Trainer trainer = new Trainer();
-		assertEquals(
-				"The/DT strongest/JJS rain/NN ever/RB recorded/VBN in/IN India/NNP shut/VBD down/RP the/DT financial/JJ hub/NN of/IN Mumbai/NNP ,/, snapped/VBD communication/NN lines/NNS ,/, closed/VBD airports/NNS and/CC forced/VBD thousands/NNS of/IN people/NNS to/TO sleep/VB in/IN their/PRP$ offices/NNS or/CC walk/VB home/NN during/IN the/DT night/NN ,/, officials/NNS said/VBD today/NN ./. ",
-				trainer.parse(
-						"The strongest rain ever recorded in India shut down the financial hub of Mumbai, snapped communication lines, closed airports and forced thousands of people to sleep in their offices or walk home during the night, officials said today."));
+		ArrayList<Token> tokenizedText = trainer.tokenize(
+				"<NER>\"Oh, no,\" she\'s saying, \"a $400 blender can\'t handle something this hard!\"</NER>");
+		trainer.parse(tokenizedText);
+		assertTrue(tokenizedText.get(11).isArticle());
+		assertTrue(tokenizedText.get(0).isPunctuation());
 	}
 
 	/**

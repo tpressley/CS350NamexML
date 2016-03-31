@@ -4,6 +4,10 @@ public class Token {
 	private boolean capitalized;
 	private boolean killWord;
 	private boolean article;
+	private boolean punctuation;
+	
+	
+
 	private String text;
 
 	public Token() {
@@ -11,7 +15,7 @@ public class Token {
 	}
 
 	public Token(String text) {
-
+		this.text = text;
 	}
 
 	public String getText() {
@@ -44,5 +48,13 @@ public class Token {
 
 	public void setArticle(boolean article) {
 		this.article = article;
+	}
+	
+	public boolean isPunctuation() {
+		return punctuation;
+	}
+
+	public void setPunctuation(boolean punctuation) {
+		this.punctuation = punctuation;
 	}
 }

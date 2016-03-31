@@ -1,6 +1,5 @@
 package edu.odu.cs.cs350.namex;
 
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 
@@ -10,19 +9,7 @@ import weka.core.Attribute;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-
-
-
-
-
-
 public class Trainer {
-
-  
-  
-  
-  
-  
 
 	/**
 	 * Takes the initial trainingMaterial and converts it into a tokenized form
@@ -34,24 +21,22 @@ public class Trainer {
 	 *
 	 * @param inputText
 	 */
-  
-  
+
 	public ArrayList<Token> tokenize(String trainingMaterial) {
-	  ArrayList<Token> trainingSentence = new ArrayList<Token>();
-	  
-	  StringTokenizer tokenizer = new StringTokenizer(trainingMaterial, " \t\n\r\f,.:;?![]'",true);
-	  
-	  //run through sentence, if sentence is not whitespace, add to arraylist
-	  while(tokenizer.hasMoreTokens())
-	  {
-	    String currentWord =tokenizer.nextToken().toString();
-	      if (currentWord.trim().length() > 0) 
-	        trainingSentence.add(currentWord);
-    }
-	  //@return split training sentence. 
+		ArrayList<Token> trainingSentence = new ArrayList<Token>();
+
+		StringTokenizer tokenizer = new StringTokenizer(trainingMaterial, " \t\n\r\f,.:;?![]'", true);
+		Token currentWord = new Token();
+		// run through sentence, if sentence is not whitespace, add to arraylist
+		while (tokenizer.hasMoreTokens()) {
+			currentWord.setText(tokenizer.nextToken().toString());
+			if (currentWord.getText().trim().length() > 0)
+				trainingSentence.add(currentWord);
+		}
+		// @return split training sentence.
 		return trainingSentence;
-		
-	  };
+
+	};
 
 	/**
 	 * Uses the tokenized text to convert the text into a form using identifiers
@@ -59,12 +44,11 @@ public class Trainer {
 	 * 
 	 * @param tokenizedText
 	 */
-	public String parse(String tokenizedText) {
-		/*
-		 * Still looking into formatting I/O, probably will work like the
-		 * Stanford NL Parser
-		 */
-		return null;
+	public void parse(ArrayList<Token> tokenizedText) {
+		String[] articles = { "a", "an", "the" };
+		String[] conjunctions = { "and", "but" };
+		String[] punctuation = {".",",","\"","\'",";",":","<",">","?","\\","/","!","@","#","$","%","^","&","*","(",")","-","=","_","+","`","~"};
+
 	};
 
 	/**
@@ -128,7 +112,5 @@ public class Trainer {
 		return false;
 
 	}
-
-	
 
 }
