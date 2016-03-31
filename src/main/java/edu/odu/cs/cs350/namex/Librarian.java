@@ -20,6 +20,11 @@ public class Librarian {
 
 	// identify a name of a place correctly
 	public ArrayList<String> nameOfPlace(String textBlock) {
+		
+		//tokenize input parameter textBlock
+		//if a place name is found,
+		//return it marked /Plc
+		//e.g. "George Washington University/Plc"
 
 		return null; // return an ArrayList of names of places found within a
 						// block of text
