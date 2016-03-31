@@ -50,6 +50,19 @@ public class Trainer {
 		String[] punctuation = { ".", ",", "\"", "\'", ";", ":", "<", ">", "?", "\\", "/", "!", "@", "#", "$", "%", "^",
 				"&", "*", "(", ")", "-", "=", "_", "+", "`", "~" };
 
+		//Loop through the entire tokenizedText arraylist
+		for(int i = 0; i < tokenizedText.size(); i++)
+		{
+			//Loop through the entire articles array
+			for(int j = 0; j < articles.length; j++)
+			{
+				//If a token's text is identified as an article, mark it as an article
+				if(tokenizedText.get(i).getText() == articles[j])
+				{
+					tokenizedText.get(i).setArticle(true);
+				}
+			}
+		}
 	};
 
 	/**
