@@ -58,6 +58,7 @@ for (String sdata: trainingData) {
 
 ⋮
 
+//fastv is deprecated
   /**
    * Utility to build a FastVector from an array of Strings.
    * (This will be easier in later versions of WEKA where
