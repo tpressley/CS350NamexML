@@ -3,9 +3,12 @@ package edu.odu.cs.cs350.namex;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+
 import weka.core.Instances;
 import weka.core.Attribute;
+
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 
 
@@ -31,11 +34,24 @@ public class Trainer {
 	 *
 	 * @param inputText
 	 */
-	public String[] tokenize(String trainingMaterial) {
-		return null;
-		/*
-		 * should be easy enough to implement, java has a StringTokenizer class
-		 */ };
+  
+  
+	public ArrayList<String> tokenize(String trainingMaterial) {
+	  ArrayList<String> trainingSentence = new ArrayList<String>();
+	  
+	  StringTokenizer tokenizer = new StringTokenizer(trainingMaterial, " \t\n\r\f,.:;?![]'",true);
+	  
+	  //run through sentence, if sentence is not whitespace, add to arraylist
+	  while(tokenizer.hasMoreTokens())
+	  {
+	    String currentWord =tokenizer.nextToken().toString();
+	      if (currentWord.trim().length() > 0) 
+	        trainingSentence.add(currentWord);
+    }
+	  //@return split training sentence. 
+		return trainingSentence;
+		
+	  };
 
 	/**
 	 * Uses the tokenized text to convert the text into a form using identifiers
@@ -114,13 +130,5 @@ public class Trainer {
 	}
 
 	
-	
-  /**
-   * Utility to build a FastVector from an array of Strings.
-   * (This will be easier in later versions of WEKA where
-   * FastVector will be a subclass of ArrayList.)  
-   * @param data array of strings
-   * @return a FastVector cotnaining those strings
-   */
 
 }
