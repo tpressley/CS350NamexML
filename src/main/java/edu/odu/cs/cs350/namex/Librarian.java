@@ -27,6 +27,14 @@ public class Librarian {
 
 	// mark personal names with <PER></PER>
 	public ArrayList<String> markPERtag(String textBlock) {
+		
+		//tokenize textBlock passed into this function
+		//if a legitimate personal name is found 
+		//return it marked with <PER></PER>
+		
+		
+			
+		
 		return null;
 		// returns personal name marked with <PER> </PER>
 		// e.g. "<PER>John Doe</PER>"

@@ -4,7 +4,7 @@ package edu.odu.cs.cs350.namex;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
