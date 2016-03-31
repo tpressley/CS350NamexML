@@ -14,25 +14,7 @@ import java.util.ArrayList;
 
 
 public class Trainer {
-  ArrayList<Attribute> attributes = new ArrayList<Attribute>();
-  //Strings for attributes of tokens
-  String[] lexicalnames = {"capletter","other","capitalized","punct"};
-  String[] partsofspeechnames = {"article", "conjunction", "period", "comma", "hyphen"};
-  String[] dictnames = {"yes","no"};
-  String[] citiesnames = {"yes","no"};
-  String[] countriesnames = {"yes","no"};
-  String[] placesnames = {"yes","no"};
-  String[] dticfirstnames = {"yes","no"};
-  String[] dticlastnames = {"yes","no"};
-  String[] commonfirstnames = {"yes","no"};
-  String[] commonlastnames = {"yes","no"};
-  String[] honorificnames = {"yes","no"};
-  String[] prefixnames = {"yes","no"};
-  String[] suffixnames = {"yes","no"};
-  String[] killnames = {"yes","no"};
-  
-  attributes.add(new Attribute("lexical" + lexicalnames,lexicalnames4));
-  //Attribute lexical= new Attribute("lexical", fastV(lexicalnames));
+
   
   
   
