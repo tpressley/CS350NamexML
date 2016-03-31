@@ -20,11 +20,11 @@ public class Librarian {
 
 	// identify a name of a place correctly
 	public ArrayList<String> nameOfPlace(String textBlock) {
-		
-		//tokenize input parameter textBlock
-		//if a place name is found,
-		//return it marked /Plc
-		//e.g. "George Washington University/Plc"
+
+		// tokenize input parameter textBlock
+		// if a place name is found,
+		// return it marked /Plc
+		// e.g. "George Washington University/Plc"
 
 		return null; // return an ArrayList of names of places found within a
 						// block of text
@@ -32,15 +32,13 @@ public class Librarian {
 
 	// mark personal names with <PER></PER>
 	public ArrayList<String> markPERtag(String textBlock) {
-		
-		//tokenize textBlock passed into this function
-		//if a legitimate personal name is found 
-		//return it marked with <PER></PER>
+
+		// tokenize textBlock passed into this function
+		// if a legitimate personal name is found
+		// return it marked with <PER></PER>
 		// e.g. "<PER>John Doe</PER>"
-	
-		
+
 		return null;
-		
 
 	}
 

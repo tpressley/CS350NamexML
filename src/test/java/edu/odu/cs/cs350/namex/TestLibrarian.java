@@ -148,7 +148,6 @@ public class TestLibrarian {
 		assertEquals("", lib.markPERtag(text6));
 	}
 
-	
 	@Test
 	public void testMarkNERtag() {
 

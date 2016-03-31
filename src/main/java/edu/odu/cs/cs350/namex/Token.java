@@ -5,8 +5,6 @@ public class Token {
 	private boolean killWord;
 	private boolean article;
 	private boolean punctuation;
-	
-	
 
 	private String text;
 
@@ -49,7 +47,7 @@ public class Token {
 	public void setArticle(boolean article) {
 		this.article = article;
 	}
-	
+
 	public boolean isPunctuation() {
 		return punctuation;
 	}

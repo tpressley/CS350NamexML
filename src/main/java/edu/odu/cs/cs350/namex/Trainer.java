@@ -47,7 +47,8 @@ public class Trainer {
 	public void parse(ArrayList<Token> tokenizedText) {
 		String[] articles = { "a", "an", "the" };
 		String[] conjunctions = { "and", "but" };
-		String[] punctuation = {".",",","\"","\'",";",":","<",">","?","\\","/","!","@","#","$","%","^","&","*","(",")","-","=","_","+","`","~"};
+		String[] punctuation = { ".", ",", "\"", "\'", ";", ":", "<", ">", "?", "\\", "/", "!", "@", "#", "$", "%", "^",
+				"&", "*", "(", ")", "-", "=", "_", "+", "`", "~" };
 
 	};
 

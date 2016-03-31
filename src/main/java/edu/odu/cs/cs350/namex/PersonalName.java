@@ -16,55 +16,47 @@ import java.util.List;
  */
 
 public class PersonalName {
-  private String honorific;
-  private String givenName; 
-  private String middleNames; 
-  private String surName; 
-  private String suffix; 
+	private String honorific;
+	private String givenName;
+	private String middleNames;
+	private String surName;
+	private String suffix;
 
 	PersonalName() {
-	  
-	  honorific="";
-	  givenName=""; 
-	  middleNames=""; 
-	  surName=""; 
-	  suffix="";
+
+		honorific = "";
+		givenName = "";
+		middleNames = "";
+		surName = "";
+		suffix = "";
 
 	}
-  /*
-   * Assume 2 string constructor only has first and last name 
-   */
-	 PersonalName(String givenNameInput, String surNameInput) {
-     honorific="";
-     givenName=givenNameInput; 
-     middleNames=""; 
-     surName=surNameInput; 
-     suffix="";
-   
 
- };
- 
- 
-
-	PersonalName(String honorificInput, String givenNameInput,String middleNameInput, String surNameInput, String suffixInput) {
-	    honorific=honorificInput;
-	    givenName=givenNameInput; 
-	    middleNames=middleNameInput; 
-	    surName=surNameInput; 
-	    suffix=suffixInput;
-	  
+	/*
+	 * Assume 2 string constructor only has first and last name
+	 */
+	PersonalName(String givenNameInput, String surNameInput) {
+		honorific = "";
+		givenName = givenNameInput;
+		middleNames = "";
+		surName = surNameInput;
+		suffix = "";
 
 	};
-	
 
-	  
+	PersonalName(String honorificInput, String givenNameInput, String middleNameInput, String surNameInput,
+			String suffixInput) {
+		honorific = honorificInput;
+		givenName = givenNameInput;
+		middleNames = middleNameInput;
+		surName = surNameInput;
+		suffix = suffixInput;
 
+	};
 
 	public String getName() { // returns full name
-		
 
 		return this.toString();
-		
 
 	};
 
@@ -94,13 +86,13 @@ public class PersonalName {
 		return suffix;
 
 	}
-	public String toString()
-	{
-    String nameString = honorific + " " +givenName+ " " +middleNames+ " " +surName+ " " +suffix;
-    
-    nameString = nameString.replaceAll("\\s+", " ");
-    return nameString.trim();
-	  
+
+	public String toString() {
+		String nameString = honorific + " " + givenName + " " + middleNames + " " + surName + " " + suffix;
+
+		nameString = nameString.replaceAll("\\s+", " ");
+		return nameString.trim();
+
 	}
 
 }
