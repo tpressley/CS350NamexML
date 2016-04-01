@@ -50,15 +50,13 @@ public class Trainer {
 		String[] punctuation = { ".", ",", "\"", "\'", ";", ":", "<", ">", "?", "\\", "/", "!", "@", "#", "$", "%", "^",
 				"&", "*", "(", ")", "-", "=", "_", "+", "`", "~" };
 
-		//Loop through the entire tokenizedText arraylist
-		for(int i = 0; i < tokenizedText.size(); i++)
-		{
-			//Loop through the entire articles array
-			for(int j = 0; j < articles.length; j++)
-			{
-				//If a token's text is identified as an article, mark it as an article
-				if(tokenizedText.get(i).getText() == articles[j])
-				{
+		// Loop through the entire tokenizedText arraylist
+		for (int i = 0; i < tokenizedText.size(); i++) {
+			// Loop through the entire articles array
+			for (int j = 0; j < articles.length; j++) {
+				// If a token's text is identified as an article, mark it as an
+				// article
+				if (tokenizedText.get(i).getText() == articles[j]) {
 					tokenizedText.get(i).setArticle(true);
 				}
 			}
@@ -67,16 +65,16 @@ public class Trainer {
 
 	/**
 	 * Returns the the token count for a specific token
+	 * 
 	 * @param token
 	 */
 	public int getTokenCount(Token token, ArrayList<Token> tokenizedText) {
-		//todo make this run in O(LogN) or O(1) time keeping a running list of tokens and their counts while actually tokenizing the input
+		// todo make this run in O(LogN) or O(1) time keeping a running list of
+		// tokens and their counts while actually tokenizing the input
 		int tokenCount = 0;
-		
-		for(int i = 0; i < tokenizedText.size(); i++)
-		{
-			if(token == tokenizedText.get(i))
-			{
+
+		for (int i = 0; i < tokenizedText.size(); i++) {
+			if (token == tokenizedText.get(i)) {
 				tokenCount++;
 			}
 		}
