@@ -23,10 +23,21 @@ public class Librarian {
 
 		// tokenize input parameter textBlock
 		// if a place name is found,
-		// return it marked /Plc
-		// e.g. "George Washington University/Plc"
+		// get it and mark /Plc 
+		//to return an ArrayList<String>
+		// e.g. textBlock="This article came from George Washington University" 
+		//      returns "George Washington University/Plc"
+		
+		String mark = "/Plc";
+		String place = ""; //this is an extracted name of place from textBlock
+		ArrayList<String> pl = null; //a name of a place identifed from textBlock
+		pl.add(place);
+		
+		ArrayList<String> ret = null; //return value
+		ret.add(place); //add name of place to return ArrayList<String>
+		ret.add(mark); //mark with "/Plc"
 
-		return null; // return an ArrayList of names of places found within a
+		return ret; // return an ArrayList of names of places found within a
 						// block of text
 	}
 
