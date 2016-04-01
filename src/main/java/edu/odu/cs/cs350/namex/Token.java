@@ -5,7 +5,6 @@ public class Token {
 	private boolean killWord;
 	private boolean article;
 	private boolean punctuation;
-
 	private String text;
 
 	public Token() {

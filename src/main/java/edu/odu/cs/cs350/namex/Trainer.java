@@ -67,12 +67,20 @@ public class Trainer {
 
 	/**
 	 * Returns the the token count for a specific token
-	 * 
 	 * @param token
 	 */
-	public int getTokenCount(String token) {
-
-		return 0;
+	public int getTokenCount(Token token, ArrayList<Token> tokenizedText) {
+		//todo make this run in O(LogN) or O(1) time keeping a running list of tokens and their counts while actually tokenizing the input
+		int tokenCount = 0;
+		
+		for(int i = 0; i < tokenizedText.size(); i++)
+		{
+			if(token == tokenizedText.get(i))
+			{
+				tokenCount++;
+			}
+		}
+		return tokenCount;
 	};
 
 	/**

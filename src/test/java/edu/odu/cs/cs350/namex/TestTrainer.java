@@ -71,9 +71,10 @@ public class TestTrainer {
 	@Test
 	public void testGetTokenCount() {
 		Trainer trainer = new Trainer();
-		trainer.tokenize(
+		ArrayList<Token> tokenizedText = trainer.tokenize(
 				"<NER>\"Oh, no,\" she\'s saying, \"our $400 blender can\'t handle something this hard!\"</NER>");
-		assertEquals(3, trainer.getTokenCount(","));
+		
+		assertEquals(3, trainer.getTokenCount(tokenizedText.get(2), tokenizedText));
 	}
 
 	/**
