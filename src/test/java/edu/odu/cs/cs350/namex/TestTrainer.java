@@ -122,19 +122,13 @@ public class TestTrainer {
 
 	}
 
-	public void testLoadLM() {
+	public void testSaveLoadLM() {
 		Trainer t1 = new Trainer();
-		String fileLoc = "";// declare file location
-
-		assertTrue(t1.LoadLM(fileLoc));
-
-	}
-
-	public void testSaveLM() {
-		Trainer t1 = new Trainer();
-		String fileLoc = "";// declare file location
-
-		assertTrue(t1.SaveLM(fileLoc));
+		Trainer t2 = new Trainer();
+		t2.prepareData("<NER>\"Oh, no,\" she\'s saying, \"a $400 blender can\'t handle something this hard!\"</NER>");
+		t2.SaveLM("saved/testTrainer");
+		t1.LoadLM("saved/testTrainer");
+		assertEquals(t1,t2);
 
 	}
 
