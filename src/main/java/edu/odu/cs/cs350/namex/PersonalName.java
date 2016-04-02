@@ -6,7 +6,7 @@ import java.util.List;
 
 /*
  * The personal name class stores a personal name as an arraylist
- * The prefix (IE: Mr, Dr, Mrs)will be stored in the first index of the
+ * The prefix (IE: Mr, Dr, Mrs, Governor, Senator, Professor)will be stored in the first index of the
  * arraylist
  * The suffix (IE: Jr, Sr, III) will be stored as the second index of the
  * arraylist
