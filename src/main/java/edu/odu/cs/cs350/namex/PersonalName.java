@@ -16,12 +16,14 @@ import java.util.List;
  */
 
 public class PersonalName {
+	
 	private String honorific;
 	private String givenName;
 	private String middleNames;
 	private String surName;
 	private String suffix;
 
+	
 	PersonalName() {
 
 		honorific = "";
@@ -43,7 +45,18 @@ public class PersonalName {
 		suffix = "";
 
 	};
+	
+	//constructor for one word names e.g. Cher
+	PersonalName(String name){
+		
+		honorific = "";
+		givenName = name;
+		middleNames = "";
+		surName = "";
+		suffix = "";
+	}
 
+	
 	PersonalName(String honorificInput, String givenNameInput, String middleNameInput, String surNameInput,
 			String suffixInput) {
 		honorific = honorificInput;
@@ -53,41 +66,52 @@ public class PersonalName {
 		suffix = suffixInput;
 
 	};
+	
 
-	public String getName() { // returns full name
+	public String getName() { 
+		//returns full name
 
 		return this.toString();
 
 	};
 
-	public String getHonorific() { // returns honorific if it exists
+	public String getHonorific() { 
+		// returns honorific if it exists
 		return honorific;
 	}
 
-	public String getGivenName() { // returns second String of arraylist
+	public String getGivenName() { 
+		// returns second String of arraylist
 		return givenName;
 
 	}
 
-	public String getMiddleNames() { // returns all Strings between second and
-										// last Strings in array list
+	public String getMiddleNames() { 
+		// returns all Strings between second and
+										
+		// last Strings in array list
 		return middleNames;
 
 	}
 
-	public String getSurName() { // returns final arraylist String
+	public String getSurName() { 
+		// returns final arraylist String
 		return surName;
 
 	}
 
-	public String getSuffix() { // returns Suffix (ie jr, sr, II) if it exists.
-								// This will store in the
-								// second
+	public String getSuffix() { 
+		// returns Suffix (ie jr, sr, II) if it exists.
+								
+		// This will store in the
+								
+		// second
 		return suffix;
 
 	}
 
 	public String toString() {
+		
 		String nameString = honorific + " " + givenName + " " + middleNames + " " + surName + " " + suffix;
 
 		nameString = nameString.replaceAll("\\s+", " ");
