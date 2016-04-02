@@ -2,6 +2,7 @@ package edu.odu.cs.cs350.namex;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.Serializable;
 
 import weka.core.Instances;
 import weka.core.Attribute;
@@ -128,7 +129,19 @@ public class Trainer {
 	 *            Saves a trained learning machine to a file
 	 */
 	public boolean SaveLM(String fileLoc) {
-		// returns true if successful
+		 Classifier cls = new J48();
+		 
+		 // train
+		 Instances inst = new Instances(
+		                    new BufferedReader(
+		                      new FileReader("/saved/arff/trainingMaterials.arff")));
+		 inst.setClassIndex(inst.numAttributes() - 1);
+		 cls.buildClassifier(inst);
+		 
+		 // serialize model
+		 ObjectOutputStream oos = new ObjectOutputStream(
+		                            new FileOutputStream("/saved/learningMachine/LearningMachine.model"));
+		 weka.core.SerializationHelper.write("/saved/learningMachine/LearningMachine.model", cls);
 		return false;
 
 	}
