@@ -34,7 +34,8 @@
 
   <target name="resolve-ivy" depends="install-ivy" 
 	  description="Retrieve dependencies with Ivy.">
-    <ivy:resolve/> <!--  log="download-only"/> -->
+    <ivy:resolve file="ivy.xml"/> <!--  log="download-only"/> -->
+  	<ivy:retrieve pattern="lib/[artifact](-[classifier]).[ext]"/>
 
     <!-- ivy.cachepath will point to the downloaded jars  -->
     <ivy:cachepath pathid="ivy.classpath" conf="default" />
