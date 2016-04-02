@@ -7,7 +7,7 @@
   <!-- set global properties for this build -->
   <property name="src.main" location="src/main/java/edu/odu/cs/cs350/namex"/>
   <property name="src.test" location="src/test/java/edu/odu/cs/cs350/namex"/>
-  <property name="build" location="build"/>
+  <property name="build" location="lib"/>
   <property name="dist" location="dist"/>
   <property name="lib" location="lib"/>
 	
@@ -24,6 +24,11 @@
 	   <pathelement path="target/classes"/>
 	   <path refid="ivy.classpath"/>
 	</path>
+	<path id="main.compilation.path">
+		  	<pathelement path="${src.main}"/>
+		   <pathelement path="target/classes"/>
+		   <path refid="ivy.classpath"/>
+		</path>
 
 	
   <target name="init">
@@ -42,12 +47,12 @@
         description="compile the source">
     <!-- Compile the java code from ${src} into ${build} -->
     <javac srcdir="${src.main}" destdir="${build}" verbose ="true">
-    	<!-- <classpath path="${lib}">
-    	  		           	<path refid="test.compilation.path" />
-    	  					<fileset dir="${lib}">
-    	  			            <include name="**/junit.jar" />
-    	  			        </fileset> 
-    	  		</classpath>-->
+    		<classpath path="${lib}">
+    	  		  		<path refid="main.compilation.path" />
+    	  				<fileset dir="${lib}">
+    	  			<include name="**/*.jar" />
+    			</fileset>
+    	  	</classpath>
     	</javac>
   </target>
 
@@ -74,9 +79,7 @@
   <target name="clean"
         description="clean up">
 
-    <!-- Delete the ${build} and ${dist} and ${lib} directory trees -->
+    <!-- Delete the ${build} and ${dist} directory trees -->
     <delete dir="${build}"/>
-    <delete dir="${dist}"/>  
-  	<delete dir="${lib}"/>
-  </target>
+    <delete dir="${dist}"/>  </target>
 </project>
