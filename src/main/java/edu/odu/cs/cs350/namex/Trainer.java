@@ -119,7 +119,11 @@ public class Trainer {
 	 *            Loads a trained learning machine from file
 	 */
 	public boolean LoadLM(String fileLoc) {
-		// returns true if successful
+		 // deserialize model
+		 ObjectInputStream ois = new ObjectInputStream(
+		                           new FileInputStream("/saved/learningMachine/LearningMachine.model"));
+		 Classifier cls = (Classifier) ois.readObject();
+		 ois.close();
 		return false;
 	}
 
