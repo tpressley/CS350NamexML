@@ -48,9 +48,22 @@ public class Librarian {
 		// if a legitimate personal name is found
 		// return it marked with <PER></PER>
 		// e.g. "<PER>John Doe</PER>"
+		
+		String start = "<PER>";
+		String end = "</PER>";
+		
+		ArrayList<String> ret = null; //return value
+		
+		String pn = "no name yet"; //personal name extracted from textBlock
+		
+		//get personal name from textBlock and store it in String pn 
+		
+		ret.add(start); // <PER>
+		ret.add(pn); //personal name
+		ret.add(end); // </PER>
+		
 
-		return null;
-
+		return ret;
 	}
 
 	//
