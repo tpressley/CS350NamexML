@@ -87,6 +87,6 @@
 	
 	  <!-- Generate javadocs for current project into ${doc.dir} -->
 	  <target name="doc" depends="init" description="generate documentation">
-	    <javadoc sourcepath="${src.main}" destdir="${lib}"/>
+	    <javadoc sourcepath="${src.main}" destdir="${dist}"/>
 	  </target>
 </project>
