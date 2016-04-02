@@ -73,8 +73,8 @@
   			            <include name="**/junit.jar" />
   			        </fileset>
   		</classpath>
-  		<formatter type = "plain" usefile = "false"/>
-  		<formatter type = "plain" />
+  		<formatter type = "xml" usefile = "false"/>
+  		<formatter type = "xml" />
   		<test name = "UnitTesting" todir = "."/>
   	  </junit>
   </target>
