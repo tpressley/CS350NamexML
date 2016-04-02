@@ -9,5 +9,4 @@
       <ibiblio name="public" m2compatible="true" root="http://archive350.cs.odu.edu:8080/artifactory/libs-release" />
     </chain>
     <ibiblio name="publish" m2compatible="true" root="http://archive350.cs.odu.edu:8080/artifactory/libs-release-local" />
-  </resolvers>
-</ivy-settings>
+  </resolvers></ivy-settings>

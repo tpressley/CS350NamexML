@@ -30,16 +30,15 @@
 		   <path refid="ivy.classpath"/>
 		</path>
 
-	
   <target name="init">
     <!-- Create the time stamp -->
     <tstamp/>
     <!-- Create the build directory structure used by compile -->
     <mkdir dir="${build}"/>
   	<mkdir dir="${lib}"/>
-  	<get src="http://archive350.cs.odu.edu:8080/artifactory/jcenter-cache/junit/junit/4.11/junit-4.11.jar" dest="${lib}/junit.jar"/>
+  	<!--<get src="http://archive350.cs.odu.edu:8080/artifactory/jcenter-cache/junit/junit/4.11/junit-4.11.jar" dest="${lib}/junit.jar"/>
   	<get src="http://archive350.cs.odu.edu:8080/artifactory/jcenter-cache/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar" dest="${lib}/hamcrest.jar"/>
-  	<get src="http://archive350.cs.odu.edu:8080/artifactory/jcenter-cache/nz/ac/waikato/cms/weka/weka-stable/3.6.13/weka-stable-3.6.13.jar" dest="${lib}/weka.jar"/>
+  	<get src="http://archive350.cs.odu.edu:8080/artifactory/jcenter-cache/nz/ac/waikato/cms/weka/weka-stable/3.6.13/weka-stable-3.6.13.jar" dest="${lib}/weka.jar"/>-->
   </target>
 	
 
