@@ -92,8 +92,19 @@ public class Librarian {
 
 	}
 
-	public ArrayList<String> markClassificationtag(String textBlock) {
-		return null;
+	public ArrayList<String> markClassificationTag(String textBlock) {
+		
+		ArrayList<String> ret = null; //return value
+		
+		//break down textBlock into smaller parts 
+		//if given token is a noun, return it marked <NOUN>
+		//if verb, then return it marked <VERB>
+		//if adjective, then return it marked <ADJ>
+		
+		
+		
+		
+		return ret;
 		// returns text with <NOUN>,<VERB>,<ADJ> tags
 
 	}

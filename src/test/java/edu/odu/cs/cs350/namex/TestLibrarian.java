@@ -170,14 +170,14 @@ public class TestLibrarian {
 		assertEquals(text6, lib.markNERtag(text6));
 	}
 
-	public void testMarkClassificationtag() {
+	public void testMarkClassificationTag() {
 
 		Librarian lib = new Librarian();
 
 		String text1 = "This small paper was written by Pythagoras.";
 
 		assertEquals("This <ADJ>small</ADJ> paper was <VERB>written</VERB> by <NOUN>Pythagoras</NOUN>.",
-				lib.markClassificationtag(text1));
+				lib.markClassificationTag(text1));
 
 	}
 
