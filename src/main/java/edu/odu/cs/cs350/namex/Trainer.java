@@ -15,7 +15,6 @@ import weka.classifiers.Classifier;
 import weka.classifiers.trees.J48;
 import weka.core.Attribute;
 
-
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
@@ -126,16 +125,16 @@ public class Trainer {
 	 * 
 	 * @param fileLoc
 	 *            Loads a trained learning machine from file
-	 * @throws IOException 
-	 * @throws FileNotFoundException 
-	 * @throws ClassNotFoundException 
+	 * @throws IOException
+	 * @throws FileNotFoundException
+	 * @throws ClassNotFoundException
 	 */
 	public boolean LoadLM(String fileLoc) throws FileNotFoundException, IOException, ClassNotFoundException {
-		 // deserialize model
-		 ObjectInputStream ois = new ObjectInputStream(
-		                           new FileInputStream("/saved/learningMachine/LearningMachine.model"));
-		 Classifier cls = (Classifier) ois.readObject();
-		 ois.close();
+		// deserialize model
+		ObjectInputStream ois = new ObjectInputStream(
+				new FileInputStream("/saved/learningMachine/LearningMachine.model"));
+		Classifier cls = (Classifier) ois.readObject();
+		ois.close();
 		return false;
 	}
 
@@ -143,22 +142,20 @@ public class Trainer {
 	 * 
 	 * @param fileLoc
 	 *            Saves a trained learning machine to a file
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public boolean SaveLM(String fileLoc) throws Exception {
-		 Classifier cls = new J48();
-		 
-		 // train
-		 Instances inst = new Instances(
-		                    new BufferedReader(
-		                      new FileReader("/saved/arff/trainingMaterials.arff")));
-		 inst.setClassIndex(inst.numAttributes() - 1);
-		 cls.buildClassifier(inst);
-		 
-		 // serialize model
-		 ObjectOutputStream oos = new ObjectOutputStream(
-		                            new FileOutputStream("/saved/learningMachine/LearningMachine.model"));
-		 weka.core.SerializationHelper.write("/saved/learningMachine/LearningMachine.model", cls);
+		Classifier cls = new J48();
+
+		// train
+		Instances inst = new Instances(new BufferedReader(new FileReader("/saved/arff/trainingMaterials.arff")));
+		inst.setClassIndex(inst.numAttributes() - 1);
+		cls.buildClassifier(inst);
+
+		// serialize model
+		ObjectOutputStream oos = new ObjectOutputStream(
+				new FileOutputStream("/saved/learningMachine/LearningMachine.model"));
+		weka.core.SerializationHelper.write("/saved/learningMachine/LearningMachine.model", cls);
 		return false;
 
 	}

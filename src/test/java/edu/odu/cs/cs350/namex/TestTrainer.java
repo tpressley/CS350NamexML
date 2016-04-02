@@ -75,7 +75,7 @@ public class TestTrainer {
 		Trainer trainer = new Trainer();
 		ArrayList<Token> tokenizedText = trainer.tokenize(
 				"<NER>\"Oh, no,\" she\'s saying, \"our $400 blender can\'t handle something this hard!\"</NER>");
-		
+
 		assertEquals(3, trainer.getTokenCount(tokenizedText.get(2), tokenizedText));
 	}
 
@@ -131,7 +131,7 @@ public class TestTrainer {
 		t2.prepareData("<NER>\"Oh, no,\" she\'s saying, \"a $400 blender can\'t handle something this hard!\"</NER>");
 		t2.SaveLM("saved/testTrainer");
 		t1.LoadLM("saved/testTrainer");
-		assertEquals(t1,t2);
+		assertEquals(t1, t2);
 
 	}
 
