@@ -68,7 +68,26 @@ public class Librarian {
 
 	//
 	public ArrayList<String> markNERtag(String textBlock) {
-		return null;
+		
+		ArrayList<String> ret = null; //return value
+		//takes in a string textBlock and mark with tag <NER></NER>
+		
+		//e.g. if textBlock = "This document was written in 1983"
+		//return "<NER>This document was written in 1983</NER>
+		
+		//pseudocode:
+		//first break down textBlock string 
+		//mark beginning of ret <NER>
+		//add each token to ArrayList<String> ret
+		//mark end of ret </NER>
+		String start = "<NER>";
+		String end = "</NER>";
+		
+		ret.add(start);
+		//then add textBlock broken down into tokens?
+		ret.add(end);
+		
+		return ret;
 		// returns block of text marked with <NER> </NER>
 
 	}
