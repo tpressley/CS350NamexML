@@ -3,3 +3,4 @@ lib/hamcrest.jar
 lib/junit.jar
 /lib/
 /dist/
+/build/
