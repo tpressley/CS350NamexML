@@ -8,6 +8,15 @@
 <NER><PER>Mr. Montgomery-Stephens</PER></NER>
 <NER>"Program Evaluation of Outcomes Based Orthotic and Prosthetic Education</NER>
 <NER>"</NER>
+<NER>
+The ancient genetic signals also provide a more precise timing of the first people entering 
+the Americas—via the Beringian land bridge that connected Asia and the north-western tip of 
+North America during the last Ice Age.</NER>
+<NER>
+"Our genetic reconstruction confirms that the first Americans entered around 16,000 years ago 
+via the Pacific coast, skirting around the massive ice sheets that blocked an inland corridor 
+route which only opened much later," says <PER>Professor Alan Cooper</PER>, Director of ACAD. 
+"They spread southward remarkably swiftly, reaching southern Chile by 14,600 years ago."</NER>
 <NER># 2,</NER>
 <NER>Now that we are here,</NER>
 <NER>$29 3 million in FY 20 08. As of mid-March 20 09, FY 20 09 project proposals are still</NER>

@@ -10,6 +10,7 @@ Wonderland</NER>
 <NER>"emergent"</NER>
 <NER>"lIlIlI. lIUIlIlIIlI"..</NER>
 <NER>"</NER>
+<NER>I was proud to be an American the day our president spoke those words. No, not our current president.</NER>
 <NER>(1) (2) (3) (3) 
  <PER>Mike X. Johnson</PER>, <PER>Queen Elizabeth II</PER>, <PER>Professor Zeil</PER>, <PER>Mary Ann Campbell</PER>
 <PER>M. Johnson</PER>, <PER>Cher</PER>, <PER>Ting ting Li</PER>, <PER>Prince Charles</PER>
@@ -33,6 +34,7 @@ Wonderland</NER>
 <NER>'f</NER>
 <NER>'long haul' networking in Oct 79. The 80 's concept</NER>
 <NER>((</NER>
+<NER>Published today in Science Advances, the study reveals a striking absence of the pre-Columbian genetic lineages in modern Indigenous Americans</NER>
 <NER>(+) Associazione Nazionale Galileo Ferraris Grant</NER>
 <NER>(0 %, 1 %, 3 %, 6 % and 10 %), of which some were</NER>
 <NER>(1) (2) (3) (3) 
@@ -62,12 +64,6 @@ Wonderland</NER>
 <NER>(1) identified the types</NER>
 <NER>(10</NER>
 <NER>(11</NER>
-<NER>(12</NER>
-<NER>(13</NER>
-<NER>(14</NER>
-<NER>(15</NER>
-<NER>(16</NER>
-<NER>(17</NER>
 <NER>(1</NER>
 <NER>(2) President of 'Club MURAT standards and labels working group' -</NER>
 <NER>(2) Rover Operator (RO) ? the person who</NER>
@@ -160,6 +156,11 @@ Wonderland</NER>
  By 
  <PER>Major Philip L. Cunningham</PER>,</NER>
 <NER>(IMIP</NER>
+<NER>The only scenario that fit our observations was that shortly after the initial colonisation, 
+populations were established that subsequently stayed geographically isolated from one another, 
+and that a major portion of these populations later became extinct following European contact. 
+This closely matches the historical reports of a major demographic collapse immediately after 
+the Spaniards arrived in the late 1400s." </NER>
 <NER>(IO) TARGET DEVELOPMENT AND</NER>
 <NER>(ISAF), to which the United States contributes troops, and the separate U. S. -led OEF mission</NER>
 <NER>(JAWS</NER>
