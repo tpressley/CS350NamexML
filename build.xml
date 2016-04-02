@@ -74,7 +74,7 @@
   <target name="clean"
         description="clean up">
 
-    <!-- Delete the ${build} and ${dist} directory trees -->
+    <!-- Delete the ${build} and ${dist} and ${lib} directory trees -->
     <delete dir="${build}"/>
     <delete dir="${dist}"/>  
   	<delete dir="${lib}"/>
