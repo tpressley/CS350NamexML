@@ -70,7 +70,6 @@ public class Librarian {
 	public ArrayList<String> markNERtag(String textBlock) {
 		return null;
 		// returns block of text marked with <NER> </NER>
-		// e.g. "<PER>John Doe</PER>"
 
 	}
 
