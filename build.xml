@@ -41,7 +41,7 @@
   <target name="compile" depends="resolve-ivy"
         description="compile the source">
     <!-- Compile the java code from ${src} into ${build} -->
-    <javac srcdir="${src.main}" destdir="${build}">
+    <javac srcdir="${src.main}" destdir="${build}" verbose ="true">
     	<!-- <classpath path="${lib}">
     	  		           	<path refid="test.compilation.path" />
     	  					<fileset dir="${lib}">
