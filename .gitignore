@@ -1,4 +1,5 @@
 /bin/
 lib/hamcrest.jar
 lib/junit.jar
-lib/
+/lib/
+/dist/
