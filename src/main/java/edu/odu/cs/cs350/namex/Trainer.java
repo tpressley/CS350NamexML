@@ -48,7 +48,7 @@ public class Trainer {
 	};
 
 	/**
-	 * Uses the tokenized text to convert the text into a form using identifiers
+	 * Uses the tokenized text and identifies parts of speech and other lexical features
 	 * which can be used to train the learning machine
 	 * 
 	 * @param tokenizedText
