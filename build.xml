@@ -7,9 +7,9 @@
   <!-- set global properties for this build -->
   <property name="src.main" location="src/main/java/edu/odu/cs/cs350/namex"/>
   <property name="src.test" location="src/test/java/edu/odu/cs/cs350/namex"/>
-  <property name="build" location="build"/>
-  <property name="dist" location="dist"/>
-  <property name="lib" location="lib"/>
+	  <property name="build" location="target/classes"/>
+	  <property name="dist" location="target"/>
+	  <property name="lib" location="lib"/>
 	
   	<import file="ivy.build.xml"/>
 	
@@ -44,6 +44,7 @@
 
   <target name="compile" depends="resolve-ivy"
         description="compile the source">
+	<mkdir dir="${build}"/>
     <!-- Compile the java code from ${src} into ${build} -->
     <javac srcdir="${src.main}" destdir="${build}" verbose ="true">
     		<classpath path="${lib}">
