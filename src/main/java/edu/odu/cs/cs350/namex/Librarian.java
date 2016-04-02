@@ -129,4 +129,9 @@ public class Librarian {
 	public void checkName(String textBlock) {
 
 	}// end checkName
+	
+	public static void main(String[] args)
+	{
+		
+	}
 }
