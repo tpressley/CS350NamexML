@@ -63,6 +63,23 @@ public class TestExtractor {
 	}
 	
 	@Test
+	public void testSeparateNER()
+	{
+		Extractor e = new Extractor();
+		
+		String textBlock = "<NER>Hello, There are snakes on this plan! I don't know what to do!</NER><NER>This should be another text block Samuel L. Jackson!</NER>";
+		
+		String[] textBlocks = e.separateNER(textBlock);
+		
+		// Test output of separateNER method
+		for (int i = 0; i < textBlocks.length; i++)
+		{
+			//assertEquals(tokens[i], assumedTokens[i]);
+			System.out.println(textBlocks[i]);
+		}
+	}
+	
+	@Test
 	public void testTokenizer()
 	{
 		

@@ -1,10 +1,18 @@
 package edu.odu.cs.cs350.namex;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 import weka.core.Instances;
+import weka.classifiers.Classifier;
+import weka.classifiers.trees.J48;
 import weka.core.Attribute;
 
 import java.util.ArrayList;
@@ -117,8 +125,11 @@ public class Trainer {
 	 * 
 	 * @param fileLoc
 	 *            Loads a trained learning machine from file
+	 * @throws IOException 
+	 * @throws FileNotFoundException 
+	 * @throws ClassNotFoundException 
 	 */
-	public boolean LoadLM(String fileLoc) {
+	public boolean LoadLM(String fileLoc) throws FileNotFoundException, IOException, ClassNotFoundException {
 		 // deserialize model
 		 ObjectInputStream ois = new ObjectInputStream(
 		                           new FileInputStream("/saved/learningMachine/LearningMachine.model"));
@@ -131,8 +142,9 @@ public class Trainer {
 	 * 
 	 * @param fileLoc
 	 *            Saves a trained learning machine to a file
+	 * @throws Exception 
 	 */
-	public boolean SaveLM(String fileLoc) {
+	public boolean SaveLM(String fileLoc) throws Exception {
 		 Classifier cls = new J48();
 		 
 		 // train

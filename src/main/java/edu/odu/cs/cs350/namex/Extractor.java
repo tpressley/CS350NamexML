@@ -10,6 +10,11 @@ public class Extractor
 		
 	}
 	
+	public String[] separateNER(String textBlock)
+	{
+		return textBlock.split("<NER>|</NER>");   
+	}
+	
 	// returns the textBlock with <PER></PER> tags surrounding personal names found
 	public String extractPersonalNames(String textBlock) {
 

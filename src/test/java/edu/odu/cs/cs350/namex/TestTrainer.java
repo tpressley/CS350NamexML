@@ -2,7 +2,9 @@ package edu.odu.cs.cs350.namex;
 
 //import weka.core.Instances;
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.io.StringReader;
 
 import static org.junit.Assert.*;
@@ -123,7 +125,7 @@ public class TestTrainer {
 
 	}
 
-	public void testSaveLoadLM() {
+	public void testSaveLoadLM() throws Exception {
 		Trainer t1 = new Trainer();
 		Trainer t2 = new Trainer();
 		t2.prepareData("<NER>\"Oh, no,\" she\'s saying, \"a $400 blender can\'t handle something this hard!\"</NER>");
