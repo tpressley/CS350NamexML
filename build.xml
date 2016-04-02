@@ -7,7 +7,7 @@
   <!-- set global properties for this build -->
   <property name="src.main" location="src/main/java/edu/odu/cs/cs350/namex"/>
   <property name="src.test" location="src/test/java/edu/odu/cs/cs350/namex"/>
-  <property name="build" location="lib"/>
+  <property name="build" location="build"/>
   <property name="dist" location="dist"/>
   <property name="lib" location="lib"/>
 	
