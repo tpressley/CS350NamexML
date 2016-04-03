@@ -47,9 +47,30 @@ public class Trainer {
 
 	};
 
+	public ArrayList<Token> tokenize(String trainingMaterial, boolean verbose) {
+		ArrayList<Token> trainingSentence = new ArrayList<Token>();
+
+		StringTokenizer tokenizer = new StringTokenizer(trainingMaterial, " \t\n\r\f,.:;?![]'", true);
+		Token currentWord = new Token();
+		// run through sentence, if sentence is not whitespace, add to arraylist
+		while (tokenizer.hasMoreTokens()) {
+			currentWord.setText(tokenizer.nextToken().toString());
+			if (currentWord.getText().trim().length() > 0) {
+				trainingSentence.add(currentWord);
+				if (verbose) {
+					System.out.println("Adding token:" + currentWord);
+				}
+			}
+
+		}
+		// @return split training sentence.
+		return trainingSentence;
+
+	};
+
 	/**
-	 * Uses the tokenized text and identifies parts of speech and other lexical features
-	 * which can be used to train the learning machine
+	 * Uses the tokenized text and identifies parts of speech and other lexical
+	 * features which can be used to train the learning machine
 	 * 
 	 * @param tokenizedText
 	 */
