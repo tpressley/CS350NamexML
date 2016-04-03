@@ -39,7 +39,7 @@ public class Trainer {
 		// run through sentence, if sentence is not whitespace, add to arraylist
 		while (tokenizer.hasMoreTokens()) {
 			currentWord.setText(tokenizer.nextToken().toString());
-			if (currentWord.getText().trim().length() > 0)
+			if (currentWord.toString().trim().length() > 0)
 				trainingSentence.add(currentWord);
 		}
 		// @return split training sentence.
@@ -55,10 +55,10 @@ public class Trainer {
 		// run through sentence, if sentence is not whitespace, add to arraylist
 		while (tokenizer.hasMoreTokens()) {
 			currentWord.setText(tokenizer.nextToken().toString());
-			if (currentWord.getText().trim().length() > 0) {
+			if (currentWord.toString().trim().length() > 0) {
 				trainingSentence.add(currentWord);
 				if (verbose) {
-					System.out.println("Adding token:" + currentWord);
+					System.out.println("Adding token:" + currentWord.toString());
 				}
 			}
 
@@ -86,7 +86,7 @@ public class Trainer {
 			for (int j = 0; j < articles.length; j++) {
 				// If a token's text is identified as an article, mark it as an
 				// article
-				if (tokenizedText.get(i).getText() == articles[j]) {
+				if (tokenizedText.get(i).toString() == articles[j]) {
 					tokenizedText.get(i).setArticle(true);
 				}
 			}

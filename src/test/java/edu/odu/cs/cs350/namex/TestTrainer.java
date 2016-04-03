@@ -42,10 +42,10 @@ public class TestTrainer {
 		token.setArticle(false);
 		token.setCapitalized(true);
 		token.setKillWord(false);
-		assertEquals(token.getText(),
+		assertEquals(token.toString(),
 				trainer.tokenize(
 						"<NER>\"Oh, no,\" she\'s saying, \"our $400 blender can\'t handle something this hard!\"</NER>")
-						.get(1).getText());
+						.get(1).toString());
 		assertEquals(token.isCapitalized(),
 				trainer.tokenize(
 						"<NER>\"Oh, no,\" she\'s saying, \"our $400 blender can\'t handle something this hard!\"</NER>")

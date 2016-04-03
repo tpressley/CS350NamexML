@@ -15,7 +15,7 @@ public class Token {
 		this.text = text;
 	}
 
-	public String getText() {
+	public String toString() {
 		return this.text;
 	}
 
