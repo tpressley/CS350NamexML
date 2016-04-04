@@ -65,3 +65,18 @@ In Champagne, yields can be more than 10,000 litres per hectare,
 but in the UK, it is around 2,100 on average.
 </NER>
 
+<NER>
+<PER>Dr Neil Faulkner</PER> said: "<PER>Lawrence</PER> has something of a reputation as a teller of tall tales, 
+but this bullet – and the other archaeological evidence we unearthed during ten years of fieldwork – 
+indicates how reliable his account of the Arab Revolt in Seven Pillars of Wisdom is."
+
+In an unlikely coincidence, just two months ago, another Hallat Ammar connection appeared 
+when a Hejaz Railway engine nameplate came to light after being 'lost' for almost 80 years.  
+<PER>Lawrence</PER> had given it to the family of his friend, <PER>Vyvyan Richards</PER>, for safekeeping 
+in 1933 but never retrieved it before his death in 1935.  The inscription is in Ottoman Turkish written 
+in Arabic script and translates as 'iron road', that is 'Hejaz Railway'.
+
+The family tradition records that it was 'souvenired' by <PER>Lawrence</PER> from one of the trains he attacked.  
+Many of these raids were on bridges and tracks rather than on locomotives, 
+and, when they were, there was little time to safely hang around and take souvenirs.  </NER>
+
