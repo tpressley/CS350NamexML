@@ -8,6 +8,7 @@ import static org.junit.Assert.*;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -20,54 +21,49 @@ import edu.odu.cs.cs350.namex.Librarian;
 
 public class TestLibrarian {
 
-	// As a Librarian/application developer, I want a program that will accept
-	// standard
-	// input from command line interface
+	// User Story #844 - Gerard Silverio
+	// As a Librarian/application developer, I want a program that will 
+	// accept standard input from command line interface
+	// User Story #845
+	// As a Librarian/application developer, I want a program that will 
+	// send output to standard command line interface
 	@Test
-	public void testStandardInput() {
-		String inputString = "Mr. Gerard Silverio, Jr.";
-
-		ByteArrayInputStream input = new ByteArrayInputStream(inputString.getBytes());
-		System.setIn(input);
-
-		Scanner scan = new Scanner(System.in);
-		assertEquals("Mr. Gerard Silverio, Jr.", scan.nextLine());
-	}
-
-	// As a Librarian/application developer, I want a program that will send
-	// output to
-	// standard command line interface
+    public void testMain() throws FileNotFoundException 
+	{
+        Librarian.main(new String[] {"<NER>Hello, There are snakes on this plane! I don't know what to do!</NER><NER>Hello World line 2</NER><NER>Goodbye world!</NER>"});
+        //Librarian.main(new String[] {"inputBlocks.txt", "markedUpOutput.txt"});
+    }
+	
+	// User Story #861 - Gerard Silverio
+	// As a Librarian/application developer I want to use Command line to 
+	// process each block of text separately via the personal name extractor
 	@Test
-	public void testStandardOutput() {
-		String outputString = "<PER>Mr. Gerard Silverio, Jr.</PER>";
-
-		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-		System.setOut(new PrintStream(outputStream));
-
-		System.out.print(outputString);
-		assertEquals("<PER>Mr. Gerard Silverio, Jr.</PER>", outputStream.toString());
-	}
-
-	// As a Librarian/application developer I want to use Command line to
-	// process each
-	// block of text separately via the personal name extractor
-	// CLI processes each <NER> block separately via Extractor interface. (A,
-	// maybe L)
-	@Test
-	public void testProcessText() {
-		String input1 = "<NER>Hello Gerard Silverio</NER><NER>Hello world! My name is Addy Alago</NER>";
-
-		ByteArrayInputStream input = new ByteArrayInputStream(input1.getBytes());
-		System.setIn(input);
-
-		Scanner scan = new Scanner(System.in);
-
+	public void testSeparateNER() throws FileNotFoundException
+	{
 		Librarian librarian = new Librarian();
-
-		ArrayList<String> names = librarian.extractPersonalNames(scan.nextLine());
-
-		assertEquals("Gerard Silverio", names.get(1));
-		assertEquals("Addy Alago", names.get(2));
+		
+		String input = "<NER>Hello, There are snakes on this plane! I don't know what to do!</NER><NER>This should be another text block!</NER>";
+		String[] assumedTextBlocks = { "<NER>Hello, There are snakes on this plane! I don't know what to do!</NER>", "<NER>This should be another text block!</NER>" };
+		
+		ArrayList<TextBlock> textBlocks = librarian.separateNER(input);
+		
+		for (TextBlock textBlock : textBlocks)
+		{
+			textBlock.setTokens(librarian.tokenize(textBlock.getTextBlock()));
+		}
+		
+		// Prints the size of the List of textBlocks
+		//System.out.println(textBlocks.size());
+		
+		// Test output of separateNER method
+		for (int i = 0; i < textBlocks.size(); i++)
+		{
+			assertEquals(textBlocks.get(i).toString(), assumedTextBlocks[i]);
+			
+			boolean matches = ((textBlocks.get(i).toString()).equals(assumedTextBlocks[i]));
+			System.out.println(i + ": " + matches + " [" + textBlocks.get(i).toString() + " - " + assumedTextBlocks[i] + "]");
+			//System.out.println(textBlocks.get(i));
+		}
 	}
 
 	// PNE packaged for deployment in fat jar (A)
@@ -112,15 +108,25 @@ public class TestLibrarian {
 		name2.add("James");
 		name2.add("Madison");
 
-		Librarian lib = new Librarian();
+		Librarian lib;
+		try 
+		{
+			lib = new Librarian();
+			assertEquals("George Washington Bridge/Plc", lib.nameOfPlace(place1.toString()));
+			assertEquals("Washington State/Plc", lib.nameOfPlace(place2.toString()));
+			assertEquals("James Madison University/Plc", lib.nameOfPlace(place3.toString()));
+			assertEquals("", lib.nameOfPlace(place4.toString()));
 
-		assertEquals("George Washington Bridge/Plc", lib.nameOfPlace(place1.toString()));
-		assertEquals("Washington State/Plc", lib.nameOfPlace(place2.toString()));
-		assertEquals("James Madison University/Plc", lib.nameOfPlace(place3.toString()));
-		assertEquals("", lib.nameOfPlace(place4.toString()));
+			assertEquals(name1, lib.nameOfPlace(name1.toString()));
+			assertEquals(name2, lib.nameOfPlace(name2.toString()));
+		} 
+		catch (FileNotFoundException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-		assertEquals(name1, lib.nameOfPlace(name1.toString()));
-		assertEquals(name2, lib.nameOfPlace(name2.toString()));
+
 
 	}
 
@@ -129,56 +135,82 @@ public class TestLibrarian {
 	@Test
 	public void testMarkPERtag() {
 
-		Librarian lib = new Librarian();
+		Librarian lib;
+		try 
+		{
+			lib = new Librarian();
+			
+			String text1 = "Hello, my name is John Doe.";
+			String text2 = "This paper was written by Pythagoras.";
+			String text3 = "Queen Elizabeth II authored this book.";
+			String text4 = "written by Martin Luther King Jr.";
 
-		String text1 = "Hello, my name is John Doe.";
-		String text2 = "This paper was written by Pythagoras.";
-		String text3 = "Queen Elizabeth II authored this book.";
-		String text4 = "written by Martin Luther King Jr.";
+			assertEquals("<PER>John Doe</PER>", lib.markPERtag(text1));
+			assertEquals("<PER>Pythagoras</PER>", lib.markPERtag(text2));
+			assertEquals("<PER>Queen Elizabeth II</PER>", lib.markPERtag(text3));
+			assertEquals("<PER>Martin Luther King Jr.</PER>", lib.markPERtag(text4));
 
-		assertEquals("<PER>John Doe</PER>", lib.markPERtag(text1));
-		assertEquals("<PER>Pythagoras</PER>", lib.markPERtag(text2));
-		assertEquals("<PER>Queen Elizabeth II</PER>", lib.markPERtag(text3));
-		assertEquals("<PER>Martin Luther King Jr.</PER>", lib.markPERtag(text4));
+			String text5 = "The sky is blue today."; // no personal name here
+			assertEquals(text5, lib.markPERtag(text5));
 
-		String text5 = "The sky is blue today."; // no personal name here
-		assertEquals(text5, lib.markPERtag(text5));
-
-		String text6 = ""; // empty string
-		assertEquals("", lib.markPERtag(text6));
+			String text6 = ""; // empty string
+			assertEquals("", lib.markPERtag(text6));
+		} 
+		catch (FileNotFoundException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public void testMarkNERtag() {
 
-		Librarian lib = new Librarian();
+		Librarian lib;
+		try 
+		{
+			lib = new Librarian();
+			
+			String text1 = "Hello, my name is John Doe.";
+			String text2 = "This paper was written by Pythagoras.";
+			String text3 = "Queen Elizabeth II authored this book.";
+			String text4 = "written by Martin Luther King Jr.";
 
-		String text1 = "Hello, my name is John Doe.";
-		String text2 = "This paper was written by Pythagoras.";
-		String text3 = "Queen Elizabeth II authored this book.";
-		String text4 = "written by Martin Luther King Jr.";
+			assertEquals("<NER>Hello, my name is John Doe.</NER>", lib.markNERtag(text1));
+			assertEquals("<NER>This paper was written by Pythagoras.</NER>", lib.markNERtag(text2));
+			assertEquals("<NER>Queen Elizabeth II authored this book.</NER>", lib.markNERtag(text3));
+			assertEquals("<NER>written by Martin Luther King Jr.</NER>", lib.markNERtag(text4));
 
-		assertEquals("<NER>Hello, my name is John Doe.</NER>", lib.markNERtag(text1));
-		assertEquals("<NER>This paper was written by Pythagoras.</NER>", lib.markNERtag(text2));
-		assertEquals("<NER>Queen Elizabeth II authored this book.</NER>", lib.markNERtag(text3));
-		assertEquals("<NER>written by Martin Luther King Jr.</NER>", lib.markNERtag(text4));
+			String text5 = "The sky is blue today."; // no personal name here
+			assertEquals(text5, lib.markNERtag(text5));
 
-		String text5 = "The sky is blue today."; // no personal name here
-		assertEquals(text5, lib.markNERtag(text5));
-
-		String text6 = "<NER>The sky is blue today.</NER>"; // empty string
-		assertEquals(text6, lib.markNERtag(text6));
+			String text6 = "<NER>The sky is blue today.</NER>"; // empty string
+			assertEquals(text6, lib.markNERtag(text6));
+		} 
+		catch (FileNotFoundException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void testMarkClassificationTag() {
 
-		Librarian lib = new Librarian();
+		Librarian lib;
+		try 
+		{
+			lib = new Librarian();
+			
+			String text1 = "This small paper was written by Pythagoras.";
 
-		String text1 = "This small paper was written by Pythagoras.";
-
-		assertEquals("This <ADJ>small</ADJ> paper was <VERB>written</VERB> by <NOUN>Pythagoras</NOUN>.",
-				lib.markClassificationTag(text1));
-
+			assertEquals("This <ADJ>small</ADJ> paper was <VERB>written</VERB> by <NOUN>Pythagoras</NOUN>.",
+					lib.markClassificationTag(text1));
+		} 
+		catch (FileNotFoundException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

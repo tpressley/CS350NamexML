@@ -38,18 +38,15 @@ public class TestTrainer {
 
 		Trainer trainer = new Trainer();
 		Token token = new Token();
-		token.setText("Oh");
-		token.setArticle(false);
-		token.setCapitalized(true);
-		token.setKillWord(false);
-		assertEquals(token.toString(),
-				trainer.tokenize(
+
+		token.setLexeme("Oh");
+		token.setPartOfSpeech("other");
+		token.setLexical("capitalized");
+		token.setKillWord(0);
+
+		assertEquals("capitalized", trainer.tokenize(
 						"<NER>\"Oh, no,\" she\'s saying, \"our $400 blender can\'t handle something this hard!\"</NER>")
-						.get(1).toString());
-		assertEquals(token.isCapitalized(),
-				trainer.tokenize(
-						"<NER>\"Oh, no,\" she\'s saying, \"our $400 blender can\'t handle something this hard!\"</NER>")
-						.get(1).isCapitalized());
+						.get(1).getLexical());
 	}
 
 	/**
@@ -62,8 +59,8 @@ public class TestTrainer {
 		ArrayList<Token> tokenizedText = trainer.tokenize(
 				"<NER>\"Oh, no,\" she\'s saying, \"a $400 blender can\'t handle something this hard!\"</NER>");
 		trainer.parse(tokenizedText);
-		assertTrue(tokenizedText.get(11).isArticle());
-		assertTrue(tokenizedText.get(0).isPunctuation());
+		assertEquals(tokenizedText.get(11).getPartOfSpeech(), "article");
+		assertEquals(tokenizedText.get(0).getLexical(), "punct");
 	}
 
 	/**
@@ -111,17 +108,27 @@ public class TestTrainer {
 
 		Trainer t1 = new Trainer();
 		Trainer t2 = new Trainer();
-		Librarian lib = new Librarian();
+		Librarian lib;
+		
+		try 
+		{
+			lib = new Librarian();
+			
+			String s = "We were crossing the George Washington Bridge.";
+			String ss = "It was an honor to be accepted to George Mason University.";
+			String sss = "Dr.Carson wrote this book.";
 
-		String s = "We were crossing the George Washington Bridge.";
-		String ss = "It was an honor to be accepted to George Mason University.";
-		String sss = "Dr.Carson wrote this book.";
-
-		assertTrue(t1.trainLM(s));
-		assertTrue(t2.trainLM(s));
-		assertTrue(t2.trainLM(ss));
-		assertTrue(t1.trainLM(sss) && lib.markPERtag(sss).equals("<PER>Dr.Carson</PER>"));
-		assert (t1.trainLM(ss) == t2.trainLM(ss));
+			assertTrue(t1.trainLM(s));
+			assertTrue(t2.trainLM(s));
+			assertTrue(t2.trainLM(ss));
+			assertTrue(t1.trainLM(sss) && lib.markPERtag(sss).equals("<PER>Dr.Carson</PER>"));
+			assert (t1.trainLM(ss) == t2.trainLM(ss));
+		} 
+		catch (FileNotFoundException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 

@@ -38,7 +38,9 @@ public class Trainer {
 		Token currentWord = new Token();
 		// run through sentence, if sentence is not whitespace, add to arraylist
 		while (tokenizer.hasMoreTokens()) {
-			currentWord.setText(tokenizer.nextToken().toString());
+			currentWord.setLexeme(tokenizer.nextToken().toString());
+			if (currentWord.getLexeme().trim().length() > 0)
+			currentWord.setLexeme(tokenizer.nextToken().toString());
 			if (currentWord.toString().trim().length() > 0)
 				trainingSentence.add(currentWord);
 		}
@@ -54,7 +56,7 @@ public class Trainer {
 		Token currentWord = new Token();
 		// run through sentence, if sentence is not whitespace, add to arraylist
 		while (tokenizer.hasMoreTokens()) {
-			currentWord.setText(tokenizer.nextToken().toString());
+			currentWord.setLexeme(tokenizer.nextToken().toString());
 			if (currentWord.toString().trim().length() > 0) {
 				trainingSentence.add(currentWord);
 				if (verbose) {
@@ -86,12 +88,17 @@ public class Trainer {
 			for (int j = 0; j < articles.length; j++) {
 				// If a token's text is identified as an article, mark it as an
 				// article
+
+				if (tokenizedText.get(i).getLexeme() == articles[j]) {
+					tokenizedText.get(i).setPartOfSpeech("article");
+				}
 				if (tokenizedText.get(i).toString() == articles[j]) {
-					tokenizedText.get(i).setArticle(true);
+					tokenizedText.get(i).setLexical("punct");
+
 				}
 			}
 		}
-	};
+	}
 
 	/**
 	 * Returns the the token count for a specific token
