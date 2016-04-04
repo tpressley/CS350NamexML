@@ -1,0 +1,120 @@
+<NER>The paradox of unanimity has many other applications beyond the legal arena. 
+One important one that the researchers discuss in their paper is cryptography. 
+Data is often encrypted by verifying that some gigantic number provided by 
+an adversary is prime or composite. One way to do this is to repeat a 
+probabilistic test called the Rabin-Miller test until the probability 
+that it mistakes a composite as prime is extremely low: a probability 
+of 2-128 is typically considered acceptable.
+</NER><NER>
+The systemic failure that occurs in this situation is computer failure. 
+Most people never consider the possibility that a stray cosmic ray 
+may flip a bit that in turn causes the test to accept a composite 
+number as a prime. After all, the probability for such an event 
+occurring is extremely low, approximately 10-13 per month. 
+But the important thing is that it's greater than 2-128,
+so even though the failure rate is so tiny, it dominates over the 
+desired level of security. Consequently, the cryptographic protocol 
+may appear to be more secure than it really is, since test 
+results that appear to indicate a high level of security are
+ actually much more likely to be indicative of computer failure. 
+ In order to truly achieve the desirable level of security, 
+ the researchers advise that these "hidden" errors must be 
+ reduced to as close to zero as possible.
+</NER>
+<NER>
+The paradox of unanimity may be counterintuitive, 
+but the researchers explain that it makes sense once we have complete information at our disposal.
+"As with most 'paradoxes,' it is not that our intuition is necessarily bad, 
+but that our intuition has been badly informed," <PER>Abbott</PER> said. 
+"In these cases, we are surprised because we simply aren't generally 
+aware that identification rates by witnesses are in fact so poor, 
+and we aren't aware that bit error rates in computers are significant when it comes to cryptography."
+
+The researchers noted that the paradox of unanimity is related to the 
+Duhem-Quine hypothesis, which states that it is not possible to 
+test a scientific hypothesis in isolation, but rather hypotheses 
+are always tested as a group. For instance, an experiment tests 
+not only a certain phenomenon, but also the correction function of the
+ experimental tools. In the paradox of unanimity, it's the methods 
+ (the "auxiliary hypotheses") that fail, and in turn reduce confidence in the main results.
+
+More examples
+</NER>
+<NER>
+
+Other areas where the paradox of unanimity emerges are numerous and diverse. 
+<PER>Abbott</PER> describes several below, in his own words:
+
+1) The recent Volkswagen scandal is a good example. 
+The company fraudulently programmed a computer chip to run the 
+engine in a mode that minimized diesel fuel emissions during emission tests. 
+But in reality, the emissions did not meet standards when the cars were running on the road. 
+The low emissions were too consistent and 'too good to be true.' 
+The emissions team that outed Volkswagen initially got suspicious 
+when they found that emissions were almost at the same level whether a
+ car was new or five years old! The consistency betrayed the 
+ systemic bias introduced by the nefarious computer chip.</NER>
+ 
+ <NER>
+2) A famous case where overwhelming evidence was 'too good to be true' occurred in the 1993-2008 period. 
+Police in Europe found the same female DNA in about 15 crime scenes across 
+France, Germany, and Austria. This mysterious killer was dubbed the Phantom of 
+Heilbronn and the police never found her. The DNA evidence was consistent and
+ overwhelming, yet it was wrong. It turned out to be a systemic error. 
+ The cotton swabs used to collect the DNA samples were accidentally contaminated, 
+ by the same lady, in the factory that made the swabs.
+</NER>
+<NER>
+3) When a government wins an election, one laments that the party 
+of one's choice often wins with a relatively small margin.
+ We often wish for our favored political party to win with unanimous votes.
+  However, should that ever happen we would be led to suspect a systemic 
+  bias caused by vote rigging. An urban legend persists that <PER>Putin</PER> 
+  won 140% (!) of the votes; if this true then democracy clearly failed in that case. 
+  The take-home message is that, in a healthy democracy, when a party wins by a small margin, 
+  instead of name-calling the 'dumb' voters of the opposition, 
+  we should be celebrating the fact that the opposing voters preserved the integrity of democracy.
+</NER>
+<NER>
+4) In science, theory and experiment go hand in hand and must support each other. 
+In every experiment there is always 'noise,' and we must therefore expect some error. 
+In the history of science there are a number of famous experiments where the results were 
+'too good to be true.' There are many examples that have been mired in controversy over 
+the years, and the most famous are Millikan's oil drop experiment for determining
+ the charge on the electron and Mendel's plant breeding experiments.
+  If results are too clean and do not contain expected noise and outliers, 
+  then we can be led to suspect a form of confirmation bias introduced 
+  by an experimenter who cherry-picks the data.
+</NER>
+<NER>
+5) In many committee meetings, in today's big organizations, 
+there is a trend towards the idea that decisions must be unanimous. 
+For example, a committee that ranks job applicants or evaluates key 
+performance indicators (KPIs) often will argue until everyone in the 
+room is in agreement. If one or two members are in disagreement, 
+there is a tendency for the rest of the committee to win them over
+ before moving on. A take-home message of our analysis is that the 
+ dissenting voice should be welcomed. A wise committee should accept
+  that difference of opinion and simply record there was a disagreement.
+   The recording of the disagreement is not a negative, but a positive
+    that demonstrates that a systemic bias is less likely.
+
+6) <PER>Eugene Wigner</PER> once coined the phrase 'the unreasonable effectiveness
+ of mathematics' to describe the rather odd feeling that math seems to be so 
+ perfectly suited to describing physical theories. In a way, <PER>Wigner</PER> 
+ was expressing the idea that math itself is 'too good to be true.' 
+ (See this article for more on this idea.) The reality is 
+ that modern devices and machines are no longer analyzed by
+  neat analytical mathematical equations, but by empirical formulas 
+  embedded in simulation software tools. For some of the next big 
+  science questions, particularly in the area of complex systems, 
+  we are looking to big data and machine learning rather than math. 
+  Analytical math as we knew it was not the perfect glove that could
+   fit every type of problem. So how did we get seduced to once thinking 
+   that math was 'unreasonably effective'? It's the systemic confirmation
+    bias introduced by the fact that for every great scientific paper 
+    we read with an elegant formula, there are many more rejected formulas
+     that are never published and we never get to see. The math we have 
+     today was cherry-picked.
+
+</NER>

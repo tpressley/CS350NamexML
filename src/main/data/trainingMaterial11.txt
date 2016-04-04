@@ -1,0 +1,92 @@
+<NER>
+The first results of textile and dye analyses of cloth dated between 
+400-650 AD and recovered from Samdzong 5, in Upper Mustang, Nepal 
+have today been released by <PER>Dr Margarita Gleba</PER> of the 
+McDonald Institute for Archaeological Research, University of Cambridge.
+</NER><NER>
+Identification of degummed silk fibres and munjeet and Indian lac dyes in the 
+textile finds suggests that imported materials from China and India 
+were used in combination with those locally produced. 
+Says <PER>Gleba</PER>: "There is no evidence for local silk production 
+suggesting that Samdzong was inserted into the long-distance trade network of the Silk Road."
+</NER><NER>
+"The data reinforce the notion that instead of being isolated and remote, 
+Upper Mustang was once a small, but important node of a much larger network of 
+people and places. These textiles can further our understanding of the 
+local textile materials and techniques, as well as the mechanisms through 
+which various communities developed and adapted new textile technologies to fit local cultural and economical needs."
+</NER>
+<NER>
+The cloth remains are of further significance as very few contemporary 
+textile finds are known from Nepal. 
+The dry climate and high altitude of the Samdzong tomb complex, at an elevation of 4000 m, 
+favoured the exceptional preservation of the organic materials.</NER>
+<NER>
+Samdzong 5 is one of ten shaft tombs excavated by <PER>Mark Aldenderfer</PER>, 
+(University of California Merced and Visiting Scholar of the McDonald Institute). 
+The tombs were only exposed to view in 2009 following a seismic event that calved 
+off the façade of the cliff, having been originally carved out in prehistory 
+from the soft conglomerate rock of a massive cliff face.
+Read more at: http://phys.org/news/2016-04-nepali-textile-silk-road-south.html#jCp</NER>
+<NER>
+Under ancient Jewish law, if a suspect on trial was unanimously found guilty by all judges, 
+then the suspect was acquitted. This reasoning sounds counterintuitive, 
+but the legislators of the time had noticed that unanimous agreement often indicates 
+the presence of systemic error in the judicial process, 
+even if the exact nature of the error is yet to be discovered. 
+They intuitively reasoned that when something seems too good to be true, most likely a mistake was made.</NER>
+<NER>
+In a new paper to be published in The Proceedings of The Royal Society A, a team of researchers, 
+<PER>Lachlan J. Gunn</PER>, et al., from Australia and France has further investigated 
+this idea, which they call the "paradox of unanimity."
+"If many independent witnesses unanimously testify to the identity of a suspect of a crime, 
+we assume they cannot all be wrong," coauthor <PER>Derek Abbott</PER>, 
+a physicist and electronic engineer at The University of Adelaide, Australia, 
+told Phys.org. "Unanimity is often assumed to be reliable. However, it turns out that the probability 
+of a large number of people all agreeing is small, 
+so our confidence in unanimity is ill-founded. 
+This 'paradox of unanimity' shows that often we are far less certain than we think."</NER>
+<NER>
+Unlikely agreement
+The researchers demonstrated the paradox in the case of a modern-day police 
+line-up, in which witnesses try to identify the suspect out of a line-up of several people. 
+The researchers showed that, as the group of unanimously agreeing witnesses increases, 
+the chance of them being correct decreases until it is no better than a random guess.</NER>
+<NER>
+In police line-ups, the systemic error may be any kind of bias, 
+such as how the line-up is presented to the witnesses or a personal bias held by 
+the witnesses themselves. Importantly, the researchers showed that even a tiny bit of 
+bias can have a very large impact on the results overall. 
+Specifically, they show that when only 1% of the line-ups exhibit a bias toward 
+a particular suspect, the probability that the witnesses are correct 
+begins to decrease after only three unanimous identifications. 
+Counterintuitively, if one of the many witnesses were to identify a different suspect, 
+then the probability that the other witnesses were correct would substantially increase.</NER>
+<NER>
+The mathematical reason for why this happens is found using 
+Bayesian analysis, which can be understood in a simplistic way by 
+looking at a biased coin. If a biased coin is designed to land on heads 55% of the time, 
+then you would be able to tell after recording enough coin tosses 
+that heads comes up more often than tails. 
+The results would not indicate that the laws of probability for a binary system 
+have changed, but that this particular system has failed. 
+In a similar way, getting a large group of unanimous witnesses is so unlikely, 
+according to the laws of probability, that it's more likely that the system is unreliable.</NER>
+<NER>
+The researchers say that this paradox crops up more often than we might think. 
+Large, unanimous agreement does remain a good thing in certain cases, 
+but only when there is zero or near-zero bias. 
+<PER>Abbott</PER> gives an example in which witnesses must identify an apple 
+in a line-up of bananas—a task that is so easy, it is nearly impossible to get wrong, 
+and therefore large, unanimous agreement becomes much more likely.
+On the other hand, a criminal line-up is much more complicated than one with an apple among bananas. 
+Experiments with simulated crimes have shown misidentification 
+rates as high as 48% in cases where the witnesses see the perpetrator only briefly as 
+he runs away from a crime scene. In these situations, it would be highly unlikely to find large, 
+unanimous agreement. But in a situation where the witnesses had each been independently 
+held hostage by the perpetrator at gunpoint for a month, the misidentification 
+rate would be much lower than 48%, and so the magnitude of the effect would likely be closer 
+to that of the banana line-up than the one with briefly seen criminals.
+</NER>
+
+
