@@ -194,36 +194,65 @@ public class TestLibrarian {
 	}
 	*/
 
-	/*
+	
 	@Test
+	//Caroline
 	public void testMarkNERtag() {
 
 		Librarian lib;
 		try {
+			
 			lib = new Librarian();
 
 			String text1 = "Hello, my name is John Doe.";
 			String text2 = "This paper was written by Pythagoras.";
-			String text3 = "Queen Elizabeth II authored this book.";
-			String text4 = "written by Martin Luther King Jr.";
+			//String text3 = "Queen Elizabeth II authored this book.";
+			//String text4 = "written by Martin Luther King Jr.";
+			ArrayList<String> t1 = new ArrayList<String>();
+			t1 = lib.markNERtag(text1);
+			
+			ArrayList<String> t2 = new ArrayList<String>();
+			t2 = lib.markNERtag(text2);
+			
 
-			assertEquals("<NER>Hello, my name is John Doe.</NER>", (lib.markNERtag(text1)).toString());
-			assertEquals("<NER>This paper was written by Pythagoras.</NER>", (lib.markNERtag(text2)).toString());
-			assertEquals("<NER>Queen Elizabeth II authored this book.</NER>", (lib.markNERtag(text3)).toString());
-			assertEquals("<NER>written by Martin Luther King Jr.</NER>", (lib.markNERtag(text4)).toString());
+			assertEquals("<NER>" , t1.get(0));
+			System.out.println("t1.get(0) = " + t1.get(0));
+			assertEquals("</NER>" , t1.get(t1.size()-1));
+			System.out.println("t1.get(end) = " + t1.get(t1.size()-1));
+			assertEquals("Hello", t1.get(1));
+			
+			for(int i=0; i < t1.size(); i++)
+			{
+				System.out.println("t1.get(" + i + ") = " + t1.get(i));
+			}
+			System.out.println(t1.toString());
+			
+			for(int i=0; i < t2.size(); i++)
+			{
+				System.out.println("t2.get(" + i + ") = " + t2.get(i));
+			}
+			
+		
+			//assertEquals("<NER>" , t2.get(0));
+			//assertEquals("</NER>" , t2.get(t1.size()-1));
+			
+			
+			//assertEquals("<NER>This paper was written by Pythagoras.</NER>", (lib.markNERtag(text2)).toString() );
+			//assertEquals("<NER>Queen Elizabeth II authored this book.</NER>", (lib.markNERtag(text3)).toString());
+			//assertEquals("<NER>written by Martin Luther King Jr.</NER>", (lib.markNERtag(text4)).toString());
 
-			String text5 = "The sky is blue today."; 
-			String text5marked = "<NER>The sky is blue today.</NER>";
-			assertEquals(text5marked, (lib.markNERtag(text5)).toString());
+			//String text5 = "The sky is blue today."; 
+			//String text5marked = "<NER>The sky is blue today.</NER>";
+			//assertEquals(text5marked, (lib.markNERtag(text5)).toString());
 
-			String text6 = "<NER>The sky is blue today.</NER>"; 
-			assertEquals(text6, (lib.markNERtag("The sky is blue today.")).toString());
+			//String text6 = "<NER>The sky is blue today.</NER>"; 
+			//assertEquals(text6, (lib.markNERtag("The sky is blue today.")).toString());
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	*/
+	
 
 	public void testMarkClassificationTag() {
 

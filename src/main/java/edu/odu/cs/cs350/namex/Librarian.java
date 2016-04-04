@@ -462,7 +462,7 @@ public class Librarian {
 	//
 	public ArrayList<String> markNERtag(String textBlock) {
 
-		ArrayList<String> ret = null; // return value
+		ArrayList<String> ret = new ArrayList<String>(); // return value
 		// takes in a string textBlock and mark with tag <NER></NER>
 
 		// e.g. if textBlock = "This document was written in 1983"
@@ -475,11 +475,20 @@ public class Librarian {
 		// mark end of ret </NER>
 		String start = "<NER>";
 		String end = "</NER>";
+		
+		//tokenize textBlock string
+		ArrayList<Token> tb1 = this.tokenize(textBlock); 
 
-		ret.add(start);
-		// then add textBlock broken down into tokens?
-		ret.add(textBlock);
-		ret.add(end);
+		ret.add(start); //<NER>
+		
+		// then add tokenized version of textBlock 
+		for(int i=0; i < tb1.size(); i++)
+		{
+			ret.add( (tb1.get(i)).toString() );
+		}
+		
+		
+		ret.add(end); //</NER>
 
 		return ret;
 		// returns block of text marked with <NER> </NER>
