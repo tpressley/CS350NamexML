@@ -479,20 +479,18 @@ public class Librarian {
 		// mark end of ret </NER>
 		String start = "<NER>";
 		String end = "</NER>";
-		
-		//tokenize textBlock string
-		ArrayList<Token> tb1 = this.tokenize(textBlock); 
 
-		ret.add(start); //<NER>
-		
-		// then add tokenized version of textBlock 
-		for(int i=0; i < tb1.size(); i++)
-		{
-			ret.add( (tb1.get(i)).toString() );
+		// tokenize textBlock string
+		ArrayList<Token> tb1 = this.tokenize(textBlock);
+
+		ret.add(start); // <NER>
+
+		// then add tokenized version of textBlock
+		for (int i = 0; i < tb1.size(); i++) {
+			ret.add((tb1.get(i)).toString());
 		}
-		
-		
-		ret.add(end); //</NER>
+
+		ret.add(end); // </NER>
 
 		return retval;
 		// returns block of text marked with <NER> </NER>
