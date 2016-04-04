@@ -1,0 +1,56 @@
+<NER>
+The fate of humanity if aliens were to discover Earth with its balmy climate and bountiful resources, 
+has long been a concern for scientists—many of whom fear the worst.
+
+Physicist <PER>Stephen Hawking</PER> is among those to have warned that ET and 
+his friends may be much more intelligent than us, and may view human beings as little more than troublesome bugs.
+
+Now a pair of astronomers from Columbia University in New York have proposed an innovative method 
+to hide our planet from prying extraterrestrial eyes—using massive lasers.
+
+And it's not a joke, they say.
+
+Alien scientists, argued <PER>David Kipping</PER> and <PER>Alex Teachey</PER>, may be trying to 
+find habitable planets using the same technique we do—searching for a slight dip in light 
+when a planet "transits" between the star it orbits and the telescopes watching it.
+
+Planets do not emit their own light and, if they were visible to the naked eye, 
+would appear as dark dots tracking across their bright stars.
+
+But these exoplanets are too far away to see, and all our telescopes can pick up is 
+a small decrease in the starlight emitted during transit.
+
+If aliens spot us using this technique, Earth would be a logical target for alien settlement.
+
+It orbits within the so-called "habitable zone"—not too close nor too far from 
+the Sun—where the temperature is right for liquid water, the essence of life.
+</NER>
+<NER>
+"Despite the timing, it's really not an April Fool's joke," 
+RAS deputy executive director <PER>Robert Massey</PER> assured AFP on Friday.
+
+"This is a serious piece of work."
+
+Humanity's search for a planet capable of hosting life remains an academic 
+pursuit—there is no solar system near enough to reach without time travel.
+</NER>
+<NER>
+Astronomers have verified the existence of nearly 2,000 faraway worlds, 
+but most of those orbiting in habitable zones have been gas giants.
+
+"The transit method is presently the most successful planet discovery and 
+characterisation tool at our disposal," wrote the duo.
+
+"Other advanced civilisations would surely be aware of this technique..."
+
+Within the wavelength spectrum of visible light, the transit signal could be masked
+ with a monochromatic laser emitting about 30 million watts (MW) for 10 hours at a time, once a year.
+
+One MW can power several hundred homes for an hour.
+
+A universal cloak effective at all wavelengths, would require a much larger array of 
+lasers with a total output of 250 MW, said the team.
+
+"There is an ongoing debate as to whether we should advertise ourselves or hide from 
+advanced civilisations potentially living on planets elsewhere in the Galaxy," <PER>Kipping</PER> said in a statement.
+</NER>

@@ -23,8 +23,6 @@ Instead, they respect the so-called "ice rules": each bond can contain only one 
 and each oxygen ion has two protons adjacent to it; but there are virtually infinite ways 
 for the protons to satisfy this rule, even in a small piece of ice. So are protons in ice ordered or disordered?
 </NER>
-
-
 <NER>
 The idea of climate change turning the UK into a viable wine-making region may have boosted 
 the industry in recent years. 
@@ -57,3 +55,13 @@ in the last century have occurred since 2002.
 Producers recognised the contribution of climate change to the sectors recent growth, 
 but also expressed concerns about threats posed by changing conditions"
 </NER>
+<NER>
+"Since 1993, the average southern England growing season temperature has consistently been above 
+13oC and since 1989 there have been 10 years where the temperature was 14oC or higher (up to 2013). 
+This is around the same temperature as the sparkling wine producing region in Champagne during the 1960s, 70s and 80s.
+
+"However by comparison, UK wine yields are very low. 
+In Champagne, yields can be more than 10,000 litres per hectare, 
+but in the UK, it is around 2,100 on average.
+</NER>
+
