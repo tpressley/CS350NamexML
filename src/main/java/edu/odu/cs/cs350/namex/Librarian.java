@@ -423,7 +423,7 @@ public class Librarian {
 
 		String mark = "/Plc";
 		String place = ""; // this is an extracted name of place from textBlock
-		ArrayList<String> pl = null; // a name of a place identifed from
+		ArrayList<String> pl = null; // a name of a place identified from
 										// textBlock
 		pl.add(place);
 
@@ -478,6 +478,7 @@ public class Librarian {
 
 		ret.add(start);
 		// then add textBlock broken down into tokens?
+		ret.add(textBlock);
 		ret.add(end);
 
 		return ret;

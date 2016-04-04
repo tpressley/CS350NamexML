@@ -117,7 +117,7 @@ public class TestLibrarian {
 		Librarian lib;
 		try {
 			lib = new Librarian();
-			assertEquals("George Washington Bridge/Plc", lib.nameOfPlace(plc1) );
+			assertEquals("George Washington Bridge/Plc", (lib.nameOfPlace(plc1)).toString() );
 			assertEquals(plc1, lib.nameOfPlace(plc1));
 			assertEquals("Washington State/Plc", lib.nameOfPlace(plc2) );
 			assertEquals("James Madison University/Plc", lib.nameOfPlace(plc3) );
@@ -174,16 +174,17 @@ public class TestLibrarian {
 			String text3 = "Queen Elizabeth II authored this book.";
 			String text4 = "written by Martin Luther King Jr.";
 
-			assertEquals("<NER>Hello, my name is John Doe.</NER>", lib.markNERtag(text1));
-			assertEquals("<NER>This paper was written by Pythagoras.</NER>", lib.markNERtag(text2));
-			assertEquals("<NER>Queen Elizabeth II authored this book.</NER>", lib.markNERtag(text3));
-			assertEquals("<NER>written by Martin Luther King Jr.</NER>", lib.markNERtag(text4));
+			assertEquals("<NER>Hello, my name is John Doe.</NER>", (lib.markNERtag(text1)).toString());
+			assertEquals("<NER>This paper was written by Pythagoras.</NER>", (lib.markNERtag(text2)).toString());
+			assertEquals("<NER>Queen Elizabeth II authored this book.</NER>", (lib.markNERtag(text3)).toString());
+			assertEquals("<NER>written by Martin Luther King Jr.</NER>", (lib.markNERtag(text4)).toString());
 
-			String text5 = "The sky is blue today."; // no personal name here
-			assertEquals(text5, lib.markNERtag(text5));
+			String text5 = "The sky is blue today."; 
+			String text5marked = "<NER>The sky is blue today.</NER>";
+			assertEquals(text5marked, (lib.markNERtag(text5)).toString());
 
-			String text6 = "<NER>The sky is blue today.</NER>"; // empty string
-			assertEquals(text6, lib.markNERtag(text6));
+			String text6 = "<NER>The sky is blue today.</NER>"; 
+			assertEquals(text6, (lib.markNERtag("The sky is blue today.")).toString());
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
