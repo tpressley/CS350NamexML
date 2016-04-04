@@ -79,45 +79,52 @@ public class TestLibrarian {
 	public void testNameOfPlace() {
 		// "George Washington Bridge";
 		ArrayList<String> place1 = new ArrayList<String>();
+		String plc1 = "George Washington Bridge";
 		place1.add("George");
 		place1.add("Washington");
 		place1.add("Bridge");
 
 		// "Washington State";
 		ArrayList<String> place2 = new ArrayList<String>();
+		String plc2 = "Washington State";
 		place2.add("Washington");
 		place2.add("State");
 
 		// "James Madison University";
 		ArrayList<String> place3 = new ArrayList<String>();
+		String plc3 = "James Madison University";
 		place3.add("James");
 		place3.add("Madison");
 		place3.add("University");
 
 		// "" empty string
 		ArrayList<String> place4 = new ArrayList<String>();
+		String plc4 = "";
 		place4.add("");
 
 		// "George Washington";
 		ArrayList<String> name1 = new ArrayList<String>();
+		String n1 = "George Washington";
 		name1.add("George");
 		name1.add("Washington");
 
 		// "James Madison";
 		ArrayList<String> name2 = new ArrayList<String>();
+		String n2 = "James Madison";
 		name2.add("James");
 		name2.add("Madison");
 
 		Librarian lib;
 		try {
 			lib = new Librarian();
-			assertEquals("George Washington Bridge/Plc", lib.nameOfPlace(place1.toString()));
-			assertEquals("Washington State/Plc", lib.nameOfPlace(place2.toString()));
-			assertEquals("James Madison University/Plc", lib.nameOfPlace(place3.toString()));
-			assertEquals("", lib.nameOfPlace(place4.toString()));
+			assertEquals("George Washington Bridge/Plc", lib.nameOfPlace(plc1) );
+			assertEquals(plc1, lib.nameOfPlace(plc1));
+			assertEquals("Washington State/Plc", lib.nameOfPlace(plc2) );
+			assertEquals("James Madison University/Plc", lib.nameOfPlace(plc3) );
+			assertEquals("", lib.nameOfPlace(plc4));
 
-			assertEquals(name1, lib.nameOfPlace(name1.toString()));
-			assertEquals(name2, lib.nameOfPlace(name2.toString()));
+			assertEquals(name1, lib.nameOfPlace(n1));
+			assertEquals(name2, lib.nameOfPlace(n2));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
