@@ -51,6 +51,7 @@ public class TestLibrarian {
 				"<NER>Thank god</NER>" };
 
 		ArrayList<TextBlock> textBlocks = librarian.separateNER(input);
+		
 		ArrayList<TextBlock> textBlocks2 = librarian.separateNER(input2);
 
 		for (TextBlock textBlock : textBlocks) {

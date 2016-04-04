@@ -454,8 +454,8 @@ public class Librarian {
 
 		// tokenize textBlock passed into this function
 		// if a legitimate personal name is found
-		// return it marked with <PER></PER>
-		// e.g. "<PER>John Doe</PER>"
+		// return original text with the personal name(s) marked with <PER></PER>
+
 
 		String ret = ""; // return value
 
