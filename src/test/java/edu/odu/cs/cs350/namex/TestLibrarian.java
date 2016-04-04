@@ -159,6 +159,7 @@ public class TestLibrarian {
 	 */
 
 	@Test
+	/*
 	// Caroline
 	public void testMarkNERtag() {
 
@@ -213,6 +214,7 @@ public class TestLibrarian {
 			e.printStackTrace();
 		}
 	}
+	*/
 
 	public void testMarkClassificationTag() {
 

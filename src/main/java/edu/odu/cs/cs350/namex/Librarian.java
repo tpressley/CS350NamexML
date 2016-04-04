@@ -443,7 +443,7 @@ public class Librarian {
 	
 
 	// mark personal names with <PER></PER>
-	public String markPERtag(String textBlock) {
+	public String markPersonalNames(String textBlock) {
 
 		// tokenize textBlock passed into this function
 		// if a legitimate personal name is found
