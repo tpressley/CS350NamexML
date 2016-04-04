@@ -50,13 +50,14 @@ public class TextBlock {
 	}
 
 	public String toString() {
-		String output = "<NER>";
+		
+		String output = "";
 
 		for (Token token : this.tokens) {
 			output += token.getLexeme();
 		}
 
-		output += "</NER>";
+		output += "";
 
 		return output;
 	}
