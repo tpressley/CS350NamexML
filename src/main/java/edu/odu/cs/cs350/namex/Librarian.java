@@ -414,29 +414,24 @@ public class Librarian {
 	// identify a name of a place correctly
 	public String nameOfPlace(String textBlock) {
 
-		
-		
 		// to return a String
 		// e.g. textBlock="This article came from George Washington University."
 		// returns "This article came from George Washington University/Plc."
-		
-		String ret = ""; //return value
+
+		String ret = ""; // return value
 
 		String plc = "/Plc";
 		String str1 = ""; // this is an extracted name of place from textBlock
-		
+
 		ArrayList<Token> tokenized = new ArrayList<Token>();
 		tokenized = this.tokenize(textBlock);
 		// examine input String textBlock
 		// if a place name is found,
 		// get it and mark /Plc
-		
-		
-		
-		ret += plc; //marking with "/Plc"
-		
 
-		return ret; 
+		ret += plc; // marking with "/Plc"
+
+		return ret;
 	}
 
 	// mark personal names with <PER></PER>
@@ -446,18 +441,13 @@ public class Librarian {
 		// if a legitimate personal name is found
 		// return it marked with <PER></PER>
 		// e.g. "<PER>John Doe</PER>"
-		
+
 		String ret = ""; // return value
-		
+
 		String start = "<PER>";
 		String end = "</PER>";
 
-		
-		ret += start; //marking <PER>
-		
-
-		
-
+		ret += start; // marking <PER>
 
 		return ret;
 	}
@@ -465,9 +455,9 @@ public class Librarian {
 	//
 	public String markNERtag(String textBlock) {
 
-		ArrayList<String> ret = new ArrayList<String>(); 
-		String retval  = ""; //return value
-				
+		ArrayList<String> ret = new ArrayList<String>();
+		String retval = ""; // return value
+
 		// takes in a string textBlock and mark with tag <NER></NER>
 
 		// e.g. if textBlock = "This document was written in 1983"
@@ -497,63 +487,38 @@ public class Librarian {
 		// returns block of text marked with <NER> </NER>
 
 	}
-	
-	
-	
-	
+
 	/*
-	
-	 // Returns the value of a textBlock within a set of <NER></NER> tags
-	public String markNERtag(ArrayList<Token> tokens)
-	{
-	// create the output String and set the initial value to <NER>
-	String output = "<NER>";
-
-	// add each Token's lexeme value to the output String
-	for (Token token : tokens)
-	{
-	output += token.getLexeme();
-	}
-
-	// close the output String with a </NER> tag
-	output += "</NER>";
-
-	return output;
-	}
-	then for testMarkNER:
-	   String text1 = "Hello, my name is John Doe.";
-	String assumedText1 = "<NER>Hello, my name is John Doe.</NER>";
-
-	String text2 = "This paper was written by Pythagoras.";
-	String assumedText2 = "<NER>This paper was written by Pythagoras.</NER>";
-
-	// tokenize each String
-	ArrayList<Token> tokens1 = lib.tokenize(text1);
-	ArrayList<Token> tokens2 = lib.tokenize(text2);
-
-	System.out.println(lib.markNERtag(tokens1));
-	System.out.println(lib.markNERtag(tokens2));
-
-	assertEquals(assumedText1, lib.markNERtag(tokens1));
-	assertEquals(assumedText2, lib.markNERtag(tokens2));
-	change the comment to markNER to "returns the values of the inputted ArrayList of Tokens between <NER></NER> tags"
-	"returns a String value"
-	
-	*/
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	 * 
+	 * // Returns the value of a textBlock within a set of <NER></NER> tags
+	 * public String markNERtag(ArrayList<Token> tokens) { // create the output
+	 * String and set the initial value to <NER> String output = "<NER>";
+	 * 
+	 * // add each Token's lexeme value to the output String for (Token token :
+	 * tokens) { output += token.getLexeme(); }
+	 * 
+	 * // close the output String with a </NER> tag output += "</NER>";
+	 * 
+	 * return output; } then for testMarkNER: String text1 =
+	 * "Hello, my name is John Doe."; String assumedText1 =
+	 * "<NER>Hello, my name is John Doe.</NER>";
+	 * 
+	 * String text2 = "This paper was written by Pythagoras."; String
+	 * assumedText2 = "<NER>This paper was written by Pythagoras.</NER>";
+	 * 
+	 * // tokenize each String ArrayList<Token> tokens1 = lib.tokenize(text1);
+	 * ArrayList<Token> tokens2 = lib.tokenize(text2);
+	 * 
+	 * System.out.println(lib.markNERtag(tokens1));
+	 * System.out.println(lib.markNERtag(tokens2));
+	 * 
+	 * assertEquals(assumedText1, lib.markNERtag(tokens1));
+	 * assertEquals(assumedText2, lib.markNERtag(tokens2)); change the comment
+	 * to markNER to
+	 * "returns the values of the inputted ArrayList of Tokens between <NER></NER> tags"
+	 * "returns a String value"
+	 * 
+	 */
 
 	public ArrayList<String> markClassificationTag(String textBlock) {
 

@@ -172,10 +172,9 @@ public class TestLibrarian {
 			// String text3 = "Queen Elizabeth II authored this book.";
 			// String text4 = "written by Martin Luther King Jr.";
 			ArrayList<String> t1 = new ArrayList<String>();
-			//t1 = lib.markNERtag(text1);
+			// t1 = lib.markNERtag(text1);
 			ArrayList<String> t2 = new ArrayList<String>();
-			//t2 = lib.markNERtag(text2);
-			
+			// t2 = lib.markNERtag(text2);
 
 			assertEquals("<NER>", t1.get(0));
 			System.out.println("t1.get(0) = " + t1.get(0));
