@@ -410,6 +410,10 @@ public class Librarian {
 	public void trainOn(String paragraph) {
 
 	}
+	
+	
+	
+	/* below will be done with weka
 
 	// identify a name of a place correctly
 	public String nameOfPlace(String textBlock) {
@@ -433,6 +437,10 @@ public class Librarian {
 
 		return ret;
 	}
+	*/
+	
+	
+	
 
 	// mark personal names with <PER></PER>
 	public String markPERtag(String textBlock) {
