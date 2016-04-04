@@ -446,16 +446,17 @@ public class Librarian {
 		// if a legitimate personal name is found
 		// return it marked with <PER></PER>
 		// e.g. "<PER>John Doe</PER>"
-
+		
+		String ret = ""; // return value
+		
 		String start = "<PER>";
 		String end = "</PER>";
 
-		String ret = ""; // return value
+		
+		ret += start; //marking <PER>
+		
 
-		String pn = "no name yet"; // personal name extracted from textBlock
-
-		// get personal name from textBlock and store it in String pn
-
+		
 
 
 		return ret;
