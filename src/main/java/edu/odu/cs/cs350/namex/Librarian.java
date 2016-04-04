@@ -444,6 +444,13 @@ public class Librarian {
 
 	// mark personal names with <PER></PER>
 	public String markPersonalNames(String textBlock) {
+		
+		//input = "Name Extraction -- Requirements Definition\nSteven J Zeil\nJan 20, 2016" 
+		//should return
+			//Name Extraction -- Requirements Definition
+			//<PER>Steven J Zeil</PER>
+			//Jan 20, 2016
+		
 
 		// tokenize textBlock passed into this function
 		// if a legitimate personal name is found
