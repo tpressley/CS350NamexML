@@ -1,0 +1,57 @@
+<NER>A team of archeologists has found what may be the remains of a previously unknown 
+Viking settlement on a south west shore of the Island of Newfoundland. 
+If the remains can be confirmed, the site would make it just the second ever discovered 
+that has given proof of Vikings inhabiting parts of North America. 
+The team has been videotaping their work and a documentary of their efforts will be presented this month on PBS.
+
+Leading the research is archeologist and National Geographic fellow, <PER>Sarah Parcak</PER>, 
+who has been described as a "space archaeologist" because of her groundbreaking use of 
+satellite technology to uncover Egyptian ruins. In this latest effort, 
+she and her team have altered their methods to uncover what appears to be evidence of Viking iron smelting.
+
+To find hidden artifacts, especially those that have been buried by some amount of dirt, 
+using a satellite, the researchers used computer tools to help them scan images, 
+looking for human-like angles or long straight, unnatural lines. 
+In the case of the newly discovered Newfoundland site, called Point Rosee/Plc, 
+the team looked for changes in the richness of the grasses that grow near 
+the sea—those that grow over stone, or other material are less robust, 
+and can be made out from a distant satellite. 
+The team also used magnetometer surveys to help isolate images below the ground 
+once they were on site. That led to an initial excavation which revealed an iron-working hearth 
+(with 28 pounds of slag in it) and what appeared to be the remains of turf walls. 
+Radiocarbon testing has dated the site to between 800 and 1300 AD, 
+which would coincide with the time of the Vikings.
+
+Prior to this possible discovery, the only site ever officially designated as evidence of 
+Norse activity in the New World was L'Anse aux Meadows, hundreds of miles north, 
+on the tip of the same island. Archeologists do not have much to go on when attempting 
+to prove that a settlement was made by Norsemen, rather than Basque fisherman or 
+Native Americans—the one true hallmark of Norse travelers was the use of iron nails 
+to build their boats, thus the discovery of an iron-smelting oven would be strong evidence of Viking activity.
+
+If additional excavation and testing indicate that the site was indeed made by Vikings, 
+it will likely lead to changes being made to the history books—it would mean 
+they found and settled North America almost half a century before <PER>Christopher Columbus</PER> arrived. </NER>
+<NER>
+A bullet fired by <PER>Lawrence of Arabia</PER> during one of his most famous acts 
+of guerrilla warfare has been discovered in the Arabian desert by a team of archaeologists, 
+led by the University of Bristol, confirming the accuracy of <PER>Lawrence</PER>'s own account 
+of the attack in his war memoir Seven Pillars of Wisdom.
+
+The spent bullet was found at the site of the 1917 Hallat Ammar train ambush – immortalised 
+in a scene in <PER>David Lean</PER>'s Oscar-winning biopic Lawrence of Arabia – 
+during fieldwork by Bristol's Professor <PER>Nicholas Saunders</PER> and <PER>Dr Neil Faulkner</PER>, 
+and colleagues, as part of the Great Arab Revolt Project (GARP).  
+
+The project has excavated dozens of sites across the Arabian desert associated 
+with the 1916-1918 revolt by Arab forces against the Ottoman Turks, then allied to Germany.  
+<PER>T.E. Lawrence</PER> – later known as <PER>Lawrence of Arabia</PER> – served as 
+a liaison officer with the rebel forces, an experience he described in Seven Pillars of Wisdom.
+
+Professor <PER>Nicholas Saunders</PER> said: "The bullet we found came from a Colt automatic pistol, 
+the type of gun known to be carried by <PER>Lawrence</PER> and almost certainly 
+not used by any of the ambush's other participants."
+
+While several of <PER>Lawrence</PER>'s biographers have accused him of embellishing his stories, 
+nothing the archaeologists found at any of the sites they excavated supports this view.
+</NER>
