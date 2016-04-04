@@ -456,11 +456,13 @@ public class Librarian {
 		String end = "</PER>";
 
 		ret += start; // marking <PER>
+		
+		ret += end; //marking </PER>
 
 		return ret;
 	}
 
-	//
+	//return text surrounded with <NER></NER>
 	public String markNERtag(String textBlock) {
 
 		ArrayList<String> ret = new ArrayList<String>();
@@ -490,6 +492,9 @@ public class Librarian {
 		}
 
 		ret.add(end); // </NER>
+		
+		
+		retval = ret.toString();
 
 		return retval;
 		// returns block of text marked with <NER> </NER>
