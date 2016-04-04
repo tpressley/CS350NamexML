@@ -412,31 +412,35 @@ public class Librarian {
 	}
 
 	// identify a name of a place correctly
-	public ArrayList<String> nameOfPlace(String textBlock) {
+	public String nameOfPlace(String textBlock) {
 
-		// tokenize input parameter textBlock
+		
+		
+		// to return a String
+		// e.g. textBlock="This article came from George Washington University."
+		// returns "This article came from George Washington University/Plc."
+		
+		String ret = ""; //return value
+
+		String plc = "/Plc";
+		String str1 = ""; // this is an extracted name of place from textBlock
+		
+		ArrayList<Token> tokenized = new ArrayList<Token>();
+		tokenized = this.tokenize(textBlock);
+		// examine input String textBlock
 		// if a place name is found,
 		// get it and mark /Plc
-		// to return an ArrayList<String>
-		// e.g. textBlock="This article came from George Washington University"
-		// returns "George Washington University/Plc"
+		
+		
+		
+		ret += plc; //marking with "/Plc"
+		
 
-		String mark = "/Plc";
-		String place = ""; // this is an extracted name of place from textBlock
-		ArrayList<String> pl = null; // a name of a place identified from
-										// textBlock
-		pl.add(place);
-
-		ArrayList<String> ret = null; // return value
-		ret.add(place); // add name of place to return ArrayList<String>
-		ret.add(mark); // mark with "/Plc"
-
-		return ret; // return an ArrayList of names of places found within a
-					// block of text
+		return ret; 
 	}
 
 	// mark personal names with <PER></PER>
-	public ArrayList<String> markPERtag(String textBlock) {
+	public String markPERtag(String textBlock) {
 
 		// tokenize textBlock passed into this function
 		// if a legitimate personal name is found
@@ -446,23 +450,23 @@ public class Librarian {
 		String start = "<PER>";
 		String end = "</PER>";
 
-		ArrayList<String> ret = null; // return value
+		String ret = ""; // return value
 
 		String pn = "no name yet"; // personal name extracted from textBlock
 
 		// get personal name from textBlock and store it in String pn
 
-		ret.add(start); // <PER>
-		ret.add(pn); // personal name
-		ret.add(end); // </PER>
+
 
 		return ret;
 	}
 
 	//
-	public ArrayList<String> markNERtag(String textBlock) {
+	public String markNERtag(String textBlock) {
 
-		ArrayList<String> ret = new ArrayList<String>(); // return value
+		ArrayList<String> ret = new ArrayList<String>(); 
+		String retval  = ""; //return value
+				
 		// takes in a string textBlock and mark with tag <NER></NER>
 
 		// e.g. if textBlock = "This document was written in 1983"
@@ -490,10 +494,67 @@ public class Librarian {
 		
 		ret.add(end); //</NER>
 
-		return ret;
+		return retval;
 		// returns block of text marked with <NER> </NER>
 
 	}
+	
+	
+	
+	
+	/*
+	
+	 // Returns the value of a textBlock within a set of <NER></NER> tags
+	public String markNERtag(ArrayList<Token> tokens)
+	{
+	// create the output String and set the initial value to <NER>
+	String output = "<NER>";
+
+	// add each Token's lexeme value to the output String
+	for (Token token : tokens)
+	{
+	output += token.getLexeme();
+	}
+
+	// close the output String with a </NER> tag
+	output += "</NER>";
+
+	return output;
+	}
+	then for testMarkNER:
+	   String text1 = "Hello, my name is John Doe.";
+	String assumedText1 = "<NER>Hello, my name is John Doe.</NER>";
+
+	String text2 = "This paper was written by Pythagoras.";
+	String assumedText2 = "<NER>This paper was written by Pythagoras.</NER>";
+
+	// tokenize each String
+	ArrayList<Token> tokens1 = lib.tokenize(text1);
+	ArrayList<Token> tokens2 = lib.tokenize(text2);
+
+	System.out.println(lib.markNERtag(tokens1));
+	System.out.println(lib.markNERtag(tokens2));
+
+	assertEquals(assumedText1, lib.markNERtag(tokens1));
+	assertEquals(assumedText2, lib.markNERtag(tokens2));
+	change the comment to markNER to "returns the values of the inputted ArrayList of Tokens between <NER></NER> tags"
+	"returns a String value"
+	
+	*/
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	public ArrayList<String> markClassificationTag(String textBlock) {
 

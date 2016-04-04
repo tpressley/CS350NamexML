@@ -1,3 +1,7 @@
+.class
+.jar
+*.class
+*.jar
 /bin/
 lib/hamcrest.jar
 lib/junit.jar
