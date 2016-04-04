@@ -6,70 +6,58 @@ public class TextBlock {
 
 	private String textBlock;
 	private ArrayList<Token> tokens;
-	
-	public TextBlock()
-	{
+
+	public TextBlock() {
 		this.textBlock = "";
 		this.tokens = new ArrayList<Token>();
 	}
-	
-	public TextBlock(String textBlock)
-	{
+
+	public TextBlock(String textBlock) {
 		this.textBlock = textBlock;
 		this.tokens = new ArrayList<Token>();
 	}
-	
-	public String getTextBlock()
-	{
+
+	public String getTextBlock() {
 		return this.textBlock;
 	}
-	
-	public void setTextBlock(String textBlock)
-	{
+
+	public void setTextBlock(String textBlock) {
 		this.textBlock = textBlock;
 	}
-		
-	public ArrayList<Token> getTokens()
-	{
+
+	public ArrayList<Token> getTokens() {
 		return this.tokens;
 	}
-	
-	public void setTokens(ArrayList<Token> tokens)
-	{
+
+	public void setTokens(ArrayList<Token> tokens) {
 		this.tokens = tokens;
 	}
-	
-	public void addToken(Token token)
-	{
+
+	public void addToken(Token token) {
 		tokens.add(token);
 	}
-	
-	public void removeToken(Token token)
-	{
+
+	public void removeToken(Token token) {
 		tokens.remove(token);
 	}
-	
-	public void addToken(Token token, int index)
-	{
+
+	public void addToken(Token token, int index) {
 		tokens.add(index, token);
 	}
-	
-	public void removeToken(int index)
-	{
+
+	public void removeToken(int index) {
 		tokens.remove(index);
 	}
-	
-	public String toString()
-	{
+
+	public String toString() {
 		String output = "<NER>";
-		
-		for (Token token : this.tokens) 
-		{
+
+		for (Token token : this.tokens) {
 			output += token.getLexeme();
 		}
-		
+
 		output += "</NER>";
-		
+
 		return output;
 	}
 }

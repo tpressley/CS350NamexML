@@ -1,7 +1,7 @@
 package edu.odu.cs.cs350.namex;
 
 public class Token {
-	
+
 	private String lexeme;
 	private String lexical;
 	private String partOfSpeech;
@@ -19,8 +19,7 @@ public class Token {
 	private int killWord;
 	private int name;
 
-	public Token() 
-	{
+	public Token() {
 		this.lexeme = "";
 		this.lexical = "";
 		this.partOfSpeech = "";
@@ -38,8 +37,7 @@ public class Token {
 		this.killWord = 0;
 	}
 
-	public Token(String lexeme) 
-	{
+	public Token(String lexeme) {
 		this.lexeme = lexeme;
 		this.lexical = "";
 		this.partOfSpeech = "";
@@ -58,13 +56,11 @@ public class Token {
 	}
 
 	// lexeme
-	public String getLexeme() 
-	{
+	public String getLexeme() {
 		return this.lexeme;
 	}
 
-	public String toString() 
-	{
+	public String toString() {
 		return this.lexeme;
 
 	}
@@ -72,156 +68,130 @@ public class Token {
 	public void setLexeme(String lexeme) {
 		this.lexeme = lexeme;
 	}
-	
+
 	// lexical
 	public String getLexical() {
 		return this.lexical;
 	}
-	
+
 	public void setLexical(String lexical) {
 		this.lexical = lexical;
 	}
-	
+
 	// partOfSpeech
-	public String getPartOfSpeech()
-	{
+	public String getPartOfSpeech() {
 		return this.partOfSpeech;
 	}
-	
-	public void setPartOfSpeech(String partOfSpeech)
-	{
+
+	public void setPartOfSpeech(String partOfSpeech) {
 		this.partOfSpeech = partOfSpeech;
 	}
-	
+
 	// dictionaryWord
-	public int isDictionaryWord()
-	{
+	public int isDictionaryWord() {
 		return this.dictionaryWord;
 	}
-	
-	public void setDictionaryWord(int dictionaryWord)
-	{
+
+	public void setDictionaryWord(int dictionaryWord) {
 		this.dictionaryWord = dictionaryWord;
 	}
-	
+
 	// cityState
-	public int isCityState()
-	{
+	public int isCityState() {
 		return this.cityState;
 	}
-	
-	public void setCityState(int cityState)
-	{
+
+	public void setCityState(int cityState) {
 		this.cityState = cityState;
 	}
-	
+
 	// countryTerritory
-	public int isCountryTerritory()
-	{
+	public int isCountryTerritory() {
 		return this.countryTerritory;
 	}
-	
-	public void setCountryTerritory(int countryTerritory) 
-	{
+
+	public void setCountryTerritory(int countryTerritory) {
 		this.countryTerritory = countryTerritory;
 	}
-	
+
 	// place
-	public int isPlace()
-	{
+	public int isPlace() {
 		return this.place;
 	}
-	
-	public void setPlace(int place)
-	{
+
+	public void setPlace(int place) {
 		this.place = place;
 	}
-	
+
 	// DTICFirst
-	public int isDTICFirst()
-	{
+	public int isDTICFirst() {
 		return this.DTICFirst;
 	}
-	
-	public void setDTICFirst(int DTICFirst)
-	{
+
+	public void setDTICFirst(int DTICFirst) {
 		this.DTICFirst = DTICFirst;
 	}
-	
+
 	// DTICLast
-	public int isDTICLast()
-	{
+	public int isDTICLast() {
 		return this.DTICLast;
 	}
-	
-	public void setDTICLast(int DTICLast)
-	{
+
+	public void setDTICLast(int DTICLast) {
 		this.DTICLast = DTICLast;
 	}
-	
+
 	// commonFirst
-	public int isCommonFirst()
-	{
+	public int isCommonFirst() {
 		return this.commonFirst;
 	}
-	
-	public void setCommonFirst(int commonFirst)
-	{
+
+	public void setCommonFirst(int commonFirst) {
 		this.commonFirst = commonFirst;
 	}
-	
+
 	// commonLast
-	public int isCommonLast()
-	{
+	public int isCommonLast() {
 		return this.commonLast;
 	}
-	
-	public void setCommonLast(int commonLast)
-	{
+
+	public void setCommonLast(int commonLast) {
 		this.commonLast = commonLast;
 	}
-	
+
 	// honorific
-	public int isHonorific()
-	{
+	public int isHonorific() {
 		return this.honorific;
 	}
-	
-	public void setHonorific(int honorific)
-	{
+
+	public void setHonorific(int honorific) {
 		this.honorific = honorific;
 	}
-	
+
 	// prefix
-	public int isPrefix()
-	{
+	public int isPrefix() {
 		return this.prefix;
 	}
-	
-	public void setPrefix(int prefix)
-	{
+
+	public void setPrefix(int prefix) {
 		this.prefix = prefix;
 	}
-	
+
 	// suffix
-	public int isSuffix()
-	{
+	public int isSuffix() {
 		return this.suffix;
 	}
-	
-	public void setSuffix(int suffix)
-	{
+
+	public void setSuffix(int suffix) {
 		this.suffix = suffix;
 	}
-	
+
 	// killWord
-	public int isKillWord()
-	{
+	public int isKillWord() {
 		return this.killWord;
 	}
-	
-	public void setKillWord(int killWord)
-	{
+
+	public void setKillWord(int killWord) {
 		this.killWord = killWord;
 	}
 
@@ -235,9 +205,8 @@ public class Token {
 	}
 
 	// toString
-	public String getARFF()
-	{
-		
+	public String getARFF() {
+
 		String output = lexeme + ",";
 		output += lexical + ",";
 		output += partOfSpeech + ",";
@@ -254,16 +223,15 @@ public class Token {
 		output += suffix + ",";
 		output += killWord + ",";
 		output += name;
-		
+
 		return output;
-		
+
 	}
-	
+
 	// toString surrounded by quotes
 	// used for training
-	public String toStringQuotes()
-	{
-		
+	public String toStringQuotes() {
+
 		String output = "\"" + lexeme + ",";
 		output += lexical + ",";
 		output += partOfSpeech + ",";
@@ -280,8 +248,8 @@ public class Token {
 		output += suffix + ",";
 		output += killWord + ",";
 		output += name + ",\",";
-		
+
 		return output;
-		
+
 	}
 }

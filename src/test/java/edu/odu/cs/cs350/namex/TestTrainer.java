@@ -44,7 +44,8 @@ public class TestTrainer {
 		token.setLexical("capitalized");
 		token.setKillWord(0);
 
-		assertEquals("capitalized", trainer.tokenize(
+		assertEquals("capitalized",
+				trainer.tokenize(
 						"<NER>\"Oh, no,\" she\'s saying, \"our $400 blender can\'t handle something this hard!\"</NER>")
 						.get(1).getLexical());
 	}
@@ -109,11 +110,10 @@ public class TestTrainer {
 		Trainer t1 = new Trainer();
 		Trainer t2 = new Trainer();
 		Librarian lib;
-		
-		try 
-		{
+
+		try {
 			lib = new Librarian();
-			
+
 			String s = "We were crossing the George Washington Bridge.";
 			String ss = "It was an honor to be accepted to George Mason University.";
 			String sss = "Dr.Carson wrote this book.";
@@ -123,9 +123,7 @@ public class TestTrainer {
 			assertTrue(t2.trainLM(ss));
 			assertTrue(t1.trainLM(sss) && lib.markPERtag(sss).equals("<PER>Dr.Carson</PER>"));
 			assert (t1.trainLM(ss) == t2.trainLM(ss));
-		} 
-		catch (FileNotFoundException e) 
-		{
+		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

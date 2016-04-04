@@ -22,47 +22,47 @@ import edu.odu.cs.cs350.namex.Librarian;
 public class TestLibrarian {
 
 	// User Story #844 - Gerard Silverio
-	// As a Librarian/application developer, I want a program that will 
+	// As a Librarian/application developer, I want a program that will
 	// accept standard input from command line interface
 	// User Story #845
-	// As a Librarian/application developer, I want a program that will 
+	// As a Librarian/application developer, I want a program that will
 	// send output to standard command line interface
 	@Test
-    public void testMain() throws FileNotFoundException 
-	{
-        Librarian.main(new String[] {"<NER>Hello, There are snakes on this plane! I don't know what to do!</NER><NER>Hello World line 2</NER><NER>Goodbye world!</NER>"});
-        //Librarian.main(new String[] {"inputBlocks.txt", "markedUpOutput.txt"});
-    }
-	
+	public void testMain() throws FileNotFoundException {
+		Librarian.main(new String[] {
+				"<NER>Hello, There are snakes on this plane! I don't know what to do!</NER><NER>Hello World line 2</NER><NER>Goodbye world!</NER>" });
+		// Librarian.main(new String[] {"inputBlocks.txt",
+		// "markedUpOutput.txt"});
+	}
+
 	// User Story #861 - Gerard Silverio
-	// As a Librarian/application developer I want to use Command line to 
+	// As a Librarian/application developer I want to use Command line to
 	// process each block of text separately via the personal name extractor
 	@Test
-	public void testSeparateNER() throws FileNotFoundException
-	{
+	public void testSeparateNER() throws FileNotFoundException {
 		Librarian librarian = new Librarian();
-		
+
 		String input = "<NER>Hello, There are snakes on this plane! I don't know what to do!</NER><NER>This should be another text block!</NER>";
-		String[] assumedTextBlocks = { "<NER>Hello, There are snakes on this plane! I don't know what to do!</NER>", "<NER>This should be another text block!</NER>" };
-		
+		String[] assumedTextBlocks = { "<NER>Hello, There are snakes on this plane! I don't know what to do!</NER>",
+				"<NER>This should be another text block!</NER>" };
+
 		ArrayList<TextBlock> textBlocks = librarian.separateNER(input);
-		
-		for (TextBlock textBlock : textBlocks)
-		{
+
+		for (TextBlock textBlock : textBlocks) {
 			textBlock.setTokens(librarian.tokenize(textBlock.getTextBlock()));
 		}
-		
+
 		// Prints the size of the List of textBlocks
-		//System.out.println(textBlocks.size());
-		
+		// System.out.println(textBlocks.size());
+
 		// Test output of separateNER method
-		for (int i = 0; i < textBlocks.size(); i++)
-		{
+		for (int i = 0; i < textBlocks.size(); i++) {
 			assertEquals(textBlocks.get(i).toString(), assumedTextBlocks[i]);
-			
+
 			boolean matches = ((textBlocks.get(i).toString()).equals(assumedTextBlocks[i]));
-			System.out.println(i + ": " + matches + " [" + textBlocks.get(i).toString() + " - " + assumedTextBlocks[i] + "]");
-			//System.out.println(textBlocks.get(i));
+			System.out.println(
+					i + ": " + matches + " [" + textBlocks.get(i).toString() + " - " + assumedTextBlocks[i] + "]");
+			// System.out.println(textBlocks.get(i));
 		}
 	}
 
@@ -109,8 +109,7 @@ public class TestLibrarian {
 		name2.add("Madison");
 
 		Librarian lib;
-		try 
-		{
+		try {
 			lib = new Librarian();
 			assertEquals("George Washington Bridge/Plc", lib.nameOfPlace(place1.toString()));
 			assertEquals("Washington State/Plc", lib.nameOfPlace(place2.toString()));
@@ -119,14 +118,10 @@ public class TestLibrarian {
 
 			assertEquals(name1, lib.nameOfPlace(name1.toString()));
 			assertEquals(name2, lib.nameOfPlace(name2.toString()));
-		} 
-		catch (FileNotFoundException e) 
-		{
+		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-
 
 	}
 
@@ -136,10 +131,9 @@ public class TestLibrarian {
 	public void testMarkPERtag() {
 
 		Librarian lib;
-		try 
-		{
+		try {
 			lib = new Librarian();
-			
+
 			String text1 = "Hello, my name is John Doe.";
 			String text2 = "This paper was written by Pythagoras.";
 			String text3 = "Queen Elizabeth II authored this book.";
@@ -155,9 +149,7 @@ public class TestLibrarian {
 
 			String text6 = ""; // empty string
 			assertEquals("", lib.markPERtag(text6));
-		} 
-		catch (FileNotFoundException e) 
-		{
+		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -167,10 +159,9 @@ public class TestLibrarian {
 	public void testMarkNERtag() {
 
 		Librarian lib;
-		try 
-		{
+		try {
 			lib = new Librarian();
-			
+
 			String text1 = "Hello, my name is John Doe.";
 			String text2 = "This paper was written by Pythagoras.";
 			String text3 = "Queen Elizabeth II authored this book.";
@@ -186,9 +177,7 @@ public class TestLibrarian {
 
 			String text6 = "<NER>The sky is blue today.</NER>"; // empty string
 			assertEquals(text6, lib.markNERtag(text6));
-		} 
-		catch (FileNotFoundException e) 
-		{
+		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -197,17 +186,14 @@ public class TestLibrarian {
 	public void testMarkClassificationTag() {
 
 		Librarian lib;
-		try 
-		{
+		try {
 			lib = new Librarian();
-			
+
 			String text1 = "This small paper was written by Pythagoras.";
 
 			assertEquals("This <ADJ>small</ADJ> paper was <VERB>written</VERB> by <NOUN>Pythagoras</NOUN>.",
 					lib.markClassificationTag(text1));
-		} 
-		catch (FileNotFoundException e) 
-		{
+		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

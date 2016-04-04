@@ -40,7 +40,7 @@ public class Trainer {
 		while (tokenizer.hasMoreTokens()) {
 			currentWord.setLexeme(tokenizer.nextToken().toString());
 			if (currentWord.getLexeme().trim().length() > 0)
-			currentWord.setLexeme(tokenizer.nextToken().toString());
+				currentWord.setLexeme(tokenizer.nextToken().toString());
 			if (currentWord.toString().trim().length() > 0)
 				trainingSentence.add(currentWord);
 		}
