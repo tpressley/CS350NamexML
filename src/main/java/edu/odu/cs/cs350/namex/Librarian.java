@@ -458,11 +458,28 @@ public class Librarian {
 
 
 		String ret = ""; // return value
+		
+		ArrayList<Token> t1 = new ArrayList<Token>();
+		t1 = tokenize(textBlock);
+		for(int i=0; i<t1.size(); i++)
+		{
+			if(t1.get(i).isDTICFirst()==1 || t1.get(i).isDTICLast()==1 || t1.get(i).isHonorific()==1 || t1.get(i).isCommonFirst()==1
+					|| t1.get(i).isCommonLast()==1 )
+			{
+				
+			}
+			
+			ret += t1.get(i).toString();
+		}
+		
 
 		String start = "<PER>";
 		String end = "</PER>";
+		
 
 		ret += start; // marking <PER>
+		
+		//personal name goes here
 		
 		ret += end; //marking </PER>
 
