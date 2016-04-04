@@ -50,7 +50,7 @@ public class TextBlock {
 	}
 
 	public String toString() {
-		
+
 		String output = "";
 
 		for (Token token : this.tokens) {
