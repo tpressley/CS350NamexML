@@ -1,0 +1,53 @@
+﻿<NER>
+It's not everyday that you get to discover something new. 
+But when you do it is a rather strange and quite brilliant feeling. 
+You don't really cry out 'Eureka' 
+(there's usually about a million things going about it your head pointing out how it could be wrong).</NER>
+<NER>When you finally conquer the 'wrong' demon and satisfy yourself that you have something new, 
+well then you usually sit back in your chair and smile to yourself. 
+Maybe at a push grab a cup of coffee and a celebratory chocolate bar 
+from the vending machine. That's pretty much how I felt when I worked out the latest 
+crystal structure I've just published, of the 'bath scum' of Titan.</NER>
+
+<NER>The great thing about this column space is that I can use it to tell you all 
+the back-story behind a paper, how it came about and why I think it's really exciting.
+
+Titan, the largest moon of Saturn, is in many ways pretty similar to Earth. 
+It's the only moon in the solar system with a substantial atmosphere, 
+much thicker than our own. If you don't mind the cold and lack of oxygen, 
+moving about the surface there will feel a bit like walking under water. 
+It's pretty nice when you consider that the atmosphere most other planets 
+and moons will barely shield you from the vacuum of space.
+
+The other similarity with our own home is that Titan has liquid on the surface, 
+vast lakes and seas. It's the only other place we know where you can watch 
+the sun set into a sea (albeit very very slowly). But, where our seas are 
+composed of water, the seas and lakes of Titan are filled with methane and ethane, 
+which are liquid at the frigid temperatures on the surface (around -180°C). 
+And in fact, the Cassini spacecraft and the team of scientists behind it, 
+have gone further than just the discovery of standing liquid - 
+they have shown that Titan has a kind of hydrological cycle.
+</NER>
+<NER>
+MIT researchers have developed a compact, portable pharmaceutical manufacturing system 
+that can be reconfigured to produce a variety of drugs on demand.
+Just as an emergency generator supplies electricity to handle a power outage, 
+this system could be rapidly deployed to produce drugs needed to handle 
+an unexpected disease outbreak, or to prevent a drug shortage caused 
+by a manufacturing plant shutdown, the researchers say.
+
+"Think of this as the emergency backup for pharmaceutical manufacturing," says 
+<PER>Allan Myerson</PER>, an MIT professor of the practice in the Department of Chemical Engineering. 
+"The purpose is not to replace traditional manufacturing; it's to provide an alternative for these special situations."
+
+Such a system could also be used to produce small quantities of drugs needed for clinical trials 
+or to treat rare diseases, says <PER>Klavs Jensen</PER>, the Warren K. Lewis Professor of Chemical Engineering at MIT.
+
+"The goal of this project was to build a small-scale, portable unit that was completely integrated, 
+so you could imagine being able to ship it anywhere. And as long as you had the right chemicals, 
+you could make pharmaceuticals," <PER>Jensen</PER> says.
+
+<PER>Jensen</PER>, <PER>Myerson</PER>, and <PER>Timothy Jamison</PER>, the head of MIT's Department of Chemistry, 
+are the senior authors of a paper describing the new system in the March 31 online 
+edition of Science. The lead author is MIT research associate <PER>Andrea Adamo</PER>.
+</NER>
