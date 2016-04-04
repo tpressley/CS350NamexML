@@ -1,3 +1,28 @@
+<NER>
+From the transforming discovery of penicillin to the theories of relativity and quantum mechanics, 
+science progressed with mind-boggling speed even before there were computers. 
+Much of this is down to the robustness of the scientific method: 
+scientific results are validated by being replicated and extended by other scientists.
+But the way we do science is changing – we now rely increasingly on complex computer models 
+to understand nature. And it turns out that these models can be nearly impossible to 
+reproduce – meaning an important touchstone of science is being challenged. 
+So what are the real-world repercussions of this change and what can we do about it?</NER>
+<NER>
+Pre-modern science – known as "natural philosophy" – was empirical. 
+Empirical science uses past observations to make predictions about the future, 
+which may then be tested. <PER>Tycho Brahe</PER>, a 16th-century Danish astronomer, 
+managed to make accurate and comprehensive observations of the heavens in this way.
+Modern science, however, is theoretical. Theoretical science also makes predictions, 
+but it derives them from mathematical models rather than from prior observations. 
+Think of <PER>Isaac Newton</PER>'s laws of motion, such as the inverse square law of gravitation.
+For example, there is an equation describing the orbit of the Earth around the sun. 
+This equation can be used to build a computer model into which you can just plug 
+certain variables and see how the solution changes. 
+You could just plug in a future date and read off the position of the Earth at that date. 
+You could also use the same program to model other planetary systems – 
+it's all based on the same mathematics. 
+All you have to do is plug in different masses and various other properties of the bodies involved.
+</NER>
 <NER>! -- r 1 - (N- 1) + $2 N- 1)</NER>
 <NER><PER>Mrs. Beth Dunn</PER></NER>
 <NER><PER>Judson Daniels IV</PER></NER>
