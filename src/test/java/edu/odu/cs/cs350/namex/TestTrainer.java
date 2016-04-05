@@ -47,7 +47,7 @@ public class TestTrainer {
 		assertEquals("capitalized",
 				trainer.tokenize(
 						"<NER>\"Oh, no,\" she\'s saying, \"our $400 blender can\'t handle something this hard!\"</NER>")
-				.get(1).getLexical());
+						.get(1).getLexical());
 	}
 
 	/**

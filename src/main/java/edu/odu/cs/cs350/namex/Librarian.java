@@ -410,83 +410,72 @@ public class Librarian {
 	public void trainOn(String paragraph) {
 
 	}
-	
-	
-	
-	/* below will be done with weka
 
-	// identify a name of a place correctly
-	public String nameOfPlace(String textBlock) {
-
-		// to return a String
-		// e.g. textBlock="This article came from George Washington University."
-		// returns "This article came from George Washington University/Plc."
-
-		String ret = ""; // return value
-
-		String plc = "/Plc";
-		String str1 = ""; // this is an extracted name of place from textBlock
-
-		ArrayList<Token> tokenized = new ArrayList<Token>();
-		tokenized = this.tokenize(textBlock);
-		// examine input String textBlock
-		// if a place name is found,
-		// get it and mark /Plc
-
-		ret += plc; // marking with "/Plc"
-
-		return ret;
-	}
-	*/
-	
-	
-	
+	/*
+	 * below will be done with weka
+	 * 
+	 * // identify a name of a place correctly public String nameOfPlace(String
+	 * textBlock) {
+	 * 
+	 * // to return a String // e.g. textBlock=
+	 * "This article came from George Washington University." // returns
+	 * "This article came from George Washington University/Plc."
+	 * 
+	 * String ret = ""; // return value
+	 * 
+	 * String plc = "/Plc"; String str1 = ""; // this is an extracted name of
+	 * place from textBlock
+	 * 
+	 * ArrayList<Token> tokenized = new ArrayList<Token>(); tokenized =
+	 * this.tokenize(textBlock); // examine input String textBlock // if a place
+	 * name is found, // get it and mark /Plc
+	 * 
+	 * ret += plc; // marking with "/Plc"
+	 * 
+	 * return ret; }
+	 */
 
 	// mark personal names with <PER></PER>
 	public String markPersonalNames(String textBlock) {
-		
-		//input = "Name Extraction -- Requirements Definition\nSteven J Zeil\nJan 20, 2016" 
-		//should return
-			//Name Extraction -- Requirements Definition
-			//<PER>Steven J Zeil</PER>
-			//Jan 20, 2016
-		
+
+		// input = "Name Extraction -- Requirements Definition\nSteven J
+		// Zeil\nJan 20, 2016"
+		// should return
+		// Name Extraction -- Requirements Definition
+		// <PER>Steven J Zeil</PER>
+		// Jan 20, 2016
 
 		// tokenize textBlock passed into this function
 		// if a legitimate personal name is found
-		// return original text with the personal name(s) marked with <PER></PER>
-
+		// return original text with the personal name(s) marked with
+		// <PER></PER>
 
 		String ret = ""; // return value
-		
+
 		ArrayList<Token> t1 = new ArrayList<Token>();
 		t1 = tokenize(textBlock);
-		for(int i=0; i<t1.size(); i++)
-		{
-			if(t1.get(i).isDTICFirst()==1 || t1.get(i).isDTICLast()==1 || t1.get(i).isHonorific()==1 || t1.get(i).isCommonFirst()==1
-					|| t1.get(i).isCommonLast()==1 )
-			{
-				
+		for (int i = 0; i < t1.size(); i++) {
+			if (t1.get(i).isDTICFirst() == 1 || t1.get(i).isDTICLast() == 1 || t1.get(i).isHonorific() == 1
+					|| t1.get(i).isCommonFirst() == 1 || t1.get(i).isCommonLast() == 1) {
+
 			}
-			
+
 			ret += t1.get(i).toString();
 		}
-		
 
 		String start = "<PER>";
 		String end = "</PER>";
-		
 
 		ret += start; // marking <PER>
-		
-		//personal name goes here
-		
-		ret += end; //marking </PER>
+
+		// personal name goes here
+
+		ret += end; // marking </PER>
 
 		return ret;
 	}
 
-	//return text surrounded with <NER></NER>
+	// return text surrounded with <NER></NER>
 	public String markNERtag(String textBlock) {
 
 		ArrayList<String> ret = new ArrayList<String>();
@@ -516,8 +505,7 @@ public class Librarian {
 		}
 
 		ret.add(end); // </NER>
-		
-		
+
 		retval = ret.toString();
 
 		return retval;

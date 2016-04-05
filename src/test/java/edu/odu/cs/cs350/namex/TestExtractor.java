@@ -100,7 +100,7 @@ public class TestExtractor {
 
 			assertEquals(outputs.get(i), extractor.extractPersonalNames(scan.nextLine()));
 		}
-		
+
 		scan.close();
 
 	}

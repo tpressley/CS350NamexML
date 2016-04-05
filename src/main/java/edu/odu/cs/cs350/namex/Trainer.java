@@ -184,7 +184,7 @@ public class Trainer {
 		ObjectOutputStream oos = new ObjectOutputStream(
 				new FileOutputStream("/saved/learningMachine/LearningMachine.model"));
 		weka.core.SerializationHelper.write("/saved/learningMachine/LearningMachine.model", cls);
-		
+
 		oos.close();
 		return false;
 
