@@ -27,11 +27,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-import weka.core.Instances;
-import weka.classifiers.Classifier;
-import weka.classifiers.trees.J48;
-import weka.core.Attribute;
-
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
