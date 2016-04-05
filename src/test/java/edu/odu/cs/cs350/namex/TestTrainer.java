@@ -43,11 +43,11 @@ public class TestTrainer {
 		token.setPartOfSpeech("other");
 		token.setLexical("capitalized");
 		token.setKillWord(0);
-
-		assertEquals("capitalized",
-				trainer.tokenize(
-						"<NER>\"Oh, no,\" she\'s saying, \"our $400 blender can\'t handle something this hard!\"</NER>")
-						.get(1).getLexical());
+		ArrayList<Token> tokenList = trainer.tokenize(
+				"<NER>\"Oh, no,\" she\'s saying, \"our $400 blender can\'t handle something this hard!\"</NER>");
+		assertEquals("capitalized", tokenList.get(1).getLexical());
+		assertFalse("verb" == tokenList.get(1).getPartOfSpeech());
+		assertTrue(trainer.getTokenCount(tokenList.get(0), tokenList) < 1);
 	}
 
 	/**
