@@ -34,6 +34,8 @@ public class Trainer {
 	 * @param inputText
 	 */
 
+	public Classifier Getclassifier() {return classifier;}
+	
 	public ArrayList<Token> tokenize(String trainingMaterial) {
 		ArrayList<Token> trainingSentence = new ArrayList<Token>();
 
@@ -160,15 +162,15 @@ public class Trainer {
 	 * @throws FileNotFoundException
 	 * @throws ClassNotFoundException
 	 */
-	public Classifier LoadClassifier() throws FileNotFoundException, IOException, ClassNotFoundException {
+	public void LoadClassifier() throws FileNotFoundException, IOException, ClassNotFoundException {
 		
 		// deserialize model
 		ObjectInputStream ois = new ObjectInputStream(
 				new FileInputStream("/saved/learningMachine/LearningMachine.model"));
-		Classifier cls = (Classifier) ois.readObject();
+		classifier = (Classifier) ois.readObject();
 		ois.close();
 		
-		return cls;
+		
 	}
 
 	/**
@@ -187,5 +189,7 @@ public class Trainer {
 		
 
 	}
+	
+	
 
 }
