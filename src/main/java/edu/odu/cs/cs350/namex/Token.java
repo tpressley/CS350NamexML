@@ -17,7 +17,7 @@ public class Token {
 	private int prefix;
 	private int suffix;
 	private int killWord;
-	private int name;
+	private String name;
 
 	public Token() {
 		this.lexeme = "";
@@ -196,11 +196,11 @@ public class Token {
 	}
 
 	// name
-	public int getName() {
+	public String getName() {
 		return name;
 	}
 
-	public void setName(int name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
