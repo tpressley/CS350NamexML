@@ -1,5 +1,5 @@
 <project name="PersonalNameExtractor" default="dist" basedir=".">
-
+	
 	
 	<description>
     Build file for the PersonalNameExtractor project in CS350
@@ -16,6 +16,7 @@
   <path id="classpath">
   	<fileset dir="lib">
     <include name="**/*.jar"/>
+  		<!--<include name="**/*.jar"/> -->
     </fileset>
   </path>
 	<path id="test.compilation.path">
@@ -36,25 +37,15 @@
     <!-- Create the build directory structure used by compile -->
     <mkdir dir="${build}"/>
   	<mkdir dir="${lib}"/>
-  	<!--<get src="http://archive350.cs.odu.edu:8080/artifactory/jcenter-cache/junit/junit/4.11/junit-4.11.jar" dest="${lib}/junit.jar"/>
+  	<get src="http://archive350.cs.odu.edu:8080/artifactory/jcenter-cache/junit/junit/4.11/junit-4.11.jar" dest="${lib}/junit.jar"/>
   	<get src="http://archive350.cs.odu.edu:8080/artifactory/jcenter-cache/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar" dest="${lib}/hamcrest.jar"/>
-  	<get src="http://archive350.cs.odu.edu:8080/artifactory/jcenter-cache/nz/ac/waikato/cms/weka/weka-stable/3.6.13/weka-stable-3.6.13.jar" dest="${lib}/weka.jar"/>-->
+  	<get src="http://archive350.cs.odu.edu:8080/artifactory/jcenter-cache/nz/ac/waikato/cms/weka/weka-stable/3.6.13/weka-stable-3.6.13.jar" dest="${lib}/weka.jar"/>
   </target>
 	
-
-  <target name="compile" depends="resolve-ivy"
-        description="compile the source">
-	<mkdir dir="${build}"/>
-    <!-- Compile the java code from ${src} into ${build} -->
-    <javac srcdir="${src.main}" destdir="${build}" verbose ="true">
-    		<classpath path="${lib}">
-    	  		  		<path refid="main.compilation.path" />
-    	  				<fileset dir="${lib}">
-    	  			<include name="**/*.jar" />
-    			</fileset>
-    	  	</classpath>
-    	</javac>
-  </target>
+	<target name="compile" description="Compile all non-test source code.">
+		<mkdir dir="target/classes"/>
+		<javac srcdir="src/main/java" destdir="target/classes" source="1.7" optimize="on" debug="on" includeantruntime="false"></javac>
+	</target>
 
   <target name="dist" depends="compile"
         description="generate the distribution">
@@ -65,20 +56,78 @@
     <jar jarfile="${dist}/lib/PersonalNameExtractor-${DSTAMP}.jar" basedir="${build}"/>
   </target>
 	
-  <target name="test" depends="compile"
-  		description="run the junit tests">
-  	<junit fork="yes">
-  		<classpath path="${lib}">
-  		           	<path refid="test.compilation.path" />
-  					<fileset dir="${lib}">
-  			            <include name="**/junit.jar" />
-  			        </fileset>
-  		</classpath>
-  		<formatter type = "xml" usefile = "false"/>
-  		<formatter type = "xml" />
-  		<test name = "UnitTesting" todir = "."/>
-  	  </junit>
-  </target>
+	
+	<path id="test.compilation.path">
+		<pathelement path="target/classes"/>
+		<fileset dir="${lib}" includes="**/*.jar"/>
+	</path>	
+		
+	<path id="test.execution.path">
+		<pathelement path="target/test-classes"/>
+		<path refid="test.compilation.path"/>
+	</path>
+		
+
+	
+	<!-- OLD COMPILE TARGET -->
+	<!--
+	  <target name="compile" depends="resolve-ivy"
+	        description="compile the source">
+		<mkdir dir="${build}"/> 
+		-->
+	    <!-- Compile the java code from ${src} into ${build} -->
+	<!--
+	    <javac srcdir="${src.main}" destdir="${build}" verbose ="true">
+	    		<classpath path="${lib}">
+	    	  		  		<path refid="main.compilation.path" />
+	    	  				<fileset dir="${lib}">
+	    	  			<include name="**/*.jar" />
+	    			</fileset>
+	    	  	</classpath>
+	    	</javac>
+	  </target>
+	  -->
+	
+	
+
+	<target name="compile-tests" depends="compile" description="Compile JUnit tests">
+		<mkdir dir="target/test-classes"/>
+		<javac srcdir="src/test/java" destdir="target/test-classes" source="1.7" optimize="on" debug="on" includeantruntime="false">
+			<classpath refid="test.compilation.path"/>
+		</javac>
+	</target>
+		
+	<target name="test" depends="compile-tests" description="Run all unit tests, producing a summary report in target/test-results.">
+		<mkdir dir="target/test-results"/>
+		<junit haltonfailure="no" fork="yes">
+			<classpath refid="test.execution.path"/>
+			<formatter type="plain" usefile="false"/>
+			<!--  output to screen  -->
+			<formatter type="xml"/>
+			<!--  output to files in target/test-results  -->
+			<batchtest todir="target/test-results">
+			<fileset dir="target/test-classes">
+				<include name="**/*Test*.class"/>
+				<exclude name="**/*$*.class"/>
+			</fileset>
+			</batchtest>
+		</junit>
+	</target>
+	
+	<target name="package" depends="test" description="Construct a jar file with the compiled code and a zip file with the project source code.">
+	<jar destfile="target/${artifactId}.jar" basedir="target/classes">
+	<!--
+	 Uncomment if you have a main class to execute by default.
+	      <manifest>
+	        <attribute name="Main-Class"
+	                   value="edu.odu.cs.code2html.Code2HTML"/>
+	      </manifest>
+	      
+	-->
+	</jar>
+	</target>
+	
+	<target name="build" depends="package" description="Construct a jar and source files and assorted reports."></target>
 	
     <!-- Generate javadocs for current project into ${doc.dir} -->
     <target name = "generate-javadoc" description="generate documentation">
