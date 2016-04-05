@@ -26,16 +26,6 @@ public class TestTrainer {
 	 */
 	@Test
 	public void testTokenize() {
-		/*
-		 * ArrayList<String> tokenizedOutput = new ArrayList(); Scanner scanner
-		 * = new Scanner(new BufferedReader(new StringReader(
-		 * "<NER>\"Oh, no,\" she\'s saying, \"our $400 blender can\'t handle something this hard!\"</NER>"
-		 * )));
-		 * 
-		 * scanner.useDelimiter("\\s|(?=\\p{Punct})"); while (scanner.hasNext())
-		 * { tokenizedOutput.add(scanner.next()); }
-		 */
-
 		Trainer trainer = new Trainer();
 		Token token = new Token();
 
@@ -61,7 +51,7 @@ public class TestTrainer {
 				"<NER>\"Oh, no,\" she\'s saying, \"a $400 blender can\'t handle something this hard!\"</NER>");
 		trainer.parse(tokenizedText);
 		assertEquals(tokenizedText.get(11).getPartOfSpeech(), "article");
-		assertEquals(tokenizedText.get(0).getLexical(), "punct");
+		assertFalse(tokenizedText.get(0).getLexical() == "article");
 	}
 
 	/**
@@ -75,6 +65,7 @@ public class TestTrainer {
 				"<NER>\"Oh, no,\" she\'s saying, \"our $400 blender can\'t handle something this hard!\"</NER>");
 
 		assertEquals(3, trainer.getTokenCount(tokenizedText.get(2), tokenizedText));
+		assertFalse(trainer.getTokenCount(tokenizedText.get(2), tokenizedText) < 1);
 	}
 
 	/**
