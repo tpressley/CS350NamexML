@@ -41,7 +41,7 @@ public class TestLibrarian {
 	@Test
 	public void testSeparateNER() throws FileNotFoundException {
 		Librarian librarian = new Librarian();
-
+		Trainer trainer = new Trainer();
 		String input = "<NER>Hello, There are snakes on this plane! I don't know what to do!</NER><NER>This should be another text block!</NER>";
 		String[] assumedTextBlocks = { "<NER>Hello, There are snakes on this plane! I don't know what to do!</NER>",
 				"<NER>This should be another text block!</NER>" };
@@ -55,11 +55,11 @@ public class TestLibrarian {
 		ArrayList<TextBlock> textBlocks2 = librarian.separateNER(input2);
 
 		for (TextBlock textBlock : textBlocks) {
-			textBlock.setTokens(librarian.tokenize(textBlock.getTextBlock()));
+			textBlock.setTokens(trainer.tokenize(textBlock.getTextBlock()));
 		}
 
 		for (TextBlock textBlock : textBlocks2) {
-			textBlock.setTokens(librarian.tokenize(textBlock.getTextBlock()));
+			textBlock.setTokens(trainer.tokenize(textBlock.getTextBlock()));
 		}
 
 		// Prints the size of the List of textBlocks

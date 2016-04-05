@@ -48,23 +48,65 @@ public class Trainer {
 
 	public Classifier Getclassifier() {return classifier;}
 	
-	public ArrayList<Token> tokenize(String trainingMaterial) {
-		ArrayList<Token> trainingSentence = new ArrayList<Token>();
+	public ArrayList<Token> tokenize(String textBlock) {
+		// split the string
+		String[] tks = textBlock.split("(?=[\" ,.!?\n()-:;@#$%^&*{}<>])|(?<=[\" ,.!?\n()-:;@#$%^&*{}<>])");
 
-		StringTokenizer tokenizer = new StringTokenizer(trainingMaterial, " \t\n\r\f,.:;?![]'", true);
-		Token currentWord = new Token();
-		// run through sentence, if sentence is not whitespace, add to arraylist
-		while (tokenizer.hasMoreTokens()) {
-			currentWord.setLexeme(tokenizer.nextToken().toString());
-			if (currentWord.getLexeme().trim().length() > 0)
-				currentWord.setLexeme(tokenizer.nextToken().toString());
-			if (currentWord.toString().trim().length() > 0)
-				trainingSentence.add(currentWord);
+		ArrayList<Token> tokens = new ArrayList<Token>();
+		Librarian librarian = null;
+		try
+		{
+			librarian = new Librarian();
 		}
-		// @return split training sentence.
-		return trainingSentence;
+		catch(Exception e)
+		{
+			System.err.println("Exception" + e.toString() + " " + e.getMessage());
+		}
+		for (int i = 0; i < tks.length; i++) {
+			// store the lexeme in a new Token object
+			Token token = new Token(tks[i]);
+			// set the lexicalFeature for the Token
+			token.setLexical(librarian.getLexicalFeature(token.getLexeme()));
+			if (!token.getLexical().equals("whiteSpace")) {
+				// set partOfSpeech
+				token.setPartOfSpeech(librarian.getPartOfSpeech(tks[i]));
+				if (token.getLexical().equals("other")) {
+					// set dictionaryWord
+					token.setDictionaryWord(librarian.isDictionaryWord(token.getLexeme()));
+				}
+				// only classify remaining Gazetteer if the current Token is a
+				// capitalized word
+				if (token.getLexical().equals("capitalized")) {
+					// set cityState
+					token.setCityState(librarian.isCityState(token.getLexeme()));
+					// set countryTerritory
+					token.setCountryTerritory(librarian.isCountryTerritory(token.getLexeme()));
+					// set place
+					token.setPlace(librarian.isPlace(token.getLexeme()));
+					// set DTICFirst
+					token.setDTICFirst(librarian.isDTICFirstName(token.getLexeme()));
+					// set DTICLast
+					token.setDTICLast(librarian.isDTICLastName(token.getLexeme()));
+					// set commonFirst
+					token.setCommonFirst(librarian.isCommonFirstName(token.getLexeme()));
+					// set commonLast
+					token.setCommonLast(librarian.isCommonLastName(token.getLexeme()));
+					// set honorific
+					token.setHonorific(librarian.isHonorific(token.getLexeme()));
+					// set prefix
+					token.setPrefix(librarian.isLastNamePrefix(token.getLexeme()));
+					// set suffix
+					token.setSuffix(librarian.isLastNameSuffix(token.getLexeme()));
+					// set killWord
+					token.setKillWord(librarian.isKillWord(token.getLexeme()));
+				}
+			}
+			// add the Token to the ArrayList of Tokens
+			tokens.add(token);
+		}
 
-	};
+		return tokens;
+	}
 
 	public ArrayList<Token> tokenize(String trainingMaterial, boolean verbose) {
 		ArrayList<Token> trainingSentence = new ArrayList<Token>();

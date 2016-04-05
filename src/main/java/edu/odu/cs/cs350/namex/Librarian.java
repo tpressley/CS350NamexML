@@ -33,7 +33,7 @@ public class Librarian {
 		// if CLI contains one argument that is a textBlock
 		if (args.length == 1) {
 			String input = args[0];
-
+			Trainer trainer = new Trainer();
 			Librarian librarian;
 			try {
 				librarian = new Librarian();
@@ -43,7 +43,7 @@ public class Librarian {
 
 				// tokenize each textBlock
 				for (TextBlock textBlock : textBlocks) {
-					textBlock.setTokens(librarian.tokenize(textBlock.getTextBlock()));
+					textBlock.setTokens(trainer.tokenize(textBlock.getTextBlock()));
 
 					System.out.println(textBlock.toString()); // test
 
@@ -145,75 +145,6 @@ public class Librarian {
 		}
 
 		return textBlocks;
-	}
-
-	// tokenizes the input textBlock and stores the value in Token objects then
-	// classifies each Token attribute
-	public ArrayList<Token> tokenize(String textBlock) {
-		// split the string
-		String[] tks = textBlock.split("(?=[\" ,.!?\n()-:;@#$%^&*{}<>])|(?<=[\" ,.!?\n()-:;@#$%^&*{}<>])");
-
-		ArrayList<Token> tokens = new ArrayList<Token>();
-
-		for (int i = 0; i < tks.length; i++) {
-			// store the lexeme in a new Token object
-			Token token = new Token(tks[i]);
-
-			// set the lexicalFeature for the Token
-			token.setLexical(getLexicalFeature(token.getLexeme()));
-
-			if (!token.getLexical().equals("whiteSpace")) {
-				// set partOfSpeech
-				token.setPartOfSpeech(getPartOfSpeech(tks[i]));
-
-				if (token.getLexical().equals("other")) {
-					// set dictionaryWord
-					token.setDictionaryWord(isDictionaryWord(token.getLexeme()));
-				}
-
-				// only classify remaining Gazetteer if the current Token is a
-				// capitalized word
-				if (token.getLexical().equals("capitalized")) {
-					// set cityState
-					token.setCityState(isCityState(token.getLexeme()));
-
-					// set countryTerritory
-					token.setCountryTerritory(isCountryTerritory(token.getLexeme()));
-
-					// set place
-					token.setPlace(isPlace(token.getLexeme()));
-
-					// set DTICFirst
-					token.setDTICFirst(isDTICFirstName(token.getLexeme()));
-
-					// set DTICLast
-					token.setDTICLast(isDTICLastName(token.getLexeme()));
-
-					// set commonFirst
-					token.setCommonFirst(isCommonFirstName(token.getLexeme()));
-
-					// set commonLast
-					token.setCommonLast(isCommonLastName(token.getLexeme()));
-
-					// set honorific
-					token.setHonorific(isHonorific(token.getLexeme()));
-
-					// set prefix
-					token.setPrefix(isLastNamePrefix(token.getLexeme()));
-
-					// set suffix
-					token.setSuffix(isLastNameSuffix(token.getLexeme()));
-
-					// set killWord
-					token.setKillWord(isKillWord(token.getLexeme()));
-				}
-			}
-
-			// add the Token to the ArrayList of Tokens
-			tokens.add(token);
-		}
-
-		return tokens;
 	}
 
 	// returns the Lexical attribute for a given token
@@ -437,7 +368,7 @@ public class Librarian {
 
 	// mark personal names with <PER></PER>
 	public String markPersonalNames(String textBlock) {
-
+		Trainer trainer = new Trainer();
 		// input = "Name Extraction -- Requirements Definition\nSteven J
 		// Zeil\nJan 20, 2016"
 		// should return
@@ -453,7 +384,7 @@ public class Librarian {
 		String ret = ""; // return value
 
 		ArrayList<Token> t1 = new ArrayList<Token>();
-		t1 = tokenize(textBlock);
+		t1 = trainer.tokenize(textBlock);
 		for (int i = 0; i < t1.size(); i++) {
 			if (t1.get(i).isDTICFirst() == 1 || t1.get(i).isDTICLast() == 1 || t1.get(i).isHonorific() == 1
 					|| t1.get(i).isCommonFirst() == 1 || t1.get(i).isCommonLast() == 1) {
@@ -477,7 +408,7 @@ public class Librarian {
 
 	// return text surrounded with <NER></NER>
 	public String markNERtag(String textBlock) {
-
+		Trainer trainer = new Trainer();
 		ArrayList<String> ret = new ArrayList<String>();
 		String retval = ""; // return value
 
@@ -495,7 +426,7 @@ public class Librarian {
 		String end = "</NER>";
 
 		// tokenize textBlock string
-		ArrayList<Token> tb1 = this.tokenize(textBlock);
+		ArrayList<Token> tb1 = trainer.tokenize(textBlock);
 
 		ret.add(start); // <NER>
 
