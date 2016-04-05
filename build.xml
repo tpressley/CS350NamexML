@@ -17,7 +17,7 @@
 	
 	<path id="classpath">
 		<fileset dir="lib">
-		<include name="**/*.jar"/>
+			<include name="**/*.jar"/>
 		</fileset>
 	</path>
 	
@@ -33,6 +33,16 @@
 		<pathelement path="target/classes"/>
 		<path refid="ivy.classpath"/>
 	</path>
+	
+	<path id="test.compilation.path">
+		<pathelement path="target/classes"/>
+		<fileset dir="${lib}" includes="**/*.jar"/>
+	</path>	
+		
+	<path id="test.execution.path">
+		<pathelement path="target/test-classes"/>
+		<path refid="test.compilation.path"/>
+	</path>	
 
     <!--
     ===========
@@ -62,33 +72,6 @@
 		<mkdir dir="target/classes"/>
 		<javac srcdir="src/main/java" destdir="target/classes" source="1.7" optimize="on" debug="on" includeantruntime="false"></javac>
 	</target>
-
-    <!--
-    ===========
-    DIST TARGET
-    ===========
-    -->
-	<target name="dist" depends="compile"
-        description="generate the distribution">
-    	<!-- Create the distribution directory -->
-    	<mkdir dir="${dist}/lib"/>
-		
-    	<!-- Put everything in ${build} into the PersonalNameExtractor-${DSTAMP}.jar file -->
-    	<!--
-		<jar jarfile="${dist}/lib/PersonalNameExtractor-${DSTAMP}.jar" basedir="${build}"/>
-		-->
-		<jar jarfile="${dist}/lib/PNE.jar" basedir="${build}"/>
-	</target>
-	
-	<path id="test.compilation.path">
-		<pathelement path="target/classes"/>
-		<fileset dir="${lib}" includes="**/*.jar"/>
-	</path>	
-		
-	<path id="test.execution.path">
-		<pathelement path="target/test-classes"/>
-		<path refid="test.compilation.path"/>
-	</path>	
 
     <!--
     ====================
@@ -130,15 +113,15 @@
     ==============
     -->
 	<target name="package" depends="test" description="Construct a jar file with the compiled code and a zip file with the project source code.">
-	<jar destfile="target/PNE.jar" basedir="target/classes">
-	<!--
-	 Uncomment if you have a main class to execute by default.
-	      <manifest>
-	        <attribute name="Main-Class"
-	                   value="edu.odu.cs.code2html.Code2HTML"/>
-	      </manifest>    
-	-->
-	</jar>
+		<jar destfile="target/PNE.jar" basedir="target/classes">
+		<!--
+		 Uncomment if you have a main class to execute by default.
+		      <manifest>
+		        <attribute name="Main-Class"
+		                   value="edu.odu.cs.code2html.Code2HTML"/>
+		      </manifest>    
+		-->
+		</jar>
 	</target>
 	
     <!--
@@ -175,7 +158,7 @@
     CLEAN TARGET
     ============
     -->
-	<target name="clean" depends="resolve-ivy" description="clean up">
+	<target name="clean" description="clean up">
 		<!-- Delete the ${build} and ${dist} directory trees -->
 		<delete dir="${build}"/>
 		<delete dir="${dist}"/>  
