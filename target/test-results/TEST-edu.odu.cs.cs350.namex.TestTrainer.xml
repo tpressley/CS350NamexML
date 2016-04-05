@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="6" hostname="TristanPC" name="edu.odu.cs.cs350.namex.TestTrainer" skipped="0" tests="6" time="1.166" timestamp="2016-04-05T03:22:14">
+<testsuite errors="0" failures="6" hostname="TristanPC" name="edu.odu.cs.cs350.namex.TestTrainer" skipped="0" tests="6" time="1.361" timestamp="2016-04-05T03:42:18">
   <properties>
     <property name="java.vendor" value="Oracle Corporation" />
     <property name="sun.java.launcher" value="SUN_STANDARD" />
@@ -55,11 +55,11 @@
     <property name="java.vendor.url" value="http://java.oracle.com/" />
     <property name="java.vm.vendor" value="Oracle Corporation" />
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestTrainer skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Tristan\git\Green3\target\test-results\TEST-edu.odu.cs.cs350.namex.TestTrainer.xml crashfile=C:\Users\Tristan\git\Green3\junitvmwatcher915296051065508902.properties propsfile=C:\Users\Tristan\git\Green3\junit5607916828557337820.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestTrainer skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Tristan\git\Green3\target\test-results\TEST-edu.odu.cs.cs350.namex.TestTrainer.xml crashfile=C:\Users\Tristan\git\Green3\junitvmwatcher9063972145716743325.properties propsfile=C:\Users\Tristan\git\Green3\junit1532243135605096410.properties" />
     <property name="java.class.path" value="C:\Users\Tristan\git\Green3\target\test-classes;C:\Users\Tristan\git\Green3\target\classes;C:\Users\Tristan\git\Green3\lib\hamcrest-core.jar;C:\Users\Tristan\git\Green3\lib\hamcrest.jar;C:\Users\Tristan\git\Green3\lib\java-cup.jar;C:\Users\Tristan\git\Green3\lib\junit.jar;C:\Users\Tristan\git\Green3\lib\weka-stable.jar;C:\Users\Tristan\git\Green3\lib\weka.jar;C:\Users\Tristan\Documents\eclipse\plugins\org.apache.ant_1.9.4.v201504302020\lib\ant-launcher.jar;C:\Users\Tristan\Documents\eclipse\plugins\org.apache.ant_1.9.4.v201504302020\lib\ant.jar;C:\Users\Tristan\Documents\eclipse\plugins\org.apache.ant_1.9.4.v201504302020\lib\ant-junit.jar;C:\Users\Tristan\Documents\eclipse\plugins\org.apache.ant_1.9.4.v201504302020\lib\ant-junit4.jar" />
     <property name="ant.version" value="Apache Ant(TM) version 1.9.4 compiled on April 29 2014" />
     <property name="ivy.jar.available" value="true" />
-    <property name="TSTAMP" value="2322" />
+    <property name="TSTAMP" value="2342" />
     <property name="ivy.install.version" value="2.3.0" />
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
     <property name="java.vm.specification.version" value="1.8" />
@@ -83,17 +83,17 @@
     <property name="java.specification.version" value="1.8" />
     <property name="ant.project.invoked-targets" value="init,compile,test" />
   </properties>
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testGetTrainingData" time="0.006">
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testGetTrainingData" time="0.069">
     <failure type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError
 	at edu.odu.cs.cs350.namex.TestTrainer.testGetTrainingData(TestTrainer.java:86)
 </failure>
   </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTrainLM" time="0.353">
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTrainLM" time="0.472">
     <failure type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError
 	at edu.odu.cs.cs350.namex.TestTrainer.testTrainLM(TestTrainer.java:112)
 </failure>
   </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTrainer" time="0.0">
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTrainer" time="0.001">
     <failure type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError
 	at edu.odu.cs.cs350.namex.TestTrainer.testTrainer(TestTrainer.java:77)
 </failure>
@@ -103,12 +103,12 @@
 	at edu.odu.cs.cs350.namex.TestTrainer.testParse(TestTrainer.java:53)
 </failure>
   </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTokenize" time="0.262">
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTokenize" time="0.27">
     <failure message="expected:&lt;[capitalized]&gt; but was:&lt;[allCaps]&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;[capitalized]&gt; but was:&lt;[allCaps]&gt;
 	at edu.odu.cs.cs350.namex.TestTrainer.testTokenize(TestTrainer.java:38)
 </failure>
   </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testGetTokenCount" time="0.237">
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testGetTokenCount" time="0.24">
     <failure message="expected:&lt;3&gt; but was:&lt;1&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;3&gt; but was:&lt;1&gt;
 	at edu.odu.cs.cs350.namex.TestTrainer.testGetTokenCount(TestTrainer.java:67)
 </failure>

@@ -112,7 +112,8 @@ public class TestTrainer {
 			assertTrue(t1.trainLM(s));
 			assertTrue(t2.trainLM(s));
 			assertTrue(t2.trainLM(ss));
-			//assertTrue(t1.trainLM(sss) && lib.markPersonalNames(sss).equals("<PER>Dr.Carson</PER>"));
+			// assertTrue(t1.trainLM(sss) &&
+			// lib.markPersonalNames(sss).equals("<PER>Dr.Carson</PER>"));
 			assert (t1.trainLM(ss) == t2.trainLM(ss));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

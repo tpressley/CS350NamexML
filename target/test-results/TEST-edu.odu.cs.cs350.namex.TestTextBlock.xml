@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="2" hostname="TristanPC" name="edu.odu.cs.cs350.namex.TestLibrarian" skipped="0" tests="4" time="2.857" timestamp="2016-04-05T03:42:14">
+<testsuite errors="0" failures="0" hostname="TristanPC" name="edu.odu.cs.cs350.namex.TestTextBlock" skipped="0" tests="7" time="0.078" timestamp="2016-04-05T03:42:18">
   <properties>
     <property name="java.vendor" value="Oracle Corporation" />
     <property name="sun.java.launcher" value="SUN_STANDARD" />
@@ -55,7 +55,7 @@
     <property name="java.vendor.url" value="http://java.oracle.com/" />
     <property name="java.vm.vendor" value="Oracle Corporation" />
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestLibrarian skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Tristan\git\Green3\target\test-results\TEST-edu.odu.cs.cs350.namex.TestLibrarian.xml crashfile=C:\Users\Tristan\git\Green3\junitvmwatcher779499725976041105.properties propsfile=C:\Users\Tristan\git\Green3\junit7270940292893827342.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestTextBlock skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Tristan\git\Green3\target\test-results\TEST-edu.odu.cs.cs350.namex.TestTextBlock.xml crashfile=C:\Users\Tristan\git\Green3\junitvmwatcher576307058066172208.properties propsfile=C:\Users\Tristan\git\Green3\junit3470837261717653020.properties" />
     <property name="java.class.path" value="C:\Users\Tristan\git\Green3\target\test-classes;C:\Users\Tristan\git\Green3\target\classes;C:\Users\Tristan\git\Green3\lib\hamcrest-core.jar;C:\Users\Tristan\git\Green3\lib\hamcrest.jar;C:\Users\Tristan\git\Green3\lib\java-cup.jar;C:\Users\Tristan\git\Green3\lib\junit.jar;C:\Users\Tristan\git\Green3\lib\weka-stable.jar;C:\Users\Tristan\git\Green3\lib\weka.jar;C:\Users\Tristan\Documents\eclipse\plugins\org.apache.ant_1.9.4.v201504302020\lib\ant-launcher.jar;C:\Users\Tristan\Documents\eclipse\plugins\org.apache.ant_1.9.4.v201504302020\lib\ant.jar;C:\Users\Tristan\Documents\eclipse\plugins\org.apache.ant_1.9.4.v201504302020\lib\ant-junit.jar;C:\Users\Tristan\Documents\eclipse\plugins\org.apache.ant_1.9.4.v201504302020\lib\ant-junit4.jar" />
     <property name="ant.version" value="Apache Ant(TM) version 1.9.4 compiled on April 29 2014" />
     <property name="ivy.jar.available" value="true" />
@@ -83,43 +83,13 @@
     <property name="java.specification.version" value="1.8" />
     <property name="ant.project.invoked-targets" value="init,compile,test" />
   </properties>
-  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testSeparateNER" time="1.621">
-    <failure message="expected:&lt;[Hello, There are snakes on this plane! I don&apos;t know what to do!]&gt; but was:&lt;[&lt;NER&gt;Hello, There are snakes on this plane! I don&apos;t know what to do!&lt;/NER&gt;]&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;[Hello, There are snakes on this plane! I don&apos;t know what to do!]&gt; but was:&lt;[&lt;NER&gt;Hello, There are snakes on this plane! I don&apos;t know what to do!&lt;/NER&gt;]&gt;
-	at edu.odu.cs.cs350.namex.TestLibrarian.testSeparateNER(TestLibrarian.java:70)
-</failure>
-  </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testPackage" time="0.0" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testMain" time="0.919" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testMarkClassificationTag" time="0.273">
-    <failure message="expected:&lt;This &lt;ADJ&gt;small&lt;/ADJ&gt; paper was &lt;VERB&gt;written&lt;/VERB&gt; by &lt;NOUN&gt;Pythagoras&lt;/NOUN&gt;.&gt; but was:&lt;null&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;This &lt;ADJ&gt;small&lt;/ADJ&gt; paper was &lt;VERB&gt;written&lt;/VERB&gt; by &lt;NOUN&gt;Pythagoras&lt;/NOUN&gt;.&gt; but was:&lt;null&gt;
-	at edu.odu.cs.cs350.namex.TestLibrarian.testMarkClassificationTag(TestLibrarian.java:216)
-</failure>
-  </testcase>
-  <system-out><![CDATA[Hello, There are snakes on this plane! I don't know what to do!
-Hello,capitalized,other,0,0,0,0,0,0,0,0,0,0,0,0,null
-,,punct,comma,0,0,0,0,0,0,0,0,0,0,0,0,null
-There,capitalized,other,0,0,0,0,0,0,0,0,0,0,0,0,null
-are,other,other,1,0,0,0,0,0,0,0,0,0,0,0,null
-snakes,other,other,1,0,0,0,0,0,0,0,0,0,0,0,null
-on,other,other,1,0,0,0,0,0,0,0,0,0,0,0,null
-this,other,other,1,0,0,0,0,0,0,0,0,0,0,0,null
-plane,other,other,1,0,0,0,0,0,0,0,0,0,0,0,null
-!,punct,other,0,0,0,0,0,0,0,0,0,0,0,0,null
-I,capLetter,other,0,0,0,0,0,0,0,0,0,0,0,0,null
-don't,other,other,1,0,0,0,0,0,0,0,0,0,0,0,null
-know,other,other,1,0,0,0,0,0,0,0,0,0,0,0,null
-what,other,other,1,0,0,0,0,0,0,0,0,0,0,0,null
-to,other,other,1,0,0,0,0,0,0,0,0,0,0,0,null
-do,other,other,1,0,0,0,0,0,0,0,0,0,0,0,null
-!,punct,other,0,0,0,0,0,0,0,0,0,0,0,0,null
-Hello World line 2
-Hello,capitalized,other,0,0,0,0,0,0,0,0,0,0,0,0,null
-World,capitalized,other,0,0,0,0,0,0,0,1,0,0,0,0,null
-line,other,other,1,0,0,0,0,0,0,0,0,0,0,0,null
-Goodbye world!
-Goodbye,capitalized,other,0,0,0,0,0,0,0,0,0,0,0,0,null
-world,other,other,1,0,0,0,0,0,0,0,0,0,0,0,null
-!,punct,other,0,0,0,0,0,0,0,0,0,0,0,0,null
-]]></system-out>
+  <testcase classname="edu.odu.cs.cs350.namex.TestTextBlock" name="testToString" time="0.02" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestTextBlock" name="testRemoveToken" time="0.0" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestTextBlock" name="testAddToken" time="0.0" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestTextBlock" name="testTextBlock" time="0.0" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestTextBlock" name="testSetTokens" time="0.0" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestTextBlock" name="testGetTokens" time="0.0" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestTextBlock" name="testGetSetTextBlock" time="0.0" />
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
