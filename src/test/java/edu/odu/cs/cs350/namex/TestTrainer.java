@@ -125,8 +125,8 @@ public class TestTrainer {
 		Trainer t1 = new Trainer();
 		Trainer t2 = new Trainer();
 		t2.prepareData("<NER>\"Oh, no,\" she\'s saying, \"a $400 blender can\'t handle something this hard!\"</NER>");
-		t2.SaveLM("saved/testTrainer");
-		t1.LoadLM("saved/testTrainer");
+		t2.SaveClassifier();
+		t1.LoadClassifier();
 		assertEquals(t1, t2);
 
 	}

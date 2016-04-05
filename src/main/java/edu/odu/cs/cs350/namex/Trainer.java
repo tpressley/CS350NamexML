@@ -160,7 +160,7 @@ public class Trainer {
 	 * @throws FileNotFoundException
 	 * @throws ClassNotFoundException
 	 */
-	public Classifier LoadLM() throws FileNotFoundException, IOException, ClassNotFoundException {
+	public Classifier LoadClassifier() throws FileNotFoundException, IOException, ClassNotFoundException {
 		
 		// deserialize model
 		ObjectInputStream ois = new ObjectInputStream(
@@ -177,7 +177,7 @@ public class Trainer {
 	 *            Saves a trained learning machine to a file
 	 * @throws Exception
 	 */
-	public void SaveLM() throws Exception {
+	public void SaveClassifier() throws Exception {
 		
 		
 		// serialize model
