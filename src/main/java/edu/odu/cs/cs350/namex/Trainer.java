@@ -20,6 +20,9 @@ import java.util.StringTokenizer;
 
 public class Trainer {
 
+	
+	private Classifier classifier;
+
 	/**
 	 * Takes the initial trainingMaterial and converts it into a tokenized form
 	 * and outputs the tokenized text split by space and punctuation E.G. Input
@@ -157,13 +160,15 @@ public class Trainer {
 	 * @throws FileNotFoundException
 	 * @throws ClassNotFoundException
 	 */
-	public boolean LoadLM(String fileLoc) throws FileNotFoundException, IOException, ClassNotFoundException {
+	public Classifier LoadLM() throws FileNotFoundException, IOException, ClassNotFoundException {
+		
 		// deserialize model
 		ObjectInputStream ois = new ObjectInputStream(
 				new FileInputStream("/saved/learningMachine/LearningMachine.model"));
 		Classifier cls = (Classifier) ois.readObject();
 		ois.close();
-		return false;
+		
+		return cls;
 	}
 
 	/**
@@ -172,21 +177,14 @@ public class Trainer {
 	 *            Saves a trained learning machine to a file
 	 * @throws Exception
 	 */
-	public boolean SaveLM(String fileLoc) throws Exception {
-		Classifier cls = new J48();
-
-		// train
-		Instances inst = new Instances(new BufferedReader(new FileReader("/saved/arff/trainingMaterials.arff")));
-		inst.setClassIndex(inst.numAttributes() - 1);
-		cls.buildClassifier(inst);
-
+	public void SaveLM() throws Exception {
+		
+		
 		// serialize model
 		ObjectOutputStream oos = new ObjectOutputStream(
 				new FileOutputStream("/saved/learningMachine/LearningMachine.model"));
-		weka.core.SerializationHelper.write("/saved/learningMachine/LearningMachine.model", cls);
-
-		oos.close();
-		return false;
+		weka.core.SerializationHelper.write("/saved/learningMachine/LearningMachine.model", classifier);
+		
 
 	}
 
