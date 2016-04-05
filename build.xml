@@ -1,61 +1,84 @@
-<project name="PersonalNameExtractor" default="dist" basedir=".">
+<project name="PNE" default="build" basedir=".">
 	
+	<description>Personal Name Extractor</description>
 	
-	<description>
-    Build file for the PersonalNameExtractor project in CS350
-  </description>
-  <!-- set global properties for this build -->
-  <property name="src.main" location="src/main/java/edu/odu/cs/cs350/namex"/>
-  <property name="src.test" location="src/test/java/edu/odu/cs/cs350/namex"/>
-	  <property name="build" location="target/classes"/>
-	  <property name="dist" location="target"/>
-	  <property name="lib" location="lib"/>
-	
-  	<import file="ivy.build.xml"/>
-	
-  <path id="classpath">
-  	<fileset dir="lib">
-    <include name="**/*.jar"/>
-  		<!--<include name="**/*.jar"/> -->
-    </fileset>
-  </path>
-	<path id="test.compilation.path">
-	  	<pathelement path="${src.main}"/>
-	  	<pathelement path="${src.test}"/>
-	   <pathelement path="target/classes"/>
-	   <path refid="ivy.classpath"/>
-	</path>
-	<path id="main.compilation.path">
-		  	<pathelement path="${src.main}"/>
-		   <pathelement path="target/classes"/>
-		   <path refid="ivy.classpath"/>
-		</path>
+    <!--
+    ================
+    BUILD PROPERTIES
+    ================
+    -->
+  	<property name="src.main" location="src/main/java/edu/odu/cs/cs350/namex"/>
+  	<property name="src.test" location="src/test/java/edu/odu/cs/cs350/namex"/>
+  	<property name="build" location="target/classes"/>
+  	<property name="dist" location="target"/>
+  	<property name="lib" location="lib"/>
 
-  <target name="init">
-    <!-- Create the time stamp -->
-    <tstamp/>
-    <!-- Create the build directory structure used by compile -->
-    <mkdir dir="${build}"/>
-  	<mkdir dir="${lib}"/>
-  	<get src="http://archive350.cs.odu.edu:8080/artifactory/jcenter-cache/junit/junit/4.11/junit-4.11.jar" dest="${lib}/junit.jar"/>
-  	<get src="http://archive350.cs.odu.edu:8080/artifactory/jcenter-cache/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar" dest="${lib}/hamcrest.jar"/>
-  	<get src="http://archive350.cs.odu.edu:8080/artifactory/jcenter-cache/nz/ac/waikato/cms/weka/weka-stable/3.6.13/weka-stable-3.6.13.jar" dest="${lib}/weka.jar"/>
-  </target>
+	<import file="ivy.build.xml"/>
 	
-	<target name="compile" description="Compile all non-test source code.">
+	<path id="classpath">
+		<fileset dir="lib">
+		<include name="**/*.jar"/>
+		</fileset>
+	</path>
+	
+	<path id="test.compilation.path">
+		<pathelement path="${src.main}"/>
+	  	<pathelement path="${src.test}"/>
+		<pathelement path="target/classes"/>
+		<path refid="ivy.classpath"/>
+	</path>
+	
+	<path id="main.compilation.path">
+		<pathelement path="${src.main}"/>
+		<pathelement path="target/classes"/>
+		<path refid="ivy.classpath"/>
+	</path>
+
+    <!--
+    ===========
+    INIT TARGET
+    ===========
+    -->
+	<target name="init" depends="resolve-ivy">
+		<!-- Create the time stamp -->
+		<tstamp/>
+		
+		<!-- Create the build directory structure used by compile -->
+		<mkdir dir="target/classes"/>
+		<mkdir dir="${lib}"/>
+		
+		<!-- Download and store .jar files in /lib -->
+		<get src="http://archive350.cs.odu.edu:8080/artifactory/jcenter-cache/junit/junit/4.11/junit-4.11.jar" dest="${lib}/junit.jar"/>
+		<get src="http://archive350.cs.odu.edu:8080/artifactory/jcenter-cache/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar" dest="${lib}/hamcrest.jar"/>
+		<get src="http://archive350.cs.odu.edu:8080/artifactory/jcenter-cache/nz/ac/waikato/cms/weka/weka-stable/3.6.13/weka-stable-3.6.13.jar" dest="${lib}/weka.jar"/>
+	</target>
+	
+    <!--
+    ==============
+    COMPILE TARGET
+    ==============
+    -->
+	<target name="compile" depends="init" description="Compile all non-test source code.">
 		<mkdir dir="target/classes"/>
 		<javac srcdir="src/main/java" destdir="target/classes" source="1.7" optimize="on" debug="on" includeantruntime="false"></javac>
 	</target>
 
-  <target name="dist" depends="compile"
+    <!--
+    ===========
+    DIST TARGET
+    ===========
+    -->
+	<target name="dist" depends="compile"
         description="generate the distribution">
-    <!-- Create the distribution directory -->
-    <mkdir dir="${dist}/lib"/>
-
-    <!-- Put everything in ${build} into the PersonalNameExtractor-${DSTAMP}.jar file -->
-    <jar jarfile="${dist}/lib/PersonalNameExtractor-${DSTAMP}.jar" basedir="${build}"/>
-  </target>
-	
+    	<!-- Create the distribution directory -->
+    	<mkdir dir="${dist}/lib"/>
+		
+    	<!-- Put everything in ${build} into the PersonalNameExtractor-${DSTAMP}.jar file -->
+    	<!--
+		<jar jarfile="${dist}/lib/PersonalNameExtractor-${DSTAMP}.jar" basedir="${build}"/>
+		-->
+		<jar jarfile="${dist}/lib/PNE.jar" basedir="${build}"/>
+	</target>
 	
 	<path id="test.compilation.path">
 		<pathelement path="target/classes"/>
@@ -65,38 +88,25 @@
 	<path id="test.execution.path">
 		<pathelement path="target/test-classes"/>
 		<path refid="test.compilation.path"/>
-	</path>
-		
+	</path>	
 
-	
-	<!-- OLD COMPILE TARGET -->
-	<!--
-	  <target name="compile" depends="resolve-ivy"
-	        description="compile the source">
-		<mkdir dir="${build}"/> 
-		-->
-	    <!-- Compile the java code from ${src} into ${build} -->
-	<!--
-	    <javac srcdir="${src.main}" destdir="${build}" verbose ="true">
-	    		<classpath path="${lib}">
-	    	  		  		<path refid="main.compilation.path" />
-	    	  				<fileset dir="${lib}">
-	    	  			<include name="**/*.jar" />
-	    			</fileset>
-	    	  	</classpath>
-	    	</javac>
-	  </target>
-	  -->
-	
-	
-
+    <!--
+    ====================
+    COMPILE-TESTS TARGET
+    ====================
+    -->
 	<target name="compile-tests" depends="compile" description="Compile JUnit tests">
 		<mkdir dir="target/test-classes"/>
 		<javac srcdir="src/test/java" destdir="target/test-classes" source="1.7" optimize="on" debug="on" includeantruntime="false">
 			<classpath refid="test.compilation.path"/>
 		</javac>
 	</target>
-		
+	
+    <!--
+    ===========
+    TEST TARGET
+    ===========
+    -->
 	<target name="test" depends="compile-tests" description="Run all unit tests, producing a summary report in target/test-results.">
 		<mkdir dir="target/test-results"/>
 		<junit haltonfailure="no" fork="yes">
@@ -114,41 +124,61 @@
 		</junit>
 	</target>
 	
+    <!--
+    ==============
+    PACKAGE TARGET
+    ==============
+    -->
 	<target name="package" depends="test" description="Construct a jar file with the compiled code and a zip file with the project source code.">
-	<jar destfile="target/${artifactId}.jar" basedir="target/classes">
+	<jar destfile="target/PNE.jar" basedir="target/classes">
 	<!--
 	 Uncomment if you have a main class to execute by default.
 	      <manifest>
 	        <attribute name="Main-Class"
 	                   value="edu.odu.cs.code2html.Code2HTML"/>
-	      </manifest>
-	      
+	      </manifest>    
 	-->
 	</jar>
 	</target>
 	
+    <!--
+    ============
+    BUILD TARGET
+    ============
+    -->
 	<target name="build" depends="package" description="Construct a jar and source files and assorted reports."></target>
 	
+	
+    <!--
+    =================
+    GENERATE JAVADOCS
+    =================
+    -->
     <!-- Generate javadocs for current project into ${doc.dir} -->
     <target name = "generate-javadoc" description="generate documentation">
-       <javadoc packagenames="personalNameExtractor" sourcepath="${src.main}" 
-          destdir = "${dist}/doc"
-        version = "true" windowtitle = "Personal Name Extractor">
+    	
+		<javadoc packagenames="personalNameExtractor" sourcepath="${src.main}" 
+			destdir = "${dist}/doc" version = "true" 
+			windowtitle = "Personal Name Extractor">
+       	
         <fileset dir = "${src.main}">
-          <include name = "**/*.java"/>
-          
-        </fileset>  
-          <doctitle><![CDATA[= Personal Name Extractor =]]></doctitle>
+			<include name = "**/*.java"/>
+		</fileset>  
+			
+		<doctitle><![CDATA[= Personal Name Extractor =]]></doctitle>
       
        </javadoc>
     </target>
 	
-  <target name="clean"
-        description="clean up">
-
-    <!-- Delete the ${build} and ${dist} directory trees -->
-    <delete dir="${build}"/>
-    <delete dir="${dist}"/>  </target>
+    <!--
+    ============
+    CLEAN TARGET
+    ============
+    -->
+	<target name="clean" depends="resolve-ivy" description="clean up">
+		<!-- Delete the ${build} and ${dist} directory trees -->
+		<delete dir="${build}"/>
+		<delete dir="${dist}"/>  
+	</target>
 	
-
 </project>
