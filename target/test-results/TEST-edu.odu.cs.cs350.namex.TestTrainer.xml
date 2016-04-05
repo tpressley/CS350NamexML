@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="3" failures="3" hostname="joehl-laptop" name="edu.odu.cs.cs350.namex.TestTrainer" skipped="0" tests="6" time="1.222" timestamp="2016-04-05T02:13:48">
+  <properties>
+    <property name="java.vendor" value="Oracle Corporation" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+    <property name="dist" value="/home/joel/git/Green3/target" />
+    <property name="lib" value="/home/joel/git/Green3/lib" />
+    <property name="os.name" value="Linux" />
+    <property name="sun.boot.class.path" value="/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rhino.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/classes" />
+    <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+    <property name="ant.home" value="/home/joel/.p2/pool/plugins/org.apache.ant_1.9.4.v201504302020" />
+    <property name="java.runtime.version" value="1.7.0_95-b00" />
+    <property name="user.name" value="joel" />
+    <property name="user.language" value="en" />
+    <property name="build" value="/home/joel/git/Green3/target/classes" />
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64" />
+    <property name="ivy.jar.dir" value="/home/joel/git/Green3/ivy" />
+    <property name="ant.project.default-target" value="dist" />
+    <property name="ant.project.name" value="PersonalNameExtractor" />
+    <property name="java.version" value="1.7.0_95" />
+    <property name="user.timezone" value="" />
+    <property name="ant.file.PersonalNameExtractor" value="/home/joel/git/Green3/build.xml" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/endorsed" />
+    <property name="src.main" value="/home/joel/git/Green3/src/main/java/edu/odu/cs/cs350/namex" />
+    <property name="sun.cpu.isalist" value="" />
+    <property name="sun.jnu.encoding" value="UTF-8" />
+    <property name="file.encoding.pkg" value="sun.io" />
+    <property name="file.separator" value="/" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="java.class.version" value="51.0" />
+    <property name="user.country" value="US" />
+    <property name="java.home" value="/usr/lib/jvm/java-7-openjdk-amd64/jre" />
+    <property name="java.vm.info" value="mixed mode" />
+    <property name="ant.file" value="/home/joel/git/Green3/build.xml" />
+    <property name="os.version" value="3.19.0-42-generic" />
+    <property name="path.separator" value=":" />
+    <property name="java.vm.version" value="24.95-b01" />
+    <property name="ant.library.dir" value="/home/joel/.p2/pool/plugins/org.apache.ant_1.9.4.v201504302020/lib" />
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob" />
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit" />
+    <property name="user.home" value="/home/joel" />
+    <property name="ant.file.type.PersonalNameExtractor" value="file" />
+    <property name="java.specification.vendor" value="Oracle Corporation" />
+    <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib" />
+    <property name="java.vendor.url" value="http://java.oracle.com/" />
+    <property name="java.vm.vendor" value="Oracle Corporation" />
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestTrainer skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/joel/git/Green3/target/test-results/TEST-edu.odu.cs.cs350.namex.TestTrainer.xml crashfile=/home/joel/git/Green3/junitvmwatcher7200430046925145665.properties propsfile=/home/joel/git/Green3/junit1524302919477347618.properties" />
+    <property name="java.class.path" value="/home/joel/git/Green3/target/test-classes:/home/joel/git/Green3/target/classes:/home/joel/git/Green3/lib/hamcrest-core.jar:/home/joel/git/Green3/lib/java-cup.jar:/home/joel/git/Green3/lib/junit.jar:/home/joel/git/Green3/lib/weka-stable.jar:/home/joel/.p2/pool/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant-launcher.jar:/home/joel/.p2/pool/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant.jar:/home/joel/.p2/pool/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant-junit.jar:/home/joel/.p2/pool/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant-junit4.jar" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.9.4 compiled on April 29 2014" />
+    <property name="ivy.jar.available" value="true" />
+    <property name="ivy.install.version" value="2.3.0" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="java.vm.specification.version" value="1.7" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="sun.os.patch.level" value="unknown" />
+    <property name="src.test" value="/home/joel/git/Green3/src/test/java/edu/odu/cs/cs350/namex" />
+    <property name="java.io.tmpdir" value="/tmp" />
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+    <property name="os.arch" value="amd64" />
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment" />
+    <property name="java.ext.dirs" value="/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext:/usr/java/packages/lib/ext" />
+    <property name="user.dir" value="/home/joel/git/Green3" />
+    <property name="ivy.jar.file" value="/home/joel/git/Green3/ivy/ivy.jar" />
+    <property name="line.separator" value="&#xa;" />
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM" />
+    <property name="basedir" value="/home/joel/git/Green3" />
+    <property name="ant.java.version" value="1.7" />
+    <property name="ant.core.lib" value="/home/joel/.p2/pool/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant.jar" />
+    <property name="file.encoding" value="UTF-8" />
+    <property name="java.specification.version" value="1.7" />
+    <property name="ant.project.invoked-targets" value="test,compile-tests,dist,compile,build,generate-javadoc,package" />
+  </properties>
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testGetTrainingData" time="0.012">
+    <failure type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError
+	at edu.odu.cs.cs350.namex.TestTrainer.testGetTrainingData(TestTrainer.java:86)
+</failure>
+  </testcase>
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTrainLM" time="1.098">
+    <failure type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError
+	at edu.odu.cs.cs350.namex.TestTrainer.testTrainLM(TestTrainer.java:112)
+</failure>
+  </testcase>
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTrainer" time="0.002">
+    <failure type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError
+	at edu.odu.cs.cs350.namex.TestTrainer.testTrainer(TestTrainer.java:77)
+</failure>
+  </testcase>
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testParse" time="0.003">
+    <error type="java.util.NoSuchElementException">java.util.NoSuchElementException
+	at java.util.StringTokenizer.nextToken(StringTokenizer.java:349)
+	at edu.odu.cs.cs350.namex.Trainer.tokenize(Trainer.java:60)
+	at edu.odu.cs.cs350.namex.TestTrainer.testParse(TestTrainer.java:50)
+</error>
+  </testcase>
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTokenize" time="0.002">
+    <error type="java.util.NoSuchElementException">java.util.NoSuchElementException
+	at java.util.StringTokenizer.nextToken(StringTokenizer.java:349)
+	at edu.odu.cs.cs350.namex.Trainer.tokenize(Trainer.java:60)
+	at edu.odu.cs.cs350.namex.TestTrainer.testTokenize(TestTrainer.java:36)
+</error>
+  </testcase>
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testGetTokenCount" time="0.002">
+    <error type="java.util.NoSuchElementException">java.util.NoSuchElementException
+	at java.util.StringTokenizer.nextToken(StringTokenizer.java:349)
+	at edu.odu.cs.cs350.namex.Trainer.tokenize(Trainer.java:60)
+	at edu.odu.cs.cs350.namex.TestTrainer.testGetTokenCount(TestTrainer.java:64)
+</error>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
