@@ -10,6 +10,8 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -22,18 +24,25 @@ import edu.odu.cs.cs350.namex.Librarian;
 public class TestLibrarian {
 
 	// User Story #844 - Gerard Silverio
-	// As a Librarian/application developer, I want a program that will
+	// As a Librarian/application developer, I want a program that will 
 	// accept standard input from command line interface
 	// User Story #845
-	// As a Librarian/application developer, I want a program that will
+	// As a Librarian/application developer, I want a program that will 
 	// send output to standard command line interface
 	@Test
-	public void testMain() throws FileNotFoundException {
-		Librarian.main(new String[] {
-				"<NER>Hello, There are snakes on this plane! I don't know what to do!</NER><NER>Hello World line 2</NER><NER>Goodbye world!</NER>" });
-		// Librarian.main(new String[] {"inputBlocks.txt",
-		// "markedUpOutput.txt"});
-	}
+    public void testMain() throws FileNotFoundException 
+	{
+		// CLI String input
+        //Librarian.main(new String[] {"<NER>Hello, <PER>John Smith</PER> There are snakes on this plane! <PER>Mr. Samuel L Jackson, III</PER> I don't know what to do!</NER><NER>Hello World line 2</NER><NER>Goodbye world!</NER>"});
+        
+        // CLI .txt file input
+		Path currentRelativePath = Paths.get("");
+		String relativePath = currentRelativePath.toAbsolutePath().toString();
+		String inputFilePath = relativePath + "/data/training/training_data_short.txt";
+		String arffFileName = "training_data_short"; // don't add the .arff extension
+		
+        //Librarian.main(new String[] {inputFilePath, arffFileName});
+    }
 
 	// User Story #861 - Gerard Silverio
 	// As a Librarian/application developer I want to use Command line to
@@ -82,6 +91,41 @@ public class TestLibrarian {
 			System.out.println(
 					i + ": " + matches + " [" + textBlocks2.get(i).toString() + " - " + input2TextBlocks[i] + "]");
 			// System.out.println(textBlocks.get(i));
+		}
+	}
+	
+	// User Story #850
+	// As a Librarian, I want the PNE to use a learning machine to 
+	// classify tokens within the input.
+	@Test
+	public void testClassifyToken()
+	{
+		try 
+		{
+			Librarian librarian = new Librarian();
+			
+			Token token = new Token("John");
+			token = librarian.classifyToken(token);
+			
+			assertEquals("capitalized", token.getLexical());
+			assertEquals("other", token.getPartOfSpeech());
+			assertEquals(0, token.isDictionaryWord());
+			assertEquals(0, token.isCityState());
+			assertEquals(0, token.isCountryTerritory());
+			assertEquals(0, token.isPlace());
+			assertEquals(1, token.isDTICFirst());
+			assertEquals(1, token.isDTICLast());
+			assertEquals(1, token.isCommonFirst());
+			assertEquals(0, token.isCommonLast());
+			assertEquals(0, token.isHonorific());
+			assertEquals(0, token.isPrefix());
+			assertEquals(0, token.isSuffix());
+			assertEquals(0, token.isKillWord());
+		} 
+		catch (FileNotFoundException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 

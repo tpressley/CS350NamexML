@@ -45,62 +45,31 @@ public class Trainer {
 	 * @param inputText
 	 */
 
-	public Classifier Getclassifier() {
+	public Classifier getClassifier() {
 		return classifier;
 	}
-
-	public ArrayList<Token> tokenize(String trainingMaterial) {
+	
+	public ArrayList<Token> tokenize(String textBlock) {
+		
 		// split the string
-		String[] tks = trainingMaterial.split("(?=[\" ,.!?\n()-:;@#$%^&*{}<>])|(?<=[\" ,.!?\n()-:;@#$%^&*{}<>])");
+		String[] tks = textBlock.split("(?=[\" ,.!?\n()-:;@#$%^&*{}<>])|(?<=[\" ,.!?\n()-:;@#$%^&*{}<>])");
 
 		ArrayList<Token> tokens = new ArrayList<Token>();
-		Librarian librarian = null;
-		try {
+		
+		Librarian librarian;
+		
+		try
+		{
 			librarian = new Librarian();
-		} catch (Exception e) {
-			System.err.println("Exception" + e.toString() + " " + e.getMessage());
-		}
-		for (int i = 0; i < tks.length; i++) {
-			// store the lexeme in a new Token object
-			Token token = new Token(tks[i]);
-			// set the lexicalFeature for the Token
-			token.setLexical(librarian.getLexicalFeature(token.getLexeme()));
-			if (!token.getLexical().equals("whiteSpace")) {
-				// set partOfSpeech
-				token.setPartOfSpeech(librarian.getPartOfSpeech(tks[i]));
-				if (token.getLexical().equals("other")) {
-					// set dictionaryWord
-					token.setDictionaryWord(librarian.isDictionaryWord(token.getLexeme()));
-				}
-				// only classify remaining Gazetteer if the current Token is a
-				// capitalized word
-				if (token.getLexical().equals("capitalized")) {
-					// set cityState
-					token.setCityState(librarian.isCityState(token.getLexeme()));
-					// set countryTerritory
-					token.setCountryTerritory(librarian.isCountryTerritory(token.getLexeme()));
-					// set place
-					token.setPlace(librarian.isPlace(token.getLexeme()));
-					// set DTICFirst
-					token.setDTICFirst(librarian.isDTICFirstName(token.getLexeme()));
-					// set DTICLast
-					token.setDTICLast(librarian.isDTICLastName(token.getLexeme()));
-					// set commonFirst
-					token.setCommonFirst(librarian.isCommonFirstName(token.getLexeme()));
-					// set commonLast
-					token.setCommonLast(librarian.isCommonLastName(token.getLexeme()));
-					// set honorific
-					token.setHonorific(librarian.isHonorific(token.getLexeme()));
-					// set prefix
-					token.setPrefix(librarian.isLastNamePrefix(token.getLexeme()));
-					// set suffix
-					token.setSuffix(librarian.isLastNameSuffix(token.getLexeme()));
-					// set killWord
-					token.setKillWord(librarian.isKillWord(token.getLexeme()));
-				}
+			
+			for (int i = 0; i < tks.length; i++)
+			{
+				tokens.add(librarian.classifyToken(new Token(tks[i])));
 			}
-			// add the Token to the ArrayList of Tokens
-			tokens.add(token);
+		}
+		catch(Exception e)
+		{
+			System.err.println("Exception" + e.toString() + " " + e.getMessage());
 		}
 
 		return tokens;

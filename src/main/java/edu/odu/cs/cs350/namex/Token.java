@@ -204,11 +204,10 @@ public class Token {
 		this.name = name;
 	}
 
-	// toString
+	// returns the ARFF @data row for the Token
 	public String getARFF() {
 
-		String output = lexeme + ",";
-		output += lexical + ",";
+		String output = lexical + ",";
 		output += partOfSpeech + ",";
 		output += dictionaryWord + ",";
 		output += cityState + ",";
@@ -221,8 +220,7 @@ public class Token {
 		output += honorific + ",";
 		output += prefix + ",";
 		output += suffix + ",";
-		output += killWord + ",";
-		output += name;
+		output += killWord;
 
 		return output;
 

@@ -4,6 +4,7 @@ import java.lang.String;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 //import weka.core.Instances;
 import java.io.BufferedReader;
@@ -29,65 +30,107 @@ public class Librarian {
 	private ArrayList<String> LastNameSuffixes;
 	private ArrayList<String> KillWords;
 
-	public static void main(String[] args) {
-		// if CLI contains one argument that is a textBlock
-		if (args.length == 1) {
-			String input = args[0];
-			Trainer trainer = new Trainer();
-			Librarian librarian;
-			try {
-				librarian = new Librarian();
-
-				// separate the input into textBlocks
-				ArrayList<TextBlock> textBlocks = librarian.separateNER(input);
-
-				// tokenize each textBlock
-				for (TextBlock textBlock : textBlocks) {
-					textBlock.setTokens(trainer.tokenize(textBlock.getTextBlock()));
-
-					System.out.println(textBlock.toString()); // test
-
-					// print out token test arff data
-					for (Token token : textBlock.getTokens()) {
-						if (!token.getLexical().equals("whiteSpace") && !token.getLexical().equals("number")) {
-							System.out.println(token.getARFF());
-						}
-					}
-				}
-			} catch (FileNotFoundException e) {
-
-				e.printStackTrace();
-			}
-		}
-
-		// if CLI contains two arguments
-		if (args.length == 2) {
-			String fileName = args[0];
-			File file = new File(fileName);
-
-		}
-
-		// Reads user input
-		/*
-		 * Scanner scanner = new Scanner(System.in); System.out.print(
-		 * "Enter a file name: "); System.out.flush(); String filename =
-		 * scanner.nextLine(); File file = new File(filename);
-		 */
-
+	public static void main(String[] args) throws FileNotFoundException
+	{
 		// Test Output
 		/*
-		 * for (String s: args) { System.out.println(s); }
-		 */
+        for (String s: args) {
+            System.out.println(s);
+        }
+        */
+        
+        // if CLI contains one argument that is a textBlock
+        if (args.length == 1)
+        {
+        	String input = args[0];
+        	
+        	Librarian librarian = new Librarian();
+        	Trainer trainer = new Trainer();
+        	
+        	// separate the input into textBlocks
+        	ArrayList<TextBlock> textBlocks = librarian.separateNER(input);
+        	
+        	// tokenize each textBlock
+    		for (TextBlock textBlock : textBlocks)
+    		{
+    			textBlock.setTokens(trainer.tokenize(textBlock.getTextBlock()));
+    			
+    			// call classifyTokens only when inputting pre-marked training data
+    			textBlock.setTokens(librarian.classifyTokens(textBlock.getTokens()));
+    			
+    			System.out.println(textBlock.toString()); // test
+    			
+    			// print out token test arff data
+    			for (Token token : textBlock.getTokens())
+    			{
+    				if (!token.getLexical().equals("whiteSpace") && !token.getLexical().equals("number") && !token.getLexical().equals("punct"))
+    				{
+    					System.out.println(token.getARFF());
+    				}
+    			}
+    			
+    			
+    		}    		
+        }
+        
+        // if CLI contains two arguments
+        if (args.length == 2)
+        {
+        	System.out.println("2 Arguments");
+        	
+        	String inputFileName = args[0];
+        	String outputFileName = args[1];
+        	
+        	Librarian librarian = new Librarian();
+        	Trainer trainer = new Trainer();
+        	
+        	String input = librarian.importFile(inputFileName);
 
-		// Previous Implementation of main
-		/*
-		 * try { String textToExtract = args[0]; } catch (Exception e) {
-		 * System.out .println(e.toString() +
-		 * "\nERROR: No argumenets detected, Usage: java -jar jarName \"InputText\""
-		 * ); } Trainer trainer = new Trainer(); try { trainer.SaveLM(""); }
-		 * catch (Exception e) { System.out.println(
-		 * "ERROR: File execption while saving model, Librarian.java:142"); }
-		 */
+        	System.out.println("Imported File Successfully");
+        	
+        	// separate the input into textBlocks
+        	ArrayList<TextBlock> textBlocks = librarian.separateNER(input);
+        	
+        	System.out.println("Tokenizing and Classifying " + textBlocks.size() + " text blocks...");
+        	
+        	// ArrayList to store ARFF data
+        	List<String> ARFFList = new ArrayList<String>();
+        	        	
+        	int count = 0;
+        	int totalCount = 0;
+        	
+        	// tokenize each textBlock
+    		for (TextBlock textBlock : textBlocks)
+    		{ 			
+    			textBlock.setTokens(trainer.tokenize(textBlock.getTextBlock()));
+    			
+    			// call classifyTokens only when inputting pre-marked training data
+    			textBlock.setTokens(librarian.classifyTokens(textBlock.getTokens()));
+    			
+    			//System.out.println(textBlock.toString()); // test
+    			
+    			// print out token test arff data
+    			for (Token token : textBlock.getTokens())
+    			{
+    				if (!token.getLexeme().equals("PER") && !token.getLexical().equals("punct") && !token.getLexical().equals("whiteSpace") && !token.getLexical().equals("number") && token.getName() != null)
+    				{
+    					//System.out.println(token.toString());
+    					ARFFList.add(token.getARFF());    					
+    				}
+    			}
+    			
+    			count++;
+    			if (count == 500)
+    			{
+    				totalCount += count;
+    				System.out.println("Tokenized and Classified " + totalCount + " text blocks so far.");
+    				count = 0;
+    			}
+    		}  
+    		
+			String[] ARFFArray = new String[ARFFList.size()];
+			ARFFArray = ARFFList.toArray(ARFFArray);
+        }
 	}
 
 	public Librarian() throws FileNotFoundException {
@@ -114,6 +157,45 @@ public class Librarian {
 
 		// Test Output
 		// System.out.println("\nAll Gazetteer files imported successfully!\n");
+	}
+	
+	// imports a file from filePath and returns the line values as a combined String
+	private String importFile(String filePath)
+	{
+		File file = new File(filePath);
+		Scanner s;
+		
+		String input = "";
+		
+		try 
+		{
+			s = new Scanner(file);
+			
+			int count = 0;
+			int totalCount = 0;
+			
+			while (s.hasNext())
+			{
+				input += s.nextLine();
+				
+				count++;
+				if (count == 500)
+				{
+					totalCount += count;
+					//System.out.println("Read " + totalCount + " total lines so far.");
+					count = 0;
+				}
+				//System.out.println(input);
+			}
+			s.close();
+		} 
+		catch (FileNotFoundException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return input;
 	}
 
 	// import Gazetteer list from .txt file from given file path
@@ -145,6 +227,125 @@ public class Librarian {
 		}
 
 		return textBlocks;
+	}
+	
+	// classify token based on its 14 attributes
+	public Token classifyToken(Token token)
+	{					
+		// set the lexicalFeature for the Token
+		token.setLexical(getLexicalFeature(token.getLexeme()));
+		
+		if (!token.getLexical().equals("whiteSpace"))
+		{
+			// set partOfSpeech
+			token.setPartOfSpeech(getPartOfSpeech(token.getLexeme()));
+			
+			if (token.getLexical().equals("other"))
+			{
+				// set dictionaryWord
+				token.setDictionaryWord(isDictionaryWord(token.getLexeme()));
+			}
+			
+			// only classify remaining Gazetteer if the current Token is a capitalized word
+			if (token.getLexical().equals("capitalized"))
+			{
+				// set cityState
+				token.setCityState(isCityState(token.getLexeme()));
+				
+				// set countryTerritory
+				token.setCountryTerritory(isCountryTerritory(token.getLexeme()));
+				
+				// set place
+				token.setPlace(isPlace(token.getLexeme()));
+				
+				// set DTICFirst
+				token.setDTICFirst(isDTICFirstName(token.getLexeme()));
+				
+				// set DTICLast
+				token.setDTICLast(isDTICLastName(token.getLexeme()));
+				
+				// set commonFirst
+				token.setCommonFirst(isCommonFirstName(token.getLexeme()));
+				
+				// set commonLast
+				token.setCommonLast(isCommonLastName(token.getLexeme()));
+				
+				// set honorific
+				token.setHonorific(isHonorific(token.getLexeme()));
+				
+				// set prefix
+				token.setPrefix(isLastNamePrefix(token.getLexeme()));
+				
+				// set suffix
+				token.setSuffix(isLastNameSuffix(token.getLexeme()));
+				
+				// set killWord
+				token.setKillWord(isKillWord(token.getLexeme()));
+			}
+		}
+		else
+		{
+			token.setPartOfSpeech("other");
+		}  
+		
+		return token;
+	}
+	
+	// classify Tokens as either beginning, continuing, or other for names between <PER></PER>
+	private ArrayList<Token> classifyTokens(ArrayList<Token> tks)
+	{
+		ArrayList<Token> tokens = tks;
+		
+		boolean isPartOfName = false;
+		boolean classifiedNameBeginning = false;
+		
+		for (int i = 1; i < tokens.size(); i++)
+		{			
+			if (tokens.get(i).getLexeme().equals("PER") && isPartOfName == false)
+			{
+				isPartOfName = true;
+				classifiedNameBeginning = false;
+				tokens.get(i).setName("other");
+				//System.out.print("OTHER - ");
+			}
+			else if (tokens.get(i).getLexeme().equals("PER") && tokens.get(i - 1).getLexeme().equals("/"))
+			{
+				isPartOfName = false;
+				tokens.get(i).setName("other");
+				//System.out.print("OTHER - ");
+			}
+			else if (isPartOfName == true && classifiedNameBeginning == false && (tokens.get(i).getLexical().equals("capitalized")|| tokens.get(i).getLexical().equals("capLetter") || tokens.get(i).getLexical().equals("other") || tokens.get(i).getLexical().equals("allCaps")))
+			{
+				if (tokens.size() > (i + 1))
+				{
+					if (tokens.get(i + 1).getLexeme().equals(","))
+					{
+						tokens.get(i).setName("continuing");
+						//System.out.print("CONTINUING - ");
+					}
+					else
+					{
+						tokens.get(i).setName("beginning");
+						classifiedNameBeginning = true;
+						//System.out.print("BEGINNING - ");
+					}
+				}
+			}
+			else if (isPartOfName == true && classifiedNameBeginning == true && (tokens.get(i).getLexical().equals("capitalized") || tokens.get(i).getLexical().equals("capLetter") || tokens.get(i).getLexical().equals("other") || tokens.get(i).getLexical().equals("allCaps")))
+			{
+				tokens.get(i).setName("continuing");
+				//System.out.print("CONTINUING - ");
+			}
+			else
+			{
+				tokens.get(i).setName("other");
+				//System.out.print("OTHER - ");
+			}
+			
+			//System.out.println(tokens.get(i).getLexeme());
+		}
+		
+		return tokens;
 	}
 
 	// returns the Lexical attribute for a given token
