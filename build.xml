@@ -103,7 +103,7 @@
 			<classpath refid="test.execution.path"/>
 			<formatter type="plain" usefile="false"/>
 			<!--  output to screen  -->
-			<formatter type="plain"/>
+			<formatter type="xml"/>
 			<!--  output to files in target/test-results  -->
 			<batchtest todir="target/test-results">
 			<fileset dir="target/test-classes">
