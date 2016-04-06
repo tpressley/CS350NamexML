@@ -1,0 +1,116 @@
+﻿<NER>
+OKLAHOMA CITY –  
+Authorities are responding to wildfires in Oklahoma and Kansas 
+that have led to evacuations, scorched mostly rural land and destroyed 
+an unknown number of structures.
+</NER><NER>
+
+In Oklahoma, the largest fire was in the same area near the border 
+with Kansas where blazes last month scorched hundreds of square miles.
+</NER><NER>
+
+
+Authorities there urged the approximately 300 residents of Freedom, 
+about 170 miles northwest of Oklahoma City, to evacuate, Woods County 
+Emergency Management Director <PER>Steve Foster</PER> said.
+</NER><NER>
+
+
+The fire was burning uncontrolled, stoked by wind gusts of around 40 miles per hour, 
+said Woodward County Emergency Management Director <PER>Matt Lehenbauer</PER>. 
+</NER><NER>
+
+By late evening Tuesday, the flames had stalled at the Cimarron River 
+west of Freedom, but officials remained wary of its potential threat to the town.</NER>
+</NER><NER>
+
+
+A video that captured a retired U.S. Air Force sergeant being forcibly 
+removed from a ceremony at a California base has prompted an investigation, 
+an Air Force Reserve official said Wednesday.</NER><NER>
+
+
+The incident occurred at Travis Air Force Base, near Sacramento on April 3, 
+at the retirement of an unidentified master sergeant from the 749th Aircraft 
+Maintenance Squadron. Retired Senior Master <PER>Sgt. Oscar Rodriguez</PER>, in civilian 
+clothing, is shown attempting to read a statement before three uniformed airmen 
+forcibly remove him.</NER><NER>
+
+
+The 50-second video clip was first posted on JQPublicBlog.com, which 
+called the footage “a disgraceful spectacle” during what is usually a calm send off.</NER><NER>
+
+
+A source who was present at the event told the military blog that <PER>Rodriguez</PER> was 
+there at the request of the retiree, but had been banned from the base by the squadron commander.
+</NER><NER>
+
+
+A spokesman from the reserve said that the confrontation stemmed from 
+“an unplanned participation” at the event.
+
+"<PER>Rodriguez</PER> ignored numerous requests to respect the Air Force prescribed ceremony
+ and unfortunately was forcibly removed," a Travis official said in a statement 
+to FoxNews.com. "We will continue to investigate the situation fully."
+</NER><NER>
+
+
+Neither <PER>Rodriguez</PER> nor the honoree could be reached for comment.
+</NER><NER>
+
+
+<PER>Stephan Sila</PER>, who identified himself as the officiating officer at the ceremony
+ and a 28-year Air Force veteran, wrote in a Facebook post published on the military
+ blog that <PER>Rodriguez</PER> simply planned to read a statement honoring the flag and 
+that his appearance had been cleared through the proper chain of command.</NER><NER>
+
+
+<PER>Sila</PER> said the incident has angered non-commissioned officers who believe the 
+retirement ceremony was marred by the ugly incident.</NER><NER>
+
+
+"Why do you think people are leaving (the Air Force) in droves?" <PER>Sila</PER> wrote. 
+</NER><NER>
+
+"Because the guys in the trenches are subjected to nonstop stupidity from 
+commanders who don’t deserve the rank, respect, or support of the people ther’re in charge of.”</NER><NER>
+
+
+The Air Force Reserve said in the statement it "respects and defends the right to
+ free speech and religious expression." </NER>
+
+<NER>
+State officials say a sewage leak has caused a major fish kill in a lake near 
+the Mississippi River in west Tennessee.</NER><NER>
+
+
+<PER>Kelly Brockman</PER>, a spokeswoman with the Tennessee's Department of Environment 
+and Conservation, said Tuesday that the number of fish killed in McKellar 
+Lake in Memphis is in the thousands.</NER><NER>
+
+
+Officials say a broken sewage line is dumping up to 50 million gallons of 
+untreated wastewater per day into Cypress Creek. 
+
+</NER><NER>
+The leak into the creek 
+began Thursday. The creek runs into McKellar Lake, which flows into the 
+Mississippi. Officials say the creek and the lake are not sources of drinking water.</NER><NER>
+
+
+Officials have said the spill poses no immediate risk to the public, but they also
+ said people should avoid touching or fishing in both bodies of water. </NER><NER>
+
+City crews have placed warning signs in the area near the creek, and a 
+marina that provides access to the lake has been closed.
+</NER><NER>
+
+
+Memphis public works officials have said a bypass around the damaged 
+section of line is estimated to be in place on Wednesday.
+</NER><NER>
+
+
+Construction to replace the sewer line could take three to four months, 
+with an estimated repair cost of $8 million to $10 million, said <PER>Robert Knecht</PER>, 
+director of the Memphis Public Works Division.</NER>

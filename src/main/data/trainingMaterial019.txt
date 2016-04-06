@@ -1,0 +1,103 @@
+﻿<NER>
+WASHINGTON - Congressional officials say the Obama administration has decided 
+to transfer leftover money from the largely successful fight against Ebola to 
+combat the growing threat of the Zika virus in Puerto Rico, the Southeast U.S., 
+and Central and South America.</NER>
+
+
+Most of the $600 million or so would be devoted to the Centers for Disease Control, 
+</NER><NER>
+which is focused on research and development of anti-Zika vaccines, treating those 
+</NER><NER>
+infected with the virus and combating the mosquitoes that spread it.
+
+Researchers fear Zika causes microcephaly, a serious birth defect, and other threats 
+to the children of pregnant women infected with it.
+</NER><NER>
+The officials spoke on condition of anonymity because they were not authorized to 
+publicly discuss the matter before an official announcement expected from the White House on Wednesday.
+</NER><NER>
+
+Below is a breakdown, by county, of the number of cases of Zika in Florida. 
+</NER><NER>
+The state's health department says all 79 cases of Zika so far have been contracted 
+either while traveling abroad, or directly from someone who had recently.</NER>
+
+<NER>
+Amid rumors that Apple plans to release a dual camera feature in the iPhone 7 Plus, 
+Chinese smartphone manufacturer Huawei today unveiled the Huawei P9 and P9 Plus, 
+a set of smartphones that are equipped with impressive dual camera setups with some 
+interesting capabilities. 
+</NER><NER>
+
+The 5.2 and 5.5-inch P9 and P9 Plus both come with dual 12-megapixel rear cameras
+
+</NER><NER>
+ equipped with Leica-certified lenses. Hardware wise, the lenses include 1.25-micron 
+
+</NER><NER>
+pixel sizes for superior low light performance and an f/1.1 aperture, which will also 
+improve performance in poor lighting conditions. 
+</NER><NER>
+There's also built-in optical image 
+stabilization, a dual-tone LED flash, and a laser focusing module that works in tandem 
+with the two cameras for faster focusing at short ranges. </NER>
+<NER>
+ North Carolina's governor met Thursday with gay-rights advocates bearing a letter 
+signed by more than 100 corporate executives urging him to repeal the nation's 
+first state law limiting the bathroom options for transgender people.
+</NER><NER>
+
+The law also excludes lesbian, gay, bisexual and transgender people from 
+anti-discrimination protections, and blocks municipalities from adopting their 
+own anti-discrimination and living wage rules.
+</NER><NER>
+
+The governor "appreciated the opportunity to sit down and deal with these 
+complex issues through conversation and dialogue as opposed to political 
+threats and economic retaliation," his spokesman, <PER>Josh Ellis</PER>, said in a statement.
+</NER><NER>
+
+The advocates declined to describe <PER>Gov. Pat McCrory</PER>'s response.
+</NER><NER>
+Some companies are already reconsidering doing business in the country's ninth-largest state.
+</NER><NER>
+
+New Jersey-based Braeburn Pharmaceuticals said it is 
+"reevaluating our options based on the recent, unjust legislation" whether 
+to build a $20 million manufacturing and research facility in Durham County.
+
+ The 50 new jobs paying an average of nearly $76,000 a year were announced two weeks ago.
+
+
+Lionsgate, the California-based entertainment company, had been lining up hotel 
+and equipment rentals and hiring more than 100 workers in North Carolina, but decided
+ to shoot its pilot episode for a comedy series in Canada instead, said <PER>Jennifer Irvine</PER>,
+ a Charlotte production coordinator.
+</NER><NER>
+
+Charlotte convention officials and the organizers of one of the world's largest
+ furniture markets say some customers have pulled out, also citing the new law.
+</NER><NER>
+
+Changing business plans is much more difficult for companies with existing investments
+ in buildings, equipment and people, but the outsized lobbying power of major 
+corporations could reshape how prospective talent and investors perceive North 
+Carolina as a place they want to be, business observers said.
+</NER><NER>
+
+"These companies have made long-term investments or are thinking about long-term 
+investments in North Carolina" and won't likely retreat solely due to this law, 
+said <PER>DJ Peterson</PER>, who advises companies on political, social and economic issues 
+as founder of Longview Global Advisors, a Los Angeles consulting firm.
+</NER><NER>
+
+But as businesses showed Georgia this week, "the political pressure, the visibility 
+they're bringing to the issue, politicians do have to pay attention to it," <PER>Peterson</PER> said.
+</NER><NER>
+
+After Walt Disney Co., Marvel Studios and Salesforce.com threatened to take their 
+business elsewhere and the NFL suggested Atlanta could lose its bids for the 2019 or
+ 2020 Super Bowl, Georgia <PER>Gov. Nathan Deal</PER> vetoed a measure that would have allowed 
+individuals, businesses and faith organizations to deny services to others based 
+on their "sincerely held religious beliefs."</NER>
