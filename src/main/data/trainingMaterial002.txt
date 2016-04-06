@@ -10708,6 +10708,111 @@ Wonderland</NER>
 <NER>MCWP 3 - 2</NER>
 <NER>MDA?s cost, schedule,</NER>
 <NER>MEAL, READY TO EAT</NER>
+<NER>
+While drinking your favourite cold drink, you probably do not imagine what is going on inside each ice cube. 
+</NER>
+<NER>
+At the Okinawa Institute of Science and Technology Graduate University (OIST)/Plc, 
+the Theory of Quantum Matter Unit, led by <PER>Professor Nic Shannon</PER> has explained in detail 
+the theory behind two experiments that show how protons inside ice behave. </NER>
+<NER>
+Their findings have been published in Physical Review B.
+</NER>
+<NER>
+Everything we see from a cloud of smoke to a solid rock takes that specific form because of 
+the collective behaviour of the atoms that make up that object. </NER>
+<NER>
+However, how do atoms choose how to behave? And which choices do they have? </NER>
+<NER>
+"We understand almost everything about how a single quantum particle behaves," 
+explains <PER>Prof. Shannon</PER>, 
+"but put a group of quantum particles together, and anything can happen. </NER>
+<NER>
+Surprisingly, we still don't really know what happens in something as simple as ice."
+</NER>
+<NER>
+A water molecule (H20) is formed when an oxygen ion forms covalent bonds 
+with two protons (hydrogen). In ice, these water molecules are connected by weaker 
+hydrogen bonds, so that every oxygen forms two short covalent bonds and 
+two long hydrogen bonds with its neighbouring protons. </NER>
+<NER>
+Water ice is unique, because the oxygen atoms are ordered in hexagonally shaped 
+crystals similar to honeycombs, but the hydrogen protons do not follow a regular pattern. </NER>
+<NER>
+Instead, they respect the so-called "ice rules": each bond can contain only one proton 
+and each oxygen ion has two protons adjacent to it; but there are virtually infinite ways 
+for the protons to satisfy this rule, even in a small piece of ice. So are protons in ice ordered or disordered?
+</NER>
+<NER>
+The idea of climate change turning the UK into a viable wine-making region may have boosted 
+the industry in recent years. </NER>
+<NER>
+But cold snaps, sharp frosts and downpours threaten productivity - according to University of East Anglia/Plc research.
+</NER>
+<NER>
+As UK wine producers prepare for what they hope will be a bumper 2016 season a study 
+published today reveals that year-to-year climate variability and hazardous weather at key points 
+in the growing season leave the industry highly sensitive to the elements.
+</NER>
+<NER>
+It also suggests that in vogue varieties such as Chardonnay and Pinot noir are more susceptible to 
+UK climate variability than traditional varieties.
+</NER>
+<NER>
+Over the last decade there has been a boom in English wine production. </NER>
+<NER>
+The amount of land used for viticulture (vine growing) has increased by 148 per cent - 
+with around 1884 hectares (the equivalent of 2638 football pitches) currently devoted to the industry.
+</NER>
+<NER>
+It is not just the scale of production that has grown. 
+Producers are receiving global recognition for their premium quality wines - 
+in particular English Sparkling Wine, which is out-classing other more famous sparkling wine-producing regions.
+</NER>
+<NER>
+Researchers from UEA studied the UK's main grape-growing regions and looked at the 
+relationships between temperature, rainfall, extreme weather events and yield. </NER>
+<NER>
+They also surveyed wine producers for their views on the role of climate change in the success of English wine.
+</NER>
+<NER>
+By combining this data, they were able to identify opportunities and threats to the industry for the first time.
+</NER>
+<NER>
+Lead researcher <PER>Alistair Nesbitt</PER>, from UEA's School of Environmental Sciences, 
+said: "The UK has been warming faster than the global average since 1960 and eight of the warmest years 
+in the last century have occurred since 2002. </NER>
+<NER>
+Producers recognised the contribution of climate change to the sectors recent growth, 
+but also expressed concerns about threats posed by changing conditions"
+</NER>
+<NER>
+"Since 1993, the average southern England growing season temperature has consistently been above 
+13oC and since 1989 there have been 10 years where the temperature was 14oC or higher (up to 2013). 
+This is around the same temperature as the sparkling wine producing region in Champagne during the 1960s, 70s and 80s.
+</NER>
+<NER>
+"However by comparison, UK wine yields are very low. 
+In Champagne, yields can be more than 10,000 litres per hectare, 
+but in the UK, it is around 2,100 on average.
+</NER>
+<NER>
+<PER>Dr Neil Faulkner</PER> said: "<PER>Lawrence</PER> has something of a reputation as a teller of tall tales, 
+but this bullet – and the other archaeological evidence we unearthed during ten years of fieldwork – 
+indicates how reliable his account of the Arab Revolt in Seven Pillars of Wisdom is."
+</NER>
+<NER>
+In an unlikely coincidence, just two months ago, another Hallat Ammar connection appeared 
+when a Hejaz Railway engine nameplate came to light after being 'lost' for almost 80 years.  </NER>
+<NER>
+<PER>Lawrence</PER> had given it to the family of his friend, <PER>Vyvyan Richards</PER>, for safekeeping 
+in 1933 but never retrieved it before his death in 1935.  The inscription is in Ottoman Turkish written 
+in Arabic script and translates as 'iron road', that is 'Hejaz Railway'.
+</NER>
+<NER>
+The family tradition records that it was 'souvenired' by <PER>Lawrence</PER> from one of the trains he attacked.  
+Many of these raids were on bridges and tracks rather than on locomotives, 
+and, when they were, there was little time to safely hang around and take souvenirs.  </NER>
 <NER>MEETING AN</NER>
 <NER>MEMORANDUM FOR</NER>
 <NER>MENSTRUAL CYCLE AND VISUAL INFORMATION</NER>
@@ -14825,6 +14930,78 @@ Wonderland</NER>
 <NER>become possible with the developed aerial delivery system.</NER>
 <NER>becomes an important issue</NER>
 <NER>becomes law</NER>
+<NER>
+The fate of humanity if aliens were to discover Earth with its balmy climate and bountiful resources, 
+has long been a concern for scientists—many of whom fear the worst.
+</NER>
+<NER>
+Physicist <PER>Stephen Hawking</PER> is among those to have warned that ET and 
+his friends may be much more intelligent than us, and may view human beings as little more than troublesome bugs.
+</NER>
+<NER>
+Now a pair of astronomers from Columbia University in New York have proposed an innovative method 
+to hide our planet from prying extraterrestrial eyes—using massive lasers.
+</NER>
+<NER>
+And it's not a joke, they say.
+</NER>
+<NER>
+Alien scientists, argued <PER>David Kipping</PER> and <PER>Alex Teachey</PER>, may be trying to 
+find habitable planets using the same technique we do—searching for a slight dip in light 
+when a planet "transits" between the star it orbits and the telescopes watching it.
+</NER>
+<NER>
+Planets do not emit their own light and, if they were visible to the naked eye, 
+would appear as dark dots tracking across their bright stars.
+</NER>
+<NER>
+But these exoplanets are too far away to see, and all our telescopes can pick up is 
+a small decrease in the starlight emitted during transit.
+</NER>
+<NER>
+If aliens spot us using this technique, Earth would be a logical target for alien settlement.
+</NER>
+<NER>
+It orbits within the so-called "habitable zone"—not too close nor too far from 
+the Sun—where the temperature is right for liquid water, the essence of life.
+</NER>
+<NER>
+"Despite the timing, it's really not an April Fool's joke," 
+RAS deputy executive director <PER>Robert Massey</PER> assured AFP on Friday.
+</NER>
+<NER>
+"This is a serious piece of work."
+</NER>
+<NER>
+Humanity's search for a planet capable of hosting life remains an academic 
+pursuit—there is no solar system near enough to reach without time travel.
+</NER>
+<NER>
+Astronomers have verified the existence of nearly 2,000 faraway worlds, 
+but most of those orbiting in habitable zones have been gas giants.
+</NER>
+<NER>
+"The transit method is presently the most successful planet discovery and 
+characterisation tool at our disposal," wrote the duo.
+</NER>
+<NER>
+"Other advanced civilisations would surely be aware of this technique..."
+</NER>
+<NER>
+Within the wavelength spectrum of visible light, the transit signal could be masked
+ with a monochromatic laser emitting about 30 million watts (MW) for 10 hours at a time, once a year.
+</NER>
+<NER>
+One MW can power several hundred homes for an hour.
+</NER>
+<NER>
+A universal cloak effective at all wavelengths, would require a much larger array of 
+lasers with a total output of 250 MW, said the team.
+</NER>
+<NER>
+"There is an ongoing debate as to whether we should advertise ourselves or hide from 
+advanced civilisations potentially living on planets elsewhere in the Galaxy," <PER>Kipping</PER> said in a statement.
+</NER>
 <NER>becoming a failed state in the next few decades. Between 20 07 and 20 08, it ranked 15 3 out of 17</NER>
 <NER>been compared with the existing model potentials, through which we have been able to systematically improve the</NER>
 <NER>been completed, and each task has a</NER>
@@ -60773,6 +60950,77 @@ to that of the banana line-up than the one with briefly seen criminals.
 <NER>working with the Exploration Technology</NER>
 <NER>world ?s first artificial satellite. Some U. S. policymakers, concerned about the USSR ?s ability</NER>
 <NER>world</NER>
+<NER>
+It's not everyday that you get to discover something new. 
+</NER>
+<NER>
+But when you do it is a rather strange and quite brilliant feeling. 
+You don't really cry out 'Eureka' 
+(there's usually about a million things going about it your head pointing out how it could be wrong).</NER>
+<NER>When you finally conquer the 'wrong' demon and satisfy yourself that you have something new, 
+well then you usually sit back in your chair and smile to yourself. 
+</NER>
+<NER>
+Maybe at a push grab a cup of coffee and a celebratory chocolate bar 
+from the vending machine. That's pretty much how I felt when I worked out the latest 
+crystal structure I've just published, of the 'bath scum' of Titan.</NER>
+<NER>The great thing about this column space is that I can use it to tell you all 
+the back-story behind a paper, how it came about and why I think it's really exciting.
+</NER>
+<NER>
+Titan, the largest moon of Saturn, is in many ways pretty similar to Earth. 
+It's the only moon in the solar system with a substantial atmosphere, 
+much thicker than our own. If you don't mind the cold and lack of oxygen, 
+moving about the surface there will feel a bit like walking under water. 
+</NER>
+<NER>
+It's pretty nice when you consider that the atmosphere most other planets 
+and moons will barely shield you from the vacuum of space.
+</NER>
+<NER>
+The other similarity with our own home is that Titan has liquid on the surface, 
+vast lakes and seas. It's the only other place we know where you can watch 
+the sun set into a sea (albeit very very slowly). 
+</NER>
+<NER>
+But, where our seas are 
+composed of water, the seas and lakes of Titan are filled with methane and ethane, 
+which are liquid at the frigid temperatures on the surface (around -180°C). 
+And in fact, the Cassini spacecraft and the team of scientists behind it, 
+have gone further than just the discovery of standing liquid - 
+they have shown that Titan has a kind of hydrological cycle.
+</NER>
+<NER>
+MIT researchers have developed a compact, portable pharmaceutical manufacturing system 
+that can be reconfigured to produce a variety of drugs on demand.
+</NER>
+<NER>
+Just as an emergency generator supplies electricity to handle a power outage, 
+this system could be rapidly deployed to produce drugs needed to handle 
+an unexpected disease outbreak, or to prevent a drug shortage caused 
+by a manufacturing plant shutdown, the researchers say.
+</NER>
+<NER>
+"Think of this as the emergency backup for pharmaceutical manufacturing," says 
+<PER>Allan Myerson</PER>, an MIT professor of the practice in the Department of Chemical Engineering. 
+</NER>
+<NER>
+"The purpose is not to replace traditional manufacturing; it's to provide an alternative for these special situations."
+Such a system could also be used to produce small quantities of drugs needed for clinical trials 
+or to treat rare diseases, says <PER>Klavs Jensen</PER>, the Warren K. Lewis Professor of Chemical Engineering at MIT.
+</NER>
+<NER>
+"The goal of this project was to build a small-scale, portable unit that was completely integrated, 
+so you could imagine being able to ship it anywhere. 
+</NER>
+<NER>
+And as long as you had the right chemicals, 
+you could make pharmaceuticals," <PER>Jensen</PER> says.
+<PER>Jensen</PER>, <PER>Myerson</PER>, and <PER>Timothy Jamison</PER>, 
+the head of MIT's Department of Chemistry, 
+are the senior authors of a paper describing the new system in the March 31 online 
+edition of Science. The lead author is MIT research associate <PER>Andrea Adamo</PER>.
+</NER>
 <NER>would be good to present a paper covering</NER>
 <NER>would increase and not reduce the</NER>
 <NER>www. cia. gov / library / center-for-the - study - of - intelligence. Some</NER>
@@ -60804,3 +61052,278 @@ to that of the banana line-up than the one with briefly seen criminals.
 <NER>zone and other flow factors cause the film and spray to be nonuniform in space and time.</NER>
 <NER>~ () nterey,</NER>
 <NER>~</NER>
+<NER>
+A team of archeologists has found what may be the remains of a previously unknown 
+Viking settlement on a south west shore of the Island of Newfoundland. 
+</NER>
+<NER>
+If the remains can be confirmed, the site would make it just the second ever discovered 
+that has given proof of Vikings inhabiting parts of North America. 
+</NER>
+<NER>
+The team has been videotaping their work and a documentary of their efforts will be presented this month on PBS.
+</NER>
+<NER>
+Leading the research is archeologist and National Geographic fellow, <PER>Sarah Parcak</PER>, 
+who has been described as a "space archaeologist" because of her groundbreaking use of 
+satellite technology to uncover Egyptian ruins. 
+</NER>
+<NER>
+In this latest effort, 
+she and her team have altered their methods to uncover what appears to be evidence of Viking iron smelting.
+</NER>
+<NER>
+To find hidden artifacts, especially those that have been buried by some amount of dirt, 
+using a satellite, the researchers used computer tools to help them scan images, 
+looking for human-like angles or long straight, unnatural lines. 
+</NER>
+<NER>
+In the case of the newly discovered Newfoundland site, called Point Rosee/Plc, 
+the team looked for changes in the richness of the grasses that grow near 
+the sea—those that grow over stone, or other material are less robust, 
+and can be made out from a distant satellite. 
+</NER>
+<NER>
+The team also used magnetometer surveys to help isolate images below the ground 
+once they were on site. That led to an initial excavation which revealed an iron-working hearth 
+(with 28 pounds of slag in it) and what appeared to be the remains of turf walls. 
+</NER>
+<NER>Radiocarbon testing has dated the site to between 800 and 1300 AD, 
+which would coincide with the time of the Vikings.
+</NER>
+<NER>
+Prior to this possible discovery, the only site ever officially designated as evidence of 
+Norse activity in the New World was L'Anse aux Meadows, hundreds of miles north, 
+on the tip of the same island. 
+</NER>
+<NER>
+Archeologists do not have much to go on when attempting 
+to prove that a settlement was made by Norsemen, rather than Basque fisherman or 
+Native Americans—the one true hallmark of Norse travelers was the use of iron nails 
+to build their boats, thus the discovery of an iron-smelting oven would be strong evidence of Viking activity.
+</NER>
+<NER>
+If additional excavation and testing indicate that the site was indeed made by Vikings, 
+it will likely lead to changes being made to the history books—it would mean 
+they found and settled North America almost half a century before <PER>Christopher Columbus</PER> arrived. 
+</NER>
+<NER>
+A bullet fired by <PER>Lawrence of Arabia</PER> during one of his most famous acts 
+of guerrilla warfare has been discovered in the Arabian desert by a team of archaeologists, 
+led by the University of Bristol, confirming the accuracy of <PER>Lawrence</PER>'s own account 
+of the attack in his war memoir Seven Pillars of Wisdom.
+</NER>
+<NER>
+The spent bullet was found at the site of the 1917 Hallat Ammar train ambush – immortalised 
+in a scene in <PER>David Lean</PER>'s Oscar-winning biopic Lawrence of Arabia – 
+during fieldwork by Bristol's Professor <PER>Nicholas Saunders</PER> and <PER>Dr Neil Faulkner</PER>, 
+and colleagues, as part of the Great Arab Revolt Project (GARP).  
+</NER>
+<NER>
+The project has excavated dozens of sites across the Arabian desert associated 
+with the 1916-1918 revolt by Arab forces against the Ottoman Turks, then allied to Germany.  
+</NER>
+<NER>
+<PER>T.E. Lawrence</PER> – later known as <PER>Lawrence of Arabia</PER> – served as 
+a liaison officer with the rebel forces, an experience he described in Seven Pillars of Wisdom.
+</NER>
+<NER>
+Professor <PER>Nicholas Saunders</PER> said: "The bullet we found came from a Colt automatic pistol, 
+the type of gun known to be carried by <PER>Lawrence</PER> and almost certainly 
+not used by any of the ambush's other participants."
+</NER>
+<NER>
+While several of <PER>Lawrence</PER>'s biographers have accused him of embellishing his stories, 
+nothing the archaeologists found at any of the sites they excavated supports this view.
+</NER>
+<NER>
+WASHINGTON - Congressional officials say the Obama administration has decided 
+to transfer leftover money from the largely successful fight against Ebola to 
+combat the growing threat of the Zika virus in Puerto Rico, the Southeast U.S., 
+and Central and South America.</NER>
+<NER>
+Most of the $600 million or so would be devoted to the Centers for Disease Control, 
+</NER>
+<NER>
+which is focused on research and development of anti-Zika vaccines, treating those 
+</NER>
+<NER>
+infected with the virus and combating the mosquitoes that spread it.
+</NER>
+<NER>
+Researchers fear Zika causes microcephaly, a serious birth defect, and other threats 
+to the children of pregnant women infected with it.
+</NER>
+<NER>
+The officials spoke on condition of anonymity because they were not authorized to 
+publicly discuss the matter before an official announcement expected from the White House on Wednesday.
+</NER>
+<NER>
+Below is a breakdown, by county, of the number of cases of Zika in Florida. 
+</NER>
+<NER>
+The state's health department says all 79 cases of Zika so far have been contracted 
+either while traveling abroad, or directly from someone who had recently.</NER>
+<NER>
+Amid rumors that Apple plans to release a dual camera feature in the iPhone 7 Plus, 
+Chinese smartphone manufacturer Huawei today unveiled the Huawei P9 and P9 Plus, 
+a set of smartphones that are equipped with impressive dual camera setups with some 
+interesting capabilities. 
+</NER>
+<NER>
+The 5.2 and 5.5-inch P9 and P9 Plus both come with dual 12-megapixel rear cameras
+</NER>
+<NER>
+ equipped with Leica-certified lenses. Hardware wise, the lenses include 1.25-micron 
+</NER>
+<NER>
+pixel sizes for superior low light performance and an f/1.1 aperture, which will also 
+improve performance in poor lighting conditions. 
+</NER>
+<NER>
+There's also built-in optical image 
+stabilization, a dual-tone LED flash, and a laser focusing module that works in tandem 
+with the two cameras for faster focusing at short ranges. </NER>
+<NER>
+ North Carolina's governor met Thursday with gay-rights advocates bearing a letter 
+signed by more than 100 corporate executives urging him to repeal the nation's 
+first state law limiting the bathroom options for transgender people.
+</NER>
+<NER>
+The law also excludes lesbian, gay, bisexual and transgender people from 
+anti-discrimination protections, and blocks municipalities from adopting their 
+own anti-discrimination and living wage rules.
+</NER>
+<NER>
+The governor "appreciated the opportunity to sit down and deal with these 
+complex issues through conversation and dialogue as opposed to political 
+threats and economic retaliation," his spokesman, <PER>Josh Ellis</PER>, said in a statement.
+</NER>
+<NER>
+The advocates declined to describe <PER>Gov. Pat McCrory</PER>'s response.
+</NER>
+<NER>
+Some companies are already reconsidering doing business in the country's ninth-largest state.
+</NER>
+<NER>
+New Jersey-based Braeburn Pharmaceuticals said it is 
+"reevaluating our options based on the recent, unjust legislation" whether 
+to build a $20 million manufacturing and research facility in Durham County.
+</NER>
+<NER>
+The 50 new jobs paying an average of nearly $76,000 a year were announced two weeks ago.
+</NER>
+<NER>
+Lionsgate, the California-based entertainment company, had been lining up hotel 
+and equipment rentals and hiring more than 100 workers in North Carolina, but decided
+ to shoot its pilot episode for a comedy series in Canada instead, said <PER>Jennifer Irvine</PER>,
+ a Charlotte production coordinator.
+</NER>
+<NER>
+Charlotte convention officials and the organizers of one of the world's largest
+ furniture markets say some customers have pulled out, also citing the new law.
+</NER>
+<NER>
+Changing business plans is much more difficult for companies with existing investments
+ in buildings, equipment and people, but the outsized lobbying power of major 
+corporations could reshape how prospective talent and investors perceive North 
+Carolina as a place they want to be, business observers said.
+</NER>
+<NER>
+"These companies have made long-term investments or are thinking about long-term 
+investments in North Carolina" and won't likely retreat solely due to this law, 
+said <PER>DJ Peterson</PER>, who advises companies on political, social and economic issues 
+as founder of Longview Global Advisors, a Los Angeles consulting firm.
+</NER>
+<NER>
+The silver electrical contacts that carry electricity out of about 
+90 percent of the solar modules on the market are also one of their most expensive parts. </NER>
+<NER>
+Now scientists from two Department of Energy national laboratories have 
+used X-rays to observe exactly how those contacts form during manufacturing.
+</NER>
+<NER>
+The results, reported in Nature Communications, are an important step toward finding cheaper 
+alternatives to silver that don't require toxic lead for processing.
+
+"Industry would like to get rid of both silver and lead in this process," said <PER>Mike Toney</PER>, 
+a distinguished staff scientist at SLAC National Accelerator Laboratory and one of the lead authors of the paper. 
+"One of the goals of this research is to figure out how the contacts are made and use 
+this knowledge to come up with ways to eliminate silver and lead."
+</NER>
+<NER>
+"I won't say we have the full story yet, but this is the first time we actually got some 
+insight into what's happening," said <PER>Maikel van Hest</PER>, a materials scientist at 
+NREL who led the research. </NER>
+<NER>
+"Prior to this study we were only able to look at the contact before and after heat processing; 
+what happened in between was like a black box. But now we can actually make measurements as 
+the contacts form. This tool will have great impact in the photovoltaic industry as well as in basic research."
+</NER>
+<NER>
+NREL's <PER>Jeremy Fields</PER> and SLAC's <PER>Mohammed Imteyaz Ahmad</PER> were first authors of the paper 
+and played leading roles in carrying out the experiments. </NER>
+<NER>
+Other scientists involved in the research were NREL's <PER>Philip Parilla</PER> and 
+SLAC's <PER>Vanessa Pool</PER>, <PER>Jiafan Yu</PER> and <PER>Douglas Van Campen</PER>. </NER>
+<NER>
+The research was funded by the DOE's SunShot Initiative, 
+which aims to make solar energy cost-competitive with other forms of electricity by the end of the decade. </NER>
+<NER>
+But as businesses showed Georgia this week, "the political pressure, the visibility 
+they're bringing to the issue, politicians do have to pay attention to it," <PER>Peterson</PER> said.
+</NER>
+<NER>
+After Walt Disney Co., Marvel Studios and Salesforce.com threatened to take their 
+business elsewhere and the NFL suggested Atlanta could lose its bids for the 2019 or
+ 2020 Super Bowl, Georgia <PER>Gov. Nathan Deal</PER> vetoed a measure that would have allowed 
+individuals, businesses and faith organizations to deny services to others based 
+on their "sincerely held religious beliefs."</NER>
+<NER>"Genetic diversity in these early people from Asia was limited by the small founding 
+populations which were isolated on the Beringian land bridge for around 2400 to 9000 years," 
+says joint lead author <PER>Dr Lars Fehren-Schmitz</PER>, from UCSC. "It was at the peak of the 
+last Ice Age, when cold deserts and ice sheets blocked human movement, and limited 
+resources would have constrained population size.</NER>
+<NER> This long isolation of a small group of 
+people brewed the unique genetic diversity observed in the early Americans."
+</NER>
+<NER>
+Researchers at the University of Rochester/Plc have overcome experimental challenges to 
+demonstrate a new way for getting a full picture of twisted light: characterizing the Wigner distribution.
+Twisted light has raised researchers' interest for its potential for quantum communication applications. 
+The discrete nature of one of the defining parameters of twisted light, orbital angular momentum (OAM), 
+makes it attractive for encoding quantum information.</NER>
+<NER> There is also no known fundamental limit to 
+the maximum OAM value that can be coded into a photon, which could allow for quicker communication 
+than with other systems.
+But before any particular system can be used in quantum communication, researchers need to be able to 
+measure it and describe it. Other methods to obtain the wavefunction, a property that describes 
+a quantum system in full - such as quantum tomography or direct measurements - 
+have been demonstrated in the past. </NER>
+<NER>However, in a Physical Review Letters paper published this week, 
+the Rochester/Plc researchers state that their technique is particularly "suitable for quantum 
+information applications involving a large number of OAM states."
+</NER>
+<NER>
+With its Colonial-era street patterns, icy winters, notoriously aggressive drivers and high-tech talent, 
+the Boston region would seem the perfect place to test self-driving cars and ensure they can handle 
+anything thrown at them.</NER>
+<NER>
+But the area, and indeed the entire Northeast, has no law outlining how the technology should be 
+driven and tested. </NER>
+<NER>And lawmakers who want to respond are being spurned by leaders of the 
+fast-growing industry, who would rather have no rules than a patchwork of state laws getting in their way.
+That's leaving local startups and some of the country's most renowned engineering departments in a bind.</NER>
+<NER>
+"I'm hoping that the New England states will make it possible for us to do this work right at home very soon," 
+said <PER>Daniela Rus</PER>, a professor who directs the artificial intelligence laboratory at the 
+Massachusetts Institute of Technology, which has partnered with Toyota to advance autonomous driving. </NER>
+<NER>
+"We have more flexibility testing our algorithms and self-driving vehicles in Singapore than we do here. 
+It's really onerous to pack up your research and move to a place to test it."</NER>
+<NER>
+In the absence of clear rules, researchers are welcoming an emerging Massachusetts plan by the 
+administration of Republican <PER>Gov. Charlie Baker</PER> to carve out a self-driving testing ground 
+at a former military base an hour's drive from Boston, which is a center for robotics and artificial 
+intelligence research.
+</NER>
