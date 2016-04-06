@@ -1,0 +1,82 @@
+﻿<NER>
+Researchers at Yale and the Smithsonian Institution 
+say it's time to settle a very old food fight.
+</NER><NER>
+
+In a study published March 18 in the journal Ecology and 
+Evolution, authors <PER>Matt Davis</PER> and <PER>Silvia Pineda-Munoz</PER> argue 
+
+that scientists need to focus as much on "when" animals eat 
+as they do "what" animals eat. Without the proper time context, 
+they say, an animal's diet can tell very different stories.
+</NER><NER>
+
+"Diet is one of the most important features of animals," 
+said <PER>Davis</PER>, a Yale graduate student in geology and geophysics. 
+"But often, we can't seem to agree on what animals ate. 
+Grizzly bears, for example, eat different foods at different times. 
+If you looked at their diet in the spring, it would look like what
+ wolves eat, but in the fall, bears eat mostly seeds, just like squirrels."
+</NER><NER>
+
+Researchers use diet reconstructions to provide crucial information
+ for managing habitats of endangered species, understanding evolutionary 
+changes in species' function, and describing ancient habitats
+</NER><NER>
+
+ and climates. Routinely, this bit of diet detective work is 
+achieved with dietary proxies: chemicals in hair or blood samples, 
+dental remains, stomach contents, skeletal analysis, and
+ measurements of feeding sites, for example.
+</NER><NER>
+
+Yet often, diet proxies don't agree. This is because each one records 
+what an animal eats over different lengths of time. Chemicals in hair, 
+for example, may offer information about nutrition over the course of
+</NER><NER>
+
+ several years; stomach contents would reveal perhaps a week's worth 
+of meals. Each could give a different answer for what an animal ate.
+</NER><NER>
+
+<PER>Davis</PER> and <PER>Pineda-Munoz</PER> give 
+examples of how such disparity can be 
+problematic in research. In one instance, scientists unintentionally
+ reversed the order of a food chain in a lake in East Africa because 
+</NER><NER>
+
+they hadn't factored in the different speeds that zooplankton and their 
+predators absorb nutrients. In another, researchers thought that certain 
+regions of ancient Africa were covered in forests because they 
+</NER><NER>
+
+assumed the fossil elephants they found there ate mostly trees, just 
+like modern elephants; however chemical analysis showed the ancient 
+</NER><NER>
+
+elephants actually ate mostly grass, so the "forests" were most likely fields.
+</NER><NER>
+
+"The correct diet proxy depends on the question you're asking," Davis 
+said. "We can't just look at stomach contents sampled yesterday 
+and extrapolate them out for 1 million years."
+</NER><NER>
+
+<PER>Davis</PER> and <PER>Pineda-Munoz</PER> suggest that 
+researchers explicitly state the 
+time scales for the diet proxies they use to avoid confusion. They 
+also call upon scientists to consider the effects of time scale at each 
+stage of their research.
+</NER><NER>
+
+<PER>Pineda-Munoz</PER> points out that the different 
+time scales can actually 
+be helpful to research. "By using different proxies like the chemical 
+signatures in feathers and blood we can tell not just what a bird is
+</NER><NER>
+
+ eating but what it ate a year ago and how its diet changed since then," 
+she said. "This is especially important for rare or endangered species 
+because we can effectively time travel through their diet without harming 
+the animal."
+</NER>

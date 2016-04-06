@@ -1,0 +1,75 @@
+﻿<NER>
+Could there be a vegetarian gene? 
+Cornell University researchers have found evidence 
+of a genetic variation - called an allele - 
+that has evolved in populations that have historically 
+favored vegetarian diets, such as in India, Africa and parts 
+of East Asia. They also discovered a different version of this 
+gene adapted to a marine diet discovered among the Inuit in 
+Greenland, who mainly consume seafood.</NER>
+<NER>
+
+The vegetarian allele evolved in populations that have eaten 
+a plant-based diet over hundreds of generations. The adaptation 
+allows these people to efficiently process omega-3 and omega-6 
+fatty acids and convert them into compounds essential for early 
+brain development and if they stray from a balanced omega-6 to 
+omega-3 diet, it may make people more susceptible to inflammation,
+ and by association, increased risk of heart disease and colon cancer.</NER>
+<NER>
+
+In Inuit populations of Greenland, the researchers uncovered 
+that a previously identified adaptation is opposite to the one 
+found in long-standing vegetarian populations: While the vegetarian 
+allele has an insertion of 22 bases (a base is a building block 
+of DNA) within the gene, this insertion was found to be deleted in the seafood allele.</NER>
+<NER>
+
+"The opposite allele is likely driving adaptation in Inuit," 
+said <PER>Kaixiong Ye</PER>, co-lead author of the paper appearing March 29
+ in the journal Molecular Biology and Evolution. <PERYe</PER> is a postdoctoral 
+researcher in the lab of <PER>Alon Keinan</PER>, associate professor of biological 
+statistics and computational biology, and the paper's co-senior author.
+
+"Our study is the first to connect an insertion allele with vegetarian 
+diets, and the deletion allele with a marine diet," <PER>Ye</PER> said.
+</NER>
+
+<NER>
+Malaria affects close to 500 million people every year, 
+but we're not the only ones—different species of malaria 
+parasite can infect birds, bats, and other mammals too. 
+A Field Museum study published in Molecular Phylogenetics 
+and Evolution reveals a new take on the evolution of different 
+malaria species and contributes to the ongoing search for the 
+origins of malaria in humans."We can't begin to understand how
+ malaria spread to humans until we understand its evolutionary history," 
+explained lead author <PER>Holly Lutz</PER>, a Ph.D. candidate at 
+Cornell University and a longtime affiliate of The Field Museum. "
+In learning about its past, we may be better able to understand 
+the effects it has on us."
+</NER><NER>
+Malaria is a parasitic single-celled organism that reproduces in 
+the bloodstream of its host and is transferred between hosts by 
+insects like mosquitos. Different species of malaria live in 
+different species of host animals. <PER>Lutz</PER> and her colleagues took blood 
+samples from hundreds of East African birds, bats, and other mammals 
+and screened the blood for the parasites. When they found malaria, 
+they took samples of the parasites' DNA and sequenced it to identify 
+mutations in the genetic code. From there, <PER>Lutz</PER> was able to perform 
+what is called "phylogenetic analyses" to determine how different 
+malaria species are related.
+</NER><NER>
+In analyzing the genetic codes of the malaria parasites, <PER>Lutz</PER> was 
+able to find places where the DNA differed from one species to the next. 
+Then, the scientists used powerful computing software to determine how 
+the different species evolved and how they're related to each other.
+</NER><NER>
+This phylogenetic analysis relied on large sample sizes and DNA from many 
+different host species of bats and birds, because otherwise, the picture 
+would be incomplete—"Trying to determine the evolutionary history of malaria 
+from just a few specimens would be like trying to reconstruct the bird 
+family tree when you only know about eagles and canaries," explained <PER>Lutz</PER>.
+ "There's still more to discover, but this is the most complete analysis
+ of its kind for malaria to date."
+</NER>
