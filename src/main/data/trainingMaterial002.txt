@@ -1,6 +1,9 @@
 <NER><PER>Gerard Silerio</PER></NER>
 <NER><PER>Addy Alago</PER></NER>
 <NER><PER>Caroline Chey</PER></NER>
+<NER><PER>Caroline</PER></NER>
+<NER><PER>Caroline</PER></NER>
+<NER><PER>Chey</PER></NER>
 <NER><PER>Joel Barr</PER></NER>
 <NER><PER>Tristan Pressley</PER></NER>
 <NER>! -- r 1 - (N- 1) + $2 N- 1)</NER>
@@ -61036,7 +61039,8 @@ edition of Science. The lead author is MIT research associate <PER>Andrea Adamo<
 <NER>year of diagnosis, US Army, 19 90 - 20 01</NER>
 <NER>year plan, moreover, included new assumptions about extended service lives for amphibious</NER>
 <NER>year since 19 92 (figure 1). Overall, the rate of</NER>
-<NER>year to verify t ime performance of the NAVCORE GPS receiver. In addition to t he NAVCORE with</NER>
+<NER>year to verify t ime performance of the NAVCORE GPS receiver.</NER>
+<NER> In addition to t he NAVCORE with</NER>
 <NER>years, the Regular Army has been reduced in numbers in both</NER>
 <NER>years, the legislation has also served as a vehicle for Congress to place conditions on</NER>
 <NER>years. GAO was asked to</NER>
@@ -61215,8 +61219,8 @@ The 50 new jobs paying an average of nearly $76,000 a year were announced two we
 </NER>
 <NER>
 Lionsgate, the California-based entertainment company, had been lining up hotel 
-and equipment rentals and hiring more than 100 workers in North Carolina, but decided
- to shoot its pilot episode for a comedy series in Canada instead, said <PER>Jennifer Irvine</PER>,
+and equipment rentals and hiring more than 100 workers in North Carolina/Plc, but decided
+ to shoot its pilot episode for a comedy series in Canada/Plc instead, said <PER>Jennifer Irvine</PER>,
  a Charlotte production coordinator.
 </NER>
 <NER>
@@ -61244,10 +61248,11 @@ used X-rays to observe exactly how those contacts form during manufacturing.
 </NER>
 <NER>
 The results, reported in Nature Communications, are an important step toward finding cheaper 
-alternatives to silver that don't require toxic lead for processing.
-
+alternatives to silver that don't require toxic lead for processing.</NER>
+<NER>
 "Industry would like to get rid of both silver and lead in this process," said <PER>Mike Toney</PER>, 
-a distinguished staff scientist at SLAC National Accelerator Laboratory and one of the lead authors of the paper. 
+a distinguished staff scientist at SLAC National Accelerator Laboratory and one of the lead authors of the paper. </NER>
+<NER>
 "One of the goals of this research is to figure out how the contacts are made and use 
 this knowledge to come up with ways to eliminate silver and lead."
 </NER>
@@ -61256,7 +61261,8 @@ this knowledge to come up with ways to eliminate silver and lead."
 insight into what's happening," said <PER>Maikel van Hest</PER>, a materials scientist at 
 NREL who led the research. </NER>
 <NER>
-"Prior to this study we were only able to look at the contact before and after heat processing; 
+"Prior to this study we were only able to look at the contact before and after heat processing; </NER>
+<NER>
 what happened in between was like a black box. But now we can actually make measurements as 
 the contacts form. This tool will have great impact in the photovoltaic industry as well as in basic research."
 </NER>
@@ -61290,7 +61296,8 @@ people brewed the unique genetic diversity observed in the early Americans."
 <NER>
 Researchers at the University of Rochester/Plc have overcome experimental challenges to 
 demonstrate a new way for getting a full picture of twisted light: characterizing the Wigner distribution.
-Twisted light has raised researchers' interest for its potential for quantum communication applications. 
+Twisted light has raised researchers' interest for its potential for quantum communication applications. </NER>
+<NER>
 The discrete nature of one of the defining parameters of twisted light, orbital angular momentum (OAM), 
 makes it attractive for encoding quantum information.</NER>
 <NER> There is also no known fundamental limit to 
@@ -61313,6 +61320,8 @@ But the area, and indeed the entire Northeast, has no law outlining how the tech
 driven and tested. </NER>
 <NER>And lawmakers who want to respond are being spurned by leaders of the 
 fast-growing industry, who would rather have no rules than a patchwork of state laws getting in their way.
+</NER>
+<NER>
 That's leaving local startups and some of the country's most renowned engineering departments in a bind.</NER>
 <NER>
 "I'm hoping that the New England states will make it possible for us to do this work right at home very soon," 
