@@ -257,3 +257,162 @@ section of line is estimated to be in place on Wednesday.
 Construction to replace the sewer line could take three to four months, 
 with an estimated repair cost of $8 million to $10 million, said <PER>Robert Knecht</PER>, 
 director of the Memphis Public Works Division.</NER>
+<NER>
+A team of Japanese researchers (and one from the U.K.) has found evidence 
+in the remains of ancient Japanese people that suggests that people are not 
+necessarily predisposed to living a violent existence or even to engaging 
+in warfare. 
+</NER>
+<NER>
+In their paper published in the Royal Society journal Biology 
+Letters, the team describes their analysis of the remains of people that 
+lived during the Jomon period (from 13,000 – 800 BC) in what is now Japan, 
+which showed very little evidence of violent behavior or death.</NER>
+
+<NER>
+In recent years, scientists have found evidence of many hunter-gatherer 
+groups that behaved in a violent manner, sometimes even banding together 
+to wage war on other people or groups. </NER>
+<NER>That has led to more evidence of the
+ common assumption that humans are inherently violent and that war has 
+generally been the result when two or more groups have different ideas 
+of how things should be done. </NER>
+<NER>In this new effort, the researchers suggest 
+such findings might be premature as they have found an example of an early
+ hunter-gatherer culture that did not appear to wage war or even behave in a violent manner.
+</NER>
+<NER>
+
+The teams' study consisted of analyzing the remains of approximately 2,500 
+people that lived in Japan during the Jomon period, looking for examples of 
+violence, e.g. broken or damaged bones. </NER>
+<NER>The team reports that they found 
+evidence of violence in just 1.8 percent of all the adult bones represented 
+and in just 0.89 percent of the population as a whole.</NER>
+<NER> A very low number 
+compared to the 12 to 14 percent seen in other hunter-gatherer populations 
+of around the same time period (which strongly suggested a violent existence). 
+This, the researchers claim, suggests that the people of that time lived 
+peacefully among themselves and did not conduct war against others that 
+might have lived nearby. </NER>
+<NER>And that, they add, suggests that humans may not 
+be quite as predisposed to violence as others have suggested, which counters other 
+arguments that it was warfare that led people to band together into groups 
+forming communities that allowed for the promotion of intra-group altruism 
+and even more advanced warfare against other such groups—a selective from of 
+evolutionary behavior.
+
+</NER>
+<NER>
+<PER>Chevalier Blondin</PER> was 35 years old when in 1859, with no safety harness 
+and no net beneath him, he first tightrope-walked nearly half a kilometre across 
+the Niagara Gorge. </NER>
+<NER>At different times over the coming years, 
+he would repeat the crossing blindfolded, carrying a 
+stove (stopping to cook himself an omelette half way), 
+and with his manager on his back. </NER>
+<NER>Later on, during a visit to the UK, 
+he crossed a tightrope while pushing a wheelbarrow with a lion in it. 
+<PER>Chevalier Blondin</PER> was a risk taker.</NER>
+<NER>
+In the same year as <PER>Blondin</PER>'s first Niagara crossing, 
+<PER>Charles Darwin</PER> published On The Origin of Species by Natural Selection. </NER>
+<NER>
+There may seem to be a gulf the width of Niagara between these two events,
+ but perhaps there is more to link them than is at first apparent.</NER>
+<NER>
+Some may find <PER>Blondin</PER>'s exploits admirable and inspirational. 
+Others may think he was mad. The difference illustrates how individuals 
+have remarkably different attitudes to risk. </NER>
+<NER>Some take up extreme 
+sports and visit war zones. Others view the ability to stay at home and 
+live a quiet life as the happy privilege of the human species. </NER>
+<NER>
+But humans are not alone in having varying attitudes to risk.
+ From field crickets to fighting fish and hermit crabs to hamsters, 
+individuals differ consistently in their willingness to be exposed to risk.</NER>
+<NER>
+Behavioural ecologists call this spectrum of responses "boldness", 
+and researchers in the field of animal personality variation are 
+exploring its evolutionary significance.
+</NER>
+<NER>
+The first question to address is why do some individuals take 
+more risks than others? One answer is that in some cases,
+ bolder individuals have higher reproductive success. 
+
+</NER>
+<NER>
+A fruit called the noni—now hyped for a vast array of unproven health benefits—is distinctly 
+unhealthy for the fruit fly, which has fascinated geneticists for a century. </NER>
+<NER>
+For the species of Drosophila that lives in labs around the world, 
+noni signifies extermination with extreme prejudice: 
+A fly will die if it eats yeast growing on noni.</NER>
+<NER>
+And yet when collectors swung nets and baited traps with rotting banana 
+on a small island between Madagascar and Africa, they found a close relative, 
+Drosophila yakuba, that merrily gobbles yeast growing on these forbidden fruits.</NER>
+<NER>
+Yeast growing on noni are the centerpiece on the islander fly's menu. 
+But on the mainland, "D. yakuba is happy with whatever rotting fruit it can find, 
+as long as it's not toxic," says <PER>John Pool</PER>, 
+an assistant professor of genetics at the University of Wisconsin-Madison. 
+"They scrape off the yeast cells that grow on rotting fruit and eat them, 
+and their larvae swim through the rotting fruit." <PER>Pool</PER> is senior author 
+of a study on the discovery that appears in the April 4, 2016 
+Proceedings of the National Academy of Sciences.</NER>
+<NER>
+<PER>Pool</PER> says the toxin-surviving fruit flies on Mayotte are likely 
+to become an important research subject for studying the evolution of dietary 
+changes, "where we can borrow the genetic tools of the common laboratory fruit fly."</NER>
+<NER>
+The fruit fly is a workhorse of genetics, but "most fruit fly labs 
+focus on experiments with a small set of lab strains," <PER>Pool</PER> says. </NER>
+<NER>
+"Our interest is using fruit flies to learn about evolution in the field." 
+Because a different fruit fly had also evolved immunity to noni, 
+"Yakuba gives us a chance to ask, how predictable are these transitions? 
+Will they use the same genes, or do these organisms have a wider palette 
+so they can make a completely different choice next time?"</NER>
+<NER>
+A collection effort on the island of Mayotte, led by <PER>Jean David</PER> 
+of the French National Center for Scientific Research, identified the 
+unusual Drosophila yakuba population and its bizarre preference for noni.
+</NER>
+<NER>
+Female yakuba flies on Mayotte prefer not to mate with mainland males, 
+<PER>Pool</PER> says, helping establish the reproductive isolation that supports 
+evolution of a new species.</NER>
+<NER>
+
+"There were probably not that many options when these flies reached Mayotte," 
+says Pool, "so they were stuck trying to survive on this toxic fruit."</NER>
+<NER>
+
+Genetic analysis indicated that the island flies developed their 
+immunity to noni toxin after reaching Mayotte about 30,000 years 
+ago—long after a similar transformation among Drosophila sechellia, 
+another fruit fly in the region that also eats yeast from rotting noni.</NER>
+<NER>
+
+And that raised the most intriguing question of all: </NER>
+<NER>How closely 
+did the two genetic transformations parallel each other?</NER>
+<NER>
+
+In Pool's lab, postdoctoral fellow <PER>Amir Yassin</PER> broke that question 
+into one about the flies' attraction to noni, and a second about its 
+immunity to noni toxin.</NER>
+<NER> "We did not see a strong signal of genetic 
+parallelism in the evolution of attraction, but we did for the tolerance
+ genes that render the toxin harmless," <PER>Pool</PER> says. 
+"So not only had the 
+same trait evolved in two species, but at least some of the same genes were involved."
+
+Finding a fly that had recently changed its dining habits was intriguing
+ for a very practical reason, says <PER>Pool</PER>, 
+observing that most agricultural 
+insect pests undergo a change of menu before they start to attack crops.
+
+</NER>
