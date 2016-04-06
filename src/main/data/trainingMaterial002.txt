@@ -1,5 +1,6 @@
 <NER>The paradox of unanimity has many other applications beyond the legal arena. 
 One important one that the researchers discuss in their paper is cryptography. 
+</NER><NER>
 Data is often encrypted by verifying that some gigantic number provided by 
 an adversary is prime or composite. One way to do this is to repeat a 
 probabilistic test called the Rabin-Miller test until the probability 
@@ -7,16 +8,19 @@ that it mistakes a composite as prime is extremely low: a probability
 of 2-128 is typically considered acceptable.
 </NER><NER>
 The systemic failure that occurs in this situation is computer failure. 
+</NER><NER>
 Most people never consider the possibility that a stray cosmic ray 
 may flip a bit that in turn causes the test to accept a composite 
 number as a prime. After all, the probability for such an event 
 occurring is extremely low, approximately 10-13 per month. 
+</NER><NER>
 But the important thing is that it's greater than 2-128,
 so even though the failure rate is so tiny, it dominates over the 
 desired level of security. Consequently, the cryptographic protocol 
 may appear to be more secure than it really is, since test 
 results that appear to indicate a high level of security are
  actually much more likely to be indicative of computer failure. 
+ </NER><NER>
  In order to truly achieve the desirable level of security, 
  the researchers advise that these "hidden" errors must be 
  reduced to as close to zero as possible.
@@ -26,9 +30,11 @@ The paradox of unanimity may be counterintuitive,
 but the researchers explain that it makes sense once we have complete information at our disposal.
 "As with most 'paradoxes,' it is not that our intuition is necessarily bad, 
 but that our intuition has been badly informed," <PER>Abbott</PER> said. 
+</NER><NER>
 "In these cases, we are surprised because we simply aren't generally 
 aware that identification rates by witnesses are in fact so poor, 
 and we aren't aware that bit error rates in computers are significant when it comes to cryptography."
+</NER><NER>
 
 The researchers noted that the paradox of unanimity is related to the 
 Duhem-Quine hypothesis, which states that it is not possible to 
@@ -37,18 +43,20 @@ are always tested as a group. For instance, an experiment tests
 not only a certain phenomenon, but also the correction function of the
  experimental tools. In the paradox of unanimity, it's the methods 
  (the "auxiliary hypotheses") that fail, and in turn reduce confidence in the main results.
+ </NER><NER>
 
 More examples
-</NER>
-<NER>
 
 Other areas where the paradox of unanimity emerges are numerous and diverse. 
 <PER>Abbott</PER> describes several below, in his own words:
 
 1) The recent Volkswagen scandal is a good example. 
+</NER><NER>
 The company fraudulently programmed a computer chip to run the 
 engine in a mode that minimized diesel fuel emissions during emission tests. 
+</NER><NER>
 But in reality, the emissions did not meet standards when the cars were running on the road. 
+</NER><NER>
 The low emissions were too consistent and 'too good to be true.' 
 The emissions team that outed Volkswagen initially got suspicious 
 when they found that emissions were almost at the same level whether a
@@ -57,31 +65,39 @@ when they found that emissions were almost at the same level whether a
  
  <NER>
 2) A famous case where overwhelming evidence was 'too good to be true' occurred in the 1993-2008 period. 
+</NER><NER>
 Police in Europe found the same female DNA in about 15 crime scenes across 
 France, Germany, and Austria. This mysterious killer was dubbed the Phantom of 
 Heilbronn and the police never found her. The DNA evidence was consistent and
  overwhelming, yet it was wrong. It turned out to be a systemic error. 
+ </NER><NER>
  The cotton swabs used to collect the DNA samples were accidentally contaminated, 
  by the same lady, in the factory that made the swabs.
 </NER>
 <NER>
 3) When a government wins an election, one laments that the party 
 of one's choice often wins with a relatively small margin.
+</NER><NER>
  We often wish for our favored political party to win with unanimous votes.
+ </NER><NER>
   However, should that ever happen we would be led to suspect a systemic 
   bias caused by vote rigging. An urban legend persists that <PER>Putin</PER> 
   won 140% (!) of the votes; if this true then democracy clearly failed in that case. 
+  </NER><NER>
   The take-home message is that, in a healthy democracy, when a party wins by a small margin, 
   instead of name-calling the 'dumb' voters of the opposition, 
   we should be celebrating the fact that the opposing voters preserved the integrity of democracy.
 </NER>
 <NER>
 4) In science, theory and experiment go hand in hand and must support each other. 
+</NER><NER>
 In every experiment there is always 'noise,' and we must therefore expect some error. 
+</NER><NER>
 In the history of science there are a number of famous experiments where the results were 
 'too good to be true.' There are many examples that have been mired in controversy over 
 the years, and the most famous are Millikan's oil drop experiment for determining
  the charge on the electron and Mendel's plant breeding experiments.
+ </NER><NER>
   If results are too clean and do not contain expected noise and outliers, 
   then we can be led to suspect a form of confirmation bias introduced 
   by an experimenter who cherry-picks the data.
@@ -89,6 +105,7 @@ the years, and the most famous are Millikan's oil drop experiment for determinin
 <NER>
 5) In many committee meetings, in today's big organizations, 
 there is a trend towards the idea that decisions must be unanimous. 
+</NER><NER>
 For example, a committee that ranks job applicants or evaluates key 
 performance indicators (KPIs) often will argue until everyone in the 
 room is in agreement. If one or two members are in disagreement, 
@@ -96,25 +113,147 @@ there is a tendency for the rest of the committee to win them over
  before moving on. A take-home message of our analysis is that the 
  dissenting voice should be welcomed. A wise committee should accept
   that difference of opinion and simply record there was a disagreement.
+  </NER><NER>
    The recording of the disagreement is not a negative, but a positive
     that demonstrates that a systemic bias is less likely.
-
+</NER><NER>
 6) <PER>Eugene Wigner</PER> once coined the phrase 'the unreasonable effectiveness
  of mathematics' to describe the rather odd feeling that math seems to be so 
  perfectly suited to describing physical theories. In a way, <PER>Wigner</PER> 
  was expressing the idea that math itself is 'too good to be true.' 
+ </NER><NER>
  (See this article for more on this idea.) The reality is 
  that modern devices and machines are no longer analyzed by
   neat analytical mathematical equations, but by empirical formulas 
   embedded in simulation software tools. For some of the next big 
   science questions, particularly in the area of complex systems, 
-  we are looking to big data and machine learning rather than math. 
+  we are looking to big data and machine learning rather than math.
+  </NER><NER> 
   Analytical math as we knew it was not the perfect glove that could
    fit every type of problem. So how did we get seduced to once thinking 
    that math was 'unreasonably effective'? It's the systemic confirmation
     bias introduced by the fact that for every great scientific paper 
     we read with an elegant formula, there are many more rejected formulas
-     that are never published and we never get to see. The math we have 
+     that are never published and we never get to see. 
+     </NER><NER>
+     The math we have 
      today was cherry-picked.
 
 </NER>
+
+<NER>
+OKLAHOMA CITY –  
+Authorities are responding to wildfires in Oklahoma and Kansas 
+that have led to evacuations, scorched mostly rural land and destroyed 
+an unknown number of structures.
+</NER><NER>
+
+In Oklahoma, the largest fire was in the same area near the border 
+with Kansas where blazes last month scorched hundreds of square miles.
+</NER><NER>
+
+
+Authorities there urged the approximately 300 residents of Freedom, 
+about 170 miles northwest of Oklahoma City, to evacuate, Woods County 
+Emergency Management Director <PER>Steve Foster</PER> said.
+</NER><NER>
+
+
+The fire was burning uncontrolled, stoked by wind gusts of around 40 miles per hour, 
+said Woodward County Emergency Management Director <PER>Matt Lehenbauer</PER>. 
+</NER><NER>
+
+By late evening Tuesday, the flames had stalled at the Cimarron River 
+west of Freedom, but officials remained wary of its potential threat to the town.</NER>
+</NER><NER>
+
+
+A video that captured a retired U.S. Air Force sergeant being forcibly 
+removed from a ceremony at a California base has prompted an investigation, 
+an Air Force Reserve official said Wednesday.</NER><NER>
+
+
+The incident occurred at Travis Air Force Base, near Sacramento on April 3, 
+at the retirement of an unidentified master sergeant from the 749th Aircraft 
+Maintenance Squadron. Retired Senior Master <PER>Sgt. Oscar Rodriguez</PER>, in civilian 
+clothing, is shown attempting to read a statement before three uniformed airmen 
+forcibly remove him.</NER><NER>
+
+
+The 50-second video clip was first posted on JQPublicBlog.com, which 
+called the footage “a disgraceful spectacle” during what is usually a calm send off.</NER><NER>
+
+
+A source who was present at the event told the military blog that <PER>Rodriguez</PER> was 
+there at the request of the retiree, but had been banned from the base by the squadron commander.
+</NER><NER>
+
+
+A spokesman from the reserve said that the confrontation stemmed from 
+“an unplanned participation” at the event.
+
+"<PER>Rodriguez</PER> ignored numerous requests to respect the Air Force prescribed ceremony
+ and unfortunately was forcibly removed," a Travis official said in a statement 
+to FoxNews.com. "We will continue to investigate the situation fully."
+</NER><NER>
+
+
+Neither <PER>Rodriguez</PER> nor the honoree could be reached for comment.
+</NER><NER>
+
+
+<PER>Stephan Sila</PER>, who identified himself as the officiating officer at the ceremony
+ and a 28-year Air Force veteran, wrote in a Facebook post published on the military
+ blog that <PER>Rodriguez</PER> simply planned to read a statement honoring the flag and 
+that his appearance had been cleared through the proper chain of command.</NER><NER>
+
+
+<PER>Sila</PER> said the incident has angered non-commissioned officers who believe the 
+retirement ceremony was marred by the ugly incident.</NER><NER>
+
+
+"Why do you think people are leaving (the Air Force) in droves?" <PER>Sila</PER> wrote. 
+</NER><NER>
+
+"Because the guys in the trenches are subjected to nonstop stupidity from 
+commanders who don’t deserve the rank, respect, or support of the people ther’re in charge of.”</NER><NER>
+
+
+The Air Force Reserve said in the statement it "respects and defends the right to
+ free speech and religious expression." </NER>
+
+<NER>
+State officials say a sewage leak has caused a major fish kill in a lake near 
+the Mississippi River in west Tennessee.</NER><NER>
+
+
+<PER>Kelly Brockman</PER>, a spokeswoman with the Tennessee's Department of Environment 
+and Conservation, said Tuesday that the number of fish killed in McKellar 
+Lake in Memphis is in the thousands.</NER><NER>
+
+
+Officials say a broken sewage line is dumping up to 50 million gallons of 
+untreated wastewater per day into Cypress Creek. 
+
+</NER><NER>
+The leak into the creek 
+began Thursday. The creek runs into McKellar Lake, which flows into the 
+Mississippi. Officials say the creek and the lake are not sources of drinking water.</NER><NER>
+
+
+Officials have said the spill poses no immediate risk to the public, but they also
+ said people should avoid touching or fishing in both bodies of water. </NER><NER>
+
+City crews have placed warning signs in the area near the creek, and a 
+marina that provides access to the lake has been closed.
+</NER><NER>
+
+
+Memphis public works officials have said a bypass around the damaged 
+section of line is estimated to be in place on Wednesday.
+</NER><NER>
+
+
+Construction to replace the sewer line could take three to four months, 
+with an estimated repair cost of $8 million to $10 million, said <PER>Robert Knecht</PER>, 
+director of the Memphis Public Works Division.</NER>

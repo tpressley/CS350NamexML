@@ -1,4 +1,96 @@
 <NER>The beginning of the end </NER>
+<NER>
+Could there be a vegetarian gene? 
+</NER><NER>
+Cornell University researchers have found evidence 
+of a genetic variation - called an allele - 
+</NER><NER>
+that has evolved in populations that have historically 
+favored vegetarian diets, such as in India, Africa and parts 
+of East Asia. They also discovered a different version of this 
+gene adapted to a marine diet discovered among the Inuit in 
+Greenland, who mainly consume seafood.</NER>
+<NER>
+</NER><NER>
+The vegetarian allele evolved in populations that have eaten 
+a plant-based diet over hundreds of generations. 
+
+</NER><NER>The adaptation 
+allows these people to efficiently process omega-3 and omega-6 
+fatty acids and convert them into compounds essential for early 
+brain development and if they stray from a balanced omega-6 to 
+omega-3 diet, it may make people more susceptible to inflammation,
+ and by association, increased risk of heart disease and colon cancer.</NER>
+<NER>
+
+In Inuit populations of Greenland, the researchers uncovered 
+that a previously identified adaptation is opposite to the one 
+found in long-standing vegetarian populations: While the vegetarian 
+allele has an insertion of 22 bases (a base is a building block 
+of DNA) within the gene, this insertion was found to be deleted in the seafood allele.</NER>
+<NER>
+
+"The opposite allele is likely driving adaptation in Inuit," 
+said <PER>Kaixiong Ye</PER>, co-lead author of the paper appearing March 29
+ in the journal Molecular Biology and Evolution. 
+ </NER><NER>
+ <PER>Ye</PER> is a postdoctoral 
+researcher in the lab of <PER>Alon Keinan</PER>, associate professor of biological 
+statistics and computational biology, and the paper's co-senior author.
+</NER><NER>
+
+"Our study is the first to connect an insertion allele with vegetarian 
+diets, and the deletion allele with a marine diet," <PER>Ye</PER> said.
+</NER>
+
+<NER>
+Malaria affects close to 500 million people every year, 
+but we're not the only ones—different species of malaria 
+parasite can infect birds, bats, and other mammals too.
+</NER><NER> 
+A Field Museum study published in Molecular Phylogenetics 
+and Evolution reveals a new take on the evolution of different 
+malaria species and contributes to the ongoing search for the 
+origins of malaria in humans.
+</NER><NER>
+"We can't begin to understand how
+ malaria spread to humans until we understand its evolutionary history," 
+explained lead author <PER>Holly Lutz</PER>, a Ph.D. candidate at 
+Cornell University and a longtime affiliate of The Field Museum. "
+In learning about its past, we may be better able to understand 
+the effects it has on us."
+</NER><NER>
+Malaria is a parasitic single-celled organism that reproduces in 
+the bloodstream of its host and is transferred between hosts by 
+insects like mosquitos. 
+</NER><NER>
+Different species of malaria live in 
+different species of host animals. 
+</NER><NER>
+<PER>Lutz</PER> and her colleagues took blood 
+samples from hundreds of East African birds, bats, and other mammals 
+and screened the blood for the parasites. When they found malaria, 
+they took samples of the parasites' DNA and sequenced it to identify 
+mutations in the genetic code. 
+</NER><NER>
+From there, <PER>Lutz</PER> was able to perform 
+what is called "phylogenetic analyses" to determine how different 
+malaria species are related.
+</NER><NER>
+In analyzing the genetic codes of the malaria parasites, <PER>Lutz</PER> was 
+able to find places where the DNA differed from one species to the next. 
+</NER><NER>
+Then, the scientists used powerful computing software to determine how 
+the different species evolved and how they're related to each other.
+</NER><NER>
+This phylogenetic analysis relied on large sample sizes and DNA from many 
+different host species of bats and birds, because otherwise, the picture 
+would be incomplete—"Trying to determine the evolutionary history of malaria 
+from just a few specimens would be like trying to reconstruct the bird 
+family tree when you only know about eagles and canaries," explained <PER>Lutz</PER>.
+ "There's still more to discover, but this is the most complete analysis
+ of its kind for malaria to date."
+</NER>
 <NER>This document was designed by</NER>
 <NER>Original copy available in digital form</NER>
 <NER>The original title of this document has been modified to reflect...</NER>
@@ -53,15 +145,7 @@ route which only opened much later," says <PER>Professor Alan Cooper</PER>, Dire
 <NER>(3</NER>
 <NER>(4) Giat</NER>
 <NER>(4</NER>
-<NER>(5) Matra D ?</NER>
-<NER>(51 dPl / km)</NER>
-<NER>(5 km location accuracy) or better. Using the reassociated P times at the regional stations, we intend to relocate</NER>
-<NER>(5</NER>
-<NER>(6) Aerospatiale</NER>
-<NER>(68.0 %) compared to the later (13.3 %) period.</NER>
-<NER>(6</NER>
-<NER>(7)</NER>
-<NER>(70 3</NER>
+
 <NER>(71 ? C). To elicit the effect of resin, three different</NER>
 <NER>(7</NER>
 <NER>(8</NER>
@@ -9144,83 +9228,117 @@ route which only opened much later," says <PER>Professor Alan Cooper</PER>, Dire
 <NER>EX ECUTIV E SU MMARY...............................................................................................................................................</NER>
 <NER>EXCESS MATERIAL SUPPORT</NER>
 <NER>EXECUTIVE SUMMARY 
- This report summarizes research performed as part of the project"Design of Ultra-High 
+ This report summarizes research performed as part of the project
+ "Design of Ultra-High 
  Temperature Ceramics for Improved Performance,"which was funded by AFOSR grant 
  FA 95 50 - 06 - 1 - 01 25. The report describes the technical progress and lists all of the publications 
- and presentations that stemmed from the project. The report also describes interactions between 
+ and presentations that stemmed from the project. 
+ </NER><NER>
+ The report also describes interactions between 
  the project team and other researchers from around the world. In addition to the technical 
- content, the appendices describe two related subjects. The first appendix is a trip report prepared 
+ content, the appendices describe two related subjects. 
+ </NER><NER>
+ The first appendix is a trip report prepared 
  after the principal investigators attended the Fifth China International Conference on Ceramics in 
- were investigating ultra-high temperature ceramics. The final appendix describes and lists 
+ were investigating ultra-high temperature ceramics. 
+ </NER><NER>
+ The final appendix describes and lists 
  additional projects related to boride and carbide ceramics that were active during the 
- performance of this project. This AFOSR project was part of a larger effort at the Missouri 
+ performance of this project.
+ </NER><NER>
+  This AFOSR project was part of a larger effort at the Missouri 
  University of Science and Technology that has become one of the largest research groups in the 
  world focused on these unique materials. 
+ </NER><NER>
  The goal of the project was to understand the influence of composition and structure on 
  elevated temperature behavior of ZrB 2 -based ultra-high temperature ceramics. A combined 
  experimental and modeling approach was used to gain the maximum fundamental understanding 
- from a minimum number of experiments. The technical focus areas for the project were : 1) 
+ from a minimum number of experiments.
+ </NER><NER>
+  The technical focus areas for the project were : 1) 
  adapting mechanical models to monolithic, particulate reinforced, and fibrous monolithic 
  UHTCs ; 2) fabricating compositions and structures for testing and model evaluation by hot 
  pressing, reactive hot pressing, sintering, and / or co-extrusion followed by hot pressing ; 3) 
  characterizing thermomechanical properties and thermal shock behavior. 
- Significant technical progress was made in several areas. First, the thermal shock 
+ </NER><NER>
+ Significant technical progress was made in several areas.
+ </NER><NER> First, the thermal shock 
  behavior was characterized for conventional SiC particulate reinforced ZrB ^ ceramics and then 
  improved by engineering the meso-scale structure of a novel ZrB 2 -SiC fibrous monolith. 
  Whereas monolithic ZrB 2 and ZrB 2 reinforced by 30 vol % SiC particulates both lost strength 
  after quenching to room temperature from ~ 40 0 ? C, the fibrous monolith architecture could 
- withstand quenching from 14 00 ? C without loss of strength. The improvement was due to crack 
+ withstand quenching from 14 00 ? C without loss of strength.
+ </NER><NER>
+  The improvement was due to crack 
  propagation being isolated to only the cell boundary phase. Finite element modeling was used to 
  calculate and understand how parameters such as SiC particle size and shape affected the 
- distribution of residual thermal stresses. Models experimental results that larger SiC particles led 
+ distribution of residual thermal stresses. 
+ 
+ </NER><NER>Models experimental results that larger SiC particles led 
  to residual stresses that affected a greater volume of the surrounding ZrB 2 matrix, but that the 
  magnitude of the residual stresses did not vary significantly with particle size. Elevated 
  temperature neutron diffraction experiments were used to validate and confirm the models. 
  Further investigations of the effect of SiC distribution on the residual stresses in ZrB 2 -SiC 
- ceramics continue utilizing Raman spectroscopy. This work included designing and fabricating 
+ ceramics continue utilizing Raman spectroscopy. 
+ 
+ </NER><NER>This work included designing and fabricating 
  unique spiral architectures that were specifically constructed to mitigate thermal stresses. 
  The primary results of this research are detailed in the technical publications that resulted 
- from the thesis and dissertation research of the graduate students. A complete list of publications 
+ from the thesis and dissertation research of the graduate students.
+ </NER><NER> A complete list of publications 
  and abstracts of the student thesis and dissertation documents are included in this report. 
 </NER>
 <NER>EXECUTIVE SUMMARY 
  This report summarizes research performed as part of the project"Design of Ultra-High 
  Temperature Ceramics for Improved Performance,"which was funded by AFOSR grant 
- FA 95 50 - 06 - 1 - 01 25. The report describes the technical progress and lists all of the publications 
- and presentations that stemmed from the project. The report also describes interactions between 
+ FA 95 50 - 06 - 1 - 01 25. </NER>
+ <NER>The report describes the technical progress and lists all of the publications 
+ and presentations that stemmed from the project. </NER>
+ <NER>The report also describes interactions between 
  the project team and other researchers from around the world. In addition to the technical 
- content, the appendices describe two related subjects. The first appendix is a trip report prepared 
+ content, the appendices describe two related subjects.</NER><NER> The first appendix is a trip report prepared 
  after the principal investigators attended the Fifth China International Conference on Ceramics in 
  were investigating ultra-high temperature ceramics. The final appendix describes and lists 
  additional projects related to boride and carbide ceramics that were active during the 
- performance of this project. This AFOSR project was part of a larger effort at the Missouri 
+ performance of this project.</NER>
+ <NER> This AFOSR project was part of a larger effort at the Missouri 
  University of Science and Technology that has become one of the largest research groups in the 
- world focused on these unique materials. 
+ world focused on these unique materials. </NER>
+ <NER>
  The goal of the project was to understand the influence of composition and structure on 
  elevated temperature behavior of ZrB 2 -based ultra-high temperature ceramics. A combined 
  experimental and modeling approach was used to gain the maximum fundamental understanding 
- from a minimum number of experiments. The technical focus areas for the project were : 1) 
+ from a minimum number of experiments.</NER>
+ <NER> The technical focus areas for the project were : 1) 
  adapting mechanical models to monolithic, particulate reinforced, and fibrous monolithic 
  UHTCs ; 2) fabricating compositions and structures for testing and model evaluation by hot 
  pressing, reactive hot pressing, sintering, and / or co-extrusion followed by hot pressing ; 3) 
  characterizing thermomechanical properties and thermal shock behavior. 
- Significant technical progress was made in several areas. First, the thermal shock 
- behavior was characterized for conventional SiC particulate reinforced ZrB ^ ceramics and then 
+ Significant technical progress was made in several areas. 
+ </NER>
+ <NER>
+ First, the thermal shock behavior was characterized for conventional SiC particulate reinforced ZrB ^ ceramics and then 
  improved by engineering the meso-scale structure of a novel ZrB 2 -SiC fibrous monolith. 
+  </NER>
+ <NER>
  Whereas monolithic ZrB 2 and ZrB 2 reinforced by 30 vol % SiC particulates both lost strength 
  after quenching to room temperature from ~ 40 0 ? C, the fibrous monolith architecture could 
  withstand quenching from 14 00 ? C without loss of strength. The improvement was due to crack 
- propagation being isolated to only the cell boundary phase. Finite element modeling was used to 
+ propagation being isolated to only the cell boundary phase. </NER>
+ <NER> Finite element modeling was used to 
  calculate and understand how parameters such as SiC particle size and shape affected the 
- distribution of residual thermal stresses. Models experimental results that larger SiC particles led 
+ distribution of residual thermal stresses.  </NER>
+ <NER>Models experimental results that larger SiC particles led 
  to residual stresses that affected a greater volume of the surrounding ZrB 2 matrix, but that the 
  magnitude of the residual stresses did not vary significantly with particle size. Elevated 
  temperature neutron diffraction experiments were used to validate and confirm the models. 
  Further investigations of the effect of SiC distribution on the residual stresses in ZrB 2 -SiC 
- ceramics continue utilizing Raman spectroscopy. This work included designing and fabricating 
+ ceramics continue utilizing Raman spectroscopy.  </NER>
+ <NER>This work included designing and fabricating 
  unique spiral architectures that were specifically constructed to mitigate thermal stresses. 
  The primary results of this research are detailed in the technical publications that resulted 
- from the thesis and dissertation research of the graduate students. A complete list of publications 
+ from the thesis and dissertation research of the graduate students.  </NER>
+ <NER>A complete list of publications 
  and abstracts of the student thesis and dissertation documents are included in this report</NER>
 <NER>EXECUTIVE SUMMARY....................................................... ES-</NER>
 <NER>EXECUTIVE SUMMARY............................................................................................</NER>
@@ -19803,3 +19921,99 @@ route which only opened much later," says <PER>Professor Alan Cooper</PER>, Dire
 <NER>which protocol (s) might best meet</NER>
 <NER>which serves to increase low light level</NER>
 <NER>~</NER>
+<NER>
+Researchers at Yale and the Smithsonian Institution 
+say it's time to settle a very old food fight.
+</NER><NER>
+
+In a study published March 18 in the journal Ecology and 
+Evolution, authors <PER>Matt Davis</PER> and <PER>Silvia Pineda-Munoz</PER> argue 
+
+that scientists need to focus as much on "when" animals eat 
+as they do "what" animals eat. Without the proper time context, 
+they say, an animal's diet can tell very different stories.
+</NER><NER>
+
+"Diet is one of the most important features of animals," 
+said <PER>Davis</PER>, a Yale graduate student in geology and geophysics. 
+"But often, we can't seem to agree on what animals ate. 
+Grizzly bears, for example, eat different foods at different times. 
+ </NER>
+ <NER>If you looked at their diet in the spring, it would look like what
+ wolves eat, but in the fall, bears eat mostly seeds, just like squirrels."
+</NER><NER>
+
+Researchers use diet reconstructions to provide crucial information
+ for managing habitats of endangered species, understanding evolutionary 
+changes in species' function, and describing ancient habitats
+</NER><NER>
+
+ and climates.  </NER>
+ <NER>Routinely, this bit of diet detective work is 
+achieved with dietary proxies: chemicals in hair or blood samples, 
+dental remains, stomach contents, skeletal analysis, and
+ measurements of feeding sites, for example.
+</NER><NER>
+
+Yet often, diet proxies don't agree. This is because each one records 
+what an animal eats over different lengths of time.  </NER>
+ <NER>Chemicals in hair, 
+for example, may offer information about nutrition over the course of
+</NER><NER>
+
+ several years; stomach contents would reveal perhaps a week's worth 
+of meals. 
+ </NER>
+ <NER>Each could give a different answer for what an animal ate.
+</NER><NER>
+
+<PER>Davis</PER> and <PER>Pineda-Munoz</PER> give 
+examples of how such disparity can be 
+problematic in research.  </NER>
+ <NER>In one instance, scientists unintentionally
+ reversed the order of a food chain in a lake in East Africa because 
+</NER><NER>
+
+they hadn't factored in the different speeds that zooplankton and their 
+predators absorb nutrients. In another, researchers thought that certain 
+regions of ancient Africa were covered in forests because they 
+</NER>
+<NER>
+
+assumed the fossil elephants they found there ate mostly trees, just 
+like modern elephants;  </NER>
+ <NER>
+however chemical analysis showed the ancient 
+</NER>
+<NER>
+
+elephants actually ate mostly grass, so the "forests" were most likely fields.
+</NER>
+<NER>
+
+"The correct diet proxy depends on the question you're asking," Davis 
+said. "We can't just look at stomach contents sampled yesterday 
+and extrapolate them out for 1 million years."
+</NER>
+<NER>
+
+<PER>Davis</PER> and <PER>Pineda-Munoz</PER> suggest that 
+researchers explicitly state the 
+time scales for the diet proxies they use to avoid confusion. They 
+also call upon scientists to consider the effects of time scale at each 
+stage of their research.
+</NER>
+<NER>
+
+<PER>Pineda-Munoz</PER> points out that the different 
+time scales can actually 
+be helpful to research. "By using different proxies like the chemical 
+signatures in feathers and blood we can tell not just what a bird is
+</NER>
+<NER>
+
+ eating but what it ate a year ago and how its diet changed since then," 
+she said. "This is especially important for rare or endangered species 
+because we can effectively time travel through their diet without harming 
+the animal."
+</NER>
