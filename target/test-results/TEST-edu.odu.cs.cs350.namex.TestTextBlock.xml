@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="ubuntu" name="edu.odu.cs.cs350.namex.TestTextBlock" skipped="0" tests="7" time="0.08" timestamp="2016-04-06T13:51:32">
+<testsuite errors="0" failures="0" hostname="ubuntu" name="edu.odu.cs.cs350.namex.TestTextBlock" skipped="0" tests="7" time="0.421" timestamp="2016-04-06T13:57:03">
   <properties>
     <property name="file.encoding.pkg" value="sun.io" />
     <property name="ivy.retrieve.pattern.ivy.instance" value="/home/gsilveri/git/Green3/lib/[artifact]-[revision](-[classifier]).[ext]" />
@@ -57,7 +57,7 @@
     <property name="build" value="/home/gsilveri/git/Green3/target/classes" />
     <property name="lib" value="/home/gsilveri/git/Green3/lib" />
     <property name="ivy.targets.copied" value="false" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestTextBlock skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/gsilveri/git/Green3/target/test-results/TEST-edu.odu.cs.cs350.namex.TestTextBlock.xml crashfile=/home/gsilveri/git/Green3/junitvmwatcher5816512892306155461.properties propsfile=/home/gsilveri/git/Green3/junit2445172906320452317.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestTextBlock skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/gsilveri/git/Green3/target/test-results/TEST-edu.odu.cs.cs350.namex.TestTextBlock.xml crashfile=/home/gsilveri/git/Green3/junitvmwatcher4942487922251512972.properties propsfile=/home/gsilveri/git/Green3/junit7323016474367145604.properties" />
     <property name="ant.file" value="/home/gsilveri/git/Green3/build.xml" />
     <property name="ivy.distrib.dir.ivy.instance" value="/home/gsilveri/git/Green3/distrib" />
     <property name="ivy.checksums.ivy.instance" value="sha1,md5" />
@@ -156,7 +156,7 @@
     <property name="ant.library.dir.ivy.instance" value="/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib" />
     <property name="java.vm.info.ivy.instance" value="mixed mode" />
     <property name="ivy.publish.src.artifacts.pattern" value="/home/gsilveri/git/Green3/distrib/[type]s/[artifact]-[revision](-[classifier]).[ext]" />
-    <property name="sun.java.command.ivy.instance" value="org.eclipse.ant.internal.launching.remote.InternalAntRunner -Dorg.eclipse.ant.core.ANT_PROCESS_ID=1459950681416 -Declipse.connect.port=54773 -Dant.home=/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020 -logger org.eclipse.ant.internal.launching.remote.logger.RemoteAntBuildLogger -inputhandler org.eclipse.ant.internal.ui.antsupport.inputhandler.ProxyInputHandler -buildfile /home/gsilveri/git/Green3/build.xml" />
+    <property name="sun.java.command.ivy.instance" value="org.eclipse.ant.internal.launching.remote.InternalAntRunner -Dorg.eclipse.ant.core.ANT_PROCESS_ID=1459951007486 -Declipse.connect.port=58868 -Dant.home=/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020 -logger org.eclipse.ant.internal.launching.remote.logger.RemoteAntBuildLogger -inputhandler org.eclipse.ant.internal.ui.antsupport.inputhandler.ProxyInputHandler -buildfile /home/gsilveri/git/Green3/build.xml" />
     <property name="ivy.distrib.dir" value="/home/gsilveri/git/Green3/distrib" />
     <property name="sun.cpu.endian" value="little" />
     <property name="ivy.revision" value="working@ubuntu" />
@@ -182,7 +182,7 @@
     <property name="ant.core.lib" value="/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant.jar" />
     <property name="java.vm.specification.vendor" value="Oracle Corporation" />
     <property name="ivy.settings.dir" value="/home/gsilveri/git/Green3" />
-    <property name="TSTAMP" value="0651" />
+    <property name="TSTAMP" value="0656" />
     <property name="file.separator" value="/" />
     <property name="user.language.ivy.instance" value="en" />
     <property name="user.country.ivy.instance" value="US" />
@@ -202,12 +202,12 @@
     <property name="sun.arch.data.model" value="64" />
     <property name="ivy.buildlist.ivyfilepath" value="ivy.xml" />
   </properties>
-  <testcase classname="edu.odu.cs.cs350.namex.TestTextBlock" name="testToString" time="0.004" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestTextBlock" name="testToString" time="0.025" />
   <testcase classname="edu.odu.cs.cs350.namex.TestTextBlock" name="testRemoveToken" time="0.0" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestTextBlock" name="testAddToken" time="0.0" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestTextBlock" name="testAddToken" time="0.001" />
   <testcase classname="edu.odu.cs.cs350.namex.TestTextBlock" name="testTextBlock" time="0.001" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestTextBlock" name="testSetTokens" time="0.001" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestTextBlock" name="testGetTokens" time="0.0" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestTextBlock" name="testSetTokens" time="0.0" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestTextBlock" name="testGetTokens" time="0.001" />
   <testcase classname="edu.odu.cs.cs350.namex.TestTextBlock" name="testGetSetTextBlock" time="0.0" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
