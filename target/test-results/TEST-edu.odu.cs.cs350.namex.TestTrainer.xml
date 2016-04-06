@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="6" hostname="ubuntu" name="edu.odu.cs.cs350.namex.TestTrainer" skipped="0" tests="6" time="0.754" timestamp="2016-04-06T14:51:42">
+<testsuite errors="0" failures="6" hostname="ubuntu" name="edu.odu.cs.cs350.namex.TestTrainer" skipped="0" tests="6" time="0.755" timestamp="2016-04-06T15:00:46">
   <properties>
     <property name="file.encoding.pkg" value="sun.io" />
     <property name="ivy.retrieve.pattern.ivy.instance" value="/home/gsilveri/git/Green3/lib/[artifact]-[revision](-[classifier]).[ext]" />
@@ -57,7 +57,7 @@
     <property name="build" value="/home/gsilveri/git/Green3/target/classes" />
     <property name="lib" value="/home/gsilveri/git/Green3/lib" />
     <property name="ivy.targets.copied" value="false" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestTrainer skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/gsilveri/git/Green3/target/test-results/TEST-edu.odu.cs.cs350.namex.TestTrainer.xml crashfile=/home/gsilveri/git/Green3/junitvmwatcher6262215144603325370.properties propsfile=/home/gsilveri/git/Green3/junit3978329958191562038.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestTrainer skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/gsilveri/git/Green3/target/test-results/TEST-edu.odu.cs.cs350.namex.TestTrainer.xml crashfile=/home/gsilveri/git/Green3/junitvmwatcher3680013936827672276.properties propsfile=/home/gsilveri/git/Green3/junit6362142952374977289.properties" />
     <property name="ant.file" value="/home/gsilveri/git/Green3/build.xml" />
     <property name="ivy.distrib.dir.ivy.instance" value="/home/gsilveri/git/Green3/distrib" />
     <property name="ivy.checksums.ivy.instance" value="sha1,md5" />
@@ -156,7 +156,7 @@
     <property name="ant.library.dir.ivy.instance" value="/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib" />
     <property name="java.vm.info.ivy.instance" value="mixed mode" />
     <property name="ivy.publish.src.artifacts.pattern" value="/home/gsilveri/git/Green3/distrib/[type]s/[artifact]-[revision](-[classifier]).[ext]" />
-    <property name="sun.java.command.ivy.instance" value="org.eclipse.ant.internal.launching.remote.InternalAntRunner -Dorg.eclipse.ant.core.ANT_PROCESS_ID=1459954293432 -Declipse.connect.port=56324 -Dant.home=/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020 -logger org.eclipse.ant.internal.launching.remote.logger.RemoteAntBuildLogger -inputhandler org.eclipse.ant.internal.ui.antsupport.inputhandler.ProxyInputHandler -buildfile /home/gsilveri/git/Green3/build.xml" />
+    <property name="sun.java.command.ivy.instance" value="org.eclipse.ant.internal.launching.remote.InternalAntRunner -Dorg.eclipse.ant.core.ANT_PROCESS_ID=1459954837312 -Declipse.connect.port=40380 -Dant.home=/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020 -logger org.eclipse.ant.internal.launching.remote.logger.RemoteAntBuildLogger -inputhandler org.eclipse.ant.internal.ui.antsupport.inputhandler.ProxyInputHandler -buildfile /home/gsilveri/git/Green3/build.xml" />
     <property name="ivy.distrib.dir" value="/home/gsilveri/git/Green3/distrib" />
     <property name="sun.cpu.endian" value="little" />
     <property name="ivy.revision" value="working@ubuntu" />
@@ -182,7 +182,7 @@
     <property name="ant.core.lib" value="/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant.jar" />
     <property name="java.vm.specification.vendor" value="Oracle Corporation" />
     <property name="ivy.settings.dir" value="/home/gsilveri/git/Green3" />
-    <property name="TSTAMP" value="0751" />
+    <property name="TSTAMP" value="0800" />
     <property name="file.separator" value="/" />
     <property name="user.language.ivy.instance" value="en" />
     <property name="user.country.ivy.instance" value="US" />
@@ -202,32 +202,32 @@
     <property name="sun.arch.data.model" value="64" />
     <property name="ivy.buildlist.ivyfilepath" value="ivy.xml" />
   </properties>
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testGetTrainingData" time="0.008">
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testGetTrainingData" time="0.009">
     <failure type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError
 	at edu.odu.cs.cs350.namex.TestTrainer.testGetTrainingData(TestTrainer.java:86)
 </failure>
   </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTrainLM" time="0.011">
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTrainLM" time="0.009">
     <failure type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError
 	at edu.odu.cs.cs350.namex.TestTrainer.testTrainLM(TestTrainer.java:112)
 </failure>
   </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTrainer" time="0.007">
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTrainer" time="0.006">
     <failure type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError
 	at edu.odu.cs.cs350.namex.TestTrainer.testTrainer(TestTrainer.java:77)
 </failure>
   </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testParse" time="0.375">
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testParse" time="0.379">
     <failure message="expected:&lt;[other]&gt; but was:&lt;[article]&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;[other]&gt; but was:&lt;[article]&gt;
 	at edu.odu.cs.cs350.namex.TestTrainer.testParse(TestTrainer.java:53)
 </failure>
   </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTokenize" time="0.161">
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTokenize" time="0.148">
     <failure message="expected:&lt;[capitalized]&gt; but was:&lt;[punct]&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;[capitalized]&gt; but was:&lt;[punct]&gt;
 	at edu.odu.cs.cs350.namex.TestTrainer.testTokenize(TestTrainer.java:38)
 </failure>
   </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testGetTokenCount" time="0.108">
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testGetTokenCount" time="0.12">
     <failure message="expected:&lt;3&gt; but was:&lt;1&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;3&gt; but was:&lt;1&gt;
 	at edu.odu.cs.cs350.namex.TestTrainer.testGetTokenCount(TestTrainer.java:67)
 </failure>

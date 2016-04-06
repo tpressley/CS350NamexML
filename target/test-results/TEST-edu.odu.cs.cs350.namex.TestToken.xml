@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="1" hostname="ubuntu" name="edu.odu.cs.cs350.namex.TestToken" skipped="0" tests="18" time="0.113" timestamp="2016-04-06T14:51:41">
+<testsuite errors="0" failures="1" hostname="ubuntu" name="edu.odu.cs.cs350.namex.TestToken" skipped="0" tests="18" time="0.119" timestamp="2016-04-06T15:00:45">
   <properties>
     <property name="file.encoding.pkg" value="sun.io" />
     <property name="ivy.retrieve.pattern.ivy.instance" value="/home/gsilveri/git/Green3/lib/[artifact]-[revision](-[classifier]).[ext]" />
@@ -57,7 +57,7 @@
     <property name="build" value="/home/gsilveri/git/Green3/target/classes" />
     <property name="lib" value="/home/gsilveri/git/Green3/lib" />
     <property name="ivy.targets.copied" value="false" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestToken skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/gsilveri/git/Green3/target/test-results/TEST-edu.odu.cs.cs350.namex.TestToken.xml crashfile=/home/gsilveri/git/Green3/junitvmwatcher5705600688599062156.properties propsfile=/home/gsilveri/git/Green3/junit8684094051418957537.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestToken skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/gsilveri/git/Green3/target/test-results/TEST-edu.odu.cs.cs350.namex.TestToken.xml crashfile=/home/gsilveri/git/Green3/junitvmwatcher6508530637340678592.properties propsfile=/home/gsilveri/git/Green3/junit9105989351147313564.properties" />
     <property name="ant.file" value="/home/gsilveri/git/Green3/build.xml" />
     <property name="ivy.distrib.dir.ivy.instance" value="/home/gsilveri/git/Green3/distrib" />
     <property name="ivy.checksums.ivy.instance" value="sha1,md5" />
@@ -156,7 +156,7 @@
     <property name="ant.library.dir.ivy.instance" value="/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib" />
     <property name="java.vm.info.ivy.instance" value="mixed mode" />
     <property name="ivy.publish.src.artifacts.pattern" value="/home/gsilveri/git/Green3/distrib/[type]s/[artifact]-[revision](-[classifier]).[ext]" />
-    <property name="sun.java.command.ivy.instance" value="org.eclipse.ant.internal.launching.remote.InternalAntRunner -Dorg.eclipse.ant.core.ANT_PROCESS_ID=1459954293432 -Declipse.connect.port=56324 -Dant.home=/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020 -logger org.eclipse.ant.internal.launching.remote.logger.RemoteAntBuildLogger -inputhandler org.eclipse.ant.internal.ui.antsupport.inputhandler.ProxyInputHandler -buildfile /home/gsilveri/git/Green3/build.xml" />
+    <property name="sun.java.command.ivy.instance" value="org.eclipse.ant.internal.launching.remote.InternalAntRunner -Dorg.eclipse.ant.core.ANT_PROCESS_ID=1459954837312 -Declipse.connect.port=40380 -Dant.home=/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020 -logger org.eclipse.ant.internal.launching.remote.logger.RemoteAntBuildLogger -inputhandler org.eclipse.ant.internal.ui.antsupport.inputhandler.ProxyInputHandler -buildfile /home/gsilveri/git/Green3/build.xml" />
     <property name="ivy.distrib.dir" value="/home/gsilveri/git/Green3/distrib" />
     <property name="sun.cpu.endian" value="little" />
     <property name="ivy.revision" value="working@ubuntu" />
@@ -182,7 +182,7 @@
     <property name="ant.core.lib" value="/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant.jar" />
     <property name="java.vm.specification.vendor" value="Oracle Corporation" />
     <property name="ivy.settings.dir" value="/home/gsilveri/git/Green3" />
-    <property name="TSTAMP" value="0751" />
+    <property name="TSTAMP" value="0800" />
     <property name="file.separator" value="/" />
     <property name="user.language.ivy.instance" value="en" />
     <property name="user.country.ivy.instance" value="US" />
@@ -202,28 +202,28 @@
     <property name="sun.arch.data.model" value="64" />
     <property name="ivy.buildlist.ivyfilepath" value="ivy.xml" />
   </properties>
-  <testcase classname="edu.odu.cs.cs350.namex.TestToken" name="testDTICLast" time="0.004" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestToken" name="testPartOfSpeech" time="0.0" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestToken" name="testDTICFirst" time="0.0" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestToken" name="testDTICLast" time="0.003" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestToken" name="testPartOfSpeech" time="0.001" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestToken" name="testDTICFirst" time="0.001" />
   <testcase classname="edu.odu.cs.cs350.namex.TestToken" name="testPlace" time="0.0" />
   <testcase classname="edu.odu.cs.cs350.namex.TestToken" name="testToken" time="0.0" />
   <testcase classname="edu.odu.cs.cs350.namex.TestToken" name="testName" time="0.001" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestToken" name="testToString" time="0.01">
+  <testcase classname="edu.odu.cs.cs350.namex.TestToken" name="testToString" time="0.014">
     <failure message="expected:&lt;Hello[,capitalized,other,0,0,0,0,0,0,0,0,0,0,0,0,other]&gt; but was:&lt;Hello[]&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;Hello[,capitalized,other,0,0,0,0,0,0,0,0,0,0,0,0,other]&gt; but was:&lt;Hello[]&gt;
 	at edu.odu.cs.cs350.namex.TestToken.testToString(TestToken.java:20)
 </failure>
   </testcase>
   <testcase classname="edu.odu.cs.cs350.namex.TestToken" name="testCountryTerritory" time="0.0" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestToken" name="testCityState" time="0.0" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestToken" name="testCityState" time="0.003" />
   <testcase classname="edu.odu.cs.cs350.namex.TestToken" name="testLexical" time="0.0" />
   <testcase classname="edu.odu.cs.cs350.namex.TestToken" name="testHonorific" time="0.0" />
   <testcase classname="edu.odu.cs.cs350.namex.TestToken" name="testKillWord" time="0.0" />
   <testcase classname="edu.odu.cs.cs350.namex.TestToken" name="testCommonLast" time="0.0" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestToken" name="testDictionaryWord" time="0.0" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestToken" name="testDictionaryWord" time="0.001" />
   <testcase classname="edu.odu.cs.cs350.namex.TestToken" name="testLexeme" time="0.0" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestToken" name="testPrefix" time="0.001" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestToken" name="testPrefix" time="0.0" />
   <testcase classname="edu.odu.cs.cs350.namex.TestToken" name="testCommonFirst" time="0.0" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestToken" name="testSuffix" time="0.0" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestToken" name="testSuffix" time="0.001" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
