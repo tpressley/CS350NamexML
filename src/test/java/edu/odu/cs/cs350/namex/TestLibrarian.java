@@ -15,6 +15,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import edu.odu.cs.cs350.namex.Librarian;
@@ -23,6 +24,25 @@ import edu.odu.cs.cs350.namex.Librarian;
 
 public class TestLibrarian {
 
+	private Librarian librarian;
+	private Trainer trainer;
+	
+	@Before
+	public void initialize()
+	{
+		trainer = new Trainer();
+		
+		try 
+		{
+			librarian = new Librarian();
+		} 
+		catch (FileNotFoundException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	// User Story #844 - Gerard Silverio
 	// As a Librarian/application developer, I want a program that will 
 	// accept standard input from command line interface
@@ -45,53 +65,28 @@ public class TestLibrarian {
     }
 
 	// User Story #861 - Gerard Silverio
-	// As a Librarian/application developer I want to use Command line to
+	// As a Librarian/application developer I want to use Command line to 
 	// process each block of text separately via the personal name extractor
 	@Test
-	public void testSeparateNER() throws FileNotFoundException {
+	public void testSeparateNER() throws FileNotFoundException
+	{
 		Librarian librarian = new Librarian();
-		Trainer trainer = new Trainer();
+		
 		String input = "<NER>Hello, There are snakes on this plane! I don't know what to do!</NER><NER>This should be another text block!</NER>";
-		String[] assumedTextBlocks = { "<NER>Hello, There are snakes on this plane! I don't know what to do!</NER>",
-				"<NER>This should be another text block!</NER>" };
-
-		String input2 = "<NER>Guess what, the snakes were fake!</NER><NER>I can relax now</NER><NER>Thank god</NER>";
-		String[] input2TextBlocks = { "<NER>Guess what, the snakes were fake!</NER>", "<NER>I can relax now</NER>",
-				"<NER>Thank god</NER>" };
-
+		String[] output = { "Hello, There are snakes on this plane! I don't know what to do!", "This should be another text block!" };
+		
 		ArrayList<TextBlock> textBlocks = librarian.separateNER(input);
-
-		ArrayList<TextBlock> textBlocks2 = librarian.separateNER(input2);
-
-		for (TextBlock textBlock : textBlocks) {
-			textBlock.setTokens(trainer.tokenize(textBlock.getTextBlock()));
-		}
-
-		for (TextBlock textBlock : textBlocks2) {
-			textBlock.setTokens(trainer.tokenize(textBlock.getTextBlock()));
-		}
-
-		// Prints the size of the List of textBlocks
-		// System.out.println(textBlocks.size());
-
-		// Test output of separateNER method
-		for (int i = 0; i < textBlocks.size(); i++) {
-			assertEquals(textBlocks.get(i).toString(), assumedTextBlocks[i]);
-
-			boolean matches = ((textBlocks.get(i).toString()).equals(assumedTextBlocks[i]));
-			System.out.println(
-					i + ": " + matches + " [" + textBlocks.get(i).toString() + " - " + assumedTextBlocks[i] + "]");
-			// System.out.println(textBlocks.get(i));
-		}
-
-		for (int i = 0; i < textBlocks2.size(); i++) {
-			assertEquals(textBlocks2.get(i).toString(), input2TextBlocks[i]);
-
-			boolean matches = ((textBlocks2.get(i).toString()).equals(input2TextBlocks[i]));
-			System.out.println(
-					i + ": " + matches + " [" + textBlocks2.get(i).toString() + " - " + input2TextBlocks[i] + "]");
-			// System.out.println(textBlocks.get(i));
-		}
+		
+		// Test Output
+		//System.out.println(output[0]);
+		//System.out.println(textBlocks.get(0).getTextBlock());
+		
+		// Test Output
+		//System.out.println(output[1]);
+		//System.out.println(textBlocks.get(1).getTextBlock());
+		
+		assertEquals(output[0], textBlocks.get(0).getTextBlock());
+		assertEquals(output[1], textBlocks.get(1).getTextBlock());
 	}
 	
 	// User Story #850
@@ -100,33 +95,23 @@ public class TestLibrarian {
 	@Test
 	public void testClassifyToken()
 	{
-		try 
-		{
-			Librarian librarian = new Librarian();
-			
-			Token token = new Token("John");
-			token = librarian.classifyToken(token);
-			
-			assertEquals("capitalized", token.getLexical());
-			assertEquals("other", token.getPartOfSpeech());
-			assertEquals(0, token.isDictionaryWord());
-			assertEquals(0, token.isCityState());
-			assertEquals(0, token.isCountryTerritory());
-			assertEquals(0, token.isPlace());
-			assertEquals(1, token.isDTICFirst());
-			assertEquals(1, token.isDTICLast());
-			assertEquals(1, token.isCommonFirst());
-			assertEquals(0, token.isCommonLast());
-			assertEquals(0, token.isHonorific());
-			assertEquals(0, token.isPrefix());
-			assertEquals(0, token.isSuffix());
-			assertEquals(0, token.isKillWord());
-		} 
-		catch (FileNotFoundException e) 
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		Token token = new Token("John");
+		token = librarian.classifyToken(token);
+		
+		assertEquals("capitalized", token.getLexical());
+		assertEquals("other", token.getPartOfSpeech());
+		assertEquals(0, token.isDictionaryWord());
+		assertEquals(0, token.isCityState());
+		assertEquals(0, token.isCountryTerritory());
+		assertEquals(0, token.isPlace());
+		assertEquals(1, token.isDTICFirst());
+		assertEquals(1, token.isDTICLast());
+		assertEquals(1, token.isCommonFirst());
+		assertEquals(0, token.isCommonLast());
+		assertEquals(0, token.isHonorific());
+		assertEquals(0, token.isPrefix());
+		assertEquals(0, token.isSuffix());
+		assertEquals(0, token.isKillWord());
 	}
 
 	// PNE packaged for deployment in fat jar (A)
@@ -135,7 +120,7 @@ public class TestLibrarian {
 		// is it possible to even create a JUnit test to see if the PNE was
 		// packaged in a fat jar?
 	}
-
+	
 	// User Story #852 As a Librarian, I want names of places to be identified
 	// correctly
 	/*

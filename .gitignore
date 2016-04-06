@@ -3,8 +3,6 @@
 *.class
 *.jar
 /bin/
-lib/hamcrest.jar
-lib/junit.jar
 /lib/
-/dist/
-/build/
+/target/test-classes/
+/target/classes/

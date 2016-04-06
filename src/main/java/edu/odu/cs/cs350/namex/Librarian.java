@@ -13,22 +13,23 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 import edu.odu.cs.cs350.namex.Trainer;
+import edu.odu.cs.extract.wordlists.WordLists;
 
 public class Librarian {
 
-	// ArrayLists to that store Gazetteer lists
-	private ArrayList<String> DictionaryWords;
-	private ArrayList<String> CitiesStates;
-	private ArrayList<String> CountriesTerritories;
-	private ArrayList<String> Places;
-	private ArrayList<String> DTICFirstNames;
-	private ArrayList<String> DTICLastNames;
-	private ArrayList<String> CommonFirstNames;
-	private ArrayList<String> CommonLastNames;
-	private ArrayList<String> Honorifics;
-	private ArrayList<String> LastNamePrefixes;
-	private ArrayList<String> LastNameSuffixes;
-	private ArrayList<String> KillWords;
+	// Iterable<String> to that store Gazetteer lists
+	private Iterable<String> DictionaryWords;
+	private Iterable<String> CitiesStates;
+	private Iterable<String> CountriesTerritories;
+	private Iterable<String> Places;
+	private Iterable<String> DTICFirstNames;
+	private Iterable<String> DTICLastNames;
+	private Iterable<String> CommonFirstNames;
+	private Iterable<String> CommonLastNames;
+	private Iterable<String> Honorifics;
+	private Iterable<String> LastNamePrefixes;
+	private Iterable<String> LastNameSuffixes;
+	private Iterable<String> KillWords;
 
 	public static void main(String[] args) throws FileNotFoundException
 	{
@@ -137,23 +138,19 @@ public class Librarian {
 		Path currentRelativePath = Paths.get("");
 		String relativePath = currentRelativePath.toAbsolutePath().toString() + "/resources/";
 
-		// Test Output
-		// System.out.println("Importing Gazetteer lists from: " + relativePath
-		// + "\n");
-
-		// Instantiate Gazetteer ArrayLists
-		DictionaryWords = importGazetteerList(relativePath + "dictionary_words.txt");
-		CitiesStates = importGazetteerList(relativePath + "us_cities_states.txt");
-		CountriesTerritories = importGazetteerList(relativePath + "countries_territories.txt");
-		Places = importGazetteerList(relativePath + "places.txt");
-		DTICFirstNames = importGazetteerList(relativePath + "DTIC_first_names.txt");
-		DTICLastNames = importGazetteerList(relativePath + "DTIC_last_names.txt");
-		CommonFirstNames = importGazetteerList(relativePath + "common_first_names.txt");
-		CommonLastNames = importGazetteerList(relativePath + "common_last_names.txt");
-		Honorifics = importGazetteerList(relativePath + "honorifics.txt");
-		LastNamePrefixes = importGazetteerList(relativePath + "prefixes.txt");
-		LastNameSuffixes = importGazetteerList(relativePath + "suffixes.txt");
-		KillWords = importGazetteerList(relativePath + "kill_words.txt");
+		// Instantiate Gazetteer Iterable<String> by using extract-wordlists
+		DictionaryWords = WordLists.englishDictionary();
+		CitiesStates = WordLists.citiesAndStatesUS();
+		CountriesTerritories = WordLists.countriesAndTerritories();
+		Places = WordLists.places();
+		DTICFirstNames = WordLists.firstNames();
+		DTICLastNames = WordLists.lastNames();
+		CommonFirstNames = WordLists.commonFirstNames();
+		CommonLastNames = WordLists.commonLastNames();
+		Honorifics = WordLists.honorifics();
+		LastNamePrefixes = WordLists.lastNamePrefixes();
+		LastNameSuffixes = WordLists.lastNamePrefixes();
+		KillWords = WordLists.nonPersonalIdentifierCues();
 
 		// Test Output
 		// System.out.println("\nAll Gazetteer files imported successfully!\n");
@@ -196,21 +193,6 @@ public class Librarian {
 		}
 		
 		return input;
-	}
-
-	// import Gazetteer list from .txt file from given file path
-	private ArrayList<String> importGazetteerList(String filePath) throws FileNotFoundException {
-		// Test Output
-		// System.out.println("Importing Data from: " + filePath);
-
-		File file = new File(filePath);
-		Scanner s = new Scanner(file);
-		ArrayList<String> list = new ArrayList<String>();
-		while (s.hasNext()) {
-			list.add(s.next());
-		}
-		s.close();
-		return list;
 	}
 
 	// separates an input string containing one or more <NER></NER> text blocks
@@ -431,112 +413,159 @@ public class Librarian {
 	}
 
 	// checks to see if the Token is a word found in the English dictionary
-	public int isDictionaryWord(String token) {
-		if (DictionaryWords.contains(token)) {
-			return 1;
-		} else {
-			return 0;
+	public int isDictionaryWord(String token)
+	{
+		for (String s : DictionaryWords)
+		{
+			if (s.equalsIgnoreCase(token))
+			{
+				return 1;
+			}
 		}
+		return 0;
 	}
-
-	// checks to see if the Token is a known name of a City or State in the
-	// United States
-	public int isCityState(String token) {
-		if (CitiesStates.contains(token)) {
-			return 1;
-		} else {
-			return 0;
+	
+	// checks to see if the Token is a known name of a City or State in the United States
+	public int isCityState(String token)
+	{
+		for (String s : CitiesStates)
+		{
+			if (s.equalsIgnoreCase(token))
+			{
+				return 1;
+			}
 		}
+		return 0;
 	}
-
+	
 	// checks to see if the Token is a known name of a Country or Territory
-	public int isCountryTerritory(String token) {
-		if (CountriesTerritories.contains(token)) {
-			return 1;
-		} else {
-			return 0;
+	public int isCountryTerritory(String token)
+	{
+		for (String s : CountriesTerritories)
+		{
+			if (s.equalsIgnoreCase(token))
+			{
+				return 1;
+			}
 		}
+		return 0;
 	}
-
+	
 	// checks to see if the Token is a known place
-	public int isPlace(String token) {
-		if (Places.contains(token)) {
-			return 1;
-		} else {
-			return 0;
+	public int isPlace(String token)
+	{
+		for (String s : Places)
+		{
+			if (s.equalsIgnoreCase(token))
+			{
+				return 1;
+			}
 		}
+		return 0;
 	}
-
+	
 	// checks to see if the Token is a known DTIC first name
-	public int isDTICFirstName(String token) {
-		if (DTICFirstNames.contains(token)) {
-			return 1;
-		} else {
-			return 0;
+	public int isDTICFirstName(String token)
+	{
+		for (String s : DTICFirstNames)
+		{
+			if (s.equalsIgnoreCase(token))
+			{
+				return 1;
+			}
 		}
+		return 0;
 	}
-
+	
 	// checks to see if the Token is a known DTIC last name
-	public int isDTICLastName(String token) {
-		if (DTICLastNames.contains(token)) {
-			return 1;
-		} else {
-			return 0;
+	public int isDTICLastName(String token)
+	{
+		for (String s : DTICLastNames)
+		{
+			if (s.equalsIgnoreCase(token))
+			{
+				return 1;
+			}
 		}
+		return 0;
 	}
-
+	
 	// checks to see if the Token is a known common first name
-	public int isCommonFirstName(String token) {
-		if (CommonFirstNames.contains(token)) {
-			return 1;
-		} else {
-			return 0;
+	public int isCommonFirstName(String token)
+	{
+		for (String s : CommonFirstNames)
+		{
+			if (s.equalsIgnoreCase(token))
+			{
+				return 1;
+			}
 		}
+		return 0;
 	}
-
+	
 	// checks to see if the Token is a known common last name
-	public int isCommonLastName(String token) {
-		if (CommonLastNames.contains(token)) {
-			return 1;
-		} else {
-			return 0;
+	public int isCommonLastName(String token)
+	{
+		for (String s : CommonLastNames)
+		{
+			if (s.equalsIgnoreCase(token))
+			{
+				return 1;
+			}
 		}
+		return 0;
 	}
-
+	
 	// checks to see if the Token is an honorific
-	public int isHonorific(String token) {
-		if (Honorifics.contains(token)) {
-			return 1;
-		} else {
-			return 0;
+	public int isHonorific(String token)
+	{
+		for (String s : Honorifics)
+		{
+			if (s.equalsIgnoreCase(token))
+			{
+				return 1;
+			}
 		}
+		return 0;
 	}
-
+	
 	// checks to see if the Token is a prefix
-	public int isLastNamePrefix(String token) {
-		if (LastNamePrefixes.contains(token)) {
-			return 1;
-		} else {
-			return 0;
+	public int isLastNamePrefix(String token)
+	{
+		for (String s : LastNamePrefixes)
+		{
+			if (s.equalsIgnoreCase(token))
+			{
+				return 1;
+			}
 		}
+		return 0;
 	}
-
+	
 	// checks to see if the Token is a suffix
-	public int isLastNameSuffix(String token) {
-		if (LastNameSuffixes.contains(token)) {
-			return 1;
-		} else {
-			return 0;
+	public int isLastNameSuffix(String token)
+	{
+		for (String s : LastNameSuffixes)
+		{
+			if (s.equalsIgnoreCase(token))
+			{
+				return 1;
+			}
 		}
+		return 0;
 	}
-
+	
 	// checks to see if the Token is an kill word
-	public int isKillWord(String token) {
-		if (KillWords.contains(token)) {
-			return 1;
-		} else {
-			return 0;
+	public int isKillWord(String token)
+	{
+		for (String s : KillWords)
+		{
+			if (s.equalsIgnoreCase(token))
+			{
+				return 1;
+			}
 		}
+		return 0;
 	}
 
 	public void trainOn(String paragraph) {
