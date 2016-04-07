@@ -34,20 +34,36 @@ public class Trainer {
 
 	private Classifier classifier;
 
-	/**
-	 * Takes the initial trainingMaterial and converts it into a tokenized form
-	 * and outputs the tokenized text split by space and punctuation E.G. Input
-	 * "This function's input is split into tokens. It is split by punctuation, it is also split by spaces."
-	 * Output: " This function 's input is split into tokens. It is split by
-	 * punctuation, it is also split by spaces." I/O should be identical to the
-	 * Standford English Tokenizer
-	 *
-	 * @param inputText
-	 */
+
 
 	public Classifier getClassifier() {
 		return classifier;
 	}
+	
+	 /**
+   * Takes the initial trainingMaterial and converts it into a tokenized form
+   * The tokens contain all properties necessary for arff data including binary
+   * values of 0 or 1 for various word classifications
+   * lexeme = lexeme or word
+   * lexical  
+   * partOfSpeech 
+   * dictionaryWord 
+   * cityState 
+   * countryTerritory 
+   * place 
+   * DTICFirst 
+   * DTICLast 
+   * commonFirst 
+   * commonLast 
+   * honorific 
+   * prefix 
+   * suffix 
+   * killWord 
+   * 
+   * @param textBlock without <NER> Tags
+   * @return tokens an arraylist of Words with their properties formatted for Arff data
+   * 
+   */
 	
 	public ArrayList<Token> tokenize(String textBlock) {
 		

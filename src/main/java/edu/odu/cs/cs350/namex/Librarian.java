@@ -34,13 +34,14 @@ public class Librarian {
 	public static void main(String[] args) throws FileNotFoundException
 	{
 		// Test Output
-		/*
-        for (String s: args) {
-            System.out.println(s);
-        }
-        */
+		
+      //  for (String s: args) {
+           // System.out.println(s);
+       // }
         
-        // if CLI contains one argument that is a textBlock
+        
+        // if CLI contains one argument that is a textBlock, 
+	      // Argument is one text file with training sentences
         if (args.length == 1)
         {
         	String input = args[0];
@@ -48,7 +49,7 @@ public class Librarian {
         	Librarian librarian = new Librarian();
         	Trainer trainer = new Trainer();
         	
-        	// separate the input into textBlocks
+        	// Call separateNer method to separate the input into training Sentences
         	ArrayList<TextBlock> textBlocks = librarian.separateNER(input);
         	
         	// tokenize each textBlock
@@ -203,6 +204,7 @@ public class Librarian {
 		ArrayList<TextBlock> textBlocks = new ArrayList<TextBlock>();
 
 		for (String tb : tbs) {
+		  //while text block is not empty string, add
 			if (!tb.equals("")) {
 				textBlocks.add(new TextBlock(tb));
 			}
@@ -273,7 +275,14 @@ public class Librarian {
 		return token;
 	}
 	
-	// classify Tokens as either beginning, continuing, or other for names between <PER></PER>
+	/*
+	 * Scans for <Per></PER> tags in training data and classifies it as a name, continuing name or ending name
+	 * The sentence is fed in as Tokens, however attributes are not filled out. This method classifies
+	 * and sets the appropriate token data such as Killword or punct 
+	 * 
+	 * @param  Tks  ArrayList<Token> object with training data in tokenized ARFF format
+	 * @return ArrayList<token> ArrayList of classified words.
+	 */
 	private ArrayList<Token> classifyTokens(ArrayList<Token> tks)
 	{
 		ArrayList<Token> tokens = tks;
