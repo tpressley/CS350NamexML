@@ -49,7 +49,7 @@
     INIT TARGET
     ===========
     -->
-	<target name="init" depends="resolve-ivy">
+	<target name="init">
 		<!-- Create the time stamp -->
 		<tstamp/>
 		
@@ -57,11 +57,6 @@
 		<mkdir dir="target/classes"/>
 		<mkdir dir="${lib}"/>
 		
-		<!-- Download and store .jar files in /lib -->
-		<get src="http://archive350.cs.odu.edu:8080/artifactory/jcenter-cache/junit/junit/4.11/junit-4.11.jar" dest="${lib}/junit.jar"/>
-		<get src="http://archive350.cs.odu.edu:8080/artifactory/jcenter-cache/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar" dest="${lib}/hamcrest.jar"/>
-		<get src="http://archive350.cs.odu.edu:8080/artifactory/jcenter-cache/nz/ac/waikato/cms/weka/weka-stable/3.6.13/weka-stable-3.6.13.jar" dest="${lib}/weka.jar"/>
-		<get src="http://archive350.cs.odu.edu:8080/artifactory/simple/libs-release-local/edu/odu/cs/extract/extract-wordlists/4.2/extract-wordlists-4.2.jar" dest="${lib}/extract-wordlists.jar"/>
 	</target>
 	
     <!--
@@ -126,20 +121,12 @@
 	</target>
 	
     <!--
-    ============
-    BUILD TARGET
-    ============
-    -->
-	<target name="build" depends="package" description="Construct a jar and source files and assorted reports."></target>
-	
-	
-    <!--
     =================
     GENERATE JAVADOCS
     =================
     -->
     <!-- Generate javadocs for current project into ${doc.dir} -->
-    <target name = "generate-javadoc" description="generate documentation">
+    <target name = "generate-javadoc" depends="package" description="generate documentation">
     	
 		<javadoc packagenames="personalNameExtractor" sourcepath="${src.main}" 
 			destdir = "${dist}/doc" version = "true" 
@@ -153,6 +140,13 @@
       
        </javadoc>
     </target>
+	
+    <!--
+    ============
+    BUILD TARGET
+    ============
+    -->
+	<target name="build" depends="generate-javadoc" description="Construct a jar and source files and assorted reports."></target>
 	
     <!--
     ============
