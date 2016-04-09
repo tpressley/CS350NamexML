@@ -447,36 +447,6 @@ public class Trainer {
 	}
 
 	/**
-	 * Uses the tokenized text and identifies parts of speech and other lexical
-	 * features which can be used to train the learning machine
-	 * 
-	 * @param tokenizedText
-	 */
-	public void parse(ArrayList<Token> tokenizedText) {
-		String[] articles = { "a", "an", "the", "A", "An", "The" };
-		String[] conjunctions = { "and", "but", "And", "But" };
-		String[] punctuation = { ".", ",", "\"", "\'", ";", ":", "<", ">", "?", "\\", "/", "!", "@", "#", "$", "%", "^",
-				"&", "*", "(", ")", "-", "=", "_", "+", "`", "~" };
-
-		// Loop through the entire tokenizedText arraylist
-		for (int i = 0; i < tokenizedText.size(); i++) {
-			// Loop through the entire articles array
-			for (int j = 0; j < articles.length; j++) {
-				// If a token's text is identified as an article, mark it as an
-				// article
-
-				if (tokenizedText.get(i).getLexeme() == articles[j]) {
-					tokenizedText.get(i).setPartOfSpeech("article");
-				}
-				if (tokenizedText.get(i).toString() == articles[j]) {
-					tokenizedText.get(i).setLexical("punct");
-
-				}
-			}
-		}
-	}
-
-	/**
 	 * Returns the the token count for a specific token
 	 * 
 	 * @param token
