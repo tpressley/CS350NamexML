@@ -112,11 +112,11 @@
 		<jar destfile="target/PNE.jar" basedir="target/classes">
 		<!--
 		 Uncomment if you have a main class to execute by default.
+		-->
 		      <manifest>
 		        <attribute name="Main-Class"
-		                   value="edu.odu.cs.code2html.Code2HTML"/>
+		                   value="edu.odu.cs.cs350.namex.Librarian"/>
 		      </manifest>    
-		-->
 		</jar>
 	</target>
 	
@@ -157,6 +157,7 @@
 		<!-- Delete the ${build} and ${dist} directory trees -->
 		<delete dir="${build}"/>
 		<delete dir="${dist}"/>  
+		<delete dir="${lib}"/>  
 	</target>
 	
 </project>

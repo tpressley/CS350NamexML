@@ -13,6 +13,7 @@ import java.io.PrintStream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Scanner;
 
 import org.junit.Before;
@@ -23,26 +24,79 @@ import edu.odu.cs.cs350.namex.Librarian;
 //import edu.odu.cs.cs350.Librarian;
 
 public class TestLibrarian {
-
-	private Librarian librarian;
-	private Trainer trainer;
 	
-	@Before
-	public void initialize()
+	// prints the weka classification of each token from an input string
+	@Test
+	public void testWeka()
 	{
-		trainer = new Trainer();
+		// ********** Configurations **************
 		
+		String arffFilePath = "/data/arff/training_data_zeil.arff";      // actual training data
+		String input = "Mr. Samuel L. Jackson, Jr.";
+		boolean printEvaluationSummary = true;
+		boolean showClassification = true;
+		boolean showDistribution = false;
+		
+		// ********** End Configurations **********
+		
+		Librarian librarian = new Librarian();
+		Trainer trainer = new Trainer();
+		
+		Path currentRelativePath = Paths.get("");
+		String relativePath = currentRelativePath.toAbsolutePath().toString();
+		arffFilePath = relativePath + "" + arffFilePath;
+		
+		ArrayList<Token> testTokens = trainer.tokenize(input);
+				
 		try 
 		{
-			librarian = new Librarian();
+			trainer.importARFF(arffFilePath);
+			trainer.trainLM();
+			
+			if (printEvaluationSummary == true)
+			{
+				trainer.printEvaluationSummary();				
+			}
+			
+			for (Token t : testTokens)
+			{
+				t = librarian.classifyToken(t);
+				
+				if (t.getLexical() != "whiteSpace")
+				{
+					if (showClassification == true)
+					{
+						System.out.println("lexeme:           " + t.getLexeme());
+						System.out.println("classification:   " + trainer.classify(t.toString()));	
+						
+						if (showDistribution == false)
+						{
+							System.out.println();
+						}
+					}
+					if (showDistribution == true)
+					{
+						double[] distribution = trainer.getDistribution(t.toString());
+						System.out.println("beginning:        " + Math.round(distribution[0] * 100.00) + "%");
+						System.out.println("continuing:       " + Math.round(distribution[1] * 100.00) + "%");
+						System.out.println("other:            " + Math.round(distribution[2] * 100.00) + "%\n");
+					}
+				}
+			}
 		} 
-		catch (FileNotFoundException e) 
+		catch (Exception e) 
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
+	
+	
+	
+	
+	
+
 	// User Story #844 - Gerard Silverio
 	// As a Librarian/application developer, I want a program that will 
 	// accept standard input from command line interface
@@ -56,64 +110,132 @@ public class TestLibrarian {
         //Librarian.main(new String[] {"<NER>Hello, <PER>John Smith</PER> There are snakes on this plane! <PER>Mr. Samuel L Jackson, III</PER> I don't know what to do!</NER><NER>Hello World line 2</NER><NER>Goodbye world!</NER>"});
         
         // CLI .txt file input
+		
+		// CLI generate ARFF training data
+		String inputFilePath = "/data/training/trainingData.txt";
+		String outputFilePath = "/data/arff/trainingData.arff";
+		
 		Path currentRelativePath = Paths.get("");
 		String relativePath = currentRelativePath.toAbsolutePath().toString();
-		String inputFilePath = relativePath + "/data/training/training_data_short.txt";
-		String arffFileName = "training_data_short"; // don't add the .arff extension
+		inputFilePath = relativePath + "" + inputFilePath;
+		outputFilePath = relativePath + "" + outputFilePath;
 		
-        //Librarian.main(new String[] {inputFilePath, arffFileName});
+        Librarian.main(new String[] { "train", inputFilePath, outputFilePath });
     }
 
 	// User Story #861 - Gerard Silverio
+	// Status: Complete
 	// As a Librarian/application developer I want to use Command line to 
 	// process each block of text separately via the personal name extractor
 	@Test
 	public void testSeparateNER() throws FileNotFoundException
 	{
-		Librarian librarian = new Librarian();
-		
 		String input = "<NER>Hello, There are snakes on this plane! I don't know what to do!</NER><NER>This should be another text block!</NER>";
-		String[] output = { "Hello, There are snakes on this plane! I don't know what to do!", "This should be another text block!" };
 		
-		ArrayList<TextBlock> textBlocks = librarian.separateNER(input);
-		
-		// Test Output
-		//System.out.println(output[0]);
-		//System.out.println(textBlocks.get(0).getTextBlock());
-		
-		// Test Output
-		//System.out.println(output[1]);
-		//System.out.println(textBlocks.get(1).getTextBlock());
-		
-		assertEquals(output[0], textBlocks.get(0).getTextBlock());
-		assertEquals(output[1], textBlocks.get(1).getTextBlock());
+		ArrayList<TextBlock> textBlocks = Librarian.separateNER(input);
+
+		// separateNER should have separated the input into two lines
+		assertEquals(2, textBlocks.size());
 	}
 	
 	// User Story #850
+	// Status: Complete
 	// As a Librarian, I want the PNE to use a learning machine to 
 	// classify tokens within the input.
 	@Test
-	public void testClassifyToken()
+	public void testClassify()
 	{
-		Token token = new Token("John");
-		token = librarian.classifyToken(token);
+		Librarian librarian = new Librarian();
+		Trainer trainer = new Trainer();
 		
-		assertEquals("capitalized", token.getLexical());
-		assertEquals("other", token.getPartOfSpeech());
-		assertEquals(0, token.isDictionaryWord());
-		assertEquals(0, token.isCityState());
-		assertEquals(0, token.isCountryTerritory());
-		assertEquals(0, token.isPlace());
-		assertEquals(1, token.isDTICFirst());
-		assertEquals(1, token.isDTICLast());
-		assertEquals(1, token.isCommonFirst());
-		assertEquals(0, token.isCommonLast());
-		assertEquals(0, token.isHonorific());
-		assertEquals(0, token.isPrefix());
-		assertEquals(0, token.isSuffix());
-		assertEquals(0, token.isKillWord());
+		// Change to test_training_data to make building the project faster
+		String arffFilePath = "/data/arff/test_training_data.arff";
+		//String arffFilePath = "/data/arff/training_data_zeil.arff";    // actual training data
+		
+		String input = "Mr. Samuel L. Jackson, Jr.";
+		
+		Path currentRelativePath = Paths.get("");
+		String relativePath = currentRelativePath.toAbsolutePath().toString();
+		arffFilePath = relativePath + "" + arffFilePath;
+		
+		ArrayList<Token> testTokens = trainer.tokenize(input);
+				
+		try 
+		{
+			trainer.importARFF(arffFilePath);
+			trainer.trainLM();
+			trainer.printEvaluationSummary();
+			
+			for (Token t : testTokens)
+			{
+				t = librarian.classifyToken(t);
+				
+				if (t.getLexical() != "whiteSpace")
+				{
+					if (t.getLexical() == "capitalized")
+					{
+						// Since all of the capitalized values in the test input are parts of names, they should all be classified as either 'beginning' or 'continuing'
+						assertTrue("beginning" == trainer.classify(t.toString())
+								|| "continuing" == trainer.classify(t.toString()));					
+						
+					}
+					
+					/*
+					// Uncomment to view Token classification on the console
+					System.out.println(t.getLexeme() + ": " + trainer.classify(t.toString()));
+					
+					// Uncomment to view Token distribution on console
+					double[] distribution = trainer.getDistribution(t.toString());
+					System.out.println("beginning: " + distribution[0]);
+					System.out.println("continuing: " + distribution[1]);
+					System.out.println("other: " + distribution[2] + "\n");
+					*/
+				}
+			}
+		} 
+		catch (Exception e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
+	@Test
+	public void testClassifyTokens()
+	{
+		Librarian l = new Librarian();
+			Trainer trainer = new Trainer();
+			
+			//System.out.println(l.isCommonLastName("Smith"));
+			
+			String input = "<NER>Hello <PER>John Smith</PER> this is <PER>Mr. Samuel L. Jackson, III</PER></NER>";
+			
+			ArrayList<TextBlock> textBlocks = l.separateNER(input);
+			
+			for (TextBlock textBlock : textBlocks)
+			{
+				System.out.println(textBlock.getTextBlock());
+				
+				ArrayList<Token> tokens = trainer.tokenize(textBlock.getTextBlock());
+				
+				/*
+				for (Token token : tokens)
+				{
+					token = l.classifyToken(token);
+					System.out.println(token.toStringQuotes());
+				}
+				*/
+				
+				HashSet<Token> classifiedTokens = l.classifyTokens(tokens);
+				
+				for (Token token : classifiedTokens)
+				{
+					System.out.println(token.toStringQuotes());
+				}
+			}
+	
+	}
+	
 	// PNE packaged for deployment in fat jar (A)
 	@Test
 	public void testPackage() {
@@ -236,18 +358,12 @@ public class TestLibrarian {
 
 	public void testMarkClassificationTag() {
 
-		Librarian lib;
-		try {
-			lib = new Librarian();
+		Librarian lib = new Librarian();
 
 			String text1 = "This small paper was written by Pythagoras.";
 
 			assertEquals("This <ADJ>small</ADJ> paper was <VERB>written</VERB> by <NOUN>Pythagoras</NOUN>.",
 					lib.markClassificationTag(text1));
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 
 }

@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.StringReader;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import static org.junit.Assert.*;
 
@@ -17,7 +19,73 @@ import edu.odu.cs.cs350.namex.Trainer;
 import java.util.*;
 
 public class TestTrainer {
-
+	
+	// Generates an .arff file from a .txt file containing names tagged between <PER> tags
+	@Test
+	public void testGenerateARFF()
+	{
+		// ********** Configurations **************
+		
+		String trainingDataFilePath = "/data/training/trainingData.txt";
+		String arffFilePath = "/data/arff/trainingData.arff";      
+		
+		// ********** End Configurations **********
+		
+		Path currentRelativePath = Paths.get("");
+		String relativePath = currentRelativePath.toAbsolutePath().toString();
+		trainingDataFilePath = relativePath + "" + trainingDataFilePath;
+		arffFilePath = relativePath + "" + arffFilePath;
+		
+		Librarian librarian = new Librarian();
+		Trainer trainer = new Trainer();
+		
+		System.out.println("*******************************");
+    	System.out.println(" Generating ARFF Training Data");
+    	System.out.println("*******************************\n");
+    	    	
+    	System.out.println(" Input FilePath: " + trainingDataFilePath);
+    	System.out.println("Output FilePath: " + arffFilePath);
+    	
+    	trainer.generateARFF(trainingDataFilePath, arffFilePath);
+	}
+	
+	// User Story #853 
+	// Status: Complete
+	// As Trainer, I want to use existing data to train the learning machine
+	@Test
+	public void testTrainLM() 
+	{
+		String arffFilePath = "/data/arff/test_training_data.arff";
+		
+		Path currentRelativePath = Paths.get("");
+		String relativePath = currentRelativePath.toAbsolutePath().toString();
+		arffFilePath = relativePath + "" + arffFilePath;
+		
+		Trainer trainer = new Trainer();
+		
+		try 
+		{
+			trainer.importARFF(arffFilePath);
+			trainer.trainLM();
+			
+			//trainer.printEvaluationSummary();
+			//System.out.println(trainer.getTrainingInstances().numInstances());
+			assertEquals(24, trainer.getTrainingInstances().numInstances());
+			
+		} 
+		catch (Exception e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * User story #860 Tests to see if the function properly tokenizes the
 	 * output by comparing to the output when using StringTokenizer User Story
@@ -90,42 +158,15 @@ public class TestTrainer {
 
 		String in = "this is a test.";
 
-		assertEquals(t1.prepareData(in), t2.prepareData(in));
+		//assertEquals(t1.prepareData(in), t2.prepareData(in));
 	}
 
-	// User Story #853 As Trainer, I want to use existing data to train the
-	// learning machine
-	@Test
-	public void testTrainLM() {
 
-		Trainer t1 = new Trainer();
-		Trainer t2 = new Trainer();
-		Librarian lib;
-
-		try {
-			lib = new Librarian();
-
-			String s = "We were crossing the George Washington Bridge.";
-			String ss = "It was an honor to be accepted to George Mason University.";
-			String sss = "Dr.Carson wrote this book.";
-
-			assertTrue(t1.trainLM(s));
-			assertTrue(t2.trainLM(s));
-			assertTrue(t2.trainLM(ss));
-			// assertTrue(t1.trainLM(sss) &&
-			// lib.markPersonalNames(sss).equals("<PER>Dr.Carson</PER>"));
-			assert (t1.trainLM(ss) == t2.trainLM(ss));
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
 
 	public void testSaveLoadLM() throws Exception {
 		Trainer t1 = new Trainer();
 		Trainer t2 = new Trainer();
-		t2.prepareData("<NER>\"Oh, no,\" she\'s saying, \"a $400 blender can\'t handle something this hard!\"</NER>");
+		//t2.prepareData("<NER>\"Oh, no,\" she\'s saying, \"a $400 blender can\'t handle something this hard!\"</NER>");
 		t2.SaveClassifier();
 		t1.LoadClassifier();
 		assertEquals(t1, t2);

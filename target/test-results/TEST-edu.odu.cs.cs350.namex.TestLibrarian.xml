@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="2" hostname="ubuntu" name="edu.odu.cs.cs350.namex.TestLibrarian" skipped="0" tests="5" time="0.401" timestamp="2016-04-07T00:42:05">
+<testsuite errors="0" failures="1" hostname="ubuntu" name="edu.odu.cs.cs350.namex.TestLibrarian" skipped="0" tests="7" time="4.946" timestamp="2016-04-09T20:35:00">
   <properties>
     <property name="java.vendor" value="Oracle Corporation" />
     <property name="sun.java.launcher" value="SUN_STANDARD" />
@@ -8,7 +8,7 @@
     <property name="lib" value="/home/gsilveri/git/Green3/lib" />
     <property name="os.name" value="Linux" />
     <property name="sun.boot.class.path" value="/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rhino.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/classes" />
-    <property name="TODAY" value="April 6 2016" />
+    <property name="TODAY" value="April 9 2016" />
     <property name="sun.desktop" value="gnome" />
     <property name="java.vm.specification.vendor" value="Oracle Corporation" />
     <property name="ant.home" value="/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020" />
@@ -21,7 +21,7 @@
     <property name="ivy.jar.dir" value="/home/gsilveri/git/Green3/ivy" />
     <property name="ant.project.default-target" value="build" />
     <property name="ant.project.name" value="PNE" />
-    <property name="DSTAMP" value="20160406" />
+    <property name="DSTAMP" value="20160409" />
     <property name="java.version" value="1.7.0_95" />
     <property name="user.timezone" value="" />
     <property name="sun.arch.data.model" value="64" />
@@ -50,10 +50,10 @@
     <property name="java.vendor.url" value="http://java.oracle.com/" />
     <property name="java.vm.vendor" value="Oracle Corporation" />
     <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestLibrarian skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/gsilveri/git/Green3/target/test-results/TEST-edu.odu.cs.cs350.namex.TestLibrarian.xml crashfile=/home/gsilveri/git/Green3/junitvmwatcher5269265135535462299.properties propsfile=/home/gsilveri/git/Green3/junit1621848703134229685.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestLibrarian skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/gsilveri/git/Green3/target/test-results/TEST-edu.odu.cs.cs350.namex.TestLibrarian.xml crashfile=/home/gsilveri/git/Green3/junitvmwatcher8168317373110779722.properties propsfile=/home/gsilveri/git/Green3/junit1158396880922635053.properties" />
     <property name="java.class.path" value="/home/gsilveri/git/Green3/target/test-classes:/home/gsilveri/git/Green3/target/classes:/home/gsilveri/git/Green3/lib/extract-wordlists.jar:/home/gsilveri/git/Green3/lib/hamcrest-core.jar:/home/gsilveri/git/Green3/lib/java-cup.jar:/home/gsilveri/git/Green3/lib/junit-javadoc.jar:/home/gsilveri/git/Green3/lib/junit-sources.jar:/home/gsilveri/git/Green3/lib/junit.jar:/home/gsilveri/git/Green3/lib/weka-stable-javadoc.jar:/home/gsilveri/git/Green3/lib/weka-stable-sources.jar:/home/gsilveri/git/Green3/lib/weka-stable.jar:/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant-launcher.jar:/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant.jar:/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant-junit.jar:/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant-junit4.jar" />
     <property name="ant.version" value="Apache Ant(TM) version 1.9.4 compiled on April 29 2014" />
-    <property name="TSTAMP" value="1742" />
+    <property name="TSTAMP" value="1334" />
     <property name="ivy.install.version" value="2.3.0" />
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
     <property name="java.vm.specification.version" value="1.7" />
@@ -77,19 +77,221 @@
     <property name="java.specification.version" value="1.7" />
     <property name="ant.project.invoked-targets" value="build" />
   </properties>
-  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testSeparateNER" time="0.015" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testPackage" time="0.009" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testMain" time="0.004" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testMarkClassificationTag" time="0.011">
+  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testSeparateNER" time="0.005" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testPackage" time="0.0" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testMain" time="1.319" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testWeka" time="0.875" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testMarkClassificationTag" time="0.852">
     <failure message="expected:&lt;This &lt;ADJ&gt;small&lt;/ADJ&gt; paper was &lt;VERB&gt;written&lt;/VERB&gt; by &lt;NOUN&gt;Pythagoras&lt;/NOUN&gt;.&gt; but was:&lt;null&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;This &lt;ADJ&gt;small&lt;/ADJ&gt; paper was &lt;VERB&gt;written&lt;/VERB&gt; by &lt;NOUN&gt;Pythagoras&lt;/NOUN&gt;.&gt; but was:&lt;null&gt;
-	at edu.odu.cs.cs350.namex.TestLibrarian.testMarkClassificationTag(TestLibrarian.java:245)
+	at edu.odu.cs.cs350.namex.TestLibrarian.testMarkClassificationTag(TestLibrarian.java:365)
 </failure>
   </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testClassifyToken" time="0.292">
-    <failure message="expected:&lt;0&gt; but was:&lt;1&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;0&gt; but was:&lt;1&gt;
-	at edu.odu.cs.cs350.namex.TestLibrarian.testClassifyToken(TestLibrarian.java:106)
-</failure>
-  </testcase>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
+  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testClassifyTokens" time="0.884" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testClassify" time="0.917" />
+  <system-out><![CDATA[*******************************
+ Generating ARFF Training Data
+*******************************
+
+ Input FilePath: /home/gsilveri/git/Green3/data/training/trainingData.txt
+Output FilePath: /home/gsilveri/git/Green3/data/arff/trainingData.arff
+
+Classifying Tokens from 0 TextBlocks...
+
+*******************************
+      Evaluation Summary
+*******************************
+
+Total Number of Instances                0     
+
+Created: /home/gsilveri/git/Green3/data/arff/trainingData.arff
+Hello <PER>John Smith</PER> this is <PER>Mr. Samuel L. Jackson, III</PER>
+"<,punct,other,0,0,0,0,0,0,0,0,0,0,0,0,other,17,",
+"<,punct,other,0,0,0,0,0,0,0,0,0,0,0,0,other,8,",
+">,punct,other,0,0,0,0,0,0,0,0,0,0,0,0,other,4,",
+"<,punct,other,0,0,0,0,0,0,0,0,0,0,0,0,other,2,",
+"PER,allCaps,other,1,0,0,0,1,1,0,0,0,0,0,0,other,3,",
+"this,other,other,1,0,0,0,0,0,0,0,0,0,0,0,other,13,",
+"John,capitalized,other,1,0,0,1,1,1,1,1,0,0,0,0,beginning,5,",
+"Hello,capitalized,other,1,0,0,0,0,0,0,0,0,0,0,0,other,0,",
+".,punct,period,0,0,0,0,0,0,0,0,0,0,0,0,other,26,",
+"PER,allCaps,other,1,0,0,0,1,1,0,0,0,0,0,0,other,18,",
+"is,other,other,1,0,0,0,1,0,0,0,0,0,0,0,other,15,",
+"/,punct,other,0,0,0,0,0,0,0,0,0,0,0,0,other,9,",
+"Jackson,capitalized,other,1,0,0,1,1,1,1,1,0,0,0,0,continuing,28,",
+"<,punct,other,0,0,0,0,0,0,0,0,0,0,0,0,other,32,",
+"/,punct,other,0,0,0,0,0,0,0,0,0,0,0,0,other,33,",
+"L,capLetter,other,1,0,0,0,1,0,0,0,0,0,0,0,continuing,25,",
+"PER,allCaps,other,1,0,0,0,1,1,0,0,0,0,0,0,other,34,",
+">,punct,other,0,0,0,0,0,0,0,0,0,0,0,0,other,35,",
+">,punct,other,0,0,0,0,0,0,0,0,0,0,0,0,other,11,",
+".,punct,period,0,0,0,0,0,0,0,0,0,0,0,0,other,21,",
+"Smith,capitalized,other,1,0,0,1,1,1,0,1,0,0,0,0,continuing,7,",
+">,punct,other,0,0,0,0,0,0,0,0,0,0,0,0,other,19,",
+"Samuel,capitalized,other,1,0,0,1,1,1,1,1,0,0,0,0,continuing,23,",
+",,punct,comma,0,0,0,0,0,0,0,0,0,0,0,0,other,29,",
+"III,allCaps,other,1,0,0,0,1,0,0,0,0,0,0,0,continuing,31,",
+"Mr,capitalized,other,1,0,0,0,1,0,0,0,1,0,0,0,beginning,20,",
+"PER,allCaps,other,1,0,0,0,1,1,0,0,0,0,0,0,other,10,",
+]]></system-out>
+  <system-err><![CDATA[java.io.FileNotFoundException: /home/gsilveri/git/Green3/data/training/trainingData.txt (No such file or directory)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:146)
+	at java.util.Scanner.<init>(Scanner.java:656)
+	at edu.odu.cs.cs350.namex.Librarian.importFile(Librarian.java:166)
+	at edu.odu.cs.cs350.namex.Trainer.generateARFF(Trainer.java:72)
+	at edu.odu.cs.cs350.namex.Librarian.main(Librarian.java:106)
+	at edu.odu.cs.cs350.namex.TestLibrarian.testMain(TestLibrarian.java:123)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at junit.framework.JUnit4TestAdapter.run(JUnit4TestAdapter.java:38)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:532)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1179)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1030)
+java.io.FileNotFoundException: /home/gsilveri/git/Green3/data/arff/trainingData.arff (No such file or directory)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:221)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:171)
+	at java.io.PrintWriter.<init>(PrintWriter.java:192)
+	at java.io.PrintWriter.<init>(PrintWriter.java:232)
+	at edu.odu.cs.cs350.namex.Trainer.exportARFF(Trainer.java:321)
+	at edu.odu.cs.cs350.namex.Trainer.generateARFF(Trainer.java:102)
+	at edu.odu.cs.cs350.namex.Librarian.main(Librarian.java:106)
+	at edu.odu.cs.cs350.namex.TestLibrarian.testMain(TestLibrarian.java:123)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at junit.framework.JUnit4TestAdapter.run(JUnit4TestAdapter.java:38)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:532)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1179)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1030)
+java.io.IOException: No source has been specified
+	at weka.core.converters.ArffLoader.getDataSet(ArffLoader.java:1039)
+	at weka.core.converters.ConverterUtils$DataSource.getDataSet(ConverterUtils.java:268)
+	at edu.odu.cs.cs350.namex.Trainer.importARFF(Trainer.java:343)
+	at edu.odu.cs.cs350.namex.TestLibrarian.testWeka(TestLibrarian.java:53)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at junit.framework.JUnit4TestAdapter.run(JUnit4TestAdapter.java:38)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:532)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1179)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1030)
+java.lang.NullPointerException
+	at edu.odu.cs.cs350.namex.Trainer.importARFF(Trainer.java:348)
+	at edu.odu.cs.cs350.namex.TestLibrarian.testWeka(TestLibrarian.java:53)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at junit.framework.JUnit4TestAdapter.run(JUnit4TestAdapter.java:38)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:532)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1179)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1030)
+java.io.IOException: No source has been specified
+	at weka.core.converters.ArffLoader.getDataSet(ArffLoader.java:1039)
+	at weka.core.converters.ConverterUtils$DataSource.getDataSet(ConverterUtils.java:268)
+	at edu.odu.cs.cs350.namex.Trainer.importARFF(Trainer.java:343)
+	at edu.odu.cs.cs350.namex.TestLibrarian.testClassify(TestLibrarian.java:165)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at junit.framework.JUnit4TestAdapter.run(JUnit4TestAdapter.java:38)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:532)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1179)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1030)
+java.lang.NullPointerException
+	at edu.odu.cs.cs350.namex.Trainer.importARFF(Trainer.java:348)
+	at edu.odu.cs.cs350.namex.TestLibrarian.testClassify(TestLibrarian.java:165)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at junit.framework.JUnit4TestAdapter.run(JUnit4TestAdapter.java:38)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:532)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1179)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1030)
+]]></system-err>
 </testsuite>

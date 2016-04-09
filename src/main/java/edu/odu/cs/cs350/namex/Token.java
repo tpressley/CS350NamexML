@@ -18,6 +18,8 @@ public class Token {
 	private int suffix;
 	private int killWord;
 	private String name;
+	
+	private int position;
 
 	public Token() {
 		this.lexeme = "";
@@ -54,15 +56,37 @@ public class Token {
 		this.suffix = 0;
 		this.killWord = 0;
 	}
+	
+	public Token(String lexeme, int position) {
+		this.lexeme = lexeme;
+		this.lexical = "other";
+		this.partOfSpeech = "other";
+		this.dictionaryWord = 0;
+		this.cityState = 0;
+		this.countryTerritory = 0;
+		this.place = 0;
+		this.DTICFirst = 0;
+		this.DTICLast = 0;
+		this.commonFirst = 0;
+		this.commonLast = 0;
+		this.honorific = 0;
+		this.prefix = 0;
+		this.suffix = 0;
+		this.killWord = 0;
+		this.position = position;
+	}
+	
+	public int getPosition() {
+		return position;
+	}
+	
+	public void setPosition(int position) {
+		this.position = position;
+	}
 
 	// lexeme
 	public String getLexeme() {
 		return this.lexeme;
-	}
-
-	public String toString() {
-		return this.lexeme;
-
 	}
 
 	public void setLexeme(String lexeme) {
@@ -207,22 +231,48 @@ public class Token {
 	// returns the ARFF @data row for the Token
 	public String getARFF() {
 
-		String output = lexical + ",";
-		output += partOfSpeech + ",";
-		output += dictionaryWord + ",";
-		output += cityState + ",";
-		output += countryTerritory + ",";
-		output += place + ",";
-		output += DTICFirst + ",";
-		output += DTICLast + ",";
-		output += commonFirst + ",";
-		output += commonLast + ",";
-		output += honorific + ",";
-		output += prefix + ",";
-		output += suffix + ",";
-		output += killWord;
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append(lexical + ",");
+		sb.append(partOfSpeech + ",");
+		sb.append(dictionaryWord + ",");
+		sb.append(cityState + ",");
+		sb.append(countryTerritory + ",");
+		sb.append(place + ",");
+		sb.append(DTICFirst + ",");
+		sb.append(DTICLast + ",");
+		sb.append(commonFirst + ",");
+		sb.append(commonLast + ",");
+		sb.append(honorific + ",");
+		sb.append(prefix + ",");
+		sb.append(suffix + ",");
+		sb.append(killWord + ",");
+		sb.append(name);
 
-		return output;
+		return sb.toString();
+
+	}
+	
+	public String toString() {
+
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append(lexical + ",");
+		sb.append(partOfSpeech + ",");
+		sb.append(dictionaryWord + ",");
+		sb.append(cityState + ",");
+		sb.append(countryTerritory + ",");
+		sb.append(place + ",");
+		sb.append(DTICFirst + ",");
+		sb.append(DTICLast + ",");
+		sb.append(commonFirst + ",");
+		sb.append(commonLast + ",");
+		sb.append(honorific + ",");
+		sb.append(prefix + ",");
+		sb.append(suffix + ",");
+		sb.append(killWord);
+
+		return sb.toString();
 
 	}
 
@@ -245,7 +295,8 @@ public class Token {
 		output += prefix + ",";
 		output += suffix + ",";
 		output += killWord + ",";
-		output += name + ",\",";
+		output += name + ",";
+		output += position + ",\",";
 
 		return output;
 

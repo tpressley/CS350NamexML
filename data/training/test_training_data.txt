@@ -1,0 +1,1 @@
+<NER>Hello world! This is <PER>John Smith, Mr. Samuel L. Jackson and George Bush<PER>.</NER>

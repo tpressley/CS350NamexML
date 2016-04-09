@@ -4,6 +4,7 @@ import java.lang.String;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
 //import weka.core.Instances;
@@ -18,153 +19,148 @@ import edu.odu.cs.extract.wordlists.WordLists;
 public class Librarian {
 
 	// Iterable<String> to that store Gazetteer lists
-	private Iterable<String> DictionaryWords;
-	private Iterable<String> CitiesStates;
-	private Iterable<String> CountriesTerritories;
-	private Iterable<String> Places;
-	private Iterable<String> DTICFirstNames;
-	private Iterable<String> DTICLastNames;
-	private Iterable<String> CommonFirstNames;
-	private Iterable<String> CommonLastNames;
-	private Iterable<String> Honorifics;
-	private Iterable<String> LastNamePrefixes;
-	private Iterable<String> LastNameSuffixes;
-	private Iterable<String> KillWords;
+	private HashSet<String> DictionaryWords;
+	private HashSet<String> CitiesStates;
+	private HashSet<String> CountriesTerritories;
+	private HashSet<String> Places;
+	private HashSet<String> DTICFirstNames;
+	private HashSet<String> DTICLastNames;
+	private HashSet<String> CommonFirstNames;
+	private HashSet<String> CommonLastNames;
+	private HashSet<String> Honorifics;
+	private HashSet<String> LastNamePrefixes;
+	private HashSet<String> LastNameSuffixes;
+	private HashSet<String> KillWords;
 
 	public static void main(String[] args) throws FileNotFoundException
 	{
 		// Test Output
+		/*
+        for (String s: args) {
+            System.out.println(s);
+        }
+        */
 		
-      //  for (String s: args) {
-           // System.out.println(s);
-       // }
+		if (args.length == 0)
+		{
+			System.out.println("Hello World!");
+		}
         
-        
-        // if CLI contains one argument that is a textBlock, 
-	      // Argument is one text file with training sentences
-        if (args.length == 1)
+        // if CLI contains one argument that is a textBlock
+		else if (args.length == 1)
         {
-        	String input = args[0];
-        	
-        	Librarian librarian = new Librarian();
-        	Trainer trainer = new Trainer();
-        	
-        	// Call separateNer method to separate the input into training Sentences
-        	ArrayList<TextBlock> textBlocks = librarian.separateNER(input);
-        	
-        	// tokenize each textBlock
-    		for (TextBlock textBlock : textBlocks)
-    		{
-    			textBlock.setTokens(trainer.tokenize(textBlock.getTextBlock()));
-    			
-    			// call classifyTokens only when inputting pre-marked training data
-    			textBlock.setTokens(librarian.classifyTokens(textBlock.getTokens()));
-    			
-    			System.out.println(textBlock.toString()); // test
-    			
-    			// print out token test arff data
-    			for (Token token : textBlock.getTokens())
-    			{
-    				if (!token.getLexical().equals("whiteSpace") && !token.getLexical().equals("number") && !token.getLexical().equals("punct"))
-    				{
-    					System.out.println(token.getARFF());
-    				}
-    			}
-    			
-    			
-    		}    		
+        	System.out.println(args[0]);
         }
         
         // if CLI contains two arguments
-        if (args.length == 2)
+        else if (args.length == 2)
         {
         	System.out.println("2 Arguments");
         	
         	String inputFileName = args[0];
         	String outputFileName = args[1];
         	
-        	Librarian librarian = new Librarian();
         	Trainer trainer = new Trainer();
         	
-        	String input = librarian.importFile(inputFileName);
-
-        	System.out.println("Imported File Successfully");
+        	ArrayList<Token> tokens = new ArrayList<Token>();
         	
-        	// separate the input into textBlocks
-        	ArrayList<TextBlock> textBlocks = librarian.separateNER(input);
+        	/*
+        	ArrayList<TextBlock> textBlocks = new ArrayList<TextBlock>();
         	
-        	System.out.println("Tokenizing and Classifying " + textBlocks.size() + " text blocks...");
+        	HashSet<String> fileLines = Librarian.importFile(inputFileName);
+        	for (String line : fileLines)
+    		{
+    			textBlocks.addAll(Librarian.separateNER(line));
+    		}
+    		*/
         	
-        	// ArrayList to store ARFF data
-        	List<String> ARFFList = new ArrayList<String>();
-        	        	
-        	int count = 0;
-        	int totalCount = 0;
+        	ArrayList<TextBlock> textBlocks = importFile(inputFileName);
         	
-        	// tokenize each textBlock
-    		for (TextBlock textBlock : textBlocks)
-    		{ 			
-    			textBlock.setTokens(trainer.tokenize(textBlock.getTextBlock()));
-    			
-    			// call classifyTokens only when inputting pre-marked training data
-    			textBlock.setTokens(librarian.classifyTokens(textBlock.getTokens()));
-    			
-    			//System.out.println(textBlock.toString()); // test
-    			
-    			// print out token test arff data
-    			for (Token token : textBlock.getTokens())
-    			{
-    				if (!token.getLexeme().equals("PER") && !token.getLexical().equals("punct") && !token.getLexical().equals("whiteSpace") && !token.getLexical().equals("number") && token.getName() != null)
-    				{
-    					//System.out.println(token.toString());
-    					ARFFList.add(token.getARFF());    					
-    				}
-    			}
-    			
-    			count++;
-    			if (count == 500)
-    			{
-    				totalCount += count;
-    				System.out.println("Tokenized and Classified " + totalCount + " text blocks so far.");
-    				count = 0;
-    			}
-    		}  
-    		
-			String[] ARFFArray = new String[ARFFList.size()];
-			ARFFArray = ARFFList.toArray(ARFFArray);
+        	for (TextBlock textBlock : textBlocks)
+        	{
+        		tokens.addAll(trainer.tokenize(textBlock.getTextBlock()));
+        	}
+        	
+        	//System.out.println("Imported File Successfully!");
+        	
+        	trainer.generateARFF(inputFileName, outputFileName);
+        }
+        
+        // Generate ARFF Training Data
+        else if (args.length == 3)
+        {
+        	if (args[0].equalsIgnoreCase("train"))
+        	{
+        		System.out.println("*******************************");
+            	System.out.println(" Generating ARFF Training Data");
+            	System.out.println("*******************************\n");
+            	
+            	String inputFileName = args[1];
+            	String outputFileName = args[2];
+            	
+            	System.out.println(" Input FilePath: " + inputFileName);
+            	System.out.println("Output FilePath: " + outputFileName);
+            	
+            	Trainer trainer = new Trainer();
+            	
+            	trainer.generateARFF(inputFileName, outputFileName);
+        	}
         }
 	}
 
-	public Librarian() throws FileNotFoundException {
+	public Librarian() {
 		Path currentRelativePath = Paths.get("");
 		String relativePath = currentRelativePath.toAbsolutePath().toString() + "/resources/";
 
 		// Instantiate Gazetteer Iterable<String> by using extract-wordlists
-		DictionaryWords = WordLists.englishDictionary();
-		CitiesStates = WordLists.citiesAndStatesUS();
-		CountriesTerritories = WordLists.countriesAndTerritories();
-		Places = WordLists.places();
-		DTICFirstNames = WordLists.firstNames();
-		DTICLastNames = WordLists.lastNames();
-		CommonFirstNames = WordLists.commonFirstNames();
-		CommonLastNames = WordLists.commonLastNames();
-		Honorifics = WordLists.honorifics();
-		LastNamePrefixes = WordLists.lastNamePrefixes();
-		LastNameSuffixes = WordLists.lastNamePrefixes();
-		KillWords = WordLists.nonPersonalIdentifierCues();
+		DictionaryWords = new HashSet<String>();
+		CitiesStates = new HashSet<String>();
+		CountriesTerritories = new HashSet<String>();
+		Places = new HashSet<String>();
+		DTICFirstNames = new HashSet<String>();
+		DTICLastNames = new HashSet<String>();
+		CommonFirstNames = new HashSet<String>();
+		CommonLastNames = new HashSet<String>();
+		Honorifics = new HashSet<String>();
+		LastNamePrefixes = new HashSet<String>();
+		LastNameSuffixes = new HashSet<String>();
+		KillWords = new HashSet<String>();
+						
+		loadGazetteer(DictionaryWords, WordLists.englishDictionary());
+		loadGazetteer(CitiesStates, WordLists.citiesAndStatesUS());
+		loadGazetteer(CountriesTerritories, WordLists.countriesAndTerritories());
+		loadGazetteer(Places, WordLists.places());
+		loadGazetteer(DTICFirstNames, WordLists.firstNames());
+		loadGazetteer(DTICLastNames, WordLists.lastNames());
+		loadGazetteer(CommonFirstNames, WordLists.commonFirstNames());
+		loadGazetteer(CommonLastNames, WordLists.commonLastNames());
+		loadGazetteer(Honorifics, WordLists.honorifics());
+		loadGazetteer(LastNamePrefixes, WordLists.lastNamePrefixes());
+		loadGazetteer(LastNameSuffixes, WordLists.lastNamePrefixes());
+		loadGazetteer(KillWords, WordLists.nonPersonalIdentifierCues());
 
 		// Test Output
-		// System.out.println("\nAll Gazetteer files imported successfully!\n");
+		//System.out.println("\nAll Gazetteer files imported successfully!\n");
 	}
 	
-	// imports a file from filePath and returns the line values as a combined String
-	private String importFile(String filePath)
+	// Loads gazetteer lists from WordLists into HashSet<String>
+	private void loadGazetteer(HashSet<String> gazetteer, Iterable<String> wordlist)
+	{
+		for (String word : wordlist)
+		{
+			gazetteer.add(word.toLowerCase());
+		}
+	}
+	
+	// imports a file from filePath and returns the line values as a HashSet<String>
+	//public static HashSet<String> importFile(String filePath)
+	public static ArrayList<TextBlock> importFile(String filePath)
 	{
 		File file = new File(filePath);
-		Scanner s;
+		Scanner s;		
 		
-		String input = "";
-		
+		ArrayList<TextBlock> textBlocks = new ArrayList<TextBlock>();
+			
 		try 
 		{
 			s = new Scanner(file);
@@ -174,16 +170,7 @@ public class Librarian {
 			
 			while (s.hasNext())
 			{
-				input += s.nextLine();
-				
-				count++;
-				if (count == 500)
-				{
-					totalCount += count;
-					//System.out.println("Read " + totalCount + " total lines so far.");
-					count = 0;
-				}
-				//System.out.println(input);
+				textBlocks.addAll(separateNER(s.nextLine()));
 			}
 			s.close();
 		} 
@@ -193,18 +180,17 @@ public class Librarian {
 			e.printStackTrace();
 		}
 		
-		return input;
+		return textBlocks;
 	}
 
 	// separates an input string containing one or more <NER></NER> text blocks
 	// and stores each individual text block in an ArrayList
-	public ArrayList<TextBlock> separateNER(String input) {
+	public static ArrayList<TextBlock> separateNER(String input) {
 		String[] tbs = input.split("<NER>|</NER>");
 
 		ArrayList<TextBlock> textBlocks = new ArrayList<TextBlock>();
 
 		for (String tb : tbs) {
-		  //while text block is not empty string, add
 			if (!tb.equals("")) {
 				textBlocks.add(new TextBlock(tb));
 			}
@@ -216,133 +202,110 @@ public class Librarian {
 	// classify token based on its 14 attributes
 	public Token classifyToken(Token token)
 	{					
-		// set the lexicalFeature for the Token
-		token.setLexical(getLexicalFeature(token.getLexeme()));
+		String lexeme = token.getLexeme();
 		
-		if (!token.getLexical().equals("whiteSpace"))
-		{
-			// set partOfSpeech
-			token.setPartOfSpeech(getPartOfSpeech(token.getLexeme()));
-			
-			if (token.getLexical().equals("other"))
-			{
-				// set dictionaryWord
-				token.setDictionaryWord(isDictionaryWord(token.getLexeme()));
-			}
-			
-			// only classify remaining Gazetteer if the current Token is a capitalized word
-			if (token.getLexical().equals("capitalized"))
-			{
-				// set cityState
-				token.setCityState(isCityState(token.getLexeme()));
-				
-				// set countryTerritory
-				token.setCountryTerritory(isCountryTerritory(token.getLexeme()));
-				
-				// set place
-				token.setPlace(isPlace(token.getLexeme()));
-				
-				// set DTICFirst
-				token.setDTICFirst(isDTICFirstName(token.getLexeme()));
-				
-				// set DTICLast
-				token.setDTICLast(isDTICLastName(token.getLexeme()));
-				
-				// set commonFirst
-				token.setCommonFirst(isCommonFirstName(token.getLexeme()));
-				
-				// set commonLast
-				token.setCommonLast(isCommonLastName(token.getLexeme()));
-				
-				// set honorific
-				token.setHonorific(isHonorific(token.getLexeme()));
-				
-				// set prefix
-				token.setPrefix(isLastNamePrefix(token.getLexeme()));
-				
-				// set suffix
-				token.setSuffix(isLastNameSuffix(token.getLexeme()));
-				
-				// set killWord
-				token.setKillWord(isKillWord(token.getLexeme()));
-			}
-		}
-		else
-		{
-			token.setPartOfSpeech("other");
-		}  
+		token.setLexical(getLexicalFeature(lexeme));
+		token.setPartOfSpeech(getPartOfSpeech(lexeme));
+		token.setDictionaryWord(isDictionaryWord(lexeme));
+		token.setCityState(isCityState(lexeme));
+		token.setCountryTerritory(isCountryTerritory(lexeme));
+		token.setPlace(isPlace(lexeme));
+		token.setDTICFirst(isDTICFirstName(lexeme));
+		token.setDTICLast(isDTICLastName(lexeme));
+		token.setCommonFirst(isCommonFirstName(lexeme));
+		token.setCommonLast(isCommonLastName(lexeme));
+		token.setHonorific(isHonorific(lexeme));
+		token.setPrefix(isLastNamePrefix(lexeme));
+		token.setSuffix(isLastNameSuffix(lexeme));
+		token.setKillWord(isKillWord(lexeme));
 		
 		return token;
 	}
 	
-	/*
-	 * Scans for <Per></PER> tags in training data and classifies it as a name, continuing name or ending name
-	 * The sentence is fed in as Tokens, however attributes are not filled out. This method classifies
-	 * and sets the appropriate token data such as Killword or punct 
-	 * 
-	 * @param  Tks  ArrayList<Token> object with training data in tokenized ARFF format
-	 * @return ArrayList<token> ArrayList of classified words.
-	 */
-	private ArrayList<Token> classifyTokens(ArrayList<Token> tks)
-	{
-		ArrayList<Token> tokens = tks;
-		
+	// classify Tokens as either beginning, continuing, or other for names between <PER></PER>
+	public HashSet<Token> classifyTokens(ArrayList<Token> tokens)
+	{		
 		boolean isPartOfName = false;
 		boolean classifiedNameBeginning = false;
 		
-		for (int i = 1; i < tokens.size(); i++)
-		{			
-			if (tokens.get(i).getLexeme().equals("PER") && isPartOfName == false)
+		HashSet<Token> arffTokens = new HashSet<Token>();
+		
+		for (Token token : tokens)
+		{
+			token = classifyToken(token);
+			
+			if (token.getLexical().equals("whiteSpace") 
+					|| token.getLexeme().equals("")
+					|| token.getLexeme().equals(" "))
 			{
-				isPartOfName = true;
-				classifiedNameBeginning = false;
-				tokens.get(i).setName("other");
-				//System.out.print("OTHER - ");
+				token.setName("other");
 			}
-			else if (tokens.get(i).getLexeme().equals("PER") && tokens.get(i - 1).getLexeme().equals("/"))
+			else if (token.getLexical().equals("punct")
+					|| token.getLexical().equals("lineFeed") 
+					|| token.getLexical().equals("number"))
 			{
-				isPartOfName = false;
-				tokens.get(i).setName("other");
-				//System.out.print("OTHER - ");
-			}
-			else if (isPartOfName == true && classifiedNameBeginning == false && (tokens.get(i).getLexical().equals("capitalized")|| tokens.get(i).getLexical().equals("capLetter") || tokens.get(i).getLexical().equals("other") || tokens.get(i).getLexical().equals("allCaps")))
-			{
-				if (tokens.size() > (i + 1))
-				{
-					if (tokens.get(i + 1).getLexeme().equals(","))
-					{
-						tokens.get(i).setName("continuing");
-						//System.out.print("CONTINUING - ");
-					}
-					else
-					{
-						tokens.get(i).setName("beginning");
-						classifiedNameBeginning = true;
-						//System.out.print("BEGINNING - ");
-					}
-				}
-			}
-			else if (isPartOfName == true && classifiedNameBeginning == true && (tokens.get(i).getLexical().equals("capitalized") || tokens.get(i).getLexical().equals("capLetter") || tokens.get(i).getLexical().equals("other") || tokens.get(i).getLexical().equals("allCaps")))
-			{
-				tokens.get(i).setName("continuing");
-				//System.out.print("CONTINUING - ");
+				// comment to prevent the code from sending the ARFF data of this token to weka
+				token.setName("other");
+				arffTokens.add(token);
 			}
 			else
 			{
-				tokens.get(i).setName("other");
-				//System.out.print("OTHER - ");
+				if (token.getLexeme().equals("PER"))
+				{
+					//System.out.println(token.getLexeme());
+					//System.out.println(tokens.get((token.getPosition() - 1)).getLexeme());
+					// if the previous token was a '/', then this current token is the closing PER tag
+					if (tokens.get((token.getPosition() - 1)).getLexeme().equals("/"))
+					{
+						// reset the boolean variables
+						isPartOfName = false;
+						classifiedNameBeginning = false;
+					}
+					else
+					{
+						isPartOfName = true;
+					}
+					
+					token.setName("other");
+					arffTokens.add(token);
+				}
+				else
+				{
+					if (isPartOfName == true)
+					{
+						if (classifiedNameBeginning == false)
+						{
+							token.setName("beginning");
+							arffTokens.add(token);
+							classifiedNameBeginning = true;
+						}
+						else
+						{
+							token.setName("continuing");
+							arffTokens.add(token);
+						}
+					}
+					else
+					{
+						token.setName("other");
+						arffTokens.add(token);
+					}
+				}
+				//token.setName("Classified");
 			}
-			
-			//System.out.println(tokens.get(i).getLexeme());
 		}
+		//System.out.println(token.toStringQuotes());
+	
 		
-		return tokens;
+
+		
+		return arffTokens;
 	}
 
 	// returns the Lexical attribute for a given token
 	public String getLexicalFeature(String token) {
 		// ArrayList of puncts
-		ArrayList<String> puncts = new ArrayList<String>();
+		HashSet<String> puncts = new HashSet<String>();
 
 		puncts.add("!");
 		puncts.add("?");
@@ -374,25 +337,33 @@ public class Librarian {
 		if (puncts.contains(token)) // punct
 		{
 			return "punct";
-		} else if (token.matches("^[A-Z]{1}$")) // CapLetter
+		} 
+		else if (token.matches("^[A-Z]{1}$")) // CapLetter
 		{
 			return "capLetter";
-		} else if (token.matches("^[A-Z]{1}[a-z]{1,}$")) // capitalized
+		} 
+		else if (token.matches("^[A-Z]{1}[a-z]{1,}$")) // capitalized
 		{
 			return "capitalized";
-		} else if (token.matches("^[A-Z]{1,}$")) // ALL-CAPS
+		} 
+		else if (token.matches("^[A-Z]{1,}$")) // ALL-CAPS
 		{
 			return "allCaps";
-		} else if (token.matches("^\n$")) // lineFeed
+		} 
+		else if (token.matches("^\n$")) // lineFeed
 		{
 			return "lineFeed";
-		} else if (token.matches("^ $")) // whiteSpace
+		} 
+		else if (token.matches("^ $")) // whiteSpace
 		{
 			return "whiteSpace";
-		} else if (token.matches("^[0-9]{1,}$")) // number
+		} 
+		else if (token.matches("^[0-9]{1,}$")) // number
 		{
 			return "number";
-		} else {
+		} 
+		else 
+		{
 			return "other";
 		}
 
@@ -424,6 +395,13 @@ public class Librarian {
 	// checks to see if the Token is a word found in the English dictionary
 	public int isDictionaryWord(String token)
 	{
+		if (DictionaryWords.contains(token.toLowerCase()))
+		{
+			return 1;
+		}
+		return 0;
+		
+		/*
 		for (String s : DictionaryWords)
 		{
 			if (s.equalsIgnoreCase(token))
@@ -432,11 +410,19 @@ public class Librarian {
 			}
 		}
 		return 0;
+		*/
 	}
 	
 	// checks to see if the Token is a known name of a City or State in the United States
 	public int isCityState(String token)
 	{
+		if (CitiesStates.contains(token.toLowerCase()))
+		{
+			return 1;
+		}
+		return 0;
+		
+		/*
 		for (String s : CitiesStates)
 		{
 			if (s.equalsIgnoreCase(token))
@@ -445,11 +431,19 @@ public class Librarian {
 			}
 		}
 		return 0;
+		*/
 	}
 	
 	// checks to see if the Token is a known name of a Country or Territory
 	public int isCountryTerritory(String token)
 	{
+		if (CountriesTerritories.contains(token.toLowerCase()))
+		{
+			return 1;
+		}
+		return 0;
+		
+		/*
 		for (String s : CountriesTerritories)
 		{
 			if (s.equalsIgnoreCase(token))
@@ -458,11 +452,19 @@ public class Librarian {
 			}
 		}
 		return 0;
+		*/
 	}
 	
 	// checks to see if the Token is a known place
 	public int isPlace(String token)
 	{
+		if (Places.contains(token.toLowerCase()))
+		{
+			return 1;
+		}
+		return 0;
+		
+		/*
 		for (String s : Places)
 		{
 			if (s.equalsIgnoreCase(token))
@@ -471,11 +473,19 @@ public class Librarian {
 			}
 		}
 		return 0;
+		*/
 	}
 	
 	// checks to see if the Token is a known DTIC first name
 	public int isDTICFirstName(String token)
 	{
+		if (DTICFirstNames.contains(token.toLowerCase()))
+		{
+			return 1;
+		}
+		return 0;
+		
+		/*
 		for (String s : DTICFirstNames)
 		{
 			if (s.equalsIgnoreCase(token))
@@ -483,12 +493,21 @@ public class Librarian {
 				return 1;
 			}
 		}
+		
 		return 0;
+		*/
 	}
 	
 	// checks to see if the Token is a known DTIC last name
 	public int isDTICLastName(String token)
 	{
+		if (DTICLastNames.contains(token.toLowerCase()))
+		{
+			return 1;
+		}
+		return 0;
+		
+		/*
 		for (String s : DTICLastNames)
 		{
 			if (s.equalsIgnoreCase(token))
@@ -497,11 +516,19 @@ public class Librarian {
 			}
 		}
 		return 0;
+		*/
 	}
-	
+
 	// checks to see if the Token is a known common first name
 	public int isCommonFirstName(String token)
 	{
+		if (CommonFirstNames.contains(token.toLowerCase()))
+		{
+			return 1;
+		}
+		return 0;
+		
+		/*
 		for (String s : CommonFirstNames)
 		{
 			if (s.equalsIgnoreCase(token))
@@ -510,11 +537,19 @@ public class Librarian {
 			}
 		}
 		return 0;
+		*/
 	}
 	
 	// checks to see if the Token is a known common last name
 	public int isCommonLastName(String token)
 	{
+		if (CommonLastNames.contains(token.toLowerCase()))
+		{
+			return 1;
+		}
+		return 0;
+		
+		/*
 		for (String s : CommonLastNames)
 		{
 			if (s.equalsIgnoreCase(token))
@@ -523,11 +558,19 @@ public class Librarian {
 			}
 		}
 		return 0;
+		*/
 	}
 	
 	// checks to see if the Token is an honorific
 	public int isHonorific(String token)
 	{
+		if (Honorifics.contains(token.toLowerCase()))
+		{
+			return 1;
+		}
+		return 0;
+		
+		/*
 		for (String s : Honorifics)
 		{
 			if (s.equalsIgnoreCase(token))
@@ -536,11 +579,19 @@ public class Librarian {
 			}
 		}
 		return 0;
+		*/
 	}
 	
 	// checks to see if the Token is a prefix
 	public int isLastNamePrefix(String token)
 	{
+		if (LastNamePrefixes.contains(token.toLowerCase()))
+		{
+			return 1;
+		}
+		return 0;
+		
+		/*
 		for (String s : LastNamePrefixes)
 		{
 			if (s.equalsIgnoreCase(token))
@@ -549,11 +600,19 @@ public class Librarian {
 			}
 		}
 		return 0;
+		*/
 	}
 	
 	// checks to see if the Token is a suffix
 	public int isLastNameSuffix(String token)
 	{
+		if (LastNameSuffixes.contains(token.toLowerCase()))
+		{
+			return 1;
+		}
+		return 0;
+		
+		/*
 		for (String s : LastNameSuffixes)
 		{
 			if (s.equalsIgnoreCase(token))
@@ -562,11 +621,19 @@ public class Librarian {
 			}
 		}
 		return 0;
+		*/
 	}
 	
 	// checks to see if the Token is an kill word
 	public int isKillWord(String token)
 	{
+		if (KillWords.contains(token.toLowerCase()))
+		{
+			return 1;
+		}
+		return 0;
+		
+		/*
 		for (String s : KillWords)
 		{
 			if (s.equalsIgnoreCase(token))
@@ -575,6 +642,7 @@ public class Librarian {
 			}
 		}
 		return 0;
+		*/
 	}
 
 	public void trainOn(String paragraph) {
