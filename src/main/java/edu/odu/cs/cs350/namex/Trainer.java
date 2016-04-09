@@ -497,5 +497,21 @@ public class Trainer {
 		weka.core.SerializationHelper.write("/saved/learningMachine/LearningMachine.model", classifier);
 
 	}
+	
+	
+	
+	/*
+	 * public ArrayList<Token> shingle(ArrayList<Token> tokens)
+then add public void testShingle() in TestTrainer
+	 * */
+	 
+	public ArrayList<Token> shingle(ArrayList<Token> tokens)
+	{
+		
+		
+		
+		return null;
+		
+	}
 
 }

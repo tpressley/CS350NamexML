@@ -98,24 +98,14 @@ public class TestTrainer {
 		assertTrue(trainer.getTokenCount(tokenList.get(0), tokenList) < 1);
 	}
 
-	/**
-	 * User story #859 The parsing should have the same output as the Stanford
-	 * Natural Language parser
-	 */
-	@Test
-	public void testParse() {
-		Trainer trainer = new Trainer();
-		ArrayList<Token> tokenizedText = trainer.tokenize(
-				"<NER>\"Oh, no,\" she\'s saying, \"a $400 blender can\'t handle something this hard!\"</NER>");
-		trainer.parse(tokenizedText);
-		assertEquals(tokenizedText.get(11).getPartOfSpeech(), "article");
-		assertFalse(tokenizedText.get(0).getLexical() == "article");
-	}
+	
+	
 
 	/**
 	 * User story #858, #857 The total token count for any token should be equal
 	 * to the number of times that token appears in the input
 	 */
+	
 	@Test
 	public void testGetTokenCount() {
 		Trainer trainer = new Trainer();
@@ -160,6 +150,12 @@ public class TestTrainer {
 		t1.LoadClassifier();
 		assertEquals(t1, t2);
 
+	}
+	
+	@Test
+	public void testShingle() throws Exception {
+		
+		
 	}
 
 }
