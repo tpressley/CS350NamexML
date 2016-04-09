@@ -18,7 +18,7 @@ public class Token {
 	private int suffix;
 	private int killWord;
 	private String name;
-	
+
 	private int position;
 
 	public Token() {
@@ -56,7 +56,7 @@ public class Token {
 		this.suffix = 0;
 		this.killWord = 0;
 	}
-	
+
 	public Token(String lexeme, int position) {
 		this.lexeme = lexeme;
 		this.lexical = "other";
@@ -75,11 +75,11 @@ public class Token {
 		this.killWord = 0;
 		this.position = position;
 	}
-	
+
 	public int getPosition() {
 		return position;
 	}
-	
+
 	public void setPosition(int position) {
 		this.position = position;
 	}
@@ -232,7 +232,7 @@ public class Token {
 	public String getARFF() {
 
 		StringBuilder sb = new StringBuilder();
-		
+
 		sb.append(lexical + ",");
 		sb.append(partOfSpeech + ",");
 		sb.append(dictionaryWord + ",");
@@ -252,11 +252,11 @@ public class Token {
 		return sb.toString();
 
 	}
-	
+
 	public String toString() {
 
 		StringBuilder sb = new StringBuilder();
-		
+
 		sb.append(lexical + ",");
 		sb.append(partOfSpeech + ",");
 		sb.append(dictionaryWord + ",");

@@ -1,90 +1,95 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="ubuntu" name="edu.odu.cs.cs350.namex.TestPersonalName" skipped="0" tests="8" time="0.092" timestamp="2016-04-09T20:35:06">
+<testsuite errors="0" failures="0" hostname="TristanPC" name="edu.odu.cs.cs350.namex.TestPersonalName" skipped="0" tests="8" time="0.106" timestamp="2016-04-09T20:46:31">
   <properties>
     <property name="java.vendor" value="Oracle Corporation" />
     <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="eclipse.pdebuild.templates" value="/C:/Users/Tristan/Documents/eclipse/plugins/org.eclipse.pde.build_3.9.100.v20150521-1524/templates/" />
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
-    <property name="dist" value="/home/gsilveri/git/Green3/target" />
-    <property name="lib" value="/home/gsilveri/git/Green3/lib" />
-    <property name="os.name" value="Linux" />
-    <property name="sun.boot.class.path" value="/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rhino.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/classes" />
+    <property name="dist" value="C:\Users\Tristan\git\Green3\target" />
+    <property name="lib" value="C:\Users\Tristan\git\Green3\lib" />
+    <property name="os.name" value="Windows 10" />
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jre1.8.0_73\lib\resources.jar;C:\Program Files\Java\jre1.8.0_73\lib\rt.jar;C:\Program Files\Java\jre1.8.0_73\lib\sunrsasign.jar;C:\Program Files\Java\jre1.8.0_73\lib\jsse.jar;C:\Program Files\Java\jre1.8.0_73\lib\jce.jar;C:\Program Files\Java\jre1.8.0_73\lib\charsets.jar;C:\Program Files\Java\jre1.8.0_73\lib\jfr.jar;C:\Program Files\Java\jre1.8.0_73\classes" />
     <property name="TODAY" value="April 9 2016" />
-    <property name="sun.desktop" value="gnome" />
+    <property name="sun.desktop" value="windows" />
     <property name="java.vm.specification.vendor" value="Oracle Corporation" />
-    <property name="ant.home" value="/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020" />
-    <property name="java.runtime.version" value="1.7.0_95-b00" />
-    <property name="user.name" value="gsilveri" />
+    <property name="ant.home" value="C:\Users\Tristan\Documents\eclipse\plugins\org.apache.ant_1.9.4.v201504302020" />
+    <property name="java.runtime.version" value="1.8.0_73-b02" />
+    <property name="user.name" value="Tristan" />
     <property name="ant.file.type.PNE" value="file" />
     <property name="user.language" value="en" />
-    <property name="build" value="/home/gsilveri/git/Green3/target/classes" />
-    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64" />
-    <property name="ivy.jar.dir" value="/home/gsilveri/git/Green3/ivy" />
+    <property name="build" value="C:\Users\Tristan\git\Green3\target\classes" />
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jre1.8.0_73\bin" />
+    <property name="ivy.jar.dir" value="C:\Users\Tristan\git\Green3/ivy" />
     <property name="ant.project.default-target" value="build" />
     <property name="ant.project.name" value="PNE" />
     <property name="DSTAMP" value="20160409" />
-    <property name="java.version" value="1.7.0_95" />
+    <property name="java.version" value="1.8.0_73" />
     <property name="user.timezone" value="" />
     <property name="sun.arch.data.model" value="64" />
-    <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/endorsed" />
-    <property name="src.main" value="/home/gsilveri/git/Green3/src/main/java/edu/odu/cs/cs350/namex" />
-    <property name="sun.cpu.isalist" value="" />
-    <property name="sun.jnu.encoding" value="UTF-8" />
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jre1.8.0_73\lib\endorsed" />
+    <property name="src.main" value="C:\Users\Tristan\git\Green3\src\main\java\edu\odu\cs\cs350\namex" />
+    <property name="sun.cpu.isalist" value="amd64" />
+    <property name="sun.jnu.encoding" value="Cp1252" />
     <property name="file.encoding.pkg" value="sun.io" />
-    <property name="file.separator" value="/" />
+    <property name="file.separator" value="\" />
     <property name="java.specification.name" value="Java Platform API Specification" />
-    <property name="java.class.version" value="51.0" />
+    <property name="java.class.version" value="52.0" />
     <property name="user.country" value="US" />
-    <property name="java.home" value="/usr/lib/jvm/java-7-openjdk-amd64/jre" />
+    <property name="java.home" value="C:\Program Files\Java\jre1.8.0_73" />
     <property name="java.vm.info" value="mixed mode" />
-    <property name="ant.file" value="/home/gsilveri/git/Green3/build.xml" />
-    <property name="os.version" value="3.19.0-25-generic" />
-    <property name="path.separator" value=":" />
-    <property name="java.vm.version" value="24.95-b01" />
-    <property name="ant.library.dir" value="/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib" />
-    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob" />
+    <property name="ant.file" value="C:\Users\Tristan\git\Green3\build.xml" />
+    <property name="os.version" value="10.0" />
+    <property name="path.separator" value=";" />
+    <property name="java.vm.version" value="25.73-b02" />
+    <property name="user.variant" value="" />
+    <property name="ant.library.dir" value="C:\Users\Tristan\Documents\eclipse\plugins\org.apache.ant_1.9.4.v201504302020\lib" />
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
     <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
-    <property name="awt.toolkit" value="sun.awt.X11.XToolkit" />
-    <property name="user.home" value="/home/gsilveri" />
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
+    <property name="user.script" value="" />
+    <property name="eclipse.pdebuild.scripts" value="/C:/Users/Tristan/Documents/eclipse/plugins/org.eclipse.pde.build_3.9.100.v20150521-1524/scripts/" />
+    <property name="user.home" value="C:\Users\Tristan" />
     <property name="java.specification.vendor" value="Oracle Corporation" />
-    <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib" />
+    <property name="java.library.path" value="C:\Program Files\Java\jre1.8.0_73\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jre1.8.0_73/bin/server;C:/Program Files/Java/jre1.8.0_73/bin;C:/Program Files/Java/jre1.8.0_73/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Users\Tristan\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\python27;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Skype\Phone\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\MinGW\bin;C:\Program Files (x86)\Java\jdk1.7.0_71\bin;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files (x86)\Autodesk\Backburner\;C:\Python27\Scripts;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk1.8.0_73\\bin;C:\Program Files\apache-ant-1.9.6\bin;C:\Users\Tristan\Documents\eclipse;;." />
     <property name="java.vendor.url" value="http://java.oracle.com/" />
     <property name="java.vm.vendor" value="Oracle Corporation" />
-    <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestPersonalName skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/gsilveri/git/Green3/target/test-results/TEST-edu.odu.cs.cs350.namex.TestPersonalName.xml crashfile=/home/gsilveri/git/Green3/junitvmwatcher2293792065328136058.properties propsfile=/home/gsilveri/git/Green3/junit7830787582035088956.properties" />
-    <property name="java.class.path" value="/home/gsilveri/git/Green3/target/test-classes:/home/gsilveri/git/Green3/target/classes:/home/gsilveri/git/Green3/lib/extract-wordlists.jar:/home/gsilveri/git/Green3/lib/hamcrest-core.jar:/home/gsilveri/git/Green3/lib/java-cup.jar:/home/gsilveri/git/Green3/lib/junit-javadoc.jar:/home/gsilveri/git/Green3/lib/junit-sources.jar:/home/gsilveri/git/Green3/lib/junit.jar:/home/gsilveri/git/Green3/lib/weka-stable-javadoc.jar:/home/gsilveri/git/Green3/lib/weka-stable-sources.jar:/home/gsilveri/git/Green3/lib/weka-stable.jar:/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant-launcher.jar:/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant.jar:/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant-junit.jar:/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant-junit4.jar" />
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestPersonalName skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Tristan\git\Green3\target\test-results\TEST-edu.odu.cs.cs350.namex.TestPersonalName.xml crashfile=C:\Users\Tristan\git\Green3\junitvmwatcher5617650903735541027.properties propsfile=C:\Users\Tristan\git\Green3\junit460126881466336413.properties" />
+    <property name="java.class.path" value="C:\Users\Tristan\git\Green3\target\test-classes;C:\Users\Tristan\git\Green3\target\classes;C:\Users\Tristan\git\Green3\lib\extract-wordlists.jar;C:\Users\Tristan\git\Green3\lib\hamcrest-core.jar;C:\Users\Tristan\git\Green3\lib\hamcrest.jar;C:\Users\Tristan\git\Green3\lib\java-cup.jar;C:\Users\Tristan\git\Green3\lib\junit-javadoc.jar;C:\Users\Tristan\git\Green3\lib\junit-sources.jar;C:\Users\Tristan\git\Green3\lib\junit.jar;C:\Users\Tristan\git\Green3\lib\weka-stable-javadoc.jar;C:\Users\Tristan\git\Green3\lib\weka-stable-sources.jar;C:\Users\Tristan\git\Green3\lib\weka-stable.jar;C:\Users\Tristan\git\Green3\lib\weka.jar;C:\Users\Tristan\Documents\eclipse\plugins\org.apache.ant_1.9.4.v201504302020\lib\ant-launcher.jar;C:\Users\Tristan\Documents\eclipse\plugins\org.apache.ant_1.9.4.v201504302020\lib\ant.jar;C:\Users\Tristan\Documents\eclipse\plugins\org.apache.ant_1.9.4.v201504302020\lib\ant-junit.jar;C:\Users\Tristan\Documents\eclipse\plugins\org.apache.ant_1.9.4.v201504302020\lib\ant-junit4.jar" />
     <property name="ant.version" value="Apache Ant(TM) version 1.9.4 compiled on April 29 2014" />
-    <property name="TSTAMP" value="1334" />
+    <property name="TSTAMP" value="1645" />
     <property name="ivy.install.version" value="2.3.0" />
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
-    <property name="java.vm.specification.version" value="1.7" />
+    <property name="java.vm.specification.version" value="1.8" />
     <property name="sun.cpu.endian" value="little" />
-    <property name="sun.os.patch.level" value="unknown" />
-    <property name="src.test" value="/home/gsilveri/git/Green3/src/test/java/edu/odu/cs/cs350/namex" />
-    <property name="java.io.tmpdir" value="/tmp" />
+    <property name="sun.os.patch.level" value="" />
+    <property name="src.test" value="C:\Users\Tristan\git\Green3\src\test\java\edu\odu\cs\cs350\namex" />
+    <property name="eclipse.pdebuild.home" value="/C:/Users/Tristan/Documents/eclipse/plugins/org.eclipse.pde.build_3.9.100.v20150521-1524/./" />
+    <property name="java.io.tmpdir" value="C:\Users\Tristan\AppData\Local\Temp\" />
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
     <property name="os.arch" value="amd64" />
-    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment" />
-    <property name="java.ext.dirs" value="/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext:/usr/java/packages/lib/ext" />
-    <property name="user.dir" value="/home/gsilveri/git/Green3" />
-    <property name="ivy.jar.file" value="/home/gsilveri/git/Green3/ivy/ivy.jar" />
-    <property name="ant.file.PNE" value="/home/gsilveri/git/Green3/build.xml" />
-    <property name="line.separator" value="&#xa;" />
-    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM" />
-    <property name="basedir" value="/home/gsilveri/git/Green3" />
-    <property name="ant.java.version" value="1.7" />
-    <property name="ant.core.lib" value="/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant.jar" />
-    <property name="file.encoding" value="UTF-8" />
-    <property name="java.specification.version" value="1.7" />
-    <property name="ant.project.invoked-targets" value="build" />
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jre1.8.0_73\lib\ext;C:\WINDOWS\Sun\Java\lib\ext" />
+    <property name="user.dir" value="C:\Users\Tristan\git\Green3" />
+    <property name="ivy.jar.file" value="C:\Users\Tristan\git\Green3/ivy/ivy.jar" />
+    <property name="ant.file.PNE" value="C:\Users\Tristan\git\Green3\build.xml" />
+    <property name="line.separator" value="&#xd;&#xa;" />
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+    <property name="basedir" value="C:\Users\Tristan\git\Green3" />
+    <property name="ant.java.version" value="1.8" />
+    <property name="ant.core.lib" value="C:\Users\Tristan\Documents\eclipse\plugins\org.apache.ant_1.9.4.v201504302020\lib\ant.jar" />
+    <property name="file.encoding" value="Cp1252" />
+    <property name="java.specification.version" value="1.8" />
+    <property name="ant.project.invoked-targets" value="init,compile,compile-tests,test,build" />
   </properties>
-  <testcase classname="edu.odu.cs.cs350.namex.TestPersonalName" name="testGetGivenName" time="0.004" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestPersonalName" name="testGetGivenName" time="0.006" />
   <testcase classname="edu.odu.cs.cs350.namex.TestPersonalName" name="testGetSurName" time="0.0" />
   <testcase classname="edu.odu.cs.cs350.namex.TestPersonalName" name="testGetMiddleNames" time="0.0" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestPersonalName" name="testPersonalNameString" time="0.001" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestPersonalName" name="testPersonalNameString" time="0.0" />
   <testcase classname="edu.odu.cs.cs350.namex.TestPersonalName" name="testGetName" time="0.0" />
   <testcase classname="edu.odu.cs.cs350.namex.TestPersonalName" name="testGetHonorific" time="0.0" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestPersonalName" name="testPersonalName" time="0.001" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestPersonalName" name="testGetSuffix" time="0.0" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestPersonalName" name="testPersonalName" time="0.0" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestPersonalName" name="testGetSuffix" time="0.001" />
   <system-out><![CDATA[
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
