@@ -531,7 +531,7 @@ public class Trainer {
 
 	 * */
 	 
-	public ArrayList< ArrayList<Token>> shingle(ArrayList<Token> tokens, int kay)
+	public ArrayList< ArrayList<Token> > shingle(ArrayList<Token> tokens, int kay)
 	{
 		int k = kay;
 		int size = tokens.size(); //size of input ArrayList<Token>
@@ -541,13 +541,18 @@ public class Trainer {
 		for(int i=0; i < size; ++i)
 		{
 			ArrayList<Token> temp = new ArrayList<Token>( 2*k + 1 );
-			for(int j=0; j < k; ++j) //first element will contain k number of 'null's
-			{
-				temp.add(j , null);
-				i++;
-			}
-			temp.add(i , tokens.get(i - k) );
 			
+			{
+				for(int j=0; j < k; ++j) //first element will contain k number of 'null's
+				{
+					temp.add(j , null);
+					i++;
+				}
+				temp.add(i , tokens.get(i - k) );
+			}
+			
+			ret.add(i , temp);
+			temp.clear();
 		}
 		
 		
