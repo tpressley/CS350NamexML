@@ -508,9 +508,19 @@ then add public void testShingle() in TestTrainer
 	public ArrayList<Token> shingle(ArrayList<Token> tokens)
 	{
 		
+		int size = tokens.size(); //size of input ArrayList<Token>
+		
+		ArrayList<Token> ret = new ArrayList<Token>(size); //return value
 		
 		
-		return null;
+		//shingling algorithm
+		for(int i=0; i < size; ++i)
+		{
+			
+		}
+		
+		
+		return ret;
 		
 	}
 
