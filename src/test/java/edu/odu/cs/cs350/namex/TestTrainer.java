@@ -1,11 +1,6 @@
 package edu.odu.cs.cs350.namex;
 
 //import weka.core.Instances;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.StringReader;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -13,13 +8,124 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import edu.odu.cs.cs350.namex.Librarian;
 import edu.odu.cs.cs350.namex.Trainer;
 
 import java.util.*;
 
 public class TestTrainer {
+	
+	
+	@Test
+	public void testShingle()
+	{
+		// ********** Configurations **********
+		
+		String ARFFFilePath   = "/data/arff/training_data_zeil.arff"; 
+		String shingleARFFFilePath   = "/data/arff/shingling_training_k3_2.arff"; 
+		String input = "<NER>The George Washington University is where I will be attending in the fall.</NER>";
+		int k = 3;  // the value of k needs to match the same value k as the generated .arff file
+		
+		// ********** End Configurations **********
+		
+		long startTime = System.currentTimeMillis(); // for elapsed time computation
+		
+		Path currentRelativePath = Paths.get("");
+		String relativePath = currentRelativePath.toAbsolutePath().toString();
+		ARFFFilePath = relativePath + "" + ARFFFilePath;
+		shingleARFFFilePath = relativePath + "" + shingleARFFFilePath;
+		
+		Librarian librarian = new Librarian();
+		
+		// Trainer for Token Classification
+		Trainer trainer = new Trainer();
+		
+		// Trainer for Shingle Classification
+		Trainer shingleTrainer = new Trainer(k);
+		
+		try 
+		{
+			trainer.importARFF(ARFFFilePath);
+			trainer.trainLM();
+			//trainer.printEvaluationSummary();
+			//trainer.printARFF();
+			
+			shingleTrainer.importARFF(shingleARFFFilePath);
+			shingleTrainer.trainLM();
+			shingleTrainer.printEvaluationSummary();
+			//System.out.println("# of Attributes: " + shingleTrainer.getNumberOfAttributes());
+			
+			ArrayList<TextBlock> tbs = Librarian.separateNER(input);
+			for (TextBlock tb : tbs)
+			{
+				ArrayList<Token> tks = trainer.tokenize(tb.getTextBlock());
+				ArrayList<Token> classifiedTks = new ArrayList<Token>();
+				
+				for (Token t : tks)
+				{
+					t = librarian.classifyToken(t);
+					
+					if (!t.getLexical().equals("whiteSpace"))
+					{
+						t.setName(trainer.classify(t.getARFF()));
+						classifiedTks.add(t);
+						//System.out.print(t.getLexeme() + " ");
+					}
+				}
+				
+				ArrayList<Shingle> shingles = shingleTrainer.getShingles(k, classifiedTks, "");
+				
+				for (Shingle s : shingles)
+				{
+					s.setContainsName(shingleTrainer.classifyShingle(s.getArffData()));
+					s.setDistribution(shingleTrainer.getShingleDistribution(s.getArffData()));
+					s.printShingle();
+				}
+				
+			}
+		} 
+		catch (Exception e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// print elapsed time
+		long endTime = System.currentTimeMillis();		
+		long elapsedTime = (endTime - startTime) / 1000;
+		System.out.println("Elapsed Time: " + elapsedTime + " seconds.");
+	}
+	
+	@Test
+	public void testGenerateShingleARFF() 
+	{
+		// ********** Configurations **************
 
+		String inputFilePath  = "/data/training/trainingDataUnmarked.txt";
+		String outputFilePath = "/data/arff/shingling_training_k3_2.arff";
+		String arffFilePath   = "/data/arff/training_data_zeil.arff"; 
+		
+		int k = 3;
+
+		// ********** End Configurations **********
+		
+		long startTime = System.currentTimeMillis();
+		
+		Trainer trainer = new Trainer(k);
+		
+		Path currentRelativePath = Paths.get("");
+		String relativePath = currentRelativePath.toAbsolutePath().toString();
+		inputFilePath = relativePath + "" + inputFilePath;
+		outputFilePath = relativePath + "" + outputFilePath;
+		arffFilePath = relativePath + "" + arffFilePath;
+		
+		trainer.generateShingleARFF(arffFilePath, k, inputFilePath, outputFilePath);	
+				
+		long endTime = System.currentTimeMillis();		
+		long elapsedTime = (endTime - startTime) / 1000;
+				
+		System.out.println("Elapsed Time: " + elapsedTime + " seconds.");
+	}
+	
 	// Generates an .arff file from a .txt file containing names tagged between
 	// <PER> tags
 	@Test
@@ -36,7 +142,6 @@ public class TestTrainer {
 		trainingDataFilePath = relativePath + "" + trainingDataFilePath;
 		arffFilePath = relativePath + "" + arffFilePath;
 
-		Librarian librarian = new Librarian();
 		Trainer trainer = new Trainer();
 
 		System.out.println("*******************************");
@@ -149,9 +254,5 @@ public class TestTrainer {
 
 	}
 
-	@Test
-	public void testShingle() throws Exception {
-
-	}
 
 }

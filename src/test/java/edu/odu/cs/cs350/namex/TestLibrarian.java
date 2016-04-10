@@ -33,10 +33,10 @@ public class TestLibrarian {
 		String arffFilePath = "/data/arff/training_data_zeil.arff"; // actual
 																	// training
 																	// data
-		String input = "Mr. Samuel L. Jackson, Jr.";
+		String input = "This is John Smith. Say hello to Mr. Sameul L. Jackson, III";
 		boolean printEvaluationSummary = true;
 		boolean showClassification = true;
-		boolean showDistribution = false;
+		boolean showDistribution = true;
 
 		// ********** End Configurations **********
 
@@ -49,15 +49,18 @@ public class TestLibrarian {
 
 		ArrayList<Token> testTokens = trainer.tokenize(input);
 
-		try {
+		try 
+		{
 			trainer.importARFF(arffFilePath);
 			trainer.trainLM();
 
-			if (printEvaluationSummary == true) {
+			if (printEvaluationSummary == true) 
+			{
 				trainer.printEvaluationSummary();
 			}
 
-			for (Token t : testTokens) {
+			for (Token t : testTokens) 
+			{
 				t = librarian.classifyToken(t);
 
 				if (t.getLexical() != "whiteSpace") {
@@ -77,7 +80,9 @@ public class TestLibrarian {
 					}
 				}
 			}
-		} catch (Exception e) {
+		} 
+		catch (Exception e) 
+		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

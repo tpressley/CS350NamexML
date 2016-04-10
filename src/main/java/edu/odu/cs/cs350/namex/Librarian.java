@@ -165,6 +165,33 @@ public class Librarian {
 
 		return textBlocks;
 	}
+	
+	// imports a file from filePath and returns the line values as a
+	// HashSet<String>
+	public static HashSet<TextBlock> importFileHash(String filePath) 
+	{
+		File file = new File(filePath);
+		Scanner s;
+
+		HashSet<TextBlock> textBlocks = new HashSet<TextBlock>();
+
+		try {
+			s = new Scanner(file);
+
+			int count = 0;
+			int totalCount = 0;
+
+			while (s.hasNext()) {
+				textBlocks.addAll(separateNER(s.nextLine()));
+			}
+			s.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return textBlocks;
+	}
 
 	// separates an input string containing one or more <NER></NER> text blocks
 	// and stores each individual text block in an ArrayList

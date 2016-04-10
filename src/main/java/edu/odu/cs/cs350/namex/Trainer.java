@@ -15,6 +15,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import weka.core.Instances;
+import weka.core.SerializationHelper;
 import weka.core.converters.ConverterUtils.DataSource;
 import weka.classifiers.Classifier;
 import weka.classifiers.Evaluation;
@@ -28,6 +29,7 @@ import weka.core.Instance;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Scanner;
 import java.util.StringTokenizer;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -41,14 +43,328 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class Trainer {
-
+public class Trainer 
+{
 	private Classifier classifier;
 	private FastVector attributes;
 	private int numberOfAttributes;
 	private Instances trainingInstances;
 	private String evaluationSummary;
 
+	// Returns the number of Attributes being used by the Classifier
+	public int getNumberOfAttributes()
+	{
+		return numberOfAttributes;
+	}
+	
+	// Generates the training data for Shingle classification
+	public void generateShingleARFF(String arffFilePath, int k, String inputFileName, String outputFileName) 
+	{		
+		Librarian librarian = new Librarian();
+		
+		// Trainer for Token classification
+		Trainer trainer = new Trainer();
+		
+		// Trainer for Shingle classification
+		Trainer shingleTrainer = new Trainer(k);
+		
+		try 
+		{
+			trainer.importARFF(arffFilePath);
+			trainer.trainLM();
+		} 
+		catch (Exception e1) 
+		{
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		
+
+		HashSet<TextBlock> textBlocks = Librarian.importFileHash(inputFileName);
+		
+		HashSet<String> shingles = new HashSet<String>();
+
+		System.out.println("\nShingling " + textBlocks.size() + " TextBlocks...");
+
+		for (TextBlock textBlock : textBlocks) 
+		{
+			ArrayList<Token> tks = tokenize(textBlock.getTextBlock());
+			ArrayList<Token> classifiedTokens = new ArrayList<Token>();
+
+			for (Token t : tks) 
+			{
+				t = librarian.classifyToken(t);
+
+				if (!t.getLexical().equals("whiteSpace")) 
+				{
+					try 
+					{
+						t.setName(trainer.classify(t.toString()));
+						classifiedTokens.add(t);
+					} 
+					catch (Exception e) 
+					{
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				
+				//System.out.println(t.getARFF());
+			}	
+			shingles.addAll(trainer.getShingles(k, classifiedTokens));
+		}
+		
+		shingleTrainer.importARFF(shingles);
+
+		try 
+		{
+			shingleTrainer.trainLM();
+			// printARFF();
+			shingleTrainer.printEvaluationSummary();
+			shingleTrainer.exportARFF(outputFileName);
+		} 
+		catch (Exception e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public ArrayList<String> getShinglesOld(int k, ArrayList<Token> tokens, String nothing)
+	{
+		int sequenceLength = ((2 * k) + 1);
+		ArrayList<String> shingles = new ArrayList<String>();
+		
+		// add null tokens before and after the text block
+		for (int i = 0; i < k; i++)
+		{
+			tokens.add(0, new Token("null"));
+			tokens.add(new Token("null"));
+		}
+		
+		//System.out.println("\nSize: " + shingleTokens.size());
+		//System.out.println("Sequence Length: " + sequenceLength);
+		
+		for (int i = 0; i < (tokens.size() - (sequenceLength - 1)); i++)
+		{
+			//ArrayList<Token> shingle = new ArrayList<Token>();
+			
+			StringBuilder sb = new StringBuilder();
+			
+			int nameCount = 0; // if there are more than two classified names within the shingle, classify it as 'yes'
+			for (int j = 0; j < sequenceLength; j++)
+			{	
+				if (tokens.get(j + i).getName().equals("beginning")
+						|| tokens.get(j + i).getName().equals("continuing"))
+				{
+					nameCount++;
+				}
+				
+				//System.out.print(shingleTokens.get(j + i).getARFF() + ",");
+				//shingle.add(shingleTokens.get(j + i));			
+				sb.append(tokens.get(j + i).getARFF() + ",");
+			}
+			
+			if (nameCount > 1)
+			{
+				sb.append("yes");
+				//System.out.print("yes");
+			}
+			else
+			{
+				sb.append("no");
+				//System.out.print("no");
+			}	
+			
+			shingles.add(sb.toString());
+		}
+		
+		for (String s : shingles)
+		{
+			//System.out.println(s);
+		}
+		
+		return shingles;
+	}
+	
+	// For Shingle classification
+	public ArrayList<Shingle> getShingles(int k, ArrayList<Token> tokens, String nothing)
+	{
+		int sequenceLength = ((2 * k) + 1);
+		ArrayList<Shingle> shingles = new ArrayList<Shingle>();
+		
+		// add null tokens before and after the text block
+		for (int i = 0; i < k; i++)
+		{
+			tokens.add(0, new Token("null"));
+			tokens.add(new Token("null"));
+		}
+		
+		//System.out.println("\nSize: " + shingleTokens.size());
+		//System.out.println("Sequence Length: " + sequenceLength);
+		
+		for (int i = 0; i < (tokens.size() - (sequenceLength - 1)); i++)
+		{
+			//ArrayList<Token> shingle = new ArrayList<Token>();
+			
+			StringBuilder sb = new StringBuilder();
+			StringBuilder sbLexemes = new StringBuilder();
+			StringBuilder sbClassifications = new StringBuilder();
+			
+			int nameCount = 0; // if there are more than two classified names within the shingle, classify it as 'yes'
+			for (int j = 0; j < sequenceLength; j++)
+			{	
+				if (tokens.get(j + i).getName().equals("beginning")
+						|| tokens.get(j + i).getName().equals("continuing"))
+				{
+					nameCount++;
+				}
+				
+				//System.out.print(shingleTokens.get(j + i).getARFF() + ",");
+				//shingle.add(shingleTokens.get(j + i));	
+				
+				if (j == (sequenceLength - 1))
+				{
+					sb.append(tokens.get(j + i).getARFF());					
+				}
+				else
+				{
+					sb.append(tokens.get(j + i).getARFF() + ",");
+				}
+				
+				sbLexemes.append(tokens.get(j + i).getLexeme() + " ");
+				sbClassifications.append(tokens.get(j + i).getName() + " ");
+			}
+			
+			shingles.add(new Shingle(sbLexemes.toString(), sbClassifications.toString(), sb.toString()));
+		}
+		
+		return shingles;
+	}
+	
+	// For training
+	public HashSet<String> getShingles(int k, ArrayList<Token> tokens)
+	{
+		int sequenceLength = ((2 * k) + 1);
+		HashSet<String> shingles = new HashSet<String>();
+		
+		// add null tokens before and after the text block
+		for (int i = 0; i < k; i++)
+		{
+			tokens.add(0, new Token("null"));
+			tokens.add(new Token("null"));
+		}
+		
+		//System.out.println("\nSize: " + shingleTokens.size());
+		//System.out.println("Sequence Length: " + sequenceLength);
+		
+		for (int i = 0; i < (tokens.size() - (sequenceLength - 1)); i++)
+		{
+			//ArrayList<Token> shingle = new ArrayList<Token>();
+			
+			StringBuilder sb = new StringBuilder();
+			StringBuilder sbLexeme = new StringBuilder();
+			
+			//int nameCount = 0; // if there are more than two classified names within the shingle, classify it as 'yes'
+			int beginningCount = 0;
+			int continuingCount = 0;
+			int killWordCount = 0; // # of killWords following a beginning or continuing token
+			for (int j = 0; j < sequenceLength; j++)
+			{	
+				/*
+				if (tokens.get(j + i).getName().equals("beginning")
+						|| tokens.get(j + i).getName().equals("continuing"))
+				{
+					nameCount++;
+				}
+				*/
+				
+				if (tokens.get(j + i).getName().equals("beginning"))
+				{
+					beginningCount++;
+				}
+				else if (tokens.get(j + i).getName().equals("continuing"))
+				{
+					continuingCount++;
+				}
+				
+				// if there is a killWord following a beginning or continuing token
+				if (tokens.get(j + i).isKillWord() == 1)
+				{
+					if (tokens.get(j + i - 1).getName().equals("beginning")
+							|| tokens.get(j + i - 1).getName().equals("continuing"))
+					{
+						killWordCount++;
+					}
+				}
+				
+				//System.out.print(shingleTokens.get(j + i).getARFF() + ",");
+				//shingle.add(shingleTokens.get(j + i));			
+				sb.append(tokens.get(j + i).getARFF() + ",");
+				sbLexeme.append(tokens.get(j + i).getLexeme() + " ");
+			}
+			
+			//if (nameCount > 1)
+			if (beginningCount > 0 && continuingCount > 0)
+			{
+				// Logic for manual Shingle training classification
+				/*
+				Scanner reader = new Scanner(System.in);  // Reading from System.in
+				
+				boolean correctInput = false;
+				
+				while (correctInput == false)
+				{
+					System.out.println("Does the line below contain a personal name? (1 = Yes | 2 = No)");
+					System.out.println(sbLexeme);
+					String input = reader.nextLine(); // Scans the next token of the input as an int.
+					
+					if (input.equals("1") || input.isEmpty())
+					{
+						sb.append("yes");
+						correctInput = true;
+					}
+					else if (input.equals("2"))
+					{
+						sb.append("no");
+						correctInput = true;
+					}
+					else
+					{
+						System.out.println("Incorrect input!");
+					}
+					
+				}
+				*/
+				
+				if (killWordCount > 0)
+				{
+					sb.append("no");	
+				}
+				else
+				{
+					sb.append("yes");					
+				}
+				//System.out.print("yes");
+			}
+			else
+			{
+				sb.append("no");
+				//System.out.print("no");
+			}	
+			
+			shingles.add(sb.toString());
+		}
+		
+		for (String s : shingles)
+		{
+			//System.out.println(s);
+		}
+		
+		return shingles;
+	}
+	
 	public Instances getTrainingInstances() {
 		return trainingInstances;
 	}
@@ -100,13 +416,15 @@ public class Trainer {
 		}
 	}
 
-	public Trainer() {
+	
+	public Trainer() 
+	{
 		// Initialize the Classifier as a Naive Bayes Classifier
 		classifier = (Classifier) new NaiveBayes();
-
+		
 		// Initialize Attributes
 		// Declare Lexical Attribute with its values
-		FastVector NominalValLexical = new FastVector(8);
+		FastVector NominalValLexical = new FastVector(9);
 		NominalValLexical.addElement("punct");
 		NominalValLexical.addElement("capLetter");
 		NominalValLexical.addElement("capitalized");
@@ -115,6 +433,7 @@ public class Trainer {
 		NominalValLexical.addElement("whiteSpace");
 		NominalValLexical.addElement("number");
 		NominalValLexical.addElement("other");
+		NominalValLexical.addElement("null");
 		Attribute Lexical = new Attribute("Lexical", NominalValLexical);
 
 		// Declare PartOfSpeech Attribute with its values
@@ -171,7 +490,102 @@ public class Trainer {
 
 		numberOfAttributes = attributes.size();
 	}
+	
+	public Attribute getAttribute(String name, FastVector nominalVal)
+	{
+		return new Attribute(name, nominalVal);
+	}
+	
+	// Constructor for Shingling
+	public Trainer(int k) 
+	{
+		int dimension = (((2 * k) + 1) * 14) + k + 1;
+		
+		// Initialize the Classifier as a Naive Bayes Classifier
+		classifier = (Classifier) new NaiveBayes();
+		
+		// Initialize Attributes
+		// Declare Lexical Attribute with its values
+		FastVector NominalValLexical = new FastVector(9);
+		NominalValLexical.addElement("punct");
+		NominalValLexical.addElement("capLetter");
+		NominalValLexical.addElement("capitalized");
+		NominalValLexical.addElement("allCaps");
+		NominalValLexical.addElement("lineFeed");
+		NominalValLexical.addElement("whiteSpace");
+		NominalValLexical.addElement("number");
+		NominalValLexical.addElement("other");
+		NominalValLexical.addElement("null");
+		//Attribute Lexical = new Attribute("Lexical", NominalValLexical);
 
+		// Declare PartOfSpeech Attribute with its values
+		FastVector NominalValPoS = new FastVector(6);
+		NominalValPoS.addElement("article");
+		NominalValPoS.addElement("conjunction");
+		NominalValPoS.addElement("period");
+		NominalValPoS.addElement("comma");
+		NominalValPoS.addElement("hyphen");
+		NominalValPoS.addElement("other");
+		//Attribute PartOfSpeech = new Attribute("PartOfSpeech", NominalValPoS);
+
+		// Declare Gazetteer Attributes with its values
+		FastVector NominalValGazetteer = new FastVector(2);
+		NominalValGazetteer.addElement("0");
+		NominalValGazetteer.addElement("1");
+		/*
+		Attribute DictionaryWord = new Attribute("DictionaryWord", NominalValGazetteer);
+		Attribute City = new Attribute("City", NominalValGazetteer);
+		Attribute Country = new Attribute("Country", NominalValGazetteer);
+		Attribute Places = new Attribute("Places", NominalValGazetteer);
+		Attribute DTICFirst = new Attribute("DTICFirst", NominalValGazetteer);
+		Attribute DTICLast = new Attribute("DTICLast", NominalValGazetteer);
+		Attribute CommonFirst = new Attribute("CommonFirst", NominalValGazetteer);
+		Attribute CommonLast = new Attribute("CommonLast", NominalValGazetteer);
+		Attribute Honorific = new Attribute("Honorific", NominalValGazetteer);
+		Attribute Prefix = new Attribute("Prefix", NominalValGazetteer);
+		Attribute Suffix = new Attribute("Suffix", NominalValGazetteer);
+		Attribute Kill = new Attribute("Kill", NominalValGazetteer);
+		*/
+
+		// Declare Name Attribute
+		FastVector NominalValName = new FastVector(3);
+		NominalValName.addElement("beginning");
+		NominalValName.addElement("continuing");
+		NominalValName.addElement("other");
+		//Attribute Name = new Attribute("Name", NominalValName);
+		
+		// Declare ContainsName Attribute
+		FastVector NominalValContainsName = new FastVector(3);
+		NominalValContainsName.addElement("yes");
+		NominalValContainsName.addElement("no");
+		Attribute ContainsName = new Attribute("ContainsName", NominalValContainsName);
+
+		// Declare the Feature vector
+		attributes = new FastVector(dimension);
+		
+		for (int i = 0; i < ((2 * k) + 1); i++)
+		{
+			attributes.addElement(getAttribute("Lexical" + i, NominalValLexical));
+			attributes.addElement(getAttribute("PartOfSpeech" + i, NominalValPoS));
+			attributes.addElement(getAttribute("DictionaryWord" + i, NominalValGazetteer));
+			attributes.addElement(getAttribute("City" + i, NominalValGazetteer));
+			attributes.addElement(getAttribute("Country" + i, NominalValGazetteer));
+			attributes.addElement(getAttribute("Places" + i, NominalValGazetteer));
+			attributes.addElement(getAttribute("DTICFirst" + i, NominalValGazetteer));
+			attributes.addElement(getAttribute("DTICLast" + i, NominalValGazetteer));
+			attributes.addElement(getAttribute("CommonFirst" + i, NominalValGazetteer));
+			attributes.addElement(getAttribute("CommonLast" + i, NominalValGazetteer));
+			attributes.addElement(getAttribute("Honorific" + i, NominalValGazetteer));
+			attributes.addElement(getAttribute("Prefix" + i, NominalValGazetteer));
+			attributes.addElement(getAttribute("Suffix" + i, NominalValGazetteer));
+			attributes.addElement(getAttribute("Kill" + i, NominalValGazetteer));
+			attributes.addElement(getAttribute("Name" + i, NominalValName));
+		}
+		attributes.addElement(ContainsName);
+
+		numberOfAttributes = attributes.size();
+	}
+	
 	public void trainLM(Instances trainingData) throws Exception {
 		classifier.buildClassifier(trainingData);
 
@@ -239,7 +653,120 @@ public class Trainer {
 		return distribution;
 	}
 
-	public String classify(String input) throws Exception {
+	public String classify(String input) throws Exception 
+	{
+		Instances classificationInstances = new Instances("toBeClassified", this.attributes, 1);
+
+		// Build the instance to be classified
+		String[] dataToClassify = input.split(",");
+		
+
+		Instance toClassify = new Instance(this.numberOfAttributes - 1);
+		toClassify.setDataset(classificationInstances);
+		
+		
+		for (int i = 0; i < (numberOfAttributes - 1); i++)
+		{
+			toClassify.setValue((Attribute) attributes.elementAt(i), dataToClassify[i]);
+		}
+		
+
+		/*
+		toClassify.setValue((Attribute) attributes.elementAt(0), dataToClassify[0]);
+		toClassify.setValue((Attribute) attributes.elementAt(1), dataToClassify[1]);
+		toClassify.setValue((Attribute) attributes.elementAt(2), dataToClassify[2]);
+		toClassify.setValue((Attribute) attributes.elementAt(3), dataToClassify[3]);
+		toClassify.setValue((Attribute) attributes.elementAt(4), dataToClassify[4]);
+		toClassify.setValue((Attribute) attributes.elementAt(5), dataToClassify[5]);
+		toClassify.setValue((Attribute) attributes.elementAt(6), dataToClassify[6]);
+		toClassify.setValue((Attribute) attributes.elementAt(7), dataToClassify[7]);
+		toClassify.setValue((Attribute) attributes.elementAt(8), dataToClassify[8]);
+		toClassify.setValue((Attribute) attributes.elementAt(9), dataToClassify[9]);
+		toClassify.setValue((Attribute) attributes.elementAt(10), dataToClassify[10]);
+		toClassify.setValue((Attribute) attributes.elementAt(11), dataToClassify[11]);
+		toClassify.setValue((Attribute) attributes.elementAt(12), dataToClassify[12]);
+		toClassify.setValue((Attribute) attributes.elementAt(13), dataToClassify[13]);
+		*/
+
+		// Specify that the instance belong to the training set
+		// in order to inherit from the set description
+		toClassify.setDataset(this.trainingInstances);
+
+		// Get the likelihood of each classes
+		double[] distribution = this.classifier.distributionForInstance(toClassify);
+
+		if (distribution[0] >= distribution[1] && distribution[0] >= distribution[2]) {
+			return "beginning";
+		} else if (distribution[1] >= distribution[0] && distribution[1] >= distribution[2]) {
+			return "continuing";
+		} else {
+			return "other";
+		}
+	}
+	
+
+	public String classifyShingle(String input) throws Exception 
+	{
+		Instances classificationInstances = new Instances("toBeClassified", this.attributes, 1);
+
+		// Build the instance to be classified
+		String[] dataToClassify = input.split(",");
+
+		Instance toClassify = new Instance(this.numberOfAttributes - 1);
+		toClassify.setDataset(classificationInstances);
+		
+		for (int i = 0; i < (numberOfAttributes - 1); i++)
+		{
+			//System.out.println("Attribute " + i + " - " + dataToClassify[i]);
+			toClassify.setValue((Attribute) attributes.elementAt(i), dataToClassify[i]);
+		}
+		
+		toClassify.setDataset(this.trainingInstances);
+
+		// Get the likelihood of each classes
+		double[] distribution = this.classifier.distributionForInstance(toClassify);
+
+		if (distribution[0] >= distribution[1]) 
+		{
+			return "yes";
+		} 
+		else 
+		{
+			return "no";
+		}
+	}
+	
+
+	// Get the likelihood of each classes
+	// distribution[0] is the probability of the Shingle containing a name
+	// distribution[1] is the probability of the Shingle not containing a name
+	public double[] getShingleDistribution(String input) throws Exception {
+		Instances classificationInstances = new Instances("toBeClassified", this.attributes, 1);
+
+		// Build the instance to be classified
+		String[] dataToClassify = input.split(",");
+
+		Instance toClassify = new Instance(this.numberOfAttributes - 1);
+		toClassify.setDataset(classificationInstances);
+
+		for (int i = 0; i < (numberOfAttributes - 1); i++)
+		{
+			//System.out.println("Attribute " + i + " - " + dataToClassify[i]);
+			toClassify.setValue((Attribute) attributes.elementAt(i), dataToClassify[i]);
+		}
+		
+		// Specify that the instance belong to the training set
+		// in order to inherit from the set description
+		toClassify.setDataset(this.trainingInstances);
+
+		// Get the likelihood of each classes
+		double[] distribution = this.classifier.distributionForInstance(toClassify);
+
+		return distribution;
+	}
+	
+	public String classifyOld(String input) throws Exception 
+	{
 		Instances classificationInstances = new Instances("toBeClassified", this.attributes, 1);
 
 		// Build the instance to be classified
@@ -325,8 +852,57 @@ public class Trainer {
 		// information
 		// For example, the XRFF format saves the class attribute information as
 		// well
-		if (trainingInstances.classIndex() == -1) {
+		if (trainingInstances.classIndex() == -1) 
+		{
 			trainingInstances.setClassIndex(trainingInstances.numAttributes() - 1);
+		}
+	}
+	
+	// import ARFF data from a String[]
+	public void importARFFOld(String[] trainingData) {
+		this.trainingInstances = new Instances("Classification", attributes, trainingData.length);
+
+		// Make the last attribute be the class
+		this.trainingInstances.setClassIndex(numberOfAttributes - 1);
+
+		for (String sdata : trainingData) {
+			// System.out.println(trainingData);
+
+			String[] values = sdata.split(",");
+
+			Instance instance = new Instance(numberOfAttributes);
+
+			for (int i = 0; i < numberOfAttributes; i++)
+			{
+				instance.setValue((Attribute) attributes.elementAt(i), values[i]);
+			}
+
+			this.trainingInstances.add(instance); // Add new instance to
+													// training data
+		}
+	}
+	
+	// import ARFF data from a String[]
+	public void importARFF(HashSet<String> trainingData) {
+		this.trainingInstances = new Instances("Classification", attributes, trainingData.size());
+
+		// Make the last attribute be the class
+		this.trainingInstances.setClassIndex(numberOfAttributes - 1);
+
+		for (String sdata : trainingData) {
+			// System.out.println(trainingData);
+
+			String[] values = sdata.split(",");
+
+			Instance instance = new Instance(numberOfAttributes);
+
+			for (int i = 0; i < numberOfAttributes; i++)
+			{
+				instance.setValue((Attribute) attributes.elementAt(i), values[i]);
+			}
+
+			this.trainingInstances.add(instance); // Add new instance to
+													// training data
 		}
 	}
 
@@ -364,7 +940,7 @@ public class Trainer {
 													// training data
 		}
 	}
-
+	
 	// return ARFF data from trainingInstances as a String
 	public String getTrainingData() {
 		return trainingInstances.toString();
@@ -401,6 +977,7 @@ public class Trainer {
 
 		return tokens;
 	}
+
 
 	/**
 	 * Returns the the token count for a specific token
@@ -450,8 +1027,7 @@ public class Trainer {
 		// serialize model
 		ObjectOutputStream oos = new ObjectOutputStream(
 				new FileOutputStream("/saved/learningMachine/LearningMachine.model"));
-		weka.core.SerializationHelper.write("/saved/learningMachine/LearningMachine.model", classifier);
-
+		SerializationHelper.write("/saved/learningMachine/LearningMachine.model", classifier);
 	}
 
 	/*

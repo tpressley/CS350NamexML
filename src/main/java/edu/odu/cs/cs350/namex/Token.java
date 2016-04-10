@@ -39,22 +39,46 @@ public class Token {
 		this.killWord = 0;
 	}
 
-	public Token(String lexeme) {
-		this.lexeme = lexeme;
-		this.lexical = "";
-		this.partOfSpeech = "";
-		this.dictionaryWord = 0;
-		this.cityState = 0;
-		this.countryTerritory = 0;
-		this.place = 0;
-		this.DTICFirst = 0;
-		this.DTICLast = 0;
-		this.commonFirst = 0;
-		this.commonLast = 0;
-		this.honorific = 0;
-		this.prefix = 0;
-		this.suffix = 0;
-		this.killWord = 0;
+	public Token(String lexeme) 
+	{
+		if (lexeme.equals("null"))
+		{
+			this.lexeme = lexeme;
+			this.lexical = "other";
+			this.partOfSpeech = "other";
+			this.dictionaryWord = 0;
+			this.cityState = 0;
+			this.countryTerritory = 0;
+			this.place = 0;
+			this.DTICFirst = 0;
+			this.DTICLast = 0;
+			this.commonFirst = 0;
+			this.commonLast = 0;
+			this.honorific = 0;
+			this.prefix = 0;
+			this.suffix = 0;
+			this.killWord = 0;
+			this.name = "other";
+		}
+		else
+		{
+			this.lexeme = lexeme;
+			this.lexical = "";
+			this.partOfSpeech = "";
+			this.dictionaryWord = 0;
+			this.cityState = 0;
+			this.countryTerritory = 0;
+			this.place = 0;
+			this.DTICFirst = 0;
+			this.DTICLast = 0;
+			this.commonFirst = 0;
+			this.commonLast = 0;
+			this.honorific = 0;
+			this.prefix = 0;
+			this.suffix = 0;
+			this.killWord = 0;
+		}
+
 	}
 
 	public Token(String lexeme, int position) {
