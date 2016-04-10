@@ -957,8 +957,8 @@ public class Trainer {
 
 		// serialize model
 		ObjectOutputStream oos = new ObjectOutputStream(
-				new FileOutputStream("/saved/learningMachine/LearningMachine.model"));
-		SerializationHelper.write("/saved/learningMachine/LearningMachine.model", classifier);
+				new FileOutputStream("/LearningMachine.model"));
+		SerializationHelper.write("/LearningMachine.model", classifier);
 	}
 
 	/*
