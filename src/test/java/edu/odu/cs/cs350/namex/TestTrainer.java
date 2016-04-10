@@ -98,14 +98,11 @@ public class TestTrainer {
 		assertTrue(trainer.getTokenCount(tokenList.get(0), tokenList) < 1);
 	}
 
-	
-	
-
 	/**
 	 * User story #858, #857 The total token count for any token should be equal
 	 * to the number of times that token appears in the input
 	 */
-	
+
 	@Test
 	public void testGetTokenCount() {
 		Trainer trainer = new Trainer();
@@ -151,11 +148,10 @@ public class TestTrainer {
 		assertEquals(t1, t2);
 
 	}
-	
+
 	@Test
 	public void testShingle() throws Exception {
-		
-		
+
 	}
 
 }

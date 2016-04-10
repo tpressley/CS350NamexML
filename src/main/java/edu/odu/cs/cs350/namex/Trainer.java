@@ -390,16 +390,16 @@ public class Trainer {
 
 	public ArrayList<Token> tokenize(String textBlock, boolean verbose) {
 		// split the string
-				String[] tks = textBlock.split("(?=[\" ,.!?\n()-:;@#$%^&*{}<>])|(?<=[\" ,.!?\n()-:;@#$%^&*{}<>])");
+		String[] tks = textBlock.split("(?=[\" ,.!?\n()-:;@#$%^&*{}<>])|(?<=[\" ,.!?\n()-:;@#$%^&*{}<>])");
 
-				ArrayList<Token> tokens = new ArrayList<Token>();
+		ArrayList<Token> tokens = new ArrayList<Token>();
 
-				for (int i = 0; i < tks.length; i++) {
-					tokens.add(new Token(tks[i], i));
-					System.out.println(tokens.get(i).toString());
-				}
+		for (int i = 0; i < tks.length; i++) {
+			tokens.add(new Token(tks[i], i));
+			System.out.println(tokens.get(i).toString());
+		}
 
-				return tokens;
+		return tokens;
 	}
 
 	/**
@@ -453,67 +453,58 @@ public class Trainer {
 		weka.core.SerializationHelper.write("/saved/learningMachine/LearningMachine.model", classifier);
 
 	}
-	
-	
-	
+
 	/*
-	 * For some small integer k, 
-	 * imagine a window consisting of k words 
-	 * in front of the one we want to classify, 
-	 * the word we want to classify, 
-	 * and then the k words after the one we want to classify. 
+	 * For some small integer k, imagine a window consisting of k words in front
+	 * of the one we want to classify, the word we want to classify, and then
+	 * the k words after the one we want to classify.
 	 * 
-	 * slide that window from the start of the input to the end, 
-	 * collecting all the (2k + 1) length sequences that we can obtain. 
+	 * slide that window from the start of the input to the end, collecting all
+	 * the (2k + 1) length sequences that we can obtain.
 	 * 
-	 * For example, 
-	 * given k = 3 and the input
+	 * For example, given k = 3 and the input
+	 * 
+	 * by John Doe, \n Lawrence Livermore Laboratory
+	 * 
+	 * would yield the sequences
+	 * 
+	 * null null null by John Doe , null null by John Doe , \n null by John Doe
+	 * , \n Lawrence by John Doe , \n Lawrence Livermore John Doe , \n Lawrence
+	 * Livermore Laboratory Doe , \n Lawrence Livermore Laboratory null , \n
+	 * Lawrence Livermore Laboratory null null \n Lawrence Livermore Laboratory
+	 * null null
+	 * 
+	 * So each input will consist of (2k + 1) words, each word described by m
+	 * features for a total of (2km + m) features.
+	 * 
+	 */
 
-			by John Doe, \n Lawrence Livermore Laboratory
-			
-			would yield the sequences
-			
-			null null null by John Doe ,
-			null null by John Doe , \n
-			null by John Doe , \n Lawrence
-			by John Doe , \n Lawrence Livermore
-			John Doe , \n Lawrence Livermore Laboratory
-			Doe , \n Lawrence Livermore Laboratory null
-			, \n Lawrence Livermore Laboratory null null
-			\n Lawrence Livermore Laboratory null null
-			
-	So each input will consist of (2k + 1) words, 
-	each word described by m features for a total of (2km + m) features.
-
-	 * */
-	 
-	public ArrayList< ArrayList<Token> > shingle(ArrayList<Token> tokens, int kay)
-	{
+	public ArrayList<ArrayList<Token>> shingle(ArrayList<Token> tokens, int kay) {
 		int k = kay;
-		int size = tokens.size(); //size of input ArrayList<Token>
-		
-		ArrayList< ArrayList<Token> > ret = new ArrayList<ArrayList<Token>>( size ); //return value
-		
-		for(int i=0; i < size; ++i)
-		{
-			ArrayList<Token> temp = new ArrayList<Token>( 2*k + 1 );
-			
+		int size = tokens.size(); // size of input ArrayList<Token>
+
+		ArrayList<ArrayList<Token>> ret = new ArrayList<ArrayList<Token>>(size); // return
+																					// value
+
+		for (int i = 0; i < size; ++i) {
+			ArrayList<Token> temp = new ArrayList<Token>(2 * k + 1);
+
 			{
-				for(int j=0; j < k; ++j) //first element will contain k number of 'null's
+				for (int j = 0; j < k; ++j) // first element will contain k
+											// number of 'null's
 				{
-					temp.add(j , null);
+					temp.add(j, null);
 					i++;
 				}
-				temp.add(i , tokens.get(i - k) );
+				temp.add(i, tokens.get(i - k));
 			}
-			
-			ret.add(i , temp);
+
+			ret.add(i, temp);
 			temp.clear();
 		}
-		
-		
+
 		return ret;
-		
+
 	}
 
 }
