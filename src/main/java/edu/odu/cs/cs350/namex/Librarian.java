@@ -165,11 +165,10 @@ public class Librarian {
 
 		return textBlocks;
 	}
-	
+
 	// imports a file from filePath and returns the line values as a
 	// HashSet<String>
-	public static HashSet<TextBlock> importFileHash(String filePath) 
-	{
+	public static HashSet<TextBlock> importFileHash(String filePath) {
 		File file = new File(filePath);
 		Scanner s;
 

@@ -9,33 +9,28 @@ public class Shingle {
 	private String arffData;
 	private String containsName;
 	private double[] distribution;
-	
-	public Shingle(String lexemes, String classifications, String arffData)
-	{
+
+	public Shingle(String lexemes, String classifications, String arffData) {
 		this.lexemes = lexemes;
 		this.arffData = arffData;
 		this.classifications = classifications;
 		containsName = "";
 		distribution = new double[2];
 	}
-	
-	public String getLexemes()
-	{
+
+	public String getLexemes() {
 		return lexemes;
 	}
-	
-	public void setLexemes(String lexemes)
-	{
+
+	public void setLexemes(String lexemes) {
 		this.lexemes = lexemes;
 	}
-	
-	public String getClassifications()
-	{
+
+	public String getClassifications() {
 		return classifications;
 	}
-	
-	public void setClassifications(String classifications)
-	{
+
+	public void setClassifications(String classifications) {
 		this.classifications = classifications;
 	}
 
@@ -62,9 +57,8 @@ public class Shingle {
 	public void setDistribution(double[] distribution) {
 		this.distribution = distribution;
 	}
-	
-	public void printShingle()
-	{
+
+	public void printShingle() {
 		System.out.println("         Lexemes:   " + lexemes);
 		System.out.println(" Classifications:   " + classifications);
 		System.out.println("   Contains Name:   " + containsName);

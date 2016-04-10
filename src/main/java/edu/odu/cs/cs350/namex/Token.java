@@ -39,10 +39,8 @@ public class Token {
 		this.killWord = 0;
 	}
 
-	public Token(String lexeme) 
-	{
-		if (lexeme.equals("null"))
-		{
+	public Token(String lexeme) {
+		if (lexeme.equals("null")) {
 			this.lexeme = lexeme;
 			this.lexical = "other";
 			this.partOfSpeech = "other";
@@ -59,9 +57,7 @@ public class Token {
 			this.suffix = 0;
 			this.killWord = 0;
 			this.name = "other";
-		}
-		else
-		{
+		} else {
 			this.lexeme = lexeme;
 			this.lexical = "";
 			this.partOfSpeech = "";

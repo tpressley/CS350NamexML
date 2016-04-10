@@ -49,18 +49,15 @@ public class TestLibrarian {
 
 		ArrayList<Token> testTokens = trainer.tokenize(input);
 
-		try 
-		{
+		try {
 			trainer.importARFF(arffFilePath);
 			trainer.trainLM();
 
-			if (printEvaluationSummary == true) 
-			{
+			if (printEvaluationSummary == true) {
 				trainer.printEvaluationSummary();
 			}
 
-			for (Token t : testTokens) 
-			{
+			for (Token t : testTokens) {
 				t = librarian.classifyToken(t);
 
 				if (t.getLexical() != "whiteSpace") {
@@ -80,9 +77,7 @@ public class TestLibrarian {
 					}
 				}
 			}
-		} 
-		catch (Exception e) 
-		{
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
