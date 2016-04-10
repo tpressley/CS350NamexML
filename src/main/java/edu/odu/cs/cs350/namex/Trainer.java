@@ -941,7 +941,7 @@ public class Trainer {
 
 		// deserialize model
 		ObjectInputStream ois = new ObjectInputStream(
-				new FileInputStream("/saved/learningMachine/LearningMachine.model"));
+				new FileInputStream("LearningMachine.model"));
 		classifier = (Classifier) ois.readObject();
 		ois.close();
 
@@ -957,8 +957,8 @@ public class Trainer {
 
 		// serialize model
 		ObjectOutputStream oos = new ObjectOutputStream(
-				new FileOutputStream("/LearningMachine.model"));
-		SerializationHelper.write("/LearningMachine.model", classifier);
+				new FileOutputStream("LearningMachine.model"));
+		SerializationHelper.write("LearningMachine.model", classifier);
 	}
 
 	/*
