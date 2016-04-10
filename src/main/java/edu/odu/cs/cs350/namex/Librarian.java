@@ -93,6 +93,18 @@ public class Librarian {
 				Trainer trainer = new Trainer();
 
 				trainer.generateARFF(inputFileName, outputFileName);
+				try 
+        {
+          System.out.println("*******************************");
+          System.out.println(" Saving Learning Machine to LearningMachine.model");
+          System.out.println("*******************************\n");
+          trainer.SaveClassifier();
+        }
+        catch (Exception e)
+        {
+          // TODO Auto-generated catch block
+          e.printStackTrace();
+        }
 			}
 		}
 	}
