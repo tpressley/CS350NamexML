@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="2" failures="2" hostname="ubuntu" name="edu.odu.cs.cs350.namex.TestTrainer" skipped="0" tests="8" time="37.202" timestamp="2016-04-11T02:38:43">
+<testsuite errors="3" failures="2" hostname="ubuntu" name="edu.odu.cs.cs350.namex.TestTrainer" skipped="0" tests="8" time="29.527" timestamp="2016-04-11T03:05:41">
   <properties>
     <property name="java.vendor" value="Oracle Corporation" />
     <property name="sun.java.launcher" value="SUN_STANDARD" />
@@ -50,10 +50,10 @@
     <property name="java.vendor.url" value="http://java.oracle.com/" />
     <property name="java.vm.vendor" value="Oracle Corporation" />
     <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestTrainer skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/gsilveri/git/Green3/target/test-results/TEST-edu.odu.cs.cs350.namex.TestTrainer.xml crashfile=/home/gsilveri/git/Green3/junitvmwatcher2190040643352402989.properties propsfile=/home/gsilveri/git/Green3/junit291288964921727228.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestTrainer skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/gsilveri/git/Green3/target/test-results/TEST-edu.odu.cs.cs350.namex.TestTrainer.xml crashfile=/home/gsilveri/git/Green3/junitvmwatcher5151372412012523818.properties propsfile=/home/gsilveri/git/Green3/junit5629411761813189033.properties" />
     <property name="java.class.path" value="/home/gsilveri/git/Green3/target/test-classes:/home/gsilveri/git/Green3/target/classes:/home/gsilveri/git/Green3/lib/extract-wordlists.jar:/home/gsilveri/git/Green3/lib/hamcrest-core.jar:/home/gsilveri/git/Green3/lib/java-cup.jar:/home/gsilveri/git/Green3/lib/junit-javadoc.jar:/home/gsilveri/git/Green3/lib/junit-sources.jar:/home/gsilveri/git/Green3/lib/junit.jar:/home/gsilveri/git/Green3/lib/weka-stable-javadoc.jar:/home/gsilveri/git/Green3/lib/weka-stable-sources.jar:/home/gsilveri/git/Green3/lib/weka-stable.jar:/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant-launcher.jar:/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant.jar:/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant-junit.jar:/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant-junit4.jar" />
     <property name="ant.version" value="Apache Ant(TM) version 1.9.4 compiled on April 29 2014" />
-    <property name="TSTAMP" value="1938" />
+    <property name="TSTAMP" value="2005" />
     <property name="ivy.install.version" value="2.3.0" />
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
     <property name="java.vm.specification.version" value="1.7" />
@@ -77,17 +77,23 @@
     <property name="java.specification.version" value="1.7" />
     <property name="ant.project.invoked-targets" value="build" />
   </properties>
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testGetTrainingData" time="0.022">
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testGetTrainingData" time="0.047">
     <error type="java.lang.NullPointerException">java.lang.NullPointerException
-	at edu.odu.cs.cs350.namex.Trainer.getTrainingData(Trainer.java:878)
+	at edu.odu.cs.cs350.namex.Trainer.getTrainingData(Trainer.java:811)
 	at edu.odu.cs.cs350.namex.TestTrainer.testGetTrainingData(TestTrainer.java:229)
 </error>
   </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testGenerateARFF" time="10.266" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTrainLM" time="0.026" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testGenerateARFF" time="2.961">
+    <error message="14" type="java.lang.ArrayIndexOutOfBoundsException">java.lang.ArrayIndexOutOfBoundsException: 14
+	at edu.odu.cs.cs350.namex.Trainer.importARFF(Trainer.java:802)
+	at edu.odu.cs.cs350.namex.Trainer.generateARFF(Trainer.java:283)
+	at edu.odu.cs.cs350.namex.TestTrainer.testGenerateARFF(TestTrainer.java:147)
+</error>
+  </testcase>
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTrainLM" time="0.036" />
   <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTrainer" time="0.005">
     <error type="java.lang.NullPointerException">java.lang.NullPointerException
-	at edu.odu.cs.cs350.namex.Trainer.getTrainingData(Trainer.java:878)
+	at edu.odu.cs.cs350.namex.Trainer.getTrainingData(Trainer.java:811)
 	at edu.odu.cs.cs350.namex.TestTrainer.testTrainer(TestTrainer.java:220)
 </error>
   </testcase>
@@ -96,8 +102,8 @@
 	at edu.odu.cs.cs350.namex.TestTrainer.testTokenize(TestTrainer.java:194)
 </failure>
   </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testGenerateShingleARFF" time="19.021" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testShingle" time="7.77" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testGenerateShingleARFF" time="19.369" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testShingle" time="6.994" />
   <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testGetTokenCount" time="0.001">
     <failure message="expected:&lt;3&gt; but was:&lt;1&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;3&gt; but was:&lt;1&gt;
 	at edu.odu.cs.cs350.namex.TestTrainer.testGetTokenCount(TestTrainer.java:210)
@@ -111,21 +117,6 @@
 Output FilePath: /home/gsilveri/git/Green3/data/arff/trainingData.arff
 
 Classifying Tokens from 19956 TextBlocks...
-
-*******************************
-      Evaluation Summary
-*******************************
-
-Correctly Classified Instances      214965               91.8022 %
-Incorrectly Classified Instances     19196                8.1978 %
-Kappa statistic                          0.5001
-Mean absolute error                      0.057 
-Root mean squared error                  0.1883
-Relative absolute error                 63.6573 %
-Root relative squared error             88.9614 %
-Total Number of Instances           234161     
-
-Created: /home/gsilveri/git/Green3/data/arff/trainingData.arff
 
 Shingling 19956 TextBlocks...
 
@@ -242,7 +233,7 @@ Total Number of Instances           110262
              Yes:   1%
               No:   99%
 
-Elapsed Time: 7 seconds.
+Elapsed Time: 6 seconds.
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -1,9 +1,5 @@
 package edu.odu.cs.cs350.namex;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 /*
  * The personal name class stores a personal name as an arraylist
  * The prefix (IE: Mr, Dr, Mrs, Governor, Senator, Professor)will be stored in the first index of the

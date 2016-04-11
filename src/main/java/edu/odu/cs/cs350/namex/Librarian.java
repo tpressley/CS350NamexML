@@ -1,17 +1,11 @@
 package edu.odu.cs.cs350.namex;
 
 import java.lang.String;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Scanner;
-//import weka.core.Instances;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 
 import edu.odu.cs.cs350.namex.Trainer;
 import edu.odu.cs.extract.wordlists.WordLists;
@@ -110,8 +104,6 @@ public class Librarian {
 	}
 
 	public Librarian() {
-		Path currentRelativePath = Paths.get("");
-		String relativePath = currentRelativePath.toAbsolutePath().toString() + "/resources/";
 
 		// Instantiate Gazetteer Iterable<String> by using extract-wordlists
 		DictionaryWords = new HashSet<String>();
@@ -163,9 +155,6 @@ public class Librarian {
 		try {
 			s = new Scanner(file);
 
-			int count = 0;
-			int totalCount = 0;
-
 			while (s.hasNext()) {
 				textBlocks.addAll(separateNER(s.nextLine()));
 			}
@@ -188,9 +177,6 @@ public class Librarian {
 
 		try {
 			s = new Scanner(file);
-
-			int count = 0;
-			int totalCount = 0;
 
 			while (s.hasNext()) {
 				textBlocks.addAll(separateNER(s.nextLine()));

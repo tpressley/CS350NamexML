@@ -1,6 +1,5 @@
 package edu.odu.cs.cs350.namex;
 
-import java.util.ArrayList;
 
 public class Shingle {
 

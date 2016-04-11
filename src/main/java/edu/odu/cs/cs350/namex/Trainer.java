@@ -1,18 +1,13 @@
 package edu.odu.cs.cs350.namex;
 
-import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
-import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import weka.core.Instances;
 import weka.core.SerializationHelper;
@@ -20,28 +15,12 @@ import weka.core.converters.ConverterUtils.DataSource;
 import weka.classifiers.Classifier;
 import weka.classifiers.Evaluation;
 import weka.classifiers.bayes.NaiveBayes;
-import weka.classifiers.trees.J48;
 import weka.core.Attribute;
-import weka.core.Debug;
 import weka.core.FastVector;
 import weka.core.Instance;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Scanner;
-import java.util.StringTokenizer;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
-
-import java.util.ArrayList;
-import java.util.StringTokenizer;
 
 public class Trainer {
 	private Classifier classifier;
@@ -114,55 +93,6 @@ public class Trainer {
 		}
 	}
 
-	public ArrayList<String> getShinglesOld(int k, ArrayList<Token> tokens, String nothing) {
-		int sequenceLength = ((2 * k) + 1);
-		ArrayList<String> shingles = new ArrayList<String>();
-
-		// add null tokens before and after the text block
-		for (int i = 0; i < k; i++) {
-			tokens.add(0, new Token("null"));
-			tokens.add(new Token("null"));
-		}
-
-		// System.out.println("\nSize: " + shingleTokens.size());
-		// System.out.println("Sequence Length: " + sequenceLength);
-
-		for (int i = 0; i < (tokens.size() - (sequenceLength - 1)); i++) {
-			// ArrayList<Token> shingle = new ArrayList<Token>();
-
-			StringBuilder sb = new StringBuilder();
-
-			int nameCount = 0; // if there are more than two classified names
-								// within the shingle, classify it as 'yes'
-			for (int j = 0; j < sequenceLength; j++) {
-				if (tokens.get(j + i).getName().equals("beginning")
-						|| tokens.get(j + i).getName().equals("continuing")) {
-					nameCount++;
-				}
-
-				// System.out.print(shingleTokens.get(j + i).getARFF() + ",");
-				// shingle.add(shingleTokens.get(j + i));
-				sb.append(tokens.get(j + i).getARFF() + ",");
-			}
-
-			if (nameCount > 1) {
-				sb.append("yes");
-				// System.out.print("yes");
-			} else {
-				sb.append("no");
-				// System.out.print("no");
-			}
-
-			shingles.add(sb.toString());
-		}
-
-		for (String s : shingles) {
-			// System.out.println(s);
-		}
-
-		return shingles;
-	}
-
 	// For Shingle classification
 	public ArrayList<Shingle> getShingles(int k, ArrayList<Token> tokens, String nothing) {
 		int sequenceLength = ((2 * k) + 1);
@@ -184,12 +114,12 @@ public class Trainer {
 			StringBuilder sbLexemes = new StringBuilder();
 			StringBuilder sbClassifications = new StringBuilder();
 
-			int nameCount = 0; // if there are more than two classified names
+			//int nameCount = 0; // if there are more than two classified names
 								// within the shingle, classify it as 'yes'
 			for (int j = 0; j < sequenceLength; j++) {
 				if (tokens.get(j + i).getName().equals("beginning")
 						|| tokens.get(j + i).getName().equals("continuing")) {
-					nameCount++;
+					//nameCount++;
 				}
 
 				// System.out.print(shingleTokens.get(j + i).getARFF() + ",");
@@ -302,9 +232,12 @@ public class Trainer {
 			shingles.add(sb.toString());
 		}
 
+		/*
+		// Test Output
 		for (String s : shingles) {
-			// System.out.println(s);
+			System.out.println(s);
 		}
+		*/
 
 		return shingles;
 	}
@@ -324,8 +257,8 @@ public class Trainer {
 	 * @param inputText
 	 */
 
-	public void generateARFF(String inputFileName, String outputFileName) {
-		Librarian librarian = new Librarian();
+	public void generateARFF(String inputFileName, String outputFileName) 
+	{
 
 		ArrayList<TextBlock> textBlocks = Librarian.importFile(inputFileName);
 		ArrayList<String> arffData = new ArrayList<String>();
@@ -335,7 +268,7 @@ public class Trainer {
 		for (TextBlock textBlock : textBlocks) {
 			ArrayList<Token> tks = tokenize(textBlock.getTextBlock());
 
-			HashSet<Token> classifiedTokens = librarian.classifyTokens(tks);
+			//HashSet<Token> classifiedTokens = librarian.classifyTokens(tks);
 
 			for (Token t : tks) {
 				if (t.getLexical() != "whiteSpace") {
@@ -540,7 +473,7 @@ public class Trainer {
 		System.out.println(summary);
 
 		// Get the confusion matrix
-		double[][] cmMatrix = evaluation.confusionMatrix();
+		//double[][] cmMatrix = evaluation.confusionMatrix();
 	}
 
 	// builds the classifier based on the ARFF data imported into
@@ -965,6 +898,7 @@ public class Trainer {
 		ObjectOutputStream oos = new ObjectOutputStream(
 				new FileOutputStream("LearningMachine.model"));
 		SerializationHelper.write("LearningMachine.model", classifier);
+		oos.close();
 	}
 
 	/*

@@ -1,22 +1,12 @@
 package edu.odu.cs.cs350.namex;
 
-//import weka.core.Instances;
-import java.io.BufferedReader;
-import java.io.FileReader;
-
 import static org.junit.Assert.*;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
-import java.io.PrintStream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Scanner;
-
-import org.junit.Before;
 import org.junit.Test;
 
 import edu.odu.cs.cs350.namex.Librarian;
@@ -187,7 +177,7 @@ public class TestLibrarian {
 
 		String input = "<NER>Hello <PER>John Smith</PER> this is <PER>Mr. Samuel L. Jackson, III</PER></NER>";
 
-		ArrayList<TextBlock> textBlocks = l.separateNER(input);
+		ArrayList<TextBlock> textBlocks = Librarian.separateNER(input);
 
 		for (TextBlock textBlock : textBlocks) {
 			System.out.println(textBlock.getTextBlock());

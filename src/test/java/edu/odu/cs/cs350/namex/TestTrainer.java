@@ -231,7 +231,7 @@ public class TestTrainer {
 		Trainer t2 = new Trainer();
 		assertTrue(t2.getTrainingData() != null);
 
-		String in = "this is a test.";
+		//String in = "this is a test.";
 
 		// assertEquals(t1.prepareData(in), t2.prepareData(in));
 	}

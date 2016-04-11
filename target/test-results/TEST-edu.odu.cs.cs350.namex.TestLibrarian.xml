@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="1" hostname="ubuntu" name="edu.odu.cs.cs350.namex.TestLibrarian" skipped="0" tests="7" time="15.074" timestamp="2016-04-11T02:38:25">
+<testsuite errors="1" failures="1" hostname="ubuntu" name="edu.odu.cs.cs350.namex.TestLibrarian" skipped="0" tests="7" time="10.098" timestamp="2016-04-11T03:05:28">
   <properties>
     <property name="java.vendor" value="Oracle Corporation" />
     <property name="sun.java.launcher" value="SUN_STANDARD" />
@@ -50,10 +50,10 @@
     <property name="java.vendor.url" value="http://java.oracle.com/" />
     <property name="java.vm.vendor" value="Oracle Corporation" />
     <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestLibrarian skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/gsilveri/git/Green3/target/test-results/TEST-edu.odu.cs.cs350.namex.TestLibrarian.xml crashfile=/home/gsilveri/git/Green3/junitvmwatcher770471787712686776.properties propsfile=/home/gsilveri/git/Green3/junit6159394693370913183.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestLibrarian skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/gsilveri/git/Green3/target/test-results/TEST-edu.odu.cs.cs350.namex.TestLibrarian.xml crashfile=/home/gsilveri/git/Green3/junitvmwatcher4365656669451806828.properties propsfile=/home/gsilveri/git/Green3/junit6816115894705370838.properties" />
     <property name="java.class.path" value="/home/gsilveri/git/Green3/target/test-classes:/home/gsilveri/git/Green3/target/classes:/home/gsilveri/git/Green3/lib/extract-wordlists.jar:/home/gsilveri/git/Green3/lib/hamcrest-core.jar:/home/gsilveri/git/Green3/lib/java-cup.jar:/home/gsilveri/git/Green3/lib/junit-javadoc.jar:/home/gsilveri/git/Green3/lib/junit-sources.jar:/home/gsilveri/git/Green3/lib/junit.jar:/home/gsilveri/git/Green3/lib/weka-stable-javadoc.jar:/home/gsilveri/git/Green3/lib/weka-stable-sources.jar:/home/gsilveri/git/Green3/lib/weka-stable.jar:/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant-launcher.jar:/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant.jar:/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant-junit.jar:/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant-junit4.jar" />
     <property name="ant.version" value="Apache Ant(TM) version 1.9.4 compiled on April 29 2014" />
-    <property name="TSTAMP" value="1938" />
+    <property name="TSTAMP" value="2005" />
     <property name="ivy.install.version" value="2.3.0" />
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
     <property name="java.vm.specification.version" value="1.7" />
@@ -77,17 +77,24 @@
     <property name="java.specification.version" value="1.7" />
     <property name="ant.project.invoked-targets" value="build" />
   </properties>
-  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testSeparateNER" time="0.008" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testSeparateNER" time="0.004" />
   <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testPackage" time="0.0" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testMain" time="10.227" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testWeka" time="2.948" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testMarkClassificationTag" time="0.454">
+  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testMain" time="2.543">
+    <error message="14" type="java.lang.ArrayIndexOutOfBoundsException">java.lang.ArrayIndexOutOfBoundsException: 14
+	at edu.odu.cs.cs350.namex.Trainer.importARFF(Trainer.java:802)
+	at edu.odu.cs.cs350.namex.Trainer.generateARFF(Trainer.java:283)
+	at edu.odu.cs.cs350.namex.Librarian.main(Librarian.java:89)
+	at edu.odu.cs.cs350.namex.TestLibrarian.testMain(TestLibrarian.java:94)
+</error>
+  </testcase>
+  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testWeka" time="5.238" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testMarkClassificationTag" time="0.846">
     <failure message="expected:&lt;This &lt;ADJ&gt;small&lt;/ADJ&gt; paper was &lt;VERB&gt;written&lt;/VERB&gt; by &lt;NOUN&gt;Pythagoras&lt;/NOUN&gt;.&gt; but was:&lt;null&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;This &lt;ADJ&gt;small&lt;/ADJ&gt; paper was &lt;VERB&gt;written&lt;/VERB&gt; by &lt;NOUN&gt;Pythagoras&lt;/NOUN&gt;.&gt; but was:&lt;null&gt;
-	at edu.odu.cs.cs350.namex.TestLibrarian.testMarkClassificationTag(TestLibrarian.java:337)
+	at edu.odu.cs.cs350.namex.TestLibrarian.testMarkClassificationTag(TestLibrarian.java:327)
 </failure>
   </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testClassifyTokens" time="0.595" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testClassify" time="0.728" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testClassifyTokens" time="0.505" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testClassify" time="0.881" />
   <system-out><![CDATA[*******************************
  Generating ARFF Training Data
 *******************************
@@ -96,25 +103,6 @@
 Output FilePath: /home/gsilveri/git/Green3/data/arff/trainingData.arff
 
 Classifying Tokens from 19956 TextBlocks...
-
-*******************************
-      Evaluation Summary
-*******************************
-
-Correctly Classified Instances      214965               91.8022 %
-Incorrectly Classified Instances     19196                8.1978 %
-Kappa statistic                          0.5001
-Mean absolute error                      0.057 
-Root mean squared error                  0.1883
-Relative absolute error                 63.6573 %
-Root relative squared error             88.9614 %
-Total Number of Instances           234161     
-
-Created: /home/gsilveri/git/Green3/data/arff/trainingData.arff
-*******************************
- Saving Learning Machine to LearningMachine.model
-*******************************
-
 
 *******************************
       Evaluation Summary
@@ -565,23 +553,23 @@ Total Number of Instances           234161
        kill word:   0
 
 Hello <PER>John Smith</PER> this is <PER>Mr. Samuel L. Jackson, III</PER>
-"John,capitalized,other,1,0,0,1,1,1,1,1,0,0,0,0,beginning,3,",
 "Mr,capitalized,other,1,0,0,0,1,0,0,0,1,0,0,0,beginning,13,",
-"</PER>,other,other,0,0,0,0,0,0,0,0,0,0,0,0,other,6,",
-"Smith,capitalized,other,1,0,0,1,1,1,0,1,0,0,0,0,continuing,5,",
-",,punct,comma,0,0,0,0,0,0,0,0,0,0,0,0,other,22,",
-"L,capLetter,other,1,0,0,0,1,0,0,0,0,0,0,0,continuing,18,",
-"III,allCaps,other,1,0,0,0,1,0,0,0,0,0,0,0,continuing,24,",
-"Jackson,capitalized,other,1,0,0,1,1,1,1,1,0,0,0,0,continuing,21,",
-"is,other,other,1,0,0,0,1,0,0,0,0,0,0,0,other,10,",
-"<PER>,other,other,0,0,0,0,0,0,0,0,0,0,0,0,other,12,",
 ".,punct,period,0,0,0,0,0,0,0,0,0,0,0,0,other,14,",
-"</PER>,other,other,0,0,0,0,0,0,0,0,0,0,0,0,other,25,",
+"John,capitalized,other,1,0,0,1,1,1,1,1,0,0,0,0,beginning,3,",
 ".,punct,period,0,0,0,0,0,0,0,0,0,0,0,0,other,19,",
-"Hello,capitalized,other,1,0,0,0,0,0,0,0,0,0,0,0,other,0,",
 "<PER>,other,other,0,0,0,0,0,0,0,0,0,0,0,0,other,2,",
+"Smith,capitalized,other,1,0,0,1,1,1,0,1,0,0,0,0,continuing,5,",
+"Hello,capitalized,other,1,0,0,0,0,0,0,0,0,0,0,0,other,0,",
+"is,other,other,1,0,0,0,1,0,0,0,0,0,0,0,other,10,",
+",,punct,comma,0,0,0,0,0,0,0,0,0,0,0,0,other,22,",
+"<PER>,other,other,0,0,0,0,0,0,0,0,0,0,0,0,other,12,",
 "Samuel,capitalized,other,1,0,0,1,1,1,1,1,0,0,0,0,continuing,16,",
+"L,capLetter,other,1,0,0,0,1,0,0,0,0,0,0,0,continuing,18,",
+"</PER>,other,other,0,0,0,0,0,0,0,0,0,0,0,0,other,6,",
 "this,other,other,1,0,0,0,0,0,0,0,0,0,0,0,other,8,",
+"</PER>,other,other,0,0,0,0,0,0,0,0,0,0,0,0,other,25,",
+"Jackson,capitalized,other,1,0,0,1,1,1,1,1,0,0,0,0,continuing,21,",
+"III,allCaps,other,1,0,0,0,1,0,0,0,0,0,0,0,continuing,24,",
 
 *******************************
       Evaluation Summary
