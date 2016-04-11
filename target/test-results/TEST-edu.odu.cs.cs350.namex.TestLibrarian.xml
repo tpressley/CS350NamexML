@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="1" hostname="ubuntu" name="edu.odu.cs.cs350.namex.TestLibrarian" skipped="0" tests="8" time="14.424" timestamp="2016-04-11T06:28:17">
+<testsuite errors="0" failures="0" hostname="ubuntu" name="edu.odu.cs.cs350.namex.TestLibrarian" skipped="0" tests="8" time="15.57" timestamp="2016-04-11T06:54:45">
   <properties>
     <property name="java.vendor" value="Oracle Corporation" />
     <property name="sun.java.launcher" value="SUN_STANDARD" />
@@ -50,10 +50,10 @@
     <property name="java.vendor.url" value="http://java.oracle.com/" />
     <property name="java.vm.vendor" value="Oracle Corporation" />
     <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestLibrarian skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/gsilveri/git/Green3/target/test-results/TEST-edu.odu.cs.cs350.namex.TestLibrarian.xml crashfile=/home/gsilveri/git/Green3/junitvmwatcher5380128314473832560.properties propsfile=/home/gsilveri/git/Green3/junit5110461530543100761.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestLibrarian skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/gsilveri/git/Green3/target/test-results/TEST-edu.odu.cs.cs350.namex.TestLibrarian.xml crashfile=/home/gsilveri/git/Green3/junitvmwatcher4902628907027010084.properties propsfile=/home/gsilveri/git/Green3/junit3481933651065854675.properties" />
     <property name="java.class.path" value="/home/gsilveri/git/Green3/target/test-classes:/home/gsilveri/git/Green3/target/classes:/home/gsilveri/git/Green3/lib/extract-wordlists.jar:/home/gsilveri/git/Green3/lib/hamcrest-core.jar:/home/gsilveri/git/Green3/lib/java-cup.jar:/home/gsilveri/git/Green3/lib/junit-javadoc.jar:/home/gsilveri/git/Green3/lib/junit-sources.jar:/home/gsilveri/git/Green3/lib/junit.jar:/home/gsilveri/git/Green3/lib/weka-stable-javadoc.jar:/home/gsilveri/git/Green3/lib/weka-stable-sources.jar:/home/gsilveri/git/Green3/lib/weka-stable.jar:/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant-launcher.jar:/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant.jar:/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant-junit.jar:/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant-junit4.jar" />
     <property name="ant.version" value="Apache Ant(TM) version 1.9.4 compiled on April 29 2014" />
-    <property name="TSTAMP" value="2328" />
+    <property name="TSTAMP" value="2354" />
     <property name="ivy.install.version" value="2.3.0" />
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
     <property name="java.vm.specification.version" value="1.7" />
@@ -77,18 +77,14 @@
     <property name="java.specification.version" value="1.7" />
     <property name="ant.project.invoked-targets" value="build" />
   </properties>
-  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testSeparateNER" time="0.01" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testSeparateNER" time="0.008" />
   <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testPackage" time="0.0" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testMain" time="9.141" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testWeka" time="2.825" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testMarkClassificationTag" time="0.43">
-    <failure message="expected:&lt;This &lt;ADJ&gt;small&lt;/ADJ&gt; paper was &lt;VERB&gt;written&lt;/VERB&gt; by &lt;NOUN&gt;Pythagoras&lt;/NOUN&gt;.&gt; but was:&lt;null&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;This &lt;ADJ&gt;small&lt;/ADJ&gt; paper was &lt;VERB&gt;written&lt;/VERB&gt; by &lt;NOUN&gt;Pythagoras&lt;/NOUN&gt;.&gt; but was:&lt;null&gt;
-	at edu.odu.cs.cs350.namex.TestLibrarian.testMarkClassificationTag(TestLibrarian.java:334)
-</failure>
-  </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testGetLexicalFeature" time="0.604" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testClassifyToken" time="0.745" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testGetFeatures" time="0.566" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testMain" time="10.154" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testWeka" time="2.933" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testGetLexicalFeature" time="0.838" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testClassifyToken" time="0.795" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="identifyPlace" time="0.001" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testGetFeatures" time="0.741" />
   <system-out><![CDATA[*******************************
  Generating ARFF Training Data
 *******************************

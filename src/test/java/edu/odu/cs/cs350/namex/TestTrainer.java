@@ -15,12 +15,15 @@ import java.util.*;
 public class TestTrainer
 {
 	
+	// ********** USER STORIES UNDER DEVELOPMENT **********
+	
 	// User Story #1095
 	// Status - Implementation
 	// As a Trainer, I want Shingling applied either to lists of 
 	// tokens or to lists of feature sets.
 	@Test
 	public void testShingle() {
+		
 		// ********** Configurations **********
 
 		String ARFFFilePath = "/data/arff/trainingData.arff";
@@ -95,8 +98,12 @@ public class TestTrainer
 		System.out.println("Elapsed Time: " + elapsedTime + " seconds.");
 	}
 
+	// User Story #851 
+	// Status - Development
+	// As a Trainer, I want the program to properly prepare data
+	// to train the learning machine.
 	@Test
-	public void testGenerateShingleARFF() {
+	public void testPrepareShingleData() {
 		// ********** Configurations **************
 
 		String inputFilePath = "/data/training/trainingDataUnmarked.txt";
@@ -117,14 +124,30 @@ public class TestTrainer
 		outputFilePath = relativePath + "" + outputFilePath;
 		arffFilePath = relativePath + "" + arffFilePath;
 
-		trainer.generateShingleARFF(arffFilePath, k, inputFilePath, outputFilePath);
+		trainer.prepareShinglingData(arffFilePath, k, inputFilePath, outputFilePath);
 
 		long endTime = System.currentTimeMillis();
 		long elapsedTime = (endTime - startTime) / 1000;
 
 		System.out.println("Elapsed Time: " + elapsedTime + " seconds.");
 	}
+		
+	// User Story #858, #857
+	// Status - Development
+	// The total token count for any token should be equal
+	// to the number of times that token appears in the input
+	@Test
+	public void testGetTokenCount() {
+		Trainer trainer = new Trainer();
+		ArrayList<Token> tokenizedText = trainer.tokenize(
+				"<NER>\"Oh, no,\" she\'s saying, \"our $400 blender can\'t handle something this hard!\"</NER>");
 
+		assertEquals(3, trainer.getTokenCount(tokenizedText.get(2), tokenizedText));
+		assertFalse(trainer.getTokenCount(tokenizedText.get(2), tokenizedText) < 1);
+	}
+	
+	// ********** COMPLETED USER STORIES **********
+	
 	// User Story #851 
 	// Status - Completed
 	// As a Trainer, I want the program to properly prepare data
@@ -162,7 +185,7 @@ public class TestTrainer
 	}
 
 	// User Story #853
-	// Status: Complete
+	// Status: Completed
 	// As Trainer, I want to use existing data to train the learning machine
 	@Test
 	public void testTrainLM() {
@@ -210,33 +233,6 @@ public class TestTrainer
 		assertEquals(".", tokens.get(12).getLexeme());
 	}
 
-	/**
-	 * User story #858, #857 The total token count for any token should be equal
-	 * to the number of times that token appears in the input
-	 */
-
-	@Test
-	public void testGetTokenCount() {
-		Trainer trainer = new Trainer();
-		ArrayList<Token> tokenizedText = trainer.tokenize(
-				"<NER>\"Oh, no,\" she\'s saying, \"our $400 blender can\'t handle something this hard!\"</NER>");
-
-		assertEquals(3, trainer.getTokenCount(tokenizedText.get(2), tokenizedText));
-		assertFalse(trainer.getTokenCount(tokenizedText.get(2), tokenizedText) < 1);
-	}
-
-	// Tests the constructors
-	@Test
-	public void testTrainer() 
-	{
-		Trainer t1 = new Trainer();
-		assertTrue(t1.getLearningMachine() != null);
-		
-		// a learning machine with a k value of 3 should have 106 attributes
-		Trainer t2 = new Trainer(3);
-		assertTrue(t2.getLearningMachine().getNumberOfAttributes() == 106);
-	}
-
 	// User Story #849 - Completed
 	// Save trained learning machine in a file. (T)
 	// User Story #848 - Completed
@@ -273,4 +269,18 @@ public class TestTrainer
 		assertEquals(LM1.getSerialVersionUID(), LM2.getSerialVersionUID());
 	}
 
+	// ********** MISC TEST CASES **********
+	
+	// Tests the constructors
+	@Test
+	public void testTrainer() 
+	{
+		Trainer t1 = new Trainer();
+		assertTrue(t1.getLearningMachine() != null);
+		
+		// a learning machine with a k value of 3 should have 106 attributes
+		Trainer t2 = new Trainer(3);
+		assertTrue(t2.getLearningMachine().getNumberOfAttributes() == 106);
+	}
+	
 }
