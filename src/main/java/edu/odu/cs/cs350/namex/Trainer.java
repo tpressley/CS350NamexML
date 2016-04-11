@@ -885,8 +885,11 @@ public class Trainer {
 	public ArrayList<Token> tokenize(String textBlock) {
 
 		// split the string
-		String[] tks = textBlock.split("(?=[\" ,.!?\n()-:;@#$%^&*{}<>])|(?<=[\" ,.!?\n()-:;@#$%^&*{}<>])");
+		//String[] tks = textBlock.split("(?=[\" ,.!?\n()-:;@#$%^&*{}<>])|(?<=[\" ,.!?\n()-:;@#$%^&*{}<>])");
 
+		// new tokenize regex
+		String[] tks = textBlock.split("(?<=<NER>)|(?=</NER>)|(?<=<PER>)|(?=</PER>)|(?=[ ,.!()<:;}-])|(?<=[ (>{-])");
+		
 		ArrayList<Token> tokens = new ArrayList<Token>();
 
 		for (int i = 0; i < tks.length; i++) {
@@ -898,8 +901,11 @@ public class Trainer {
 
 	public ArrayList<Token> tokenize(String textBlock, boolean verbose) {
 		// split the string
-		String[] tks = textBlock.split("(?=[\" ,.!?\n()-:;@#$%^&*{}<>])|(?<=[\" ,.!?\n()-:;@#$%^&*{}<>])");
+		//String[] tks = textBlock.split("(?=[\" ,.!?\n()-:;@#$%^&*{}<>])|(?<=[\" ,.!?\n()-:;@#$%^&*{}<>])");
 
+		// new tokenize regex
+		String[] tks = textBlock.split("(?<=<NER>)|(?=</NER>)|(?<=<PER>)|(?=</PER>)|(?=[ ,.!()<:;}-])|(?<=[ (>{-])");
+		
 		ArrayList<Token> tokens = new ArrayList<Token>();
 
 		for (int i = 0; i < tks.length; i++) {

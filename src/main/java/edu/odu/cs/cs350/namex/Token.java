@@ -18,6 +18,7 @@ public class Token {
 	private int suffix;
 	private int killWord;
 	private String name;
+	private double[] distribution;
 
 	private int position;
 
@@ -37,6 +38,8 @@ public class Token {
 		this.prefix = 0;
 		this.suffix = 0;
 		this.killWord = 0;
+		this.name = "";
+		this.distribution = new double[1];
 	}
 
 	public Token(String lexeme) {
@@ -73,6 +76,8 @@ public class Token {
 			this.prefix = 0;
 			this.suffix = 0;
 			this.killWord = 0;
+			this.name = "";
+			this.distribution = new double[1];
 		}
 
 	}
@@ -94,6 +99,18 @@ public class Token {
 		this.suffix = 0;
 		this.killWord = 0;
 		this.position = position;
+		this.name = "";
+		this.distribution = new double[1];
+	}
+	
+	public double[] getDistribution()
+	{
+		return distribution;
+	}
+	
+	public void setDistribution(double[] distribution)
+	{
+		this.distribution = distribution;
 	}
 
 	public int getPosition() {
@@ -320,5 +337,25 @@ public class Token {
 
 		return output;
 
+	}
+	
+	public void printTokenData()
+	{
+		System.out.println("          lexeme:   " + lexeme);
+		System.out.println("  classification:   " + name);
+		System.out.println("         lexical:   " + lexical);
+
+		System.out.println("       beginning:   " + Math.round(distribution[0] * 100.00) + "%");
+		System.out.println("      continuing:   " + Math.round(distribution[1] * 100.00) + "%");
+		System.out.println("           other:   " + Math.round(distribution[2] * 100.00) + "%");
+		
+		System.out.println("      DTIC first:   " + DTICFirst);
+		System.out.println("       DTIC last:   " + DTICLast);
+		System.out.println("    common first:   " + commonFirst);
+		System.out.println("     common last:   " + commonLast);
+		System.out.println("       honorific:   " + honorific);
+		System.out.println("          prefix:   " + prefix);
+		System.out.println("          suffix:   " + suffix);
+		System.out.println("       kill word:   " + killWord + "\n");
 	}
 }

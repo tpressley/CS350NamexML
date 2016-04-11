@@ -18,7 +18,7 @@ public class TestTrainer {
 	public void testShingle() {
 		// ********** Configurations **********
 
-		String ARFFFilePath = "/data/arff/training_data_zeil.arff";
+		String ARFFFilePath = "/data/arff/trainingData.arff";
 		String shingleARFFFilePath = "/data/arff/shingling_training_k3_2.arff";
 		String input = "<NER>The George Washington University is where I will be attending in the fall.</NER>";
 		int k = 3; // the value of k needs to match the same value k as the
@@ -95,7 +95,7 @@ public class TestTrainer {
 
 		String inputFilePath = "/data/training/trainingDataUnmarked.txt";
 		String outputFilePath = "/data/arff/shingling_training_k3_2.arff";
-		String arffFilePath = "/data/arff/training_data_zeil.arff";
+		String arffFilePath = "/data/arff/trainingData.arff";
 
 		int k = 3;
 

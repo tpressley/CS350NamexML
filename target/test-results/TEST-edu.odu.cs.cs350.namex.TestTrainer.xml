@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="2" failures="2" hostname="ubuntu" name="edu.odu.cs.cs350.namex.TestTrainer" skipped="0" tests="8" time="43.477" timestamp="2016-04-10T18:36:02">
+<testsuite errors="2" failures="2" hostname="ubuntu" name="edu.odu.cs.cs350.namex.TestTrainer" skipped="0" tests="8" time="34.927" timestamp="2016-04-11T02:31:58">
   <properties>
     <property name="java.vendor" value="Oracle Corporation" />
     <property name="sun.java.launcher" value="SUN_STANDARD" />
@@ -50,10 +50,10 @@
     <property name="java.vendor.url" value="http://java.oracle.com/" />
     <property name="java.vm.vendor" value="Oracle Corporation" />
     <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestTrainer skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/gsilveri/git/Green3/target/test-results/TEST-edu.odu.cs.cs350.namex.TestTrainer.xml crashfile=/home/gsilveri/git/Green3/junitvmwatcher7568888308446313628.properties propsfile=/home/gsilveri/git/Green3/junit140575674530486275.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestTrainer skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/gsilveri/git/Green3/target/test-results/TEST-edu.odu.cs.cs350.namex.TestTrainer.xml crashfile=/home/gsilveri/git/Green3/junitvmwatcher2859082802808643090.properties propsfile=/home/gsilveri/git/Green3/junit9005510700014266394.properties" />
     <property name="java.class.path" value="/home/gsilveri/git/Green3/target/test-classes:/home/gsilveri/git/Green3/target/classes:/home/gsilveri/git/Green3/lib/extract-wordlists.jar:/home/gsilveri/git/Green3/lib/hamcrest-core.jar:/home/gsilveri/git/Green3/lib/java-cup.jar:/home/gsilveri/git/Green3/lib/junit-javadoc.jar:/home/gsilveri/git/Green3/lib/junit-sources.jar:/home/gsilveri/git/Green3/lib/junit.jar:/home/gsilveri/git/Green3/lib/weka-stable-javadoc.jar:/home/gsilveri/git/Green3/lib/weka-stable-sources.jar:/home/gsilveri/git/Green3/lib/weka-stable.jar:/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant-launcher.jar:/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant.jar:/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant-junit.jar:/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant-junit4.jar" />
     <property name="ant.version" value="Apache Ant(TM) version 1.9.4 compiled on April 29 2014" />
-    <property name="TSTAMP" value="1135" />
+    <property name="TSTAMP" value="1931" />
     <property name="ivy.install.version" value="2.3.0" />
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
     <property name="java.vm.specification.version" value="1.7" />
@@ -77,27 +77,27 @@
     <property name="java.specification.version" value="1.7" />
     <property name="ant.project.invoked-targets" value="build" />
   </properties>
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testGetTrainingData" time="0.033">
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testGetTrainingData" time="0.025">
     <error type="java.lang.NullPointerException">java.lang.NullPointerException
-	at edu.odu.cs.cs350.namex.Trainer.getTrainingData(Trainer.java:946)
+	at edu.odu.cs.cs350.namex.Trainer.getTrainingData(Trainer.java:878)
 	at edu.odu.cs.cs350.namex.TestTrainer.testGetTrainingData(TestTrainer.java:229)
 </error>
   </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testGenerateARFF" time="12.513" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTrainLM" time="0.031" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTrainer" time="0.002">
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testGenerateARFF" time="9.091" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTrainLM" time="0.027" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTrainer" time="0.001">
     <error type="java.lang.NullPointerException">java.lang.NullPointerException
-	at edu.odu.cs.cs350.namex.Trainer.getTrainingData(Trainer.java:946)
+	at edu.odu.cs.cs350.namex.Trainer.getTrainingData(Trainer.java:878)
 	at edu.odu.cs.cs350.namex.TestTrainer.testTrainer(TestTrainer.java:220)
 </error>
   </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTokenize" time="0.003">
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTokenize" time="0.002">
     <failure message="expected:&lt;[capitalized]&gt; but was:&lt;[other]&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;[capitalized]&gt; but was:&lt;[other]&gt;
 	at edu.odu.cs.cs350.namex.TestTrainer.testTokenize(TestTrainer.java:194)
 </failure>
   </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testGenerateShingleARFF" time="22.389" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testShingle" time="8.402" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testGenerateShingleARFF" time="18.735" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testShingle" time="6.91" />
   <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testGetTokenCount" time="0.001">
     <failure message="expected:&lt;3&gt; but was:&lt;1&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;3&gt; but was:&lt;1&gt;
 	at edu.odu.cs.cs350.namex.TestTrainer.testGetTokenCount(TestTrainer.java:210)
@@ -116,14 +116,14 @@ Classifying Tokens from 19956 TextBlocks...
       Evaluation Summary
 *******************************
 
-Correctly Classified Instances      255008               92.4843 %
-Incorrectly Classified Instances     20723                7.5157 %
-Kappa statistic                          0.4799
-Mean absolute error                      0.0612
-Root mean squared error                  0.1873
-Relative absolute error                 78.4824 %
-Root relative squared error             94.8368 %
-Total Number of Instances           275731     
+Correctly Classified Instances      214965               91.8022 %
+Incorrectly Classified Instances     19196                8.1978 %
+Kappa statistic                          0.5001
+Mean absolute error                      0.057 
+Root mean squared error                  0.1883
+Relative absolute error                 63.6573 %
+Root relative squared error             88.9614 %
+Total Number of Instances           234161     
 
 Created: /home/gsilveri/git/Green3/data/arff/trainingData.arff
 
@@ -133,30 +133,30 @@ Shingling 19956 TextBlocks...
       Evaluation Summary
 *******************************
 
-Correctly Classified Instances      104310               92.4161 %
-Incorrectly Classified Instances      8560                7.5839 %
-Kappa statistic                          0.6135
-Mean absolute error                      0.081 
-Root mean squared error                  0.2494
-Relative absolute error                 50.2484 %
-Root relative squared error             87.8415 %
-Total Number of Instances           112870     
+Correctly Classified Instances      102047               92.5496 %
+Incorrectly Classified Instances      8215                7.4504 %
+Kappa statistic                          0.6169
+Mean absolute error                      0.0802
+Root mean squared error                  0.2489
+Relative absolute error                 51.1711 %
+Root relative squared error             88.9556 %
+Total Number of Instances           110262     
 
 Created: /home/gsilveri/git/Green3/data/arff/shingling_training_k3_2.arff
-Elapsed Time: 22 seconds.
+Elapsed Time: 18 seconds.
 
 *******************************
       Evaluation Summary
 *******************************
 
-Correctly Classified Instances      104310               92.4161 %
-Incorrectly Classified Instances      8560                7.5839 %
-Kappa statistic                          0.6135
-Mean absolute error                      0.081 
-Root mean squared error                  0.2494
-Relative absolute error                 50.2484 %
-Root relative squared error             87.8415 %
-Total Number of Instances           112870     
+Correctly Classified Instances      102047               92.5496 %
+Incorrectly Classified Instances      8215                7.4504 %
+Kappa statistic                          0.6169
+Mean absolute error                      0.0802
+Root mean squared error                  0.2489
+Relative absolute error                 51.1711 %
+Root relative squared error             88.9556 %
+Total Number of Instances           110262     
 
          Lexemes:   null null null The George Washington University 
  Classifications:   other other other continuing beginning beginning other 
@@ -183,65 +183,66 @@ Total Number of Instances           112870
               No:   0%
 
          Lexemes:   George Washington University is where I will 
- Classifications:   beginning beginning other other other continuing beginning 
+ Classifications:   beginning beginning other other other continuing other 
    Contains Name:   yes
              Yes:   100%
               No:   0%
 
          Lexemes:   Washington University is where I will be 
- Classifications:   beginning other other other continuing beginning other 
+ Classifications:   beginning other other other continuing other other 
    Contains Name:   yes
-             Yes:   99%
-              No:   1%
+             Yes:   75%
+              No:   25%
 
          Lexemes:   University is where I will be attending 
- Classifications:   other other other continuing beginning other other 
-   Contains Name:   no
-             Yes:   17%
-              No:   83%
-
-         Lexemes:   is where I will be attending in 
- Classifications:   other other continuing beginning other other beginning 
-   Contains Name:   yes
-             Yes:   98%
-              No:   2%
-
-         Lexemes:   where I will be attending in the 
- Classifications:   other continuing beginning other other beginning other 
-   Contains Name:   yes
-             Yes:   97%
-              No:   3%
-
-         Lexemes:   I will be attending in the fall 
- Classifications:   continuing beginning other other beginning other other 
-   Contains Name:   yes
-             Yes:   98%
-              No:   2%
-
-         Lexemes:   will be attending in the fall . 
- Classifications:   beginning other other beginning other other other 
-   Contains Name:   yes
-             Yes:   80%
-              No:   20%
-
-         Lexemes:   be attending in the fall . null 
- Classifications:   other other beginning other other other other 
-   Contains Name:   no
-             Yes:   4%
-              No:   96%
-
-         Lexemes:   attending in the fall . null null 
- Classifications:   other beginning other other other other other 
+ Classifications:   other other other continuing other other other 
    Contains Name:   no
              Yes:   1%
               No:   99%
 
+         Lexemes:   is where I will be attending in 
+ Classifications:   other other continuing other other other beginning 
+   Contains Name:   yes
+             Yes:   59%
+              No:   41%
+
+         Lexemes:   where I will be attending in the 
+ Classifications:   other continuing other other other beginning other 
+   Contains Name:   no
+             Yes:   37%
+              No:   63%
+
+         Lexemes:   I will be attending in the fall 
+ Classifications:   continuing other other other beginning other other 
+   Contains Name:   yes
+             Yes:   51%
+              No:   49%
+
+         Lexemes:   will be attending in the fall . 
+ Classifications:   other other other beginning other other other 
+   Contains Name:   no
+             Yes:   9%
+              No:   91%
+
+         Lexemes:   be attending in the fall . null 
+ Classifications:   other other beginning other other other other 
+   Contains Name:   no
+             Yes:   1%
+              No:   99%
+
+         Lexemes:   attending in the fall . null null 
+ Classifications:   other beginning other other other other other 
+   Contains Name:   no
+             Yes:   0%
+              No:   100%
+
          Lexemes:   in the fall . null null null 
  Classifications:   beginning other other other other other other 
    Contains Name:   no
-             Yes:   2%
-              No:   98%
+             Yes:   1%
+              No:   99%
 
+Elapsed Time: 6 seconds.
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

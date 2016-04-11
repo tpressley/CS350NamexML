@@ -30,13 +30,12 @@ public class TestLibrarian {
 	public void testWeka() {
 		// ********** Configurations **************
 
-		String arffFilePath = "/data/arff/training_data_zeil.arff"; // actual
+		String arffFilePath = "/data/arff/trainingData.arff"; // actual
 																	// training
 																	// data
-		String input = "This is John Smith. Say hello to Mr. Sameul L. Jackson, III";
+		String input = "Good afternoon, this is John Smith. I will be attending George Washington University next year. Say hello to Mr. Samuel L. Jackson, III";
 		boolean printEvaluationSummary = true;
 		boolean showClassification = true;
-		boolean showDistribution = true;
 
 		// ********** End Configurations **********
 
@@ -60,20 +59,14 @@ public class TestLibrarian {
 			for (Token t : testTokens) {
 				t = librarian.classifyToken(t);
 
-				if (t.getLexical() != "whiteSpace") {
-					if (showClassification == true) {
-						System.out.println("lexeme:           " + t.getLexeme());
-						System.out.println("classification:   " + trainer.classify(t.toString()));
+				if (t.getLexical() != "whiteSpace") 
+				{
+					t.setName(trainer.classify(t.toString()));
+					t.setDistribution(trainer.getDistribution(t.toString()));
 
-						if (showDistribution == false) {
-							System.out.println();
-						}
-					}
-					if (showDistribution == true) {
-						double[] distribution = trainer.getDistribution(t.toString());
-						System.out.println("beginning:        " + Math.round(distribution[0] * 100.00) + "%");
-						System.out.println("continuing:       " + Math.round(distribution[1] * 100.00) + "%");
-						System.out.println("other:            " + Math.round(distribution[2] * 100.00) + "%\n");
+					if (showClassification == true) 
+					{
+						t.printTokenData();
 					}
 				}
 			}
@@ -82,7 +75,7 @@ public class TestLibrarian {
 			e.printStackTrace();
 		}
 	}
-
+	
 	// User Story #844 - Gerard Silverio
 	// As a Librarian/application developer, I want a program that will
 	// accept standard input from command line interface

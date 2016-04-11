@@ -244,15 +244,109 @@ public class Librarian {
 
 	// classify Tokens as either beginning, continuing, or other for names
 	// between <PER></PER>
-	public HashSet<Token> classifyTokens(ArrayList<Token> tokens) {
+	public HashSet<Token> classifyTokens(ArrayList<Token> tokens) 
+	{
 		boolean isPartOfName = false;
-		boolean classifiedNameBeginning = false;
+		boolean taggedBeginning = false;
 
 		HashSet<Token> arffTokens = new HashSet<Token>();
+		HashSet<Token> beginningTokens = new HashSet<Token>();
 
-		for (Token token : tokens) {
-			token = classifyToken(token);
+		for (int i = 0; i < tokens.size(); i++) 
+		{
+			tokens.get(i).setName(classifyToken(tokens.get(i)).getName());
 
+			if (tokens.get(i).getLexical().equals("whiteSpace"))
+			{
+				tokens.get(i).setName("other");
+			}
+			else
+			{
+				if (tokens.get(i).getLexeme().equals("<PER>"))
+				{
+					isPartOfName = true;
+					tokens.get(i).setName("other");
+				}
+				else if (tokens.get(i).getLexeme().equals("</PER>"))
+				{
+					isPartOfName = false;
+					taggedBeginning = false;
+					tokens.get(i).setName("other");
+				}
+				if (isPartOfName == true)
+				{
+					if (tokens.get(i).getLexical().equals("capitalized") 
+							|| tokens.get(i).getLexical().equals("capLetter") 
+							|| tokens.get(i).getLexical().equals("allCaps"))
+					{
+						if (taggedBeginning == false)
+						{
+							if ((i + 1) >= tokens.size())
+							{
+								if (tokens.get(i + 1).getPartOfSpeech().equals("comma"))
+								{
+									tokens.get(i).setName("continuing");
+									break;
+								}
+							}
+							else
+							{
+								tokens.get(i).setName("beginning");		
+								taggedBeginning = true;
+							}
+						}
+						else if (taggedBeginning == true)
+						{
+							if (tokens.get(i).isHonorific() == 1)
+							{
+								tokens.get(i).setName("beginning");	
+							}
+							else if (tokens.get(i).isSuffix() == 1)
+							{
+								tokens.get(i).setName("continuing");												
+							}
+							else
+							{
+								tokens.get(i).setName("continuing");
+							}
+						}
+					}
+					else if (tokens.get(i).isPrefix() == 1)
+					{
+						tokens.get(i).setName("continuing");						
+						beginningTokens.add(tokens.get(i));
+					}
+					else if (tokens.get(i).isHonorific() == 1)
+					{
+						tokens.get(i).setName("continuing");						
+						beginningTokens.add(tokens.get(i));
+					}
+					else
+					{
+						tokens.get(i).setName("other");
+					}
+				}
+				else
+				{
+					tokens.get(i).setName("other");
+				}
+				
+				arffTokens.add(tokens.get(i));
+				//System.out.println(token.getARFF());
+			}
+
+			for (Token t : arffTokens)
+			{
+				if (!t.getName().equals("beginning")
+						&& !t.getName().equals("continuing")
+						&& !t.getName().equals("other"))
+				{
+					//System.out.println(t.getLexeme() + " " + t.toStringQuotes());
+					System.out.println(t.getLexeme());
+				}
+			}
+			
+			/*
 			if (token.getLexical().equals("whiteSpace") || token.getLexeme().equals("")
 					|| token.getLexeme().equals(" ")) {
 				token.setName("other");
@@ -264,9 +358,6 @@ public class Librarian {
 				arffTokens.add(token);
 			} else {
 				if (token.getLexeme().equals("PER")) {
-					// System.out.println(token.getLexeme());
-					// System.out.println(tokens.get((token.getPosition() -
-					// 1)).getLexeme());
 					// if the previous token was a '/', then this current token
 					// is the closing PER tag
 					if (tokens.get((token.getPosition() - 1)).getLexeme().equals("/")) {
@@ -294,14 +385,13 @@ public class Librarian {
 						arffTokens.add(token);
 					}
 				}
-				// token.setName("Classified");
 			}
+			*/
 		}
 		// System.out.println(token.toStringQuotes());
 
 		return arffTokens;
 	}
-
 	// returns the Lexical attribute for a given token
 	public String getLexicalFeature(String token) {
 		// ArrayList of puncts
