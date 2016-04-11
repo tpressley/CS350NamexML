@@ -6,7 +6,6 @@ import java.io.FileNotFoundException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.HashSet;
 import org.junit.Test;
 
 import edu.odu.cs.cs350.namex.Librarian;
@@ -31,6 +30,7 @@ public class TestLibrarian {
 
 		Librarian librarian = new Librarian();
 		Trainer trainer = new Trainer();
+		LearningMachine learningMachine = new LearningMachine();
 
 		Path currentRelativePath = Paths.get("");
 		String relativePath = currentRelativePath.toAbsolutePath().toString();
@@ -39,20 +39,20 @@ public class TestLibrarian {
 		ArrayList<Token> testTokens = trainer.tokenize(input);
 
 		try {
-			trainer.importARFF(arffFilePath);
-			trainer.trainLM();
+			learningMachine.importARFF(arffFilePath);
+			learningMachine.train();
 
 			if (printEvaluationSummary == true) {
-				trainer.printEvaluationSummary();
+				learningMachine.printEvaluationSummary();
 			}
 
 			for (Token t : testTokens) {
-				t = librarian.classifyToken(t);
+				t = librarian.getFeatures(t);
 
 				if (t.getLexical() != "whiteSpace") 
 				{
-					t.setName(trainer.classify(t.toString()));
-					t.setDistribution(trainer.getDistribution(t.toString()));
+					t.setName(learningMachine.classify(t.toString()));
+					t.setDistribution(learningMachine.getDistribution(t.toString()));
 
 					if (showClassification == true) 
 					{
@@ -94,7 +94,7 @@ public class TestLibrarian {
 		Librarian.main(new String[] { "train", inputFilePath, outputFilePath });
 	}
 
-	// User Story #861 - Gerard Silverio
+	// User Story #861
 	// Status: Complete
 	// As a Librarian/application developer I want to use Command line to
 	// process each block of text separately via the personal name extractor
@@ -113,9 +113,10 @@ public class TestLibrarian {
 	// As a Librarian, I want the PNE to use a learning machine to
 	// classify tokens within the input.
 	@Test
-	public void testClassify() {
+	public void testGetFeatures() {
 		Librarian librarian = new Librarian();
 		Trainer trainer = new Trainer();
+		LearningMachine learningMachine = new LearningMachine();
 
 		// Change to test_training_data to make building the project faster
 		String arffFilePath = "/data/arff/test_training_data.arff";
@@ -131,20 +132,20 @@ public class TestLibrarian {
 		ArrayList<Token> testTokens = trainer.tokenize(input);
 
 		try {
-			trainer.importARFF(arffFilePath);
-			trainer.trainLM();
-			trainer.printEvaluationSummary();
+			learningMachine.importARFF(arffFilePath);
+			learningMachine.train();
+			learningMachine.printEvaluationSummary();
 
 			for (Token t : testTokens) {
-				t = librarian.classifyToken(t);
+				t = librarian.getFeatures(t);
 
 				if (t.getLexical() != "whiteSpace") {
 					if (t.getLexical() == "capitalized") {
 						// Since all of the capitalized values in the test input
 						// are parts of names, they should all be classified as
 						// either 'beginning' or 'continuing'
-						assertTrue("beginning" == trainer.classify(t.toString())
-								|| "continuing" == trainer.classify(t.toString()));
+						assertTrue("beginning" == learningMachine.classify(t.toString())
+								|| "continuing" == learningMachine.classify(t.toString()));
 
 					}
 
@@ -168,34 +169,40 @@ public class TestLibrarian {
 		}
 	}
 
+	// User Story #856
+	// Status - Completed
+	// Dictionary features identified correctly (L)
+	// User Story #854
+	// Status - Completed
+	// Misc features (honorifics, kill words, etc) identified correctly. (L)
 	@Test
-	public void testClassifyTokens() {
-		Librarian l = new Librarian();
-		Trainer trainer = new Trainer();
-
-		// System.out.println(l.isCommonLastName("Smith"));
-
-		String input = "<NER>Hello <PER>John Smith</PER> this is <PER>Mr. Samuel L. Jackson, III</PER></NER>";
-
-		ArrayList<TextBlock> textBlocks = Librarian.separateNER(input);
-
-		for (TextBlock textBlock : textBlocks) {
-			System.out.println(textBlock.getTextBlock());
-
-			ArrayList<Token> tokens = trainer.tokenize(textBlock.getTextBlock());
-
-			/*
-			 * for (Token token : tokens) { token = l.classifyToken(token);
-			 * System.out.println(token.toStringQuotes()); }
-			 */
-
-			HashSet<Token> classifiedTokens = l.classifyTokens(tokens);
-
-			for (Token token : classifiedTokens) {
-				System.out.println(token.toStringQuotes());
-			}
-		}
-
+	public void testClassifyToken() 
+	{
+		Librarian librarian = new Librarian();
+		
+		Token token = new Token("Samuel");
+		token = librarian.getFeatures(token);
+		
+		assertEquals("capitalized,other,1,0,0,1,1,1,1,1,0,0,0,0", token.toString());
+	}
+	
+	// User Story #1094
+	// Status - Completed
+	// As a librarian, I want Token Lexical features to be identified correctly.
+	@Test
+	public void testGetLexicalFeature()
+	{
+		Librarian librarian = new Librarian();
+		
+		Token t1 = new Token("Samuel");
+		Token t2 = new Token("SAMUEL");
+		Token t3 = new Token(".");
+		Token t4 = new Token("S");
+		
+		assertEquals("capitalized", librarian.getLexicalFeature(t1.getLexeme()));
+		assertEquals("allCaps", librarian.getLexicalFeature(t2.getLexeme()));
+		assertEquals("punct", librarian.getLexicalFeature(t3.getLexeme()));
+		assertEquals("capLetter", librarian.getLexicalFeature(t4.getLexeme()));
 	}
 
 	// PNE packaged for deployment in fat jar (A)

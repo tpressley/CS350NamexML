@@ -1,6 +1,6 @@
 package edu.odu.cs.cs350.namex;
 
-//import weka.core.Instances;
+import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -12,8 +12,13 @@ import edu.odu.cs.cs350.namex.Trainer;
 
 import java.util.*;
 
-public class TestTrainer {
-
+public class TestTrainer
+{
+	
+	// User Story #1095
+	// Status - Implementation
+	// As a Trainer, I want Shingling applied either to lists of 
+	// tokens or to lists of feature sets.
 	@Test
 	public void testShingle() {
 		// ********** Configurations **********
@@ -35,22 +40,23 @@ public class TestTrainer {
 		shingleARFFFilePath = relativePath + "" + shingleARFFFilePath;
 
 		Librarian librarian = new Librarian();
-
-		// Trainer for Token Classification
 		Trainer trainer = new Trainer();
 
+		// Trainer for Token Classification
+		LearningMachine learningMachine = new LearningMachine();
+
 		// Trainer for Shingle Classification
-		Trainer shingleTrainer = new Trainer(k);
+		LearningMachine shingleLearningMachine = new LearningMachine(k);
 
 		try {
-			trainer.importARFF(ARFFFilePath);
-			trainer.trainLM();
+			learningMachine.importARFF(ARFFFilePath);
+			learningMachine.train();
 			// trainer.printEvaluationSummary();
 			// trainer.printARFF();
 
-			shingleTrainer.importARFF(shingleARFFFilePath);
-			shingleTrainer.trainLM();
-			shingleTrainer.printEvaluationSummary();
+			shingleLearningMachine.importARFF(shingleARFFFilePath);
+			shingleLearningMachine.train();
+			shingleLearningMachine.printEvaluationSummary();
 			// System.out.println("# of Attributes: " +
 			// shingleTrainer.getNumberOfAttributes());
 
@@ -60,20 +66,20 @@ public class TestTrainer {
 				ArrayList<Token> classifiedTks = new ArrayList<Token>();
 
 				for (Token t : tks) {
-					t = librarian.classifyToken(t);
+					t = librarian.getFeatures(t);
 
 					if (!t.getLexical().equals("whiteSpace")) {
-						t.setName(trainer.classify(t.getARFF()));
+						t.setName(learningMachine.classify(t.getARFF()));
 						classifiedTks.add(t);
 						// System.out.print(t.getLexeme() + " ");
 					}
 				}
 
-				ArrayList<Shingle> shingles = shingleTrainer.getShingles(k, classifiedTks, "");
+				ArrayList<Shingle> shingles = trainer.getShingles(k, classifiedTks, "");
 
 				for (Shingle s : shingles) {
-					s.setContainsName(shingleTrainer.classifyShingle(s.getArffData()));
-					s.setDistribution(shingleTrainer.getShingleDistribution(s.getArffData()));
+					s.setContainsName(shingleLearningMachine.classifyShingle(s.getArffData()));
+					s.setDistribution(shingleLearningMachine.getShingleDistribution(s.getArffData()));
 					s.printShingle();
 				}
 
@@ -103,7 +109,7 @@ public class TestTrainer {
 
 		long startTime = System.currentTimeMillis();
 
-		Trainer trainer = new Trainer(k);
+		Trainer trainer = new Trainer();
 
 		Path currentRelativePath = Paths.get("");
 		String relativePath = currentRelativePath.toAbsolutePath().toString();
@@ -119,21 +125,24 @@ public class TestTrainer {
 		System.out.println("Elapsed Time: " + elapsedTime + " seconds.");
 	}
 
-	// Generates an .arff file from a .txt file containing names tagged between
-	// <PER> tags
+	// User Story #851 
+	// Status - Completed
+	// As a Trainer, I want the program to properly prepare data
+	// to train the learning machine.
 	@Test
-	public void testGenerateARFF() {
+	public void testPrepareData() 
+	{
 		// ********** Configurations **************
 
-		String trainingDataFilePath = "/data/training/trainingData.txt";
-		String arffFilePath = "/data/arff/trainingData.arff";
+		String inputFilePath = "/data/training/trainingData.txt";
+		String outputFilePath = "/data/arff/trainingData.arff";
 
 		// ********** End Configurations **********
 
 		Path currentRelativePath = Paths.get("");
 		String relativePath = currentRelativePath.toAbsolutePath().toString();
-		trainingDataFilePath = relativePath + "" + trainingDataFilePath;
-		arffFilePath = relativePath + "" + arffFilePath;
+		inputFilePath = relativePath + "" + inputFilePath;
+		outputFilePath = relativePath + "" + outputFilePath;
 
 		Trainer trainer = new Trainer();
 
@@ -141,10 +150,15 @@ public class TestTrainer {
 		System.out.println(" Generating ARFF Training Data");
 		System.out.println("*******************************\n");
 
-		System.out.println(" Input FilePath: " + trainingDataFilePath);
-		System.out.println("Output FilePath: " + arffFilePath);
+		System.out.println(" Input FilePath: " + inputFilePath);
+		System.out.println("Output FilePath: " + outputFilePath);
 
-		trainer.generateARFF(trainingDataFilePath, arffFilePath);
+		trainer.prepareData(inputFilePath, outputFilePath, true);
+		
+		// check if the output .arff file exists
+		File file = new File(outputFilePath);
+		System.out.println(file.exists());
+		assertTrue(file.exists());
 	}
 
 	// User Story #853
@@ -157,16 +171,13 @@ public class TestTrainer {
 		Path currentRelativePath = Paths.get("");
 		String relativePath = currentRelativePath.toAbsolutePath().toString();
 		arffFilePath = relativePath + "" + arffFilePath;
-
+		
 		Trainer trainer = new Trainer();
 
-		try {
-			trainer.importARFF(arffFilePath);
-			trainer.trainLM();
-
-			// trainer.printEvaluationSummary();
-			// System.out.println(trainer.getTrainingInstances().numInstances());
-			assertEquals(24, trainer.getTrainingInstances().numInstances());
+		try 
+		{
+			trainer.trainLM(arffFilePath);
+			assertEquals(24, trainer.getLearningMachine().getTrainingInstances().numInstances());
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -180,20 +191,23 @@ public class TestTrainer {
 	 * #847 As a Trainer I want the PNE to convert tokens into a set of symbols
 	 * and identifiers
 	 */
+	// User Story #860
+	// Status - Completed
+	// Text blocks divided into tokens, with punctuation separate from alphabetics (T)
 	@Test
-	public void testTokenize() {
+	public void testTokenize() 
+	{
 		Trainer trainer = new Trainer();
-		Token token = new Token();
-
-		token.setLexeme("Oh");
-		token.setPartOfSpeech("other");
-		token.setLexical("capitalized");
-		token.setKillWord(0);
-		ArrayList<Token> tokenList = trainer.tokenize(
-				"<NER>\"Oh, no,\" she\'s saying, \"our $400 blender can\'t handle something this hard!\"</NER>");
-		assertEquals("capitalized", tokenList.get(1).getLexical());
-		assertFalse("verb" == tokenList.get(1).getPartOfSpeech());
-		assertTrue(trainer.getTokenCount(tokenList.get(0), tokenList) < 1);
+		
+		String input = "Hello World! This is John Smith.";
+		
+		ArrayList<Token> tokens = trainer.tokenize(input);
+		
+		assertEquals("Hello", tokens.get(0).getLexeme());
+		assertEquals("World", tokens.get(2).getLexeme());
+		assertEquals("!", tokens.get(3).getLexeme());
+		assertEquals("Smith", tokens.get(11).getLexeme());
+		assertEquals(".", tokens.get(12).getLexeme());
 	}
 
 	/**
@@ -211,40 +225,52 @@ public class TestTrainer {
 		assertFalse(trainer.getTokenCount(tokenizedText.get(2), tokenizedText) < 1);
 	}
 
-	/**
-	 * The trainer should probably collect training materials upon creation
-	 */
+	// Tests the constructors
 	@Test
-	public void testTrainer() {
+	public void testTrainer() 
+	{
+		Trainer t1 = new Trainer();
+		assertTrue(t1.getLearningMachine() != null);
+		
+		// a learning machine with a k value of 3 should have 106 attributes
+		Trainer t2 = new Trainer(3);
+		assertTrue(t2.getLearningMachine().getNumberOfAttributes() == 106);
+	}
+
+	// User Story #849 - Completed
+	// Save trained learning machine in a file. (T)
+	// User Story #848 - Completed
+	// Load trained machine into the extractor (L,T)
+	@Test
+	public void testSaveLoadLM() throws Exception 
+	{
+		// ********** Configurations **************
+
+		String learningMachineFileName = "lm_1";
+		
+		String arffFilePath = "/data/arff/trainingData.arff";
+
+		// ********** End Configurations **********
+		
 		Trainer trainer = new Trainer();
-		assertTrue(trainer.getTrainingData() != null);
-	}
 
-	// User Story #851 As a Trainer, I want the program to properly prepare data
-	// to train the learning machine.
-	@Test
-	public void testGetTrainingData() {
-
-		Trainer t1 = new Trainer();
-		assertTrue(t1.getTrainingData() != null);
-
-		Trainer t2 = new Trainer();
-		assertTrue(t2.getTrainingData() != null);
-
-		//String in = "this is a test.";
-
-		// assertEquals(t1.prepareData(in), t2.prepareData(in));
-	}
-
-	public void testSaveLoadLM() throws Exception {
-		Trainer t1 = new Trainer();
-		Trainer t2 = new Trainer();
-		// t2.prepareData("<NER>\"Oh, no,\" she\'s saying, \"a $400 blender
-		// can\'t handle something this hard!\"</NER>");
-		t2.SaveClassifier();
-		t1.LoadClassifier();
-		assertEquals(t1, t2);
-
+		Path currentRelativePath = Paths.get("");
+		String relativePath = currentRelativePath.toAbsolutePath().toString();
+		String filePath = relativePath + "/learning_machines/" + learningMachineFileName;
+		arffFilePath = relativePath + "" + arffFilePath;
+		
+		LearningMachine LM1 = new LearningMachine();
+		LM1.importARFF(arffFilePath);
+		LM1.train();
+		LM1.printEvaluationSummary();
+		trainer.setLearningMachine(LM1);
+		//trainer.saveLearningMachine(filePath);
+		
+		LearningMachine LM2 = Trainer.loadLearningMachine(filePath);
+		LM2.train();
+		//LM2.printEvaluationSummary();
+		
+		assertEquals(LM1.getSerialVersionUID(), LM2.getSerialVersionUID());
 	}
 
 }

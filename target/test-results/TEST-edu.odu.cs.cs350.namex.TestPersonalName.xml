@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="ubuntu" name="edu.odu.cs.cs350.namex.TestPersonalName" skipped="0" tests="8" time="0.079" timestamp="2016-04-11T03:05:39">
+<testsuite errors="0" failures="0" hostname="ubuntu" name="edu.odu.cs.cs350.namex.TestPersonalName" skipped="0" tests="8" time="0.103" timestamp="2016-04-11T06:28:32">
   <properties>
     <property name="java.vendor" value="Oracle Corporation" />
     <property name="sun.java.launcher" value="SUN_STANDARD" />
@@ -50,10 +50,10 @@
     <property name="java.vendor.url" value="http://java.oracle.com/" />
     <property name="java.vm.vendor" value="Oracle Corporation" />
     <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestPersonalName skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/gsilveri/git/Green3/target/test-results/TEST-edu.odu.cs.cs350.namex.TestPersonalName.xml crashfile=/home/gsilveri/git/Green3/junitvmwatcher4579139265017858263.properties propsfile=/home/gsilveri/git/Green3/junit9102428732968601941.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestPersonalName skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/gsilveri/git/Green3/target/test-results/TEST-edu.odu.cs.cs350.namex.TestPersonalName.xml crashfile=/home/gsilveri/git/Green3/junitvmwatcher531297357404500323.properties propsfile=/home/gsilveri/git/Green3/junit1842141134785688177.properties" />
     <property name="java.class.path" value="/home/gsilveri/git/Green3/target/test-classes:/home/gsilveri/git/Green3/target/classes:/home/gsilveri/git/Green3/lib/extract-wordlists.jar:/home/gsilveri/git/Green3/lib/hamcrest-core.jar:/home/gsilveri/git/Green3/lib/java-cup.jar:/home/gsilveri/git/Green3/lib/junit-javadoc.jar:/home/gsilveri/git/Green3/lib/junit-sources.jar:/home/gsilveri/git/Green3/lib/junit.jar:/home/gsilveri/git/Green3/lib/weka-stable-javadoc.jar:/home/gsilveri/git/Green3/lib/weka-stable-sources.jar:/home/gsilveri/git/Green3/lib/weka-stable.jar:/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant-launcher.jar:/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant.jar:/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant-junit.jar:/home/gsilveri/Desktop/eclipse/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant-junit4.jar" />
     <property name="ant.version" value="Apache Ant(TM) version 1.9.4 compiled on April 29 2014" />
-    <property name="TSTAMP" value="2005" />
+    <property name="TSTAMP" value="2328" />
     <property name="ivy.install.version" value="2.3.0" />
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
     <property name="java.vm.specification.version" value="1.7" />
@@ -77,10 +77,10 @@
     <property name="java.specification.version" value="1.7" />
     <property name="ant.project.invoked-targets" value="build" />
   </properties>
-  <testcase classname="edu.odu.cs.cs350.namex.TestPersonalName" name="testGetGivenName" time="0.002" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestPersonalName" name="testGetSurName" time="0.0" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestPersonalName" name="testGetMiddleNames" time="0.0" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestPersonalName" name="testPersonalNameString" time="0.0" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestPersonalName" name="testGetGivenName" time="0.003" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestPersonalName" name="testGetSurName" time="0.001" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestPersonalName" name="testGetMiddleNames" time="0.001" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestPersonalName" name="testPersonalNameString" time="0.001" />
   <testcase classname="edu.odu.cs.cs350.namex.TestPersonalName" name="testGetName" time="0.001" />
   <testcase classname="edu.odu.cs.cs350.namex.TestPersonalName" name="testGetHonorific" time="0.0" />
   <testcase classname="edu.odu.cs.cs350.namex.TestPersonalName" name="testPersonalName" time="0.001" />

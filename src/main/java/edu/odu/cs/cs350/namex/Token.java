@@ -290,6 +290,9 @@ public class Token {
 
 	}
 
+	// User Story #850
+	// Status - Completed
+	// Tokens converted into a set of features (T)
 	public String toString() {
 
 		StringBuilder sb = new StringBuilder();
@@ -341,21 +344,26 @@ public class Token {
 	
 	public void printTokenData()
 	{
-		System.out.println("          lexeme:   " + lexeme);
-		System.out.println("  classification:   " + name);
-		System.out.println("         lexical:   " + lexical);
-
-		System.out.println("       beginning:   " + Math.round(distribution[0] * 100.00) + "%");
-		System.out.println("      continuing:   " + Math.round(distribution[1] * 100.00) + "%");
-		System.out.println("           other:   " + Math.round(distribution[2] * 100.00) + "%");
+		System.out.println("            lexeme:   " + lexeme);
+		System.out.println("    classification:   " + name);
 		
-		System.out.println("      DTIC first:   " + DTICFirst);
-		System.out.println("       DTIC last:   " + DTICLast);
-		System.out.println("    common first:   " + commonFirst);
-		System.out.println("     common last:   " + commonLast);
-		System.out.println("       honorific:   " + honorific);
-		System.out.println("          prefix:   " + prefix);
-		System.out.println("          suffix:   " + suffix);
-		System.out.println("       kill word:   " + killWord + "\n");
+		System.out.println("         beginning:   " + Math.round(distribution[0] * 100.00) + "%");
+		System.out.println("        continuing:   " + Math.round(distribution[1] * 100.00) + "%");
+		System.out.println("             other:   " + Math.round(distribution[2] * 100.00) + "%");
+		
+		System.out.println("           lexical:   " + lexical);
+		System.out.println("    part of speech:   " + partOfSpeech);
+		System.out.println("   dictionary word:   " + dictionaryWord);
+		System.out.println("        city/state:   " + cityState);
+		System.out.println(" country/territory:   " + countryTerritory);
+		System.out.println("             place:   " + place);
+		System.out.println("        DTIC first:   " + DTICFirst);
+		System.out.println("         DTIC last:   " + DTICLast);
+		System.out.println("      common first:   " + commonFirst);
+		System.out.println("       common last:   " + commonLast);
+		System.out.println("         honorific:   " + honorific);
+		System.out.println("            prefix:   " + prefix);
+		System.out.println("            suffix:   " + suffix);
+		System.out.println("         kill word:   " + killWord + "\n");
 	}
 }

@@ -12,7 +12,7 @@ import edu.odu.cs.extract.wordlists.WordLists;
 
 public class Librarian {
 
-	// Iterable<String> to that store Gazetteer lists
+	// Stores Gazetteer lists
 	private HashSet<String> DictionaryWords;
 	private HashSet<String> CitiesStates;
 	private HashSet<String> CountriesTerritories;
@@ -68,7 +68,7 @@ public class Librarian {
 
 			// System.out.println("Imported File Successfully!");
 
-			trainer.generateARFF(inputFileName, outputFileName);
+			trainer.prepareData(inputFileName, outputFileName, false);
 		}
 
 		// Generate ARFF Training Data
@@ -86,13 +86,13 @@ public class Librarian {
 
 				Trainer trainer = new Trainer();
 
-				trainer.generateARFF(inputFileName, outputFileName);
+				trainer.prepareData(inputFileName, outputFileName, false);
 				try 
         {
           System.out.println("*******************************");
           System.out.println(" Saving Learning Machine to LearningMachine.model");
           System.out.println("*******************************\n");
-          trainer.SaveClassifier();
+          //trainer.SaveClassifier();
         }
         catch (Exception e)
         {
@@ -206,8 +206,14 @@ public class Librarian {
 		return textBlocks;
 	}
 
-	// classify token based on its 14 attributes
-	public Token classifyToken(Token token) {
+	// User Story #856
+	// Status - Completed
+	// Dictionary features identified correctly (L)
+	// User Story #854
+	// Status - Completed
+	// Misc features (honorifics, kill words, etc) identified correctly. (L)
+	public Token getFeatures(Token token) 
+	{
 		String lexeme = token.getLexeme();
 
 		token.setLexical(getLexicalFeature(lexeme));
@@ -230,7 +236,7 @@ public class Librarian {
 
 	// classify Tokens as either beginning, continuing, or other for names
 	// between <PER></PER>
-	public HashSet<Token> classifyTokens(ArrayList<Token> tokens) 
+	public HashSet<Token> getFeatures(ArrayList<Token> tokens) 
 	{
 		boolean isPartOfName = false;
 		boolean taggedBeginning = false;
@@ -240,7 +246,7 @@ public class Librarian {
 
 		for (int i = 0; i < tokens.size(); i++) 
 		{
-			tokens.get(i).setName(classifyToken(tokens.get(i)).getName());
+			tokens.get(i).setName(getFeatures(tokens.get(i)).getName());
 
 			if (tokens.get(i).getLexical().equals("whiteSpace"))
 			{
@@ -378,11 +384,13 @@ public class Librarian {
 
 		return arffTokens;
 	}
-	// returns the Lexical attribute for a given token
-	public String getLexicalFeature(String token) {
+	
+	// User Story #1094
+	// Status - Completed
+	// As a librarian, I want Token Lexical features to be identified correctly.
+	public String getLexicalFeature(String lexeme) {
 		// ArrayList of puncts
 		HashSet<String> puncts = new HashSet<String>();
-
 		puncts.add("!");
 		puncts.add("?");
 		puncts.add(".");
@@ -410,25 +418,25 @@ public class Librarian {
 		puncts.add("`");
 		puncts.add("~");
 
-		if (puncts.contains(token)) // punct
+		if (puncts.contains(lexeme)) // punct
 		{
 			return "punct";
-		} else if (token.matches("^[A-Z]{1}$")) // CapLetter
+		} else if (lexeme.matches("^[A-Z]{1}$")) // CapLetter
 		{
 			return "capLetter";
-		} else if (token.matches("^[A-Z]{1}[a-z]{1,}$")) // capitalized
+		} else if (lexeme.matches("^[A-Z]{1}[a-z]{1,}$")) // capitalized
 		{
 			return "capitalized";
-		} else if (token.matches("^[A-Z]{1,}$")) // ALL-CAPS
+		} else if (lexeme.matches("^[A-Z]{1,}$")) // ALL-CAPS
 		{
 			return "allCaps";
-		} else if (token.matches("^\n$")) // lineFeed
+		} else if (lexeme.matches("^\n$")) // lineFeed
 		{
 			return "lineFeed";
-		} else if (token.matches("^ $")) // whiteSpace
+		} else if (lexeme.matches("^ $")) // whiteSpace
 		{
 			return "whiteSpace";
-		} else if (token.matches("^[0-9]{1,}$")) // number
+		} else if (lexeme.matches("^[0-9]{1,}$")) // number
 		{
 			return "number";
 		} else {

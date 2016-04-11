@@ -6,17 +6,18 @@ import org.junit.Test;
 
 public class TestToken {
 
-	// toString
+	// User Story #850
+	// Status - Completed
+	// Tokens converted into a set of features (T)
 	@Test
-	public void testToString() {
+	public void testToString() 
+	{
+		Librarian librarian = new Librarian();
+		
 		Token token = new Token("Hello");
-		String output = "Hello,capitalized,other,0,0,0,0,0,0,0,0,0,0,0,0,other";
+		token = librarian.getFeatures(token);
 
-		token.setLexical("capitalized");
-		token.setPartOfSpeech("other");
-		token.setName("other");
-
-		assertEquals(output, token.toString());
+		assertEquals("capitalized,other,1,0,0,0,0,0,0,0,0,0,0,0", token.toString());
 	}
 
 	// Name getter and setter methods
