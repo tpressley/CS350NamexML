@@ -75,6 +75,8 @@ public class TestLibrarian {
 	public void testPackage() {
 		// is it possible to even create a JUnit test to see if the PNE was
 		// packaged in a fat jar?
+		//
+		// No, this should be tested by System Testing and not Unit Testing - Tristan
 	}
 
 	// User Story #852 As a Librarian, I want names of places to be identified
@@ -184,7 +186,6 @@ public class TestLibrarian {
 				}
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
