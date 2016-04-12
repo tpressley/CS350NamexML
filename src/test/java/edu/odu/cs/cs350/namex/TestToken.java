@@ -10,10 +10,9 @@ public class TestToken {
 	// Status - Completed
 	// Tokens converted into a set of features (T)
 	@Test
-	public void testToString() 
-	{
+	public void testToString() {
 		Librarian librarian = new Librarian();
-		
+
 		Token token = new Token("Hello");
 		token = librarian.getFeatures(token);
 

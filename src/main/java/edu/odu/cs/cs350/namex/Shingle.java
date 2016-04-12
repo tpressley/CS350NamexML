@@ -1,6 +1,5 @@
 package edu.odu.cs.cs350.namex;
 
-
 public class Shingle {
 
 	private String lexemes;

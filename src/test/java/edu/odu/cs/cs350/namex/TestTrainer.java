@@ -12,18 +12,17 @@ import edu.odu.cs.cs350.namex.Trainer;
 
 import java.util.*;
 
-public class TestTrainer
-{
-	
+public class TestTrainer {
+
 	// ********** USER STORIES UNDER DEVELOPMENT **********
-	
+
 	// User Story #1095
 	// Status - Implementation
-	// As a Trainer, I want Shingling applied either to lists of 
+	// As a Trainer, I want Shingling applied either to lists of
 	// tokens or to lists of feature sets.
 	@Test
 	public void testShingle() {
-		
+
 		// ********** Configurations **********
 
 		String ARFFFilePath = "/data/arff/trainingData.arff";
@@ -98,7 +97,7 @@ public class TestTrainer
 		System.out.println("Elapsed Time: " + elapsedTime + " seconds.");
 	}
 
-	// User Story #851 
+	// User Story #851
 	// Status - Development
 	// As a Trainer, I want the program to properly prepare data
 	// to train the learning machine.
@@ -131,7 +130,7 @@ public class TestTrainer
 
 		System.out.println("Elapsed Time: " + elapsedTime + " seconds.");
 	}
-		
+
 	// User Story #858, #857
 	// Status - Development
 	// The total token count for any token should be equal
@@ -145,16 +144,15 @@ public class TestTrainer
 		assertEquals(3, trainer.getTokenCount(tokenizedText.get(2), tokenizedText));
 		assertFalse(trainer.getTokenCount(tokenizedText.get(2), tokenizedText) < 1);
 	}
-	
+
 	// ********** COMPLETED USER STORIES **********
-	
-	// User Story #851 
+
+	// User Story #851
 	// Status - Completed
 	// As a Trainer, I want the program to properly prepare data
 	// to train the learning machine.
 	@Test
-	public void testPrepareData() 
-	{
+	public void testPrepareData() {
 		// ********** Configurations **************
 
 		String inputFilePath = "/data/training/trainingData.txt";
@@ -177,7 +175,7 @@ public class TestTrainer
 		System.out.println("Output FilePath: " + outputFilePath);
 
 		trainer.prepareData(inputFilePath, outputFilePath, true);
-		
+
 		// check if the output .arff file exists
 		File file = new File(outputFilePath);
 		System.out.println(file.exists());
@@ -194,11 +192,10 @@ public class TestTrainer
 		Path currentRelativePath = Paths.get("");
 		String relativePath = currentRelativePath.toAbsolutePath().toString();
 		arffFilePath = relativePath + "" + arffFilePath;
-		
+
 		Trainer trainer = new Trainer();
 
-		try 
-		{
+		try {
 			trainer.trainLM(arffFilePath);
 			assertEquals(24, trainer.getLearningMachine().getTrainingInstances().numInstances());
 
@@ -216,16 +213,16 @@ public class TestTrainer
 	 */
 	// User Story #860
 	// Status - Completed
-	// Text blocks divided into tokens, with punctuation separate from alphabetics (T)
+	// Text blocks divided into tokens, with punctuation separate from
+	// alphabetics (T)
 	@Test
-	public void testTokenize() 
-	{
+	public void testTokenize() {
 		Trainer trainer = new Trainer();
-		
+
 		String input = "Hello World! This is John Smith.";
-		
+
 		ArrayList<Token> tokens = trainer.tokenize(input);
-		
+
 		assertEquals("Hello", tokens.get(0).getLexeme());
 		assertEquals("World", tokens.get(2).getLexeme());
 		assertEquals("!", tokens.get(3).getLexeme());
@@ -238,49 +235,47 @@ public class TestTrainer
 	// User Story #848 - Completed
 	// Load trained machine into the extractor (L,T)
 	@Test
-	public void testSaveLoadLM() throws Exception 
-	{
+	public void testSaveLoadLM() throws Exception {
 		// ********** Configurations **************
 
 		String learningMachineFileName = "lm_1";
-		
+
 		String arffFilePath = "/data/arff/trainingData.arff";
 
 		// ********** End Configurations **********
-		
+
 		Trainer trainer = new Trainer();
 
 		Path currentRelativePath = Paths.get("");
 		String relativePath = currentRelativePath.toAbsolutePath().toString();
 		String filePath = relativePath + "/learning_machines/" + learningMachineFileName;
 		arffFilePath = relativePath + "" + arffFilePath;
-		
+
 		LearningMachine LM1 = new LearningMachine();
 		LM1.importARFF(arffFilePath);
 		LM1.train();
 		LM1.printEvaluationSummary();
 		trainer.setLearningMachine(LM1);
-		//trainer.saveLearningMachine(filePath);
-		
+		// trainer.saveLearningMachine(filePath);
+
 		LearningMachine LM2 = Trainer.loadLearningMachine(filePath);
 		LM2.train();
-		//LM2.printEvaluationSummary();
-		
+		// LM2.printEvaluationSummary();
+
 		assertEquals(LM1.getSerialVersionUID(), LM2.getSerialVersionUID());
 	}
 
 	// ********** MISC TEST CASES **********
-	
+
 	// Tests the constructors
 	@Test
-	public void testTrainer() 
-	{
+	public void testTrainer() {
 		Trainer t1 = new Trainer();
 		assertTrue(t1.getLearningMachine() != null);
-		
+
 		// a learning machine with a k value of 3 should have 106 attributes
 		Trainer t2 = new Trainer(3);
 		assertTrue(t2.getLearningMachine().getNumberOfAttributes() == 106);
 	}
-	
+
 }

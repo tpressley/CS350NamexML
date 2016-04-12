@@ -15,15 +15,15 @@ import edu.odu.cs.cs350.namex.Librarian;
 public class TestLibrarian {
 
 	// ********** TO BE DELETED (USED FOR TESTING PURPOSES) **********
-	
+
 	// prints the weka classification of each token from an input string
 	@Test
 	public void testWeka() {
 		// ********** Configurations **************
 
 		String arffFilePath = "/data/arff/trainingData.arff"; // actual
-																	// training
-																	// data
+																// training
+																// data
 		String input = "Good afternoon, this is John Smith. I will be attending George Washington University next year. Say hello to Mr. Samuel L. Jackson, III";
 		boolean printEvaluationSummary = true;
 		boolean showClassification = true;
@@ -51,13 +51,11 @@ public class TestLibrarian {
 			for (Token t : testTokens) {
 				t = librarian.getFeatures(t);
 
-				if (t.getLexical() != "whiteSpace") 
-				{
+				if (t.getLexical() != "whiteSpace") {
 					t.setName(learningMachine.classify(t.toString()));
 					t.setDistribution(learningMachine.getDistribution(t.toString()));
 
-					if (showClassification == true) 
-					{
+					if (showClassification == true) {
 						t.printTokenData();
 					}
 				}
@@ -67,9 +65,9 @@ public class TestLibrarian {
 			e.printStackTrace();
 		}
 	}
-	
+
 	// ********** USER STORIES UNDER DEVELOPMENT **********
-	
+
 	// User Story #846
 	// Status - Development
 	// PNE packaged for deployment in fat jar (A)
@@ -78,17 +76,16 @@ public class TestLibrarian {
 		// is it possible to even create a JUnit test to see if the PNE was
 		// packaged in a fat jar?
 	}
-	
+
 	// User Story #852 As a Librarian, I want names of places to be identified
 	// correctly
 	@Test
-	public void identifyPlace()
-	{
+	public void identifyPlace() {
 		// run shingles against the Places gazetteer list
 	}
-	
+
 	// ********** COMPLETED USER STORIES **********
-	
+
 	// User Story #844 - Gerard Silverio
 	// As a Librarian/application developer, I want a program that will
 	// accept standard input from command line interface
@@ -199,29 +196,27 @@ public class TestLibrarian {
 	// Status - Completed
 	// Misc features (honorifics, kill words, etc) identified correctly. (L)
 	@Test
-	public void testClassifyToken() 
-	{
+	public void testClassifyToken() {
 		Librarian librarian = new Librarian();
-		
+
 		Token token = new Token("Samuel");
 		token = librarian.getFeatures(token);
-		
+
 		assertEquals("capitalized,other,1,0,0,1,1,1,1,1,0,0,0,0", token.toString());
 	}
-	
+
 	// User Story #1094
 	// Status - Completed
 	// As a librarian, I want Token Lexical features to be identified correctly.
 	@Test
-	public void testGetLexicalFeature()
-	{
+	public void testGetLexicalFeature() {
 		Librarian librarian = new Librarian();
-		
+
 		Token t1 = new Token("Samuel");
 		Token t2 = new Token("SAMUEL");
 		Token t3 = new Token(".");
 		Token t4 = new Token("S");
-		
+
 		assertEquals("capitalized", librarian.getLexicalFeature(t1.getLexeme()));
 		assertEquals("allCaps", librarian.getLexicalFeature(t2.getLexeme()));
 		assertEquals("punct", librarian.getLexicalFeature(t3.getLexeme()));

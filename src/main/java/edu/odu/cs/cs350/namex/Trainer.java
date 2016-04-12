@@ -10,40 +10,34 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-public class Trainer implements Serializable
-{
+public class Trainer implements Serializable {
 	private static final long serialVersionUID = 1969136929013924126L;
-	
+
 	private LearningMachine learningMachine;
-	
-	public Trainer()
-	{
+
+	public Trainer() {
 		learningMachine = new LearningMachine();
 	}
-	
-	public Trainer(int k)
-	{
+
+	public Trainer(int k) {
 		learningMachine = new LearningMachine(k);
 	}
-	
-	public Trainer(LearningMachine learningMachine)
-	{
+
+	public Trainer(LearningMachine learningMachine) {
 		this.learningMachine = learningMachine;
 	}
-	
-	public LearningMachine getLearningMachine()
-	{
+
+	public LearningMachine getLearningMachine() {
 		return learningMachine;
 	}
-	
-	public void setLearningMachine(LearningMachine learningMachine)
-	{
+
+	public void setLearningMachine(LearningMachine learningMachine) {
 		this.learningMachine = learningMachine;
 	}
 
 	// User Story #1095
 	// Status - Implementation
-	// As a Trainer, I want Shingling applied either to lists of 
+	// As a Trainer, I want Shingling applied either to lists of
 	// tokens or to lists of feature sets.
 	public ArrayList<Shingle> getShingles(int k, ArrayList<Token> tokens, String nothing) {
 		int sequenceLength = ((2 * k) + 1);
@@ -65,12 +59,12 @@ public class Trainer implements Serializable
 			StringBuilder sbLexemes = new StringBuilder();
 			StringBuilder sbClassifications = new StringBuilder();
 
-			//int nameCount = 0; // if there are more than two classified names
-								// within the shingle, classify it as 'yes'
+			// int nameCount = 0; // if there are more than two classified names
+			// within the shingle, classify it as 'yes'
 			for (int j = 0; j < sequenceLength; j++) {
 				if (tokens.get(j + i).getName().equals("beginning")
 						|| tokens.get(j + i).getName().equals("continuing")) {
-					//nameCount++;
+					// nameCount++;
 				}
 
 				// System.out.print(shingleTokens.get(j + i).getARFF() + ",");
@@ -94,7 +88,7 @@ public class Trainer implements Serializable
 
 	// User Story #1095
 	// Status - Implementation
-	// As a Trainer, I want Shingling applied either to lists of 
+	// As a Trainer, I want Shingling applied either to lists of
 	// tokens or to lists of feature sets.
 	public HashSet<String> getShingles(int k, ArrayList<Token> tokens) {
 		int sequenceLength = ((2 * k) + 1);
@@ -187,39 +181,32 @@ public class Trainer implements Serializable
 		}
 
 		/*
-		// Test Output
-		for (String s : shingles) {
-			System.out.println(s);
-		}
-		*/
+		 * // Test Output for (String s : shingles) { System.out.println(s); }
+		 */
 
 		return shingles;
 	}
-	
-	// User Story #851 
+
+	// User Story #851
 	// Status - Completed
 	// As a Trainer, I want the program to properly prepare data
 	// to train the learning machine.
-	public void prepareData(String inputFileName, String outputFileName, boolean showSummary) 
-	{
+	public void prepareData(String inputFileName, String outputFileName, boolean showSummary) {
 		Librarian librarian = new Librarian();
-		
+
 		ArrayList<TextBlock> textBlocks = Librarian.importFile(inputFileName);
 		ArrayList<String> arffData = new ArrayList<String>();
 
 		System.out.println("\nClassifying Tokens from " + textBlocks.size() + " TextBlocks...");
 
-		for (TextBlock textBlock : textBlocks) 
-		{
+		for (TextBlock textBlock : textBlocks) {
 			ArrayList<Token> tks = tokenize(textBlock.getTextBlock());
 			HashSet<Token> classifiedTokens = librarian.getFeatures(tks);
 
-			for (Token t : classifiedTokens) 
-			{
-				//System.out.println(t.getARFF());
-				
-				if (!t.getLexical().equals("whiteSpace")) 
-				{
+			for (Token t : classifiedTokens) {
+				// System.out.println(t.getARFF());
+
+				if (!t.getLexical().equals("whiteSpace")) {
 					arffData.add(t.getARFF());
 				}
 			}
@@ -227,29 +214,24 @@ public class Trainer implements Serializable
 
 		String[] ARFFArray = new String[arffData.size()];
 		ARFFArray = arffData.toArray(ARFFArray);
-		
+
 		learningMachine = new LearningMachine();
 		learningMachine.importARFF(ARFFArray);
 
-		
-		try 
-		{
+		try {
 			learningMachine.train();
 			// printARFF();
-			if (showSummary == true)
-			{
-				learningMachine.printEvaluationSummary();				
+			if (showSummary == true) {
+				learningMachine.printEvaluationSummary();
 			}
 			learningMachine.exportARFF(outputFileName);
-		} 
-		catch (Exception e) 
-		{
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
-	// User Story #851 
+	// User Story #851
 	// Status - Completed
 	// As a Trainer, I want the program to properly prepare data
 	// to train the learning machine.
@@ -262,13 +244,10 @@ public class Trainer implements Serializable
 		// Trainer for Shingle classification
 		LearningMachine shingleTrainer = new LearningMachine(k);
 
-		try 
-		{
+		try {
 			lm.importARFF(arffFilePath);
 			lm.train();
-		} 
-		catch (Exception e1) 
-		{
+		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
@@ -316,15 +295,17 @@ public class Trainer implements Serializable
 
 	// User Story #860
 	// Status - Completed
-	// Text blocks divided into tokens, with punctuation separate from alphabetics (T)
+	// Text blocks divided into tokens, with punctuation separate from
+	// alphabetics (T)
 	public ArrayList<Token> tokenize(String textBlock) {
 
 		// split the string
-		//String[] tks = textBlock.split("(?=[\" ,.!?\n()-:;@#$%^&*{}<>])|(?<=[\" ,.!?\n()-:;@#$%^&*{}<>])");
+		// String[] tks = textBlock.split("(?=[\"
+		// ,.!?\n()-:;@#$%^&*{}<>])|(?<=[\" ,.!?\n()-:;@#$%^&*{}<>])");
 
 		// new tokenize regex
 		String[] tks = textBlock.split("(?<=<NER>)|(?=</NER>)|(?<=<PER>)|(?=</PER>)|(?=[ ,.!()<:;}-])|(?<=[ (>{-])");
-		
+
 		ArrayList<Token> tokens = new ArrayList<Token>();
 
 		for (int i = 0; i < tks.length; i++) {
@@ -336,14 +317,16 @@ public class Trainer implements Serializable
 
 	// User Story #860
 	// Status - Completed
-	// Text blocks divided into tokens, with punctuation separate from alphabetics (T)
+	// Text blocks divided into tokens, with punctuation separate from
+	// alphabetics (T)
 	public ArrayList<Token> tokenize(String textBlock, boolean verbose) {
 		// split the string
-		//String[] tks = textBlock.split("(?=[\" ,.!?\n()-:;@#$%^&*{}<>])|(?<=[\" ,.!?\n()-:;@#$%^&*{}<>])");
+		// String[] tks = textBlock.split("(?=[\"
+		// ,.!?\n()-:;@#$%^&*{}<>])|(?<=[\" ,.!?\n()-:;@#$%^&*{}<>])");
 
 		// new tokenize regex
 		String[] tks = textBlock.split("(?<=<NER>)|(?=</NER>)|(?<=<PER>)|(?=</PER>)|(?=[ ,.!()<:;}-])|(?<=[ (>{-])");
-		
+
 		ArrayList<Token> tokens = new ArrayList<Token>();
 
 		for (int i = 0; i < tks.length; i++) {
@@ -375,72 +358,60 @@ public class Trainer implements Serializable
 	// User Story #853
 	// Status - Completed
 	// As Trainer, I want to use existing data to train the learning machine
-	public void trainLM(String filePath)
-	{
-		try 
-		{
+	public void trainLM(String filePath) {
+		try {
 			learningMachine.importARFF(filePath);
 			learningMachine.train();
-		} 
-		catch (Exception e) 
-		{
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
- 
+
 	// User Story #848
 	// Status - Completed
 	// Load trained machine into the extractor (L,T)
-	public static LearningMachine loadLearningMachine(String filePath)
-	{		
+	public static LearningMachine loadLearningMachine(String filePath) {
 		filePath = filePath + ".ser";
 
 		FileInputStream fileInputStream;
-		
+
 		LearningMachine lm;
-		
-		try 
-		{
-			fileInputStream = new FileInputStream (filePath);
-			ObjectInputStream objectInputStream = new ObjectInputStream (fileInputStream);
-			lm = (LearningMachine) objectInputStream.readObject ();
+
+		try {
+			fileInputStream = new FileInputStream(filePath);
+			ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+			lm = (LearningMachine) objectInputStream.readObject();
 			fileInputStream.close();
-			
+
 			System.out.println("Loaded LearningMachine: " + filePath);
 			return lm;
-		} 
-		catch (ClassNotFoundException | IOException e) 
-		{
+		} catch (ClassNotFoundException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
+
 		return null;
 	}
 
 	// User Story #849
 	// Status - Completed
 	// Save trained learning machine in a file. (T)
-	public void saveLearningMachine(String filePath)
-	{		
-		filePath = filePath + ".ser";    // add the .ser extension
-		
+	public void saveLearningMachine(String filePath) {
+		filePath = filePath + ".ser"; // add the .ser extension
+
 		FileOutputStream outputFile;
-		
-		try 
-		{
+
+		try {
 			outputFile = new FileOutputStream(filePath);
-			ObjectOutputStream out = new ObjectOutputStream (outputFile);
+			ObjectOutputStream out = new ObjectOutputStream(outputFile);
 			out.writeObject(learningMachine);
 			out.close();
-		} 
-		catch (IOException e) 
-		{
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		System.out.println("Created Classifier: " + filePath);
 	}
 

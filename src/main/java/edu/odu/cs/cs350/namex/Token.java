@@ -102,14 +102,12 @@ public class Token {
 		this.name = "";
 		this.distribution = new double[1];
 	}
-	
-	public double[] getDistribution()
-	{
+
+	public double[] getDistribution() {
 		return distribution;
 	}
-	
-	public void setDistribution(double[] distribution)
-	{
+
+	public void setDistribution(double[] distribution) {
 		this.distribution = distribution;
 	}
 
@@ -341,16 +339,15 @@ public class Token {
 		return output;
 
 	}
-	
-	public void printTokenData()
-	{
+
+	public void printTokenData() {
 		System.out.println("            lexeme:   " + lexeme);
 		System.out.println("    classification:   " + name);
-		
+
 		System.out.println("         beginning:   " + Math.round(distribution[0] * 100.00) + "%");
 		System.out.println("        continuing:   " + Math.round(distribution[1] * 100.00) + "%");
 		System.out.println("             other:   " + Math.round(distribution[2] * 100.00) + "%");
-		
+
 		System.out.println("           lexical:   " + lexical);
 		System.out.println("    part of speech:   " + partOfSpeech);
 		System.out.println("   dictionary word:   " + dictionaryWord);

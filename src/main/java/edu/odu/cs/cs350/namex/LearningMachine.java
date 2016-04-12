@@ -15,17 +15,15 @@ import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.converters.ConverterUtils.DataSource;
 
-public class LearningMachine implements Serializable
-{
+public class LearningMachine implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Classifier classifier;
 	private FastVector attributes;
 	private int numberOfAttributes;
 	private Instances trainingInstances;
 	private String evaluationSummary;
-	
-	public LearningMachine()
-	{
+
+	public LearningMachine() {
 		// Initialize the Classifier as a Naive Bayes Classifier
 		classifier = (Classifier) new NaiveBayes();
 
@@ -97,9 +95,8 @@ public class LearningMachine implements Serializable
 
 		numberOfAttributes = attributes.size();
 	}
-	
-	public LearningMachine(int k)
-	{
+
+	public LearningMachine(int k) {
 		int dimension = (((2 * k) + 1) * 14) + k + 1;
 
 		// Initialize the Classifier as a Naive Bayes Classifier
@@ -172,12 +169,11 @@ public class LearningMachine implements Serializable
 
 		numberOfAttributes = attributes.size();
 	}
-	
-	public long getSerialVersionUID()
-	{
+
+	public long getSerialVersionUID() {
 		return serialVersionUID;
 	}
-	
+
 	public void train(Instances trainingData) throws Exception {
 		classifier.buildClassifier(trainingData);
 
@@ -190,9 +186,9 @@ public class LearningMachine implements Serializable
 		System.out.println(summary);
 
 		// Get the confusion matrix
-		//double[][] cmMatrix = evaluation.confusionMatrix();
+		// double[][] cmMatrix = evaluation.confusionMatrix();
 	}
-	
+
 	// builds the classifier based on the ARFF data imported into
 	// trainingInstances
 	public void train() throws Exception {
@@ -206,7 +202,7 @@ public class LearningMachine implements Serializable
 		// Set the Evaluation Summary
 		evaluationSummary = evaluation.toSummaryString();
 	}
-	
+
 	// Get the likelihood of each classes
 	// distribution[0] is the probability of the Token beginning a name
 	// distribution[1] is the probability of the Token continuing a name
@@ -244,7 +240,7 @@ public class LearningMachine implements Serializable
 
 		return distribution;
 	}
-	
+
 	public String classify(String input) throws Exception {
 		Instances classificationInstances = new Instances("toBeClassified", this.attributes, 1);
 
@@ -273,7 +269,7 @@ public class LearningMachine implements Serializable
 			return "other";
 		}
 	}
-	
+
 	public String classifyShingle(String input) throws Exception {
 		Instances classificationInstances = new Instances("toBeClassified", this.attributes, 1);
 
@@ -415,7 +411,7 @@ public class LearningMachine implements Serializable
 
 	// import ARFF data from a String[]
 	public void importARFF(HashSet<String> trainingData) {
-		
+
 		this.trainingInstances = new Instances("Classification", attributes, trainingData.size());
 
 		// Make the last attribute be the class
@@ -438,8 +434,7 @@ public class LearningMachine implements Serializable
 	}
 
 	// import ARFF data from a String[]
-	public void importARFF(String[] trainingData) 
-	{
+	public void importARFF(String[] trainingData) {
 		this.trainingInstances = new Instances("Classification", attributes, trainingData.length);
 
 		// Make the last attribute be the class
@@ -469,20 +464,17 @@ public class LearningMachine implements Serializable
 	public Classifier getClassifier() {
 		return classifier;
 	}
-	
-	public Attribute getAttribute(String name, FastVector nominalVal) 
-	{
+
+	public Attribute getAttribute(String name, FastVector nominalVal) {
 		return new Attribute(name, nominalVal);
 	}
-	
+
 	// Returns the number of Attributes being used by the Classifier
-	public int getNumberOfAttributes() 
-	{
+	public int getNumberOfAttributes() {
 		return numberOfAttributes;
 	}
-	
-	public Instances getTrainingInstances() 
-	{
+
+	public Instances getTrainingInstances() {
 		return trainingInstances;
 	}
 }
