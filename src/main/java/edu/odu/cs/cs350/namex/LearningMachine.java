@@ -477,6 +477,13 @@ public class LearningMachine implements Serializable {
 		return trainingInstances;
 	}
 
+	/**
+	 * Commenting out the following code because it seems reduntant and is not used anywhere
+	 *  see: Trainer.java: public static LearningMachine loadLearningMachine(String filePath) &&
+	 *  Trainer.java: public void saveLearningMachine(String filePath)
+	 *  -Tristan
+	 */
+	/*
 	public void saveLM() {
 
 		try {
@@ -487,11 +494,8 @@ public class LearningMachine implements Serializable {
 		}
 
 	}
-
-	/*
-	 * Shouldn't this function either return a value or load the 
-	 * classifier into an object variable? - Tristan
-	 */
+	// Shouldn't this function either return a value or load the 
+	// classifier into an object variable? - Tristan
 	public void loadLM(String LMBrain) {
 
 		System.out.print("Loading Learning machine from file.");
@@ -500,5 +504,5 @@ public class LearningMachine implements Serializable {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
+	} */
 }
