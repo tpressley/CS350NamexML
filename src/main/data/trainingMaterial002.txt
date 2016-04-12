@@ -1,11 +1,18 @@
 <NER><PER>Gerard Silerio</PER></NER>
+<NER><PER>Gerard</PER></NER>
+<NER><PER>Silverio</PER></NER>
 <NER><PER>Addy Alago</PER></NER>
+<NER><PER>Addy</PER></NER>
+<NER><PER>Alago</PER></NER>
 <NER><PER>Caroline Chey</PER></NER>
-<NER><PER>Caroline</PER></NER>
 <NER><PER>Caroline</PER></NER>
 <NER><PER>Chey</PER></NER>
 <NER><PER>Joel Barr</PER></NER>
+<NER><PER>Joel</PER></NER>
+<NER><PER>Barry</PER></NER>
 <NER><PER>Tristan Pressley</PER></NER>
+<NER><PER>Tristan</PER></NER>
+<NER><PER>Pressley</PER></NER>
 <NER>! -- r 1 - (N- 1) + $2 N- 1)</NER>
 <NER>"*</NER>
 <NER>"China's Pursuit for World Power Status : Is the Transformation of the</NER>
