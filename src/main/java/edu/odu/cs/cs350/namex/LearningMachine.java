@@ -477,4 +477,35 @@ public class LearningMachine implements Serializable {
 	public Instances getTrainingInstances() {
 		return trainingInstances;
 	}
+	
+	public void saveLM()
+  {
+    
+    
+      try
+      {
+        System.out.print("Saving Learning Machine to trainedmachine.model");
+        weka.core.SerializationHelper.write("trainedmachine.model", classifier);
+      }
+      catch (Exception e)
+      {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+    
+    
+  }
+  public void loadLM(String LMBrain)
+  {
+    
+    System.out.print("Loading Learning machine from file.");
+    try
+    {
+      Classifier classifier = (Classifier) weka.core.SerializationHelper.read(LMBrain);
+    }
+    catch (Exception e)
+    {
+      e.printStackTrace();
+    }
+  }
 }
