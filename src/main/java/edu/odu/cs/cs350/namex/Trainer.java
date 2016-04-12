@@ -228,7 +228,6 @@ public class Trainer implements Serializable {
 			}
 			learningMachine.exportARFF(outputFileName);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -250,7 +249,6 @@ public class Trainer implements Serializable {
 			lm.importARFF(arffFilePath);
 			lm.train();
 		} catch (Exception e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
@@ -272,7 +270,6 @@ public class Trainer implements Serializable {
 						t.setName(lm.classify(t.toString()));
 						classifiedTokens.add(t);
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}
@@ -290,7 +287,6 @@ public class Trainer implements Serializable {
 			shingleTrainer.printEvaluationSummary();
 			shingleTrainer.exportARFF(outputFileName);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -365,7 +361,6 @@ public class Trainer implements Serializable {
 			learningMachine.importARFF(filePath);
 			learningMachine.train();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -389,7 +384,6 @@ public class Trainer implements Serializable {
 			System.out.println("Loaded LearningMachine: " + filePath);
 			return lm;
 		} catch (ClassNotFoundException | IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -410,7 +404,6 @@ public class Trainer implements Serializable {
 			out.writeObject(learningMachine);
 			out.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

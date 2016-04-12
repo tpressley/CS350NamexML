@@ -93,7 +93,6 @@ public class Librarian {
 					System.out.println("*******************************\n");
 					// trainer.SaveClassifier();
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -157,7 +156,6 @@ public class Librarian {
 			}
 			s.close();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -180,7 +178,6 @@ public class Librarian {
 			}
 			s.close();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
