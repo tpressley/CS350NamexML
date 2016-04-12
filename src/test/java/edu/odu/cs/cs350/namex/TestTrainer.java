@@ -77,7 +77,7 @@ public class TestTrainer {
 					}
 				}
 
-				ArrayList<Shingle> shingles = trainer.getShingles(k, classifiedTks, "");
+				ArrayList<Shingle> shingles = trainer.getShingles(classifiedTks, "");
 
 				for (Shingle s : shingles) {
 					s.setContainsName(shingleLearningMachine.classifyShingle(s.getArffData()));

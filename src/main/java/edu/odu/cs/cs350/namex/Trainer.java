@@ -40,8 +40,8 @@ public class Trainer implements Serializable {
 	// As a Trainer, I want Shingling applied either to lists of
 	// tokens or to lists of feature sets.
 	public ArrayList<Shingle> getShingles(ArrayList<Token> tokens, String nothing) {
-		int k = 5;//default is k = 5
-		
+		int k = 5;// default is k = 5
+
 		int sequenceLength = ((2 * k) + 1);
 		ArrayList<Shingle> shingles = new ArrayList<Shingle>();
 
