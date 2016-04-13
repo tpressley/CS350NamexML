@@ -202,17 +202,19 @@ public class Trainer implements Serializable {
 	// Status - Completed
 	// As a Trainer, I want the program to properly prepare data
 	// to train the learning machine.
-	public void prepareData(String inputFileName, String outputFileName, boolean showSummary) {
-		Librarian librarian = new Librarian();
+	public void prepareData(String inFileName, String outFileName, boolean showSummary) {
+		
+		Librarian lib = new Librarian();
 
-		ArrayList<TextBlock> textBlocks = Librarian.importFile(inputFileName);
+		ArrayList<TextBlock> textBlocks = Librarian.importFile(inFileName);
 		ArrayList<String> arffData = new ArrayList<String>();
 
 		System.out.println("\nClassifying Tokens from " + textBlocks.size() + " TextBlocks...");
 
 		for (TextBlock textBlock : textBlocks) {
+			
 			ArrayList<Token> tks = tokenize(textBlock.getTextBlock());
-			HashSet<Token> classifiedTokens = librarian.getFeatures(tks);
+			HashSet<Token> classifiedTokens = lib.getFeatures(tks);
 
 			for (Token t : classifiedTokens) {
 				// System.out.println(t.getARFF());
@@ -235,7 +237,7 @@ public class Trainer implements Serializable {
 			if (showSummary == true) {
 				lm.printEvaluationSummary();
 			}
-			lm.exportARFF(outputFileName);
+			lm.exportARFF(outFileName);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -377,7 +379,7 @@ public class Trainer implements Serializable {
 	// User Story #848
 	// Status - Completed
 	// Load trained machine into the extractor (L,T)
-	public static LearningMachine loadLearningMachine(String filePath) {
+	public static LearningMachine loadLM(String filePath) {
 		filePath = filePath + ".ser";
 
 		FileInputStream fileInputStream;
@@ -391,7 +393,7 @@ public class Trainer implements Serializable {
 			fileInputStream.close();
 
 			System.out.println("Loaded LearningMachine: " + filePath);
-			return lm;
+			return lm; //return
 		} catch (ClassNotFoundException | IOException e) {
 			e.printStackTrace();
 		}
@@ -402,7 +404,7 @@ public class Trainer implements Serializable {
 	// User Story #849
 	// Status - Completed
 	// Save trained learning machine in a file. (T)
-	public void saveLearningMachine(String filePath) {
+	public void saveLM(String filePath) {
 		filePath = filePath + ".ser"; // add the .ser extension
 
 		FileOutputStream outputFile;

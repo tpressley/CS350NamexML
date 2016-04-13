@@ -258,7 +258,7 @@ public class TestTrainer {
 		trainer.setLM(LM1);
 		// trainer.saveLearningMachine(filePath);
 
-		LearningMachine LM2 = Trainer.loadLearningMachine(filePath);
+		LearningMachine LM2 = Trainer.loadLM(filePath);
 		LM2.train();
 		// LM2.printEvaluationSummary();
 
