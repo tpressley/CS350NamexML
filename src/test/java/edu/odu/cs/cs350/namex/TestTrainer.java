@@ -137,12 +137,15 @@ public class TestTrainer {
 	// to the number of times that token appears in the input
 	@Test
 	public void testGetTokenCount() {
-		Trainer trainer = new Trainer();
-		ArrayList<Token> tokenizedText = trainer.tokenize(
+		Trainer t1 = new Trainer();
+		ArrayList<Token> tokenizedText = t1.tokenize(
 				"<NER>\"Oh, no,\" she\'s saying, \"our $400 blender can\'t handle something this hard!\"</NER>");
+		
+		int TCount = 0;
+		TCount = t1.getTokenCount(2 , tokenizedText);
 
-		assertEquals(3, trainer.getTokenCount(tokenizedText.get(2), tokenizedText));
-		assertFalse(trainer.getTokenCount(tokenizedText.get(2), tokenizedText) < 1);
+		assertTrue(TCount == t1.getTokenCount(2, tokenizedText));
+		assertFalse(t1.getTokenCount(2, tokenizedText) < 1); //tokencount cannot be less than 1 if present
 	}
 
 	// ********** COMPLETED USER STORIES **********

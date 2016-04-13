@@ -347,17 +347,17 @@ public class Trainer implements Serializable {
 	}
 
 	/**
-	 * Returns the the token count for a specific token
+	 * Returns the the token count for a specific token at index
 	 * 
 	 * @param token
 	 */
-	public int getTokenCount(Token token, ArrayList<Token> tokenizedText) {
+	public int getTokenCount(int index, ArrayList<Token> tokenizedText) {
 		// todo make this run in O(LogN) or O(1) time keeping a running list of
 		// tokens and their counts while actually tokenizing the input
 		int tokenCount = 0;
 
 		for (int i = 0; i < tokenizedText.size(); i++) {
-			if (token == tokenizedText.get(i)) {
+			if (tokenizedText.get(index) == tokenizedText.get(i)) {
 				tokenCount++;
 			}
 		}
