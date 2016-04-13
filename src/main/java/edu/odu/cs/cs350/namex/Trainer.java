@@ -202,7 +202,7 @@ public class Trainer implements Serializable {
 	// Status - Completed
 	// As a Trainer, I want the program to properly prepare data
 	// to train the learning machine.
-	public void prepareData(String inFileName, String outFileName, boolean showSummary) {
+	public boolean prepareData(String inFileName, String outFileName, boolean showSummary) {
 		
 		Librarian lib = new Librarian();
 
@@ -240,7 +240,9 @@ public class Trainer implements Serializable {
 			lm.exportARFF(outFileName);
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		}
+		return true;
 	}
 
 	// User Story #851
