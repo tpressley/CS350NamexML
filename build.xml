@@ -21,6 +21,7 @@
 		</fileset>
 	</path>
 	
+	
 	<path id="test.compilation.path">
 		<pathelement path="${src.main}"/>
 	  	<pathelement path="${src.test}"/>
