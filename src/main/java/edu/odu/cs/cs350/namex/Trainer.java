@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Trainer implements Serializable {
-	
+
 	private static final long serialVersionUID = 1969136929013924126L;
 
 	private LearningMachine lm;
@@ -48,9 +48,9 @@ public class Trainer implements Serializable {
 
 		// add null tokens before and after the text block
 		for (int i = 0; i < k; i++) {
-			
+
 			Token nu = new Token("null");
-			
+
 			tokens.add(0, nu);
 			tokens.add(nu);
 		}
@@ -58,25 +58,25 @@ public class Trainer implements Serializable {
 		for (int i = 0; i < (tokens.size() - (seqLeng - 1)); i++) {
 			// ArrayList<Token> shingle = new ArrayList<Token>();
 
-			StringBuilder sb = new StringBuilder();
-			StringBuilder sbLexemes = new StringBuilder();
-			StringBuilder sbClassifications = new StringBuilder();
+			StringBuilder sb = new StringBuilder(); //for arffdata
+			StringBuilder sbLexemes = new StringBuilder(); //for lexeme
+			StringBuilder sbClassifications = new StringBuilder(); //for classification
 
-			// int nameCount = 0; // if there are more than two classified names
-			// within the shingle, classify it as 'yes'
-			
+			// int nameCount = 0;
+			// if there are more than two classified names within the shingle,
+			// classify it as 'yes'
+
 			for (int j = 0; j < seqLeng; j++) {
 				/*
-				if (tokens.get(j + i).getName().equals("beginning")
-						|| tokens.get(j + i).getName().equals("continuing")) {
-					// nameCount++;
-				}
-				*/
+				 * if (tokens.get(j + i).getName().equals("beginning") ||
+				 * tokens.get(j + i).getName().equals("continuing")) { //
+				 * nameCount++; }
+				 */
 
 				// System.out.print(shingleTokens.get(j + i).getARFF() + ",");
 				// shingle.add(shingleTokens.get(j + i));
 
-				if (j == (seqLeng - 1)) {
+				if (j == (seqLeng - 1)) { //if last element do not include ',' to append
 					sb.append(tokens.get(j + i).getARFF());
 				} else {
 					sb.append(tokens.get(j + i).getARFF() + ",");
@@ -85,8 +85,10 @@ public class Trainer implements Serializable {
 				sbLexemes.append(tokens.get(j + i).getLexeme() + " ");
 				sbClassifications.append(tokens.get(j + i).getName() + " ");
 			}
+			
+			Shingle toAdd = new Shingle(sbLexemes.toString(), sbClassifications.toString(), sb.toString());
 
-			shingles.add(new Shingle(sbLexemes.toString(), sbClassifications.toString(), sb.toString()));
+			shingles.add(toAdd);
 		}
 
 		return shingles;
@@ -97,19 +99,19 @@ public class Trainer implements Serializable {
 	// As a Trainer, I want Shingling applied either to lists of
 	// tokens or to lists of feature sets.
 	public HashSet<String> getShingles(int k, ArrayList<Token> tokens) {
-		int sequenceLength = ((2 * k) + 1);
+		int seqLen = ((2 * k) + 1);
 		HashSet<String> shingles = new HashSet<String>();
 
 		// add null tokens before and after the text block
 		for (int i = 0; i < k; i++) {
-			tokens.add(0, new Token("null"));
-			tokens.add(new Token("null"));
+			
+			Token nu = new Token("null");
+			tokens.add(0, nu);
+			tokens.add(nu);
 		}
 
-		// System.out.println("\nSize: " + shingleTokens.size());
-		// System.out.println("Sequence Length: " + sequenceLength);
 
-		for (int i = 0; i < (tokens.size() - (sequenceLength - 1)); i++) {
+		for (int i = 0; i < (tokens.size() - (seqLen - 1)); i++) {
 			// ArrayList<Token> shingle = new ArrayList<Token>();
 
 			StringBuilder sb = new StringBuilder();
@@ -117,11 +119,11 @@ public class Trainer implements Serializable {
 
 			// int nameCount = 0; // if there are more than two classified names
 			// within the shingle, classify it as 'yes'
-			int beginningCount = 0;
-			int continuingCount = 0;
-			int killWordCount = 0; // # of killWords following a beginning or
+			int begCount = 0;
+			int contCount = 0;
+			int killCount = 0; // # of killWords following a beginning or
 									// continuing token
-			for (int j = 0; j < sequenceLength; j++) {
+			for (int j = 0; j < seqLen; j++) {
 				/*
 				 * if (tokens.get(j + i).getName().equals("beginning") ||
 				 * tokens.get(j + i).getName().equals("continuing")) {
@@ -129,17 +131,18 @@ public class Trainer implements Serializable {
 				 */
 
 				if (tokens.get(j + i).getName().equals("beginning")) {
-					beginningCount++;
+					begCount++;
 				} else if (tokens.get(j + i).getName().equals("continuing")) {
-					continuingCount++;
+					contCount++;
 				}
 
 				// if there is a killWord following a beginning or continuing
 				// token
-				if (tokens.get(j + i).isKillWord() == 1) {
+				if (tokens.get(j + i).isKillWord() == 1) { //if last element is killword
+					
 					if (tokens.get(j + i - 1).getName().equals("beginning")
 							|| tokens.get(j + i - 1).getName().equals("continuing")) {
-						killWordCount++;
+						killCount++;
 					}
 				}
 
@@ -150,7 +153,7 @@ public class Trainer implements Serializable {
 			}
 
 			// if (nameCount > 1)
-			if (beginningCount > 0 && continuingCount > 0) {
+			if (begCount > 0 && contCount > 0) {
 				// Logic for manual Shingle training classification
 				/*
 				 * Scanner reader = new Scanner(System.in); // Reading from
@@ -172,7 +175,7 @@ public class Trainer implements Serializable {
 				 * }
 				 */
 
-				if (killWordCount > 0) {
+				if (killCount > 0) {
 					sb.append("no");
 				} else {
 					sb.append("yes");
@@ -182,8 +185,10 @@ public class Trainer implements Serializable {
 				sb.append("no");
 				// System.out.print("no");
 			}
+			
+			String toAdd = sb.toString();
 
-			shingles.add(sb.toString());
+			shingles.add(toAdd);
 		}
 
 		/*
