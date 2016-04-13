@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" output="target/classes" path="src/main/java" />
-	<classpathentry kind="src" output="build/test-classes"
-		path="src/test/java" />
-	<classpathentry kind="con"
-		path="org.eclipse.jdt.launching.JRE_CONTAINER" />
-	<classpathentry kind="lib" path="lib/hamcrest-core.jar" />
-	<classpathentry kind="lib" path="lib/java-cup.jar" />
-	<classpathentry kind="lib" path="lib/junit.jar" />
-	<classpathentry kind="lib" path="lib/weka-stable.jar" />
-	<classpathentry kind="lib" path="lib/extract-wordlists.jar" />
-	<classpathentry kind="output" path="build" />
+	<classpathentry kind="src" output="target/classes" path="src/main/java"/>
+	<classpathentry kind="src" output="build/test-classes" path="src/test/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/hamcrest-core.jar"/>
+	<classpathentry kind="lib" path="lib/java-cup.jar"/>
+	<classpathentry kind="lib" path="lib/junit.jar"/>
+	<classpathentry kind="lib" path="lib/weka-stable.jar"/>
+	<classpathentry kind="lib" path="lib/extract-wordlists.jar"/>
+	<classpathentry kind="con" path="org.apache.ivyde.eclipse.cpcontainer.IVYDE_CONTAINER/?project=Green3&amp;ivyXmlPath=ivy.xml&amp;confs=*&amp;ivySettingsPath=ivysettings.xml&amp;loadSettingsOnDemand=false&amp;ivyUserDir=&amp;propertyFiles="/>
+	<classpathentry kind="output" path="build"/>
 </classpath>

@@ -2,9 +2,7 @@
 	<info organisation="edu.odu.cs" module="PNE" />
 	<dependencies>
 		<dependency org="junit" name="junit" rev="4.11" />
-		<dependency org="nz.ac.waikato.cms.weka" name="weka-stable"
-			rev="3.6.13" />
-		<dependency org="edu.odu.cs.extract" name="extract-wordlists"
-			rev="4.2" />
+		<dependency org="nz.ac.waikato.cms.weka" name="weka-stable" rev="3.6.13" />
+		<dependency org="edu.odu.cs.extract" name="extract-wordlists" rev="4.2" />
 	</dependencies>
 </ivy-module>
