@@ -197,7 +197,7 @@ public class TestTrainer {
 
 		try {
 			trainer.trainLM(arffFilePath);
-			assertEquals(24, trainer.getLearningMachine().getTrainingInstances().numInstances());
+			assertEquals(24, trainer.getLM().getTrainingInstances().numInstances());
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -255,7 +255,7 @@ public class TestTrainer {
 		LM1.importARFF(arffFilePath);
 		LM1.train();
 		LM1.printEvaluationSummary();
-		trainer.setLearningMachine(LM1);
+		trainer.setLM(LM1);
 		// trainer.saveLearningMachine(filePath);
 
 		LearningMachine LM2 = Trainer.loadLearningMachine(filePath);
@@ -271,11 +271,11 @@ public class TestTrainer {
 	@Test
 	public void testTrainer() {
 		Trainer t1 = new Trainer();
-		assertTrue(t1.getLearningMachine() != null);
+		assertTrue(t1.getLM() != null);
 
 		// a learning machine with a k value of 3 should have 106 attributes
 		Trainer t2 = new Trainer(3);
-		assertTrue(t2.getLearningMachine().getNumberOfAttributes() == 106);
+		assertTrue(t2.getLM().getNumberOfAttributes() == 106);
 	}
 
 }

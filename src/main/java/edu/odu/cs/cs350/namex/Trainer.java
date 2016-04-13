@@ -11,28 +11,29 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Trainer implements Serializable {
+	
 	private static final long serialVersionUID = 1969136929013924126L;
 
-	private LearningMachine learningMachine;
+	private LearningMachine lm;
 
 	public Trainer() {
-		learningMachine = new LearningMachine();
+		lm = new LearningMachine();
 	}
 
 	public Trainer(int k) {
-		learningMachine = new LearningMachine(k);
+		lm = new LearningMachine(k);
 	}
 
-	public Trainer(LearningMachine learningMachine) {
-		this.learningMachine = learningMachine;
+	public Trainer(LearningMachine lm1) {
+		this.lm = lm1;
 	}
 
-	public LearningMachine getLearningMachine() {
-		return learningMachine;
+	public LearningMachine getLM() {
+		return lm;
 	}
 
-	public void setLearningMachine(LearningMachine learningMachine) {
-		this.learningMachine = learningMachine;
+	public void setLM(LearningMachine lm1) {
+		this.lm = lm1;
 	}
 
 	// User Story #1095
@@ -217,16 +218,16 @@ public class Trainer implements Serializable {
 		String[] ARFFArray = new String[arffData.size()];
 		ARFFArray = arffData.toArray(ARFFArray);
 
-		learningMachine = new LearningMachine();
-		learningMachine.importARFF(ARFFArray);
+		lm = new LearningMachine();
+		lm.importARFF(ARFFArray);
 
 		try {
-			learningMachine.train();
+			lm.train();
 			// printARFF();
 			if (showSummary == true) {
-				learningMachine.printEvaluationSummary();
+				lm.printEvaluationSummary();
 			}
-			learningMachine.exportARFF(outputFileName);
+			lm.exportARFF(outputFileName);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -358,8 +359,8 @@ public class Trainer implements Serializable {
 	// As Trainer, I want to use existing data to train the learning machine
 	public void trainLM(String filePath) {
 		try {
-			learningMachine.importARFF(filePath);
-			learningMachine.train();
+			lm.importARFF(filePath);
+			lm.train();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -401,7 +402,7 @@ public class Trainer implements Serializable {
 		try {
 			outputFile = new FileOutputStream(filePath);
 			ObjectOutputStream out = new ObjectOutputStream(outputFile);
-			out.writeObject(learningMachine);
+			out.writeObject(lm);
 			out.close();
 		} catch (IOException e) {
 			e.printStackTrace();
