@@ -43,19 +43,19 @@ public class Trainer implements Serializable {
 	public ArrayList<Shingle> getShingles(ArrayList<Token> tokens, String nothing) {
 		int k = 5;// default is k = 5
 
-		int sequenceLength = ((2 * k) + 1);
+		int seqLeng = ((2 * k) + 1);
 		ArrayList<Shingle> shingles = new ArrayList<Shingle>();
 
 		// add null tokens before and after the text block
 		for (int i = 0; i < k; i++) {
-			tokens.add(0, new Token("null"));
-			tokens.add(new Token("null"));
+			
+			Token nu = new Token("null");
+			
+			tokens.add(0, nu);
+			tokens.add(nu);
 		}
 
-		// System.out.println("\nSize: " + shingleTokens.size());
-		// System.out.println("Sequence Length: " + sequenceLength);
-
-		for (int i = 0; i < (tokens.size() - (sequenceLength - 1)); i++) {
+		for (int i = 0; i < (tokens.size() - (seqLeng - 1)); i++) {
 			// ArrayList<Token> shingle = new ArrayList<Token>();
 
 			StringBuilder sb = new StringBuilder();
@@ -64,16 +64,19 @@ public class Trainer implements Serializable {
 
 			// int nameCount = 0; // if there are more than two classified names
 			// within the shingle, classify it as 'yes'
-			for (int j = 0; j < sequenceLength; j++) {
+			
+			for (int j = 0; j < seqLeng; j++) {
+				/*
 				if (tokens.get(j + i).getName().equals("beginning")
 						|| tokens.get(j + i).getName().equals("continuing")) {
 					// nameCount++;
 				}
+				*/
 
 				// System.out.print(shingleTokens.get(j + i).getARFF() + ",");
 				// shingle.add(shingleTokens.get(j + i));
 
-				if (j == (sequenceLength - 1)) {
+				if (j == (seqLeng - 1)) {
 					sb.append(tokens.get(j + i).getARFF());
 				} else {
 					sb.append(tokens.get(j + i).getARFF() + ",");
