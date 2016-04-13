@@ -379,21 +379,23 @@ public class Trainer implements Serializable {
 	// User Story #848
 	// Status - Completed
 	// Load trained machine into the extractor (L,T)
-	public static LearningMachine loadLM(String filePath) {
-		filePath = filePath + ".ser";
+	public static LearningMachine loadLM(String fpath) {
+		fpath += ".ser";
 
-		FileInputStream fileInputStream;
+		FileInputStream fInStr;
 
 		LearningMachine lm;
 
 		try {
-			fileInputStream = new FileInputStream(filePath);
-			ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+			fInStr = new FileInputStream(fpath);
+			ObjectInputStream objectInputStream = new ObjectInputStream(fInStr);
 			lm = (LearningMachine) objectInputStream.readObject();
-			fileInputStream.close();
+			fInStr.close();
 
-			System.out.println("Loaded LearningMachine: " + filePath);
+			System.out.println("Loaded LearningMachine: " + fpath);
+			
 			return lm; //return
+			
 		} catch (ClassNotFoundException | IOException e) {
 			e.printStackTrace();
 		}
@@ -404,21 +406,24 @@ public class Trainer implements Serializable {
 	// User Story #849
 	// Status - Completed
 	// Save trained learning machine in a file. (T)
-	public void saveLM(String filePath) {
-		filePath = filePath + ".ser"; // add the .ser extension
+	public boolean saveLM(String fpath) {
+		fpath = fpath + ".ser"; // add the .ser extension
 
-		FileOutputStream outputFile;
+		FileOutputStream fOutStr;
 
 		try {
-			outputFile = new FileOutputStream(filePath);
-			ObjectOutputStream out = new ObjectOutputStream(outputFile);
+			fOutStr = new FileOutputStream(fpath);
+			ObjectOutputStream out = new ObjectOutputStream(fOutStr);
 			out.writeObject(lm);
 			out.close();
+			
 		} catch (IOException e) {
 			e.printStackTrace();
+			return false;
 		}
 
-		System.out.println("Created Classifier: " + filePath);
+		System.out.println("Created Classifier: " + fpath);
+		return true;
 	}
 
 }
