@@ -33,16 +33,16 @@ public class Librarian {
 		 */
 
 		if (args.length == 0) {
-			System.out.println("Hello World!");
+			System.out.println("Hello World!");  
 		} 
 
 		// if CLI contains one argument that is a textBlock
 		else if (args.length == 1) {
-			System.out.println(args[0]);
+			System.out.println(args[0]); 
 		}
 
 		// if CLI contains two arguments
-		else if (args.length == 2) {
+		else if (args.length == 2) { 
 			System.out.println("2 Arguments");
 
 			String inputFileName = args[0];

@@ -347,7 +347,7 @@ public class Trainer implements Serializable {
 	 */
 	public int getTokenCount(int index, ArrayList<Token> tokenizedText) {
 		int tokenCount = 0;
-
+ 
 		for (int i = 0; i < tokenizedText.size(); i++) {
 			if (tokenizedText.get(index) == tokenizedText.get(i)) {
 				tokenCount++;
