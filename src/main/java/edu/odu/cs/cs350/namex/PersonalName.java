@@ -24,7 +24,7 @@ public class PersonalName {
 		honorific = "";
 		givenName = "";
 		middleNames = "";
-		surName = "";
+		surName = ""; 
 		suffix = "";
 
 	}

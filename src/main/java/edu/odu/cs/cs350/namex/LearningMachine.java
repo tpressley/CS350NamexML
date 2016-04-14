@@ -23,7 +23,7 @@ public class LearningMachine implements Serializable {
 	private Instances trainingInstances;
 	private String evaluationSummary;
 
-	public LearningMachine() {
+	public LearningMachine() { 
 		// Initialize the Classifier as a Naive Bayes Classifier
 		classifier = (Classifier) new NaiveBayes();
 

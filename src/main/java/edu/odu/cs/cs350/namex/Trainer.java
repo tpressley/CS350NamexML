@@ -14,7 +14,7 @@ public class Trainer implements Serializable {
 
 	private static final long serialVersionUID = 1969136929013924126L;
 
-	private LearningMachine lm;
+	private LearningMachine lm; 
 
 	public Trainer() {
 		lm = new LearningMachine();
