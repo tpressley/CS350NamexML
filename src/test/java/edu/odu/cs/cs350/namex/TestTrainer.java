@@ -215,7 +215,7 @@ public class TestTrainer {
 		String relPath = currRelPath.toAbsolutePath().toString();
 		arffPath = relPath + "" + arffPath;
 
-		Trainer t1 = new Trainer();
+		Trainer t1 = new Trainer(5);
 		int numInst = t1.getLM().getTrainingInstances().numInstances();
 
 		try {
