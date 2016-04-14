@@ -17,8 +17,9 @@ public class TestTrainer {
 	//member variables
 	String mArffPath = "/src/main/data/trainingMaterial002.arff";
 	String mTrainPathMarked = "/src/main/data/trainingMaterial002.txt";
-	String mTrainPathUnmarked = "/data/training/trainingDataUnmarked.txt"; //make this file by unmarking <PER>s in train...002.txt
-	String mArffPathShingle = "/data/arff/shingling_training_k3_2.arff";
+	
+	String mTrainPathUnmarked = "/src/main/data/trainingMaterial002Unmarked.txt"; //make this file by unmarking <PER>s in train...002.txt
+	String mArffPathShingle = "/src/main/data/shingling_training_k3_2.arff";
 	
 
 	// ********** USER STORIES UNDER DEVELOPMENT **********
@@ -192,6 +193,13 @@ public class TestTrainer {
 		File file = new File(outFpath);
 
 		System.out.println(file.exists());
+		
+		//fail this test if filepath does not exist
+		if(!file.exists())
+		{
+			fail("outFpath does not exist");
+		}
+		
 		assertTrue(file.exists());
 		assertTrue(t1.prepareData(inFpath, outFpath, true));
 	}
@@ -208,10 +216,11 @@ public class TestTrainer {
 		arffPath = relPath + "" + arffPath;
 
 		Trainer t1 = new Trainer();
+		int numInst = t1.getLM().getTrainingInstances().numInstances();
 
 		try {
 			t1.trainLM(arffPath);
-			assertEquals(24, t1.getLM().getTrainingInstances().numInstances());
+			assertEquals(numInst, t1.getLM().getTrainingInstances().numInstances());
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

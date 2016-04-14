@@ -46,6 +46,7 @@ public class TestTextBlock {
 
 		assertEquals(token1.toString(), tokens.get(0).toString());
 		assertEquals(token2.toString(), tokens.get(1).toString());
+		
 	}
 
 	@Test

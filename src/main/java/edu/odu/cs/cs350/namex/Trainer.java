@@ -139,8 +139,9 @@ public class Trainer implements Serializable {
 
 				// if there is a killWord following a beginning or continuing
 				// token
-				if (tokens.get(j + i).isKillWord() == 1) { // if last element is
-															// killword
+				
+				// if last element is killword
+				if (tokens.get(j + i).isKillWord() == 1) { 
 
 					if (tokens.get(j + i - 1).getName().equals("beginning")
 							|| tokens.get(j + i - 1).getName().equals("continuing")) {
