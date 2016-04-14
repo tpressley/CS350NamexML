@@ -191,7 +191,8 @@ public class LearningMachine implements Serializable {
 
 	// builds the classifier based on the ARFF data imported into
 	// trainingInstances
-	public void train() throws Exception {
+	public boolean train() throws Exception {
+		try{
 		// Build the Classifier
 		classifier.buildClassifier(this.trainingInsts);
 
@@ -201,6 +202,12 @@ public class LearningMachine implements Serializable {
 
 		// Set the Evaluation Summary
 		evalSummary = evaluation.toSummaryString();
+		
+		return true;
+		}catch(Exception e1){
+			e1.printStackTrace();
+			return false;
+		}
 	}
 
 	// Get the likelihood of each classes
