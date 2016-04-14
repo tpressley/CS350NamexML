@@ -13,14 +13,20 @@ import edu.odu.cs.cs350.namex.Trainer;
 import java.util.*;
 
 public class TestTrainer {
-	
-	//member variables
+
+	// member variables
 	String mArffPath = "/src/main/data/trainingMaterial002.arff";
 	String mTrainPathMarked = "/src/main/data/trainingMaterial002.txt";
-	
-	String mTrainPathUnmarked = "/src/main/data/trainingMaterial002Unmarked.txt"; //make this file by unmarking <PER>s in train...002.txt
+
+	String mTrainPathUnmarked = "/src/main/data/trainingMaterial002Unmarked.txt"; // make
+																					// this
+																					// file
+																					// by
+																					// unmarking
+																					// <PER>s
+																					// in
+																					// train...002.txt
 	String mArffPathShingle = "/src/main/data/shingling_training_k3_2.arff";
-	
 
 	// ********** USER STORIES UNDER DEVELOPMENT **********
 
@@ -171,7 +177,8 @@ public class TestTrainer {
 
 		String inFpath = mTrainPathMarked;
 		String outFpath = mArffPath;
-		//where is this this arff file supposed to be stored according to grading rubric??
+		// where is this this arff file supposed to be stored according to
+		// grading rubric??
 
 		// ********** End Configurations **********
 
@@ -193,13 +200,12 @@ public class TestTrainer {
 		File file = new File(outFpath);
 
 		System.out.println(file.exists());
-		
-		//fail this test if filepath does not exist
-		if(!file.exists())
-		{
+
+		// fail this test if filepath does not exist
+		if (!file.exists()) {
 			fail("outFpath does not exist");
 		}
-		
+
 		assertTrue(file.exists());
 		assertTrue(t1.prepareData(inFpath, outFpath, true));
 	}
@@ -209,7 +215,7 @@ public class TestTrainer {
 	// As Trainer, I want to use existing data to train the learning machine
 	@Test
 	public void testTrainLM() {
-		String arffPath = mArffPath; 
+		String arffPath = mArffPath;
 
 		Path currRelPath = Paths.get("");
 		String relPath = currRelPath.toAbsolutePath().toString();

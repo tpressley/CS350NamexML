@@ -6,15 +6,15 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-public class TestTextBlock {  
+public class TestTextBlock {
 	@Test
 	public void testTextBlock() {
 		// uninitialized TextBlock
-		TextBlock tb1 = new TextBlock(); 
+		TextBlock tb1 = new TextBlock();
 		// TextBlock composed of a string
 		TextBlock tb2 = new TextBlock("Hello World");
 		// empty TextBlock
-		TextBlock tb3 = new TextBlock(""); 
+		TextBlock tb3 = new TextBlock("");
 		// TextBlock() constructor called with a concatenated string parameter
 		TextBlock tb4 = new TextBlock("Hello" + " Java");
 
@@ -34,7 +34,7 @@ public class TestTextBlock {
 	}
 
 	@Test
-	public void testGetTokens() { 
+	public void testGetTokens() {
 		TextBlock tb = new TextBlock();
 		Token token1 = new Token("John");
 		Token token2 = new Token("Smith");
@@ -46,9 +46,9 @@ public class TestTextBlock {
 
 		assertEquals(token1.toString(), tokens.get(0).toString());
 		assertEquals(token2.toString(), tokens.get(1).toString());
-		
+
 	}
- 
+
 	@Test
 	public void testSetTokens() {
 		TextBlock tb = new TextBlock();
@@ -66,7 +66,7 @@ public class TestTextBlock {
 		assertEquals(token1.toString(), tokens.get(0).toString());
 		assertEquals(token2.toString(), tokens.get(1).toString());
 	}
- 
+
 	@Test
 	public void testAddToken() {
 		TextBlock tb = new TextBlock();

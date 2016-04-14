@@ -22,30 +22,29 @@ public class LearningMachine implements Serializable {
 	private int numAttr;
 	private Instances trainingInstances;
 	private String evalSummary;
-	
 
-	public LearningMachine(){ 
+	public LearningMachine() {
 		// Initialize the Classifier as a Naive Bayes Classifier
 		classifier = (Classifier) new NaiveBayes();
-		// Initialize Attributes 
+		// Initialize Attributes
 		// Declare Lexical Attribute with its values
-		
-		FastVector NominalValLexical = new FastVector(9); 
-		 
-		NominalValLexical.addElement("punct"); 
+
+		FastVector NominalValLexical = new FastVector(9);
+
+		NominalValLexical.addElement("punct");
 		NominalValLexical.addElement("capLetter");
 		NominalValLexical.addElement("capitalized");
 		NominalValLexical.addElement("allCaps");
-		NominalValLexical.addElement("lineFeed"); 
+		NominalValLexical.addElement("lineFeed");
 		NominalValLexical.addElement("whiteSpace");
-		NominalValLexical.addElement("number"); 
+		NominalValLexical.addElement("number");
 		NominalValLexical.addElement("other");
 		NominalValLexical.addElement("null");
 		Attribute Lexical = new Attribute("Lexical", NominalValLexical);
 
 		// Declare PartOfSpeech Attribute with its values
 		FastVector NominalValPoS = new FastVector(6);
-		NominalValPoS.addElement("article"); 
+		NominalValPoS.addElement("article");
 		NominalValPoS.addElement("conjunction");
 		NominalValPoS.addElement("period");
 		NominalValPoS.addElement("comma");
@@ -373,8 +372,6 @@ public class LearningMachine implements Serializable {
 		return distribution;
 	}
 
-	
-
 	/**
 	 * print the Evaluation Summary of the classifier
 	 */
@@ -405,7 +402,7 @@ public class LearningMachine implements Serializable {
 			writer = new PrintWriter(outputFilePath, "UTF-8");
 			writer.println(trainingInstances);
 			writer.close();
-			
+
 		} catch (FileNotFoundException | UnsupportedEncodingException e) {
 			e.printStackTrace();
 			return false;
@@ -423,24 +420,25 @@ public class LearningMachine implements Serializable {
 	 * @throws Exception
 	 */
 	public boolean importARFF(String filePath) throws Exception {
-		
-		try{
 
-		DataSource source = new DataSource(filePath);
-		trainingInstances = source.getDataSet();
+		try {
 
-		// setting class attribute if the data format does not provide this
-		// information
-		// For example, the XRFF format saves the class attribute information as
-		// well
-		if (trainingInstances.classIndex() == -1) {
-			trainingInstances.setClassIndex(trainingInstances.numAttributes() - 1);
-		}
-		return true;
-		}catch(Exception e3){
+			DataSource source = new DataSource(filePath);
+			trainingInstances = source.getDataSet();
+
+			// setting class attribute if the data format does not provide this
+			// information
+			// For example, the XRFF format saves the class attribute
+			// information as
+			// well
+			if (trainingInstances.classIndex() == -1) {
+				trainingInstances.setClassIndex(trainingInstances.numAttributes() - 1);
+			}
+			return true;
+		} catch (Exception e3) {
 			return false;
 		}
-		
+
 	}
 
 	/**
@@ -478,30 +476,30 @@ public class LearningMachine implements Serializable {
 	 * @param String[]
 	 *            trainingData
 	 */
-	public boolean importARFF(String[] trainingData) throws Exception{
-		
-		try{
-		this.trainingInstances = new Instances("Classification", attributes, trainingData.length);
+	public boolean importARFF(String[] trainingData) throws Exception {
 
-		// Make the last attribute be the class
-		this.trainingInstances.setClassIndex(numAttr - 1);
+		try {
+			this.trainingInstances = new Instances("Classification", attributes, trainingData.length);
 
-		for (String sdata : trainingData) {
-			// System.out.println(trainingData);
+			// Make the last attribute be the class
+			this.trainingInstances.setClassIndex(numAttr - 1);
 
-			String[] values = sdata.split(",");
+			for (String sdata : trainingData) {
+				// System.out.println(trainingData);
 
-			Instance instance = new Instance(numAttr);
+				String[] values = sdata.split(",");
 
-			for (int i = 0; i < numAttr; i++) {
-				instance.setValue((Attribute) attributes.elementAt(i), values[i]);
+				Instance instance = new Instance(numAttr);
+
+				for (int i = 0; i < numAttr; i++) {
+					instance.setValue((Attribute) attributes.elementAt(i), values[i]);
+				}
+
+				this.trainingInstances.add(instance); // Add new instance to
+														// training data
 			}
-
-			this.trainingInstances.add(instance); // Add new instance to
-													// training data
-		}
-		return true;
-		}catch(Exception e10){
+			return true;
+		} catch (Exception e10) {
 			return false;
 		}
 	}

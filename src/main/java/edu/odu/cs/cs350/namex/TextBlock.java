@@ -7,10 +7,10 @@ public class TextBlock {
 	private String textBlock;
 	private ArrayList<Token> tokens;
 
-	//default constructor
+	// default constructor
 	public TextBlock() {
 		this.textBlock = "";
-		this.tokens = new ArrayList<Token>(); 
+		this.tokens = new ArrayList<Token>();
 	}
 
 	public TextBlock(String textBlock) {

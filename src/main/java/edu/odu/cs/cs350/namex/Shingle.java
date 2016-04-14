@@ -9,7 +9,7 @@ public class Shingle {
 	private double[] distribution;
 
 	public Shingle(String lexemes, String classifications, String arffData) {
-		this.lexemes = lexemes; 
+		this.lexemes = lexemes;
 		this.arffData = arffData;
 		this.classifications = classifications;
 		containsName = "";

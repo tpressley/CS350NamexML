@@ -36,10 +36,13 @@ public class Trainer implements Serializable {
 		this.lm = lm1;
 	}
 
-	// User Story #1095
-	// Status - Implementation
-	// As a Trainer, I want Shingling applied either to lists of
-	// tokens or to lists of feature sets.
+	/**
+	 * Prepares shingled tokens to feed to the learning machine
+	 * @param arffFilePath
+	 * @param k   = number of tokens per shingle 
+	 * @param inputFileName
+	 * @param outputFileName
+	 */
 	public ArrayList<Shingle> getShingles(ArrayList<Token> tokens, String nothing) {
 		int k = 5;// default is k = 5
 
@@ -96,10 +99,14 @@ public class Trainer implements Serializable {
 		return shingles;
 	}
 
-	// User Story #1095
-	// Status - Implementation
-	// As a Trainer, I want Shingling applied either to lists of
-	// tokens or to lists of feature sets.
+	/**
+	 * Prepares shingled tokens to feed to the learning machine
+	 * Returns data as a HashSet
+	 * @param arffFilePath
+	 * @param k   = number of tokens per shingle 
+	 * @param inputFileName
+	 * @param outputFileName
+	 */
 	public HashSet<String> getShingles(int k, ArrayList<Token> tokens) {
 		int seqLen = ((2 * k) + 1);
 		HashSet<String> shingles = new HashSet<String>();
@@ -201,11 +208,14 @@ public class Trainer implements Serializable {
 		return shingles;
 	}
 
-	// User Story #851
-	// Status - Completed
-	// As a Trainer, I want the program to properly prepare data
-	// to train the learning machine.
-	public boolean prepareData(String inFileName, String outFileName, boolean showSummary) throws Exception {
+	/**
+	 * Prepares shingled tokens to feed to the learning machine
+	 * @param arffFilePath
+	 * @param k   = number of tokens per shingle 
+	 * @param inputFileName
+	 * @param outputFileName
+	 */
+	public boolean prepareData(String inFileName, String outFileName, boolean showSummary) {
 
 		Librarian lib = new Librarian();
 
@@ -248,10 +258,13 @@ public class Trainer implements Serializable {
 		return true;
 	}
 
-	// User Story #851
-	// Status - Completed
-	// As a Trainer, I want the program to properly prepare data
-	// to train the learning machine.
+	/**
+	 * Prepares shingled tokens to feed to the learning machine
+	 * @param arffFilePath
+	 * @param k   = number of tokens per shingle 
+	 * @param inputFileName
+	 * @param outputFileName
+	 */
 	public void prepareShinglingData(String arffFilePath, int k, String inputFileName, String outputFileName) {
 		Librarian librarian = new Librarian();
 
@@ -307,10 +320,11 @@ public class Trainer implements Serializable {
 		}
 	}
 
-	// User Story #860
-	// Status - Completed
-	// Text blocks divided into tokens, with punctuation separate from
-	// alphabetics (T)
+	/**
+	 * 
+	 * @param textBlock
+	 * @return
+	 */
 	public ArrayList<Token> tokenize(String textBlock) {
 		String[] tks = textBlock.split("(?<=<NER>)|(?=</NER>)|(?<=<PER>)|(?=</PER>)|(?=[ ,.!()<:;}-])|(?<=[ (>{-])");
 
@@ -323,10 +337,14 @@ public class Trainer implements Serializable {
 		return tokens;
 	}
 
-	// User Story #860
-	// Status - Completed
-	// Text blocks divided into tokens, with punctuation separate from
-	// alphabetics (T)
+	/**
+	 * Takes the input text and returns an arraylist of basic tokens, containing only the lexemes
+	 * 	Tokens later have features analyzed by Trainer.getFeatures()
+	 * 		Verbose option outputs token.toString() after the tokens are added to the arraylist
+	 * @param textBlock
+	 * @param verbose
+	 * @return
+	 */
 	public ArrayList<Token> tokenize(String textBlock, boolean verbose) {
 		String[] tks = textBlock.split("(?<=<NER>)|(?=</NER>)|(?<=<PER>)|(?=</PER>)|(?=[ ,.!()<:;}-])|(?<=[ (>{-])");
 
@@ -342,12 +360,12 @@ public class Trainer implements Serializable {
 
 	/**
 	 * Returns the the token count for a specific token at index
-	 * 
+	 * Provided as part of the interface, unused within the package
 	 * @param token
 	 */
 	public int getTokenCount(int index, ArrayList<Token> tokenizedText) {
 		int tokenCount = 0;
- 
+
 		for (int i = 0; i < tokenizedText.size(); i++) {
 			if (tokenizedText.get(index) == tokenizedText.get(i)) {
 				tokenCount++;
@@ -356,9 +374,10 @@ public class Trainer implements Serializable {
 		return tokenCount;
 	};
 
-	// User Story #853
-	// Status - Completed
-	// As Trainer, I want to use existing data to train the learning machine
+	/**
+	 * Trains the loaded Learning Machine
+	 * @param filePath
+	 */
 	public void trainLM(String filePath) {
 		try {
 			lm.importARFF(filePath);
@@ -368,9 +387,11 @@ public class Trainer implements Serializable {
 		}
 	}
 
-	// User Story #848
-	// Status - Completed
-	// Load trained machine into the extractor (L,T)
+	/**
+	 * Loads the training machine into the extractor
+	 * @param fpath
+	 * @return
+	 */
 	public static LearningMachine loadLM(String fpath) {
 		fpath += ".ser";
 
@@ -395,9 +416,11 @@ public class Trainer implements Serializable {
 		return null;
 	}
 
-	// User Story #849
-	// Status - Completed
-	// Save trained learning machine in a file. (T)
+	/**
+	 * Saves the Learning Machine to a file  
+	 * @param fpath
+	 * @return
+	 */
 	public boolean saveLM(String fpath) {
 		fpath = fpath + ".ser"; // add the .ser extension 
 

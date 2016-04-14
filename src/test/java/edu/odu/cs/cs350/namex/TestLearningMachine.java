@@ -109,36 +109,28 @@ public class TestLearningMachine {
 		fail("Not yet implemented");
 	}
 	/*
-	@Test
-	public void testSaveLoadLM() {
-		// ********** Configurations **************
-
-		String learningMachineFileName = "trainedmachine.model";
-
-		String arffFilePath = "/data/arff/trainingData.arff";
-
-		// ********** End Configurations **********
-
-		Path currentRelativePath = Paths.get("");
-		String relativePath = currentRelativePath.toAbsolutePath().toString();
-		String filePath = relativePath + "/learning_machines/" + learningMachineFileName;
-		arffFilePath = relativePath + "" + arffFilePath;
-
-		LearningMachine LM1 = new LearningMachine();
-		LearningMachine LM2 = new LearningMachine();
-		LM2.loadLM(filePath);
-
-		try {
-			LM1.importARFF(arffFilePath);
-			LM1.train();
-			LM1.printEvaluationSummary();
-			LM1.saveLM();
-			LM2.train();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		assertEquals(LM1.getSerialVersionUID(), LM2.getSerialVersionUID());
-	}*/
+	 * @Test public void testSaveLoadLM() { // ********** Configurations
+	 * **************
+	 * 
+	 * String learningMachineFileName = "trainedmachine.model";
+	 * 
+	 * String arffFilePath = "/data/arff/trainingData.arff";
+	 * 
+	 * // ********** End Configurations **********
+	 * 
+	 * Path currentRelativePath = Paths.get(""); String relativePath =
+	 * currentRelativePath.toAbsolutePath().toString(); String filePath =
+	 * relativePath + "/learning_machines/" + learningMachineFileName;
+	 * arffFilePath = relativePath + "" + arffFilePath;
+	 * 
+	 * LearningMachine LM1 = new LearningMachine(); LearningMachine LM2 = new
+	 * LearningMachine(); LM2.loadLM(filePath);
+	 * 
+	 * try { LM1.importARFF(arffFilePath); LM1.train();
+	 * LM1.printEvaluationSummary(); LM1.saveLM(); LM2.train(); } catch
+	 * (Exception e) { e.printStackTrace(); }
+	 * 
+	 * assertEquals(LM1.getSerialVersionUID(), LM2.getSerialVersionUID()); }
+	 */
 
 }
