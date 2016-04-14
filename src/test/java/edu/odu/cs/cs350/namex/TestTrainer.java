@@ -209,7 +209,7 @@ public class TestTrainer {
 	// As Trainer, I want to use existing data to train the learning machine
 	@Test
 	public void testTrainLM() {
-		String arffPath = mArffPath;
+		String arffPath = mArffPath; 
 
 		Path currRelPath = Paths.get("");
 		String relPath = currRelPath.toAbsolutePath().toString();

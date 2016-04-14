@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-public class TestTextBlock {
+public class TestTextBlock {  
 	@Test
 	public void testTextBlock() {
 		// uninitialized TextBlock
@@ -34,7 +34,7 @@ public class TestTextBlock {
 	}
 
 	@Test
-	public void testGetTokens() {
+	public void testGetTokens() { 
 		TextBlock tb = new TextBlock();
 		Token token1 = new Token("John");
 		Token token2 = new Token("Smith");
@@ -48,7 +48,7 @@ public class TestTextBlock {
 		assertEquals(token2.toString(), tokens.get(1).toString());
 		
 	}
-
+ 
 	@Test
 	public void testSetTokens() {
 		TextBlock tb = new TextBlock();
@@ -66,7 +66,7 @@ public class TestTextBlock {
 		assertEquals(token1.toString(), tokens.get(0).toString());
 		assertEquals(token2.toString(), tokens.get(1).toString());
 	}
-
+ 
 	@Test
 	public void testAddToken() {
 		TextBlock tb = new TextBlock();

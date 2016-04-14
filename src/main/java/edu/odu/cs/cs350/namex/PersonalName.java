@@ -19,7 +19,7 @@ public class PersonalName {
 	private String surName;
 	private String suffix;
 
-	PersonalName() {
+	PersonalName() { 
 
 		honorific = "";
 		givenName = "";
