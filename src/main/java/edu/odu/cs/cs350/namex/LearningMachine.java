@@ -19,7 +19,7 @@ public class LearningMachine implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Classifier classifier;
 	private FastVector attributes;
-	private int numberOfAttributes;
+	private int numAttributes;
 	private Instances trainingInstances;
 	private String evaluationSummary;
 
@@ -93,7 +93,7 @@ public class LearningMachine implements Serializable {
 		attributes.addElement(Kill);
 		attributes.addElement(Name);
 
-		numberOfAttributes = attributes.size();
+		numAttributes = attributes.size();
 	}
 
 	public LearningMachine(int k) {
@@ -167,7 +167,7 @@ public class LearningMachine implements Serializable {
 		}
 		attributes.addElement(ContainsName);
 
-		numberOfAttributes = attributes.size();
+		numAttributes = attributes.size();
 	}
 
 	public long getSerialVersionUID() {
@@ -213,7 +213,7 @@ public class LearningMachine implements Serializable {
 		// Build the instance to be classified
 		String[] dataToClassify = input.split(",");
 
-		Instance toClassify = new Instance(this.numberOfAttributes - 1);
+		Instance toClassify = new Instance(this.numAttributes - 1);
 		toClassify.setDataset(classificationInstances);
 
 		toClassify.setValue((Attribute) attributes.elementAt(0), dataToClassify[0]);
@@ -247,10 +247,10 @@ public class LearningMachine implements Serializable {
 		// Build the instance to be classified
 		String[] dataToClassify = input.split(",");
 
-		Instance toClassify = new Instance(this.numberOfAttributes - 1);
+		Instance toClassify = new Instance(this.numAttributes - 1);
 		toClassify.setDataset(classificationInstances);
 
-		for (int i = 0; i < (numberOfAttributes - 1); i++) {
+		for (int i = 0; i < (numAttributes - 1); i++) {
 			toClassify.setValue((Attribute) attributes.elementAt(i), dataToClassify[i]);
 		}
 
@@ -276,10 +276,10 @@ public class LearningMachine implements Serializable {
 		// Build the instance to be classified
 		String[] dataToClassify = input.split(",");
 
-		Instance toClassify = new Instance(this.numberOfAttributes - 1);
+		Instance toClassify = new Instance(this.numAttributes - 1);
 		toClassify.setDataset(classificationInstances);
 
-		for (int i = 0; i < (numberOfAttributes - 1); i++) {
+		for (int i = 0; i < (numAttributes - 1); i++) {
 			// System.out.println("Attribute " + i + " - " + dataToClassify[i]);
 			toClassify.setValue((Attribute) attributes.elementAt(i), dataToClassify[i]);
 		}
@@ -305,10 +305,10 @@ public class LearningMachine implements Serializable {
 		// Build the instance to be classified
 		String[] dataToClassify = input.split(",");
 
-		Instance toClassify = new Instance(this.numberOfAttributes - 1);
+		Instance toClassify = new Instance(this.numAttributes - 1);
 		toClassify.setDataset(classificationInstances);
 
-		for (int i = 0; i < (numberOfAttributes - 1); i++) {
+		for (int i = 0; i < (numAttributes - 1); i++) {
 			// System.out.println("Attribute " + i + " - " + dataToClassify[i]);
 			toClassify.setValue((Attribute) attributes.elementAt(i), dataToClassify[i]);
 		}
@@ -329,7 +329,7 @@ public class LearningMachine implements Serializable {
 		// Build the instance to be classified
 		String[] dataToClassify = input.split(",");
 
-		Instance toClassify = new Instance(this.numberOfAttributes - 1);
+		Instance toClassify = new Instance(this.numAttributes - 1);
 		toClassify.setDataset(classificationInstances);
 
 		toClassify.setValue((Attribute) attributes.elementAt(0), dataToClassify[0]);
@@ -414,16 +414,16 @@ public class LearningMachine implements Serializable {
 		this.trainingInstances = new Instances("Classification", attributes, trainingData.size());
 
 		// Make the last attribute be the class
-		this.trainingInstances.setClassIndex(numberOfAttributes - 1);
+		this.trainingInstances.setClassIndex(numAttributes - 1);
 
 		for (String sdata : trainingData) {
 			// System.out.println(trainingData);
 
 			String[] values = sdata.split(",");
 
-			Instance instance = new Instance(numberOfAttributes);
+			Instance instance = new Instance(numAttributes);
 
-			for (int i = 0; i < numberOfAttributes; i++) {
+			for (int i = 0; i < numAttributes; i++) {
 				instance.setValue((Attribute) attributes.elementAt(i), values[i]);
 			}
 
@@ -437,16 +437,16 @@ public class LearningMachine implements Serializable {
 		this.trainingInstances = new Instances("Classification", attributes, trainingData.length);
 
 		// Make the last attribute be the class
-		this.trainingInstances.setClassIndex(numberOfAttributes - 1);
+		this.trainingInstances.setClassIndex(numAttributes - 1);
 
 		for (String sdata : trainingData) {
 			// System.out.println(trainingData);
 
 			String[] values = sdata.split(",");
 
-			Instance instance = new Instance(numberOfAttributes);
+			Instance instance = new Instance(numAttributes);
 
-			for (int i = 0; i < numberOfAttributes; i++) {
+			for (int i = 0; i < numAttributes; i++) {
 				instance.setValue((Attribute) attributes.elementAt(i), values[i]);
 			}
 
@@ -470,7 +470,7 @@ public class LearningMachine implements Serializable {
 
 	// Returns the number of Attributes being used by the Classifier
 	public int getNumberOfAttributes() {
-		return numberOfAttributes;
+		return numAttributes;
 	}
 
 	public Instances getTrainingInstances() {
