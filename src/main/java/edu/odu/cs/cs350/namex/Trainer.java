@@ -205,7 +205,7 @@ public class Trainer implements Serializable {
 	// Status - Completed
 	// As a Trainer, I want the program to properly prepare data
 	// to train the learning machine.
-	public boolean prepareData(String inFileName, String outFileName, boolean showSummary) {
+	public boolean prepareData(String inFileName, String outFileName, boolean showSummary) throws Exception {
 
 		Librarian lib = new Librarian();
 

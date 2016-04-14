@@ -68,7 +68,12 @@ public class Librarian {
 
 			// System.out.println("Imported File Successfully!");
 
-			trainer.prepareData(inputFileName, outputFileName, false);
+			try {
+				trainer.prepareData(inputFileName, outputFileName, false);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 
 		// Generate ARFF Training Data
@@ -86,7 +91,12 @@ public class Librarian {
 
 				Trainer trainer = new Trainer();
 
-				trainer.prepareData(inputFileName, outputFileName, false);
+				try {
+					trainer.prepareData(inputFileName, outputFileName, false);
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				try {
 					System.out.println("*******************************");
 					System.out.println(" Saving Learning Machine to LearningMachine.model");

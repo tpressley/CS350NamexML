@@ -166,7 +166,7 @@ public class TestTrainer {
 	// As a Trainer, I want the program to properly prepare data
 	// to train the learning machine.
 	@Test
-	public void testPrepareData() {
+	public void testPrepareData() throws Exception {
 		// ********** Configurations **************
 
 		String inFpath = mTrainPathMarked;
