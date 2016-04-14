@@ -14,7 +14,7 @@ import java.util.*;
 
 public class TestTrainer {
 	
-	//member variable
+	//member variables
 	String mArffPath = "/src/main/data/trainingMaterial002.arff";
 	String mTrainPathMarked = "/src/main/data/trainingMaterial002.txt";
 	String mTrainPathUnmarked = "/data/training/trainingDataUnmarked.txt"; //make this file by unmarking <PER>s in train...002.txt
