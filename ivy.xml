@@ -4,7 +4,6 @@
 		<dependency org="junit" name="junit" rev="4.11" />
 		<dependency org="nz.ac.waikato.cms.weka" name="weka-stable" rev="3.6.13" />
 		<dependency org="edu.odu.cs.extract" name="extract-wordlists" rev="4.2" />
-		  <dependency org="org.jacoco" name="org.jacoco.ant" 
-       rev="latest.integration"/>
+		  <dependency org="org.jacoco" name="org.jacoco.ant" rev="latest.integration"/>
 	</dependencies>
 </ivy-module>
