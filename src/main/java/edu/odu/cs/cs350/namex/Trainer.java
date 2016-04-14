@@ -242,7 +242,11 @@ public class Trainer implements Serializable {
 		ARFFArray = arffData.toArray(ARFFArray);
 
 		lm = new LearningMachine();
-		lm.importARFF(ARFFArray);
+		try {
+			lm.importARFF(ARFFArray);
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
 
 		try {
 			lm.train();
