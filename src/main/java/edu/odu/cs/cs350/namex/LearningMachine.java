@@ -453,12 +453,15 @@ public class LearningMachine implements Serializable {
 			this.trainingInsts.add(instance); // Add new instance to
 													// training data
 		}
-	}
+	} 
 
 	// return ARFF data from trainingInstances as a String
+	/*
 	public String getTrainingData() {
 		return trainingInsts.toString();
 	}
+	*/
+	
 
 	public Classifier getClassifier() {
 		return classifier;

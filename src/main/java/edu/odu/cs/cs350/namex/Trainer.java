@@ -399,9 +399,9 @@ public class Trainer implements Serializable {
 	// Status - Completed
 	// Save trained learning machine in a file. (T)
 	public boolean saveLM(String fpath) {
-		fpath = fpath + ".ser"; // add the .ser extension
+		fpath = fpath + ".ser"; // add the .ser extension 
 
-		FileOutputStream fOutStr;
+		FileOutputStream fOutStr; 
 
 		try {
 			fOutStr = new FileOutputStream(fpath);
