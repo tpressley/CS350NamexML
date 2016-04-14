@@ -228,7 +228,6 @@ public class Trainer implements Serializable {
 			}
 			learningMachine.exportARFF(outputFileName);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -250,7 +249,6 @@ public class Trainer implements Serializable {
 			lm.importARFF(arffFilePath);
 			lm.train();
 		} catch (Exception e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
@@ -272,7 +270,6 @@ public class Trainer implements Serializable {
 						t.setName(lm.classify(t.toString()));
 						classifiedTokens.add(t);
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}
@@ -290,7 +287,6 @@ public class Trainer implements Serializable {
 			shingleTrainer.printEvaluationSummary();
 			shingleTrainer.exportARFF(outputFileName);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -300,12 +296,6 @@ public class Trainer implements Serializable {
 	// Text blocks divided into tokens, with punctuation separate from
 	// alphabetics (T)
 	public ArrayList<Token> tokenize(String textBlock) {
-
-		// split the string
-		// String[] tks = textBlock.split("(?=[\"
-		// ,.!?\n()-:;@#$%^&*{}<>])|(?<=[\" ,.!?\n()-:;@#$%^&*{}<>])");
-
-		// new tokenize regex
 		String[] tks = textBlock.split("(?<=<NER>)|(?=</NER>)|(?<=<PER>)|(?=</PER>)|(?=[ ,.!()<:;}-])|(?<=[ (>{-])");
 
 		ArrayList<Token> tokens = new ArrayList<Token>();
@@ -322,11 +312,6 @@ public class Trainer implements Serializable {
 	// Text blocks divided into tokens, with punctuation separate from
 	// alphabetics (T)
 	public ArrayList<Token> tokenize(String textBlock, boolean verbose) {
-		// split the string
-		// String[] tks = textBlock.split("(?=[\"
-		// ,.!?\n()-:;@#$%^&*{}<>])|(?<=[\" ,.!?\n()-:;@#$%^&*{}<>])");
-
-		// new tokenize regex
 		String[] tks = textBlock.split("(?<=<NER>)|(?=</NER>)|(?<=<PER>)|(?=</PER>)|(?=[ ,.!()<:;}-])|(?<=[ (>{-])");
 
 		ArrayList<Token> tokens = new ArrayList<Token>();
@@ -345,8 +330,6 @@ public class Trainer implements Serializable {
 	 * @param token
 	 */
 	public int getTokenCount(Token token, ArrayList<Token> tokenizedText) {
-		// todo make this run in O(LogN) or O(1) time keeping a running list of
-		// tokens and their counts while actually tokenizing the input
 		int tokenCount = 0;
 
 		for (int i = 0; i < tokenizedText.size(); i++) {
@@ -365,7 +348,6 @@ public class Trainer implements Serializable {
 			learningMachine.importARFF(filePath);
 			learningMachine.train();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -389,7 +371,6 @@ public class Trainer implements Serializable {
 			System.out.println("Loaded LearningMachine: " + filePath);
 			return lm;
 		} catch (ClassNotFoundException | IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -410,7 +391,6 @@ public class Trainer implements Serializable {
 			out.writeObject(learningMachine);
 			out.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

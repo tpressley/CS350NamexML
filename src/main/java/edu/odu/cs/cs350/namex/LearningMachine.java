@@ -386,7 +386,6 @@ public class LearningMachine implements Serializable {
 			writer.println(trainingInstances);
 			writer.close();
 		} catch (FileNotFoundException | UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -484,12 +483,14 @@ public class LearningMachine implements Serializable {
 			System.out.print("Saving Learning Machine to trainedmachine.model");
 			weka.core.SerializationHelper.write("trainedmachine.model", classifier);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 	}
 
+	/**
+	 * Are these save/load functions ever actually used anywhere?
+	 */
 	public void loadLM(String LMBrain) {
 
 		System.out.print("Loading Learning machine from file.");

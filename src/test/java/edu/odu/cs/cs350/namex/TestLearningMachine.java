@@ -2,6 +2,9 @@ package edu.odu.cs.cs350.namex;
 
 import static org.junit.Assert.*;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -107,13 +110,35 @@ public class TestLearningMachine {
 	}
 
 	@Test
-	public void testSaveLM() {
-		fail("Not yet implemented");
-	}
+	public void testSaveLoadLM() {
+		// ********** Configurations **************
 
-	@Test
-	public void testLoadLM() {
-		fail("Not yet implemented");
+		String learningMachineFileName = "trainedmachine.model";
+
+		String arffFilePath = "/data/arff/trainingData.arff";
+
+		// ********** End Configurations **********
+
+		Path currentRelativePath = Paths.get("");
+		String relativePath = currentRelativePath.toAbsolutePath().toString();
+		String filePath = relativePath + "/learning_machines/" + learningMachineFileName;
+		arffFilePath = relativePath + "" + arffFilePath;
+
+		LearningMachine LM1 = new LearningMachine();
+		LearningMachine LM2 = new LearningMachine();
+		LM2.loadLM(filePath);
+
+		try {
+			LM1.importARFF(arffFilePath);
+			LM1.train();
+			LM1.printEvaluationSummary();
+			LM1.saveLM();
+			LM2.train();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		assertEquals(LM1.getSerialVersionUID(), LM2.getSerialVersionUID());
 	}
 
 }
