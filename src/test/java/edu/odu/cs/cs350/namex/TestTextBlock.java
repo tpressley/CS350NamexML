@@ -9,11 +9,19 @@ import org.junit.Test;
 public class TestTextBlock {
 	@Test
 	public void testTextBlock() {
-		TextBlock tb1 = new TextBlock();
+		// uninitialized TextBlock
+		TextBlock tb1 = new TextBlock(); 
+		// TextBlock composed of a string
 		TextBlock tb2 = new TextBlock("Hello World");
+		// empty TextBlock
+		TextBlock tb3 = new TextBlock(""); 
+		// TextBlock() constructor called with a concatenated string parameter
+		TextBlock tb4 = new TextBlock("Hello" + " Java");
 
 		assertEquals("", tb1.getTextBlock());
 		assertEquals("Hello World", tb2.getTextBlock());
+		assertEquals("", tb3.getTextBlock());
+		assertTrue(tb4.equals("Hello Java"));
 	}
 
 	@Test
