@@ -76,7 +76,8 @@ public class TestLibrarian {
 		// is it possible to even create a JUnit test to see if the PNE was
 		// packaged in a fat jar?
 		//
-		// No, this should be tested by System Testing and not Unit Testing - Tristan
+		// No, this should be tested by System Testing and not Unit Testing -
+		// Tristan
 	}
 
 	// User Story #852 As a Librarian, I want names of places to be identified

@@ -496,6 +496,9 @@ public class LearningMachine implements Serializable {
 	}
 	// Shouldn't this function either return a value or load the 
 	// classifier into an object variable? - Tristan
+	/**
+	 * Are these save/load functions ever actually used anywhere?
+	 *
 	public void loadLM(String LMBrain) {
 
 		System.out.print("Loading Learning machine from file.");

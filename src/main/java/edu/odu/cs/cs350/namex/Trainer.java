@@ -312,12 +312,6 @@ public class Trainer implements Serializable {
 	// Text blocks divided into tokens, with punctuation separate from
 	// alphabetics (T)
 	public ArrayList<Token> tokenize(String textBlock) {
-
-		// split the string
-		// String[] tks = textBlock.split("(?=[\"
-		// ,.!?\n()-:;@#$%^&*{}<>])|(?<=[\" ,.!?\n()-:;@#$%^&*{}<>])");
-
-		// new tokenize regex
 		String[] tks = textBlock.split("(?<=<NER>)|(?=</NER>)|(?<=<PER>)|(?=</PER>)|(?=[ ,.!()<:;}-])|(?<=[ (>{-])");
 
 		ArrayList<Token> tokens = new ArrayList<Token>();
@@ -334,11 +328,6 @@ public class Trainer implements Serializable {
 	// Text blocks divided into tokens, with punctuation separate from
 	// alphabetics (T)
 	public ArrayList<Token> tokenize(String textBlock, boolean verbose) {
-		// split the string
-		// String[] tks = textBlock.split("(?=[\"
-		// ,.!?\n()-:;@#$%^&*{}<>])|(?<=[\" ,.!?\n()-:;@#$%^&*{}<>])");
-
-		// new tokenize regex
 		String[] tks = textBlock.split("(?<=<NER>)|(?=</NER>)|(?<=<PER>)|(?=</PER>)|(?=[ ,.!()<:;}-])|(?<=[ (>{-])");
 
 		ArrayList<Token> tokens = new ArrayList<Token>();
@@ -357,8 +346,6 @@ public class Trainer implements Serializable {
 	 * @param token
 	 */
 	public int getTokenCount(int index, ArrayList<Token> tokenizedText) {
-		// todo make this run in O(LogN) or O(1) time keeping a running list of
-		// tokens and their counts while actually tokenizing the input
 		int tokenCount = 0;
 
 		for (int i = 0; i < tokenizedText.size(); i++) {
