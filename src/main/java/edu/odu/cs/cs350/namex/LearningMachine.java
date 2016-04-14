@@ -523,7 +523,9 @@ public class LearningMachine implements Serializable {
 	 * @param String[]
 	 *            trainingData
 	 */
-	public void importARFF(String[] trainingData) {
+	public boolean importARFF(String[] trainingData) throws Exception{
+		
+		try{
 		this.trainingInstances = new Instances("Classification", attributes, trainingData.length);
 
 		// Make the last attribute be the class
@@ -542,6 +544,10 @@ public class LearningMachine implements Serializable {
 
 			this.trainingInstances.add(instance); // Add new instance to
 													// training data
+		}
+		return true;
+		}catch(Exception e10){
+			return false;
 		}
 	}
 
