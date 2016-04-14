@@ -17,7 +17,7 @@ public class TestTextBlock {
 	}
 
 	@Test
-	public void testGetSetTextBlock() {
+	public void testSetTextBlockGetTextBlock() {
 		TextBlock tb = new TextBlock();
 
 		tb.setTextBlock("Hello World");
