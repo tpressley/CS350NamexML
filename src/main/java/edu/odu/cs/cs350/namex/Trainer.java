@@ -342,7 +342,7 @@ public class Trainer implements Serializable {
 
 	/**
 	 * Returns the the token count for a specific token at index
-	 * 
+	 * Provided as part of the interface, unused within the package
 	 * @param token
 	 */
 	public int getTokenCount(int index, ArrayList<Token> tokenizedText) {
@@ -368,9 +368,11 @@ public class Trainer implements Serializable {
 		}
 	}
 
-	// User Story #848
-	// Status - Completed
-	// Load trained machine into the extractor (L,T)
+	/**
+	 * Loads the training machine into the extractor
+	 * @param fpath
+	 * @return
+	 */
 	public static LearningMachine loadLM(String fpath) {
 		fpath += ".ser";
 
