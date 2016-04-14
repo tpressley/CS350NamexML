@@ -21,7 +21,8 @@ public class LearningMachine implements Serializable {
 	private FastVector attributes;
 	private int numAttr;
 	private Instances trainingInstances;
-	private String evaluationSummary;
+	private String evalSummary;
+	
 
 	public LearningMachine(){ 
 		// Initialize the Classifier as a Naive Bayes Classifier
@@ -222,7 +223,7 @@ public class LearningMachine implements Serializable {
 			evaluation.evaluateModel(classifier, this.trainingInstances);
 
 			// Set the Evaluation Summary
-			evaluationSummary = evaluation.toSummaryString();
+			evalSummary = evaluation.toSummaryString();
 
 			return true;
 
@@ -426,7 +427,7 @@ public class LearningMachine implements Serializable {
 		System.out.println("\n*******************************");
 		System.out.println("      Evaluation Summary");
 		System.out.println("*******************************");
-		System.out.println(this.evaluationSummary);
+		System.out.println(this.evalSummary);
 	}
 
 	/**
