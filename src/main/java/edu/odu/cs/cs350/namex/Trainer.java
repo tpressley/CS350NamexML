@@ -58,9 +58,10 @@ public class Trainer implements Serializable {
 		for (int i = 0; i < (tokens.size() - (seqLeng - 1)); i++) {
 			// ArrayList<Token> shingle = new ArrayList<Token>();
 
-			StringBuilder sb = new StringBuilder(); //for arffdata
-			StringBuilder sbLexemes = new StringBuilder(); //for lexeme
-			StringBuilder sbClassifications = new StringBuilder(); //for classification
+			StringBuilder sb = new StringBuilder(); // for arffdata
+			StringBuilder sbLexemes = new StringBuilder(); // for lexeme
+			StringBuilder sbClassifications = new StringBuilder(); // for
+																	// classification
 
 			// int nameCount = 0;
 			// if there are more than two classified names within the shingle,
@@ -76,7 +77,8 @@ public class Trainer implements Serializable {
 				// System.out.print(shingleTokens.get(j + i).getARFF() + ",");
 				// shingle.add(shingleTokens.get(j + i));
 
-				if (j == (seqLeng - 1)) { //if last element do not include ',' to append
+				if (j == (seqLeng - 1)) { // if last element do not include ','
+											// to append
 					sb.append(tokens.get(j + i).getARFF());
 				} else {
 					sb.append(tokens.get(j + i).getARFF() + ",");
@@ -85,7 +87,7 @@ public class Trainer implements Serializable {
 				sbLexemes.append(tokens.get(j + i).getLexeme() + " ");
 				sbClassifications.append(tokens.get(j + i).getName() + " ");
 			}
-			
+
 			Shingle toAdd = new Shingle(sbLexemes.toString(), sbClassifications.toString(), sb.toString());
 
 			shingles.add(toAdd);
@@ -104,12 +106,11 @@ public class Trainer implements Serializable {
 
 		// add null tokens before and after the text block
 		for (int i = 0; i < k; i++) {
-			
+
 			Token nu = new Token("null");
 			tokens.add(0, nu);
 			tokens.add(nu);
 		}
-
 
 		for (int i = 0; i < (tokens.size() - (seqLen - 1)); i++) {
 			// ArrayList<Token> shingle = new ArrayList<Token>();
@@ -122,7 +123,7 @@ public class Trainer implements Serializable {
 			int begCount = 0;
 			int contCount = 0;
 			int killCount = 0; // # of killWords following a beginning or
-									// continuing token
+								// continuing token
 			for (int j = 0; j < seqLen; j++) {
 				/*
 				 * if (tokens.get(j + i).getName().equals("beginning") ||
@@ -138,8 +139,9 @@ public class Trainer implements Serializable {
 
 				// if there is a killWord following a beginning or continuing
 				// token
-				if (tokens.get(j + i).isKillWord() == 1) { //if last element is killword
-					
+				if (tokens.get(j + i).isKillWord() == 1) { // if last element is
+															// killword
+
 					if (tokens.get(j + i - 1).getName().equals("beginning")
 							|| tokens.get(j + i - 1).getName().equals("continuing")) {
 						killCount++;
@@ -185,7 +187,7 @@ public class Trainer implements Serializable {
 				sb.append("no");
 				// System.out.print("no");
 			}
-			
+
 			String toAdd = sb.toString();
 
 			shingles.add(toAdd);
@@ -203,7 +205,7 @@ public class Trainer implements Serializable {
 	// As a Trainer, I want the program to properly prepare data
 	// to train the learning machine.
 	public boolean prepareData(String inFileName, String outFileName, boolean showSummary) {
-		
+
 		Librarian lib = new Librarian();
 
 		ArrayList<TextBlock> textBlocks = Librarian.importFile(inFileName);
@@ -212,7 +214,7 @@ public class Trainer implements Serializable {
 		System.out.println("\nClassifying Tokens from " + textBlocks.size() + " TextBlocks...");
 
 		for (TextBlock textBlock : textBlocks) {
-			
+
 			ArrayList<Token> tks = tokenize(textBlock.getTextBlock());
 			HashSet<Token> classifiedTokens = lib.getFeatures(tks);
 
@@ -395,9 +397,9 @@ public class Trainer implements Serializable {
 			fInStr.close();
 
 			System.out.println("Loaded LearningMachine: " + fpath);
-			
-			return lm; //return
-			
+
+			return lm; // return
+
 		} catch (ClassNotFoundException | IOException e) {
 			e.printStackTrace();
 		}
@@ -418,7 +420,7 @@ public class Trainer implements Serializable {
 			ObjectOutputStream out = new ObjectOutputStream(fOutStr);
 			out.writeObject(lm);
 			out.close();
-			
+
 		} catch (IOException e) {
 			e.printStackTrace();
 			return false;

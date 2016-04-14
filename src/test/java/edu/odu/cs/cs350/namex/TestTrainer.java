@@ -13,6 +13,13 @@ import edu.odu.cs.cs350.namex.Trainer;
 import java.util.*;
 
 public class TestTrainer {
+	
+	//member variable
+	String mArffPath = "/src/main/data/trainingMaterial002.arff";
+	String mTrainPathMarked = "/src/main/data/trainingMaterial002.txt";
+	String mTrainPathUnmarked = "/data/training/trainingDataUnmarked.txt"; //make this file by unmarking <PER>s in train...002.txt
+	String mArffPathShingle = "/data/arff/shingling_training_k3_2.arff";
+	
 
 	// ********** USER STORIES UNDER DEVELOPMENT **********
 
@@ -25,8 +32,8 @@ public class TestTrainer {
 
 		// ********** Configurations **********
 
-		String ARFFFilePath = "/data/arff/trainingData.arff";
-		String shingleARFFFilePath = "/data/arff/shingling_training_k3_2.arff";
+		String ARFFFilePath = mArffPath;
+		String shingleARFFFilePath = mArffPathShingle;
 		String input = "<NER>The George Washington University is where I will be attending in the fall.</NER>";
 		int k = 3; // the value of k needs to match the same value k as the
 					// generated .arff file
@@ -105,9 +112,9 @@ public class TestTrainer {
 	public void testPrepareShingleData() {
 		// ********** Configurations **************
 
-		String inputFilePath = "/data/training/trainingDataUnmarked.txt";
-		String outputFilePath = "/data/arff/shingling_training_k3_2.arff";
-		String arffFilePath = "/data/arff/trainingData.arff";
+		String inputFilePath = mTrainPathUnmarked;
+		String outputFilePath = mArffPathShingle;
+		String arffFilePath = mArffPath;
 
 		int k = 3;
 
@@ -140,12 +147,15 @@ public class TestTrainer {
 		Trainer t1 = new Trainer();
 		ArrayList<Token> tokenizedText = t1.tokenize(
 				"<NER>\"Oh, no,\" she\'s saying, \"our $400 blender can\'t handle something this hard!\"</NER>");
-		
+
 		int TCount = 0;
-		TCount = t1.getTokenCount(2 , tokenizedText);
+		TCount = t1.getTokenCount(2, tokenizedText);
 
 		assertTrue(TCount == t1.getTokenCount(2, tokenizedText));
-		assertFalse(t1.getTokenCount(2, tokenizedText) < 1); //tokencount cannot be less than 1 if present
+		assertFalse(t1.getTokenCount(2, tokenizedText) < 1); // tokencount
+																// cannot be
+																// less than 1
+																// if present
 	}
 
 	// ********** COMPLETED USER STORIES **********
@@ -158,12 +168,13 @@ public class TestTrainer {
 	public void testPrepareData() {
 		// ********** Configurations **************
 
-		String inFpath = "/data/training/trainingData.txt";
-		String outFpath = "/data/arff/trainingData.arff";
+		String inFpath = mTrainPathMarked;
+		String outFpath = mArffPath;
+		//where is this this arff file supposed to be stored according to grading rubric??
 
 		// ********** End Configurations **********
 
-		Path currRelPath = Paths.get(""); //current relative path
+		Path currRelPath = Paths.get(""); // current relative path
 		String relPath = currRelPath.toAbsolutePath().toString();
 		inFpath = relPath + "" + inFpath;
 		outFpath = relPath + "" + outFpath;
@@ -176,11 +187,10 @@ public class TestTrainer {
 
 		System.out.println(" Input FilePath: " + inFpath);
 		System.out.println("Output FilePath: " + outFpath);
-		
 
 		// check if the output .arff file exists
 		File file = new File(outFpath);
-		
+
 		System.out.println(file.exists());
 		assertTrue(file.exists());
 		assertTrue(t1.prepareData(inFpath, outFpath, true));
@@ -191,17 +201,17 @@ public class TestTrainer {
 	// As Trainer, I want to use existing data to train the learning machine
 	@Test
 	public void testTrainLM() {
-		String arffFilePath = "/data/arff/test_training_data.arff";
+		String arffPath = mArffPath;
 
-		Path currentRelativePath = Paths.get("");
-		String relativePath = currentRelativePath.toAbsolutePath().toString();
-		arffFilePath = relativePath + "" + arffFilePath;
+		Path currRelPath = Paths.get("");
+		String relPath = currRelPath.toAbsolutePath().toString();
+		arffPath = relPath + "" + arffPath;
 
-		Trainer trainer = new Trainer();
+		Trainer t1 = new Trainer();
 
 		try {
-			trainer.trainLM(arffFilePath);
-			assertEquals(24, trainer.getLM().getTrainingInstances().numInstances());
+			t1.trainLM(arffPath);
+			assertEquals(24, t1.getLM().getTrainingInstances().numInstances());
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -244,7 +254,7 @@ public class TestTrainer {
 
 		String learningMachineFileName = "lm_1";
 
-		String arffFilePath = "/data/arff/trainingData.arff";
+		String arffFilePath = mArffPath;
 
 		// ********** End Configurations **********
 
