@@ -323,10 +323,13 @@ public class Trainer implements Serializable {
 		return tokens;
 	}
 
-	// User Story #860
-	// Status - Completed
-	// Text blocks divided into tokens, with punctuation separate from
-	// alphabetics (T)
+	/**
+	 * Takes the input text and returns an arraylist of basic tokens, containing only the lexemes
+	 * 	Tokens later have features analyzed by Trainer.getFeatures();
+	 * @param textBlock
+	 * @param verbose
+	 * @return
+	 */
 	public ArrayList<Token> tokenize(String textBlock, boolean verbose) {
 		String[] tks = textBlock.split("(?<=<NER>)|(?=</NER>)|(?<=<PER>)|(?=</PER>)|(?=[ ,.!()<:;}-])|(?<=[ (>{-])");
 
@@ -356,9 +359,10 @@ public class Trainer implements Serializable {
 		return tokenCount;
 	};
 
-	// User Story #853
-	// Status - Completed
-	// As Trainer, I want to use existing data to train the learning machine
+	/**
+	 * Trains the loaded Learning Machine
+	 * @param filePath
+	 */
 	public void trainLM(String filePath) {
 		try {
 			lm.importARFF(filePath);
@@ -397,9 +401,11 @@ public class Trainer implements Serializable {
 		return null;
 	}
 
-	// User Story #849
-	// Status - Completed
-	// Save trained learning machine in a file. (T)
+	/**
+	 * Saves the Learning Machine to a file  
+	 * @param fpath
+	 * @return
+	 */
 	public boolean saveLM(String fpath) {
 		fpath = fpath + ".ser"; // add the .ser extension
 
