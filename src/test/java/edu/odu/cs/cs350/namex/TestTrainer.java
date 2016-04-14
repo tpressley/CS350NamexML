@@ -18,14 +18,7 @@ public class TestTrainer {
 	String mArffPath = "/src/main/data/trainingMaterial002.arff";
 	String mTrainPathMarked = "/src/main/data/trainingMaterial002.txt";
 
-	String mTrainPathUnmarked = "/src/main/data/trainingMaterial002Unmarked.txt"; // make
-																					// this
-																					// file
-																					// by
-																					// unmarking
-																					// <PER>s
-																					// in
-																					// train...002.txt
+	String mTrainPathUnmarked = "/src/main/data/trainingMaterial002Unmarked.txt"; 
 	String mArffPathShingle = "/src/main/data/shingling_training_k3_2.arff";
 
 	// ********** USER STORIES UNDER DEVELOPMENT **********
