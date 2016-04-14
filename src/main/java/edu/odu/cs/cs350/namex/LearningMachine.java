@@ -390,7 +390,7 @@ public class LearningMachine implements Serializable {
 		}
 
 		// Test Output
-		System.out.println("Created: " + outputFilePath);
+		System.out.println("Wrote to: " + outputFilePath);
 	}
 
 	// import a .arff file from /data folder
