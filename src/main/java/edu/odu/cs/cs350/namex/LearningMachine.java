@@ -21,7 +21,8 @@ public class LearningMachine implements Serializable {
 	private FastVector attributes;
 	private int numAttr;
 	private Instances trainingInstances;
-	private String evaluationSummary;
+	private String evalSummary;
+	
 
 	public LearningMachine(){ 
 		// Initialize the Classifier as a Naive Bayes Classifier
@@ -218,11 +219,11 @@ public class LearningMachine implements Serializable {
 			classifier.buildClassifier(this.trainingInstances);
 
 			// Test the Model
-			Evaluation evaluation = new Evaluation(this.trainingInstances);
-			evaluation.evaluateModel(classifier, this.trainingInstances);
+			Evaluation eval = new Evaluation(this.trainingInstances);
+			eval.evaluateModel(classifier, this.trainingInstances);
 
 			// Set the Evaluation Summary
-			evaluationSummary = evaluation.toSummaryString();
+			evalSummary = eval.toSummaryString();
 
 			return true;
 
@@ -426,7 +427,7 @@ public class LearningMachine implements Serializable {
 		System.out.println("\n*******************************");
 		System.out.println("      Evaluation Summary");
 		System.out.println("*******************************");
-		System.out.println(this.evaluationSummary);
+		System.out.println(this.evalSummary);
 	}
 
 	/**
@@ -441,7 +442,7 @@ public class LearningMachine implements Serializable {
 	 * 
 	 * @param outputFilePath
 	 */
-	public void exportARFF(String outputFilePath) {
+	public boolean exportARFF(String outputFilePath) {
 		// System.out.println("Exporting ARFF...");
 
 		PrintWriter writer;
@@ -449,12 +450,15 @@ public class LearningMachine implements Serializable {
 			writer = new PrintWriter(outputFilePath, "UTF-8");
 			writer.println(trainingInstances);
 			writer.close();
+			
 		} catch (FileNotFoundException | UnsupportedEncodingException e) {
 			e.printStackTrace();
+			return false;
 		}
 
 		// Test Output
 		System.out.println("Wrote to: " + outputFilePath);
+		return true;
 	}
 
 	/**
