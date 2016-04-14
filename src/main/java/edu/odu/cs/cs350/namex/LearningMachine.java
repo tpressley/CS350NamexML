@@ -173,7 +173,11 @@ public class LearningMachine implements Serializable {
 	public long getSerialVersionUID() {
 		return serialVersionUID;
 	}
-
+	/**
+	 * Uses the training data to train the Learning Machine
+	 * @param trainingData
+	 * @throws Exception
+	 */
 	public void train(Instances trainingData) throws Exception {
 		classifier.buildClassifier(trainingData);
 
@@ -189,8 +193,11 @@ public class LearningMachine implements Serializable {
 		// double[][] cmMatrix = evaluation.confusionMatrix();
 	}
 
-	// builds the classifier based on the ARFF data imported into
-	// trainingInstances
+	/**
+	 *  builds the classifier based on the ARFF data imported into
+	 *  trainingInstances
+	 * @throws Exception
+	 */
 	public void train() throws Exception {
 		// Build the Classifier
 		classifier.buildClassifier(this.trainingInsts);
@@ -203,10 +210,11 @@ public class LearningMachine implements Serializable {
 		evalSummary = evaluation.toSummaryString();
 	}
 
-	// Get the likelihood of each classes
-	// distribution[0] is the probability of the Token beginning a name
-	// distribution[1] is the probability of the Token continuing a name
-	// distribution[2] is the probability of the Token being other
+	/** Get the likelihood of each classes
+	* distribution[0] is the probability of the Token beginning a name
+	* distribution[1] is the probability of the Token continuing a name
+	* distribution[2] is the probability of the Token being other
+	*/
 	public double[] getDistribution(String input) throws Exception {
 		Instances classificationInstances = new Instances("toBeClassified", this.attributes, 1);
 
@@ -240,7 +248,12 @@ public class LearningMachine implements Serializable {
 
 		return distribution;
 	}
-
+	/**
+	 * Classifies tokens to create training data
+	 * @param input
+	 * @return
+	 * @throws Exception
+	 */
 	public String classify(String input) throws Exception {
 		Instances classificationInstances = new Instances("toBeClassified", this.attributes, 1);
 
@@ -270,6 +283,12 @@ public class LearningMachine implements Serializable {
 		}
 	}
 
+	/**
+	 * Creates the singling data from the tokenized input
+	 * @param input
+	 * @return
+	 * @throws Exception
+	 */
 	public String classifyShingle(String input) throws Exception {
 		Instances classificationInstances = new Instances("toBeClassified", this.attributes, 1);
 
@@ -296,9 +315,10 @@ public class LearningMachine implements Serializable {
 		}
 	}
 
-	// Get the likelihood of each classes
-	// distribution[0] is the probability of the Shingle containing a name
-	// distribution[1] is the probability of the Shingle not containing a name
+	/** Get the likelihood of each classes
+	* distribution[0] is the probability of the Shingle containing a name
+	* distribution[1] is the probability of the Shingle not containing a name
+	*/
 	public double[] getShingleDistribution(String input) throws Exception {
 		Instances classificationInstances = new Instances("toBeClassified", this.attributes, 1);
 
@@ -322,7 +342,12 @@ public class LearningMachine implements Serializable {
 
 		return distribution;
 	}
-
+	/**
+	 * Depreciated form of the classify function
+	 * @param input
+	 * @return
+	 * @throws Exception
+	 */
 	public String classifyOld(String input) throws Exception {
 		Instances classificationInstances = new Instances("toBeClassified", this.attributes, 1);
 
@@ -363,7 +388,9 @@ public class LearningMachine implements Serializable {
 		}
 	}
 
-	// print the Evaluation Summary of the classifier
+	/**
+	 *  print the Evaluation Summary of the classifier
+	 */
 	public void printEvaluationSummary() {
 		System.out.println("\n*******************************");
 		System.out.println("      Evaluation Summary");
@@ -371,12 +398,17 @@ public class LearningMachine implements Serializable {
 		System.out.println(this.evalSummary);
 	}
 
-	// print the values of ARFF data from trainingInstances
+	/**
+	 *  print the values of ARFF data from trainingInstances
+	 */
 	public void printARFF() {
 		System.out.println(this.trainingInsts);
 	}
 
-	// export the ARFF data from trainingInstances to /data/arff as a .arff file
+	/**
+	 * Exports training data to an ARFF file
+	 * @param outputFilePath
+	 */
 	public void exportARFF(String outputFilePath) {
 		// System.out.println("Exporting ARFF...");
 
@@ -393,7 +425,11 @@ public class LearningMachine implements Serializable {
 		System.out.println("Wrote to: " + outputFilePath);
 	}
 
-	// import a .arff file from /data folder
+	/**
+	 * Imports an ARFF from a given filepath
+	 * @param filePath
+	 * @throws Exception
+	 */
 	public void importARFF(String filePath) throws Exception {
 
 		DataSource source = new DataSource(filePath);
@@ -408,7 +444,10 @@ public class LearningMachine implements Serializable {
 		}
 	}
 
-	// import ARFF data from a String[]
+	/**
+	 * Imports an arff file from the given trainingdata HashSet
+	 * @param HashSet<string> trainingData
+	 */
 	public void importARFF(HashSet<String> trainingData) {
 
 		this.trainingInsts = new Instances("Classification", attributes, trainingData.size());
@@ -432,7 +471,10 @@ public class LearningMachine implements Serializable {
 		}
 	}
 
-	// import ARFF data from a String[]
+	/**
+	 * Imports an arff file from the given training data string array
+	 * @param String[] trainingData
+	 */
 	public void importARFF(String[] trainingData) {
 		this.trainingInsts = new Instances("Classification", attributes, trainingData.length);
 
@@ -455,7 +497,10 @@ public class LearningMachine implements Serializable {
 		}
 	} 
 
-	// return ARFF data from trainingInstances as a String
+	/**
+	 *  @return ARFF data from trainingInstances as a String
+	 * 
+	 */
 	/*
 	public String getTrainingData() {
 		return trainingInsts.toString();
