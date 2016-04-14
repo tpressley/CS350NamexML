@@ -193,6 +193,13 @@ public class TestTrainer {
 		File file = new File(outFpath);
 
 		System.out.println(file.exists());
+		
+		//fail this test if filepath does not exist
+		if(!file.exists())
+		{
+			fail("outFpath does not exist");
+		}
+		
 		assertTrue(file.exists());
 		assertTrue(t1.prepareData(inFpath, outFpath, true));
 	}
