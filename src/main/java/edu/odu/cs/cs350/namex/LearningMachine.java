@@ -20,30 +20,31 @@ public class LearningMachine implements Serializable {
 	private Classifier classifier;
 	private FastVector attributes;
 	private int numAttr;
-	private Instances trainingInsts;
-	private String evalSummary; 
- 
-	public LearningMachine() {  
+	private Instances trainingInstances;
+	private String evaluationSummary;
+
+	public LearningMachine(){ 
 		// Initialize the Classifier as a Naive Bayes Classifier
 		classifier = (Classifier) new NaiveBayes();
-
-		// Initialize Attributes
+		// Initialize Attributes 
 		// Declare Lexical Attribute with its values
-		FastVector NominalValLexical = new FastVector(9);
-		NominalValLexical.addElement("punct");
+		
+		FastVector NominalValLexical = new FastVector(9); 
+		 
+		NominalValLexical.addElement("punct"); 
 		NominalValLexical.addElement("capLetter");
 		NominalValLexical.addElement("capitalized");
 		NominalValLexical.addElement("allCaps");
-		NominalValLexical.addElement("lineFeed");
+		NominalValLexical.addElement("lineFeed"); 
 		NominalValLexical.addElement("whiteSpace");
-		NominalValLexical.addElement("number");
+		NominalValLexical.addElement("number"); 
 		NominalValLexical.addElement("other");
 		NominalValLexical.addElement("null");
 		Attribute Lexical = new Attribute("Lexical", NominalValLexical);
 
 		// Declare PartOfSpeech Attribute with its values
 		FastVector NominalValPoS = new FastVector(6);
-		NominalValPoS.addElement("article");
+		NominalValPoS.addElement("article"); 
 		NominalValPoS.addElement("conjunction");
 		NominalValPoS.addElement("period");
 		NominalValPoS.addElement("comma");
@@ -171,49 +172,74 @@ public class LearningMachine implements Serializable {
 	}
 
 	public long getSerialVersionUID() {
+
 		return serialVersionUID;
 	}
 
-	public void train(Instances trainingData) throws Exception {
-		classifier.buildClassifier(trainingData);
+	/**
+	 * Uses the training data to train the Learning Machine
+	 * 
+	 * @param trainingData
+	 * @throws Exception
+	 */
+	public boolean train(Instances trainingData) throws Exception {
 
-		// Test the Model
-		Evaluation evaluation = new Evaluation(trainingData);
-		evaluation.evaluateModel(classifier, trainingData);
+		try {
+			classifier.buildClassifier(trainingData);
 
-		// Print the Evaluation Summary:
-		String summary = evaluation.toSummaryString();
-		System.out.println(summary);
+			// Test the Model
+			Evaluation evaluation = new Evaluation(trainingData);
+			evaluation.evaluateModel(classifier, trainingData);
+
+			// Print the Evaluation Summary:
+			String summary = evaluation.toSummaryString();
+			System.out.println(summary);
+			return true;
+
+		} catch (Exception e2) {
+			return false;
+		}
 
 		// Get the confusion matrix
 		// double[][] cmMatrix = evaluation.confusionMatrix();
 	}
 
-	// builds the classifier based on the ARFF data imported into
-	// trainingInstances
+	/**
+	 * builds the classifier based on the ARFF data imported into
+	 * trainingInstances
+	 * 
+	 * @throws Exception
+	 */
 	public boolean train() throws Exception {
-		try{
-		// Build the Classifier
-		classifier.buildClassifier(this.trainingInsts);
 
-		// Test the Model
-		Evaluation evaluation = new Evaluation(this.trainingInsts);
-		evaluation.evaluateModel(classifier, this.trainingInsts);
+		try {
 
-		// Set the Evaluation Summary
-		evalSummary = evaluation.toSummaryString();
-		
-		return true;
-		}catch(Exception e1){
+			// Build the Classifier
+			classifier.buildClassifier(this.trainingInstances);
+
+			// Test the Model
+			Evaluation evaluation = new Evaluation(this.trainingInstances);
+			evaluation.evaluateModel(classifier, this.trainingInstances);
+
+			// Set the Evaluation Summary
+			evaluationSummary = evaluation.toSummaryString();
+
+			return true;
+
+		} catch (Exception e1) {
+
 			e1.printStackTrace();
+
 			return false;
 		}
 	}
 
-	// Get the likelihood of each classes
-	// distribution[0] is the probability of the Token beginning a name
-	// distribution[1] is the probability of the Token continuing a name
-	// distribution[2] is the probability of the Token being other
+	/**
+	 * Get the likelihood of each classes distribution[0] is the probability of
+	 * the Token beginning a name distribution[1] is the probability of the
+	 * Token continuing a name distribution[2] is the probability of the Token
+	 * being other
+	 */
 	public double[] getDistribution(String input) throws Exception {
 		Instances classificationInstances = new Instances("toBeClassified", this.attributes, 1);
 
@@ -240,7 +266,7 @@ public class LearningMachine implements Serializable {
 
 		// Specify that the instance belong to the training set
 		// in order to inherit from the set description
-		toClassify.setDataset(this.trainingInsts);
+		toClassify.setDataset(this.trainingInstances);
 
 		// Get the likelihood of each classes
 		double[] distribution = this.classifier.distributionForInstance(toClassify);
@@ -248,6 +274,13 @@ public class LearningMachine implements Serializable {
 		return distribution;
 	}
 
+	/**
+	 * Classifies tokens to create training data
+	 * 
+	 * @param input
+	 * @return
+	 * @throws Exception
+	 */
 	public String classify(String input) throws Exception {
 		Instances classificationInstances = new Instances("toBeClassified", this.attributes, 1);
 
@@ -263,7 +296,7 @@ public class LearningMachine implements Serializable {
 
 		// Specify that the instance belong to the training set
 		// in order to inherit from the set description
-		toClassify.setDataset(this.trainingInsts);
+		toClassify.setDataset(this.trainingInstances);
 
 		// Get the likelihood of each classes
 		double[] distribution = this.classifier.distributionForInstance(toClassify);
@@ -277,6 +310,13 @@ public class LearningMachine implements Serializable {
 		}
 	}
 
+	/**
+	 * Creates the singling data from the tokenized input
+	 * 
+	 * @param input
+	 * @return
+	 * @throws Exception
+	 */
 	public String classifyShingle(String input) throws Exception {
 		Instances classificationInstances = new Instances("toBeClassified", this.attributes, 1);
 
@@ -291,7 +331,7 @@ public class LearningMachine implements Serializable {
 			toClassify.setValue((Attribute) attributes.elementAt(i), dataToClassify[i]);
 		}
 
-		toClassify.setDataset(this.trainingInsts);
+		toClassify.setDataset(this.trainingInstances);
 
 		// Get the likelihood of each classes
 		double[] distribution = this.classifier.distributionForInstance(toClassify);
@@ -303,9 +343,11 @@ public class LearningMachine implements Serializable {
 		}
 	}
 
-	// Get the likelihood of each classes
-	// distribution[0] is the probability of the Shingle containing a name
-	// distribution[1] is the probability of the Shingle not containing a name
+	/**
+	 * Get the likelihood of each classes distribution[0] is the probability of
+	 * the Shingle containing a name distribution[1] is the probability of the
+	 * Shingle not containing a name
+	 */
 	public double[] getShingleDistribution(String input) throws Exception {
 		Instances classificationInstances = new Instances("toBeClassified", this.attributes, 1);
 
@@ -322,7 +364,7 @@ public class LearningMachine implements Serializable {
 
 		// Specify that the instance belong to the training set
 		// in order to inherit from the set description
-		toClassify.setDataset(this.trainingInsts);
+		toClassify.setDataset(this.trainingInstances);
 
 		// Get the likelihood of each classes
 		double[] distribution = this.classifier.distributionForInstance(toClassify);
@@ -330,6 +372,13 @@ public class LearningMachine implements Serializable {
 		return distribution;
 	}
 
+	/**
+	 * Depreciated form of the classify function
+	 * 
+	 * @param input
+	 * @return
+	 * @throws Exception
+	 */
 	public String classifyOld(String input) throws Exception {
 		Instances classificationInstances = new Instances("toBeClassified", this.attributes, 1);
 
@@ -356,7 +405,7 @@ public class LearningMachine implements Serializable {
 
 		// Specify that the instance belong to the training set
 		// in order to inherit from the set description
-		toClassify.setDataset(this.trainingInsts);
+		toClassify.setDataset(this.trainingInstances);
 
 		// Get the likelihood of each classes
 		double[] distribution = this.classifier.distributionForInstance(toClassify);
@@ -370,27 +419,35 @@ public class LearningMachine implements Serializable {
 		}
 	}
 
-	// print the Evaluation Summary of the classifier
+	/**
+	 * print the Evaluation Summary of the classifier
+	 */
 	public void printEvaluationSummary() {
 		System.out.println("\n*******************************");
 		System.out.println("      Evaluation Summary");
 		System.out.println("*******************************");
-		System.out.println(this.evalSummary);
+		System.out.println(this.evaluationSummary);
 	}
 
-	// print the values of ARFF data from trainingInstances
+	/**
+	 * print the values of ARFF data from trainingInstances
+	 */
 	public void printARFF() {
-		System.out.println(this.trainingInsts);
+		System.out.println(this.trainingInstances);
 	}
 
-	// export the ARFF data from trainingInstances to /data/arff as a .arff file
+	/**
+	 * Exports training data to an ARFF file
+	 * 
+	 * @param outputFilePath
+	 */
 	public void exportARFF(String outputFilePath) {
 		// System.out.println("Exporting ARFF...");
 
 		PrintWriter writer;
 		try {
 			writer = new PrintWriter(outputFilePath, "UTF-8");
-			writer.println(trainingInsts);
+			writer.println(trainingInstances);
 			writer.close();
 		} catch (FileNotFoundException | UnsupportedEncodingException e) {
 			e.printStackTrace();
@@ -400,28 +457,38 @@ public class LearningMachine implements Serializable {
 		System.out.println("Wrote to: " + outputFilePath);
 	}
 
-	// import a .arff file from /data folder
+	/**
+	 * Imports an ARFF from a given filepath
+	 * 
+	 * @param filePath
+	 * @throws Exception
+	 */
 	public void importARFF(String filePath) throws Exception {
 
 		DataSource source = new DataSource(filePath);
-		trainingInsts = source.getDataSet();
+		trainingInstances = source.getDataSet();
 
 		// setting class attribute if the data format does not provide this
 		// information
 		// For example, the XRFF format saves the class attribute information as
 		// well
-		if (trainingInsts.classIndex() == -1) {
-			trainingInsts.setClassIndex(trainingInsts.numAttributes() - 1);
+		if (trainingInstances.classIndex() == -1) {
+			trainingInstances.setClassIndex(trainingInstances.numAttributes() - 1);
 		}
 	}
 
-	// import ARFF data from a String[]
+	/**
+	 * Imports an arff file from the given trainingdata HashSet
+	 * 
+	 * @param HashSet<string>
+	 *            trainingData
+	 */
 	public void importARFF(HashSet<String> trainingData) {
 
-		this.trainingInsts = new Instances("Classification", attributes, trainingData.size());
+		this.trainingInstances = new Instances("Classification", attributes, trainingData.size());
 
 		// Make the last attribute be the class
-		this.trainingInsts.setClassIndex(numAttr - 1);
+		this.trainingInstances.setClassIndex(numAttr - 1);
 
 		for (String sdata : trainingData) {
 			// System.out.println(trainingData);
@@ -434,17 +501,22 @@ public class LearningMachine implements Serializable {
 				instance.setValue((Attribute) attributes.elementAt(i), values[i]);
 			}
 
-			this.trainingInsts.add(instance); // Add new instance to
+			this.trainingInstances.add(instance); // Add new instance to
 													// training data
 		}
 	}
 
-	// import ARFF data from a String[]
+	/**
+	 * Imports an arff file from the given training data string array
+	 * 
+	 * @param String[]
+	 *            trainingData
+	 */
 	public void importARFF(String[] trainingData) {
-		this.trainingInsts = new Instances("Classification", attributes, trainingData.length);
+		this.trainingInstances = new Instances("Classification", attributes, trainingData.length);
 
 		// Make the last attribute be the class
-		this.trainingInsts.setClassIndex(numAttr - 1);
+		this.trainingInstances.setClassIndex(numAttr - 1);
 
 		for (String sdata : trainingData) {
 			// System.out.println(trainingData);
@@ -457,18 +529,14 @@ public class LearningMachine implements Serializable {
 				instance.setValue((Attribute) attributes.elementAt(i), values[i]);
 			}
 
-			this.trainingInsts.add(instance); // Add new instance to
+			this.trainingInstances.add(instance); // Add new instance to
 													// training data
 		}
-	} 
-
-	// return ARFF data from trainingInstances as a String
-	/*
-	public String getTrainingData() {
-		return trainingInsts.toString();
 	}
-	*/
-	
+
+	/*
+	 * public String getTrainingData() { return trainingInsts.toString(); }
+	 */
 
 	public Classifier getClassifier() {
 		return classifier;
@@ -484,38 +552,30 @@ public class LearningMachine implements Serializable {
 	}
 
 	public Instances getTrainingInstances() {
-		return trainingInsts;
+		return trainingInstances;
 	}
 
-	/**
-	 * Commenting out the following code because it seems reduntant and is not used anywhere
-	 *  see: Trainer.java: public static LearningMachine loadLearningMachine(String filePath) &&
-	 *  Trainer.java: public void saveLearningMachine(String filePath)
-	 *  -Tristan
+	/*
+	 * Commenting out the following code because it seems redundant and is not
+	 * used anywhere see: Trainer.java: public static LearningMachine
+	 * loadLearningMachine(String filePath) && Trainer.java: public void
+	 * saveLearningMachine(String filePath) -Tristan
 	 */
 	/*
-	public void saveLM() {
-
-		try {
-			System.out.print("Saving Learning Machine to trainedmachine.model");
-			weka.core.SerializationHelper.write("trainedmachine.model", classifier);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
-	// Shouldn't this function either return a value or load the 
-	// classifier into an object variable? - Tristan
-	/**
-	 * Are these save/load functions ever actually used anywhere?
+	 * public void saveLM() {
+	 * 
+	 * try { System.out.print("Saving Learning Machine to trainedmachine.model"
+	 * ); weka.core.SerializationHelper.write("trainedmachine.model",
+	 * classifier); } catch (Exception e) { e.printStackTrace(); }
+	 * 
+	 * } // Shouldn't this function either return a value or load the //
+	 * classifier into an object variable? - Tristan /** Are these save/load
+	 * functions ever actually used anywhere?
 	 *
-	public void loadLM(String LMBrain) {
-
-		System.out.print("Loading Learning machine from file.");
-		try {
-			Classifier classifier = (Classifier) weka.core.SerializationHelper.read(LMBrain);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	} */
+	 * public void loadLM(String LMBrain) {
+	 * 
+	 * System.out.print("Loading Learning machine from file."); try { Classifier
+	 * classifier = (Classifier) weka.core.SerializationHelper.read(LMBrain); }
+	 * catch (Exception e) { e.printStackTrace(); } }
+	 */
 }
