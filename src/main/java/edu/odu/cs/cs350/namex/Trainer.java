@@ -11,28 +11,29 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Trainer implements Serializable {
+
 	private static final long serialVersionUID = 1969136929013924126L;
 
-	private LearningMachine learningMachine;
+	private LearningMachine lm;
 
 	public Trainer() {
-		learningMachine = new LearningMachine();
+		lm = new LearningMachine();
 	}
 
 	public Trainer(int k) {
-		learningMachine = new LearningMachine(k);
+		lm = new LearningMachine(k);
 	}
 
-	public Trainer(LearningMachine learningMachine) {
-		this.learningMachine = learningMachine;
+	public Trainer(LearningMachine lm1) {
+		this.lm = lm1;
 	}
 
-	public LearningMachine getLearningMachine() {
-		return learningMachine;
+	public LearningMachine getLM() {
+		return lm;
 	}
 
-	public void setLearningMachine(LearningMachine learningMachine) {
-		this.learningMachine = learningMachine;
+	public void setLM(LearningMachine lm1) {
+		this.lm = lm1;
 	}
 
 	// User Story #1095
@@ -42,37 +43,42 @@ public class Trainer implements Serializable {
 	public ArrayList<Shingle> getShingles(ArrayList<Token> tokens, String nothing) {
 		int k = 5;// default is k = 5
 
-		int sequenceLength = ((2 * k) + 1);
+		int seqLeng = ((2 * k) + 1);
 		ArrayList<Shingle> shingles = new ArrayList<Shingle>();
 
 		// add null tokens before and after the text block
 		for (int i = 0; i < k; i++) {
-			tokens.add(0, new Token("null"));
-			tokens.add(new Token("null"));
+
+			Token nu = new Token("null");
+
+			tokens.add(0, nu);
+			tokens.add(nu);
 		}
 
-		// System.out.println("\nSize: " + shingleTokens.size());
-		// System.out.println("Sequence Length: " + sequenceLength);
-
-		for (int i = 0; i < (tokens.size() - (sequenceLength - 1)); i++) {
+		for (int i = 0; i < (tokens.size() - (seqLeng - 1)); i++) {
 			// ArrayList<Token> shingle = new ArrayList<Token>();
 
-			StringBuilder sb = new StringBuilder();
-			StringBuilder sbLexemes = new StringBuilder();
-			StringBuilder sbClassifications = new StringBuilder();
+			StringBuilder sb = new StringBuilder(); // for arffdata
+			StringBuilder sbLexemes = new StringBuilder(); // for lexeme
+			StringBuilder sbClassifications = new StringBuilder(); // for
+																	// classification
 
-			// int nameCount = 0; // if there are more than two classified names
-			// within the shingle, classify it as 'yes'
-			for (int j = 0; j < sequenceLength; j++) {
-				if (tokens.get(j + i).getName().equals("beginning")
-						|| tokens.get(j + i).getName().equals("continuing")) {
-					// nameCount++;
-				}
+			// int nameCount = 0;
+			// if there are more than two classified names within the shingle,
+			// classify it as 'yes'
+
+			for (int j = 0; j < seqLeng; j++) {
+				/*
+				 * if (tokens.get(j + i).getName().equals("beginning") ||
+				 * tokens.get(j + i).getName().equals("continuing")) { //
+				 * nameCount++; }
+				 */
 
 				// System.out.print(shingleTokens.get(j + i).getARFF() + ",");
 				// shingle.add(shingleTokens.get(j + i));
 
-				if (j == (sequenceLength - 1)) {
+				if (j == (seqLeng - 1)) { // if last element do not include ','
+											// to append
 					sb.append(tokens.get(j + i).getARFF());
 				} else {
 					sb.append(tokens.get(j + i).getARFF() + ",");
@@ -82,7 +88,9 @@ public class Trainer implements Serializable {
 				sbClassifications.append(tokens.get(j + i).getName() + " ");
 			}
 
-			shingles.add(new Shingle(sbLexemes.toString(), sbClassifications.toString(), sb.toString()));
+			Shingle toAdd = new Shingle(sbLexemes.toString(), sbClassifications.toString(), sb.toString());
+
+			shingles.add(toAdd);
 		}
 
 		return shingles;
@@ -93,19 +101,18 @@ public class Trainer implements Serializable {
 	// As a Trainer, I want Shingling applied either to lists of
 	// tokens or to lists of feature sets.
 	public HashSet<String> getShingles(int k, ArrayList<Token> tokens) {
-		int sequenceLength = ((2 * k) + 1);
+		int seqLen = ((2 * k) + 1);
 		HashSet<String> shingles = new HashSet<String>();
 
 		// add null tokens before and after the text block
 		for (int i = 0; i < k; i++) {
-			tokens.add(0, new Token("null"));
-			tokens.add(new Token("null"));
+
+			Token nu = new Token("null");
+			tokens.add(0, nu);
+			tokens.add(nu);
 		}
 
-		// System.out.println("\nSize: " + shingleTokens.size());
-		// System.out.println("Sequence Length: " + sequenceLength);
-
-		for (int i = 0; i < (tokens.size() - (sequenceLength - 1)); i++) {
+		for (int i = 0; i < (tokens.size() - (seqLen - 1)); i++) {
 			// ArrayList<Token> shingle = new ArrayList<Token>();
 
 			StringBuilder sb = new StringBuilder();
@@ -113,11 +120,11 @@ public class Trainer implements Serializable {
 
 			// int nameCount = 0; // if there are more than two classified names
 			// within the shingle, classify it as 'yes'
-			int beginningCount = 0;
-			int continuingCount = 0;
-			int killWordCount = 0; // # of killWords following a beginning or
-									// continuing token
-			for (int j = 0; j < sequenceLength; j++) {
+			int begCount = 0;
+			int contCount = 0;
+			int killCount = 0; // # of killWords following a beginning or
+								// continuing token
+			for (int j = 0; j < seqLen; j++) {
 				/*
 				 * if (tokens.get(j + i).getName().equals("beginning") ||
 				 * tokens.get(j + i).getName().equals("continuing")) {
@@ -125,17 +132,19 @@ public class Trainer implements Serializable {
 				 */
 
 				if (tokens.get(j + i).getName().equals("beginning")) {
-					beginningCount++;
+					begCount++;
 				} else if (tokens.get(j + i).getName().equals("continuing")) {
-					continuingCount++;
+					contCount++;
 				}
 
 				// if there is a killWord following a beginning or continuing
 				// token
-				if (tokens.get(j + i).isKillWord() == 1) {
+				if (tokens.get(j + i).isKillWord() == 1) { // if last element is
+															// killword
+
 					if (tokens.get(j + i - 1).getName().equals("beginning")
 							|| tokens.get(j + i - 1).getName().equals("continuing")) {
-						killWordCount++;
+						killCount++;
 					}
 				}
 
@@ -146,7 +155,7 @@ public class Trainer implements Serializable {
 			}
 
 			// if (nameCount > 1)
-			if (beginningCount > 0 && continuingCount > 0) {
+			if (begCount > 0 && contCount > 0) {
 				// Logic for manual Shingle training classification
 				/*
 				 * Scanner reader = new Scanner(System.in); // Reading from
@@ -168,7 +177,7 @@ public class Trainer implements Serializable {
 				 * }
 				 */
 
-				if (killWordCount > 0) {
+				if (killCount > 0) {
 					sb.append("no");
 				} else {
 					sb.append("yes");
@@ -179,7 +188,9 @@ public class Trainer implements Serializable {
 				// System.out.print("no");
 			}
 
-			shingles.add(sb.toString());
+			String toAdd = sb.toString();
+
+			shingles.add(toAdd);
 		}
 
 		/*
@@ -193,17 +204,19 @@ public class Trainer implements Serializable {
 	// Status - Completed
 	// As a Trainer, I want the program to properly prepare data
 	// to train the learning machine.
-	public void prepareData(String inputFileName, String outputFileName, boolean showSummary) {
-		Librarian librarian = new Librarian();
+	public boolean prepareData(String inFileName, String outFileName, boolean showSummary) {
 
-		ArrayList<TextBlock> textBlocks = Librarian.importFile(inputFileName);
+		Librarian lib = new Librarian();
+
+		ArrayList<TextBlock> textBlocks = Librarian.importFile(inFileName);
 		ArrayList<String> arffData = new ArrayList<String>();
 
 		System.out.println("\nClassifying Tokens from " + textBlocks.size() + " TextBlocks...");
 
 		for (TextBlock textBlock : textBlocks) {
+
 			ArrayList<Token> tks = tokenize(textBlock.getTextBlock());
-			HashSet<Token> classifiedTokens = librarian.getFeatures(tks);
+			HashSet<Token> classifiedTokens = lib.getFeatures(tks);
 
 			for (Token t : classifiedTokens) {
 				// System.out.println(t.getARFF());
@@ -217,19 +230,21 @@ public class Trainer implements Serializable {
 		String[] ARFFArray = new String[arffData.size()];
 		ARFFArray = arffData.toArray(ARFFArray);
 
-		learningMachine = new LearningMachine();
-		learningMachine.importARFF(ARFFArray);
+		lm = new LearningMachine();
+		lm.importARFF(ARFFArray);
 
 		try {
-			learningMachine.train();
+			lm.train();
 			// printARFF();
 			if (showSummary == true) {
-				learningMachine.printEvaluationSummary();
+				lm.printEvaluationSummary();
 			}
-			learningMachine.exportARFF(outputFileName);
+			lm.exportARFF(outFileName);
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		}
+		return true;
 	}
 
 	// User Story #851
@@ -336,17 +351,17 @@ public class Trainer implements Serializable {
 	}
 
 	/**
-	 * Returns the the token count for a specific token
+	 * Returns the the token count for a specific token at index
 	 * 
 	 * @param token
 	 */
-	public int getTokenCount(Token token, ArrayList<Token> tokenizedText) {
+	public int getTokenCount(int index, ArrayList<Token> tokenizedText) {
 		// todo make this run in O(LogN) or O(1) time keeping a running list of
 		// tokens and their counts while actually tokenizing the input
 		int tokenCount = 0;
 
 		for (int i = 0; i < tokenizedText.size(); i++) {
-			if (token == tokenizedText.get(i)) {
+			if (tokenizedText.get(index) == tokenizedText.get(i)) {
 				tokenCount++;
 			}
 		}
@@ -358,8 +373,8 @@ public class Trainer implements Serializable {
 	// As Trainer, I want to use existing data to train the learning machine
 	public void trainLM(String filePath) {
 		try {
-			learningMachine.importARFF(filePath);
-			learningMachine.train();
+			lm.importARFF(filePath);
+			lm.train();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -368,21 +383,23 @@ public class Trainer implements Serializable {
 	// User Story #848
 	// Status - Completed
 	// Load trained machine into the extractor (L,T)
-	public static LearningMachine loadLearningMachine(String filePath) {
-		filePath = filePath + ".ser";
+	public static LearningMachine loadLM(String fpath) {
+		fpath += ".ser";
 
-		FileInputStream fileInputStream;
+		FileInputStream fInStr;
 
 		LearningMachine lm;
 
 		try {
-			fileInputStream = new FileInputStream(filePath);
-			ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+			fInStr = new FileInputStream(fpath);
+			ObjectInputStream objectInputStream = new ObjectInputStream(fInStr);
 			lm = (LearningMachine) objectInputStream.readObject();
-			fileInputStream.close();
+			fInStr.close();
 
-			System.out.println("Loaded LearningMachine: " + filePath);
-			return lm;
+			System.out.println("Loaded LearningMachine: " + fpath);
+
+			return lm; // return
+
 		} catch (ClassNotFoundException | IOException e) {
 			e.printStackTrace();
 		}
@@ -393,21 +410,24 @@ public class Trainer implements Serializable {
 	// User Story #849
 	// Status - Completed
 	// Save trained learning machine in a file. (T)
-	public void saveLearningMachine(String filePath) {
-		filePath = filePath + ".ser"; // add the .ser extension
+	public boolean saveLM(String fpath) {
+		fpath = fpath + ".ser"; // add the .ser extension
 
-		FileOutputStream outputFile;
+		FileOutputStream fOutStr;
 
 		try {
-			outputFile = new FileOutputStream(filePath);
-			ObjectOutputStream out = new ObjectOutputStream(outputFile);
-			out.writeObject(learningMachine);
+			fOutStr = new FileOutputStream(fpath);
+			ObjectOutputStream out = new ObjectOutputStream(fOutStr);
+			out.writeObject(lm);
 			out.close();
+
 		} catch (IOException e) {
 			e.printStackTrace();
+			return false;
 		}
 
-		System.out.println("Created Classifier: " + filePath);
+		System.out.println("Created Classifier: " + fpath);
+		return true;
 	}
 
 }
