@@ -467,7 +467,9 @@ public class LearningMachine implements Serializable {
 	 * @param filePath
 	 * @throws Exception
 	 */
-	public void importARFF(String filePath) throws Exception {
+	public boolean importARFF(String filePath) throws Exception {
+		
+		try{
 
 		DataSource source = new DataSource(filePath);
 		trainingInstances = source.getDataSet();
@@ -479,6 +481,11 @@ public class LearningMachine implements Serializable {
 		if (trainingInstances.classIndex() == -1) {
 			trainingInstances.setClassIndex(trainingInstances.numAttributes() - 1);
 		}
+		return true;
+		}catch(Exception e3){
+			return false;
+		}
+		
 	}
 
 	/**
