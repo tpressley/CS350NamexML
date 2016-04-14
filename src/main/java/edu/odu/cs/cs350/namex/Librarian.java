@@ -34,7 +34,7 @@ public class Librarian {
 
 		if (args.length == 0) {
 			System.out.println("Hello World!");
-		}
+		} 
 
 		// if CLI contains one argument that is a textBlock
 		else if (args.length == 1) {

@@ -108,7 +108,7 @@ public class TestLearningMachine {
 	public void testGetTrainingInstances() {
 		fail("Not yet implemented");
 	}
-
+	/*
 	@Test
 	public void testSaveLoadLM() {
 		// ********** Configurations **************
@@ -139,6 +139,6 @@ public class TestLearningMachine {
 		}
 
 		assertEquals(LM1.getSerialVersionUID(), LM2.getSerialVersionUID());
-	}
+	}*/
 
 }

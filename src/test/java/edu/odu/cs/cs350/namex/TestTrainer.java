@@ -13,6 +13,13 @@ import edu.odu.cs.cs350.namex.Trainer;
 import java.util.*;
 
 public class TestTrainer {
+	
+	//member variables
+	String mArffPath = "/src/main/data/trainingMaterial002.arff";
+	String mTrainPathMarked = "/src/main/data/trainingMaterial002.txt";
+	String mTrainPathUnmarked = "/data/training/trainingDataUnmarked.txt"; //make this file by unmarking <PER>s in train...002.txt
+	String mArffPathShingle = "/data/arff/shingling_training_k3_2.arff";
+	
 
 	// ********** USER STORIES UNDER DEVELOPMENT **********
 
@@ -25,8 +32,8 @@ public class TestTrainer {
 
 		// ********** Configurations **********
 
-		String ARFFFilePath = "/data/arff/trainingData.arff";
-		String shingleARFFFilePath = "/data/arff/shingling_training_k3_2.arff";
+		String ARFFFilePath = mArffPath;
+		String shingleARFFFilePath = mArffPathShingle;
 		String input = "<NER>The George Washington University is where I will be attending in the fall.</NER>";
 		int k = 3; // the value of k needs to match the same value k as the
 					// generated .arff file
@@ -105,9 +112,9 @@ public class TestTrainer {
 	public void testPrepareShingleData() {
 		// ********** Configurations **************
 
-		String inputFilePath = "/data/training/trainingDataUnmarked.txt";
-		String outputFilePath = "/data/arff/shingling_training_k3_2.arff";
-		String arffFilePath = "/data/arff/trainingData.arff";
+		String inputFilePath = mTrainPathUnmarked;
+		String outputFilePath = mArffPathShingle;
+		String arffFilePath = mArffPath;
 
 		int k = 3;
 
@@ -137,12 +144,18 @@ public class TestTrainer {
 	// to the number of times that token appears in the input
 	@Test
 	public void testGetTokenCount() {
-		Trainer trainer = new Trainer();
-		ArrayList<Token> tokenizedText = trainer.tokenize(
+		Trainer t1 = new Trainer();
+		ArrayList<Token> tokenizedText = t1.tokenize(
 				"<NER>\"Oh, no,\" she\'s saying, \"our $400 blender can\'t handle something this hard!\"</NER>");
 
-		assertEquals(3, trainer.getTokenCount(tokenizedText.get(2), tokenizedText));
-		assertFalse(trainer.getTokenCount(tokenizedText.get(2), tokenizedText) < 1);
+		int TCount = 0;
+		TCount = t1.getTokenCount(2, tokenizedText);
+
+		assertTrue(TCount == t1.getTokenCount(2, tokenizedText));
+		assertFalse(t1.getTokenCount(2, tokenizedText) < 1); // tokencount
+																// cannot be
+																// less than 1
+																// if present
 	}
 
 	// ********** COMPLETED USER STORIES **********
@@ -155,31 +168,32 @@ public class TestTrainer {
 	public void testPrepareData() {
 		// ********** Configurations **************
 
-		String inputFilePath = "/data/training/trainingData.txt";
-		String outputFilePath = "/data/arff/trainingData.arff";
+		String inFpath = mTrainPathMarked;
+		String outFpath = mArffPath;
+		//where is this this arff file supposed to be stored according to grading rubric??
 
 		// ********** End Configurations **********
 
-		Path currentRelativePath = Paths.get("");
-		String relativePath = currentRelativePath.toAbsolutePath().toString();
-		inputFilePath = relativePath + "" + inputFilePath;
-		outputFilePath = relativePath + "" + outputFilePath;
+		Path currRelPath = Paths.get(""); // current relative path
+		String relPath = currRelPath.toAbsolutePath().toString();
+		inFpath = relPath + "" + inFpath;
+		outFpath = relPath + "" + outFpath;
 
-		Trainer trainer = new Trainer();
+		Trainer t1 = new Trainer();
 
 		System.out.println("*******************************");
 		System.out.println(" Generating ARFF Training Data");
 		System.out.println("*******************************\n");
 
-		System.out.println(" Input FilePath: " + inputFilePath);
-		System.out.println("Output FilePath: " + outputFilePath);
-
-		trainer.prepareData(inputFilePath, outputFilePath, true);
+		System.out.println(" Input FilePath: " + inFpath);
+		System.out.println("Output FilePath: " + outFpath);
 
 		// check if the output .arff file exists
-		File file = new File(outputFilePath);
+		File file = new File(outFpath);
+
 		System.out.println(file.exists());
 		assertTrue(file.exists());
+		assertTrue(t1.prepareData(inFpath, outFpath, true));
 	}
 
 	// User Story #853
@@ -187,17 +201,17 @@ public class TestTrainer {
 	// As Trainer, I want to use existing data to train the learning machine
 	@Test
 	public void testTrainLM() {
-		String arffFilePath = "/data/arff/test_training_data.arff";
+		String arffPath = mArffPath;
 
-		Path currentRelativePath = Paths.get("");
-		String relativePath = currentRelativePath.toAbsolutePath().toString();
-		arffFilePath = relativePath + "" + arffFilePath;
+		Path currRelPath = Paths.get("");
+		String relPath = currRelPath.toAbsolutePath().toString();
+		arffPath = relPath + "" + arffPath;
 
-		Trainer trainer = new Trainer();
+		Trainer t1 = new Trainer();
 
 		try {
-			trainer.trainLM(arffFilePath);
-			assertEquals(24, trainer.getLearningMachine().getTrainingInstances().numInstances());
+			t1.trainLM(arffPath);
+			assertEquals(24, t1.getLM().getTrainingInstances().numInstances());
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -240,7 +254,7 @@ public class TestTrainer {
 
 		String learningMachineFileName = "lm_1";
 
-		String arffFilePath = "/data/arff/trainingData.arff";
+		String arffFilePath = mArffPath;
 
 		// ********** End Configurations **********
 
@@ -255,10 +269,10 @@ public class TestTrainer {
 		LM1.importARFF(arffFilePath);
 		LM1.train();
 		LM1.printEvaluationSummary();
-		trainer.setLearningMachine(LM1);
+		trainer.setLM(LM1);
 		// trainer.saveLearningMachine(filePath);
 
-		LearningMachine LM2 = Trainer.loadLearningMachine(filePath);
+		LearningMachine LM2 = Trainer.loadLM(filePath);
 		LM2.train();
 		// LM2.printEvaluationSummary();
 
@@ -271,11 +285,11 @@ public class TestTrainer {
 	@Test
 	public void testTrainer() {
 		Trainer t1 = new Trainer();
-		assertTrue(t1.getLearningMachine() != null);
+		assertTrue(t1.getLM() != null);
 
 		// a learning machine with a k value of 3 should have 106 attributes
 		Trainer t2 = new Trainer(3);
-		assertTrue(t2.getLearningMachine().getNumberOfAttributes() == 106);
+		assertTrue(t2.getLM().getNumberOfAttributes() == 106);
 	}
 
 }
