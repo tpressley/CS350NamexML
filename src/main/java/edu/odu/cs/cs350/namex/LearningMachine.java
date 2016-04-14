@@ -373,52 +373,7 @@ public class LearningMachine implements Serializable {
 		return distribution;
 	}
 
-	/**
-	 * Depreciated form of the classify function
-	 * 
-	 * @param input
-	 * @return
-	 * @throws Exception
-	 */
-	public String classifyOld(String input) throws Exception {
-		Instances classificationInstances = new Instances("toBeClassified", this.attributes, 1);
-
-		// Build the instance to be classified
-		String[] dataToClassify = input.split(",");
-
-		Instance toClassify = new Instance(this.numAttr - 1);
-		toClassify.setDataset(classificationInstances);
-
-		toClassify.setValue((Attribute) attributes.elementAt(0), dataToClassify[0]);
-		toClassify.setValue((Attribute) attributes.elementAt(1), dataToClassify[1]);
-		toClassify.setValue((Attribute) attributes.elementAt(2), dataToClassify[2]);
-		toClassify.setValue((Attribute) attributes.elementAt(3), dataToClassify[3]);
-		toClassify.setValue((Attribute) attributes.elementAt(4), dataToClassify[4]);
-		toClassify.setValue((Attribute) attributes.elementAt(5), dataToClassify[5]);
-		toClassify.setValue((Attribute) attributes.elementAt(6), dataToClassify[6]);
-		toClassify.setValue((Attribute) attributes.elementAt(7), dataToClassify[7]);
-		toClassify.setValue((Attribute) attributes.elementAt(8), dataToClassify[8]);
-		toClassify.setValue((Attribute) attributes.elementAt(9), dataToClassify[9]);
-		toClassify.setValue((Attribute) attributes.elementAt(10), dataToClassify[10]);
-		toClassify.setValue((Attribute) attributes.elementAt(11), dataToClassify[11]);
-		toClassify.setValue((Attribute) attributes.elementAt(12), dataToClassify[12]);
-		toClassify.setValue((Attribute) attributes.elementAt(13), dataToClassify[13]);
-
-		// Specify that the instance belong to the training set
-		// in order to inherit from the set description
-		toClassify.setDataset(this.trainingInstances);
-
-		// Get the likelihood of each classes
-		double[] distribution = this.classifier.distributionForInstance(toClassify);
-
-		if (distribution[0] >= distribution[1] && distribution[0] >= distribution[2]) {
-			return "beginning";
-		} else if (distribution[1] >= distribution[0] && distribution[1] >= distribution[2]) {
-			return "continuing";
-		} else {
-			return "other";
-		}
-	}
+	
 
 	/**
 	 * print the Evaluation Summary of the classifier
