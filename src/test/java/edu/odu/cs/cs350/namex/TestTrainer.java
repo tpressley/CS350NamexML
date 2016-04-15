@@ -252,9 +252,9 @@ public class TestTrainer {
 		assertEquals(".", tokens.get(12).getLexeme());
 	}
 
-	// User Story #849 - Completed
+	// User Story #849 - Junit Test
 	// Save trained learning machine in a file. (T)
-	// User Story #848 - Completed
+	// User Story #848 - Junit Test
 	// Load trained machine into the extractor (L,T)
 	@Test
 	public void testSaveLoadLM() throws Exception {
