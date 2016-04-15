@@ -5,7 +5,7 @@ import java.io.PrintWriter;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.util.HashSet;
-
+/**
 import weka.classifiers.Classifier;
 import weka.classifiers.Evaluation;
 import weka.classifiers.bayes.NaiveBayes;
@@ -14,7 +14,7 @@ import weka.core.FastVector;
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.converters.ConverterUtils.DataSource;
-
+*/
 public class LearningMachine implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Classifier classifier;
