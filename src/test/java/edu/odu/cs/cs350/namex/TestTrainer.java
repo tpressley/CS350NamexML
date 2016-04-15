@@ -278,14 +278,14 @@ public class TestTrainer {
 		LM1.train();
 		LM1.printEvaluationSummary();
 		trainer.setLM(LM1);
-		// trainer.saveLearningMachine(filePath);
+
 
 		LearningMachine LM2 = Trainer.loadLM(filePath);
 		LM2.train();
-		// LM2.printEvaluationSummary();
+
 
 		assertEquals(LM1.getSerialVersionUID(), LM2.getSerialVersionUID());
-	}
+	}// End TestsaveLoadLM
 
 	// ********** MISC TEST CASES **********
 
