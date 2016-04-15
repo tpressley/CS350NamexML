@@ -717,43 +717,23 @@ public class LearningMachine implements Serializable {
 	public Instances getTrainingInstances() {
 		return trainingInstances;
 	}
-
-	/*
-	 * Commenting out the following code because it seems redundant and is not
-	 * used anywhere see: Trainer.java: public static LearningMachine
-	 * loadLearningMachine(String filePath) && Trainer.java: public void
-	 * saveLearningMachine(String filePath) -Tristan
+	/**
+	 * Saves the learning machine to a file
 	 */
-	/*
-	 * public void saveLM() {
-	 * 
-	 * try { System.out.print("Saving Learning Machine to trainedmachine.model"
-	 * ); weka.core.SerializationHelper.write("trainedmachine.model",
-	 * classifier); } catch (Exception e) { e.printStackTrace(); }
-	 * 
-	 * } // Shouldn't this function either return a value or load the //
-	 * classifier into an object variable? - Tristan /** Are these save/load
-	 * functions ever actually used anywhere?
-	 *
-	 * public void loadLM(String LMBrain) {
-	 * 
-	 * System.out.print("Loading Learning machine from file."); try { Classifier
-	 * classifier = (Classifier) weka.core.SerializationHelper.read(LMBrain); }
-	 * catch (Exception e) { e.printStackTrace(); } }
-	 */
-
 	public void saveLM() {
 
 		try {
 			System.out.print("Saving Learning Machine to trainedmachine.model");
 			weka.core.SerializationHelper.write("trainedmachine.model", classifier);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 	}
-
+	/**
+	 * Loads the LM From a file
+	 * @param LMBrain
+	 */
 	public void loadLM(String LMBrain) {
 
 		System.out.print("Loading Learning machine from file.");
