@@ -18,7 +18,7 @@ public class TestTrainer {
 	String mArffPath = "/src/main/data/trainingMaterial002.arff";
 	String mTrainPathMarked = "/src/main/data/trainingMaterial002.txt";
 
-	String mTrainPathUnmarked = "/src/main/data/trainingMaterial002Unmarked.txt"; 
+	String mTrainPathUnmarked = "/src/main/data/trainingMaterial002Unmarked.txt";
 	String mArffPathShingle = "/src/main/data/shingling_training_k3_2.arff";
 
 	// ********** USER STORIES UNDER DEVELOPMENT **********
@@ -279,49 +279,44 @@ public class TestTrainer {
 		LM1.printEvaluationSummary();
 		trainer.setLM(LM1);
 
+		LearningMachine LM2 = Trainer.loadLM(filePath);
+		LM2.train();
+
+		assertEquals(LM1.getSerialVersionUID(), LM2.getSerialVersionUID());
+	}// End TestsaveLoadLM
+
+	// User Story #849 - Integration Test
+	// Save trained learning machine in a file. (T)
+	// User Story #848 - Integration Test
+	// Load trained machine into the extractor (L,T)
+	@Test
+	public void testIntSaveLoadLM() throws Exception {
+		// ********** Configurations **************
+
+		String learningMachineFileName = "lm_1";
+
+		String arffFilePath = mArffPath;
+
+		// ********** End Configurations **********
+
+		Trainer trainer = new Trainer();
+
+		Path currentRelativePath = Paths.get("");
+		String relativePath = currentRelativePath.toAbsolutePath().toString();
+		String filePath = relativePath + "/learning_machines/" + learningMachineFileName;
+		arffFilePath = relativePath + "" + arffFilePath;
+
+		LearningMachine LM1 = new LearningMachine();
+		LM1.importARFF(arffFilePath);
+		LM1.train();
+		LM1.printEvaluationSummary();
+		trainer.setLM(LM1);
 
 		LearningMachine LM2 = Trainer.loadLM(filePath);
 		LM2.train();
 
-
 		assertEquals(LM1.getSerialVersionUID(), LM2.getSerialVersionUID());
 	}// End TestsaveLoadLM
-	
-	// User Story #849 - Integration Test 
-		// Save trained learning machine in a file. (T)
-		// User Story #848 - Integration Test
-		// Load trained machine into the extractor (L,T)
-		@Test
-		public void testIntSaveLoadLM() throws Exception {
-			// ********** Configurations **************
-
-			String learningMachineFileName = "lm_1";
-
-			String arffFilePath = mArffPath;
-
-			// ********** End Configurations **********
-
-			Trainer trainer = new Trainer();
-
-			Path currentRelativePath = Paths.get("");
-			String relativePath = currentRelativePath.toAbsolutePath().toString();
-			String filePath = relativePath + "/learning_machines/" + learningMachineFileName;
-			arffFilePath = relativePath + "" + arffFilePath;
-
-			LearningMachine LM1 = new LearningMachine();
-			LM1.importARFF(arffFilePath);
-			LM1.train();
-			LM1.printEvaluationSummary();
-			trainer.setLM(LM1);
-
-
-			LearningMachine LM2 = Trainer.loadLM(filePath);
-			LM2.train();
-
-
-			assertEquals(LM1.getSerialVersionUID(), LM2.getSerialVersionUID());
-		}// End TestsaveLoadLM
-
 
 	// ********** MISC TEST CASES **********
 

@@ -14,7 +14,7 @@ public class Trainer implements Serializable {
 
 	private static final long serialVersionUID = 1969136929013924126L;
 
-	private LearningMachine lm; 
+	private LearningMachine lm;
 
 	public Trainer() {
 		lm = new LearningMachine();
@@ -38,8 +38,10 @@ public class Trainer implements Serializable {
 
 	/**
 	 * Prepares shingled tokens to feed to the learning machine
+	 * 
 	 * @param arffFilePath
-	 * @param k   = number of tokens per shingle 
+	 * @param k
+	 *            = number of tokens per shingle
 	 * @param inputFileName
 	 * @param outputFileName
 	 */
@@ -100,10 +102,12 @@ public class Trainer implements Serializable {
 	}
 
 	/**
-	 * Prepares shingled tokens to feed to the learning machine
-	 * Returns data as a HashSet
+	 * Prepares shingled tokens to feed to the learning machine Returns data as
+	 * a HashSet
+	 * 
 	 * @param arffFilePath
-	 * @param k   = number of tokens per shingle 
+	 * @param k
+	 *            = number of tokens per shingle
 	 * @param inputFileName
 	 * @param outputFileName
 	 */
@@ -146,9 +150,9 @@ public class Trainer implements Serializable {
 
 				// if there is a killWord following a beginning or continuing
 				// token
-				
+
 				// if last element is killword
-				if (tokens.get(j + i).isKillWord() == 1) { 
+				if (tokens.get(j + i).isKillWord() == 1) {
 
 					if (tokens.get(j + i - 1).getName().equals("beginning")
 							|| tokens.get(j + i - 1).getName().equals("continuing")) {
@@ -210,8 +214,10 @@ public class Trainer implements Serializable {
 
 	/**
 	 * Prepares shingled tokens to feed to the learning machine
+	 * 
 	 * @param arffFilePath
-	 * @param k   = number of tokens per shingle 
+	 * @param k
+	 *            = number of tokens per shingle
 	 * @param inputFileName
 	 * @param outputFileName
 	 */
@@ -264,8 +270,10 @@ public class Trainer implements Serializable {
 
 	/**
 	 * Prepares shingled tokens to feed to the learning machine
+	 * 
 	 * @param arffFilePath
-	 * @param k   = number of tokens per shingle 
+	 * @param k
+	 *            = number of tokens per shingle
 	 * @param inputFileName
 	 * @param outputFileName
 	 */
@@ -342,9 +350,11 @@ public class Trainer implements Serializable {
 	}
 
 	/**
-	 * Takes the input text and returns an arraylist of basic tokens, containing only the lexemes
-	 * 	Tokens later have features analyzed by Trainer.getFeatures()
-	 * 		Verbose option outputs token.toString() after the tokens are added to the arraylist
+	 * Takes the input text and returns an arraylist of basic tokens, containing
+	 * only the lexemes Tokens later have features analyzed by
+	 * Trainer.getFeatures() Verbose option outputs token.toString() after the
+	 * tokens are added to the arraylist
+	 * 
 	 * @param textBlock
 	 * @param verbose
 	 * @return
@@ -363,8 +373,9 @@ public class Trainer implements Serializable {
 	}
 
 	/**
-	 * Returns the the token count for a specific token at index
-	 * Provided as part of the interface, unused within the package
+	 * Returns the the token count for a specific token at index Provided as
+	 * part of the interface, unused within the package
+	 * 
 	 * @param token
 	 */
 	public int getTokenCount(int index, ArrayList<Token> tokenizedText) {
@@ -380,6 +391,7 @@ public class Trainer implements Serializable {
 
 	/**
 	 * Trains the loaded Learning Machine
+	 * 
 	 * @param filePath
 	 */
 	public void trainLM(String filePath) {
@@ -393,6 +405,7 @@ public class Trainer implements Serializable {
 
 	/**
 	 * Loads the training machine into the extractor
+	 * 
 	 * @param fpath
 	 * @return
 	 */
@@ -421,14 +434,15 @@ public class Trainer implements Serializable {
 	}
 
 	/**
-	 * Saves the Learning Machine to a file  
+	 * Saves the Learning Machine to a file
+	 * 
 	 * @param fpath
 	 * @return
 	 */
 	public boolean saveLM(String fpath) {
-		fpath = fpath + ".ser"; // add the .ser extension 
+		fpath = fpath + ".ser"; // add the .ser extension
 
-		FileOutputStream fOutStr; 
+		FileOutputStream fOutStr;
 
 		try {
 			fOutStr = new FileOutputStream(fpath);
