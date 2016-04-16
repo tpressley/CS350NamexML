@@ -291,14 +291,14 @@ public class Trainer implements Serializable {
 	 * @param textBlock
 	 * @return
 	 */
-	public ArrayList<Token> tokenize(String textBlock) {
+	/*public ArrayList<Token> tokenize(String textBlock) {
 		String[] tks = textBlock.split("(?<=<NER>)|(?=</NER>)|(?<=<PER>)|(?=</PER>)|(?=[ ,.!()<:;}-])|(?<=[ (>{-])");
 		int n = 0;
 		ArrayList<Token> tokens = new ArrayList<Token>();
 
 
 		return tokens;
-	}
+	} */
 
 	public ArrayList<Token> tokenize(ArrayList<String> untokenizedwords) {
 		ArrayList<Token> tokens = new ArrayList<Token>();
@@ -308,28 +308,27 @@ public class Trainer implements Serializable {
 		}
 		
 		for (int i = 0; i < untokenizedwords.size(); i++) {
-			if (untokenizedwords.get(i) != "<PER>")
+//			if (untokenizedwords.get(i) != "<PER>")
 				tokens.add(new Token(untokenizedwords.get(i), i));
-			else {
-				while(untokenizedwords.get(i) != "</PER>")
-				{
-					i++;
-					Token tempToken = new Token(untokenizedwords.get(i), i);
-					if(n == 0)
-					{
-						tempToken.setName("beginning");
-					}
-					else
-					{
-						tempToken.setName("continuing");
-					}
-					tokens.add(tempToken);
-				}
-				n = 0;
-			}
+//			else {
+//				while(untokenizedwords.get(i) != "</PER>")
+//				{
+//					i++;
+//					Token tempToken = new Token(untokenizedwords.get(i), i);
+//					if(n == 0)
+//					{
+//						tempToken.setName("beginning");
+//					}
+//					else
+//					{
+//						tempToken.setName("continuing");
+//					}
+//					tokens.add(tempToken);
+//				}
+//				n = 0;
+//			}
 		}
 		return tokens;
-
 	}
 
 	/**
@@ -613,9 +612,11 @@ public class Trainer implements Serializable {
 				if (tokens.get(i).getLexeme().equals("<PER>")) {
 					isPartOfName = true;
 					tokens.get(i).setName("other");
+					tokens.remove(i);
 				} else if (tokens.get(i).getLexeme().equals("</PER>")) {
 					isPartOfName = false;
 					taggedBeginning = false;
+					tokens.remove(i);
 					tokens.get(i).setName("other");
 				}
 				if (isPartOfName == true) {

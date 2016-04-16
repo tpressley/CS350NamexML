@@ -14,15 +14,16 @@ public class Shingle {
 		this.tokens = tokens;
 	}
 
+	//TODO Update shingle size logic
 	public Shingle() {
-		for (int i = 0; i < 11; i++) {
+		for (int i = 0; i < (11-l); i++) {
 			tokens.add(null);
 		}
 	}
 
-	public Shingle(int k)
+	public Shingle(int k, int l)
 	{
-		for(int i = 0; i < ((2*k); i++)
+		for(int i = 0; i < (2*k+1-l); i++)
 		{
 			tokens.add(null);
 		}
