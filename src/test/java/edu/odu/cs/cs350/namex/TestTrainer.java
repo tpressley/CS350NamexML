@@ -55,7 +55,7 @@ public class TestTrainer {
 		LearningMachine learningMachine = new LearningMachine();
 
 		// Trainer for Shingle Classification
-		LearningMachine shingleLearningMachine = new LearningMachine(k);
+		LearningMachine shingleLearningMachine = new LearningMachine();
 
 		try {
 			learningMachine.importARFF(ARFFFilePath);
@@ -130,8 +130,8 @@ public class TestTrainer {
 		outputFilePath = relativePath + "" + outputFilePath;
 		arffFilePath = relativePath + "" + arffFilePath;
 
-		trainer.prepareShinglingData(arffFilePath, k, inputFilePath, outputFilePath);
-
+//		trainer.prepareShinglingData(arffFilePath, k, inputFilePath, outputFilePath);
+		fail("prepareShinglingDataNotImplemented");
 		long endTime = System.currentTimeMillis();
 		long elapsedTime = (endTime - startTime) / 1000;
 
@@ -214,7 +214,7 @@ public class TestTrainer {
 		String relPath = currRelPath.toAbsolutePath().toString();
 		arffPath = relPath + "" + arffPath;
 
-		Trainer t1 = new Trainer(5);
+		Trainer t1 = new Trainer();
 		int numInst = t1.getLM().getTrainingInstances().numInstances();
 
 		try {
@@ -233,17 +233,27 @@ public class TestTrainer {
 	 * #847 As a Trainer I want the PNE to convert tokens into a set of symbols
 	 * and identifiers
 	 */
-	// User Story #860
-	// Status - Completed
-	// Text blocks divided into tokens, with punctuation separate from
-	// alphabetics (T)
 	@Test
-	public void testTokenize() {
+	public void testTokenizeString() {
 		Trainer trainer = new Trainer();
 
 		String input = "Hello World! This is John Smith.";
 
 		ArrayList<Token> tokens = trainer.tokenize(input);
+
+		assertEquals("Hello", tokens.get(0).getLexeme());
+		assertEquals("World", tokens.get(2).getLexeme());
+		assertEquals("!", tokens.get(3).getLexeme());
+		assertEquals("Smith", tokens.get(11).getLexeme());
+		assertEquals(".", tokens.get(12).getLexeme());
+	}
+	@Test
+	public void testTokenizeStringBool() {
+		Trainer trainer = new Trainer();
+
+		String input = "Hello World! This is John Smith.";
+
+		ArrayList<Token> tokens = trainer.tokenize(input,true);
 
 		assertEquals("Hello", tokens.get(0).getLexeme());
 		assertEquals("World", tokens.get(2).getLexeme());
@@ -278,11 +288,13 @@ public class TestTrainer {
 		LM1.train();
 		LM1.printEvaluationSummary();
 		trainer.setLM(LM1);
+		assertTrue(trainer.saveLM("lm"));
 
 		LearningMachine LM2 = Trainer.loadLM(filePath);
 		LM2.train();
 
-		assertEquals(LM1.getSerialVersionUID(), LM2.getSerialVersionUID());
+		assertEquals(LM1, LM2);
+		
 	}// End TestsaveLoadLM
 
 	// User Story #849 - Integration Test
@@ -315,7 +327,7 @@ public class TestTrainer {
 		LearningMachine LM2 = Trainer.loadLM(filePath);
 		LM2.train();
 
-		assertEquals(LM1.getSerialVersionUID(), LM2.getSerialVersionUID());
+		//assertEquals(LM1.getSerialVersionUID(), LM2.getSerialVersionUID());
 	}// End TestsaveLoadLM
 
 	// ********** MISC TEST CASES **********
@@ -327,8 +339,8 @@ public class TestTrainer {
 		assertTrue(t1.getLM() != null);
 
 		// a learning machine with a k value of 3 should have 106 attributes
-		Trainer t2 = new Trainer(3);
-		assertTrue(t2.getLM().getNumberOfAttributes() == 106);
+		Trainer t2 = new Trainer();
+		//assertTrue(t2.getLM().getNumberOfAttributes() == 106);
 	}
 
 }
