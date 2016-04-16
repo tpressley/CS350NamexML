@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="joehl-laptop" name="edu.odu.cs.cs350.namex.TestLibrarian" skipped="0" tests="8" time="4.478" timestamp="2016-04-15T19:48:21">
+<testsuite errors="0" failures="0" hostname="joehl-laptop" name="edu.odu.cs.cs350.namex.TestLibrarian" skipped="0" tests="8" time="5.913" timestamp="2016-04-16T22:12:10">
   <properties>
     <property name="file.encoding.pkg" value="sun.io" />
     <property name="ivy.retrieve.pattern.ivy.instance" value="/home/joel/git/Green3/lib/[artifact]-[revision](-[classifier]).[ext]" />
@@ -57,7 +57,7 @@
     <property name="lib" value="/home/joel/git/Green3/lib" />
     <property name="ivy.targets.copied" value="false" />
     <property name="ivy.parents.count" value="0" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestLibrarian skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/joel/git/Green3/target/test-results/TEST-edu.odu.cs.cs350.namex.TestLibrarian.xml crashfile=/home/joel/git/Green3/junitvmwatcher8668243662124688542.properties propsfile=/home/joel/git/Green3/junit2012402693772168893.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestLibrarian skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/joel/git/Green3/target/test-results/TEST-edu.odu.cs.cs350.namex.TestLibrarian.xml crashfile=/home/joel/git/Green3/junitvmwatcher7871953779662407033.properties propsfile=/home/joel/git/Green3/junit5908426647847228018.properties" />
     <property name="ant.file" value="/home/joel/git/Green3/build.xml" />
     <property name="ivy.distrib.dir.ivy.instance" value="/home/joel/git/Green3/distrib" />
     <property name="ivy.checksums.ivy.instance" value="sha1,md5" />
@@ -66,7 +66,7 @@
     <property name="ivy.settings.file" value="ivysettings.xml" />
     <property name="java.io.tmpdir" value="/tmp" />
     <property name="ivy.buildlist.ivyfilepath.ivy.instance" value="ivy.xml" />
-    <property name="TODAY" value="April 15 2016" />
+    <property name="TODAY" value="April 16 2016" />
     <property name="ivy.cache.ttl.default" value="10s" />
     <property name="user.language" value="en" />
     <property name="user.dir.ivy.instance" value="/home/joel/git/Green3" />
@@ -158,7 +158,7 @@
     <property name="ant.library.dir.ivy.instance" value="/home/joel/.p2/pool/plugins/org.apache.ant_1.9.4.v201504302020/lib" />
     <property name="java.vm.info.ivy.instance" value="mixed mode" />
     <property name="ivy.publish.src.artifacts.pattern" value="/home/joel/git/Green3/distrib/[type]s/[artifact]-[revision](-[classifier]).[ext]" />
-    <property name="sun.java.command.ivy.instance" value="org.eclipse.ant.internal.launching.remote.InternalAntRunner -Dorg.eclipse.ant.core.ANT_PROCESS_ID=1460749696218 -Declipse.connect.port=58656 -Dant.home=/home/joel/.p2/pool/plugins/org.apache.ant_1.9.4.v201504302020 -logger org.eclipse.ant.internal.launching.remote.logger.RemoteAntBuildLogger -inputhandler org.eclipse.ant.internal.ui.antsupport.inputhandler.ProxyInputHandler -eclipseTask antlib:org.apache.ivy.ant:configure,org.apache.ivy.ant.IvyConfigure -eclipseTask antlib:org.apache.ivy.ant:resolve,org.apache.ivy.ant.IvyResolve -eclipseTask antlib:org.apache.ivy.ant:retrieve,org.apache.ivy.ant.IvyRetrieve -eclipseTask antlib:org.apache.ivy.ant:deliver,org.apache.ivy.ant.IvyDeliver -eclipseTask antlib:org.apache.ivy.ant:publish,org.apache.ivy.ant.IvyPublish -eclipseTask antlib:org.apache.ivy.ant:extract,org.apache.ivy.ant.IvyExtractFromSources -eclipseTask antlib:org.apache.ivy.ant:cachepath,org.apache.ivy.ant.IvyCachePath -eclipseTask antlib:org.apache.ivy.ant:cachefileset,org.apache.ivy.ant.IvyCacheFileset -eclipseTask antlib:org.apache.ivy.ant:report,org.apache.ivy.ant.IvyReport -eclipseTask antlib:org.apache.ivy.ant:repreport,org.apache.ivy.ant.IvyRepositoryReport -eclipseTask antlib:org.apache.ivy.ant:var,org.apache.ivy.ant.IvyVar -eclipseTask antlib:org.apache.ivy.ant:check,org.apache.ivy.ant.IvyCheck -eclipseTask antlib:org.apache.ivy.ant:artifactproperty,org.apache.ivy.ant.IvyArtifactProperty -eclipseTask antlib:org.apache.ivy.ant:buildlist,org.apache.ivy.ant.IvyBuildList -eclipseTask antlib:org.apache.ivy.ant:install,org.apache.ivy.ant.IvyInstall -eclipseTask antlib:org.apache.ivy.ant:convertpom,org.apache.ivy.ant.IvyConvertPom -eclipseTask antlib:org.apache.ivy.ant:makepom,org.apache.ivy.ant.IvyMakePom -eclipseTask antlib:org.apache.ivy.ant:artifactreport,org.apache.ivy.ant.IvyArtifactReport -eclipseTask antlib:org.apache.ivy.ant:info,org.apache.ivy.ant.IvyInfo -eclipseTask antlib:org.apache.ivy.ant:addpath,org.apache.ivy.ant.AddPathTask -eclipseTask antlib:org.apache.ivy.ant:listmodules,org.apache.ivy.ant.IvyListModules -eclipseTask antlib:org.apache.ivy.ant:findrevision,org.apache.ivy.ant.IvyFindRevision -eclipseTask antlib:org.apache.ivy.ant:buildnumber,org.apache.ivy.ant.IvyBuildNumber -eclipseTask antlib:org.apache.ivy.ant:cleancache,org.apache.ivy.ant.IvyCleanCache -eclipseTask antlib:org.apache.ivy.ant:buildobr,org.apache.ivy.ant.BuildOBRTask -eclipseTask antlib:org.apache.ivy.ant:convertmanifest,org.apache.ivy.ant.ConvertManifestTask -eclipseTask antlib:org.apache.ivy.ant:fixdeps,org.apache.ivy.ant.FixDepsTask -eclipseTask antlib:org.apache.ivy.ant:dependencytree,org.apache.ivy.ant.IvyDependencyTree -eclipseTask antlib:org.apache.ivy.ant:checkdepsupdate,org.apache.ivy.ant.IvyDependencyUpdateChecker -eclipseType antlib:org.apache.ivy.ant:settings,org.apache.ivy.ant.IvyAntSettings -eclipseType antlib:org.apache.ivy.ant:resources,org.apache.ivy.ant.IvyResources -buildfile /home/joel/git/Green3/build.xml install-ivy resolve-ivy init download-ivy compile compile-tests test" />
+    <property name="sun.java.command.ivy.instance" value="org.eclipse.ant.internal.launching.remote.InternalAntRunner -Dorg.eclipse.ant.core.ANT_PROCESS_ID=1460844720989 -Declipse.connect.port=46753 -Dant.home=/home/joel/.p2/pool/plugins/org.apache.ant_1.9.4.v201504302020 -logger org.eclipse.ant.internal.launching.remote.logger.RemoteAntBuildLogger -inputhandler org.eclipse.ant.internal.ui.antsupport.inputhandler.ProxyInputHandler -eclipseTask antlib:org.apache.ivy.ant:configure,org.apache.ivy.ant.IvyConfigure -eclipseTask antlib:org.apache.ivy.ant:resolve,org.apache.ivy.ant.IvyResolve -eclipseTask antlib:org.apache.ivy.ant:retrieve,org.apache.ivy.ant.IvyRetrieve -eclipseTask antlib:org.apache.ivy.ant:deliver,org.apache.ivy.ant.IvyDeliver -eclipseTask antlib:org.apache.ivy.ant:publish,org.apache.ivy.ant.IvyPublish -eclipseTask antlib:org.apache.ivy.ant:extract,org.apache.ivy.ant.IvyExtractFromSources -eclipseTask antlib:org.apache.ivy.ant:cachepath,org.apache.ivy.ant.IvyCachePath -eclipseTask antlib:org.apache.ivy.ant:cachefileset,org.apache.ivy.ant.IvyCacheFileset -eclipseTask antlib:org.apache.ivy.ant:report,org.apache.ivy.ant.IvyReport -eclipseTask antlib:org.apache.ivy.ant:repreport,org.apache.ivy.ant.IvyRepositoryReport -eclipseTask antlib:org.apache.ivy.ant:var,org.apache.ivy.ant.IvyVar -eclipseTask antlib:org.apache.ivy.ant:check,org.apache.ivy.ant.IvyCheck -eclipseTask antlib:org.apache.ivy.ant:artifactproperty,org.apache.ivy.ant.IvyArtifactProperty -eclipseTask antlib:org.apache.ivy.ant:buildlist,org.apache.ivy.ant.IvyBuildList -eclipseTask antlib:org.apache.ivy.ant:install,org.apache.ivy.ant.IvyInstall -eclipseTask antlib:org.apache.ivy.ant:convertpom,org.apache.ivy.ant.IvyConvertPom -eclipseTask antlib:org.apache.ivy.ant:makepom,org.apache.ivy.ant.IvyMakePom -eclipseTask antlib:org.apache.ivy.ant:artifactreport,org.apache.ivy.ant.IvyArtifactReport -eclipseTask antlib:org.apache.ivy.ant:info,org.apache.ivy.ant.IvyInfo -eclipseTask antlib:org.apache.ivy.ant:addpath,org.apache.ivy.ant.AddPathTask -eclipseTask antlib:org.apache.ivy.ant:listmodules,org.apache.ivy.ant.IvyListModules -eclipseTask antlib:org.apache.ivy.ant:findrevision,org.apache.ivy.ant.IvyFindRevision -eclipseTask antlib:org.apache.ivy.ant:buildnumber,org.apache.ivy.ant.IvyBuildNumber -eclipseTask antlib:org.apache.ivy.ant:cleancache,org.apache.ivy.ant.IvyCleanCache -eclipseTask antlib:org.apache.ivy.ant:buildobr,org.apache.ivy.ant.BuildOBRTask -eclipseTask antlib:org.apache.ivy.ant:convertmanifest,org.apache.ivy.ant.ConvertManifestTask -eclipseTask antlib:org.apache.ivy.ant:fixdeps,org.apache.ivy.ant.FixDepsTask -eclipseTask antlib:org.apache.ivy.ant:dependencytree,org.apache.ivy.ant.IvyDependencyTree -eclipseTask antlib:org.apache.ivy.ant:checkdepsupdate,org.apache.ivy.ant.IvyDependencyUpdateChecker -eclipseType antlib:org.apache.ivy.ant:settings,org.apache.ivy.ant.IvyAntSettings -eclipseType antlib:org.apache.ivy.ant:resources,org.apache.ivy.ant.IvyResources -buildfile /home/joel/git/Green3/build.xml install-ivy resolve-ivy init download-ivy compile compile-tests test" />
     <property name="ivy.distrib.dir" value="/home/joel/git/Green3/distrib" />
     <property name="sun.cpu.endian" value="little" />
     <property name="ivy.revision" value="working@joehl-laptop" />
@@ -166,7 +166,7 @@
     <property name="java.vm.version" value="24.95-b01" />
     <property name="java.class.path" value="/home/joel/git/Green3/target/test-classes:/home/joel/git/Green3/target/classes:/home/joel/git/Green3/lib/ant-1.7.1.jar:/home/joel/git/Green3/lib/ant-launcher-1.7.1.jar:/home/joel/git/Green3/lib/ant-launcher.jar:/home/joel/git/Green3/lib/ant.jar:/home/joel/git/Green3/lib/asm-debug-all-5.0.4.jar:/home/joel/git/Green3/lib/asm-debug-all.jar:/home/joel/git/Green3/lib/extract-wordlists-4.2.jar:/home/joel/git/Green3/lib/extract-wordlists.jar:/home/joel/git/Green3/lib/hamcrest-core-1.3.jar:/home/joel/git/Green3/lib/hamcrest-core.jar:/home/joel/git/Green3/lib/java-cup-0.11a.jar:/home/joel/git/Green3/lib/java-cup.jar:/home/joel/git/Green3/lib/junit-4.11.jar:/home/joel/git/Green3/lib/junit-javadoc.jar:/home/joel/git/Green3/lib/junit-sources.jar:/home/joel/git/Green3/lib/junit.jar:/home/joel/git/Green3/lib/org.jacoco.agent-0.7.6.201602180812.jar:/home/joel/git/Green3/lib/org.jacoco.agent.jar:/home/joel/git/Green3/lib/org.jacoco.ant-0.7.6.201602180812.jar:/home/joel/git/Green3/lib/org.jacoco.ant-javadoc.jar:/home/joel/git/Green3/lib/org.jacoco.ant-sources.jar:/home/joel/git/Green3/lib/org.jacoco.ant.jar:/home/joel/git/Green3/lib/org.jacoco.core-0.7.6.201602180812.jar:/home/joel/git/Green3/lib/org.jacoco.core.jar:/home/joel/git/Green3/lib/org.jacoco.report-0.7.6.201602180812.jar:/home/joel/git/Green3/lib/org.jacoco.report.jar:/home/joel/git/Green3/lib/weka-stable-3.6.13.jar:/home/joel/git/Green3/lib/weka-stable-javadoc.jar:/home/joel/git/Green3/lib/weka-stable-sources.jar:/home/joel/git/Green3/lib/weka-stable.jar:/home/joel/.p2/pool/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant-launcher.jar:/home/joel/.p2/pool/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant.jar:/home/joel/.p2/pool/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant-junit.jar:/home/joel/.p2/pool/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant-junit4.jar" />
     <property name="ivy.default.ivy.user.dir" value="/home/joel/.ivy2" />
-    <property name="DSTAMP" value="20160415" />
+    <property name="DSTAMP" value="20160416" />
     <property name="user.home.ivy.instance" value="/home/joel" />
     <property name="basedir.ivy.instance" value="/home/joel/git/Green3" />
     <property name="ant.library.dir" value="/home/joel/.p2/pool/plugins/org.apache.ant_1.9.4.v201504302020/lib" />
@@ -184,7 +184,7 @@
     <property name="ant.core.lib" value="/home/joel/.p2/pool/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant.jar" />
     <property name="java.vm.specification.vendor" value="Oracle Corporation" />
     <property name="ivy.settings.dir" value="/home/joel/git/Green3" />
-    <property name="TSTAMP" value="1548" />
+    <property name="TSTAMP" value="1812" />
     <property name="file.separator" value="/" />
     <property name="user.language.ivy.instance" value="en" />
     <property name="user.country.ivy.instance" value="US" />
@@ -206,12 +206,12 @@
   </properties>
   <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testSeparateNER" time="0.006" />
   <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testPackage" time="0.0" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testMain" time="1.364" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testWeka" time="0.694" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testGetLexicalFeature" time="1.189" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testClassifyToken" time="0.508" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testMain" time="2.091" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testWeka" time="0.836" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testGetLexicalFeature" time="1.754" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testClassifyToken" time="0.576" />
   <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="identifyPlace" time="0.0" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testGetFeatures" time="0.616" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestLibrarian" name="testGetFeatures" time="0.536" />
   <system-out><![CDATA[*******************************
  Generating ARFF Training Data
 *******************************
@@ -240,7 +240,36 @@ null
 	at java.io.FileInputStream.<init>(FileInputStream.java:146)
 	at java.util.Scanner.<init>(Scanner.java:656)
 	at edu.odu.cs.cs350.namex.Librarian.importFile(Librarian.java:162)
-	at edu.odu.cs.cs350.namex.Trainer.prepareData(Trainer.java:222)
+	at edu.odu.cs.cs350.namex.Trainer.prepareData(Trainer.java:226)
+	at edu.odu.cs.cs350.namex.Librarian.main(Librarian.java:95)
+	at edu.odu.cs.cs350.namex.TestLibrarian.testMain(TestLibrarian.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at junit.framework.JUnit4TestAdapter.run(JUnit4TestAdapter.java:38)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:532)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1179)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1030)
+java.lang.NullPointerException
+	at weka.core.Capabilities.test(Capabilities.java:1023)
+	at weka.core.Capabilities.testWithFail(Capabilities.java:1302)
+	at weka.classifiers.bayes.NaiveBayes.buildClassifier(NaiveBayes.java:213)
+	at edu.odu.cs.cs350.namex.LearningMachine.train(LearningMachine.java:963)
+	at edu.odu.cs.cs350.namex.Trainer.prepareData(Trainer.java:256)
 	at edu.odu.cs.cs350.namex.Librarian.main(Librarian.java:95)
 	at edu.odu.cs.cs350.namex.TestLibrarian.testMain(TestLibrarian.java:117)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -270,8 +299,8 @@ java.io.FileNotFoundException: /home/joel/git/Green3/data/arff/trainingData.arff
 	at java.io.FileOutputStream.<init>(FileOutputStream.java:171)
 	at java.io.PrintWriter.<init>(PrintWriter.java:192)
 	at java.io.PrintWriter.<init>(PrintWriter.java:232)
-	at edu.odu.cs.cs350.namex.LearningMachine.exportARFF(LearningMachine.java:602)
-	at edu.odu.cs.cs350.namex.Trainer.prepareData(Trainer.java:257)
+	at edu.odu.cs.cs350.namex.LearningMachine.exportARFF(LearningMachine.java:1147)
+	at edu.odu.cs.cs350.namex.Trainer.prepareData(Trainer.java:261)
 	at edu.odu.cs.cs350.namex.Librarian.main(Librarian.java:95)
 	at edu.odu.cs.cs350.namex.TestLibrarian.testMain(TestLibrarian.java:117)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -298,7 +327,7 @@ java.io.FileNotFoundException: /home/joel/git/Green3/data/arff/trainingData.arff
 java.io.IOException: No source has been specified
 	at weka.core.converters.ArffLoader.getDataSet(ArffLoader.java:1039)
 	at weka.core.converters.ConverterUtils$DataSource.getDataSet(ConverterUtils.java:268)
-	at edu.odu.cs.cs350.namex.LearningMachine.importARFF(LearningMachine.java:627)
+	at edu.odu.cs.cs350.namex.LearningMachine.importARFF(LearningMachine.java:1172)
 	at edu.odu.cs.cs350.namex.TestLibrarian.testWeka(TestLibrarian.java:44)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
@@ -325,7 +354,7 @@ java.lang.NullPointerException
 	at weka.core.Capabilities.test(Capabilities.java:1023)
 	at weka.core.Capabilities.testWithFail(Capabilities.java:1302)
 	at weka.classifiers.bayes.NaiveBayes.buildClassifier(NaiveBayes.java:213)
-	at edu.odu.cs.cs350.namex.LearningMachine.train(LearningMachine.java:418)
+	at edu.odu.cs.cs350.namex.LearningMachine.train(LearningMachine.java:963)
 	at edu.odu.cs.cs350.namex.TestLibrarian.testWeka(TestLibrarian.java:45)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
@@ -348,10 +377,9 @@ java.lang.NullPointerException
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:532)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1179)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1030)
-weka.core.UnassignedDatasetException: Instance doesn't have access to a dataset!
-	at weka.core.Instance.enumerateAttributes(Instance.java:304)
-	at weka.classifiers.bayes.NaiveBayes.distributionForInstance(NaiveBayes.java:352)
-	at edu.odu.cs.cs350.namex.LearningMachine.classify(LearningMachine.java:502)
+java.lang.IllegalArgumentException: Attribute names are not unique! Causes: 'Lexical' 'PartOfSpeech' 'DictionaryWord' 'City' 'Country' 'Places' 'DTICFirst' 'DTICLast' 'CommonFirst' 'CommonLast' 'Honorific' 'Prefix' 'Suffix' 'Kill' 'Lexical' 'PartOfSpeech' 'DictionaryWord' 'City' 'Country' 'Places' 'DTICFirst' 'DTICLast' 'CommonFirst' 'CommonLast' 'Honorific' 'Prefix' 'Suffix' 'Kill' 'Lexical' 'PartOfSpeech' 'DictionaryWord' 'City' 'Country' 'Places' 'DTICFirst' 'DTICLast' 'CommonFirst' 'CommonLast' 'Honorific' 'Prefix' 'Suffix' 'Kill' 'Lexical' 'PartOfSpeech' 'DictionaryWord' 'City' 'Country' 'Places' 'DTICFirst' 'DTICLast' 'CommonFirst' 'CommonLast' 'Honorific' 'Prefix' 'Suffix' 'Kill' 'Lexical' 'PartOfSpeech' 'DictionaryWord' 'City' 'Country' 'Places' 'DTICFirst' 'DTICLast' 'CommonFirst' 'CommonLast' 'Honorific' 'Prefix' 'Suffix' 'Kill' 'Lexical' 'PartOfSpeech' 'DictionaryWord' 'City' 'Country' 'Places' 'DTICFirst' 'DTICLast' 'CommonFirst' 'CommonLast' 'Honorific' 'Prefix' 'Suffix' 'Kill' 'Lexical' 'PartOfSpeech' 'DictionaryWord' 'City' 'Country' 'Places' 'DTICFirst' 'DTICLast' 'CommonFirst' 'CommonLast' 'Honorific' 'Prefix' 'Suffix' 'Kill' 'Lexical' 'PartOfSpeech' 'DictionaryWord' 'City' 'Country' 'Places' 'DTICFirst' 'DTICLast' 'CommonFirst' 'CommonLast' 'Honorific' 'Prefix' 'Suffix' 'Kill' 'Lexical' 'PartOfSpeech' 'DictionaryWord' 'City' 'Country' 'Places' 'DTICFirst' 'DTICLast' 'CommonFirst' 'CommonLast' 'Honorific' 'Prefix' 'Suffix' 'Kill' 'Lexical' 'PartOfSpeech' 'DictionaryWord' 'City' 'Country' 'Places' 'DTICFirst' 'DTICLast' 'CommonFirst' 'CommonLast' 'Honorific' 'Prefix' 'Suffix' 'Kill' 'Name' 'Name' 'Name' 'Name' 'Name' 
+	at weka.core.Instances.<init>(Instances.java:252)
+	at edu.odu.cs.cs350.namex.LearningMachine.classify(LearningMachine.java:1030)
 	at edu.odu.cs.cs350.namex.TestLibrarian.testWeka(TestLibrarian.java:55)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
@@ -377,8 +405,8 @@ weka.core.UnassignedDatasetException: Instance doesn't have access to a dataset!
 java.io.IOException: No source has been specified
 	at weka.core.converters.ArffLoader.getDataSet(ArffLoader.java:1039)
 	at weka.core.converters.ConverterUtils$DataSource.getDataSet(ConverterUtils.java:268)
-	at edu.odu.cs.cs350.namex.LearningMachine.importARFF(LearningMachine.java:627)
-	at edu.odu.cs.cs350.namex.TestLibrarian.testGetFeatures(TestLibrarian.java:158)
+	at edu.odu.cs.cs350.namex.LearningMachine.importARFF(LearningMachine.java:1172)
+	at edu.odu.cs.cs350.namex.TestLibrarian.testGetFeatures(TestLibrarian.java:161)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -404,8 +432,8 @@ java.lang.NullPointerException
 	at weka.core.Capabilities.test(Capabilities.java:1023)
 	at weka.core.Capabilities.testWithFail(Capabilities.java:1302)
 	at weka.classifiers.bayes.NaiveBayes.buildClassifier(NaiveBayes.java:213)
-	at edu.odu.cs.cs350.namex.LearningMachine.train(LearningMachine.java:418)
-	at edu.odu.cs.cs350.namex.TestLibrarian.testGetFeatures(TestLibrarian.java:159)
+	at edu.odu.cs.cs350.namex.LearningMachine.train(LearningMachine.java:963)
+	at edu.odu.cs.cs350.namex.TestLibrarian.testGetFeatures(TestLibrarian.java:162)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -427,11 +455,10 @@ java.lang.NullPointerException
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:532)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1179)
 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1030)
-weka.core.UnassignedDatasetException: Instance doesn't have access to a dataset!
-	at weka.core.Instance.enumerateAttributes(Instance.java:304)
-	at weka.classifiers.bayes.NaiveBayes.distributionForInstance(NaiveBayes.java:352)
-	at edu.odu.cs.cs350.namex.LearningMachine.classify(LearningMachine.java:502)
-	at edu.odu.cs.cs350.namex.TestLibrarian.testGetFeatures(TestLibrarian.java:170)
+java.lang.IllegalArgumentException: Attribute names are not unique! Causes: 'Lexical' 'PartOfSpeech' 'DictionaryWord' 'City' 'Country' 'Places' 'DTICFirst' 'DTICLast' 'CommonFirst' 'CommonLast' 'Honorific' 'Prefix' 'Suffix' 'Kill' 'Lexical' 'PartOfSpeech' 'DictionaryWord' 'City' 'Country' 'Places' 'DTICFirst' 'DTICLast' 'CommonFirst' 'CommonLast' 'Honorific' 'Prefix' 'Suffix' 'Kill' 'Lexical' 'PartOfSpeech' 'DictionaryWord' 'City' 'Country' 'Places' 'DTICFirst' 'DTICLast' 'CommonFirst' 'CommonLast' 'Honorific' 'Prefix' 'Suffix' 'Kill' 'Lexical' 'PartOfSpeech' 'DictionaryWord' 'City' 'Country' 'Places' 'DTICFirst' 'DTICLast' 'CommonFirst' 'CommonLast' 'Honorific' 'Prefix' 'Suffix' 'Kill' 'Lexical' 'PartOfSpeech' 'DictionaryWord' 'City' 'Country' 'Places' 'DTICFirst' 'DTICLast' 'CommonFirst' 'CommonLast' 'Honorific' 'Prefix' 'Suffix' 'Kill' 'Lexical' 'PartOfSpeech' 'DictionaryWord' 'City' 'Country' 'Places' 'DTICFirst' 'DTICLast' 'CommonFirst' 'CommonLast' 'Honorific' 'Prefix' 'Suffix' 'Kill' 'Lexical' 'PartOfSpeech' 'DictionaryWord' 'City' 'Country' 'Places' 'DTICFirst' 'DTICLast' 'CommonFirst' 'CommonLast' 'Honorific' 'Prefix' 'Suffix' 'Kill' 'Lexical' 'PartOfSpeech' 'DictionaryWord' 'City' 'Country' 'Places' 'DTICFirst' 'DTICLast' 'CommonFirst' 'CommonLast' 'Honorific' 'Prefix' 'Suffix' 'Kill' 'Lexical' 'PartOfSpeech' 'DictionaryWord' 'City' 'Country' 'Places' 'DTICFirst' 'DTICLast' 'CommonFirst' 'CommonLast' 'Honorific' 'Prefix' 'Suffix' 'Kill' 'Lexical' 'PartOfSpeech' 'DictionaryWord' 'City' 'Country' 'Places' 'DTICFirst' 'DTICLast' 'CommonFirst' 'CommonLast' 'Honorific' 'Prefix' 'Suffix' 'Kill' 'Name' 'Name' 'Name' 'Name' 'Name' 
+	at weka.core.Instances.<init>(Instances.java:252)
+	at edu.odu.cs.cs350.namex.LearningMachine.classify(LearningMachine.java:1030)
+	at edu.odu.cs.cs350.namex.TestLibrarian.testGetFeatures(TestLibrarian.java:173)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="19" hostname="joehl-laptop" name="edu.odu.cs.cs350.namex.TestLearningMachine" skipped="0" tests="19" time="0.17" timestamp="2016-04-15T19:48:20">
+<testsuite errors="0" failures="20" hostname="joehl-laptop" name="edu.odu.cs.cs350.namex.TestLearningMachine" skipped="0" tests="20" time="0.417" timestamp="2016-04-16T22:12:09">
   <properties>
     <property name="file.encoding.pkg" value="sun.io" />
     <property name="ivy.retrieve.pattern.ivy.instance" value="/home/joel/git/Green3/lib/[artifact]-[revision](-[classifier]).[ext]" />
@@ -57,7 +57,7 @@
     <property name="lib" value="/home/joel/git/Green3/lib" />
     <property name="ivy.targets.copied" value="false" />
     <property name="ivy.parents.count" value="0" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestLearningMachine skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/joel/git/Green3/target/test-results/TEST-edu.odu.cs.cs350.namex.TestLearningMachine.xml crashfile=/home/joel/git/Green3/junitvmwatcher1171377572720214742.properties propsfile=/home/joel/git/Green3/junit4427573977340088426.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestLearningMachine skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/joel/git/Green3/target/test-results/TEST-edu.odu.cs.cs350.namex.TestLearningMachine.xml crashfile=/home/joel/git/Green3/junitvmwatcher9029489035926452287.properties propsfile=/home/joel/git/Green3/junit63399227599837976.properties" />
     <property name="ant.file" value="/home/joel/git/Green3/build.xml" />
     <property name="ivy.distrib.dir.ivy.instance" value="/home/joel/git/Green3/distrib" />
     <property name="ivy.checksums.ivy.instance" value="sha1,md5" />
@@ -66,7 +66,7 @@
     <property name="ivy.settings.file" value="ivysettings.xml" />
     <property name="java.io.tmpdir" value="/tmp" />
     <property name="ivy.buildlist.ivyfilepath.ivy.instance" value="ivy.xml" />
-    <property name="TODAY" value="April 15 2016" />
+    <property name="TODAY" value="April 16 2016" />
     <property name="ivy.cache.ttl.default" value="10s" />
     <property name="user.language" value="en" />
     <property name="user.dir.ivy.instance" value="/home/joel/git/Green3" />
@@ -158,7 +158,7 @@
     <property name="ant.library.dir.ivy.instance" value="/home/joel/.p2/pool/plugins/org.apache.ant_1.9.4.v201504302020/lib" />
     <property name="java.vm.info.ivy.instance" value="mixed mode" />
     <property name="ivy.publish.src.artifacts.pattern" value="/home/joel/git/Green3/distrib/[type]s/[artifact]-[revision](-[classifier]).[ext]" />
-    <property name="sun.java.command.ivy.instance" value="org.eclipse.ant.internal.launching.remote.InternalAntRunner -Dorg.eclipse.ant.core.ANT_PROCESS_ID=1460749696218 -Declipse.connect.port=58656 -Dant.home=/home/joel/.p2/pool/plugins/org.apache.ant_1.9.4.v201504302020 -logger org.eclipse.ant.internal.launching.remote.logger.RemoteAntBuildLogger -inputhandler org.eclipse.ant.internal.ui.antsupport.inputhandler.ProxyInputHandler -eclipseTask antlib:org.apache.ivy.ant:configure,org.apache.ivy.ant.IvyConfigure -eclipseTask antlib:org.apache.ivy.ant:resolve,org.apache.ivy.ant.IvyResolve -eclipseTask antlib:org.apache.ivy.ant:retrieve,org.apache.ivy.ant.IvyRetrieve -eclipseTask antlib:org.apache.ivy.ant:deliver,org.apache.ivy.ant.IvyDeliver -eclipseTask antlib:org.apache.ivy.ant:publish,org.apache.ivy.ant.IvyPublish -eclipseTask antlib:org.apache.ivy.ant:extract,org.apache.ivy.ant.IvyExtractFromSources -eclipseTask antlib:org.apache.ivy.ant:cachepath,org.apache.ivy.ant.IvyCachePath -eclipseTask antlib:org.apache.ivy.ant:cachefileset,org.apache.ivy.ant.IvyCacheFileset -eclipseTask antlib:org.apache.ivy.ant:report,org.apache.ivy.ant.IvyReport -eclipseTask antlib:org.apache.ivy.ant:repreport,org.apache.ivy.ant.IvyRepositoryReport -eclipseTask antlib:org.apache.ivy.ant:var,org.apache.ivy.ant.IvyVar -eclipseTask antlib:org.apache.ivy.ant:check,org.apache.ivy.ant.IvyCheck -eclipseTask antlib:org.apache.ivy.ant:artifactproperty,org.apache.ivy.ant.IvyArtifactProperty -eclipseTask antlib:org.apache.ivy.ant:buildlist,org.apache.ivy.ant.IvyBuildList -eclipseTask antlib:org.apache.ivy.ant:install,org.apache.ivy.ant.IvyInstall -eclipseTask antlib:org.apache.ivy.ant:convertpom,org.apache.ivy.ant.IvyConvertPom -eclipseTask antlib:org.apache.ivy.ant:makepom,org.apache.ivy.ant.IvyMakePom -eclipseTask antlib:org.apache.ivy.ant:artifactreport,org.apache.ivy.ant.IvyArtifactReport -eclipseTask antlib:org.apache.ivy.ant:info,org.apache.ivy.ant.IvyInfo -eclipseTask antlib:org.apache.ivy.ant:addpath,org.apache.ivy.ant.AddPathTask -eclipseTask antlib:org.apache.ivy.ant:listmodules,org.apache.ivy.ant.IvyListModules -eclipseTask antlib:org.apache.ivy.ant:findrevision,org.apache.ivy.ant.IvyFindRevision -eclipseTask antlib:org.apache.ivy.ant:buildnumber,org.apache.ivy.ant.IvyBuildNumber -eclipseTask antlib:org.apache.ivy.ant:cleancache,org.apache.ivy.ant.IvyCleanCache -eclipseTask antlib:org.apache.ivy.ant:buildobr,org.apache.ivy.ant.BuildOBRTask -eclipseTask antlib:org.apache.ivy.ant:convertmanifest,org.apache.ivy.ant.ConvertManifestTask -eclipseTask antlib:org.apache.ivy.ant:fixdeps,org.apache.ivy.ant.FixDepsTask -eclipseTask antlib:org.apache.ivy.ant:dependencytree,org.apache.ivy.ant.IvyDependencyTree -eclipseTask antlib:org.apache.ivy.ant:checkdepsupdate,org.apache.ivy.ant.IvyDependencyUpdateChecker -eclipseType antlib:org.apache.ivy.ant:settings,org.apache.ivy.ant.IvyAntSettings -eclipseType antlib:org.apache.ivy.ant:resources,org.apache.ivy.ant.IvyResources -buildfile /home/joel/git/Green3/build.xml install-ivy resolve-ivy init download-ivy compile compile-tests test" />
+    <property name="sun.java.command.ivy.instance" value="org.eclipse.ant.internal.launching.remote.InternalAntRunner -Dorg.eclipse.ant.core.ANT_PROCESS_ID=1460844720989 -Declipse.connect.port=46753 -Dant.home=/home/joel/.p2/pool/plugins/org.apache.ant_1.9.4.v201504302020 -logger org.eclipse.ant.internal.launching.remote.logger.RemoteAntBuildLogger -inputhandler org.eclipse.ant.internal.ui.antsupport.inputhandler.ProxyInputHandler -eclipseTask antlib:org.apache.ivy.ant:configure,org.apache.ivy.ant.IvyConfigure -eclipseTask antlib:org.apache.ivy.ant:resolve,org.apache.ivy.ant.IvyResolve -eclipseTask antlib:org.apache.ivy.ant:retrieve,org.apache.ivy.ant.IvyRetrieve -eclipseTask antlib:org.apache.ivy.ant:deliver,org.apache.ivy.ant.IvyDeliver -eclipseTask antlib:org.apache.ivy.ant:publish,org.apache.ivy.ant.IvyPublish -eclipseTask antlib:org.apache.ivy.ant:extract,org.apache.ivy.ant.IvyExtractFromSources -eclipseTask antlib:org.apache.ivy.ant:cachepath,org.apache.ivy.ant.IvyCachePath -eclipseTask antlib:org.apache.ivy.ant:cachefileset,org.apache.ivy.ant.IvyCacheFileset -eclipseTask antlib:org.apache.ivy.ant:report,org.apache.ivy.ant.IvyReport -eclipseTask antlib:org.apache.ivy.ant:repreport,org.apache.ivy.ant.IvyRepositoryReport -eclipseTask antlib:org.apache.ivy.ant:var,org.apache.ivy.ant.IvyVar -eclipseTask antlib:org.apache.ivy.ant:check,org.apache.ivy.ant.IvyCheck -eclipseTask antlib:org.apache.ivy.ant:artifactproperty,org.apache.ivy.ant.IvyArtifactProperty -eclipseTask antlib:org.apache.ivy.ant:buildlist,org.apache.ivy.ant.IvyBuildList -eclipseTask antlib:org.apache.ivy.ant:install,org.apache.ivy.ant.IvyInstall -eclipseTask antlib:org.apache.ivy.ant:convertpom,org.apache.ivy.ant.IvyConvertPom -eclipseTask antlib:org.apache.ivy.ant:makepom,org.apache.ivy.ant.IvyMakePom -eclipseTask antlib:org.apache.ivy.ant:artifactreport,org.apache.ivy.ant.IvyArtifactReport -eclipseTask antlib:org.apache.ivy.ant:info,org.apache.ivy.ant.IvyInfo -eclipseTask antlib:org.apache.ivy.ant:addpath,org.apache.ivy.ant.AddPathTask -eclipseTask antlib:org.apache.ivy.ant:listmodules,org.apache.ivy.ant.IvyListModules -eclipseTask antlib:org.apache.ivy.ant:findrevision,org.apache.ivy.ant.IvyFindRevision -eclipseTask antlib:org.apache.ivy.ant:buildnumber,org.apache.ivy.ant.IvyBuildNumber -eclipseTask antlib:org.apache.ivy.ant:cleancache,org.apache.ivy.ant.IvyCleanCache -eclipseTask antlib:org.apache.ivy.ant:buildobr,org.apache.ivy.ant.BuildOBRTask -eclipseTask antlib:org.apache.ivy.ant:convertmanifest,org.apache.ivy.ant.ConvertManifestTask -eclipseTask antlib:org.apache.ivy.ant:fixdeps,org.apache.ivy.ant.FixDepsTask -eclipseTask antlib:org.apache.ivy.ant:dependencytree,org.apache.ivy.ant.IvyDependencyTree -eclipseTask antlib:org.apache.ivy.ant:checkdepsupdate,org.apache.ivy.ant.IvyDependencyUpdateChecker -eclipseType antlib:org.apache.ivy.ant:settings,org.apache.ivy.ant.IvyAntSettings -eclipseType antlib:org.apache.ivy.ant:resources,org.apache.ivy.ant.IvyResources -buildfile /home/joel/git/Green3/build.xml install-ivy resolve-ivy init download-ivy compile compile-tests test" />
     <property name="ivy.distrib.dir" value="/home/joel/git/Green3/distrib" />
     <property name="sun.cpu.endian" value="little" />
     <property name="ivy.revision" value="working@joehl-laptop" />
@@ -166,7 +166,7 @@
     <property name="java.vm.version" value="24.95-b01" />
     <property name="java.class.path" value="/home/joel/git/Green3/target/test-classes:/home/joel/git/Green3/target/classes:/home/joel/git/Green3/lib/ant-1.7.1.jar:/home/joel/git/Green3/lib/ant-launcher-1.7.1.jar:/home/joel/git/Green3/lib/ant-launcher.jar:/home/joel/git/Green3/lib/ant.jar:/home/joel/git/Green3/lib/asm-debug-all-5.0.4.jar:/home/joel/git/Green3/lib/asm-debug-all.jar:/home/joel/git/Green3/lib/extract-wordlists-4.2.jar:/home/joel/git/Green3/lib/extract-wordlists.jar:/home/joel/git/Green3/lib/hamcrest-core-1.3.jar:/home/joel/git/Green3/lib/hamcrest-core.jar:/home/joel/git/Green3/lib/java-cup-0.11a.jar:/home/joel/git/Green3/lib/java-cup.jar:/home/joel/git/Green3/lib/junit-4.11.jar:/home/joel/git/Green3/lib/junit-javadoc.jar:/home/joel/git/Green3/lib/junit-sources.jar:/home/joel/git/Green3/lib/junit.jar:/home/joel/git/Green3/lib/org.jacoco.agent-0.7.6.201602180812.jar:/home/joel/git/Green3/lib/org.jacoco.agent.jar:/home/joel/git/Green3/lib/org.jacoco.ant-0.7.6.201602180812.jar:/home/joel/git/Green3/lib/org.jacoco.ant-javadoc.jar:/home/joel/git/Green3/lib/org.jacoco.ant-sources.jar:/home/joel/git/Green3/lib/org.jacoco.ant.jar:/home/joel/git/Green3/lib/org.jacoco.core-0.7.6.201602180812.jar:/home/joel/git/Green3/lib/org.jacoco.core.jar:/home/joel/git/Green3/lib/org.jacoco.report-0.7.6.201602180812.jar:/home/joel/git/Green3/lib/org.jacoco.report.jar:/home/joel/git/Green3/lib/weka-stable-3.6.13.jar:/home/joel/git/Green3/lib/weka-stable-javadoc.jar:/home/joel/git/Green3/lib/weka-stable-sources.jar:/home/joel/git/Green3/lib/weka-stable.jar:/home/joel/.p2/pool/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant-launcher.jar:/home/joel/.p2/pool/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant.jar:/home/joel/.p2/pool/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant-junit.jar:/home/joel/.p2/pool/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant-junit4.jar" />
     <property name="ivy.default.ivy.user.dir" value="/home/joel/.ivy2" />
-    <property name="DSTAMP" value="20160415" />
+    <property name="DSTAMP" value="20160416" />
     <property name="user.home.ivy.instance" value="/home/joel" />
     <property name="basedir.ivy.instance" value="/home/joel/git/Green3" />
     <property name="ant.library.dir" value="/home/joel/.p2/pool/plugins/org.apache.ant_1.9.4.v201504302020/lib" />
@@ -184,7 +184,7 @@
     <property name="ant.core.lib" value="/home/joel/.p2/pool/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant.jar" />
     <property name="java.vm.specification.vendor" value="Oracle Corporation" />
     <property name="ivy.settings.dir" value="/home/joel/git/Green3" />
-    <property name="TSTAMP" value="1548" />
+    <property name="TSTAMP" value="1812" />
     <property name="file.separator" value="/" />
     <property name="user.language.ivy.instance" value="en" />
     <property name="user.country.ivy.instance" value="US" />
@@ -206,99 +206,221 @@
   </properties>
   <testcase classname="edu.odu.cs.cs350.namex.TestLearningMachine" name="testGetTrainingData" time="0.011">
     <failure message="Not yet implemented" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Not yet implemented
-	at edu.odu.cs.cs350.namex.TestLearningMachine.testGetTrainingData(TestLearningMachine.java:89)
+	at edu.odu.cs.cs350.namex.TestLearningMachine.testGetTrainingData(TestLearningMachine.java:92)
 </failure>
   </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestLearningMachine" name="testImportARFFString" time="0.005">
+  <testcase classname="edu.odu.cs.cs350.namex.TestLearningMachine" name="testImportARFFString" time="0.032">
     <failure message="Not yet implemented" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Not yet implemented
-	at edu.odu.cs.cs350.namex.TestLearningMachine.testImportARFFString(TestLearningMachine.java:74)
+	at edu.odu.cs.cs350.namex.TestLearningMachine.testImportARFFString(TestLearningMachine.java:77)
 </failure>
   </testcase>
   <testcase classname="edu.odu.cs.cs350.namex.TestLearningMachine" name="testImportARFFStringArray" time="0.003">
     <failure message="Not yet implemented" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Not yet implemented
-	at edu.odu.cs.cs350.namex.TestLearningMachine.testImportARFFStringArray(TestLearningMachine.java:84)
+	at edu.odu.cs.cs350.namex.TestLearningMachine.testImportARFFStringArray(TestLearningMachine.java:87)
 </failure>
   </testcase>
   <testcase classname="edu.odu.cs.cs350.namex.TestLearningMachine" name="testTrainInstances" time="0.003">
     <failure message="Not yet implemented" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Not yet implemented
-	at edu.odu.cs.cs350.namex.TestLearningMachine.testTrainInstances(TestLearningMachine.java:24)
+	at edu.odu.cs.cs350.namex.TestLearningMachine.testTrainInstances(TestLearningMachine.java:27)
 </failure>
   </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestLearningMachine" name="testTrain" time="0.003">
+  <testcase classname="edu.odu.cs.cs350.namex.TestLearningMachine" name="testTrain" time="0.004">
     <failure message="Not yet implemented" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Not yet implemented
-	at edu.odu.cs.cs350.namex.TestLearningMachine.testTrain(TestLearningMachine.java:29)
+	at edu.odu.cs.cs350.namex.TestLearningMachine.testTrain(TestLearningMachine.java:32)
 </failure>
   </testcase>
   <testcase classname="edu.odu.cs.cs350.namex.TestLearningMachine" name="testPrintARFF" time="0.003">
     <failure message="Not yet implemented" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Not yet implemented
-	at edu.odu.cs.cs350.namex.TestLearningMachine.testPrintARFF(TestLearningMachine.java:64)
+	at edu.odu.cs.cs350.namex.TestLearningMachine.testPrintARFF(TestLearningMachine.java:67)
 </failure>
   </testcase>
   <testcase classname="edu.odu.cs.cs350.namex.TestLearningMachine" name="testGetShingleDistribution" time="0.003">
     <failure message="Not yet implemented" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Not yet implemented
-	at edu.odu.cs.cs350.namex.TestLearningMachine.testGetShingleDistribution(TestLearningMachine.java:49)
+	at edu.odu.cs.cs350.namex.TestLearningMachine.testGetShingleDistribution(TestLearningMachine.java:52)
 </failure>
   </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestLearningMachine" name="testClassifyOld" time="0.002">
+  <testcase classname="edu.odu.cs.cs350.namex.TestLearningMachine" name="testClassifyOld" time="0.003">
     <failure message="Not yet implemented" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Not yet implemented
-	at edu.odu.cs.cs350.namex.TestLearningMachine.testClassifyOld(TestLearningMachine.java:54)
+	at edu.odu.cs.cs350.namex.TestLearningMachine.testClassifyOld(TestLearningMachine.java:57)
 </failure>
   </testcase>
   <testcase classname="edu.odu.cs.cs350.namex.TestLearningMachine" name="testExportARFF" time="0.002">
     <failure message="Not yet implemented" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Not yet implemented
-	at edu.odu.cs.cs350.namex.TestLearningMachine.testExportARFF(TestLearningMachine.java:69)
+	at edu.odu.cs.cs350.namex.TestLearningMachine.testExportARFF(TestLearningMachine.java:72)
 </failure>
   </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestLearningMachine" name="testClassifyShingle" time="0.002">
+  <testcase classname="edu.odu.cs.cs350.namex.TestLearningMachine" name="testClassifyShingle" time="0.001">
     <failure message="Not yet implemented" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Not yet implemented
-	at edu.odu.cs.cs350.namex.TestLearningMachine.testClassifyShingle(TestLearningMachine.java:44)
+	at edu.odu.cs.cs350.namex.TestLearningMachine.testClassifyShingle(TestLearningMachine.java:47)
 </failure>
   </testcase>
   <testcase classname="edu.odu.cs.cs350.namex.TestLearningMachine" name="testGetDistribution" time="0.002">
     <failure message="Not yet implemented" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Not yet implemented
-	at edu.odu.cs.cs350.namex.TestLearningMachine.testGetDistribution(TestLearningMachine.java:34)
+	at edu.odu.cs.cs350.namex.TestLearningMachine.testGetDistribution(TestLearningMachine.java:37)
+</failure>
+  </testcase>
+  <testcase classname="edu.odu.cs.cs350.namex.TestLearningMachine" name="testSaveLoadLM" time="0.186">
+    <failure message="expected:&lt;167493279&gt; but was:&lt;1855962583&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;167493279&gt; but was:&lt;1855962583&gt;
+	at edu.odu.cs.cs350.namex.TestLearningMachine.testSaveLoadLM(TestLearningMachine.java:143)
 </failure>
   </testcase>
   <testcase classname="edu.odu.cs.cs350.namex.TestLearningMachine" name="testGetTrainingInstances" time="0.002">
     <failure message="Not yet implemented" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Not yet implemented
-	at edu.odu.cs.cs350.namex.TestLearningMachine.testGetTrainingInstances(TestLearningMachine.java:109)
+	at edu.odu.cs.cs350.namex.TestLearningMachine.testGetTrainingInstances(TestLearningMachine.java:112)
 </failure>
   </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestLearningMachine" name="testGetAttribute" time="0.002">
+  <testcase classname="edu.odu.cs.cs350.namex.TestLearningMachine" name="testGetAttribute" time="0.003">
     <failure message="Not yet implemented" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Not yet implemented
-	at edu.odu.cs.cs350.namex.TestLearningMachine.testGetAttribute(TestLearningMachine.java:99)
+	at edu.odu.cs.cs350.namex.TestLearningMachine.testGetAttribute(TestLearningMachine.java:102)
 </failure>
   </testcase>
   <testcase classname="edu.odu.cs.cs350.namex.TestLearningMachine" name="testImportARFFHashSetOfString" time="0.002">
     <failure message="Not yet implemented" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Not yet implemented
-	at edu.odu.cs.cs350.namex.TestLearningMachine.testImportARFFHashSetOfString(TestLearningMachine.java:79)
+	at edu.odu.cs.cs350.namex.TestLearningMachine.testImportARFFHashSetOfString(TestLearningMachine.java:82)
 </failure>
   </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestLearningMachine" name="testGetClassifier" time="0.002">
+  <testcase classname="edu.odu.cs.cs350.namex.TestLearningMachine" name="testGetClassifier" time="0.005">
     <failure message="Not yet implemented" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Not yet implemented
-	at edu.odu.cs.cs350.namex.TestLearningMachine.testGetClassifier(TestLearningMachine.java:94)
+	at edu.odu.cs.cs350.namex.TestLearningMachine.testGetClassifier(TestLearningMachine.java:97)
 </failure>
   </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestLearningMachine" name="testClassify" time="0.003">
+  <testcase classname="edu.odu.cs.cs350.namex.TestLearningMachine" name="testClassify" time="0.002">
     <failure message="Not yet implemented" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Not yet implemented
-	at edu.odu.cs.cs350.namex.TestLearningMachine.testClassify(TestLearningMachine.java:39)
+	at edu.odu.cs.cs350.namex.TestLearningMachine.testClassify(TestLearningMachine.java:42)
 </failure>
   </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestLearningMachine" name="testPrintEvaluationSummary" time="0.001">
+  <testcase classname="edu.odu.cs.cs350.namex.TestLearningMachine" name="testPrintEvaluationSummary" time="0.003">
     <failure message="Not yet implemented" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Not yet implemented
-	at edu.odu.cs.cs350.namex.TestLearningMachine.testPrintEvaluationSummary(TestLearningMachine.java:59)
+	at edu.odu.cs.cs350.namex.TestLearningMachine.testPrintEvaluationSummary(TestLearningMachine.java:62)
 </failure>
   </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestLearningMachine" name="testGetNumberOfAttributes" time="0.001">
+  <testcase classname="edu.odu.cs.cs350.namex.TestLearningMachine" name="testGetNumberOfAttributes" time="0.002">
     <failure message="Not yet implemented" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Not yet implemented
-	at edu.odu.cs.cs350.namex.TestLearningMachine.testGetNumberOfAttributes(TestLearningMachine.java:104)
+	at edu.odu.cs.cs350.namex.TestLearningMachine.testGetNumberOfAttributes(TestLearningMachine.java:107)
 </failure>
   </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestLearningMachine" name="testGetSerialVersionUID" time="0.001">
+  <testcase classname="edu.odu.cs.cs350.namex.TestLearningMachine" name="testGetSerialVersionUID" time="0.002">
     <failure message="Not yet implemented" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Not yet implemented
-	at edu.odu.cs.cs350.namex.TestLearningMachine.testGetSerialVersionUID(TestLearningMachine.java:19)
+	at edu.odu.cs.cs350.namex.TestLearningMachine.testGetSerialVersionUID(TestLearningMachine.java:22)
 </failure>
   </testcase>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
+  <system-out><![CDATA[Loading Learning machine from file.
+*******************************
+      Evaluation Summary
+*******************************
+null
+Saving Learning Machine to trainedmachine.model]]></system-out>
+  <system-err><![CDATA[java.io.FileNotFoundException: /home/joel/git/Green3/learning_machines/trainedmachine.model (No such file or directory)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:146)
+	at java.io.FileInputStream.<init>(FileInputStream.java:101)
+	at weka.core.SerializationHelper.read(SerializationHelper.java:271)
+	at edu.odu.cs.cs350.namex.LearningMachine.loadLM(LearningMachine.java:1296)
+	at edu.odu.cs.cs350.namex.TestLearningMachine.testSaveLoadLM(TestLearningMachine.java:131)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at junit.framework.JUnit4TestAdapter.run(JUnit4TestAdapter.java:38)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:532)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1179)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1030)
+java.io.IOException: No source has been specified
+	at weka.core.converters.ArffLoader.getDataSet(ArffLoader.java:1039)
+	at weka.core.converters.ConverterUtils$DataSource.getDataSet(ConverterUtils.java:268)
+	at edu.odu.cs.cs350.namex.LearningMachine.importARFF(LearningMachine.java:1172)
+	at edu.odu.cs.cs350.namex.TestLearningMachine.testSaveLoadLM(TestLearningMachine.java:134)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at junit.framework.JUnit4TestAdapter.run(JUnit4TestAdapter.java:38)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:532)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1179)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1030)
+java.lang.NullPointerException
+	at weka.core.Capabilities.test(Capabilities.java:1023)
+	at weka.core.Capabilities.testWithFail(Capabilities.java:1302)
+	at weka.classifiers.bayes.NaiveBayes.buildClassifier(NaiveBayes.java:213)
+	at edu.odu.cs.cs350.namex.LearningMachine.train(LearningMachine.java:963)
+	at edu.odu.cs.cs350.namex.TestLearningMachine.testSaveLoadLM(TestLearningMachine.java:135)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at junit.framework.JUnit4TestAdapter.run(JUnit4TestAdapter.java:38)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:532)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1179)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1030)
+java.lang.NullPointerException
+	at weka.core.Capabilities.test(Capabilities.java:1023)
+	at weka.core.Capabilities.testWithFail(Capabilities.java:1302)
+	at weka.classifiers.bayes.NaiveBayes.buildClassifier(NaiveBayes.java:213)
+	at edu.odu.cs.cs350.namex.LearningMachine.train(LearningMachine.java:963)
+	at edu.odu.cs.cs350.namex.TestLearningMachine.testSaveLoadLM(TestLearningMachine.java:138)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at junit.framework.JUnit4TestAdapter.run(JUnit4TestAdapter.java:38)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:532)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1179)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:1030)
+]]></system-err>
 </testsuite>
