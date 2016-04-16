@@ -331,7 +331,10 @@ public class Trainer implements Serializable {
 	}
 
 	/**
-	 * 
+	 *  Takes the input text and returns an arraylist of basic tokens, containing
+	 * only the lexemes Tokens later have features analyzed by
+	 * Trainer.getFeatures() Verbose option outputs token.toString() after the
+	 * tokens are added to the arraylist
 	 * @param textBlock
 	 * @return
 	 */

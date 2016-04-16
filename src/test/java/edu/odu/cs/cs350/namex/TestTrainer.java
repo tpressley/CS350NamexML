@@ -233,17 +233,27 @@ public class TestTrainer {
 	 * #847 As a Trainer I want the PNE to convert tokens into a set of symbols
 	 * and identifiers
 	 */
-	// User Story #860
-	// Status - Completed
-	// Text blocks divided into tokens, with punctuation separate from
-	// alphabetics (T)
 	@Test
-	public void testTokenize() {
+	public void testTokenizeString() {
 		Trainer trainer = new Trainer();
 
 		String input = "Hello World! This is John Smith.";
 
 		ArrayList<Token> tokens = trainer.tokenize(input);
+
+		assertEquals("Hello", tokens.get(0).getLexeme());
+		assertEquals("World", tokens.get(2).getLexeme());
+		assertEquals("!", tokens.get(3).getLexeme());
+		assertEquals("Smith", tokens.get(11).getLexeme());
+		assertEquals(".", tokens.get(12).getLexeme());
+	}
+	@Test
+	public void testTokenizeStringBool() {
+		Trainer trainer = new Trainer();
+
+		String input = "Hello World! This is John Smith.";
+
+		ArrayList<Token> tokens = trainer.tokenize(input,true);
 
 		assertEquals("Hello", tokens.get(0).getLexeme());
 		assertEquals("World", tokens.get(2).getLexeme());
