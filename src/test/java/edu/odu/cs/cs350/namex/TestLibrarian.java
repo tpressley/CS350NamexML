@@ -131,10 +131,13 @@ public class TestLibrarian {
 		assertEquals(2, textBlocks.size());
 	}
 
-	// User Story #850
-	// Status: Complete
-	// As a Librarian, I want the PNE to use a learning machine to
-	// classify tokens within the input.
+	
+	/**
+	 *  User Story #850
+	 * Status: Complete
+	 * As a Librarian, I want the PNE to use a learning machine to
+	 * classify tokens within the input.
+	 */
 	@Test
 	public void testGetFeatures() {
 		Librarian librarian = new Librarian();
