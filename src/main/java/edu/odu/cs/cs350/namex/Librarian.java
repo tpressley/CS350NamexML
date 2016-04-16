@@ -11,14 +11,14 @@ import edu.odu.cs.cs350.namex.Trainer;
 import edu.odu.cs.extract.wordlists.WordLists;
 
 public class Librarian {
-  LearningMachine lm;
-  Trainer trainer;
-  
-  public Librarian() {
-    lm = new LearningMachine();
-    trainer = new Trainer();
+	LearningMachine lm;
+	Trainer trainer;
 
-  }
+	public Librarian() {
+		lm = new LearningMachine();
+		trainer = new Trainer();
+
+	}
 
 	public static void main(String[] args) throws FileNotFoundException {
 		// Test Output
@@ -26,76 +26,50 @@ public class Librarian {
 		 * for (String s: args) { System.out.println(s); }
 		 */
 
-
 		// Generate ARFF Training Data
-		 if (args.length == 3) {
+		if (args.length == 3) {
 			if (args[0].equalsIgnoreCase("train")) {
-			  
-			  
-			  
+
 				System.out.println("*******************************");
 				System.out.println(" Generating ARFF Training Data");
 				System.out.println("*******************************\n");
 
+				String inputFileName = args[1];
+				String outputFileName = args[2];
+				ArrayList<String> textFile = new ArrayList<String>();
+				ArrayList<Token> tokens = new ArrayList<Token>();
+				Trainer trainer = new Trainer();
+				System.out.println();
 
+				// read in file and split by punctuation, excluding whitespace.
+				Scanner sc = new Scanner(new File(args[1]));
+				while (sc.hasNext()) {
+					String s = sc.next();
+					String[] wordsplit = s.split("(?=[ ,.!()<:;}-])|(?<=[ (>{-])");
+					for (int i = 0; i < wordsplit.length; i++) {
+						if (wordsplit[i].trim().length() > 0) {
+							textFile.add(wordsplit[i]);
+							// tokens.add((trainer.getFeatures((wordsplit[i]));
+						}
+					}
+				}
 
-	      String inputFileName = args[1];
-	      String outputFileName = args[2];
-	      ArrayList<String> textFile = new ArrayList<String>();
-	      ArrayList<Token> tokens = new ArrayList<Token>();
-	      Trainer trainer = new Trainer();
-	      System.out.println();
-	      
-	      // read in file and split by punctuation, excluding whitespace. 
-	        Scanner sc = new Scanner(new File(args[1]));
-	        while(sc.hasNext()){
-	            String s = sc.next();
-	            String[] wordsplit =s.split("(?=[ ,.!()<:;}-])|(?<=[ (>{-])");
-	            for (int i = 0 ; i<wordsplit.length; i++)
-	            {
-	              if (wordsplit[i].trim().length() > 0)
-	              {
-	            textFile.add(wordsplit[i]);
-	           // tokens.add((trainer.getFeatures((wordsplit[i]));
-	            }
-	            }  
-	        }
-	     
+				// separate string into tokens
+				tokens = trainer.tokenize(textFile);
+				// add features to tokens
+				trainer.getFeatures(tokens);
 
-	        // separate string into tokens
-	        tokens = trainer.tokenize(textFile);
-	        //add features to tokens 
-	        trainer.getFeatures(tokens);
-	        
-	        
-	        System.out.println();
-	        
-	        
-	      
-	       inputFileName = args[1];
-	      
-		
+				System.out.println();
+
+				inputFileName = args[1];
+
 			}
 		}
 	}
 
-
-	
-	
-
-	
-	
-
-
-
-
-
-  // User Story #861
-  // Status - Completed
-  // CLI processes each <NER> block separately via Extractor
-  // interface. (A, maybe L)
-
-
-
+	// User Story #861
+	// Status - Completed
+	// CLI processes each <NER> block separately via Extractor
+	// interface. (A, maybe L)
 
 }

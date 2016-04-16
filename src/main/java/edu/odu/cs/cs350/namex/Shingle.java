@@ -1,66 +1,31 @@
 package edu.odu.cs.cs350.namex;
 
+import java.util.ArrayList;
+
 public class Shingle {
 
-	private String lexemes;
-	private String classifications;
-	private String arffData;
-	private String containsName;
-	private double[] distribution;
+	private ArrayList<Token> tokens;
 
-	public Shingle(String lexemes, String classifications, String arffData) {
-		this.lexemes = lexemes;
-		this.arffData = arffData;
-		this.classifications = classifications;
-		containsName = "";
-		distribution = new double[2];
+	public ArrayList<Token> getTokens() {
+		return tokens;
 	}
 
-	public String getLexemes() {
-		return lexemes;
+	public void setTokens(ArrayList<Token> tokens) {
+		this.tokens = tokens;
 	}
 
-	public void setLexemes(String lexemes) {
-		this.lexemes = lexemes;
+	public Shingle() {
+		for (int i = 0; i < 11; i++) {
+			tokens.add(null);
+		}
 	}
 
-	public String getClassifications() {
-		return classifications;
+	public Shingle(int k)
+	{
+		for(int i = 0; i < ((2*k); i++)
+		{
+			tokens.add(null);
+		}
 	}
 
-	public void setClassifications(String classifications) {
-		this.classifications = classifications;
-	}
-
-	public String getArffData() {
-		return arffData;
-	}
-
-	public void setArffData(String arffData) {
-		this.arffData = arffData;
-	}
-
-	public String getContainsName() {
-		return containsName;
-	}
-
-	public void setContainsName(String containsName) {
-		this.containsName = containsName;
-	}
-
-	public double[] getDistribution() {
-		return distribution;
-	}
-
-	public void setDistribution(double[] distribution) {
-		this.distribution = distribution;
-	}
-
-	public void printShingle() {
-		System.out.println("         Lexemes:   " + lexemes);
-		System.out.println(" Classifications:   " + classifications);
-		System.out.println("   Contains Name:   " + containsName);
-		System.out.println("             Yes:   " + Math.round(distribution[0] * 100.00) + "%");
-		System.out.println("              No:   " + Math.round(distribution[1] * 100.00) + "%\n");
-	}
 }

@@ -282,7 +282,7 @@ public class TestTrainer {
 		LearningMachine LM2 = Trainer.loadLM(filePath);
 		LM2.train();
 
-		//assertEquals(LM1.getSerialVersionUID(), LM2.getSerialVersionUID());
+		// assertEquals(LM1.getSerialVersionUID(), LM2.getSerialVersionUID());
 	}// End TestsaveLoadLM
 
 	// User Story #849 - Integration Test
@@ -315,7 +315,7 @@ public class TestTrainer {
 		LearningMachine LM2 = Trainer.loadLM(filePath);
 		LM2.train();
 
-		//assertEquals(LM1.getSerialVersionUID(), LM2.getSerialVersionUID());
+		// assertEquals(LM1.getSerialVersionUID(), LM2.getSerialVersionUID());
 	}// End TestsaveLoadLM
 
 	// ********** MISC TEST CASES **********
@@ -328,7 +328,7 @@ public class TestTrainer {
 
 		// a learning machine with a k value of 3 should have 106 attributes
 		Trainer t2 = new Trainer();
-		//assertTrue(t2.getLM().getNumberOfAttributes() == 106);
+		// assertTrue(t2.getLM().getNumberOfAttributes() == 106);
 	}
 
 }
