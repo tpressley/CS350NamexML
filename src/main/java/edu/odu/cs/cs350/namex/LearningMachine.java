@@ -97,7 +97,7 @@ public class LearningMachine   {
 //		numAttr = attributes.size();
 		
 		
-		FastVector NominalValLexical = new FastVector(9);
+    FastVector NominalValLexical = new FastVector(9);
     NominalValLexical.addElement("punct");
     NominalValLexical.addElement("capLetter");
     NominalValLexical.addElement("capitalized");
@@ -112,7 +112,13 @@ public class LearningMachine   {
     Attribute Lexical3 = new Attribute("Lexical", NominalValLexical);
     Attribute Lexical4 = new Attribute("Lexical", NominalValLexical);
     Attribute Lexical5 = new Attribute("Lexical", NominalValLexical);
-
+    Attribute Lexical6 = new Attribute("Lexical", NominalValLexical);
+    Attribute Lexical7 = new Attribute("Lexical", NominalValLexical);
+    Attribute Lexical8 = new Attribute("Lexical", NominalValLexical);
+    Attribute Lexical9 = new Attribute("Lexical", NominalValLexical);
+    Attribute Lexical10 = new Attribute("Lexical", NominalValLexical);
+    Attribute Lexical11 = new Attribute("Lexical", NominalValLexical);
+    
     // Declare PartOfSpeech Attribute with its values
     FastVector NominalValPoS = new FastVector(6);
     NominalValPoS.addElement("article");
@@ -126,7 +132,12 @@ public class LearningMachine   {
     Attribute PartOfSpeech3 = new Attribute("PartOfSpeech", NominalValPoS);
     Attribute PartOfSpeech4 = new Attribute("PartOfSpeech", NominalValPoS);
     Attribute PartOfSpeech5 = new Attribute("PartOfSpeech", NominalValPoS);
-
+    Attribute PartOfSpeech6 = new Attribute("PartOfSpeech", NominalValPoS);
+    Attribute PartOfSpeech7 = new Attribute("PartOfSpeech", NominalValPoS);
+    Attribute PartOfSpeech8 = new Attribute("PartOfSpeech", NominalValPoS);
+    Attribute PartOfSpeech9 = new Attribute("PartOfSpeech", NominalValPoS);
+    Attribute PartOfSpeech10 = new Attribute("PartOfSpeech", NominalValPoS);
+    Attribute PartOfSpeech11 = new Attribute("PartOfSpeech", NominalValPoS);
     // Declare Gazetteer Attributes with its values
     FastVector NominalValGazetteer = new FastVector(2);
     NominalValGazetteer.addElement("0");
@@ -191,6 +202,78 @@ public class LearningMachine   {
     Attribute Prefix5 = new Attribute("Prefix", NominalValGazetteer);
     Attribute Suffix5 = new Attribute("Suffix", NominalValGazetteer);
     Attribute Kill5 = new Attribute("Kill", NominalValGazetteer);
+    Attribute DictionaryWord6 = new Attribute("DictionaryWord", NominalValGazetteer);
+    Attribute City6 = new Attribute("City", NominalValGazetteer);
+    Attribute Country6 = new Attribute("Country", NominalValGazetteer);
+    Attribute Places6 = new Attribute("Places", NominalValGazetteer);
+    Attribute DTICFirst6 = new Attribute("DTICFirst", NominalValGazetteer);
+    Attribute DTICLast6 = new Attribute("DTICLast", NominalValGazetteer);
+    Attribute CommonFirst6 = new Attribute("CommonFirst", NominalValGazetteer);
+    Attribute CommonLast6 = new Attribute("CommonLast", NominalValGazetteer);
+    Attribute Honorific6 = new Attribute("Honorific", NominalValGazetteer);
+    Attribute Prefix6 = new Attribute("Prefix", NominalValGazetteer);
+    Attribute Suffix6 = new Attribute("Suffix", NominalValGazetteer);
+    Attribute Kill6 = new Attribute("Kill", NominalValGazetteer);
+    Attribute DictionaryWord7 = new Attribute("DictionaryWord", NominalValGazetteer);
+    Attribute City7 = new Attribute("City", NominalValGazetteer);
+    Attribute Country7 = new Attribute("Country", NominalValGazetteer);
+    Attribute Places7 = new Attribute("Places", NominalValGazetteer);
+    Attribute DTICFirst7 = new Attribute("DTICFirst", NominalValGazetteer);
+    Attribute DTICLast7 = new Attribute("DTICLast", NominalValGazetteer);
+    Attribute CommonFirst7 = new Attribute("CommonFirst", NominalValGazetteer);
+    Attribute CommonLast7 = new Attribute("CommonLast", NominalValGazetteer);
+    Attribute Honorific7 = new Attribute("Honorific", NominalValGazetteer);
+    Attribute Prefix7 = new Attribute("Prefix", NominalValGazetteer);
+    Attribute Suffix7 = new Attribute("Suffix", NominalValGazetteer);
+    Attribute Kill7 = new Attribute("Kill", NominalValGazetteer);
+    Attribute DictionaryWord8 = new Attribute("DictionaryWord", NominalValGazetteer);
+    Attribute City8 = new Attribute("City", NominalValGazetteer);
+    Attribute Country8 = new Attribute("Country", NominalValGazetteer);
+    Attribute Places8 = new Attribute("Places", NominalValGazetteer);
+    Attribute DTICFirst8 = new Attribute("DTICFirst", NominalValGazetteer);
+    Attribute DTICLast8 = new Attribute("DTICLast", NominalValGazetteer);
+    Attribute CommonFirst8 = new Attribute("CommonFirst", NominalValGazetteer);
+    Attribute CommonLast8 = new Attribute("CommonLast", NominalValGazetteer);
+    Attribute Honorific8 = new Attribute("Honorific", NominalValGazetteer);
+    Attribute Prefix8 = new Attribute("Prefix", NominalValGazetteer);
+    Attribute Suffix8 = new Attribute("Suffix", NominalValGazetteer);
+    Attribute Kill8 = new Attribute("Kill", NominalValGazetteer);
+    Attribute DictionaryWord9 = new Attribute("DictionaryWord", NominalValGazetteer);
+    Attribute City9 = new Attribute("City", NominalValGazetteer);
+    Attribute Country9 = new Attribute("Country", NominalValGazetteer);
+    Attribute Places9 = new Attribute("Places", NominalValGazetteer);
+    Attribute DTICFirst9 = new Attribute("DTICFirst", NominalValGazetteer);
+    Attribute DTICLast9 = new Attribute("DTICLast", NominalValGazetteer);
+    Attribute CommonFirst9 = new Attribute("CommonFirst", NominalValGazetteer);
+    Attribute CommonLast9 = new Attribute("CommonLast", NominalValGazetteer);
+    Attribute Honorific9 = new Attribute("Honorific", NominalValGazetteer);
+    Attribute Prefix9 = new Attribute("Prefix", NominalValGazetteer);
+    Attribute Suffix9 = new Attribute("Suffix", NominalValGazetteer);
+    Attribute Kill9 = new Attribute("Kill", NominalValGazetteer);
+    Attribute DictionaryWord10 = new Attribute("DictionaryWord", NominalValGazetteer);
+    Attribute City10 = new Attribute("City", NominalValGazetteer);
+    Attribute Country10 = new Attribute("Country", NominalValGazetteer);
+    Attribute Places10 = new Attribute("Places", NominalValGazetteer);
+    Attribute DTICFirst10 = new Attribute("DTICFirst", NominalValGazetteer);
+    Attribute DTICLast10 = new Attribute("DTICLast", NominalValGazetteer);
+    Attribute CommonFirst10 = new Attribute("CommonFirst", NominalValGazetteer);
+    Attribute CommonLast10 = new Attribute("CommonLast", NominalValGazetteer);
+    Attribute Honorific10 = new Attribute("Honorific", NominalValGazetteer);
+    Attribute Prefix10 = new Attribute("Prefix", NominalValGazetteer);
+    Attribute Suffix10 = new Attribute("Suffix", NominalValGazetteer);
+    Attribute Kill10 = new Attribute("Kill", NominalValGazetteer);
+    Attribute DictionaryWord11 = new Attribute("DictionaryWord", NominalValGazetteer);
+    Attribute City11 = new Attribute("City", NominalValGazetteer);
+    Attribute Country11 = new Attribute("Country", NominalValGazetteer);
+    Attribute Places11 = new Attribute("Places", NominalValGazetteer);
+    Attribute DTICFirst11 = new Attribute("DTICFirst", NominalValGazetteer);
+    Attribute DTICLast11 = new Attribute("DTICLast", NominalValGazetteer);
+    Attribute CommonFirst11 = new Attribute("CommonFirst", NominalValGazetteer);
+    Attribute CommonLast11 = new Attribute("CommonLast", NominalValGazetteer);
+    Attribute Honorific11 = new Attribute("Honorific", NominalValGazetteer);
+    Attribute Prefix11 = new Attribute("Prefix", NominalValGazetteer);
+    Attribute Suffix11 = new Attribute("Suffix", NominalValGazetteer);
+    Attribute Kill11 = new Attribute("Kill", NominalValGazetteer);
 
     // Declare Name Attribute
     FastVector NominalValName = new FastVector(3);
@@ -278,10 +361,100 @@ public class LearningMachine   {
     attributes.addElement(Prefix5);
     attributes.addElement(Suffix5);
     attributes.addElement(Kill5);
-
+    
+    // word six
+    attributes.addElement(Lexical6);
+    attributes.addElement(PartOfSpeech6);
+    attributes.addElement(DictionaryWord6);
+    attributes.addElement(City6);
+    attributes.addElement(Country6);
+    attributes.addElement(Places6);
+    attributes.addElement(DTICFirst6);
+    attributes.addElement(DTICLast6);
+    attributes.addElement(CommonFirst6);
+    attributes.addElement(CommonLast6);
+    attributes.addElement(Honorific6);
+    attributes.addElement(Prefix6);
+    attributes.addElement(Suffix6);
+    attributes.addElement(Kill6);
+    
+    // word seven
+    attributes.addElement(Lexical7);
+    attributes.addElement(PartOfSpeech7);
+    attributes.addElement(DictionaryWord7);
+    attributes.addElement(City7);
+    attributes.addElement(Country7);
+    attributes.addElement(Places7);
+    attributes.addElement(DTICFirst7);
+    attributes.addElement(DTICLast7);
+    attributes.addElement(CommonFirst7);
+    attributes.addElement(CommonLast7);
+    attributes.addElement(Honorific7);
+    attributes.addElement(Prefix7);
+    attributes.addElement(Suffix7);
+    attributes.addElement(Kill7);
+    // word eight
+    attributes.addElement(Lexical8);
+    attributes.addElement(PartOfSpeech8);
+    attributes.addElement(DictionaryWord8);
+    attributes.addElement(City8);
+    attributes.addElement(Country8);
+    attributes.addElement(Places8);
+    attributes.addElement(DTICFirst8);
+    attributes.addElement(DTICLast8);
+    attributes.addElement(CommonFirst8);
+    attributes.addElement(CommonLast8);
+    attributes.addElement(Honorific8);
+    attributes.addElement(Prefix8);
+    attributes.addElement(Suffix8);
+    attributes.addElement(Kill8);
+    // word nine
+    attributes.addElement(Lexical9);
+    attributes.addElement(PartOfSpeech9);
+    attributes.addElement(DictionaryWord9);
+    attributes.addElement(City9);
+    attributes.addElement(Country9);
+    attributes.addElement(Places9);
+    attributes.addElement(DTICFirst9);
+    attributes.addElement(DTICLast9);
+    attributes.addElement(CommonFirst9);
+    attributes.addElement(CommonLast9);
+    attributes.addElement(Honorific9);
+    attributes.addElement(Prefix9);
+    attributes.addElement(Suffix9);
+    attributes.addElement(Kill9);
+    // word ten
+    attributes.addElement(Lexical10);
+    attributes.addElement(PartOfSpeech10);
+    attributes.addElement(DictionaryWord10);
+    attributes.addElement(City10);
+    attributes.addElement(Country10);
+    attributes.addElement(Places10);
+    attributes.addElement(DTICFirst10);
+    attributes.addElement(DTICLast10);
+    attributes.addElement(CommonFirst10);
+    attributes.addElement(CommonLast10);
+    attributes.addElement(Honorific10);
+    attributes.addElement(Prefix10);
+    attributes.addElement(Suffix10);
+    attributes.addElement(Kill10);
+    // word eleven
+    attributes.addElement(Lexical11);
+    attributes.addElement(PartOfSpeech11);
+    attributes.addElement(DictionaryWord11);
+    attributes.addElement(City11);
+    attributes.addElement(Country11);
+    attributes.addElement(Places11);
+    attributes.addElement(DTICFirst11);
+    attributes.addElement(DTICLast11);
+    attributes.addElement(CommonFirst11);
+    attributes.addElement(CommonLast11);
+    attributes.addElement(Honorific11);
+    attributes.addElement(Prefix11);
+    attributes.addElement(Suffix11);
+    attributes.addElement(Kill11);
+    //Middle word name classification
     attributes.addElement(Name);
-		
-		
 		
 		
 	}
@@ -309,7 +482,13 @@ public class LearningMachine   {
 		Attribute Lexical3 = new Attribute("Lexical", NominalValLexical);
 		Attribute Lexical4 = new Attribute("Lexical", NominalValLexical);
 		Attribute Lexical5 = new Attribute("Lexical", NominalValLexical);
-
+		Attribute Lexical6 = new Attribute("Lexical", NominalValLexical);
+		Attribute Lexical7 = new Attribute("Lexical", NominalValLexical);
+		Attribute Lexical8 = new Attribute("Lexical", NominalValLexical);
+		Attribute Lexical9 = new Attribute("Lexical", NominalValLexical);
+		Attribute Lexical10 = new Attribute("Lexical", NominalValLexical);
+		Attribute Lexical11 = new Attribute("Lexical", NominalValLexical);
+		
 		// Declare PartOfSpeech Attribute with its values
 		FastVector NominalValPoS = new FastVector(6);
 		NominalValPoS.addElement("article");
@@ -323,7 +502,12 @@ public class LearningMachine   {
 		Attribute PartOfSpeech3 = new Attribute("PartOfSpeech", NominalValPoS);
 		Attribute PartOfSpeech4 = new Attribute("PartOfSpeech", NominalValPoS);
 		Attribute PartOfSpeech5 = new Attribute("PartOfSpeech", NominalValPoS);
-
+    Attribute PartOfSpeech6 = new Attribute("PartOfSpeech", NominalValPoS);
+    Attribute PartOfSpeech7 = new Attribute("PartOfSpeech", NominalValPoS);
+    Attribute PartOfSpeech8 = new Attribute("PartOfSpeech", NominalValPoS);
+    Attribute PartOfSpeech9 = new Attribute("PartOfSpeech", NominalValPoS);
+    Attribute PartOfSpeech10 = new Attribute("PartOfSpeech", NominalValPoS);
+    Attribute PartOfSpeech11 = new Attribute("PartOfSpeech", NominalValPoS);
 		// Declare Gazetteer Attributes with its values
 		FastVector NominalValGazetteer = new FastVector(2);
 		NominalValGazetteer.addElement("0");
@@ -388,6 +572,78 @@ public class LearningMachine   {
 		Attribute Prefix5 = new Attribute("Prefix", NominalValGazetteer);
 		Attribute Suffix5 = new Attribute("Suffix", NominalValGazetteer);
 		Attribute Kill5 = new Attribute("Kill", NominalValGazetteer);
+    Attribute DictionaryWord6 = new Attribute("DictionaryWord", NominalValGazetteer);
+    Attribute City6 = new Attribute("City", NominalValGazetteer);
+    Attribute Country6 = new Attribute("Country", NominalValGazetteer);
+    Attribute Places6 = new Attribute("Places", NominalValGazetteer);
+    Attribute DTICFirst6 = new Attribute("DTICFirst", NominalValGazetteer);
+    Attribute DTICLast6 = new Attribute("DTICLast", NominalValGazetteer);
+    Attribute CommonFirst6 = new Attribute("CommonFirst", NominalValGazetteer);
+    Attribute CommonLast6 = new Attribute("CommonLast", NominalValGazetteer);
+    Attribute Honorific6 = new Attribute("Honorific", NominalValGazetteer);
+    Attribute Prefix6 = new Attribute("Prefix", NominalValGazetteer);
+    Attribute Suffix6 = new Attribute("Suffix", NominalValGazetteer);
+    Attribute Kill6 = new Attribute("Kill", NominalValGazetteer);
+    Attribute DictionaryWord7 = new Attribute("DictionaryWord", NominalValGazetteer);
+    Attribute City7 = new Attribute("City", NominalValGazetteer);
+    Attribute Country7 = new Attribute("Country", NominalValGazetteer);
+    Attribute Places7 = new Attribute("Places", NominalValGazetteer);
+    Attribute DTICFirst7 = new Attribute("DTICFirst", NominalValGazetteer);
+    Attribute DTICLast7 = new Attribute("DTICLast", NominalValGazetteer);
+    Attribute CommonFirst7 = new Attribute("CommonFirst", NominalValGazetteer);
+    Attribute CommonLast7 = new Attribute("CommonLast", NominalValGazetteer);
+    Attribute Honorific7 = new Attribute("Honorific", NominalValGazetteer);
+    Attribute Prefix7 = new Attribute("Prefix", NominalValGazetteer);
+    Attribute Suffix7 = new Attribute("Suffix", NominalValGazetteer);
+    Attribute Kill7 = new Attribute("Kill", NominalValGazetteer);
+    Attribute DictionaryWord8 = new Attribute("DictionaryWord", NominalValGazetteer);
+    Attribute City8 = new Attribute("City", NominalValGazetteer);
+    Attribute Country8 = new Attribute("Country", NominalValGazetteer);
+    Attribute Places8 = new Attribute("Places", NominalValGazetteer);
+    Attribute DTICFirst8 = new Attribute("DTICFirst", NominalValGazetteer);
+    Attribute DTICLast8 = new Attribute("DTICLast", NominalValGazetteer);
+    Attribute CommonFirst8 = new Attribute("CommonFirst", NominalValGazetteer);
+    Attribute CommonLast8 = new Attribute("CommonLast", NominalValGazetteer);
+    Attribute Honorific8 = new Attribute("Honorific", NominalValGazetteer);
+    Attribute Prefix8 = new Attribute("Prefix", NominalValGazetteer);
+    Attribute Suffix8 = new Attribute("Suffix", NominalValGazetteer);
+    Attribute Kill8 = new Attribute("Kill", NominalValGazetteer);
+    Attribute DictionaryWord9 = new Attribute("DictionaryWord", NominalValGazetteer);
+    Attribute City9 = new Attribute("City", NominalValGazetteer);
+    Attribute Country9 = new Attribute("Country", NominalValGazetteer);
+    Attribute Places9 = new Attribute("Places", NominalValGazetteer);
+    Attribute DTICFirst9 = new Attribute("DTICFirst", NominalValGazetteer);
+    Attribute DTICLast9 = new Attribute("DTICLast", NominalValGazetteer);
+    Attribute CommonFirst9 = new Attribute("CommonFirst", NominalValGazetteer);
+    Attribute CommonLast9 = new Attribute("CommonLast", NominalValGazetteer);
+    Attribute Honorific9 = new Attribute("Honorific", NominalValGazetteer);
+    Attribute Prefix9 = new Attribute("Prefix", NominalValGazetteer);
+    Attribute Suffix9 = new Attribute("Suffix", NominalValGazetteer);
+    Attribute Kill9 = new Attribute("Kill", NominalValGazetteer);
+    Attribute DictionaryWord10 = new Attribute("DictionaryWord", NominalValGazetteer);
+    Attribute City10 = new Attribute("City", NominalValGazetteer);
+    Attribute Country10 = new Attribute("Country", NominalValGazetteer);
+    Attribute Places10 = new Attribute("Places", NominalValGazetteer);
+    Attribute DTICFirst10 = new Attribute("DTICFirst", NominalValGazetteer);
+    Attribute DTICLast10 = new Attribute("DTICLast", NominalValGazetteer);
+    Attribute CommonFirst10 = new Attribute("CommonFirst", NominalValGazetteer);
+    Attribute CommonLast10 = new Attribute("CommonLast", NominalValGazetteer);
+    Attribute Honorific10 = new Attribute("Honorific", NominalValGazetteer);
+    Attribute Prefix10 = new Attribute("Prefix", NominalValGazetteer);
+    Attribute Suffix10 = new Attribute("Suffix", NominalValGazetteer);
+    Attribute Kill10 = new Attribute("Kill", NominalValGazetteer);
+    Attribute DictionaryWord11 = new Attribute("DictionaryWord", NominalValGazetteer);
+    Attribute City11 = new Attribute("City", NominalValGazetteer);
+    Attribute Country11 = new Attribute("Country", NominalValGazetteer);
+    Attribute Places11 = new Attribute("Places", NominalValGazetteer);
+    Attribute DTICFirst11 = new Attribute("DTICFirst", NominalValGazetteer);
+    Attribute DTICLast11 = new Attribute("DTICLast", NominalValGazetteer);
+    Attribute CommonFirst11 = new Attribute("CommonFirst", NominalValGazetteer);
+    Attribute CommonLast11 = new Attribute("CommonLast", NominalValGazetteer);
+    Attribute Honorific11 = new Attribute("Honorific", NominalValGazetteer);
+    Attribute Prefix11 = new Attribute("Prefix", NominalValGazetteer);
+    Attribute Suffix11 = new Attribute("Suffix", NominalValGazetteer);
+    Attribute Kill11 = new Attribute("Kill", NominalValGazetteer);
 
 		// Declare Name Attribute
 		FastVector NominalValName = new FastVector(3);
@@ -475,6 +731,98 @@ public class LearningMachine   {
 		attributes.addElement(Prefix5);
 		attributes.addElement(Suffix5);
 		attributes.addElement(Kill5);
+		
+    // word six
+    attributes.addElement(Lexical6);
+    attributes.addElement(PartOfSpeech6);
+    attributes.addElement(DictionaryWord6);
+    attributes.addElement(City6);
+    attributes.addElement(Country6);
+    attributes.addElement(Places6);
+    attributes.addElement(DTICFirst6);
+    attributes.addElement(DTICLast6);
+    attributes.addElement(CommonFirst6);
+    attributes.addElement(CommonLast6);
+    attributes.addElement(Honorific6);
+    attributes.addElement(Prefix6);
+    attributes.addElement(Suffix6);
+    attributes.addElement(Kill6);
+    
+    // word seven
+    attributes.addElement(Lexical7);
+    attributes.addElement(PartOfSpeech7);
+    attributes.addElement(DictionaryWord7);
+    attributes.addElement(City7);
+    attributes.addElement(Country7);
+    attributes.addElement(Places7);
+    attributes.addElement(DTICFirst7);
+    attributes.addElement(DTICLast7);
+    attributes.addElement(CommonFirst7);
+    attributes.addElement(CommonLast7);
+    attributes.addElement(Honorific7);
+    attributes.addElement(Prefix7);
+    attributes.addElement(Suffix7);
+    attributes.addElement(Kill7);
+    
+    attributes.addElement(Lexical8);
+    attributes.addElement(PartOfSpeech8);
+    attributes.addElement(DictionaryWord8);
+    attributes.addElement(City8);
+    attributes.addElement(Country8);
+    attributes.addElement(Places8);
+    attributes.addElement(DTICFirst8);
+    attributes.addElement(DTICLast8);
+    attributes.addElement(CommonFirst8);
+    attributes.addElement(CommonLast8);
+    attributes.addElement(Honorific8);
+    attributes.addElement(Prefix8);
+    attributes.addElement(Suffix8);
+    attributes.addElement(Kill8);
+
+    attributes.addElement(Lexical9);
+    attributes.addElement(PartOfSpeech9);
+    attributes.addElement(DictionaryWord9);
+    attributes.addElement(City9);
+    attributes.addElement(Country9);
+    attributes.addElement(Places9);
+    attributes.addElement(DTICFirst9);
+    attributes.addElement(DTICLast9);
+    attributes.addElement(CommonFirst9);
+    attributes.addElement(CommonLast9);
+    attributes.addElement(Honorific9);
+    attributes.addElement(Prefix9);
+    attributes.addElement(Suffix9);
+    attributes.addElement(Kill9);
+    
+    attributes.addElement(Lexical10);
+    attributes.addElement(PartOfSpeech10);
+    attributes.addElement(DictionaryWord10);
+    attributes.addElement(City10);
+    attributes.addElement(Country10);
+    attributes.addElement(Places10);
+    attributes.addElement(DTICFirst10);
+    attributes.addElement(DTICLast10);
+    attributes.addElement(CommonFirst10);
+    attributes.addElement(CommonLast10);
+    attributes.addElement(Honorific10);
+    attributes.addElement(Prefix10);
+    attributes.addElement(Suffix10);
+    attributes.addElement(Kill10);
+    
+    attributes.addElement(Lexical11);
+    attributes.addElement(PartOfSpeech11);
+    attributes.addElement(DictionaryWord11);
+    attributes.addElement(City11);
+    attributes.addElement(Country11);
+    attributes.addElement(Places11);
+    attributes.addElement(DTICFirst11);
+    attributes.addElement(DTICLast11);
+    attributes.addElement(CommonFirst11);
+    attributes.addElement(CommonLast11);
+    attributes.addElement(Honorific11);
+    attributes.addElement(Prefix11);
+    attributes.addElement(Suffix11);
+    attributes.addElement(Kill11);
 
 		attributes.addElement(Name);
 	}
