@@ -1,6 +1,6 @@
 package edu.odu.cs.cs350.namex;
 
-/*
+/**
  * The personal name class stores a personal name as an arraylist
  * The prefix (IE: Mr, Dr, Mrs, Governor, Senator, Professor)will be stored in the first index of the
  * arraylist
@@ -10,7 +10,6 @@ package edu.odu.cs.cs350.namex;
  * The surname will be stored in the final index
  * Any middle names will be stored between the 3rd and final indices.
  */
-
 public class PersonalName {
 
 	private String honorific;
@@ -29,7 +28,7 @@ public class PersonalName {
 
 	}
 
-	/*
+	/**
 	 * Assume 2 string constructor only has first and last name
 	 */
 	PersonalName(String givenNameInput, String surNameInput) {
@@ -41,7 +40,10 @@ public class PersonalName {
 
 	};
 
-	// constructor for one word names e.g. Cher
+	/**
+	 * Constructor to create one word personal names, e.g. Cher
+	 * @param name
+	 */
 	PersonalName(String name) {
 
 		honorific = "";
@@ -51,6 +53,14 @@ public class PersonalName {
 		suffix = "";
 	}
 
+	/**
+	 * Constructor to create multiple word personal names
+	 * @param honorificInput
+	 * @param givenNameInput
+	 * @param middleNameInput
+	 * @param surNameInput
+	 * @param suffixInput
+	 */
 	PersonalName(String honorificInput, String givenNameInput, String middleNameInput, String surNameInput,
 			String suffixInput) {
 		honorific = honorificInput;
@@ -60,25 +70,39 @@ public class PersonalName {
 		suffix = suffixInput;
 
 	};
-
+	
+	/**
+	 * Returns full name
+	 * @return
+	 */
 	public String getName() {
 		// returns full name
 
 		return this.toString();
 
 	};
-
+	/**
+	 * Returns honorofic if it exists
+	 * @return
+	 */
 	public String getHonorific() {
 		// returns honorific if it exists
 		return honorific;
 	}
-
+	/**
+	 * returns second String of arraylist
+	 * @return
+	 */
 	public String getGivenName() {
 		// returns second String of arraylist
 		return givenName;
 
 	}
-
+	/**
+	 * returns all Strings between second and
+	 * last Strings in array list
+	 * @return
+	 */
 	public String getMiddleNames() {
 		// returns all Strings between second and
 
@@ -86,13 +110,19 @@ public class PersonalName {
 		return middleNames;
 
 	}
-
+	/**
+	 * returns final arraylist String
+	 * @return
+	 */
 	public String getSurName() {
 		// returns final arraylist String
 		return surName;
 
 	}
-
+	/**
+	 * returns Suffix (ie jr, sr, II) if it exists.
+	 * @return
+	 */
 	public String getSuffix() {
 		// returns Suffix (ie jr, sr, II) if it exists.
 
@@ -102,7 +132,10 @@ public class PersonalName {
 		return suffix;
 
 	}
-
+	
+	/**
+	 * Returns the full name as a single string, same as getName()
+	 */
 	public String toString() {
 
 		String nameString = honorific + " " + givenName + " " + middleNames + " " + surName + " " + suffix;
