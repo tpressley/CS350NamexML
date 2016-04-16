@@ -38,6 +38,7 @@ public class Librarian {
 				String outputFileName = args[2];
 				ArrayList<String> textFile = new ArrayList<String>();
 				ArrayList<Token> tokens = new ArrayList<Token>();
+				ArrayList<Shingle> shingles = new ArrayList<Shingle>();
 				Trainer trainer = new Trainer();
 				System.out.println();
 
@@ -58,10 +59,10 @@ public class Librarian {
 				tokens = trainer.tokenize(textFile);
 				// add features to tokens
 				trainer.getFeatures(tokens);
+				shingles = trainer.getShingles(tokens);
+				trainer.createArff(shingles);
+				
 
-				System.out.println();
-
-				inputFileName = args[1];
 
 			}
 		}

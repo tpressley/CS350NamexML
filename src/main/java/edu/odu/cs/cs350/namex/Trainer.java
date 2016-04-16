@@ -1,12 +1,14 @@
 package edu.odu.cs.cs350.namex;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -675,12 +677,16 @@ public class Trainer implements Serializable {
 		return arffTokens;
 	}
 
-	public boolean createArff(ArrayList<Token> featuredTokens) {
+	public boolean createArff(ArrayList<Shingle> shingles) {
 
-		PrintWriter writer = new PrintWriter("the-file-name.txt", "UTF-8");
+		PrintWriter writer;
+    try
+    {
+      writer = new PrintWriter("the-file-name.txt", "UTF-8");
+
 
 		writer.println("@relation Classification");
-		writer.println("");
+		writer.println('\n');
 		writer.println(
 				"@attribute Lexical1 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
 		writer.println("@attribute PartOfSpeech1 {article,conjunction,period,comma,hyphen,other}");
@@ -864,15 +870,30 @@ public class Trainer implements Serializable {
 		writer.println("@attribute Name5 {beginning,continuing,other}");
 		writer.println("@attribute Name6 {beginning,continuing,other}");
 
-		Trainer trainer = new Trainer();
-		ArrayList<Shingle> shingles = new ArrayList<Shingle>();
-		shingles = trainer.getShingles(featuredTokens);
-
-		for (int i = 0; i < shingles.size(); i++) {
-
+		writer.println('\n');
+		
+		for (int i=0; i<shingles.size();i++)
+		{
+		  for (int j=0;j<shingles.get(i).getTokens().size(); i++)
+		  {
+		    writer.print(shingles.get(i).getTokens().get(j).toString());
+		    System.out.print(shingles.get(i).getTokens().get(j).toString());
+		  }
 		}
-		writer.close();
 
+		
+		writer.close();
+    }
+    catch (FileNotFoundException e)
+    {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+    catch (UnsupportedEncodingException e)
+    {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
 		return true;
 	}
 
