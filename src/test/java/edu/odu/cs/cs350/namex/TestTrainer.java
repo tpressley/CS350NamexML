@@ -282,8 +282,7 @@ public class TestTrainer {
 		LearningMachine LM2 = Trainer.loadLM(filePath);
 		LM2.train();
 
-		assertEquals(LM1.hashCode(), LM2.hashCode());
-		assertEquals(LM1,LM2);
+		assertEquals(LM1.getSerialVersionUID(), LM2.getSerialVersionUID());
 	}// End TestsaveLoadLM
 
 	// User Story #849 - Integration Test
@@ -316,8 +315,7 @@ public class TestTrainer {
 		LearningMachine LM2 = Trainer.loadLM(filePath);
 		LM2.train();
 
-		assertEquals(LM1.hashCode(), LM2.hashCode());
-		assertEquals(LM1,LM2);
+		assertEquals(LM1.getSerialVersionUID(), LM2.getSerialVersionUID());
 	}// End TestsaveLoadLM
 
 	// ********** MISC TEST CASES **********
