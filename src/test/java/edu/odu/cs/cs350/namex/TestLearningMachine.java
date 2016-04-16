@@ -140,7 +140,8 @@ public class TestLearningMachine {
 			e.printStackTrace();
 		}
 
-		assertArrayEquals(LM1.getSerialVersionUID(), LM2.getSerialVersionUID());
+		assertEquals(LM1.hashCode(), LM2.hashCode());
+		assertEquals(LM1,LM2);
 	}
 
 }
