@@ -87,10 +87,26 @@ public class Librarian {
 
 	      String inputFileName = args[1];
 	      String outputFileName = args[2];
-
+	      ArrayList<String> textFile = new ArrayList<String>();
 	      Trainer trainer = new Trainer();
-	      ArrayList<TextBlock> = importFile(args[1]);
-
+	      System.out.println();
+	        Scanner sc = new Scanner(new File(args[1]));
+	        while(sc.hasNext()){
+	            String s = sc.next();
+	            String[] wordsplit =s.split("[\\p{Punct}\\s]+");
+	            for (int i = 0 ; i<wordsplit.length; i++)
+	            textFile.add(wordsplit[i]);
+	            
+	            
+	        }
+	        for (int i=0; i< textFile.size();i++)
+	        {
+	          System.out.println(textFile.get(i));
+	        }
+	      
+	      
+	      
+	       inputFileName = args[1];
 	      
 		
 			}
