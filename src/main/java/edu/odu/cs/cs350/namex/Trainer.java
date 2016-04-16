@@ -291,14 +291,15 @@ public class Trainer implements Serializable {
 	 * @param textBlock
 	 * @return
 	 */
-	/*public ArrayList<Token> tokenize(String textBlock) {
-		String[] tks = textBlock.split("(?<=<NER>)|(?=</NER>)|(?<=<PER>)|(?=</PER>)|(?=[ ,.!()<:;}-])|(?<=[ (>{-])");
-		int n = 0;
-		ArrayList<Token> tokens = new ArrayList<Token>();
-
-
-		return tokens;
-	} */
+	/*
+	 * public ArrayList<Token> tokenize(String textBlock) { String[] tks =
+	 * textBlock.split(
+	 * "(?<=<NER>)|(?=</NER>)|(?<=<PER>)|(?=</PER>)|(?=[ ,.!()<:;}-])|(?<=[ (>{-])"
+	 * ); int n = 0; ArrayList<Token> tokens = new ArrayList<Token>();
+	 * 
+	 * 
+	 * return tokens; }
+	 */
 
 	public ArrayList<Token> tokenize(ArrayList<String> untokenizedwords) {
 		ArrayList<Token> tokens = new ArrayList<Token>();
@@ -306,27 +307,27 @@ public class Trainer implements Serializable {
 		for (int i = 0; i < untokenizedwords.size(); i++) {
 			tokens.add(new Token(untokenizedwords.get(i), i));
 		}
-		
+
 		for (int i = 0; i < untokenizedwords.size(); i++) {
-//			if (untokenizedwords.get(i) != "<PER>")
-				tokens.add(new Token(untokenizedwords.get(i), i));
-//			else {
-//				while(untokenizedwords.get(i) != "</PER>")
-//				{
-//					i++;
-//					Token tempToken = new Token(untokenizedwords.get(i), i);
-//					if(n == 0)
-//					{
-//						tempToken.setName("beginning");
-//					}
-//					else
-//					{
-//						tempToken.setName("continuing");
-//					}
-//					tokens.add(tempToken);
-//				}
-//				n = 0;
-//			}
+			// if (untokenizedwords.get(i) != "<PER>")
+			tokens.add(new Token(untokenizedwords.get(i), i));
+			// else {
+			// while(untokenizedwords.get(i) != "</PER>")
+			// {
+			// i++;
+			// Token tempToken = new Token(untokenizedwords.get(i), i);
+			// if(n == 0)
+			// {
+			// tempToken.setName("beginning");
+			// }
+			// else
+			// {
+			// tempToken.setName("continuing");
+			// }
+			// tokens.add(tempToken);
+			// }
+			// n = 0;
+			// }
 		}
 		return tokens;
 	}
@@ -862,11 +863,14 @@ public class Trainer implements Serializable {
 		writer.println("@attribute Name4 {beginning,continuing,other}");
 		writer.println("@attribute Name5 {beginning,continuing,other}");
 		writer.println("@attribute Name6 {beginning,continuing,other}");
-		
+
 		Trainer trainer = new Trainer();
 		ArrayList<Shingle> shingles = new ArrayList<Shingle>();
 		shingles = trainer.getShingles(featuredTokens);
-		
+
+		for (int i = 0; i < shingles.size(); i++) {
+
+		}
 		writer.close();
 
 		return true;
@@ -884,8 +888,12 @@ public class Trainer implements Serializable {
 		Shingle shingle = new Shingle();
 
 		shingles.add(shingle);
-		for (int i = 0; i < tokens.size(); i++) {
-			if (tokens.get(i).getLexeme() == "<NER>") {
+		for (int i = 0; i < (tokens.size() + (2 * 5 + 1)); i++) {
+			if (i > tokens.size() - 1) {
+				shingle.getTokens().remove(0);
+				shingle.getTokens().add(null);
+				shingles.add(shingle);
+			} else if (tokens.get(i).getLexeme() == "<NER>") {
 				for (int j = 1; j < tokens.size(); j++) {
 					if (tokens.get(j).getLexeme() == "<\\NER>")
 						break;
@@ -894,6 +902,7 @@ public class Trainer implements Serializable {
 					shingles.add(shingle);
 				}
 			}
+
 		}
 
 		return shingles;
