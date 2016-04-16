@@ -278,12 +278,13 @@ public class TestTrainer {
 		LM1.train();
 		LM1.printEvaluationSummary();
 		trainer.setLM(LM1);
-		trainer.saveLM("lm.ser");
+		assertTrue(trainer.saveLM("lm"));
 
 		LearningMachine LM2 = Trainer.loadLM(filePath);
 		LM2.train();
 
 		assertEquals(LM1, LM2);
+		
 	}// End TestsaveLoadLM
 
 	// User Story #849 - Integration Test
