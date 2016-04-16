@@ -1,14 +1,12 @@
 package edu.odu.cs.cs350.namex;
 
 /**
- * The personal name class stores a personal name as an arraylist
- * The prefix (IE: Mr, Dr, Mrs, Governor, Senator, Professor)will be stored in the first index of the
- * arraylist
- * The suffix (IE: Jr, Sr, III) will be stored as the second index of the
- * arraylist
- * The given name will be stored in the third index
- * The surname will be stored in the final index
- * Any middle names will be stored between the 3rd and final indices.
+ * The personal name class stores a personal name as an arraylist The prefix
+ * (IE: Mr, Dr, Mrs, Governor, Senator, Professor)will be stored in the first
+ * index of the arraylist The suffix (IE: Jr, Sr, III) will be stored as the
+ * second index of the arraylist The given name will be stored in the third
+ * index The surname will be stored in the final index Any middle names will be
+ * stored between the 3rd and final indices.
  */
 public class PersonalName {
 
@@ -42,6 +40,7 @@ public class PersonalName {
 
 	/**
 	 * Constructor to create one word personal names, e.g. Cher
+	 * 
 	 * @param name
 	 */
 	PersonalName(String name) {
@@ -55,6 +54,7 @@ public class PersonalName {
 
 	/**
 	 * Constructor to create multiple word personal names
+	 * 
 	 * @param honorificInput
 	 * @param givenNameInput
 	 * @param middleNameInput
@@ -70,9 +70,10 @@ public class PersonalName {
 		suffix = suffixInput;
 
 	};
-	
+
 	/**
 	 * Returns full name
+	 * 
 	 * @return
 	 */
 	public String getName() {
@@ -81,16 +82,20 @@ public class PersonalName {
 		return this.toString();
 
 	};
+
 	/**
 	 * Returns honorofic if it exists
+	 * 
 	 * @return
 	 */
 	public String getHonorific() {
 		// returns honorific if it exists
 		return honorific;
 	}
+
 	/**
 	 * returns second String of arraylist
+	 * 
 	 * @return
 	 */
 	public String getGivenName() {
@@ -98,9 +103,10 @@ public class PersonalName {
 		return givenName;
 
 	}
+
 	/**
-	 * returns all Strings between second and
-	 * last Strings in array list
+	 * returns all Strings between second and last Strings in array list
+	 * 
 	 * @return
 	 */
 	public String getMiddleNames() {
@@ -110,8 +116,10 @@ public class PersonalName {
 		return middleNames;
 
 	}
+
 	/**
 	 * returns final arraylist String
+	 * 
 	 * @return
 	 */
 	public String getSurName() {
@@ -119,8 +127,10 @@ public class PersonalName {
 		return surName;
 
 	}
+
 	/**
 	 * returns Suffix (ie jr, sr, II) if it exists.
+	 * 
 	 * @return
 	 */
 	public String getSuffix() {
@@ -132,7 +142,7 @@ public class PersonalName {
 		return suffix;
 
 	}
-	
+
 	/**
 	 * Returns the full name as a single string, same as getName()
 	 */

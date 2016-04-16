@@ -696,6 +696,7 @@ public class LearningMachine implements Serializable {
 			return false;
 		}
 	}
+
 	public Classifier getClassifier() {
 		return classifier;
 	}
@@ -706,6 +707,7 @@ public class LearningMachine implements Serializable {
 
 	/**
 	 * Returns the number of attributes being used by the file
+	 * 
 	 * @return
 	 */
 	public int getNumberOfAttributes() {
@@ -715,6 +717,7 @@ public class LearningMachine implements Serializable {
 	public Instances getTrainingInstances() {
 		return trainingInstances;
 	}
+
 	/**
 	 * Saves the learning machine to a file
 	 */
@@ -728,8 +731,10 @@ public class LearningMachine implements Serializable {
 		}
 
 	}
+
 	/**
 	 * Loads the LM From a file
+	 * 
 	 * @param LMBrain
 	 */
 	public void loadLM(String LMBrain) {

@@ -119,38 +119,74 @@ public class Token {
 		this.position = position;
 	}
 
-	// lexeme
+	/**
+	 * Returns the lexeme of this token
+	 * 
+	 * @return
+	 */
 	public String getLexeme() {
 		return this.lexeme;
 	}
 
+	/**
+	 * Sets the lexeme of this token
+	 * 
+	 * @return
+	 */
 	public void setLexeme(String lexeme) {
 		this.lexeme = lexeme;
 	}
 
-	// lexical
+	/**
+	 * Returns the Lexical attribute of this token
+	 * 
+	 * @return
+	 */
 	public String getLexical() {
 		return this.lexical;
 	}
 
+	/**
+	 * Sets the Lexical attribute of this token
+	 * 
+	 * @return
+	 */
 	public void setLexical(String lexical) {
 		this.lexical = lexical;
 	}
 
-	// partOfSpeech
+	/**
+	 * Returns the partOfSpeech attribute of this token
+	 * 
+	 * @return
+	 */
 	public String getPartOfSpeech() {
 		return this.partOfSpeech;
 	}
 
+	/**
+	 * Sets the partOfSpeech attribute of this token
+	 * 
+	 * @return
+	 */
 	public void setPartOfSpeech(String partOfSpeech) {
 		this.partOfSpeech = partOfSpeech;
 	}
 
-	// dictionaryWord
+	/**
+	 * Indicates whether or not the token is a dictionary word
+	 * 
+	 * @return
+	 */
 	public int isDictionaryWord() {
 		return this.dictionaryWord;
 	}
 
+	/**
+	 * Sets whether or not the token is a dictionary word
+	 * 
+	 * @return
+	 */
 	public void setDictionaryWord(int dictionaryWord) {
 		this.dictionaryWord = dictionaryWord;
 	}
