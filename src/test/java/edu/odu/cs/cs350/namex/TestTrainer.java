@@ -69,7 +69,7 @@ public class TestTrainer {
 			// System.out.println("# of Attributes: " +
 			// shingleTrainer.getNumberOfAttributes());
 
-			ArrayList<TextBlock> tbs = Librarian.separateNER(input);
+			ArrayList<TextBlock> tbs = Librarian.detectNERTag(input);
 			for (TextBlock tb : tbs) {
 				ArrayList<Token> tks = trainer.tokenize(tb.getTextBlock());
 				ArrayList<Token> classifiedTks = new ArrayList<Token>();

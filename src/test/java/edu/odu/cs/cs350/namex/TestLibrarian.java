@@ -125,7 +125,7 @@ public class TestLibrarian {
 	public void testSeparateNER() throws FileNotFoundException {
 		String input = "<NER>Hello, There are snakes on this plane! I don't know what to do!</NER><NER>This should be another text block!</NER>";
 
-		ArrayList<TextBlock> textBlocks = Librarian.separateNER(input);
+		ArrayList<TextBlock> textBlocks = Librarian.detectNERTag(input);
 
 		// separateNER should have separated the input into two lines
 		assertEquals(2, textBlocks.size());
