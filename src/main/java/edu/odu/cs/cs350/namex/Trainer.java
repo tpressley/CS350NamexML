@@ -862,7 +862,11 @@ public class Trainer implements Serializable {
 		writer.println("@attribute Name4 {beginning,continuing,other}");
 		writer.println("@attribute Name5 {beginning,continuing,other}");
 		writer.println("@attribute Name6 {beginning,continuing,other}");
-
+		
+		Trainer trainer = new Trainer();
+		ArrayList<Shingle> shingles = new ArrayList<Shingle>();
+		shingles = trainer.getShingles(featuredTokens);
+		
 		writer.close();
 
 		return true;
