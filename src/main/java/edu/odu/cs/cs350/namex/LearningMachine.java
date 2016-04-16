@@ -846,80 +846,80 @@ public class LearningMachine   {
     attributes.addElement(Name5);
     attributes.addElement(Name6);
 	}
-//Removing the int constructor for simplicity
-//	public LearningMachine(int k) {
-//		int dimension = (((2 * k) + 1) * 14) + k + 1;
-//
-//		// Initialize the Classifier as a Naive Bayes Classifier
-//		classifier = (Classifier) new NaiveBayes();
-//
-//		// Initialize Attributes
-//		// Declare Lexical Attribute with its values
-//		FastVector NominalValLexical = new FastVector(9);
-//		NominalValLexical.addElement("punct");
-//		NominalValLexical.addElement("capLetter");
-//		NominalValLexical.addElement("capitalized");
-//		NominalValLexical.addElement("allCaps");
-//		NominalValLexical.addElement("lineFeed");
-//		NominalValLexical.addElement("whiteSpace");
-//		NominalValLexical.addElement("number");
-//		NominalValLexical.addElement("other");
-//		NominalValLexical.addElement("null");
-//		// Attribute Lexical = new Attribute("Lexical", NominalValLexical);
-//
-//		// Declare PartOfSpeech Attribute with its values
-//		FastVector NominalValPoS = new FastVector(6);
-//		NominalValPoS.addElement("article");
-//		NominalValPoS.addElement("conjunction");
-//		NominalValPoS.addElement("period");
-//		NominalValPoS.addElement("comma");
-//		NominalValPoS.addElement("hyphen");
-//		NominalValPoS.addElement("other");
-//		// Attribute PartOfSpeech = new Attribute("PartOfSpeech",
-//		// NominalValPoS);
-//
-//		// Declare Gazetteer Attributes with its values
-//		FastVector NominalValGazetteer = new FastVector(2);
-//		NominalValGazetteer.addElement("0");
-//		NominalValGazetteer.addElement("1");
-//
-//		// Declare Name Attribute
-//		FastVector NominalValName = new FastVector(3);
-//		NominalValName.addElement("beginning");
-//		NominalValName.addElement("continuing");
-//		NominalValName.addElement("other");
-//		// Attribute Name = new Attribute("Name", NominalValName);
-//
-//		// Declare ContainsName Attribute
-//		FastVector NominalValContainsName = new FastVector(3);
-//		NominalValContainsName.addElement("yes");
-//		NominalValContainsName.addElement("no");
-//		Attribute ContainsName = new Attribute("ContainsName", NominalValContainsName);
-//
-//		// Declare the Feature vector
-//		attributes = new FastVector(dimension);
-//
-//		for (int i = 0; i < ((2 * k) + 1); i++) {
-//			attributes.addElement(getAttribute("Lexical" + i, NominalValLexical));
-//			attributes.addElement(getAttribute("PartOfSpeech" + i, NominalValPoS));
-//			attributes.addElement(getAttribute("DictionaryWord" + i, NominalValGazetteer));
-//			attributes.addElement(getAttribute("City" + i, NominalValGazetteer));
-//			attributes.addElement(getAttribute("Country" + i, NominalValGazetteer));
-//			attributes.addElement(getAttribute("Places" + i, NominalValGazetteer));
-//			attributes.addElement(getAttribute("DTICFirst" + i, NominalValGazetteer));
-//			attributes.addElement(getAttribute("DTICLast" + i, NominalValGazetteer));
-//			attributes.addElement(getAttribute("CommonFirst" + i, NominalValGazetteer));
-//			attributes.addElement(getAttribute("CommonLast" + i, NominalValGazetteer));
-//			attributes.addElement(getAttribute("Honorific" + i, NominalValGazetteer));
-//			attributes.addElement(getAttribute("Prefix" + i, NominalValGazetteer));
-//			attributes.addElement(getAttribute("Suffix" + i, NominalValGazetteer));
-//			attributes.addElement(getAttribute("Kill" + i, NominalValGazetteer));
-//			attributes.addElement(getAttribute("Name" + i, NominalValName));
-//		}
-//		attributes.addElement(ContainsName);
-//
-//		numAttr = attributes.size();
-//	}
+Removing the int constructor for simplicity
+	public LearningMachine(int k) {
+		int dimension = (((2 * k) + 1) * 14) + k + 1;
+
+		// Initialize the Classifier as a Naive Bayes Classifier
+		classifier = (Classifier) new NaiveBayes();
+
+		// Initialize Attributes
+		// Declare Lexical Attribute with its values
+		FastVector NominalValLexical = new FastVector(9);
+		NominalValLexical.addElement("punct");
+		NominalValLexical.addElement("capLetter");
+		NominalValLexical.addElement("capitalized");
+		NominalValLexical.addElement("allCaps");
+		NominalValLexical.addElement("lineFeed");
+		NominalValLexical.addElement("whiteSpace");
+		NominalValLexical.addElement("number");
+		NominalValLexical.addElement("other");
+		NominalValLexical.addElement("null");
+		// Attribute Lexical = new Attribute("Lexical", NominalValLexical);
+
+		// Declare PartOfSpeech Attribute with its values
+		FastVector NominalValPoS = new FastVector(6);
+		NominalValPoS.addElement("article");
+		NominalValPoS.addElement("conjunction");
+		NominalValPoS.addElement("period");
+		NominalValPoS.addElement("comma");
+		NominalValPoS.addElement("hyphen");
+		NominalValPoS.addElement("other");
+		// Attribute PartOfSpeech = new Attribute("PartOfSpeech",
+		// NominalValPoS);
+
+		// Declare Gazetteer Attributes with its values
+		FastVector NominalValGazetteer = new FastVector(2);
+		NominalValGazetteer.addElement("0");
+		NominalValGazetteer.addElement("1");
+
+		// Declare Name Attribute
+		FastVector NominalValName = new FastVector(3);
+		NominalValName.addElement("beginning");
+		NominalValName.addElement("continuing");
+		NominalValName.addElement("other");
+		// Attribute Name = new Attribute("Name", NominalValName);
+
+		// Declare ContainsName Attribute
+		FastVector NominalValContainsName = new FastVector(3);
+		NominalValContainsName.addElement("yes");
+		NominalValContainsName.addElement("no");
+		Attribute ContainsName = new Attribute("ContainsName", NominalValContainsName);
+
+		// Declare the Feature vector
+		attributes = new FastVector(dimension);
+
+		for (int i = 0; i < ((2 * k) + 1); i++) {
+			attributes.addElement(getAttribute("Lexical" + i, NominalValLexical));
+			attributes.addElement(getAttribute("PartOfSpeech" + i, NominalValPoS));
+			attributes.addElement(getAttribute("DictionaryWord" + i, NominalValGazetteer));
+			attributes.addElement(getAttribute("City" + i, NominalValGazetteer));
+			attributes.addElement(getAttribute("Country" + i, NominalValGazetteer));
+			attributes.addElement(getAttribute("Places" + i, NominalValGazetteer));
+			attributes.addElement(getAttribute("DTICFirst" + i, NominalValGazetteer));
+			attributes.addElement(getAttribute("DTICLast" + i, NominalValGazetteer));
+			attributes.addElement(getAttribute("CommonFirst" + i, NominalValGazetteer));
+			attributes.addElement(getAttribute("CommonLast" + i, NominalValGazetteer));
+			attributes.addElement(getAttribute("Honorific" + i, NominalValGazetteer));
+			attributes.addElement(getAttribute("Prefix" + i, NominalValGazetteer));
+			attributes.addElement(getAttribute("Suffix" + i, NominalValGazetteer));
+			attributes.addElement(getAttribute("Kill" + i, NominalValGazetteer));
+			attributes.addElement(getAttribute("Name" + i, NominalValName));
+		}
+		attributes.addElement(ContainsName);
+
+		numAttr = attributes.size();
+	}
 
 	/**
 	 * Uses the training data to train the Learning Machine
