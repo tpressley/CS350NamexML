@@ -286,7 +286,7 @@ public class TestTrainer {
 		LearningMachine LM1 = new LearningMachine();
 		LM1.importARFF(arffFilePath);
 		LM1.train();
-
+		LM1.printEvaluationSummary();
 		trainer.setLM(LM1);
 		assertTrue(trainer.saveLM("lm"));
 
@@ -326,7 +326,8 @@ public class TestTrainer {
 
 		LearningMachine LM2 = Trainer.loadLM(filePath);
 		LM2.train();
-
+	
+		assertEquals(LM1, LM2);
 		//assertEquals(LM1.getSerialVersionUID(), LM2.getSerialVersionUID());
 	}// End TestsaveLoadLM
 

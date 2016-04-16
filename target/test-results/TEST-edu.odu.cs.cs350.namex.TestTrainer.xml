@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="2" failures="2" hostname="joehl-laptop" name="edu.odu.cs.cs350.namex.TestTrainer" skipped="0" tests="10" time="11.523" timestamp="2016-04-16T22:12:22">
+<testsuite errors="2" failures="2" hostname="joehl-laptop" name="edu.odu.cs.cs350.namex.TestTrainer" skipped="0" tests="10" time="10.241" timestamp="2016-04-16T23:38:11">
   <properties>
     <property name="file.encoding.pkg" value="sun.io" />
     <property name="ivy.retrieve.pattern.ivy.instance" value="/home/joel/git/Green3/lib/[artifact]-[revision](-[classifier]).[ext]" />
@@ -27,7 +27,7 @@
     <property name="ivy.publish.src.artifacts.pattern.ivy.instance" value="/home/joel/git/Green3/distrib/[type]s/[artifact]-[revision](-[classifier]).[ext]" />
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
     <property name="sun.management.compiler.ivy.instance" value="HotSpot 64-Bit Tiered Compilers" />
-    <property name="ant.project.invoked-targets" value="install-ivy,resolve-ivy,init,download-ivy,compile,compile-tests,test" />
+    <property name="ant.project.invoked-targets" value="install-ivy,resolve-ivy,init,download-ivy,compile,compile-tests,test,package" />
     <property name="os.name.ivy.instance" value="Linux" />
     <property name="ivy.default.ivy.user.dir.ivy.instance" value="/home/joel/.ivy2" />
     <property name="ivy.default.always.check.exact.revision" value="false" />
@@ -57,7 +57,7 @@
     <property name="lib" value="/home/joel/git/Green3/lib" />
     <property name="ivy.targets.copied" value="false" />
     <property name="ivy.parents.count" value="0" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestTrainer skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/joel/git/Green3/target/test-results/TEST-edu.odu.cs.cs350.namex.TestTrainer.xml crashfile=/home/joel/git/Green3/junitvmwatcher2975305788294001188.properties propsfile=/home/joel/git/Green3/junit7889059860511258054.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner edu.odu.cs.cs350.namex.TestTrainer skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.PlainJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/joel/git/Green3/target/test-results/TEST-edu.odu.cs.cs350.namex.TestTrainer.xml crashfile=/home/joel/git/Green3/junitvmwatcher1000727073149229639.properties propsfile=/home/joel/git/Green3/junit4416512258165377819.properties" />
     <property name="ant.file" value="/home/joel/git/Green3/build.xml" />
     <property name="ivy.distrib.dir.ivy.instance" value="/home/joel/git/Green3/distrib" />
     <property name="ivy.checksums.ivy.instance" value="sha1,md5" />
@@ -158,7 +158,7 @@
     <property name="ant.library.dir.ivy.instance" value="/home/joel/.p2/pool/plugins/org.apache.ant_1.9.4.v201504302020/lib" />
     <property name="java.vm.info.ivy.instance" value="mixed mode" />
     <property name="ivy.publish.src.artifacts.pattern" value="/home/joel/git/Green3/distrib/[type]s/[artifact]-[revision](-[classifier]).[ext]" />
-    <property name="sun.java.command.ivy.instance" value="org.eclipse.ant.internal.launching.remote.InternalAntRunner -Dorg.eclipse.ant.core.ANT_PROCESS_ID=1460844720989 -Declipse.connect.port=46753 -Dant.home=/home/joel/.p2/pool/plugins/org.apache.ant_1.9.4.v201504302020 -logger org.eclipse.ant.internal.launching.remote.logger.RemoteAntBuildLogger -inputhandler org.eclipse.ant.internal.ui.antsupport.inputhandler.ProxyInputHandler -eclipseTask antlib:org.apache.ivy.ant:configure,org.apache.ivy.ant.IvyConfigure -eclipseTask antlib:org.apache.ivy.ant:resolve,org.apache.ivy.ant.IvyResolve -eclipseTask antlib:org.apache.ivy.ant:retrieve,org.apache.ivy.ant.IvyRetrieve -eclipseTask antlib:org.apache.ivy.ant:deliver,org.apache.ivy.ant.IvyDeliver -eclipseTask antlib:org.apache.ivy.ant:publish,org.apache.ivy.ant.IvyPublish -eclipseTask antlib:org.apache.ivy.ant:extract,org.apache.ivy.ant.IvyExtractFromSources -eclipseTask antlib:org.apache.ivy.ant:cachepath,org.apache.ivy.ant.IvyCachePath -eclipseTask antlib:org.apache.ivy.ant:cachefileset,org.apache.ivy.ant.IvyCacheFileset -eclipseTask antlib:org.apache.ivy.ant:report,org.apache.ivy.ant.IvyReport -eclipseTask antlib:org.apache.ivy.ant:repreport,org.apache.ivy.ant.IvyRepositoryReport -eclipseTask antlib:org.apache.ivy.ant:var,org.apache.ivy.ant.IvyVar -eclipseTask antlib:org.apache.ivy.ant:check,org.apache.ivy.ant.IvyCheck -eclipseTask antlib:org.apache.ivy.ant:artifactproperty,org.apache.ivy.ant.IvyArtifactProperty -eclipseTask antlib:org.apache.ivy.ant:buildlist,org.apache.ivy.ant.IvyBuildList -eclipseTask antlib:org.apache.ivy.ant:install,org.apache.ivy.ant.IvyInstall -eclipseTask antlib:org.apache.ivy.ant:convertpom,org.apache.ivy.ant.IvyConvertPom -eclipseTask antlib:org.apache.ivy.ant:makepom,org.apache.ivy.ant.IvyMakePom -eclipseTask antlib:org.apache.ivy.ant:artifactreport,org.apache.ivy.ant.IvyArtifactReport -eclipseTask antlib:org.apache.ivy.ant:info,org.apache.ivy.ant.IvyInfo -eclipseTask antlib:org.apache.ivy.ant:addpath,org.apache.ivy.ant.AddPathTask -eclipseTask antlib:org.apache.ivy.ant:listmodules,org.apache.ivy.ant.IvyListModules -eclipseTask antlib:org.apache.ivy.ant:findrevision,org.apache.ivy.ant.IvyFindRevision -eclipseTask antlib:org.apache.ivy.ant:buildnumber,org.apache.ivy.ant.IvyBuildNumber -eclipseTask antlib:org.apache.ivy.ant:cleancache,org.apache.ivy.ant.IvyCleanCache -eclipseTask antlib:org.apache.ivy.ant:buildobr,org.apache.ivy.ant.BuildOBRTask -eclipseTask antlib:org.apache.ivy.ant:convertmanifest,org.apache.ivy.ant.ConvertManifestTask -eclipseTask antlib:org.apache.ivy.ant:fixdeps,org.apache.ivy.ant.FixDepsTask -eclipseTask antlib:org.apache.ivy.ant:dependencytree,org.apache.ivy.ant.IvyDependencyTree -eclipseTask antlib:org.apache.ivy.ant:checkdepsupdate,org.apache.ivy.ant.IvyDependencyUpdateChecker -eclipseType antlib:org.apache.ivy.ant:settings,org.apache.ivy.ant.IvyAntSettings -eclipseType antlib:org.apache.ivy.ant:resources,org.apache.ivy.ant.IvyResources -buildfile /home/joel/git/Green3/build.xml install-ivy resolve-ivy init download-ivy compile compile-tests test" />
+    <property name="sun.java.command.ivy.instance" value="org.eclipse.ant.internal.launching.remote.InternalAntRunner -Dorg.eclipse.ant.core.ANT_PROCESS_ID=1460849872358 -Declipse.connect.port=33670 -Dant.home=/home/joel/.p2/pool/plugins/org.apache.ant_1.9.4.v201504302020 -logger org.eclipse.ant.internal.launching.remote.logger.RemoteAntBuildLogger -inputhandler org.eclipse.ant.internal.ui.antsupport.inputhandler.ProxyInputHandler -eclipseTask antlib:org.apache.ivy.ant:configure,org.apache.ivy.ant.IvyConfigure -eclipseTask antlib:org.apache.ivy.ant:resolve,org.apache.ivy.ant.IvyResolve -eclipseTask antlib:org.apache.ivy.ant:retrieve,org.apache.ivy.ant.IvyRetrieve -eclipseTask antlib:org.apache.ivy.ant:deliver,org.apache.ivy.ant.IvyDeliver -eclipseTask antlib:org.apache.ivy.ant:publish,org.apache.ivy.ant.IvyPublish -eclipseTask antlib:org.apache.ivy.ant:extract,org.apache.ivy.ant.IvyExtractFromSources -eclipseTask antlib:org.apache.ivy.ant:cachepath,org.apache.ivy.ant.IvyCachePath -eclipseTask antlib:org.apache.ivy.ant:cachefileset,org.apache.ivy.ant.IvyCacheFileset -eclipseTask antlib:org.apache.ivy.ant:report,org.apache.ivy.ant.IvyReport -eclipseTask antlib:org.apache.ivy.ant:repreport,org.apache.ivy.ant.IvyRepositoryReport -eclipseTask antlib:org.apache.ivy.ant:var,org.apache.ivy.ant.IvyVar -eclipseTask antlib:org.apache.ivy.ant:check,org.apache.ivy.ant.IvyCheck -eclipseTask antlib:org.apache.ivy.ant:artifactproperty,org.apache.ivy.ant.IvyArtifactProperty -eclipseTask antlib:org.apache.ivy.ant:buildlist,org.apache.ivy.ant.IvyBuildList -eclipseTask antlib:org.apache.ivy.ant:install,org.apache.ivy.ant.IvyInstall -eclipseTask antlib:org.apache.ivy.ant:convertpom,org.apache.ivy.ant.IvyConvertPom -eclipseTask antlib:org.apache.ivy.ant:makepom,org.apache.ivy.ant.IvyMakePom -eclipseTask antlib:org.apache.ivy.ant:artifactreport,org.apache.ivy.ant.IvyArtifactReport -eclipseTask antlib:org.apache.ivy.ant:info,org.apache.ivy.ant.IvyInfo -eclipseTask antlib:org.apache.ivy.ant:addpath,org.apache.ivy.ant.AddPathTask -eclipseTask antlib:org.apache.ivy.ant:listmodules,org.apache.ivy.ant.IvyListModules -eclipseTask antlib:org.apache.ivy.ant:findrevision,org.apache.ivy.ant.IvyFindRevision -eclipseTask antlib:org.apache.ivy.ant:buildnumber,org.apache.ivy.ant.IvyBuildNumber -eclipseTask antlib:org.apache.ivy.ant:cleancache,org.apache.ivy.ant.IvyCleanCache -eclipseTask antlib:org.apache.ivy.ant:buildobr,org.apache.ivy.ant.BuildOBRTask -eclipseTask antlib:org.apache.ivy.ant:convertmanifest,org.apache.ivy.ant.ConvertManifestTask -eclipseTask antlib:org.apache.ivy.ant:fixdeps,org.apache.ivy.ant.FixDepsTask -eclipseTask antlib:org.apache.ivy.ant:dependencytree,org.apache.ivy.ant.IvyDependencyTree -eclipseTask antlib:org.apache.ivy.ant:checkdepsupdate,org.apache.ivy.ant.IvyDependencyUpdateChecker -eclipseType antlib:org.apache.ivy.ant:settings,org.apache.ivy.ant.IvyAntSettings -eclipseType antlib:org.apache.ivy.ant:resources,org.apache.ivy.ant.IvyResources -buildfile /home/joel/git/Green3/build.xml install-ivy resolve-ivy init download-ivy compile compile-tests test package" />
     <property name="ivy.distrib.dir" value="/home/joel/git/Green3/distrib" />
     <property name="sun.cpu.endian" value="little" />
     <property name="ivy.revision" value="working@joehl-laptop" />
@@ -184,7 +184,7 @@
     <property name="ant.core.lib" value="/home/joel/.p2/pool/plugins/org.apache.ant_1.9.4.v201504302020/lib/ant.jar" />
     <property name="java.vm.specification.vendor" value="Oracle Corporation" />
     <property name="ivy.settings.dir" value="/home/joel/git/Green3" />
-    <property name="TSTAMP" value="1812" />
+    <property name="TSTAMP" value="1937" />
     <property name="file.separator" value="/" />
     <property name="user.language.ivy.instance" value="en" />
     <property name="user.country.ivy.instance" value="US" />
@@ -204,32 +204,32 @@
     <property name="sun.arch.data.model" value="64" />
     <property name="ivy.buildlist.ivyfilepath" value="ivy.xml" />
   </properties>
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testPrepareData" time="6.322" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testPrepareData" time="5.667" />
   <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testPrepareShingleData" time="0.012">
     <failure message="prepareShinglingDataNotImplemented" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: prepareShinglingDataNotImplemented
 	at edu.odu.cs.cs350.namex.TestTrainer.testPrepareShingleData(TestTrainer.java:134)
 </failure>
   </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTrainLM" time="0.006">
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTrainLM" time="0.005">
     <error type="java.lang.NullPointerException">java.lang.NullPointerException
 	at edu.odu.cs.cs350.namex.TestTrainer.testTrainLM(TestTrainer.java:218)
 </error>
   </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTrainer" time="0.01" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testIntSaveLoadLM" time="0.099">
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTrainer" time="0.009" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testIntSaveLoadLM" time="0.052">
     <error type="java.lang.NullPointerException">java.lang.NullPointerException
 	at edu.odu.cs.cs350.namex.TestTrainer.testIntSaveLoadLM(TestTrainer.java:328)
 </error>
   </testcase>
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTokenizeStringBool" time="0.004" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testSaveLoadLM" time="0.051">
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTokenizeStringBool" time="0.006" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testSaveLoadLM" time="0.056">
     <failure type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError
 	at edu.odu.cs.cs350.namex.TestTrainer.testSaveLoadLM(TestTrainer.java:291)
 </failure>
   </testcase>
   <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testTokenizeString" time="0.004" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testShingle" time="4.895" />
-  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testGetTokenCount" time="0.004" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testShingle" time="4.304" />
+  <testcase classname="edu.odu.cs.cs350.namex.TestTrainer" name="testGetTokenCount" time="0.003" />
   <system-out><![CDATA[*******************************
  Generating ARFF Training Data
 *******************************

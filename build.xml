@@ -109,7 +109,7 @@
     PACKAGE TARGET
     ==============
     -->
-	<target name="package" depends="test" description="Construct a jar file with the compiled code and a zip file with the project source code.">
+	<target name="package" depends="compile" description="Construct a jar file with the compiled code and a zip file with the project source code.">
 		<jar destfile="target/PNE.jar" basedir="target/classes">
 		<!--
 		 Uncomment if you have a main class to execute by default.
