@@ -12,29 +12,11 @@ import java.util.HashSet;
 
 public class Trainer implements Serializable {
 
-	private static final long serialVersionUID = 1969136929013924126L;
-
-	private LearningMachine lm;
-
 	public Trainer() {
-		lm = new LearningMachine();
+	
 	}
 
-	public Trainer(int k) {
-		lm = new LearningMachine(k);
-	}
 
-	public Trainer(LearningMachine lm1) {
-		this.lm = lm1;
-	}
-
-	public LearningMachine getLM() {
-		return lm;
-	}
-
-	public void setLM(LearningMachine lm1) {
-		this.lm = lm1;
-	}
 
 	/**
 	 * Prepares shingled tokens to feed to the learning machine
@@ -221,53 +203,8 @@ public class Trainer implements Serializable {
 	 * @param inputFileName
 	 * @param outputFileName
 	 */
-	public boolean prepareData(String inFileName, String outFileName, boolean showSummary) {
-
-		Librarian lib = new Librarian();
-
-		ArrayList<TextBlock> textBlocks = Librarian.importFile(inFileName);
-		ArrayList<String> arffData = new ArrayList<String>();
-
-		System.out.println("\nClassifying Tokens from " + textBlocks.size() + " TextBlocks...");
-
-		for (TextBlock textBlock : textBlocks) {
-
-			ArrayList<Token> tks = tokenize(textBlock.getTextBlock());
-			HashSet<Token> classifiedTokens = lib.getFeatures(tks);
-
-			for (Token t : classifiedTokens) {
-				// System.out.println(t.getARFF());
-
-				if (!t.getLexical().equals("whiteSpace")) {
-					arffData.add(t.getARFF());
-				}
-			}
-		}
-
-		String[] ARFFArray = new String[arffData.size()];
-		ARFFArray = arffData.toArray(ARFFArray);
-
-		lm = new LearningMachine();
-		try {
-			lm.importARFF(ARFFArray);
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
-
-		try {
-			lm.train();
-			// printARFF();
-			if (showSummary == true) {
-				lm.printEvaluationSummary();
-			}
-			lm.exportARFF(outFileName);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-		return true;
-	}
-
+	
+	
 	/**
 	 * Prepares shingled tokens to feed to the learning machine
 	 * 
@@ -277,14 +214,15 @@ public class Trainer implements Serializable {
 	 * @param inputFileName
 	 * @param outputFileName
 	 */
+	
+	/**
 	public void prepareShinglingData(String arffFilePath, int k, String inputFileName, String outputFileName) {
 		Librarian librarian = new Librarian();
 
 		// Trainer for Token classification
 		LearningMachine lm = new LearningMachine();
 
-		// Trainer for Shingle classification
-		LearningMachine shingleTrainer = new LearningMachine(k);
+
 
 		try {
 			lm.importARFF(arffFilePath);
@@ -331,7 +269,7 @@ public class Trainer implements Serializable {
 			e.printStackTrace();
 		}
 	}
-
+/*
 	/**
 	 * 
 	 * @param textBlock
@@ -395,13 +333,14 @@ public class Trainer implements Serializable {
 	 * @param filePath
 	 */
 	public void trainLM(String filePath) {
-		try {
-			lm.importARFF(filePath);
-			lm.train();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//		try {
+//			lm.importARFF(filePath);
+//			lm.train();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 	}
+}
 
 	/**
 	 * Loads the training machine into the extractor
@@ -409,6 +348,7 @@ public class Trainer implements Serializable {
 	 * @param fpath
 	 * @return
 	 */
+	/**
 	public static LearningMachine loadLM(String fpath) {
 		fpath += ".ser";
 
@@ -432,31 +372,31 @@ public class Trainer implements Serializable {
 
 		return null;
 	}
-
+*/
 	/**
 	 * Saves the Learning Machine to a file
 	 * 
 	 * @param fpath
 	 * @return
 	 */
-	public boolean saveLM(String fpath) {
-		fpath = fpath + ".ser"; // add the .ser extension
-
-		FileOutputStream fOutStr;
-
-		try {
-			fOutStr = new FileOutputStream(fpath);
-			ObjectOutputStream out = new ObjectOutputStream(fOutStr);
-			out.writeObject(lm);
-			out.close();
-
-		} catch (IOException e) {
-			e.printStackTrace();
-			return false;
-		}
-
-		System.out.println("Created Classifier: " + fpath);
-		return true;
-	}
-
-}
+//	public boolean saveLM(String fpath) {
+//		fpath = fpath + ".ser"; // add the .ser extension
+//
+//		FileOutputStream fOutStr;
+//
+//		try {
+//			fOutStr = new FileOutputStream(fpath);
+//			ObjectOutputStream out = new ObjectOutputStream(fOutStr);
+//			out.writeObject(lm);
+//			out.close();
+//
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//			return false;
+//		}
+//
+//		System.out.println("Created Classifier: " + fpath);
+//		return true;
+//	}
+//
+//}
