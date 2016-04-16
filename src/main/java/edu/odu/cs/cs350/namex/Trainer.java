@@ -893,7 +893,7 @@ public boolean createArff(ArrayList<Token> featuredTokens)
   writer.println("@attribute Name5 {beginning,continuing,other}");
   writer.println("@attribute Name6 {beginning,continuing,other}");
   
-  
+
   
   
   
