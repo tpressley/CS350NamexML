@@ -45,10 +45,12 @@ public class Librarian {
 	      ArrayList<Token> tokens = new ArrayList<Token>();
 	      Trainer trainer = new Trainer();
 	      System.out.println();
+	      
+	      // read in file and split by punctuation, excluding whitespace. 
 	        Scanner sc = new Scanner(new File(args[1]));
 	        while(sc.hasNext()){
 	            String s = sc.next();
-	            String[] wordsplit =s.split("[\\p{Punct}\\s]+");
+	            String[] wordsplit =s.split("(?=[ ,.!()<:;}-])|(?<=[ (>{-])");
 	            for (int i = 0 ; i<wordsplit.length; i++)
 	            {
 	              if (wordsplit[i].trim().length() > 0)
@@ -58,12 +60,15 @@ public class Librarian {
 	            }
 	            }  
 	        }
-	        for (int i=0; i< textFile.size();i++)
-	        {
-	          System.out.println(textFile.get(i));
-	        }
-	      
+	     
+
+	        // separate string into tokens
+	        tokens = trainer.tokenize(textFile);
+	        //add features to tokens 
+	        trainer.getFeatures(tokens);
 	        
+	        
+	        System.out.println();
 	        
 	        
 	      

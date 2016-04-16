@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -330,6 +331,15 @@ public class Trainer implements Serializable {
 
 		return tokens;
 	}
+	public ArrayList<Token> tokenize(ArrayList<String> untokenizedwords)
+	{
+	  ArrayList<Token> tokens = new ArrayList<Token>();
+	   for (int i = 0; i < untokenizedwords.size(); i++) {
+	      tokens.add(new Token(untokenizedwords.get(i), i));
+	    }
+    return tokens;
+	  
+	}
 
 	/**
 	 * Takes the input text and returns an arraylist of basic tokens, containing
@@ -596,6 +606,30 @@ public class Trainer implements Serializable {
   
   	return token;
   }
+  
+  public void getFeatures(ArrayList<Token>tokens) {
+    
+    for(int i =0; i<tokens.size();i++)
+    {
+    String lexeme = tokens.get(i).getLexeme();
+  
+    tokens.get(i).setLexical(getLexicalFeature(lexeme));
+    tokens.get(i).setPartOfSpeech(getPartOfSpeech(lexeme));
+    tokens.get(i).setDictionaryWord(isDictionaryWord(lexeme));
+    tokens.get(i).setCityState(isCityState(lexeme));
+    tokens.get(i).setCountryTerritory(isCountryTerritory(lexeme));
+    tokens.get(i).setPlace(isPlace(lexeme));
+    tokens.get(i).setDTICFirst(isDTICFirstName(lexeme));
+    tokens.get(i).setDTICLast(isDTICLastName(lexeme));
+    tokens.get(i).setCommonFirst(isCommonFirstName(lexeme));
+    tokens.get(i).setCommonLast(isCommonLastName(lexeme));
+    tokens.get(i).setHonorific(isHonorific(lexeme));
+    tokens.get(i).setPrefix(isLastNamePrefix(lexeme));
+    tokens.get(i).setSuffix(isLastNameSuffix(lexeme));
+    tokens.get(i).setKillWord(isKillWord(lexeme));
+  
+    }
+  }
 
 
 
@@ -671,35 +705,203 @@ public class Trainer implements Serializable {
   			}
   		}
   
-  		/*
-  		 * if (token.getLexical().equals("whiteSpace") ||
-  		 * token.getLexeme().equals("") || token.getLexeme().equals(" ")) {
-  		 * token.setName("other"); } else if
-  		 * (token.getLexical().equals("punct") ||
-  		 * token.getLexical().equals("lineFeed") ||
-  		 * token.getLexical().equals("number")) { // comment to prevent the
-  		 * code from sending the ARFF data of // this token to weka
-  		 * token.setName("other"); arffTokens.add(token); } else { if
-  		 * (token.getLexeme().equals("PER")) { // if the previous token was
-  		 * a '/', then this current token // is the closing PER tag if
-  		 * (tokens.get((token.getPosition() - 1)).getLexeme().equals("/")) {
-  		 * // reset the boolean variables isPartOfName = false;
-  		 * classifiedNameBeginning = false; } else { isPartOfName = true; }
-  		 * 
-  		 * token.setName("other"); arffTokens.add(token); } else { if
-  		 * (isPartOfName == true) { if (classifiedNameBeginning == false) {
-  		 * token.setName("beginning"); arffTokens.add(token);
-  		 * classifiedNameBeginning = true; } else {
-  		 * token.setName("continuing"); arffTokens.add(token); } } else {
-  		 * token.setName("other"); arffTokens.add(token); } } }
-  		 */
+  	
   	}
   	// System.out.println(token.toStringQuotes());
   
   	return arffTokens;
   }
 
+public boolean createArff(ArrayList<Token> featuredTokens)
+  {
+  
+  PrintWriter writer = new PrintWriter("the-file-name.txt", "UTF-8");
+  
+  
+  
+  writer.println("@relation Classification");
+  writer.println("");
+  writer.println("@attribute Lexical1 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+  writer.println("@attribute PartOfSpeech1 {article,conjunction,period,comma,hyphen,other}");
+  writer.println("@attribute DictionaryWord1 {0,1}");
+  writer.println("@attribute City1 {0,1}");
+  writer.println("@attribute Country1 {0,1}");
+  writer.println("@attribute Places1 {0,1}");
+  writer.println("@attribute DTICFirst1 {0,1}");
+  writer.println("@attribute DTICLast1 {0,1}");
+  writer.println("@attribute CommonFirst1 {0,1}");
+  writer.println("@attribute CommonLast1 {0,1}");
+  writer.println("@attribute Honorific1 {0,1}");
+  writer.println("@attribute Prefix1 {0,1}");
+  writer.println("@attribute Suffix1 {0,1}");
+  writer.println("@attribute Kill1 {0,1}");
+  
+  writer.println("@attribute Lexical2 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+  writer.println("@attribute PartOfSpeech2 {article,conjunction,period,comma,hyphen,other}");
+  writer.println("@attribute DictionaryWord2 {0,1}");
+  writer.println("@attribute City2 {0,1}");
+  writer.println("@attribute Country2 {0,1}");
+  writer.println("@attribute Places2 {0,1}");
+  writer.println("@attribute DTICFirst2 {0,1}");
+  writer.println("@attribute DTICLast2 {0,1}");
+  writer.println("@attribute CommonFirst2 {0,1}");
+  writer.println("@attribute CommonLast2 {0,1}");
+  writer.println("@attribute Honorific2 {0,1}");
+  writer.println("@attribute Prefix2 {0,1}");
+  writer.println("@attribute Suffix2 {0,1}");
+  writer.println("@attribute Kill2 {0,1}");
+  
+  writer.println("@attribute Lexical3 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+  writer.println("@attribute PartOfSpeech3 {article,conjunction,period,comma,hyphen,other}");
+  writer.println("@attribute DictionaryWord3 {0,1}");
+  writer.println("@attribute City3 {0,1}");
+  writer.println("@attribute Country3 {0,1}");
+  writer.println("@attribute Places3 {0,1}");
+  writer.println("@attribute DTICFirst3 {0,1}");
+  writer.println("@attribute DTICLast3 {0,1}");
+  writer.println("@attribute CommonFirst3 {0,1}");
+  writer.println("@attribute CommonLast3 {0,1}");
+  writer.println("@attribute Honorific3 {0,1}");
+  writer.println("@attribute Prefix3 {0,1}");
+  writer.println("@attribute Suffix3 {0,1}");
+  writer.println("@attribute Kill3 {0,1}");
 
+  writer.println("@attribute Lexical4 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+  writer.println("@attribute PartOfSpeech4 {article,conjunction,period,comma,hyphen,other}");
+  writer.println("@attribute DictionaryWord4 {0,1}");
+  writer.println("@attribute City4 {0,1}");
+  writer.println("@attribute Country4 {0,1}");
+  writer.println("@attribute Places4 {0,1}");
+  writer.println("@attribute DTICFirst4 {0,1}");
+  writer.println("@attribute DTICLast4 {0,1}");
+  writer.println("@attribute CommonFirst4 {0,1}");
+  writer.println("@attribute CommonLast4 {0,1}");
+  writer.println("@attribute Honorific4 {0,1}");
+  writer.println("@attribute Prefix4 {0,1}");
+  writer.println("@attribute Suffix4 {0,1}");
+  writer.println("@attribute Kill4 {0,1}");
+  
+  writer.println("@attribute Lexical5 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+  writer.println("@attribute PartOfSpeech5 {article,conjunction,period,comma,hyphen,other}");
+  writer.println("@attribute DictionaryWord5 {0,1}");
+  writer.println("@attribute City5 {0,1}");
+  writer.println("@attribute Country5 {0,1}");
+  writer.println("@attribute Places5 {0,1}");
+  writer.println("@attribute DTICFirst5 {0,1}");
+  writer.println("@attribute DTICLast5 {0,1}");
+  writer.println("@attribute CommonFirst5 {0,1}");
+  writer.println("@attribute CommonLast5 {0,1}");
+  writer.println("@attribute Honorific5 {0,1}");
+  writer.println("@attribute Prefix5 {0,1}");
+  writer.println("@attribute Suffix5 {0,1}");
+  writer.println("@attribute Kill5 {0,1}");
+  
+  writer.println("@attribute Lexical6 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+  writer.println("@attribute PartOfSpeech6 {article,conjunction,period,comma,hyphen,other}");
+  writer.println("@attribute DictionaryWord6 {0,1}");
+  writer.println("@attribute City6 {0,1}");
+  writer.println("@attribute Country6 {0,1}");
+  writer.println("@attribute Places6 {0,1}");
+  writer.println("@attribute DTICFirst6 {0,1}");
+  writer.println("@attribute DTICLast6 {0,1}");
+  writer.println("@attribute CommonFirst6 {0,1}");
+  writer.println("@attribute CommonLast6 {0,1}");
+  writer.println("@attribute Honorific6 {0,1}");
+  writer.println("@attribute Prefix6 {0,1}");
+  writer.println("@attribute Suffix6 {0,1}");
+  writer.println("@attribute Kill6 {0,1}");
+  
+  writer.println("@attribute Lexical7 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+  writer.println("@attribute PartOfSpeech7 {article,conjunction,period,comma,hyphen,other}");
+  writer.println("@attribute DictionaryWord7 {0,1}");
+  writer.println("@attribute City7 {0,1}");
+  writer.println("@attribute Country7 {0,1}");
+  writer.println("@attribute Places7 {0,1}");
+  writer.println("@attribute DTICFirst7 {0,1}");
+  writer.println("@attribute DTICLast7 {0,1}");
+  writer.println("@attribute CommonFirst7 {0,1}");
+  writer.println("@attribute CommonLast7 {0,1}");
+  writer.println("@attribute Honorific7 {0,1}");
+  writer.println("@attribute Prefix7 {0,1}");
+  writer.println("@attribute Suffix7 {0,1}");
+  writer.println("@attribute Kill7 {0,1}");
+  
+  writer.println("@attribute Lexical8 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+  writer.println("@attribute PartOfSpeech8 {article,conjunction,period,comma,hyphen,other}");
+  writer.println("@attribute DictionaryWord8 {0,1}");
+  writer.println("@attribute City8 {0,1}");
+  writer.println("@attribute Country8 {0,1}");
+  writer.println("@attribute Places8 {0,1}");
+  writer.println("@attribute DTICFirst8 {0,1}");
+  writer.println("@attribute DTICLast8 {0,1}");
+  writer.println("@attribute CommonFirst8 {0,1}");
+  writer.println("@attribute CommonLast8 {0,1}");
+  writer.println("@attribute Honorific8 {0,1}");
+  writer.println("@attribute Prefix8 {0,1}");
+  writer.println("@attribute Suffix8 {0,1}");
+  writer.println("@attribute Kill8 {0,1}");
+  
+  writer.println("@attribute Lexical9 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+  writer.println("@attribute PartOfSpeech9 {article,conjunction,period,comma,hyphen,other}");
+  writer.println("@attribute DictionaryWord9 {0,1}");
+  writer.println("@attribute City9 {0,1}");
+  writer.println("@attribute Country9 {0,1}");
+  writer.println("@attribute Places9 {0,1}");
+  writer.println("@attribute DTICFirst9 {0,1}");
+  writer.println("@attribute DTICLast9 {0,1}");
+  writer.println("@attribute CommonFirst9 {0,1}");
+  writer.println("@attribute CommonLast9 {0,1}");
+  writer.println("@attribute Honorific9 {0,1}");
+  writer.println("@attribute Prefix9 {0,1}");
+  writer.println("@attribute Suffix9 {0,1}");
+  writer.println("@attribute Kill9 {0,1}");
+  
+  writer.println("@attribute Lexical10 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+  writer.println("@attribute PartOfSpeech10 {article,conjunction,period,comma,hyphen,other}");
+  writer.println("@attribute DictionaryWord10 {0,1}");
+  writer.println("@attribute City10 {0,1}");
+  writer.println("@attribute Country10 {0,1}");
+  writer.println("@attribute Places10 {0,1}");
+  writer.println("@attribute DTICFirst10 {0,1}");
+  writer.println("@attribute DTICLast10 {0,1}");
+  writer.println("@attribute CommonFirst10 {0,1}");
+  writer.println("@attribute CommonLast10 {0,1}");
+  writer.println("@attribute Honorific10 {0,1}");
+  writer.println("@attribute Prefix10 {0,1}");
+  writer.println("@attribute Suffix10 {0,1}");
+  writer.println("@attribute Kill10 {0,1}");
+  
+  writer.println("@attribute Lexical11 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+  writer.println("@attribute PartOfSpeech11 {article,conjunction,period,comma,hyphen,other}");
+  writer.println("@attribute DictionaryWord11 {0,1}");
+  writer.println("@attribute City11 {0,1}");
+  writer.println("@attribute Country11 {0,1}");
+  writer.println("@attribute Places11 {0,1}");
+  writer.println("@attribute DTICFirst11 {0,1}");
+  writer.println("@attribute DTICLast11 {0,1}");
+  writer.println("@attribute CommonFirst11 {0,1}");
+  writer.println("@attribute CommonLast11 {0,1}");
+  writer.println("@attribute Honorific11 {0,1}");
+  writer.println("@attribute Prefix11 {0,1}");
+  writer.println("@attribute Suffix11 {0,1}");
+  writer.println("@attribute Kill11 {0,1}");
+ 
+  writer.println("@attribute Name1 {beginning,continuing,other}");
+  writer.println("@attribute Name2 {beginning,continuing,other}");
+  writer.println("@attribute Name3 {beginning,continuing,other}");
+  writer.println("@attribute Name4 {beginning,continuing,other}");
+  writer.println("@attribute Name5 {beginning,continuing,other}");
+  writer.println("@attribute Name6 {beginning,continuing,other}");
+  
+  
+  
+  
+  
+  writer.close();
+  
+  
+    return true;
+  }
 
   // User Story #1094
   // Status - Completed
@@ -786,6 +988,8 @@ public class Trainer implements Serializable {
   	}
   }
 
+  
+  
 
 
   // Loads gazetteer lists from WordLists into HashSet<String>
