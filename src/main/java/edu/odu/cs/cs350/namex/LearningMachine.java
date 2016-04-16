@@ -280,7 +280,12 @@ public class LearningMachine   {
     NominalValName.addElement("beginning");
     NominalValName.addElement("continuing");
     NominalValName.addElement("other");
-    Attribute Name = new Attribute("Name", NominalValName);
+    Attribute Name1 = new Attribute("Name", NominalValName);
+    Attribute Name2 = new Attribute("Name", NominalValName);
+    Attribute Name3 = new Attribute("Name", NominalValName);
+    Attribute Name4 = new Attribute("Name", NominalValName);
+    Attribute Name5 = new Attribute("Name", NominalValName);
+    Attribute Name6 = new Attribute("Name", NominalValName);
 
     // Declare the Feature vector
     attributes = new FastVector(71);
@@ -454,8 +459,12 @@ public class LearningMachine   {
     attributes.addElement(Suffix11);
     attributes.addElement(Kill11);
     //Middle word name classification
-    attributes.addElement(Name);
-		
+    attributes.addElement(Name1);
+    attributes.addElement(Name2);
+    attributes.addElement(Name3);
+    attributes.addElement(Name4);
+    attributes.addElement(Name5);
+    attributes.addElement(Name6);
 		
 	}
 
@@ -650,7 +659,13 @@ public class LearningMachine   {
 		NominalValName.addElement("beginning");
 		NominalValName.addElement("continuing");
 		NominalValName.addElement("other");
-		Attribute Name = new Attribute("Name", NominalValName);
+		
+    Attribute Name1 = new Attribute("Name", NominalValName);
+    Attribute Name2 = new Attribute("Name", NominalValName);
+    Attribute Name3 = new Attribute("Name", NominalValName);
+    Attribute Name4 = new Attribute("Name", NominalValName);
+    Attribute Name5 = new Attribute("Name", NominalValName);
+    Attribute Name6 = new Attribute("Name", NominalValName);
 
 		// Declare the Feature vector
 		attributes = new FastVector(71);
@@ -824,7 +839,12 @@ public class LearningMachine   {
     attributes.addElement(Suffix11);
     attributes.addElement(Kill11);
 
-		attributes.addElement(Name);
+    attributes.addElement(Name1);
+    attributes.addElement(Name2);
+    attributes.addElement(Name3);
+    attributes.addElement(Name4);
+    attributes.addElement(Name5);
+    attributes.addElement(Name6);
 	}
 //Removing the int constructor for simplicity
 //	public LearningMachine(int k) {
