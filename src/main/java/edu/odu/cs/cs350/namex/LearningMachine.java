@@ -696,11 +696,6 @@ public class LearningMachine implements Serializable {
 			return false;
 		}
 	}
-
-	/*
-	 * public String getTrainingData() { return trainingInsts.toString(); }
-	 */
-
 	public Classifier getClassifier() {
 		return classifier;
 	}
@@ -709,7 +704,10 @@ public class LearningMachine implements Serializable {
 		return new Attribute(name, nominalVal);
 	}
 
-	// Returns the number of Attributes being used by the Classifier
+	/**
+	 * Returns the number of attributes being used by the file
+	 * @return
+	 */
 	public int getNumberOfAttributes() {
 		return numAttr;
 	}
