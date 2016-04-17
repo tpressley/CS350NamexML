@@ -689,7 +689,7 @@ public class Trainer implements Serializable {
 		writer.println('\n');
 		writer.println(
 				"@attribute Lexical1 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-		writer.println("@attribute PartOfSpeech1 {article,conjunction,period,comma,hyphen,other}");
+		writer.println("@attribute PartOfSpeech1 {article,conjunction,period,comma,hyphen,other,null}");
 		writer.println("@attribute DictionaryWord1 {0,1}");
 		writer.println("@attribute City1 {0,1}");
 		writer.println("@attribute Country1 {0,1}");
@@ -705,7 +705,7 @@ public class Trainer implements Serializable {
 
 		writer.println(
 				"@attribute Lexical2 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-		writer.println("@attribute PartOfSpeech2 {article,conjunction,period,comma,hyphen,other}");
+		writer.println("@attribute PartOfSpeech2 {article,conjunction,period,comma,hyphen,other,null}");
 		writer.println("@attribute DictionaryWord2 {0,1}");
 		writer.println("@attribute City2 {0,1}");
 		writer.println("@attribute Country2 {0,1}");
@@ -721,7 +721,7 @@ public class Trainer implements Serializable {
 
 		writer.println(
 				"@attribute Lexical3 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-		writer.println("@attribute PartOfSpeech3 {article,conjunction,period,comma,hyphen,other}");
+		writer.println("@attribute PartOfSpeech3 {article,conjunction,period,comma,hyphen,other,null}");
 		writer.println("@attribute DictionaryWord3 {0,1}");
 		writer.println("@attribute City3 {0,1}");
 		writer.println("@attribute Country3 {0,1}");
@@ -737,7 +737,7 @@ public class Trainer implements Serializable {
 
 		writer.println(
 				"@attribute Lexical4 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-		writer.println("@attribute PartOfSpeech4 {article,conjunction,period,comma,hyphen,other}");
+		writer.println("@attribute PartOfSpeech4 {article,conjunction,period,comma,hyphen,other,null}");
 		writer.println("@attribute DictionaryWord4 {0,1}");
 		writer.println("@attribute City4 {0,1}");
 		writer.println("@attribute Country4 {0,1}");
@@ -753,7 +753,7 @@ public class Trainer implements Serializable {
 
 		writer.println(
 				"@attribute Lexical5 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-		writer.println("@attribute PartOfSpeech5 {article,conjunction,period,comma,hyphen,other}");
+		writer.println("@attribute PartOfSpeech5 {article,conjunction,period,comma,hyphen,other,null}");
 		writer.println("@attribute DictionaryWord5 {0,1}");
 		writer.println("@attribute City5 {0,1}");
 		writer.println("@attribute Country5 {0,1}");
@@ -769,7 +769,7 @@ public class Trainer implements Serializable {
 
 		writer.println(
 				"@attribute Lexical6 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-		writer.println("@attribute PartOfSpeech6 {article,conjunction,period,comma,hyphen,other}");
+		writer.println("@attribute PartOfSpeech6 {article,conjunction,period,comma,hyphen,other,null}");
 		writer.println("@attribute DictionaryWord6 {0,1}");
 		writer.println("@attribute City6 {0,1}");
 		writer.println("@attribute Country6 {0,1}");
@@ -785,7 +785,7 @@ public class Trainer implements Serializable {
 
 		writer.println(
 				"@attribute Lexical7 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-		writer.println("@attribute PartOfSpeech7 {article,conjunction,period,comma,hyphen,other}");
+		writer.println("@attribute PartOfSpeech7 {article,conjunction,period,comma,hyphen,other,null}");
 		writer.println("@attribute DictionaryWord7 {0,1}");
 		writer.println("@attribute City7 {0,1}");
 		writer.println("@attribute Country7 {0,1}");
@@ -801,7 +801,7 @@ public class Trainer implements Serializable {
 
 		writer.println(
 				"@attribute Lexical8 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-		writer.println("@attribute PartOfSpeech8 {article,conjunction,period,comma,hyphen,other}");
+		writer.println("@attribute PartOfSpeech8 {article,conjunction,period,comma,hyphen,other,null}");
 		writer.println("@attribute DictionaryWord8 {0,1}");
 		writer.println("@attribute City8 {0,1}");
 		writer.println("@attribute Country8 {0,1}");
@@ -817,7 +817,7 @@ public class Trainer implements Serializable {
 
 		writer.println(
 				"@attribute Lexical9 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-		writer.println("@attribute PartOfSpeech9 {article,conjunction,period,comma,hyphen,other}");
+		writer.println("@attribute PartOfSpeech9 {article,conjunction,period,comma,hyphen,other,null}");
 		writer.println("@attribute DictionaryWord9 {0,1}");
 		writer.println("@attribute City9 {0,1}");
 		writer.println("@attribute Country9 {0,1}");
@@ -833,7 +833,7 @@ public class Trainer implements Serializable {
 
 		writer.println(
 				"@attribute Lexical10 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-		writer.println("@attribute PartOfSpeech10 {article,conjunction,period,comma,hyphen,other}");
+		writer.println("@attribute PartOfSpeech10 {article,conjunction,period,comma,hyphen,other,null}");
 		writer.println("@attribute DictionaryWord10 {0,1}");
 		writer.println("@attribute City10 {0,1}");
 		writer.println("@attribute Country10 {0,1}");
@@ -849,7 +849,7 @@ public class Trainer implements Serializable {
 
 		writer.println(
 				"@attribute Lexical11 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-		writer.println("@attribute PartOfSpeech11 {article,conjunction,period,comma,hyphen,other}");
+		writer.println("@attribute PartOfSpeech11 {article,conjunction,period,comma,hyphen,other,null}");
 		writer.println("@attribute DictionaryWord11 {0,1}");
 		writer.println("@attribute City11 {0,1}");
 		writer.println("@attribute Country11 {0,1}");
@@ -863,12 +863,12 @@ public class Trainer implements Serializable {
 		writer.println("@attribute Suffix11 {0,1}");
 		writer.println("@attribute Kill11 {0,1}");
 
-		writer.println("@attribute Name1 {beginning,continuing,other}");
-		writer.println("@attribute Name2 {beginning,continuing,other}");
-		writer.println("@attribute Name3 {beginning,continuing,other}");
-		writer.println("@attribute Name4 {beginning,continuing,other}");
-		writer.println("@attribute Name5 {beginning,continuing,other}");
-		writer.println("@attribute Name6 {beginning,continuing,other}");
+		writer.println("@attribute Name1 {beginning,continuing,other,null}");
+		writer.println("@attribute Name2 {beginning,continuing,other,null}");
+		writer.println("@attribute Name3 {beginning,continuing,other,null}");
+		writer.println("@attribute Name4 {beginning,continuing,other,null}");
+		writer.println("@attribute Name5 {beginning,continuing,other,null}");
+		writer.println("@attribute Name6 {beginning,continuing,other,null}");
 
 		writer.println('\n');
 		
