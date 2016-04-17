@@ -21,11 +21,11 @@ public class Token {
 	private double[] distribution;
 
 	private int position;
-	
+
 	/**
 	 * Default constructor
 	 */
-	public Token() { 
+	public Token() {
 		this.lexeme = "";
 		this.lexical = "";
 		this.partOfSpeech = "";
@@ -34,7 +34,7 @@ public class Token {
 		this.countryTerritory = 0;
 		this.place = 0;
 		this.DTICFirst = 0;
-		this.DTICLast = 0; 
+		this.DTICLast = 0;
 		this.commonFirst = 0;
 		this.commonLast = 0;
 		this.honorific = 0;
@@ -44,13 +44,14 @@ public class Token {
 		this.name = "";
 		this.distribution = new double[1];
 		this.position = 0;
-	} 
-	
+	}
+
 	/**
 	 * Constructor
+	 * 
 	 * @param lexeme
 	 */
-	public Token(String lexeme) { 
+	public Token(String lexeme) {
 		if (lexeme.equals("null")) {
 			this.lexeme = null;
 			this.lexical = null;
@@ -69,8 +70,7 @@ public class Token {
 			this.killWord = 0;
 			this.name = "null";
 			this.position = 0;
-		} 
-		else if(lexeme.equals("")){
+		} else if (lexeme.equals("")) {
 			this.lexeme = "";
 			this.lexical = "";
 			this.partOfSpeech = "";
@@ -88,8 +88,7 @@ public class Token {
 			this.killWord = 0;
 			this.name = "null";
 			this.position = 0;
-		}
-		else {
+		} else {
 			this.lexeme = lexeme;
 			this.lexical = "";
 			this.partOfSpeech = "";
@@ -114,6 +113,7 @@ public class Token {
 
 	/**
 	 * Constructor
+	 * 
 	 * @param lexeme
 	 * @param position
 	 */
@@ -137,10 +137,10 @@ public class Token {
 		this.name = "";
 		this.distribution = new double[1];
 	}
-	
-	
+
 	/**
 	 * returns array for distribution
+	 * 
 	 * @return
 	 */
 	public double[] getDistribution() {
@@ -149,6 +149,7 @@ public class Token {
 
 	/**
 	 * setter for array for distribution
+	 * 
 	 * @param distribution
 	 */
 	public void setDistribution(double[] distribution) {
@@ -157,6 +158,7 @@ public class Token {
 
 	/**
 	 * returns position
+	 * 
 	 * @return
 	 */
 	public int getPosition() {
@@ -165,6 +167,7 @@ public class Token {
 
 	/**
 	 * setter for position
+	 * 
 	 * @param position
 	 */
 	public void setPosition(int position) {
@@ -246,6 +249,7 @@ public class Token {
 	// cityState
 	/**
 	 * returns '1' if citystate, '0' if not
+	 * 
 	 * @return
 	 */
 	public int isCityState() {
@@ -254,6 +258,7 @@ public class Token {
 
 	/**
 	 * setter for citystate
+	 * 
 	 * @param cityState
 	 */
 	public void setCityState(int cityState) {
@@ -263,6 +268,7 @@ public class Token {
 	// countryTerritory
 	/**
 	 * returns '1' if countryterritory, '0' if not
+	 * 
 	 * @return
 	 */
 	public int isCountryTerritory() {
@@ -271,6 +277,7 @@ public class Token {
 
 	/**
 	 * setter for countryterritory
+	 * 
 	 * @param countryTerritory
 	 */
 	public void setCountryTerritory(int countryTerritory) {
@@ -280,6 +287,7 @@ public class Token {
 	// place
 	/**
 	 * returns '1' if name of place, '0' if not
+	 * 
 	 * @return
 	 */
 	public int isPlace() {
@@ -288,6 +296,7 @@ public class Token {
 
 	/**
 	 * setter for place
+	 * 
 	 * @param place
 	 */
 	public void setPlace(int place) {
@@ -297,6 +306,7 @@ public class Token {
 	// DTICFirst
 	/**
 	 * returns '1' if a DTIC first name
+	 * 
 	 * @return
 	 */
 	public int isDTICFirst() {
@@ -305,6 +315,7 @@ public class Token {
 
 	/**
 	 * setter for DTICFirst
+	 * 
 	 * @param DTICFirst
 	 */
 	public void setDTICFirst(int DTICFirst) {
@@ -314,6 +325,7 @@ public class Token {
 	// DTICLast
 	/**
 	 * returns '1' if a DTIC last name
+	 * 
 	 * @return
 	 */
 	public int isDTICLast() {
@@ -322,6 +334,7 @@ public class Token {
 
 	/**
 	 * setter for DTICLast
+	 * 
 	 * @param DTICLast
 	 */
 	public void setDTICLast(int DTICLast) {
@@ -331,6 +344,7 @@ public class Token {
 	// commonFirst
 	/**
 	 * returns '1' if a common first name
+	 * 
 	 * @return
 	 */
 	public int isCommonFirst() {
@@ -339,6 +353,7 @@ public class Token {
 
 	/**
 	 * setter for commonFirst
+	 * 
 	 * @param commonFirst
 	 */
 	public void setCommonFirst(int commonFirst) {
@@ -348,6 +363,7 @@ public class Token {
 	// commonLast
 	/**
 	 * returns '1' if a common last name
+	 * 
 	 * @return
 	 */
 	public int isCommonLast() {
@@ -356,6 +372,7 @@ public class Token {
 
 	/**
 	 * setter for commonLast
+	 * 
 	 * @param commonLast
 	 */
 	public void setCommonLast(int commonLast) {
@@ -365,6 +382,7 @@ public class Token {
 	// honorific
 	/**
 	 * returns '1' if honorific
+	 * 
 	 * @return
 	 */
 	public int isHonorific() {
@@ -373,6 +391,7 @@ public class Token {
 
 	/**
 	 * setter for honorific
+	 * 
 	 * @param honorific
 	 */
 	public void setHonorific(int honorific) {
@@ -382,6 +401,7 @@ public class Token {
 	// prefix
 	/**
 	 * returns '1' if a prefix
+	 * 
 	 * @return
 	 */
 	public int isPrefix() {
@@ -390,6 +410,7 @@ public class Token {
 
 	/**
 	 * setter for prefix
+	 * 
 	 * @param prefix
 	 */
 	public void setPrefix(int prefix) {
@@ -399,6 +420,7 @@ public class Token {
 	// suffix
 	/**
 	 * returns '1' if a suffix
+	 * 
 	 * @return
 	 */
 	public int isSuffix() {
@@ -407,6 +429,7 @@ public class Token {
 
 	/**
 	 * setter for suffix
+	 * 
 	 * @param suffix
 	 */
 	public void setSuffix(int suffix) {
@@ -416,6 +439,7 @@ public class Token {
 	// killWord
 	/**
 	 * returns '1' if a killword e.g. "bridge""university"
+	 * 
 	 * @return
 	 */
 	public int isKillWord() {
@@ -424,6 +448,7 @@ public class Token {
 
 	/**
 	 * setter for killword
+	 * 
 	 * @param killWord
 	 */
 	public void setKillWord(int killWord) {
@@ -433,6 +458,7 @@ public class Token {
 	// name
 	/**
 	 * returns name
+	 * 
 	 * @return
 	 */
 	public String getName() {
@@ -441,13 +467,13 @@ public class Token {
 
 	/**
 	 * setter for name
+	 * 
 	 * @param name
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	
 	/**
 	 * returns the ARFF @data row for the Token
 	 */

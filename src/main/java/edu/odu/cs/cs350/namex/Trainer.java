@@ -3,6 +3,7 @@ package edu.odu.cs.cs350.namex;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -11,6 +12,7 @@ import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedList;
 
 import edu.odu.cs.extract.wordlists.WordLists;
 
@@ -34,7 +36,7 @@ public class Trainer implements Serializable {
 	private HashSet<String> LastNameSuffixes;
 	private HashSet<String> Places;
 
-	public Trainer() {  
+	public Trainer() {
 
 		DictionaryWords = new HashSet<String>();
 		CitiesStates = new HashSet<String>();
@@ -141,124 +143,91 @@ public class Trainer implements Serializable {
 	 * @param inputFileName
 	 * @param outputFileName
 	 */
-	/*public HashSet<String> getShingles(int k, ArrayList<Token> tokens) {
-		int seqLen = ((2 * k) + 1);
-		HashSet<String> shingles = new HashSet<String>();
-
-		// add null tokens before and after the text block
-		for (int i = 0; i < k; i++) {
-
-			Token nu = new Token("null");
-			tokens.add(0, nu);
-			tokens.add(nu);
-		}
-
-		for (int i = 0; i < (tokens.size() - (seqLen - 1)); i++) {
-			// ArrayList<Token> shingle = new ArrayList<Token>();
-
-			StringBuilder sb = new StringBuilder();
-			StringBuilder sbLexeme = new StringBuilder();
-
-			// int nameCount = 0; // if there are more than two classified names
-			// within the shingle, classify it as 'yes'
-			int begCount = 0;
-			int contCount = 0;
-			int killCount = 0; // # of killWords following a beginning or
-								// continuing token
-			for (int j = 0; j < seqLen; j++) {
-				//
-				 // if (tokens.get(j + i).getName().equals("beginning") ||
-				 // tokens.get(j + i).getName().equals("continuing")) {
-				 //nameCount++; }
-				 //
-
-				if (tokens.get(j + i).getName().equals("beginning")) {
-					begCount++;
-				} else if (tokens.get(j + i).getName().equals("continuing")) {
-					contCount++;
-				}
-
-				// if there is a killWord following a beginning or continuing
-				// token
-
-				// if last element is killword
-				if (tokens.get(j + i).isKillWord() == 1) {
-
-					if (tokens.get(j + i - 1).getName().equals("beginning")
-							|| tokens.get(j + i - 1).getName().equals("continuing")) {
-						killCount++;
-					}
-				}
-
-				// System.out.print(shingleTokens.get(j + i).getARFF() + ",");
-				// shingle.add(shingleTokens.get(j + i));
-				sb.append(tokens.get(j + i).getARFF() + ",");
-				sbLexeme.append(tokens.get(j + i).getLexeme() + " ");
-			}
-
-			// if (nameCount > 1)
-			if (begCount > 0 && contCount > 0) {
-				// Logic for manual Shingle training classification
-//				/*
-//				 * Scanner reader = new Scanner(System.in); // Reading from
-//				 * System.in
-//				 * 
-//				 * boolean correctInput = false;
-//				 * 
-//				 * while (correctInput == false) { System.out.println(
-//				 * "Does the line below contain a personal name? (1 = Yes | 2 = No)"
-//				 * ); System.out.println(sbLexeme); String input =
-//				 * reader.nextLine(); // Scans the next token of the input as an
-//				 * int.
-//				 * 
-//				 * if (input.equals("1") || input.isEmpty()) { sb.append("yes");
-//				 * correctInput = true; } else if (input.equals("2")) {
-//				 * sb.append("no"); correctInput = true; } else {
-//				 * System.out.println("Incorrect input!"); }
-//				 * 
-//				 * }
-//				 *
-
-				if (killCount > 0) {
-					sb.append("no");
-				} else {
-					sb.append("yes");
-				}
-				// System.out.print("yes");
-			} else {
-				sb.append("no");
-				// System.out.print("no");
-			}
-
-			String toAdd = sb.toString();
-
-			shingles.add(toAdd);
-		}
-
-		/*
-		 * // Test Output for (String s : shingles) { System.out.println(s); }
-		 *
-
-		return shingles;
-	}*/
+	/*
+	 * public HashSet<String> getShingles(int k, ArrayList<Token> tokens) { int
+	 * seqLen = ((2 * k) + 1); HashSet<String> shingles = new HashSet<String>();
+	 * 
+	 * // add null tokens before and after the text block for (int i = 0; i < k;
+	 * i++) {
+	 * 
+	 * Token nu = new Token("null"); tokens.add(0, nu); tokens.add(nu); }
+	 * 
+	 * for (int i = 0; i < (tokens.size() - (seqLen - 1)); i++) { //
+	 * ArrayList<Token> shingle = new ArrayList<Token>();
+	 * 
+	 * StringBuilder sb = new StringBuilder(); StringBuilder sbLexeme = new
+	 * StringBuilder();
+	 * 
+	 * // int nameCount = 0; // if there are more than two classified names //
+	 * within the shingle, classify it as 'yes' int begCount = 0; int contCount
+	 * = 0; int killCount = 0; // # of killWords following a beginning or //
+	 * continuing token for (int j = 0; j < seqLen; j++) { // // if
+	 * (tokens.get(j + i).getName().equals("beginning") || // tokens.get(j +
+	 * i).getName().equals("continuing")) { //nameCount++; } //
+	 * 
+	 * if (tokens.get(j + i).getName().equals("beginning")) { begCount++; } else
+	 * if (tokens.get(j + i).getName().equals("continuing")) { contCount++; }
+	 * 
+	 * // if there is a killWord following a beginning or continuing // token
+	 * 
+	 * // if last element is killword if (tokens.get(j + i).isKillWord() == 1) {
+	 * 
+	 * if (tokens.get(j + i - 1).getName().equals("beginning") || tokens.get(j +
+	 * i - 1).getName().equals("continuing")) { killCount++; } }
+	 * 
+	 * // System.out.print(shingleTokens.get(j + i).getARFF() + ","); //
+	 * shingle.add(shingleTokens.get(j + i)); sb.append(tokens.get(j +
+	 * i).getARFF() + ","); sbLexeme.append(tokens.get(j + i).getLexeme() + " "
+	 * ); }
+	 * 
+	 * // if (nameCount > 1) if (begCount > 0 && contCount > 0) { // Logic for
+	 * manual Shingle training classification // /* // * Scanner reader = new
+	 * Scanner(System.in); // Reading from // * System.in // * // * boolean
+	 * correctInput = false; // * // * while (correctInput == false) {
+	 * System.out.println( // *
+	 * "Does the line below contain a personal name? (1 = Yes | 2 = No)" // * );
+	 * System.out.println(sbLexeme); String input = // * reader.nextLine(); //
+	 * Scans the next token of the input as an // * int. // * // * if
+	 * (input.equals("1") || input.isEmpty()) { sb.append("yes"); // *
+	 * correctInput = true; } else if (input.equals("2")) { // *
+	 * sb.append("no"); correctInput = true; } else { // * System.out.println(
+	 * "Incorrect input!"); } // * // * } // *
+	 * 
+	 * if (killCount > 0) { sb.append("no"); } else { sb.append("yes"); } //
+	 * System.out.print("yes"); } else { sb.append("no"); //
+	 * System.out.print("no"); }
+	 * 
+	 * String toAdd = sb.toString();
+	 * 
+	 * shingles.add(toAdd); }
+	 * 
+	 * /* // Test Output for (String s : shingles) { System.out.println(s); }
+	 *
+	 * 
+	 * return shingles; }
+	 */
 
 	/*
 	 * Prepares shingled tokens to feed to the learning machine
 	 * 
 	 * @param arffFilePath
-	 * @param k
-	 *            = number of tokens per shingle
+	 * 
+	 * @param k = number of tokens per shingle
+	 * 
 	 * @param inputFileName
+	 * 
 	 * @param outputFileName
 	 */
-	
+
 	/*
 	 * Prepares shingled tokens to feed to the learning machine
 	 * 
 	 * @param arffFilePath
-	 * @param k
-	 *            = number of tokens per shingle
+	 * 
+	 * @param k = number of tokens per shingle
+	 * 
 	 * @param inputFileName
+	 * 
 	 * @param outputFileName
 	 */
 
@@ -303,6 +272,7 @@ public class Trainer implements Serializable {
 	 * e.printStackTrace(); } } /* /**
 	 * 
 	 * @param textBlock
+	 * 
 	 * @return
 	 */
 	/*
@@ -410,6 +380,7 @@ public class Trainer implements Serializable {
 
 	/**
 	 * checks to see if the Token is a known name of a City or State
+	 * 
 	 * @param token
 	 * @return
 	 */
@@ -427,6 +398,7 @@ public class Trainer implements Serializable {
 
 	/**
 	 * checks to see if the Token is a known common first name
+	 * 
 	 * @param token
 	 * @return
 	 */
@@ -444,6 +416,7 @@ public class Trainer implements Serializable {
 
 	/**
 	 * checks to see if the Token is a known common last name
+	 * 
 	 * @param token
 	 * @return
 	 */
@@ -461,6 +434,7 @@ public class Trainer implements Serializable {
 
 	/**
 	 * checks to see if the Token is a known name of a Country or Territory
+	 * 
 	 * @param token
 	 * @return
 	 */
@@ -478,6 +452,7 @@ public class Trainer implements Serializable {
 
 	/**
 	 * checks to see if the Token is a word found in the English dictionary
+	 * 
 	 * @param token
 	 * @return
 	 */
@@ -495,6 +470,7 @@ public class Trainer implements Serializable {
 
 	/**
 	 * checks to see if the Token is a known DTIC first name
+	 * 
 	 * @param token
 	 * @return
 	 */
@@ -514,6 +490,7 @@ public class Trainer implements Serializable {
 
 	/**
 	 * checks to see if the Token is a known DTIC last name
+	 * 
 	 * @param token
 	 * @return
 	 */
@@ -531,6 +508,7 @@ public class Trainer implements Serializable {
 
 	/**
 	 * checks to see if the Token is an honorific
+	 * 
 	 * @param token
 	 * @return
 	 */
@@ -548,6 +526,7 @@ public class Trainer implements Serializable {
 
 	/**
 	 * checks to see if the Token is an kill word
+	 * 
 	 * @param token
 	 * @return
 	 */
@@ -565,6 +544,7 @@ public class Trainer implements Serializable {
 
 	/**
 	 * checks to see if the Token is a prefix
+	 * 
 	 * @param token
 	 * @return
 	 */
@@ -582,6 +562,7 @@ public class Trainer implements Serializable {
 
 	/**
 	 * checks to see if the Token is a suffix
+	 * 
 	 * @param token
 	 * @return
 	 */
@@ -599,6 +580,7 @@ public class Trainer implements Serializable {
 
 	/**
 	 * checks to see if the Token is a known place
+	 * 
 	 * @param token
 	 * @return
 	 */
@@ -616,6 +598,7 @@ public class Trainer implements Serializable {
 
 	/**
 	 * Sets the features of a token
+	 * 
 	 * @param token
 	 * @return
 	 */
@@ -639,8 +622,10 @@ public class Trainer implements Serializable {
 
 		return token;
 	}
+
 	/**
 	 * Sets the features of all tokens in a list
+	 * 
 	 * @param token
 	 * @return
 	 */
@@ -669,6 +654,7 @@ public class Trainer implements Serializable {
 
 	/**
 	 * Sets the features of all tokens in a list and outputs a hashSet
+	 * 
 	 * @param token
 	 * @return
 	 */
@@ -749,238 +735,216 @@ public class Trainer implements Serializable {
 
 		return arffTokens;
 	}
+
 	/**
 	 * Creates an ARFF file to train the learning machine
+	 * 
 	 * @param shingles
 	 * @return
 	 */
-	public boolean createArff(ArrayList<Shingle> shingles) {
+	public LinkedList<String> createArff(LinkedList<Shingle> shingles) {
+		LinkedList<String> arffString = new LinkedList<String>();
 
-		PrintWriter writer;
-    try
-    {
-      writer = new PrintWriter("the-file-name.txt", "UTF-8");
+			arffString.add("@relation Classification");
 
+			arffString.add(
+					"@attribute Lexical1 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+			arffString.add("@attribute PartOfSpeech1 {article,conjunction,period,comma,hyphen,other,null}");
+			arffString.add("@attribute DictionaryWord1 {0,1}");
+			arffString.add("@attribute City1 {0,1}");
+			arffString.add("@attribute Country1 {0,1}");
+			arffString.add("@attribute Places1 {0,1}");
+			arffString.add("@attribute DTICFirst1 {0,1}");
+			arffString.add("@attribute DTICLast1 {0,1}");
+			arffString.add("@attribute CommonFirst1 {0,1}");
+			arffString.add("@attribute CommonLast1 {0,1}");
+			arffString.add("@attribute Honorific1 {0,1}");
+			arffString.add("@attribute Prefix1 {0,1}");
+			arffString.add("@attribute Suffix1 {0,1}");
+			arffString.add("@attribute Kill1 {0,1}");
 
-		writer.println("@relation Classification");
-		
-		writer.println(
-				"@attribute Lexical1 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-		writer.println("@attribute PartOfSpeech1 {article,conjunction,period,comma,hyphen,other,null}");
-		writer.println("@attribute DictionaryWord1 {0,1}");
-		writer.println("@attribute City1 {0,1}");
-		writer.println("@attribute Country1 {0,1}");
-		writer.println("@attribute Places1 {0,1}");
-		writer.println("@attribute DTICFirst1 {0,1}");
-		writer.println("@attribute DTICLast1 {0,1}");
-		writer.println("@attribute CommonFirst1 {0,1}");
-		writer.println("@attribute CommonLast1 {0,1}");
-		writer.println("@attribute Honorific1 {0,1}");
-		writer.println("@attribute Prefix1 {0,1}");
-		writer.println("@attribute Suffix1 {0,1}");
-		writer.println("@attribute Kill1 {0,1}");
+			arffString.add(
+					"@attribute Lexical2 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+			arffString.add("@attribute PartOfSpeech2 {article,conjunction,period,comma,hyphen,other,null}");
+			arffString.add("@attribute DictionaryWord2 {0,1}");
+			arffString.add("@attribute City2 {0,1}");
+			arffString.add("@attribute Country2 {0,1}");
+			arffString.add("@attribute Places2 {0,1}");
+			arffString.add("@attribute DTICFirst2 {0,1}");
+			arffString.add("@attribute DTICLast2 {0,1}");
+			arffString.add("@attribute CommonFirst2 {0,1}");
+			arffString.add("@attribute CommonLast2 {0,1}");
+			arffString.add("@attribute Honorific2 {0,1}");
+			arffString.add("@attribute Prefix2 {0,1}");
+			arffString.add("@attribute Suffix2 {0,1}");
+			arffString.add("@attribute Kill2 {0,1}");
 
-		writer.println(
-				"@attribute Lexical2 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-		writer.println("@attribute PartOfSpeech2 {article,conjunction,period,comma,hyphen,other,null}");
-		writer.println("@attribute DictionaryWord2 {0,1}");
-		writer.println("@attribute City2 {0,1}");
-		writer.println("@attribute Country2 {0,1}");
-		writer.println("@attribute Places2 {0,1}");
-		writer.println("@attribute DTICFirst2 {0,1}");
-		writer.println("@attribute DTICLast2 {0,1}");
-		writer.println("@attribute CommonFirst2 {0,1}");
-		writer.println("@attribute CommonLast2 {0,1}");
-		writer.println("@attribute Honorific2 {0,1}");
-		writer.println("@attribute Prefix2 {0,1}");
-		writer.println("@attribute Suffix2 {0,1}");
-		writer.println("@attribute Kill2 {0,1}");
+			arffString.add(
+					"@attribute Lexical3 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+			arffString.add("@attribute PartOfSpeech3 {article,conjunction,period,comma,hyphen,other,null}");
+			arffString.add("@attribute DictionaryWord3 {0,1}");
+			arffString.add("@attribute City3 {0,1}");
+			arffString.add("@attribute Country3 {0,1}");
+			arffString.add("@attribute Places3 {0,1}");
+			arffString.add("@attribute DTICFirst3 {0,1}");
+			arffString.add("@attribute DTICLast3 {0,1}");
+			arffString.add("@attribute CommonFirst3 {0,1}");
+			arffString.add("@attribute CommonLast3 {0,1}");
+			arffString.add("@attribute Honorific3 {0,1}");
+			arffString.add("@attribute Prefix3 {0,1}");
+			arffString.add("@attribute Suffix3 {0,1}");
+			arffString.add("@attribute Kill3 {0,1}");
 
-		writer.println(
-				"@attribute Lexical3 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-		writer.println("@attribute PartOfSpeech3 {article,conjunction,period,comma,hyphen,other,null}");
-		writer.println("@attribute DictionaryWord3 {0,1}");
-		writer.println("@attribute City3 {0,1}");
-		writer.println("@attribute Country3 {0,1}");
-		writer.println("@attribute Places3 {0,1}");
-		writer.println("@attribute DTICFirst3 {0,1}");
-		writer.println("@attribute DTICLast3 {0,1}");
-		writer.println("@attribute CommonFirst3 {0,1}");
-		writer.println("@attribute CommonLast3 {0,1}");
-		writer.println("@attribute Honorific3 {0,1}");
-		writer.println("@attribute Prefix3 {0,1}");
-		writer.println("@attribute Suffix3 {0,1}");
-		writer.println("@attribute Kill3 {0,1}");
+			arffString.add(
+					"@attribute Lexical4 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+			arffString.add("@attribute PartOfSpeech4 {article,conjunction,period,comma,hyphen,other,null}");
+			arffString.add("@attribute DictionaryWord4 {0,1}");
+			arffString.add("@attribute City4 {0,1}");
+			arffString.add("@attribute Country4 {0,1}");
+			arffString.add("@attribute Places4 {0,1}");
+			arffString.add("@attribute DTICFirst4 {0,1}");
+			arffString.add("@attribute DTICLast4 {0,1}");
+			arffString.add("@attribute CommonFirst4 {0,1}");
+			arffString.add("@attribute CommonLast4 {0,1}");
+			arffString.add("@attribute Honorific4 {0,1}");
+			arffString.add("@attribute Prefix4 {0,1}");
+			arffString.add("@attribute Suffix4 {0,1}");
+			arffString.add("@attribute Kill4 {0,1}");
 
-		writer.println(
-				"@attribute Lexical4 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-		writer.println("@attribute PartOfSpeech4 {article,conjunction,period,comma,hyphen,other,null}");
-		writer.println("@attribute DictionaryWord4 {0,1}");
-		writer.println("@attribute City4 {0,1}");
-		writer.println("@attribute Country4 {0,1}");
-		writer.println("@attribute Places4 {0,1}");
-		writer.println("@attribute DTICFirst4 {0,1}");
-		writer.println("@attribute DTICLast4 {0,1}");
-		writer.println("@attribute CommonFirst4 {0,1}");
-		writer.println("@attribute CommonLast4 {0,1}");
-		writer.println("@attribute Honorific4 {0,1}");
-		writer.println("@attribute Prefix4 {0,1}");
-		writer.println("@attribute Suffix4 {0,1}");
-		writer.println("@attribute Kill4 {0,1}");
+			arffString.add(
+					"@attribute Lexical5 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+			arffString.add("@attribute PartOfSpeech5 {article,conjunction,period,comma,hyphen,other,null}");
+			arffString.add("@attribute DictionaryWord5 {0,1}");
+			arffString.add("@attribute City5 {0,1}");
+			arffString.add("@attribute Country5 {0,1}");
+			arffString.add("@attribute Places5 {0,1}");
+			arffString.add("@attribute DTICFirst5 {0,1}");
+			arffString.add("@attribute DTICLast5 {0,1}");
+			arffString.add("@attribute CommonFirst5 {0,1}");
+			arffString.add("@attribute CommonLast5 {0,1}");
+			arffString.add("@attribute Honorific5 {0,1}");
+			arffString.add("@attribute Prefix5 {0,1}");
+			arffString.add("@attribute Suffix5 {0,1}");
+			arffString.add("@attribute Kill5 {0,1}");
 
-		writer.println(
-				"@attribute Lexical5 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-		writer.println("@attribute PartOfSpeech5 {article,conjunction,period,comma,hyphen,other,null}");
-		writer.println("@attribute DictionaryWord5 {0,1}");
-		writer.println("@attribute City5 {0,1}");
-		writer.println("@attribute Country5 {0,1}");
-		writer.println("@attribute Places5 {0,1}");
-		writer.println("@attribute DTICFirst5 {0,1}");
-		writer.println("@attribute DTICLast5 {0,1}");
-		writer.println("@attribute CommonFirst5 {0,1}");
-		writer.println("@attribute CommonLast5 {0,1}");
-		writer.println("@attribute Honorific5 {0,1}");
-		writer.println("@attribute Prefix5 {0,1}");
-		writer.println("@attribute Suffix5 {0,1}");
-		writer.println("@attribute Kill5 {0,1}");
+			arffString.add(
+					"@attribute Lexical6 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+			arffString.add("@attribute PartOfSpeech6 {article,conjunction,period,comma,hyphen,other,null}");
+			arffString.add("@attribute DictionaryWord6 {0,1}");
+			arffString.add("@attribute City6 {0,1}");
+			arffString.add("@attribute Country6 {0,1}");
+			arffString.add("@attribute Places6 {0,1}");
+			arffString.add("@attribute DTICFirst6 {0,1}");
+			arffString.add("@attribute DTICLast6 {0,1}");
+			arffString.add("@attribute CommonFirst6 {0,1}");
+			arffString.add("@attribute CommonLast6 {0,1}");
+			arffString.add("@attribute Honorific6 {0,1}");
+			arffString.add("@attribute Prefix6 {0,1}");
+			arffString.add("@attribute Suffix6 {0,1}");
+			arffString.add("@attribute Kill6 {0,1}");
 
-		writer.println(
-				"@attribute Lexical6 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-		writer.println("@attribute PartOfSpeech6 {article,conjunction,period,comma,hyphen,other,null}");
-		writer.println("@attribute DictionaryWord6 {0,1}");
-		writer.println("@attribute City6 {0,1}");
-		writer.println("@attribute Country6 {0,1}");
-		writer.println("@attribute Places6 {0,1}");
-		writer.println("@attribute DTICFirst6 {0,1}");
-		writer.println("@attribute DTICLast6 {0,1}");
-		writer.println("@attribute CommonFirst6 {0,1}");
-		writer.println("@attribute CommonLast6 {0,1}");
-		writer.println("@attribute Honorific6 {0,1}");
-		writer.println("@attribute Prefix6 {0,1}");
-		writer.println("@attribute Suffix6 {0,1}");
-		writer.println("@attribute Kill6 {0,1}");
+			arffString.add(
+					"@attribute Lexical7 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+			arffString.add("@attribute PartOfSpeech7 {article,conjunction,period,comma,hyphen,other,null}");
+			arffString.add("@attribute DictionaryWord7 {0,1}");
+			arffString.add("@attribute City7 {0,1}");
+			arffString.add("@attribute Country7 {0,1}");
+			arffString.add("@attribute Places7 {0,1}");
+			arffString.add("@attribute DTICFirst7 {0,1}");
+			arffString.add("@attribute DTICLast7 {0,1}");
+			arffString.add("@attribute CommonFirst7 {0,1}");
+			arffString.add("@attribute CommonLast7 {0,1}");
+			arffString.add("@attribute Honorific7 {0,1}");
+			arffString.add("@attribute Prefix7 {0,1}");
+			arffString.add("@attribute Suffix7 {0,1}");
+			arffString.add("@attribute Kill7 {0,1}");
 
-		writer.println(
-				"@attribute Lexical7 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-		writer.println("@attribute PartOfSpeech7 {article,conjunction,period,comma,hyphen,other,null}");
-		writer.println("@attribute DictionaryWord7 {0,1}");
-		writer.println("@attribute City7 {0,1}");
-		writer.println("@attribute Country7 {0,1}");
-		writer.println("@attribute Places7 {0,1}");
-		writer.println("@attribute DTICFirst7 {0,1}");
-		writer.println("@attribute DTICLast7 {0,1}");
-		writer.println("@attribute CommonFirst7 {0,1}");
-		writer.println("@attribute CommonLast7 {0,1}");
-		writer.println("@attribute Honorific7 {0,1}");
-		writer.println("@attribute Prefix7 {0,1}");
-		writer.println("@attribute Suffix7 {0,1}");
-		writer.println("@attribute Kill7 {0,1}");
+			arffString.add(
+					"@attribute Lexical8 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+			arffString.add("@attribute PartOfSpeech8 {article,conjunction,period,comma,hyphen,other,null}");
+			arffString.add("@attribute DictionaryWord8 {0,1}");
+			arffString.add("@attribute City8 {0,1}");
+			arffString.add("@attribute Country8 {0,1}");
+			arffString.add("@attribute Places8 {0,1}");
+			arffString.add("@attribute DTICFirst8 {0,1}");
+			arffString.add("@attribute DTICLast8 {0,1}");
+			arffString.add("@attribute CommonFirst8 {0,1}");
+			arffString.add("@attribute CommonLast8 {0,1}");
+			arffString.add("@attribute Honorific8 {0,1}");
+			arffString.add("@attribute Prefix8 {0,1}");
+			arffString.add("@attribute Suffix8 {0,1}");
+			arffString.add("@attribute Kill8 {0,1}");
 
-		writer.println(
-				"@attribute Lexical8 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-		writer.println("@attribute PartOfSpeech8 {article,conjunction,period,comma,hyphen,other,null}");
-		writer.println("@attribute DictionaryWord8 {0,1}");
-		writer.println("@attribute City8 {0,1}");
-		writer.println("@attribute Country8 {0,1}");
-		writer.println("@attribute Places8 {0,1}");
-		writer.println("@attribute DTICFirst8 {0,1}");
-		writer.println("@attribute DTICLast8 {0,1}");
-		writer.println("@attribute CommonFirst8 {0,1}");
-		writer.println("@attribute CommonLast8 {0,1}");
-		writer.println("@attribute Honorific8 {0,1}");
-		writer.println("@attribute Prefix8 {0,1}");
-		writer.println("@attribute Suffix8 {0,1}");
-		writer.println("@attribute Kill8 {0,1}");
+			arffString.add(
+					"@attribute Lexical9 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+			arffString.add("@attribute PartOfSpeech9 {article,conjunction,period,comma,hyphen,other,null}");
+			arffString.add("@attribute DictionaryWord9 {0,1}");
+			arffString.add("@attribute City9 {0,1}");
+			arffString.add("@attribute Country9 {0,1}");
+			arffString.add("@attribute Places9 {0,1}");
+			arffString.add("@attribute DTICFirst9 {0,1}");
+			arffString.add("@attribute DTICLast9 {0,1}");
+			arffString.add("@attribute CommonFirst9 {0,1}");
+			arffString.add("@attribute CommonLast9 {0,1}");
+			arffString.add("@attribute Honorific9 {0,1}");
+			arffString.add("@attribute Prefix9 {0,1}");
+			arffString.add("@attribute Suffix9 {0,1}");
+			arffString.add("@attribute Kill9 {0,1}");
 
-		writer.println(
-				"@attribute Lexical9 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-		writer.println("@attribute PartOfSpeech9 {article,conjunction,period,comma,hyphen,other,null}");
-		writer.println("@attribute DictionaryWord9 {0,1}");
-		writer.println("@attribute City9 {0,1}");
-		writer.println("@attribute Country9 {0,1}");
-		writer.println("@attribute Places9 {0,1}");
-		writer.println("@attribute DTICFirst9 {0,1}");
-		writer.println("@attribute DTICLast9 {0,1}");
-		writer.println("@attribute CommonFirst9 {0,1}");
-		writer.println("@attribute CommonLast9 {0,1}");
-		writer.println("@attribute Honorific9 {0,1}");
-		writer.println("@attribute Prefix9 {0,1}");
-		writer.println("@attribute Suffix9 {0,1}");
-		writer.println("@attribute Kill9 {0,1}");
+			arffString.add(
+					"@attribute Lexical10 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+			arffString.add("@attribute PartOfSpeech10 {article,conjunction,period,comma,hyphen,other,null}");
+			arffString.add("@attribute DictionaryWord10 {0,1}");
+			arffString.add("@attribute City10 {0,1}");
+			arffString.add("@attribute Country10 {0,1}");
+			arffString.add("@attribute Places10 {0,1}");
+			arffString.add("@attribute DTICFirst10 {0,1}");
+			arffString.add("@attribute DTICLast10 {0,1}");
+			arffString.add("@attribute CommonFirst10 {0,1}");
+			arffString.add("@attribute CommonLast10 {0,1}");
+			arffString.add("@attribute Honorific10 {0,1}");
+			arffString.add("@attribute Prefix10 {0,1}");
+			arffString.add("@attribute Suffix10 {0,1}");
+			arffString.add("@attribute Kill10 {0,1}");
 
-		writer.println(
-				"@attribute Lexical10 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-		writer.println("@attribute PartOfSpeech10 {article,conjunction,period,comma,hyphen,other,null}");
-		writer.println("@attribute DictionaryWord10 {0,1}");
-		writer.println("@attribute City10 {0,1}");
-		writer.println("@attribute Country10 {0,1}");
-		writer.println("@attribute Places10 {0,1}");
-		writer.println("@attribute DTICFirst10 {0,1}");
-		writer.println("@attribute DTICLast10 {0,1}");
-		writer.println("@attribute CommonFirst10 {0,1}");
-		writer.println("@attribute CommonLast10 {0,1}");
-		writer.println("@attribute Honorific10 {0,1}");
-		writer.println("@attribute Prefix10 {0,1}");
-		writer.println("@attribute Suffix10 {0,1}");
-		writer.println("@attribute Kill10 {0,1}");
+			arffString.add(
+					"@attribute Lexical11 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+			arffString.add("@attribute PartOfSpeech11 {article,conjunction,period,comma,hyphen,other,null}");
+			arffString.add("@attribute DictionaryWord11 {0,1}");
+			arffString.add("@attribute City11 {0,1}");
+			arffString.add("@attribute Country11 {0,1}");
+			arffString.add("@attribute Places11 {0,1}");
+			arffString.add("@attribute DTICFirst11 {0,1}");
+			arffString.add("@attribute DTICLast11 {0,1}");
+			arffString.add("@attribute CommonFirst11 {0,1}");
+			arffString.add("@attribute CommonLast11 {0,1}");
+			arffString.add("@attribute Honorific11 {0,1}");
+			arffString.add("@attribute Prefix11 {0,1}");
+			arffString.add("@attribute Suffix11 {0,1}");
+			arffString.add("@attribute Kill11 {0,1}");
 
-		writer.println(
-				"@attribute Lexical11 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-		writer.println("@attribute PartOfSpeech11 {article,conjunction,period,comma,hyphen,other,null}");
-		writer.println("@attribute DictionaryWord11 {0,1}");
-		writer.println("@attribute City11 {0,1}");
-		writer.println("@attribute Country11 {0,1}");
-		writer.println("@attribute Places11 {0,1}");
-		writer.println("@attribute DTICFirst11 {0,1}");
-		writer.println("@attribute DTICLast11 {0,1}");
-		writer.println("@attribute CommonFirst11 {0,1}");
-		writer.println("@attribute CommonLast11 {0,1}");
-		writer.println("@attribute Honorific11 {0,1}");
-		writer.println("@attribute Prefix11 {0,1}");
-		writer.println("@attribute Suffix11 {0,1}");
-		writer.println("@attribute Kill11 {0,1}");
+			arffString.add("@attribute Name1 {beginning,continuing,other,null}");
+			arffString.add("@attribute Name2 {beginning,continuing,other,null}");
+			arffString.add("@attribute Name3 {beginning,continuing,other,null}");
+			arffString.add("@attribute Name4 {beginning,continuing,other,null}");
+			arffString.add("@attribute Name5 {beginning,continuing,other,null}");
+			arffString.add("@attribute Name6 {beginning,continuing,other,null}");
 
-		writer.println("@attribute Name1 {beginning,continuing,other,null}");
-		writer.println("@attribute Name2 {beginning,continuing,other,null}");
-		writer.println("@attribute Name3 {beginning,continuing,other,null}");
-		writer.println("@attribute Name4 {beginning,continuing,other,null}");
-		writer.println("@attribute Name5 {beginning,continuing,other,null}");
-		writer.println("@attribute Name6 {beginning,continuing,other,null}");
+			arffString.add("\n");
 
-		writer.print('\n');
-		
-		for (int i=0; i<shingles.size();i++)
-		{
-		  //System.out.println(shingles.size());
-		  for (int j=0;j<shingles.get(i).getTokens().size(); j++)
-		  {
-		    writer.print(shingles.get(i).getTokens().get(j).toString());
-		    //System.out.print(shingles.get(i).getTokens().get(j).toString());
-		  }
-		  writer.print(shingles.get(1).getTokens().get(1).getName());
-		  writer.print(shingles.get(1).getTokens().get(2).getName());
-		  writer.print(shingles.get(1).getTokens().get(3).getName());
-		  writer.print(shingles.get(1).getTokens().get(4).getName());
-		  writer.print(shingles.get(1).getTokens().get(5).getName());
-		  writer.print(shingles.get(1).getTokens().get(6).getName());
-		  writer.print('\n');
-		  System.out.print('\n');
-		}
-
-		
-		writer.close();
-    }
-    catch (FileNotFoundException e)
-    {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
-    catch (UnsupportedEncodingException e)
-    {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
-		return true;
+			for (int i = 0; i < shingles.size(); i++) {
+				// System.out.println(shingles.size());
+				for (int j = 0; j < shingles.get(i).getTokens().size(); j++) {
+					arffString.add(shingles.get(i).getTokens().get(j).toString());
+					// System.out.print(shingles.get(i).getTokens().get(j).toString());
+				}
+				String tempString = shingles.get(1).getTokens().get(1).getName() + shingles.get(1).getTokens().get(2).getName() + shingles.get(1).getTokens().get(3).getName()
+								+ shingles.get(1).getTokens().get(4).getName() + shingles.get(1).getTokens().get(5).getName() + shingles.get(1).getTokens().get(6).getName();
+				arffString.add(tempString + "\n"); 
+				if (i % 500 == 0)
+					System.out.println("Added line" + i);
+			}
+		return arffString;
 	}
 
 	/**
@@ -989,8 +953,8 @@ public class Trainer implements Serializable {
 	 * @param tokens
 	 * @return
 	 */
-	public ArrayList<Shingle> getShingles(ArrayList<Token> tokens) {
-		ArrayList<Shingle> shingles = new ArrayList<Shingle>();
+	public LinkedList<Shingle> getShingles(ArrayList<Token> tokens) {
+		LinkedList<Shingle> shingles = new LinkedList<Shingle>();
 		int count = 1;
 		Shingle shingle = new Shingle();
 		Token nullToken = new Token("null");
@@ -1010,13 +974,12 @@ public class Trainer implements Serializable {
 					shingleToAdd.getTokens().remove(0);
 					shingleToAdd.getTokens().add(tokens.get(j));
 					shingles.add(shingleToAdd);
-					//System.out.println(tokens.get(j).toString());
-					//System.err.println(j);
+					// System.out.println(tokens.get(j).toString());
+					// System.err.println(j);
 					count++;
 					j++;
 					shingle = shingleToAdd;
-					if(count % 10000 == 0)
-					{
+					if (count % 100000 == 0) {
 						System.err.println(count);
 					}
 				}
@@ -1029,6 +992,7 @@ public class Trainer implements Serializable {
 
 	/**
 	 * Idenfies lexical features of a lexeme
+	 * 
 	 * @param lexeme
 	 * @return
 	 */
@@ -1091,6 +1055,7 @@ public class Trainer implements Serializable {
 
 	/**
 	 * Returns the part of speech of a token
+	 * 
 	 * @param token
 	 * @return
 	 */
@@ -1118,6 +1083,7 @@ public class Trainer implements Serializable {
 
 	/**
 	 * Loads gazetteer lists from WordLists into HashSet<String>
+	 * 
 	 * @param
 	 */
 	private void loadGazetteer(HashSet<String> gazetteer, Iterable<String> wordlist) {

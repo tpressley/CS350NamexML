@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.util.HashSet;
+import java.util.LinkedList;
 
 import weka.classifiers.Classifier;
 import weka.classifiers.Evaluation;
@@ -22,7 +23,7 @@ public class LearningMachine {
 	private Instances trainingInstances;
 	private String evalSummary;
 
-	public LearningMachine() { 
+	public LearningMachine() {
 		// Initialize the Classifier as a Naive Bayes Classifier
 		classifier = (Classifier) new NaiveBayes();
 		// Initialize Attributes
@@ -310,7 +311,7 @@ public class LearningMachine {
 		attributes.addElement(Suffix1);
 		attributes.addElement(Kill1);
 		// word two
-		attributes.addElement(Lexical2); 
+		attributes.addElement(Lexical2);
 		attributes.addElement(PartOfSpeech2);
 		attributes.addElement(DictionaryWord2);
 		attributes.addElement(City2);
@@ -1203,7 +1204,7 @@ public class LearningMachine {
 	 * @param HashSet<string>
 	 *            trainingData
 	 */
-	public void importARFF(HashSet<String> trainingData) {
+	public void importARFF(LinkedList<String> trainingData) {
 
 		this.trainingInstances = new Instances("Classification", attributes, trainingData.size());
 

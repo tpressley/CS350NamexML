@@ -3,6 +3,7 @@ package edu.odu.cs.cs350.namex;
 import java.lang.String;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -16,7 +17,7 @@ public class Librarian {
 
 	public Librarian() {
 		lm = new LearningMachine();
-		trainer = new Trainer(); 
+		trainer = new Trainer();
 	}
 
 	public static void main(String[] args) throws FileNotFoundException {
@@ -37,7 +38,7 @@ public class Librarian {
 				String outputFileName = args[2];
 				ArrayList<String> textFile = new ArrayList<String>();
 				ArrayList<Token> tokens = new ArrayList<Token>();
-				ArrayList<Shingle> shingles = new ArrayList<Shingle>();
+				LinkedList<Shingle> shingles = new LinkedList<Shingle>();
 				Trainer trainer = new Trainer();
 				System.out.println();
 
@@ -61,8 +62,6 @@ public class Librarian {
 				trainer.getFeatures(tokens);
 				shingles = trainer.getShingles(tokens);
 				trainer.createArff(shingles);
-				
-
 
 			}
 		}
