@@ -16,6 +16,7 @@ public class Shingle {
 
 	// TODO Update shingle size logic
 	public Shingle() {
+		tokens = new ArrayList<Token>();
 		Token token = new Token("null");
 		for (int i = 0; i < (5 * 2 + 1); i++) {
 			tokens.add(token);
