@@ -53,6 +53,7 @@ public class Librarian {
 						}
 					}
 				}
+				sc.close();
 
 				// separate string into tokens
 				tokens = trainer.tokenize(textFile);
