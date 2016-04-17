@@ -230,7 +230,17 @@ public class Trainer implements Serializable {
 		return shingles;
 	}*/
 
-	/**
+	/*
+	 * Prepares shingled tokens to feed to the learning machine
+	 * 
+	 * @param arffFilePath
+	 * @param k
+	 *            = number of tokens per shingle
+	 * @param inputFileName
+	 * @param outputFileName
+	 */
+	
+	/*
 	 * Prepares shingled tokens to feed to the learning machine
 	 * 
 	 * @param arffFilePath
@@ -240,17 +250,7 @@ public class Trainer implements Serializable {
 	 * @param outputFileName
 	 */
 
-	/**
-	 * Prepares shingled tokens to feed to the learning machine
-	 * 
-	 * @param arffFilePath
-	 * @param k
-	 *            = number of tokens per shingle
-	 * @param inputFileName
-	 * @param outputFileName
-	 */
-
-	/**
+	/*
 	 * public void prepareShinglingData(String arffFilePath, int k, String
 	 * inputFileName, String outputFileName) { Librarian librarian = new
 	 * Librarian();
