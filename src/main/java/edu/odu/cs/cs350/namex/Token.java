@@ -239,8 +239,9 @@ public class Token {
 	 * 
 	 * @return
 	 */
-	public void setDictionaryWord(int dictionaryWord) {
-		this.dictionaryWord = dictionaryWord;
+	public void setDictionaryWord(int i) {
+		if(i == 1 || i == 0)
+			this.dictionaryWord = i;
 	}
 
 	// cityState
@@ -256,8 +257,9 @@ public class Token {
 	 * setter for citystate
 	 * @param cityState
 	 */
-	public void setCityState(int cityState) {
-		this.cityState = cityState;
+	public void setCityState(int i) {
+		if(i == 1 || i == 0)
+			this.cityState = i;
 	}
 
 	// countryTerritory
@@ -273,8 +275,9 @@ public class Token {
 	 * setter for countryterritory
 	 * @param countryTerritory
 	 */
-	public void setCountryTerritory(int countryTerritory) {
-		this.countryTerritory = countryTerritory;
+	public void setCountryTerritory(int i) {
+		if(i == 1 || i == 0)
+			this.countryTerritory = i;
 	}
 
 	// place
@@ -290,8 +293,10 @@ public class Token {
 	 * setter for place
 	 * @param place
 	 */
-	public void setPlace(int place) {
-		this.place = place;
+	public void setPlace(int i) {
+		if(i == 1 || i == 0)
+			this.place = i;
+
 	}
 
 	// DTICFirst
@@ -307,8 +312,10 @@ public class Token {
 	 * setter for DTICFirst
 	 * @param DTICFirst
 	 */
-	public void setDTICFirst(int DTICFirst) {
-		this.DTICFirst = DTICFirst;
+	public void setDTICFirst(int i) {
+		if(i == 1 || i == 0)
+			this.DTICFirst = i;
+
 	}
 
 	// DTICLast
@@ -324,8 +331,10 @@ public class Token {
 	 * setter for DTICLast
 	 * @param DTICLast
 	 */
-	public void setDTICLast(int DTICLast) {
-		this.DTICLast = DTICLast;
+	public void setDTICLast(int i) {
+		if(i == 1 || i == 0)
+			this.DTICLast = i;
+
 	}
 
 	// commonFirst
@@ -341,8 +350,9 @@ public class Token {
 	 * setter for commonFirst
 	 * @param commonFirst
 	 */
-	public void setCommonFirst(int commonFirst) {
-		this.commonFirst = commonFirst;
+	public void setCommonFirst(int i) {
+		if(i == 1 || i == 0)
+			this.commonFirst = i;
 	}
 
 	// commonLast
@@ -358,8 +368,9 @@ public class Token {
 	 * setter for commonLast
 	 * @param commonLast
 	 */
-	public void setCommonLast(int commonLast) {
-		this.commonLast = commonLast;
+	public void setCommonLast(int i) {
+		if(i == 1 || i == 0)
+			this.commonLast = i;
 	}
 
 	// honorific
@@ -375,8 +386,9 @@ public class Token {
 	 * setter for honorific
 	 * @param honorific
 	 */
-	public void setHonorific(int honorific) {
-		this.honorific = honorific;
+	public void setHonorific(int i) {
+		if(i == 1 || i == 0)
+			this.honorific = i;
 	}
 
 	// prefix
@@ -392,8 +404,9 @@ public class Token {
 	 * setter for prefix
 	 * @param prefix
 	 */
-	public void setPrefix(int prefix) {
-		this.prefix = prefix;
+	public void setPrefix(int i) {
+		if(i == 1 || i == 0)
+			this.prefix = i;
 	}
 
 	// suffix
@@ -409,8 +422,9 @@ public class Token {
 	 * setter for suffix
 	 * @param suffix
 	 */
-	public void setSuffix(int suffix) {
-		this.suffix = suffix;
+	public void setSuffix(int i) {
+		if(i == 1 || i == 0)
+			this.suffix = i;
 	}
 
 	// killWord
@@ -426,8 +440,9 @@ public class Token {
 	 * setter for killword
 	 * @param killWord
 	 */
-	public void setKillWord(int killWord) {
-		this.killWord = killWord;
+	public void setKillWord(int i) {
+		if(i == 1 || i == 0)
+			this.killWord = i;
 	}
 
 	// name

@@ -516,7 +516,7 @@ public class TestToken {
 	
 	@Test
 	/**
-	 * test for public void setDictionaryWord(int dictionaryWord) 
+	 * test for public void setDictionaryWord(int i) 
 	 */
 	public void testSetDictionaryWord(){
 		Token t1 = new Token("desk");
@@ -601,7 +601,7 @@ public class TestToken {
 	
 	@Test
 	/**
-	 * test for public void setCityState(int cityState)
+	 * test for public void setCityState(int i)
 	 */
 	public void testSetCityState(){
 		
@@ -693,7 +693,7 @@ public class TestToken {
 	
 	@Test
 	/**
-	 * test for public void setCountryTerritory(int countryTerritory)
+	 * test for public void setCountryTerritory(int i)
 	 */
 	public void testSetCountryTerritory(){
 		
@@ -731,6 +731,75 @@ public class TestToken {
 		assertEquals(0 , t4.isCountryTerritory());
 		assertEquals(0 , t5.isCountryTerritory());
 	}
+	
+	@Test
+	/**
+	 * test for 
+	 * public int isPlace()
+	 * and
+	 * public void setPlace(int i)
+	 */
+	public void testIsPlaceSetPlace(){
+		
+		/*
+		 * this test is incomplete
+		 */
+		
+		Token gwu1 = new Token("George");
+		Token gwu2 = new Token("Washington");
+		Token gwu3 = new Token("University");
+		
+		gwu3.setPlace(1);
+		assertEquals(1 , gwu3.isPlace());
+	}
+	
+	@Test
+	/**
+	 * test for 
+	 * public int isDTICFirst()
+	 * and
+	 * public void setDTICFirst(int i)
+	 */
+	public void testIsDTICFirstSetDTICFirst(){
+		Token f1 = new Token("George");
+		Token f2 = new Token("Jane");
+		Token f3 = new Token("Mark");
+		Token f4 = new Token("Jessica");
+		Token t1 = new Token("lemon");
+		Token t2 = new Token("building");
+		
+		f1.setDTICFirst(999); //should do nothing
+		f1.setDTICFirst(1);
+		assertEquals(1 , f1.isDTICFirst());
+		f2.setDTICFirst(1);
+		assertEquals(1 , f2.isDTICFirst());
+		f3.setDTICFirst(1);
+		assertEquals(1 , f3.isDTICFirst());
+		f4.setDTICFirst(1);
+		assertEquals(1 , f4.isDTICFirst());
+		t1.setDTICFirst(0);
+		assertEquals(0 , t1.isDTICFirst());
+		t2.setDTICFirst(0);
+		assertEquals(0 , t2.isDTICFirst());
+	}
+	
+	@Test
+	/**
+	 * test for 
+	 * public int isDTICLast()
+	 * and
+	 * public void setDTICLast(int i)
+	 */
+	public void testIsDTICLastSetDTICLast(){
+		Token l1 = new Token("Johnson");
+		Token l2 = new Token("Smith");
+		Token l3 = new Token("Wang");
+		Token t1 = new Token("lemon");
+		Token t2 = new Token("building");
+		
+		
+	}
+	
 	
 	// User Story #850
 	// Status - Completed
