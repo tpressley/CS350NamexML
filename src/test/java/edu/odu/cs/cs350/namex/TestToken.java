@@ -877,12 +877,101 @@ public class TestToken {
 	
 	public void testIsCommonLastSetCommonLast(){
 		
+		Token l1 = new Token("smith");
+		Token l2 = new Token("johnson");
+		Token l3 = new Token("williams");
+		Token l4 = new Token("jones");
+		Token l5 = new Token("brown");
+		Token l6 = new Token("davis");
+		Token l7 = new Token("miller");
+		Token l8 = new Token("wilson");
+		Token l9 = new Token("moore");
+		Token l10 = new Token("taylor");
+		Token l11 = new Token("anderson");
+		Token l12 = new Token("thomas");
+		Token l13 = new Token("jackson");
+		Token l14 = new Token("white");
+		Token l15 = new Token("harris");
+		Token l16 = new Token("martin");
+		Token l17 = new Token("thompson");
+		Token l18 = new Token("garcia");
+		Token l19 = new Token("martinez");
+		Token l20 = new Token("robinson");
+		
+		l1.setCommonLast(1);
+		l2.setCommonLast(1);
+		l3.setCommonLast(1);
+		l4.setCommonLast(1);
+		l5.setCommonLast(1);
+		l6.setCommonLast(1);
+		l7.setCommonLast(1);
+		l8.setCommonLast(1);
+		l9.setCommonLast(1);
+		l10.setCommonLast(1);
+		l11.setCommonLast(1);
+		l12.setCommonLast(1);
+		l13.setCommonLast(1);
+		l14.setCommonLast(1);
+		l15.setCommonLast(1);
+		l16.setCommonLast(1);
+		l17.setCommonLast(1);
+		l18.setCommonLast(1);
+		l19.setCommonLast(1);
+		l20.setCommonLast(1);
+		
+		assertEquals(1 , l1.isCommonLast());
+		assertEquals(1 , l2.isCommonLast());
+		assertEquals(1 , l3.isCommonLast());
+		assertEquals(1 , l4.isCommonLast());
+		assertEquals(1 , l5.isCommonLast());
+		assertEquals(1 , l6.isCommonLast());
+		assertEquals(1 , l7.isCommonLast());
+		assertEquals(1 , l8.isCommonLast());
+		assertEquals(1 , l9.isCommonLast());
+		assertEquals(1 , l10.isCommonLast());
+		assertEquals(1 , l11.isCommonLast());
+		assertEquals(1 , l12.isCommonLast());
+		assertEquals(1 , l13.isCommonLast());
+		assertEquals(1 , l14.isCommonLast());
+		assertEquals(1 , l15.isCommonLast());
+		assertEquals(1 , l16.isCommonLast());
+		assertEquals(1 , l17.isCommonLast());
+		assertEquals(1 , l18.isCommonLast());
+		assertEquals(1 , l19.isCommonLast());
+		assertEquals(1 , l20.isCommonLast());
+	}
+	
+	@Test
+	/**
+	 * test for public int isHonorific()
+	 * and
+	 * public void setHonorific(int i)
+	 */
+	public void testIsHonorificSetHonorific(){
+		
+		Token t1 = new Token("Mr");
+		Token t2 = new Token("Dr");
+		Token t3 = new Token("Rev");
+		
+		t1.setHonorific(1);
+		t2.setHonorific(1);
+		t3.setHonorific(1);
+		assertEquals(1, t1.isHonorific());
+		assertEquals(1, t2.isHonorific());
+		assertEquals(1, t3.isHonorific());
 	}
 	
 	
+	@Test
+	/**
+	 * test for public int isPrefix()
+	 * and
+	 * public void setPrefix(int i)
+	 */
 	
-	
-	
+	public void testIsPrefixSetPrefix(){
+		
+	}
 	
 	
 	
