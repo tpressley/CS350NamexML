@@ -34,7 +34,7 @@ public class Trainer implements Serializable {
 	private HashSet<String> LastNameSuffixes;
 	private HashSet<String> Places;
 
-	public Trainer() {
+	public Trainer() { 
 
 		DictionaryWords = new HashSet<String>();
 		CitiesStates = new HashSet<String>();

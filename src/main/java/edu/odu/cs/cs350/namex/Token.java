@@ -21,6 +21,10 @@ public class Token {
 	private double[] distribution;
 
 	private int position;
+	
+	/**
+	 * Default constructor
+	 */
 
 	public Token() {
 		this.lexeme = "";
@@ -31,7 +35,7 @@ public class Token {
 		this.countryTerritory = 0;
 		this.place = 0;
 		this.DTICFirst = 0;
-		this.DTICLast = 0;
+		this.DTICLast = 0; 
 		this.commonFirst = 0;
 		this.commonLast = 0;
 		this.honorific = 0;
@@ -40,9 +44,14 @@ public class Token {
 		this.killWord = 0;
 		this.name = "";
 		this.distribution = new double[1];
-	}
+	} 
+	
+	/**
+	 * Constructor
+	 * @param lexeme
+	 */
 
-	public Token(String lexeme) {
+	public Token(String lexeme) { 
 		if (lexeme.equals("null")) {
 			this.lexeme = lexeme;
 			this.lexical = "null";
@@ -82,6 +91,11 @@ public class Token {
 
 	}
 
+	/**
+	 * Constructor
+	 * @param lexeme
+	 * @param position
+	 */
 	public Token(String lexeme, int position) {
 		this.lexeme = lexeme;
 		this.lexical = "other";
@@ -102,19 +116,36 @@ public class Token {
 		this.name = "";
 		this.distribution = new double[1];
 	}
-
+	
+	
+	/**
+	 * returns array for distribution
+	 * @return
+	 */
 	public double[] getDistribution() {
 		return distribution;
 	}
 
+	/**
+	 * setter for array for distribution
+	 * @param distribution
+	 */
 	public void setDistribution(double[] distribution) {
 		this.distribution = distribution;
 	}
 
+	/**
+	 * returns position
+	 * @return
+	 */
 	public int getPosition() {
 		return position;
 	}
 
+	/**
+	 * setter for position
+	 * @param position
+	 */
 	public void setPosition(int position) {
 		this.position = position;
 	}
@@ -192,73 +223,137 @@ public class Token {
 	}
 
 	// cityState
+	/**
+	 * returns '1' if citystate, '0' if not
+	 * @return
+	 */
 	public int isCityState() {
 		return this.cityState;
 	}
 
+	/**
+	 * setter for citystate
+	 * @param cityState
+	 */
 	public void setCityState(int cityState) {
 		this.cityState = cityState;
 	}
 
 	// countryTerritory
+	/**
+	 * returns '1' if countryterritory, '0' if not
+	 * @return
+	 */
 	public int isCountryTerritory() {
 		return this.countryTerritory;
 	}
 
+	/**
+	 * setter for countryterritory
+	 * @param countryTerritory
+	 */
 	public void setCountryTerritory(int countryTerritory) {
 		this.countryTerritory = countryTerritory;
 	}
 
 	// place
+	/**
+	 * returns '1' if name of place, '0' if not
+	 * @return
+	 */
 	public int isPlace() {
 		return this.place;
 	}
 
+	/**
+	 * setter for place
+	 * @param place
+	 */
 	public void setPlace(int place) {
 		this.place = place;
 	}
 
 	// DTICFirst
+	/**
+	 * returns '1' if a DTIC first name
+	 * @return
+	 */
 	public int isDTICFirst() {
 		return this.DTICFirst;
 	}
 
+	/**
+	 * setter for DTICFirst
+	 * @param DTICFirst
+	 */
 	public void setDTICFirst(int DTICFirst) {
 		this.DTICFirst = DTICFirst;
 	}
 
 	// DTICLast
+	/**
+	 * returns '1' if a DTIC last name
+	 * @return
+	 */
 	public int isDTICLast() {
 		return this.DTICLast;
 	}
 
+	/**
+	 * setter for DTICLast
+	 * @param DTICLast
+	 */
 	public void setDTICLast(int DTICLast) {
 		this.DTICLast = DTICLast;
 	}
 
 	// commonFirst
+	/**
+	 * returns '1' if a common first name
+	 * @return
+	 */
 	public int isCommonFirst() {
 		return this.commonFirst;
 	}
 
+	/**
+	 * setter for commonFirst
+	 * @param commonFirst
+	 */
 	public void setCommonFirst(int commonFirst) {
 		this.commonFirst = commonFirst;
 	}
 
 	// commonLast
+	/**
+	 * returns '1' if a common last name
+	 * @return
+	 */
 	public int isCommonLast() {
 		return this.commonLast;
 	}
 
+	/**
+	 * setter for commonLast
+	 * @param commonLast
+	 */
 	public void setCommonLast(int commonLast) {
 		this.commonLast = commonLast;
 	}
 
 	// honorific
+	/**
+	 * returns '1' if honorific
+	 * @return
+	 */
 	public int isHonorific() {
 		return this.honorific;
 	}
 
+	/**
+	 * setter for honorific
+	 * @param honorific
+	 */
 	public void setHonorific(int honorific) {
 		this.honorific = honorific;
 	}
@@ -373,7 +468,6 @@ public class Token {
 		output += position + ",\",";
 
 		return output;
-
 	}
 
 	public void printTokenData() {

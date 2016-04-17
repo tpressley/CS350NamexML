@@ -22,7 +22,7 @@ public class LearningMachine {
 	private Instances trainingInstances;
 	private String evalSummary;
 
-	public LearningMachine() {
+	public LearningMachine() { 
 		// Initialize the Classifier as a Naive Bayes Classifier
 		classifier = (Classifier) new NaiveBayes();
 		// Initialize Attributes

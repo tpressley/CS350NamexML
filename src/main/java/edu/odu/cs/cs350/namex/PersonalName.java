@@ -78,9 +78,7 @@ public class PersonalName {
 	 */
 	public String getName() {
 		// returns full name
-
 		return this.toString();
-
 	};
 
 	/**
@@ -111,7 +109,6 @@ public class PersonalName {
 	 */
 	public String getMiddleNames() {
 		// returns all Strings between second and
-
 		// last Strings in array list
 		return middleNames;
 
@@ -136,9 +133,6 @@ public class PersonalName {
 	public String getSuffix() {
 		// returns Suffix (ie jr, sr, II) if it exists.
 
-		// This will store in the
-
-		// second
 		return suffix;
 
 	}
