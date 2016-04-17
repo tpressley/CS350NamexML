@@ -50,17 +50,29 @@ public class Trainer implements Serializable {
 		KillWords = new HashSet<String>();
 
 		loadGazetteer(DictionaryWords, WordLists.englishDictionary());
+		System.out.println("53");
 		loadGazetteer(CitiesStates, WordLists.citiesAndStatesUS());
+		System.out.println("55");
 		loadGazetteer(CountriesTerritories, WordLists.countriesAndTerritories());
+		System.out.println("57");
 		loadGazetteer(Places, WordLists.places());
+		System.out.println("59");
 		loadGazetteer(DTICFirstNames, WordLists.firstNames());
+		System.out.println("61");
 		loadGazetteer(DTICLastNames, WordLists.lastNames());
+		System.out.println("63");
 		loadGazetteer(CommonFirstNames, WordLists.commonFirstNames());
+		System.out.println("65");
 		loadGazetteer(CommonLastNames, WordLists.commonLastNames());
+		System.out.println("67");
 		loadGazetteer(Honorifics, WordLists.honorifics());
+		System.out.println("69");
 		loadGazetteer(LastNamePrefixes, WordLists.lastNamePrefixes());
+		System.out.println("71");
 		loadGazetteer(LastNameSuffixes, WordLists.lastNamePrefixes());
+		System.out.println("73");
 		loadGazetteer(KillWords, WordLists.nonPersonalIdentifierCues());
+		System.out.println("75");
 
 	}
 
@@ -988,14 +1000,14 @@ public class Trainer implements Serializable {
 				shingle.getTokens().remove(0);
 				shingle.getTokens().add(nullToken);
 				shingles.add(shingle);
-			} else if (tokens.get(i).getLexeme().equals("<NER>")) {
-				for (int j = 1; j < tokens.size(); j++) {
-					if (tokens.get(j).getLexeme().equals("<\\NER>"))
-						break;
+			} else /*if (tokens.get(i).getLexeme().equals("<NER>"))*/ {
+				//for (int j = 1; j < tokens.size(); j++) {
+					//if (tokens.get(j).getLexeme().equals("<\\NER>"))
+						//break;
 					Shingle shingleToAdd = new Shingle(shingle);
 					
 					shingleToAdd.getTokens().remove(0);
-					shingleToAdd.getTokens().add(tokens.get(j));
+					shingleToAdd.getTokens().add(tokens.get(i));
 					
 					
 					shingles.add(shingleToAdd);
@@ -1007,7 +1019,7 @@ public class Trainer implements Serializable {
 					{
 						System.err.println(count);
 					}
-				}
+				//}
 			}
 
 		}
