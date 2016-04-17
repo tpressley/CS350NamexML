@@ -907,12 +907,12 @@ public class Trainer implements Serializable {
 	public ArrayList<Shingle> getShingles(ArrayList<Token> tokens) {
 		ArrayList<Shingle> shingles = new ArrayList<Shingle>();
 		Shingle shingle = new Shingle();
-
+		Token nullToken = new Token("null");
 		shingles.add(shingle);
 		for (int i = 0; i < (tokens.size() + (2 * 5 + 1)); i++) {
 			if (i > tokens.size() - 1) {
 				shingle.getTokens().remove(0);
-				shingle.getTokens().add(null);
+				shingle.getTokens().add(nullToken);
 				shingles.add(shingle);
 			} else if (tokens.get(i).getLexeme() == "<NER>") {
 				for (int j = 1; j < tokens.size(); j++) {
