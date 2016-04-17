@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class TestToken {
-	
+
 	@Test
 	/**
 	 * test for default constructor; public Token()
@@ -34,13 +34,12 @@ public class TestToken {
 		assertTrue(tok.getDistribution() != null && tok.getDistribution().length == 1);
 	}
 
-	
 	@Test
 	/**
-	 * test for constructor; public Token(String lexeme) 
+	 * test for constructor; public Token(String lexeme)
 	 */
-	public void testTokenString(){
-		
+	public void testTokenString() {
+
 		Token tok = new Token("testLex");
 		Token tok2 = new Token("");
 		Token tok3 = new Token();
@@ -65,7 +64,7 @@ public class TestToken {
 		assertEquals("", tok.getName());
 		assertEquals(0, tok.getPosition());
 		assertTrue(tok.getDistribution() != null && tok.getDistribution().length == 1);
-		
+
 		assertTrue(tok2 != null);
 		assertEquals("", tok2.getLexeme());
 		assertEquals("", tok2.getLexical());
@@ -85,7 +84,7 @@ public class TestToken {
 		assertEquals("", tok2.getName());
 		assertEquals(0, tok2.getPosition());
 		assertTrue(tok2.getDistribution() != null && tok2.getDistribution().length == 1);
-		
+
 		assertTrue(tok3 != null);
 		assertEquals("", tok3.getLexeme());
 		assertEquals("", tok3.getLexical());
@@ -105,7 +104,7 @@ public class TestToken {
 		assertEquals("", tok3.getName());
 		assertEquals(0, tok3.getPosition());
 		assertTrue(tok3.getDistribution() != null && tok3.getDistribution().length == 1);
-		
+
 		assertTrue(tok4 != null);
 		assertTrue(tok4.getLexeme() == null);
 		assertTrue(tok4.getLexical() == null);
@@ -126,17 +125,17 @@ public class TestToken {
 		assertEquals(0, tok4.getPosition());
 		assertTrue(tok4.getDistribution() != null && tok4.getDistribution().length == 1);
 	}
-	
+
 	@Test
 	/**
 	 * test for constructor; public Token(String lexeme, int position)
 	 */
-	public void testTokenStringInt(){
-		
-		Token tok = new Token("testLex" , 0);
-		Token tok2 = new Token("testLex2" , 1);
-		Token tok3 = new Token("testLex3" , 4);
-		
+	public void testTokenStringInt() {
+
+		Token tok = new Token("testLex", 0);
+		Token tok2 = new Token("testLex2", 1);
+		Token tok3 = new Token("testLex3", 4);
+
 		assertTrue(tok != null);
 		assertEquals("testLex", tok.getLexeme());
 		assertEquals("", tok.getLexical());
@@ -156,7 +155,7 @@ public class TestToken {
 		assertEquals("", tok.getName());
 		assertEquals(0, tok.getPosition());
 		assertTrue(tok.getDistribution() != null && tok.getDistribution().length == 1);
-		
+
 		assertTrue(tok2 != null);
 		assertEquals("testLex2", tok2.getLexeme());
 		assertEquals("", tok2.getLexical());
@@ -176,7 +175,7 @@ public class TestToken {
 		assertEquals("", tok2.getName());
 		assertEquals(1, tok2.getPosition());
 		assertTrue(tok2.getDistribution() != null && tok2.getDistribution().length == 1);
-		
+
 		assertTrue(tok3 != null);
 		assertEquals("testLex3", tok3.getLexeme());
 		assertEquals("", tok3.getLexical());
@@ -197,188 +196,170 @@ public class TestToken {
 		assertEquals(4, tok3.getPosition());
 		assertTrue(tok3.getDistribution() != null && tok3.getDistribution().length == 1);
 	}
-	
-	
+
 	@Test
 	/**
 	 * test for public double[] getDistribution()
 	 */
-	public void testGetDistribution(){
+	public void testGetDistribution() {
 		Token tok = new Token();
 		assertTrue(tok.getDistribution() != null);
-		assertEquals(1 , tok.getDistribution().length);
-		
+		assertEquals(1, tok.getDistribution().length);
+
 		Token tok2 = new Token("test");
 		assertTrue(tok2.getDistribution() != null);
 		assertEquals(1, tok2.getDistribution().length);
 	}
-	
+
 	@Test
 	/**
-	 * test for public void setDistribution(double[] distribution) 
+	 * test for public void setDistribution(double[] distribution)
 	 */
-	public void testSetDistribution(){
+	public void testSetDistribution() {
 		double[] test1 = new double[1];
 		Token tok = new Token();
 		tok.setDistribution(test1);
-		
-		assertTrue(tok.getDistribution()!=null);
+
+		assertTrue(tok.getDistribution() != null);
 		assertEquals(1, tok.getDistribution().length);
 	}
-	
-	
-	
+
 	@Test
 	/**
 	 * test for public int getPosition()
 	 */
-	public void testGetPosition(){
-		
-		Token tok = new Token("testLex" , 0);
-		Token tok2 = new Token("testLex2" , 1);
-		Token tok3 = new Token("testLex3" , 4);
-		
-		assertEquals(0 , tok.getPosition());
-		assertEquals(1 , tok2.getPosition());
-		assertEquals(4 , tok3.getPosition());
+	public void testGetPosition() {
+
+		Token tok = new Token("testLex", 0);
+		Token tok2 = new Token("testLex2", 1);
+		Token tok3 = new Token("testLex3", 4);
+
+		assertEquals(0, tok.getPosition());
+		assertEquals(1, tok2.getPosition());
+		assertEquals(4, tok3.getPosition());
 	}
-	
-	
+
 	@Test
 	/**
 	 * test for public void setPosition(int position)
 	 */
-	public void testSetPosition(){
+	public void testSetPosition() {
 		Token tok = new Token();
 		Token tok2 = new Token("test");
-		Token tok3 = new Token("test2" , 0);
-		Token tok4 = new Token("test3" , 2);
-		
+		Token tok3 = new Token("test2", 0);
+		Token tok4 = new Token("test3", 2);
+
 		assertEquals(0, tok.getPosition());
 		assertEquals(0, tok2.getPosition());
 		assertEquals(0, tok3.getPosition());
 		assertEquals(2, tok4.getPosition());
-		
+
 		tok3.setPosition(3);
-		assertEquals(3 , tok3.getPosition());
-		
+		assertEquals(3, tok3.getPosition());
+
 		tok4.setPosition(0);
-		assertEquals(0 , tok4.getPosition());
+		assertEquals(0, tok4.getPosition());
 	}
-	
-	
+
 	@Test
 	/**
 	 * test for public String getLexeme()
 	 */
-	public void testGetLexeme(){
+	public void testGetLexeme() {
 		Token tok = new Token();
 		Token tok2 = new Token("test");
-		
-		assertEquals("" , tok.getLexeme());
-		assertEquals("test" , tok2.getLexeme());
+
+		assertEquals("", tok.getLexeme());
+		assertEquals("test", tok2.getLexeme());
 	}
-	
-	
+
 	@Test
 	/**
 	 * test for public void setLexeme(String lexeme)
 	 */
-	public void testSetLexeme(){
+	public void testSetLexeme() {
 		Token tok = new Token();
 		Token tok2 = new Token("test");
-		
+
 		tok.setLexeme("new");
-		assertEquals("new" , tok.getLexeme());
-		
+		assertEquals("new", tok.getLexeme());
+
 		tok2.setLexeme("next");
-		assertEquals("next" , tok2.getLexeme());
-		
+		assertEquals("next", tok2.getLexeme());
+
 		tok2.setLexeme("");
-		assertEquals("" , tok2.getLexeme());
+		assertEquals("", tok2.getLexeme());
 	}
-	
-	
+
 	@Test
 	/**
-	 * test for public String getLexical() 
+	 * test for public String getLexical()
 	 */
-	public void testGetLexical(){
-		
+	public void testGetLexical() {
+
 		Token tok = new Token();
 		Token tok2 = new Token("hello");
 		Token tok3 = new Token("John");
 		Token tok4 = new Token("!");
 		Token tok5 = new Token("P");
-		
-		assertEquals("" , tok.getLexical());
-		
+
+		assertEquals("", tok.getLexical());
+
 		tok2.setLexical("other");
-		assertEquals("other" , tok2.getLexical());
-		
+		assertEquals("other", tok2.getLexical());
+
 		tok3.setLexical("capitalized");
-		assertEquals("capitalized" , tok3.getLexical());
-		
+		assertEquals("capitalized", tok3.getLexical());
+
 		tok4.setLexical("punct");
-		assertEquals("punct" , tok4.getLexical());
-		
+		assertEquals("punct", tok4.getLexical());
+
 		tok5.setLexical("CapLetter");
-		assertEquals("CapLetter" , tok5.getLexical());
+		assertEquals("CapLetter", tok5.getLexical());
 	}
 
-	
-	
 	@Test
 	/**
 	 * test for public void setLexical(String lexical)
 	 */
-	public void testSetLexical(){
-		
+	public void testSetLexical() {
+
 		/*
-		 * Lexical features	
-				-   number			
-				-   punctuation mark; "punct"			
-				-   single capitalized letter; "CapLetter"				
-				-   capitalized word (of more than one letter); "capitalized"						
-				-   ALL-CAPS word (of more than one letter)						
-				-   Line feed / new line						
-				-   Null/nothing
+		 * Lexical features - number - punctuation mark; "punct" - single
+		 * capitalized letter; "CapLetter" - capitalized word (of more than one
+		 * letter); "capitalized" - ALL-CAPS word (of more than one letter) -
+		 * Line feed / new line - Null/nothing
 		 */
-		Token tok = new Token("no"); //other
-		Token tok2 = new Token("H"); //CapLetter
-		Token tok3 = new Token(","); //punct
-		Token tok4 = new Token("School"); //capitalized
+		Token tok = new Token("no"); // other
+		Token tok2 = new Token("H"); // CapLetter
+		Token tok3 = new Token(","); // punct
+		Token tok4 = new Token("School"); // capitalized
 
 		tok.setLexical("other");
-		assertEquals("other" , tok.getLexical());
+		assertEquals("other", tok.getLexical());
 
 		tok2.setLexical("CapLetter");
-		assertEquals("CapLetter" , tok2.getLexical());
-		
+		assertEquals("CapLetter", tok2.getLexical());
+
 		tok3.setLexical("punct");
-		assertEquals("punct" , tok3.getLexical());
-		
+		assertEquals("punct", tok3.getLexical());
+
 		tok4.setLexical("capitalized");
-		assertEquals("capitalized" , tok4.getLexical());
+		assertEquals("capitalized", tok4.getLexical());
 	}
-	
-	
+
 	@Test
 	/**
 	 * test for public String getPartOfSpeech()
 	 */
-	public void testGetPartOfSpeech(){
+	public void testGetPartOfSpeech() {
 		/*
 		 * Parts of Speech
-
-				 - Articles (“a”, “an”, “the”)			
-				 - Conjunction, specifically “and”				
-				 - Period					
-				 - Comma				
-				 - Hyphen
-				 - other
+		 * 
+		 * - Articles (“a”, “an”, “the”) - Conjunction, specifically “and” -
+		 * Period - Comma - Hyphen - other
 		 */
-		
+
 		Token t1 = new Token("an");
 		Token t2 = new Token(".");
 		Token t3 = new Token("and");
@@ -388,60 +369,56 @@ public class TestToken {
 		Token t7 = new Token();
 		Token t8 = new Token(",");
 		Token t9 = new Token("-");
-		
+
 		t1.setLexical("other");
 		t1.setPartOfSpeech("article");
 		assertEquals(0, ("article").compareToIgnoreCase(t1.getPartOfSpeech()));
-		
+
 		t2.setLexical("punct");
 		t2.setPartOfSpeech("period");
 		assertEquals(0, ("period").compareToIgnoreCase(t2.getPartOfSpeech()));
-		
+
 		t3.setLexical("other");
 		t3.setPartOfSpeech("conjunction");
 		assertEquals(0, ("conjunction").compareToIgnoreCase(t3.getPartOfSpeech()));
-		
+
 		t4.setLexical("other");
 		t4.setPartOfSpeech("other");
 		assertEquals(0, ("other").compareToIgnoreCase(t4.getPartOfSpeech()));
-		
+
 		t5.setLexical("CapLetter");
 		t5.setPartOfSpeech("other");
 		assertEquals(0, ("other").compareToIgnoreCase(t5.getPartOfSpeech()));
-		
+
 		t6.setLexical("capitalized");
 		t6.setPartOfSpeech("other");
 		assertEquals(0, ("other").compareToIgnoreCase(t6.getPartOfSpeech()));
-		
+
 		t7.setLexical("null");
 		t7.setPartOfSpeech("other");
 		assertEquals(0, ("other").compareToIgnoreCase(t7.getPartOfSpeech()));
-		
+
 		t8.setLexical("punct");
 		t8.setPartOfSpeech("comma");
 		assertEquals(0, ("comma").compareToIgnoreCase(t8.getPartOfSpeech()));
-		
+
 		t9.setLexical("punct");
 		t9.setPartOfSpeech("hyphen");
-		assertEquals(0, ("hyphen").compareToIgnoreCase(t9.getPartOfSpeech()));	
+		assertEquals(0, ("hyphen").compareToIgnoreCase(t9.getPartOfSpeech()));
 	}
-	
+
 	@Test
 	/**
 	 * test for public void setPartOfSpeech(String partOfSpeech)
 	 */
-	public void testSetPartOfSpeech(){
+	public void testSetPartOfSpeech() {
 		/*
 		 * Parts of Speech
-
-				 - Articles (“a”, “an”, “the”)			
-				 - Conjunction, specifically “and”				
-				 - Period					
-				 - Comma				
-				 - Hyphen
-				 - other
+		 * 
+		 * - Articles (“a”, “an”, “the”) - Conjunction, specifically “and” -
+		 * Period - Comma - Hyphen - other
 		 */
-		
+
 		Token t1 = new Token("an");
 		Token t2 = new Token(".");
 		Token t3 = new Token("and");
@@ -451,118 +428,115 @@ public class TestToken {
 		Token t7 = new Token();
 		Token t8 = new Token(",");
 		Token t9 = new Token("-");
-		
-		//t1.setLexical("other");
+
+		// t1.setLexical("other");
 		t1.setPartOfSpeech("article");
 		assertEquals("article", t1.getPartOfSpeech());
-		
-		//t2.setLexical("punct");
+
+		// t2.setLexical("punct");
 		t2.setPartOfSpeech("period");
 		assertEquals("period", t2.getPartOfSpeech());
-		
-		//t3.setLexical("other");
+
+		// t3.setLexical("other");
 		t3.setPartOfSpeech("conjunction");
-		assertEquals("conjunction" , t3.getPartOfSpeech());
-		
-		//t4.setLexical("other");
+		assertEquals("conjunction", t3.getPartOfSpeech());
+
+		// t4.setLexical("other");
 		t4.setPartOfSpeech("other");
-		assertEquals("other" , t4.getPartOfSpeech());
-		
-		//t5.setLexical("CapLetter");
+		assertEquals("other", t4.getPartOfSpeech());
+
+		// t5.setLexical("CapLetter");
 		t5.setPartOfSpeech("other");
-		assertEquals("other" , t5.getPartOfSpeech());
-		
-		//t6.setLexical("capitalized");
+		assertEquals("other", t5.getPartOfSpeech());
+
+		// t6.setLexical("capitalized");
 		t6.setPartOfSpeech("other");
-		assertEquals("other" , t6.getPartOfSpeech());
-		
-		//t7.setLexical("null");
+		assertEquals("other", t6.getPartOfSpeech());
+
+		// t7.setLexical("null");
 		t7.setPartOfSpeech("other");
-		assertEquals("other" , t7.getPartOfSpeech());
-		
-		//t8.setLexical("punct");
+		assertEquals("other", t7.getPartOfSpeech());
+
+		// t8.setLexical("punct");
 		t8.setPartOfSpeech("comma");
-		assertEquals("comma" , t8.getPartOfSpeech());
-		
-		//t9.setLexical("punct");
+		assertEquals("comma", t8.getPartOfSpeech());
+
+		// t9.setLexical("punct");
 		t9.setPartOfSpeech("hyphen");
-		assertEquals("hyphen" , t9.getPartOfSpeech());	
+		assertEquals("hyphen", t9.getPartOfSpeech());
 	}
-	
-	
+
 	@Test
 	/**
 	 * test for public int isDictionaryWord()
 	 */
-	public void testIsDictionaryWord(){
+	public void testIsDictionaryWord() {
 		Token t1 = new Token("desk");
 		Token t2 = new Token();
 		Token t3 = new Token("");
 		Token t4 = new Token("strawberry");
 		Token t5 = new Token("ODU");
-		
+
 		t1.setDictionaryWord(1);
 		t2.setDictionaryWord(0);
 		t3.setDictionaryWord(0);
 		t4.setDictionaryWord(1);
 		t5.setDictionaryWord(0);
-		assertEquals(1 , t1.isDictionaryWord());
-		assertEquals(0 , t2.isDictionaryWord());
-		assertEquals(0 , t3.isDictionaryWord());
-		assertEquals(1 , t4.isDictionaryWord());
-		assertEquals(0 , t5.isDictionaryWord());
+		assertEquals(1, t1.isDictionaryWord());
+		assertEquals(0, t2.isDictionaryWord());
+		assertEquals(0, t3.isDictionaryWord());
+		assertEquals(1, t4.isDictionaryWord());
+		assertEquals(0, t5.isDictionaryWord());
 	}
-	
-	
+
 	@Test
 	/**
-	 * test for public void setDictionaryWord(int i) 
+	 * test for public void setDictionaryWord(int i)
 	 */
-	public void testSetDictionaryWord(){
+	public void testSetDictionaryWord() {
 		Token t1 = new Token("desk");
 		Token t2 = new Token();
 		Token t3 = new Token("");
 		Token t4 = new Token("strawberry");
 		Token t5 = new Token("ODU");
-		
+
 		t1.setDictionaryWord(1);
 		t2.setDictionaryWord(0);
 		t3.setDictionaryWord(0);
 		t4.setDictionaryWord(1);
 		t5.setDictionaryWord(0);
-		
-		assertEquals(1 , t1.isDictionaryWord());
-		assertEquals(0 , t2.isDictionaryWord());
-		assertEquals(0 , t3.isDictionaryWord());
-		assertEquals(1 , t4.isDictionaryWord());
-		assertEquals(0 , t5.isDictionaryWord());
-		
+
+		assertEquals(1, t1.isDictionaryWord());
+		assertEquals(0, t2.isDictionaryWord());
+		assertEquals(0, t3.isDictionaryWord());
+		assertEquals(1, t4.isDictionaryWord());
+		assertEquals(0, t5.isDictionaryWord());
+
 	}
-	
-	
+
 	@Test
 	/**
 	 * test for public int isCityState()
 	 */
-	public void testIsCityState(){
-		Token vermont = new Token("Vermont"); //state
-		Token norfolk = new Token("Norfolk"); //city
-		Token vabeach = new Token("Virginia Beach"); //city
-		Token va = new Token("Virginia"); //state
-		Token sc = new Token("South Carolina"); //state
-		Token milford = new Token("Milford"); //city
-		Token ca = new Token("California"); //state
-		Token boston = new Token("Boston"); //city
-		Token shanghai = new Token("Shanghai"); //city
-		Token london = new Token("London"); //city
-		Token cairo = new Token("Cairo"); //city
-		
+	public void testIsCityState() {
+		Token vermont = new Token("Vermont"); // state
+		Token norfolk = new Token("Norfolk"); // city
+		Token vabeach = new Token("Virginia Beach"); // city
+		Token va = new Token("Virginia"); // state
+		Token sc = new Token("South Carolina"); // state
+		Token milford = new Token("Milford"); // city
+		Token ca = new Token("California"); // state
+		Token boston = new Token("Boston"); // city
+		Token shanghai = new Token("Shanghai"); // city
+		Token london = new Token("London"); // city
+		Token cairo = new Token("Cairo"); // city
+
 		Token t1 = new Token("John");
 		Token t2 = new Token("Ashley");
 		Token t3 = new Token("desk");
 		Token t4 = new Token("lamp");
 		Token t5 = new Token("ocean");
-		
+
 		vermont.setCityState(1);
 		norfolk.setCityState(1);
 		vabeach.setCityState(1);
@@ -579,47 +553,46 @@ public class TestToken {
 		t3.setCityState(0);
 		t4.setCityState(0);
 		t5.setCityState(0);
-		
-		assertEquals(1 , vermont.isCityState());
-		assertEquals(1 , norfolk.isCityState());
-		assertEquals(1 , vabeach.isCityState());
-		assertEquals(1 , va.isCityState());
-		assertEquals(1 , sc.isCityState());
-		assertEquals(1 , milford.isCityState());
-		assertEquals(1 , ca.isCityState());
-		assertEquals(1 , boston.isCityState());
-		assertEquals(1 , shanghai.isCityState());
-		assertEquals(1 , london.isCityState());
-		assertEquals(1 , cairo.isCityState());
+
+		assertEquals(1, vermont.isCityState());
+		assertEquals(1, norfolk.isCityState());
+		assertEquals(1, vabeach.isCityState());
+		assertEquals(1, va.isCityState());
+		assertEquals(1, sc.isCityState());
+		assertEquals(1, milford.isCityState());
+		assertEquals(1, ca.isCityState());
+		assertEquals(1, boston.isCityState());
+		assertEquals(1, shanghai.isCityState());
+		assertEquals(1, london.isCityState());
+		assertEquals(1, cairo.isCityState());
 		assertEquals(0, t1.isCityState());
 		assertEquals(0, t2.isCityState());
 		assertEquals(0, t3.isCityState());
 		assertEquals(0, t4.isCityState());
 		assertEquals(0, t5.isCityState());
 	}
-	
-	
+
 	@Test
 	/**
 	 * test for public void setCityState(int i)
 	 */
-	public void testSetCityState(){
-		
-		Token vermont = new Token("Vermont"); //state
-		Token norfolk = new Token("Norfolk"); //city
-		Token vabeach = new Token("Virginia Beach"); //city
-		Token va = new Token("Virginia"); //state
-		Token sc = new Token("South Carolina"); //state
-		Token milford = new Token("Milford"); //city
-		Token ca = new Token("California"); //state
-		Token boston = new Token("Boston"); //city
-		
+	public void testSetCityState() {
+
+		Token vermont = new Token("Vermont"); // state
+		Token norfolk = new Token("Norfolk"); // city
+		Token vabeach = new Token("Virginia Beach"); // city
+		Token va = new Token("Virginia"); // state
+		Token sc = new Token("South Carolina"); // state
+		Token milford = new Token("Milford"); // city
+		Token ca = new Token("California"); // state
+		Token boston = new Token("Boston"); // city
+
 		Token t1 = new Token("John");
 		Token t2 = new Token("Ashley");
 		Token t3 = new Token("desk");
 		Token t4 = new Token("lamp");
 		Token t5 = new Token("ocean");
-		
+
 		vermont.setCityState(1);
 		norfolk.setCityState(1);
 		vabeach.setCityState(1);
@@ -633,40 +606,40 @@ public class TestToken {
 		t3.setCityState(0);
 		t4.setCityState(0);
 		t5.setCityState(0);
-		
-		assertEquals(1 , vermont.isCityState());
-		assertEquals(1 , norfolk.isCityState());
-		assertEquals(1 , vabeach.isCityState());
-		assertEquals(1 , va.isCityState());
-		assertEquals(1 , sc.isCityState());
-		assertEquals(1 , milford.isCityState());
-		assertEquals(1 , ca.isCityState());
-		assertEquals(1 , boston.isCityState());
+
+		assertEquals(1, vermont.isCityState());
+		assertEquals(1, norfolk.isCityState());
+		assertEquals(1, vabeach.isCityState());
+		assertEquals(1, va.isCityState());
+		assertEquals(1, sc.isCityState());
+		assertEquals(1, milford.isCityState());
+		assertEquals(1, ca.isCityState());
+		assertEquals(1, boston.isCityState());
 		assertEquals(0, t1.isCityState());
 		assertEquals(0, t2.isCityState());
 		assertEquals(0, t3.isCityState());
 		assertEquals(0, t4.isCityState());
 		assertEquals(0, t5.isCityState());
-	
+
 	}
-	
+
 	@Test
 	/**
 	 * test for public int isCountryTerritory()
 	 */
-	public void testIsCountryTerritory(){
+	public void testIsCountryTerritory() {
 		Token egypt = new Token("Egypt");
 		Token canada = new Token("Canada");
 		Token southafrica = new Token("South Africa");
 		Token china = new Token("China");
 		Token france = new Token("France");
-		
+
 		Token t1 = new Token("John");
 		Token t2 = new Token("Ashley");
 		Token t3 = new Token("desk");
 		Token t4 = new Token("lamp");
 		Token t5 = new Token("ocean");
-		
+
 		egypt.setCountryTerritory(1);
 		canada.setCountryTerritory(1);
 		southafrica.setCountryTerritory(1);
@@ -677,38 +650,37 @@ public class TestToken {
 		t3.setCountryTerritory(0);
 		t4.setCountryTerritory(0);
 		t5.setCountryTerritory(0);
-		
-		assertEquals(1 , egypt.isCountryTerritory());
-		assertEquals(1 , canada.isCountryTerritory());
-		assertEquals(1 , china.isCountryTerritory());
-		assertEquals(1 , southafrica.isCountryTerritory());
-		assertEquals(1 , france.isCountryTerritory());
+
+		assertEquals(1, egypt.isCountryTerritory());
+		assertEquals(1, canada.isCountryTerritory());
+		assertEquals(1, china.isCountryTerritory());
+		assertEquals(1, southafrica.isCountryTerritory());
+		assertEquals(1, france.isCountryTerritory());
 		assertFalse(t1.isCountryTerritory() == 1);
 		assertFalse(t2.isCountryTerritory() == 1);
 		assertFalse(t3.isCountryTerritory() == 1);
 		assertFalse(t4.isCountryTerritory() == 1);
 		assertFalse(t5.isCountryTerritory() == 1);
 	}
-	
-	
+
 	@Test
 	/**
 	 * test for public void setCountryTerritory(int i)
 	 */
-	public void testSetCountryTerritory(){
-		
+	public void testSetCountryTerritory() {
+
 		Token egypt = new Token("Egypt");
 		Token canada = new Token("Canada");
 		Token southafrica = new Token("South Africa");
 		Token china = new Token("China");
 		Token france = new Token("France");
-		
+
 		Token t1 = new Token("John");
 		Token t2 = new Token("Ashley");
 		Token t3 = new Token("desk");
 		Token t4 = new Token("lamp");
 		Token t5 = new Token("ocean");
-		
+
 		egypt.setCountryTerritory(1);
 		canada.setCountryTerritory(1);
 		southafrica.setCountryTerritory(1);
@@ -719,88 +691,214 @@ public class TestToken {
 		t3.setCountryTerritory(0);
 		t4.setCountryTerritory(0);
 		t5.setCountryTerritory(0);
-		
-		assertEquals(1 , egypt.isCountryTerritory());
-		assertEquals(1 , canada.isCountryTerritory());
-		assertEquals(1 , china.isCountryTerritory());
-		assertEquals(1 , southafrica.isCountryTerritory());
-		assertEquals(1 , france.isCountryTerritory());
-		assertEquals(0 , t1.isCountryTerritory());
-		assertEquals(0 , t2.isCountryTerritory());
-		assertEquals(0 , t3.isCountryTerritory());
-		assertEquals(0 , t4.isCountryTerritory());
-		assertEquals(0 , t5.isCountryTerritory());
+
+		assertEquals(1, egypt.isCountryTerritory());
+		assertEquals(1, canada.isCountryTerritory());
+		assertEquals(1, china.isCountryTerritory());
+		assertEquals(1, southafrica.isCountryTerritory());
+		assertEquals(1, france.isCountryTerritory());
+		assertEquals(0, t1.isCountryTerritory());
+		assertEquals(0, t2.isCountryTerritory());
+		assertEquals(0, t3.isCountryTerritory());
+		assertEquals(0, t4.isCountryTerritory());
+		assertEquals(0, t5.isCountryTerritory());
 	}
-	
+
 	@Test
 	/**
-	 * test for 
-	 * public int isPlace()
-	 * and
-	 * public void setPlace(int i)
+	 * test for public int isPlace() and public void setPlace(int i)
 	 */
-	public void testIsPlaceSetPlace(){
-		
+	public void testIsPlaceSetPlace() {
+
 		/*
 		 * this test is incomplete
 		 */
-		
+
 		Token gwu1 = new Token("George");
 		Token gwu2 = new Token("Washington");
 		Token gwu3 = new Token("University");
-		
+
 		gwu3.setPlace(1);
-		assertEquals(1 , gwu3.isPlace());
+		assertEquals(1, gwu3.isPlace());
 	}
-	
+
 	@Test
 	/**
-	 * test for 
-	 * public int isDTICFirst()
-	 * and
-	 * public void setDTICFirst(int i)
+	 * test for public int isDTICFirst() and public void setDTICFirst(int i)
 	 */
-	public void testIsDTICFirstSetDTICFirst(){
+	public void testIsDTICFirstSetDTICFirst() {
 		Token f1 = new Token("George");
 		Token f2 = new Token("Jane");
 		Token f3 = new Token("Mark");
 		Token f4 = new Token("Jessica");
 		Token t1 = new Token("lemon");
 		Token t2 = new Token("building");
-		
-		f1.setDTICFirst(999); //should do nothing
+
+		f1.setDTICFirst(999); // should do nothing
 		f1.setDTICFirst(1);
-		assertEquals(1 , f1.isDTICFirst());
+		assertEquals(1, f1.isDTICFirst());
 		f2.setDTICFirst(1);
-		assertEquals(1 , f2.isDTICFirst());
+		assertEquals(1, f2.isDTICFirst());
 		f3.setDTICFirst(1);
-		assertEquals(1 , f3.isDTICFirst());
+		assertEquals(1, f3.isDTICFirst());
 		f4.setDTICFirst(1);
-		assertEquals(1 , f4.isDTICFirst());
+		assertEquals(1, f4.isDTICFirst());
 		t1.setDTICFirst(0);
-		assertEquals(0 , t1.isDTICFirst());
+		assertEquals(0, t1.isDTICFirst());
 		t2.setDTICFirst(0);
-		assertEquals(0 , t2.isDTICFirst());
+		assertEquals(0, t2.isDTICFirst());
 	}
-	
+
 	@Test
 	/**
-	 * test for 
-	 * public int isDTICLast()
-	 * and
-	 * public void setDTICLast(int i)
+	 * test for public int isDTICLast() and public void setDTICLast(int i)
 	 */
-	public void testIsDTICLastSetDTICLast(){
+	public void testIsDTICLastSetDTICLast() {
 		Token l1 = new Token("Johnson");
 		Token l2 = new Token("Smith");
 		Token l3 = new Token("Wang");
 		Token t1 = new Token("lemon");
 		Token t2 = new Token("building");
-		
+
+	}
+
+	@Test
+	/**
+	 * test for public int isCommonFirst() and public void setCommonFirst(int i)
+	 */
+	public void testIsCommonFirstSetCommonFirst() {
+		Token f1 = new Token("John");
+		Token f2 = new Token("Michael");
+		Token f3 = new Token("Peter");
+		Token f4 = new Token("David");
+		Token f5 = new Token("Jeremy");
+		Token f6 = new Token("Thomas");
+		Token f7 = new Token("Jack");
+		Token f8 = new Token("Daniel");
+		Token f9 = new Token("Samuel");
+		Token f10 = new Token("Jessica");
+		Token f11 = new Token("Emily");
+		Token f12 = new Token("Jennifer");
+		Token f13 = new Token("Jane");
+		Token f14 = new Token("Mary");
+		Token f15 = new Token("Ashley");
+		Token f16 = new Token("Catherine");
+		Token f17 = new Token("Elizabeth");
+		Token f18 = new Token("Rebecca");
+		Token f19 = new Token("Kimberly");
+		Token f20 = new Token("Barbara");
+		Token f21 = new Token("Karen");
+		Token f22 = new Token("Lisa");
+		Token f23 = new Token("Oliver");
+		Token f24 = new Token("Dave");
+		Token f25 = new Token("Julian");
+		Token f26 = new Token("Edward");
+		Token f27 = new Token("Perry");
+
+		Token tok1 = new Token("lunch");
+		Token tok2 = new Token("piano");
+		Token tok3 = new Token("deck");
+		Token tok4 = new Token("motorcycle");
+
+		f1.setCommonFirst(1);
+		f2.setCommonFirst(1);
+		f3.setCommonFirst(1);
+		f4.setCommonFirst(1);
+		f5.setCommonFirst(1);
+		f6.setCommonFirst(1);
+		f7.setCommonFirst(1);
+		f8.setCommonFirst(1);
+		f9.setCommonFirst(1);
+		f10.setCommonFirst(1);
+		f11.setCommonFirst(1);
+		f12.setCommonFirst(1);
+		f13.setCommonFirst(1);
+		f14.setCommonFirst(1);
+		f15.setCommonFirst(1);
+		f16.setCommonFirst(1);
+		f17.setCommonFirst(1);
+		f18.setCommonFirst(1);
+		f19.setCommonFirst(1);
+		f20.setCommonFirst(1);
+		f21.setCommonFirst(1);
+		f22.setCommonFirst(1);
+		f23.setCommonFirst(1);
+		f24.setCommonFirst(1);
+		f25.setCommonFirst(1);
+		f26.setCommonFirst(1);
+		f27.setCommonFirst(1);
+		tok1.setCommonFirst(0);
+		tok2.setCommonFirst(0);
+		tok3.setCommonFirst(0);
+		tok4.setCommonFirst(0);
+
+		assertEquals(1, f1.isCommonFirst());
+		assertEquals(1, f2.isCommonFirst());
+		assertEquals(1, f3.isCommonFirst());
+		assertEquals(1, f4.isCommonFirst());
+		assertEquals(1, f5.isCommonFirst());
+		assertEquals(1, f6.isCommonFirst());
+		assertEquals(1, f7.isCommonFirst());
+		assertEquals(1, f8.isCommonFirst());
+		assertEquals(1, f9.isCommonFirst());
+		assertEquals(1, f10.isCommonFirst());
+		assertEquals(1, f11.isCommonFirst());
+		assertEquals(1, f12.isCommonFirst());
+		assertEquals(1, f13.isCommonFirst());
+		assertEquals(1, f14.isCommonFirst());
+		assertEquals(1, f15.isCommonFirst());
+		assertEquals(1, f16.isCommonFirst());
+		assertEquals(1, f17.isCommonFirst());
+		assertEquals(1, f18.isCommonFirst());
+		assertEquals(1, f19.isCommonFirst());
+		assertEquals(1, f20.isCommonFirst());
+		assertEquals(1, f21.isCommonFirst());
+		assertEquals(1, f22.isCommonFirst());
+		assertEquals(1, f23.isCommonFirst());
+		assertEquals(1, f24.isCommonFirst());
+		assertEquals(1, f25.isCommonFirst());
+		assertEquals(1, f26.isCommonFirst());
+		assertEquals(1, f27.isCommonFirst());
+
+		assertEquals(0, tok1.isCommonFirst());
+		assertEquals(0, tok2.isCommonFirst());
+		assertEquals(0, tok3.isCommonFirst());
+		assertEquals(0, tok4.isCommonFirst());
+
+	}
+	
+	
+	@Test
+	/**
+	 * test for public int isCommonLast()
+	 * and
+	 * public void setCommonLast(int i)
+	 */
+	
+	public void testIsCommonLastSetCommonLast(){
 		
 	}
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+/*
 	// User Story #850
 	// Status - Completed
 	// Tokens converted into a set of features (T)
@@ -961,7 +1059,6 @@ public class TestToken {
 		assertEquals("other", token.getLexical());
 	}
 
-
 	// lexeme getter and setter methods
 	@Test
 	public void testLexeme() {
@@ -969,6 +1066,6 @@ public class TestToken {
 
 		token.setLexeme("Hello");
 		assertEquals("Hello", token.getLexeme());
-	}
+	} */
 
 }
