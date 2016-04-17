@@ -129,7 +129,7 @@ public class Trainer implements Serializable {
 	 * @param inputFileName
 	 * @param outputFileName
 	 */
-	public HashSet<String> getShingles(int k, ArrayList<Token> tokens) {
+	/*public HashSet<String> getShingles(int k, ArrayList<Token> tokens) {
 		int seqLen = ((2 * k) + 1);
 		HashSet<String> shingles = new HashSet<String>();
 
@@ -154,11 +154,11 @@ public class Trainer implements Serializable {
 			int killCount = 0; // # of killWords following a beginning or
 								// continuing token
 			for (int j = 0; j < seqLen; j++) {
-				/*
-				 * if (tokens.get(j + i).getName().equals("beginning") ||
-				 * tokens.get(j + i).getName().equals("continuing")) {
-				 * nameCount++; }
-				 */
+				//
+				 // if (tokens.get(j + i).getName().equals("beginning") ||
+				 // tokens.get(j + i).getName().equals("continuing")) {
+				 //nameCount++; }
+				 //
 
 				if (tokens.get(j + i).getName().equals("beginning")) {
 					begCount++;
@@ -187,25 +187,25 @@ public class Trainer implements Serializable {
 			// if (nameCount > 1)
 			if (begCount > 0 && contCount > 0) {
 				// Logic for manual Shingle training classification
-				/*
-				 * Scanner reader = new Scanner(System.in); // Reading from
-				 * System.in
-				 * 
-				 * boolean correctInput = false;
-				 * 
-				 * while (correctInput == false) { System.out.println(
-				 * "Does the line below contain a personal name? (1 = Yes | 2 = No)"
-				 * ); System.out.println(sbLexeme); String input =
-				 * reader.nextLine(); // Scans the next token of the input as an
-				 * int.
-				 * 
-				 * if (input.equals("1") || input.isEmpty()) { sb.append("yes");
-				 * correctInput = true; } else if (input.equals("2")) {
-				 * sb.append("no"); correctInput = true; } else {
-				 * System.out.println("Incorrect input!"); }
-				 * 
-				 * }
-				 */
+//				/*
+//				 * Scanner reader = new Scanner(System.in); // Reading from
+//				 * System.in
+//				 * 
+//				 * boolean correctInput = false;
+//				 * 
+//				 * while (correctInput == false) { System.out.println(
+//				 * "Does the line below contain a personal name? (1 = Yes | 2 = No)"
+//				 * ); System.out.println(sbLexeme); String input =
+//				 * reader.nextLine(); // Scans the next token of the input as an
+//				 * int.
+//				 * 
+//				 * if (input.equals("1") || input.isEmpty()) { sb.append("yes");
+//				 * correctInput = true; } else if (input.equals("2")) {
+//				 * sb.append("no"); correctInput = true; } else {
+//				 * System.out.println("Incorrect input!"); }
+//				 * 
+//				 * }
+//				 *
 
 				if (killCount > 0) {
 					sb.append("no");
@@ -225,10 +225,10 @@ public class Trainer implements Serializable {
 
 		/*
 		 * // Test Output for (String s : shingles) { System.out.println(s); }
-		 */
+		 *
 
 		return shingles;
-	}
+	}*/
 
 	/**
 	 * Prepares shingled tokens to feed to the learning machine
