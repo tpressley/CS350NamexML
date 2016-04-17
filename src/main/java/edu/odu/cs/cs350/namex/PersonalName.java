@@ -16,7 +16,7 @@ public class PersonalName {
 	private String surName;
 	private String suffix;
 
-	PersonalName() {
+	public PersonalName() {
 
 		honorific = ""; 
 		givenName = "";
@@ -29,11 +29,11 @@ public class PersonalName {
 	/**
 	 * Assume 2 string constructor only has first and last name
 	 */
-	PersonalName(String givenNameInput, String surNameInput) {
+	public PersonalName(String firstname, String lastname) {
 		honorific = "";
-		givenName = givenNameInput;
+		givenName = firstname;
 		middleNames = "";
-		surName = surNameInput;
+		surName = lastname;
 		suffix = "";
 
 	};
@@ -43,7 +43,7 @@ public class PersonalName {
 	 * 
 	 * @param name
 	 */
-	PersonalName(String name) {
+	public PersonalName(String name) {
 
 		honorific = "";
 		givenName = name;
@@ -55,19 +55,18 @@ public class PersonalName {
 	/**
 	 * Constructor to create multiple word personal names
 	 * 
-	 * @param honorificInput
-	 * @param givenNameInput
-	 * @param middleNameInput
-	 * @param surNameInput
-	 * @param suffixInput
+	 * @param honor
+	 * @param first
+	 * @param middle
+	 * @param last
+	 * @param suff
 	 */
-	PersonalName(String honorificInput, String givenNameInput, String middleNameInput, String surNameInput,
-			String suffixInput) {
-		honorific = honorificInput;
-		givenName = givenNameInput;
-		middleNames = middleNameInput;
-		surName = surNameInput;
-		suffix = suffixInput;
+	public PersonalName(String honor, String first, String middle, String last, String suff) {
+		honorific = honor;
+		givenName = first;
+		middleNames = middle;
+		surName = last;
+		suffix = suff;
 
 	};
 

@@ -28,164 +28,194 @@ public class TestPersonalName {
 		
 	}
 
+	@Test
 	/**
-	 * Tests constructor with String parameter
+	 * test for public PersonalName(String givenNameInput, String surNameInput) 
+	 */
+	public void testPersonalNameFirstLast(){
+		PersonalName n1 = new PersonalName("John" , "Doe");
+		assertTrue(n1 != null);
+		assertEquals("John" , n1.getGivenName());
+		assertEquals("Doe" , n1.getSurName());
+		//below should remain empty after using the two-string constructor
+		assertEquals("" , n1.getHonorific());
+		assertEquals("" , n1.getMiddleNames());
+		assertEquals("" , n1.getSuffix());
+	}
+	
+	
+	/**
+	 * test for public PersonalName(String name) e.g. "Cher"
 	 */
 	@Test
 	public void testPersonalNameString() {
-
-		PersonalName name = new PersonalName("Mr.", "Addy", "", "Alago", "Jr.");
+		PersonalName n1 = new PersonalName("Cher");
+		assertTrue(n1 != null);
+		assertEquals("Cher" , n1.getGivenName());
+		assertEquals("" , n1.getSurName());
+		assertEquals("" , n1.getHonorific());
+		assertEquals("" , n1.getMiddleNames());
+		assertEquals("" , n1.getSuffix());
 		
-		assertTrue(name != null);
-		assertEquals(name.getName(), "Mr. Addy Alago Jr.");
-
+		//a name constructed by an empty string
+		PersonalName empty = new PersonalName("");
+		assertTrue(empty != null);
+		assertEquals("" , empty.getGivenName());
+		assertEquals("" , empty.getSurName());
+		assertEquals("" , empty.getHonorific());
+		assertEquals("" , empty.getMiddleNames());
+		assertEquals("" , empty.getSuffix());
+		
+	}
+	
+	@Test
+	/**
+	 * test for public PersonalName(String honor, String first, String middle, String last, String suff) 
+	 */
+	public void testPersonalNameFiveString(){
+		PersonalName n1 = new PersonalName("Dr" , "Jane" , "X" , "Doe" , "III");
+		assertTrue(n1 != null);
+		assertEquals("Dr" , n1.getHonorific());
+		assertEquals("Jane" , n1.getGivenName());
+		assertEquals("X" , n1.getMiddleNames());
+		assertEquals("Doe" , n1.getSurName());
+		assertEquals("III" , n1.getSuffix());
+		
+		//a name with empty middlename
+		PersonalName n2 = new PersonalName("Dr" , "Jane" , "" , "Doe" , "III");
+		assertTrue(n2 != null);
+		assertEquals("Dr" , n2.getHonorific());
+		assertEquals("Jane" , n2.getGivenName());
+		assertEquals("" , n2.getMiddleNames());
+		assertEquals("Doe" , n2.getSurName());
+		assertEquals("III" , n2.getSuffix());
+		
+		//a name with no prefix;honorific and no middle
+		PersonalName n3 = new PersonalName("" , "Jane" , "" , "Doe" , "III");
+		assertTrue(n3 != null);
+		assertEquals("" , n3.getHonorific());
+		assertEquals("Jane" , n3.getGivenName());
+		assertEquals("" , n3.getMiddleNames());
+		assertEquals("Doe" , n3.getSurName());
+		assertEquals("III" , n3.getSuffix());
+		
+		//name with no suffix
+		PersonalName n4 = new PersonalName("" , "Jane" , "Marie" , "Doe" , "");
+		assertTrue(n4 != null);
+		assertEquals("" , n4.getHonorific());
+		assertEquals("Jane" , n4.getGivenName());
+		assertEquals("Marie" , n4.getMiddleNames());
+		assertEquals("Doe" , n4.getSurName());
+		assertEquals("" , n4.getSuffix());
 	}
 
 	/**
-	 * Test method for getting names with and without suffixes and middle names
+	 * Test for public String getName() 
 	 */
 	@Test
 	public void testGetName() {
-
-		PersonalName name = new PersonalName();
 		// default constructor
-		PersonalName name1 = new PersonalName("Mr.", "Addy", "Alberto Alonzo", "Alago", "Jr.");
-		// prefix , suffix, middle names
-		PersonalName name2 = new PersonalName("Mr.", "Addy", "Alberto", "Alago", "");
-		;
-		// prefix no suffix
-		PersonalName name3 = new PersonalName("", "Addy", "Alberto", "Alago", "Jr.");
-		// suffix no prefix
-		PersonalName name4 = new PersonalName("Addy", "Alago");
-		// No middle name
-
-		assertEquals(name.toString(), "");
-		assertEquals(name1.toString(), "Mr. Addy Alberto Alonzo Alago Jr.");
-		assertEquals(name2.toString(), "Mr. Addy Alberto Alago");
-		assertEquals(name3.toString(), "Addy Alberto Alago Jr.");
-		assertEquals(name4.toString(), "Addy Alago");
+		PersonalName name = new PersonalName();
+		
+		//all five member variables filled
+		PersonalName fullname = new PersonalName("Mr.", "Addy", "Alberto Alonzo", "Alago", "Jr.");
+		
+		//only given name 
+		PersonalName firstname = new PersonalName("Cherry");
+		
+		//first and last name
+		PersonalName firstlast = new PersonalName("Taylor","Swift");
+		
+		assertEquals("" , name.getName());
+		assertEquals("Mr. Addy Alberto Alonzo Alago Jr." , fullname.getName());
+		assertEquals("Cherry", firstname.getName());
+		assertEquals("Taylor Swift", firstlast.getName());
 
 	}
 
 	/**
-	 * Test method for getting Honorific from name
+	 * Test for public String getHonorific()
 	 */
 	@Test
 	public void testGetHonorific() {
 
-		PersonalName name = new PersonalName();
-		// default constructor
-		PersonalName name1 = new PersonalName("Mr.", "Addy", "Alberto Alonzo", "Alago", "Jr.");
-		// prefix , suffix, middle names
-		PersonalName name2 = new PersonalName("Mr.", "Addy", "Alberto", "Alago", "");
-		;
-		// prefix no suffix
-		PersonalName name3 = new PersonalName("", "Addy", "Alberto", "Alago", "Jr.");
-		// suffix no prefix
-		PersonalName name4 = new PersonalName("Addy", "Alago");
-		// No middle name
-
-		assertEquals(name.getHonorific(), "");
-		assertEquals(name1.getHonorific(), "Mr.");
-		assertEquals(name2.getHonorific(), "Mr.");
-		assertEquals(name3.getHonorific(), "");
-		assertEquals(name4.getHonorific(), "");
+		PersonalName def = new PersonalName();
+		PersonalName n1 = new PersonalName("Mrs.","Jane","","Whiskers","");
+		PersonalName n2 = new PersonalName(" ","Jane","","Whiskers","");
+		
+		assertEquals("" , def.getHonorific());
+		assertEquals("Mrs.", n1.getHonorific());
+		assertEquals(" ", n2.getHonorific());
 	}
 
 	/**
-	 * Test method for getting first (Given) name from names.
+	 * Test for public String getGivenName()
 	 */
 	@Test
 	public void testGetGivenName() {
 		PersonalName name = new PersonalName();
-		// default constructor
+		
 		PersonalName name1 = new PersonalName("Mr.", "Addy", "Alberto Alonzo", "Alago", "Jr.");
-		// prefix , suffix, middle names
-		PersonalName name2 = new PersonalName("Mr.", "Addy", "Alberto", "Alago", "");
-		;
-		// prefix no suffix
-		PersonalName name3 = new PersonalName("", "Addy", "Alberto", "Alago", "Jr.");
-		// suffix no prefix
-		PersonalName name4 = new PersonalName("Addy", "Alago");
-		// No middle name
 
-		assertEquals(name.getGivenName(), "");
-		assertEquals(name1.getGivenName(), "Addy");
-		assertEquals(name2.getGivenName(), "Addy");
-		assertEquals(name3.getGivenName(), "Addy");
-		assertEquals(name4.getGivenName(), "Addy");
+		PersonalName name4 = new PersonalName("Addy", "Alago");
+
+		assertEquals("" , name.getGivenName());
+		assertEquals("Addy", name1.getGivenName());
+		assertEquals("Addy" , name4.getGivenName());
 	}
 
 	/**
-	 * Test method for getting all middle name from names.
+	 * Test for public String getMiddleNames()
 	 */
 	@Test
 	public void testGetMiddleNames() {
-		PersonalName name = new PersonalName();
-		// default constructor
-		PersonalName name1 = new PersonalName("Mr.", "Addy", "Alberto Alonzo", "Alago", "Jr.");
-		// prefix , suffix, middle names
-		PersonalName name2 = new PersonalName("Mr.", "Addy", "Alberto", "Alago", "");
-		;
-		// prefix no suffix
-		PersonalName name3 = new PersonalName("", "Addy", "Alberto", "Alago", "Jr.");
-		// suffix no prefix
-		PersonalName name4 = new PersonalName("Addy", "Alago");
-		// No middle name
-
-		assertEquals(name.getMiddleNames(), "");
-		assertEquals(name1.getMiddleNames(), "Alberto Alonzo");
-		assertEquals(name2.getMiddleNames(), "Alberto");
-		assertEquals(name3.getMiddleNames(), "Alberto");
-		assertEquals(name4.getMiddleNames(), "");
+		PersonalName n1 = new PersonalName();
+		PersonalName n2 = new PersonalName("Melody");
+		PersonalName n3 = new PersonalName("","Nicole","Brown","Simpson","");
+		PersonalName n4 = new PersonalName("Dr.","Steven","","Zeil","");
+		
+		assertEquals("",n1.getMiddleNames());
+		assertEquals("",n2.getMiddleNames());
+		assertEquals("Brown",n3.getMiddleNames());
+		assertEquals("",n4.getMiddleNames());
 	}
 
 	/**
-	 * Test method for getting surname from names.
+	 * Test for public String getSurName()
 	 */
 	@Test
 	public void testGetSurName() {
-		PersonalName name = new PersonalName();
-		// default constructor
-		PersonalName name1 = new PersonalName("Mr.", "Addy", "Alberto Alonzo", "Alago", "Jr.");
-		// prefix , suffix, middle names
-		PersonalName name2 = new PersonalName("Mr.", "Addy", "Alberto", "Alago", "");
-		;
-		// prefix no suffix
-		PersonalName name3 = new PersonalName("", "Addy", "Alberto", "Alago", "Jr.");
-		// suffix no prefix
-		PersonalName name4 = new PersonalName("Addy", "Alago");
-		// No middle name
-
-		assertEquals(name.getSurName(), "");
-		assertEquals(name1.getSurName(), "Alago");
-		assertEquals(name2.getSurName(), "Alago");
-		assertEquals(name3.getSurName(), "Alago");
-		assertEquals(name4.getSurName(), "Alago");
+		PersonalName n1 = new PersonalName();
+		PersonalName n2 = new PersonalName("Melody");
+		PersonalName n3 = new PersonalName("","Nicole","Brown","Simpson","");
+		PersonalName n4 = new PersonalName("Dr.","Steven","","Zeil","");
+		PersonalName n5 = new PersonalName("Ms.","Elle","","","");
+		
+		assertEquals("" , n1.getSurName());
+		assertEquals("" , n2.getSurName());
+		assertEquals("Simpson", n3.getSurName());
+		assertEquals("Zeil", n4.getSurName());
+		assertEquals("", n5.getSurName());
 	}
 
 	/**
-	 * Test method for getting suffixes from names.
+	 * Test for	public String getSuffix()
 	 */
 	@Test
 	public void testGetSuffix() {
-		PersonalName name = new PersonalName();
-		// default constructor
-		PersonalName name1 = new PersonalName("Mr.", "Addy", "Alberto Alonzo", "Alago", "Jr.");
-		// prefix , suffix, middle names
-		PersonalName name2 = new PersonalName("Mr.", "Addy", "Alberto", "Alago", "");
-		;
-		// prefix no suffix
-		PersonalName name3 = new PersonalName("", "Addy", "Alberto", "Alago", "Jr.");
-		// suffix no prefix
-		PersonalName name4 = new PersonalName("Addy", "Alago");
-		// No middle name
-
-		assertEquals(name.getSuffix(), "");
-		assertEquals(name1.getSuffix(), "Jr.");
-		assertEquals(name2.getSuffix(), "");
-		assertEquals(name3.getSuffix(), "Jr.");
-		assertEquals(name4.getSuffix(), "");
+		PersonalName n1 = new PersonalName();
+		PersonalName n2 = new PersonalName("Melody");
+		PersonalName n3 = new PersonalName("","Nicole","Brown","Simpson","");
+		PersonalName n4 = new PersonalName("Dr.","Steven","","Zeil","");
+		PersonalName n5 = new PersonalName("Ms.","Elle","","","");
+		PersonalName n6 = new PersonalName("Queen","Elizabeth","","","III");
+		
+		assertEquals("",n1.getSuffix());
+		assertEquals("",n2.getSuffix());
+		assertEquals("",n3.getSuffix());
+		assertEquals("",n4.getSuffix());
+		assertEquals("",n5.getSuffix());
+		assertEquals("III",n6.getSuffix());
 	}
 
 }
