@@ -359,42 +359,77 @@ public class Token {
 	}
 
 	// prefix
+	/**
+	 * returns '1' if a prefix
+	 * @return
+	 */
 	public int isPrefix() {
 		return this.prefix;
 	}
 
+	/**
+	 * setter for prefix
+	 * @param prefix
+	 */
 	public void setPrefix(int prefix) {
 		this.prefix = prefix;
 	}
 
 	// suffix
+	/**
+	 * returns '1' if a suffix
+	 * @return
+	 */
 	public int isSuffix() {
 		return this.suffix;
 	}
 
+	/**
+	 * setter for suffix
+	 * @param suffix
+	 */
 	public void setSuffix(int suffix) {
 		this.suffix = suffix;
 	}
 
 	// killWord
+	/**
+	 * returns '1' if a killword e.g. "bridge""university"
+	 * @return
+	 */
 	public int isKillWord() {
 		return this.killWord;
 	}
 
+	/**
+	 * setter for killword
+	 * @param killWord
+	 */
 	public void setKillWord(int killWord) {
 		this.killWord = killWord;
 	}
 
 	// name
+	/**
+	 * returns name
+	 * @return
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * setter for name
+	 * @param name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	// returns the ARFF @data row for the Token
+	
+	/**
+	 * returns the ARFF @data row for the Token
+	 */
 	public String getARFF() {
 
 		StringBuilder sb = new StringBuilder();
