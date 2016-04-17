@@ -874,7 +874,7 @@ public class Trainer implements Serializable {
 		
 		for (int i=0; i<shingles.size();i++)
 		{
-		  for (int j=0;j<shingles.get(i).getTokens().size(); i++)
+		  for (int j=0;j<shingles.get(i).getTokens().size(); j++)
 		  {
 		    writer.print(shingles.get(i).getTokens().get(j).toString());
 		    System.out.print(shingles.get(i).getTokens().get(j).toString());
@@ -906,6 +906,7 @@ public class Trainer implements Serializable {
 	 */
 	public ArrayList<Shingle> getShingles(ArrayList<Token> tokens) {
 		ArrayList<Shingle> shingles = new ArrayList<Shingle>();
+		int count = 0;
 		Shingle shingle = new Shingle();
 		Token nullToken = new Token("null");
 		shingles.add(shingle);
@@ -914,13 +915,20 @@ public class Trainer implements Serializable {
 				shingle.getTokens().remove(0);
 				shingle.getTokens().add(nullToken);
 				shingles.add(shingle);
-			} else if (tokens.get(i).getLexeme() == "<NER>") {
+			} else if (tokens.get(i).getLexeme().equals("<NER>")) {
 				for (int j = 1; j < tokens.size(); j++) {
-					if (tokens.get(j).getLexeme() == "<\\NER>")
+					if (tokens.get(j).getLexeme().equals("<\\NER>"))
 						break;
 					shingle.getTokens().remove(0);
-					shingle.getTokens().add(tokens.get(i));
+					shingle.getTokens().add(tokens.get(j));
 					shingles.add(shingle);
+					//System.out.println(tokens.get(j).toString());
+					//System.err.println(j);
+					count++;
+					if(count % 10000 == 0)
+					{
+						System.err.println(count);
+					}
 				}
 			}
 
