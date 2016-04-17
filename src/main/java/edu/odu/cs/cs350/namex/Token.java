@@ -25,8 +25,7 @@ public class Token {
 	/**
 	 * Default constructor
 	 */
-
-	public Token() {
+	public Token() { 
 		this.lexeme = "";
 		this.lexical = "";
 		this.partOfSpeech = "";
@@ -44,18 +43,18 @@ public class Token {
 		this.killWord = 0;
 		this.name = "";
 		this.distribution = new double[1];
+		this.position = 0;
 	} 
 	
 	/**
 	 * Constructor
 	 * @param lexeme
 	 */
-
 	public Token(String lexeme) { 
 		if (lexeme.equals("null")) {
-			this.lexeme = lexeme;
-			this.lexical = "null";
-			this.partOfSpeech = "null";
+			this.lexeme = null;
+			this.lexical = null;
+			this.partOfSpeech = null;
 			this.dictionaryWord = 0;
 			this.cityState = 0;
 			this.countryTerritory = 0;
@@ -69,7 +68,28 @@ public class Token {
 			this.suffix = 0;
 			this.killWord = 0;
 			this.name = "null";
-		} else {
+			this.position = 0;
+		} 
+		else if(lexeme.equals("")){
+			this.lexeme = "";
+			this.lexical = "";
+			this.partOfSpeech = "";
+			this.dictionaryWord = 0;
+			this.cityState = 0;
+			this.countryTerritory = 0;
+			this.place = 0;
+			this.DTICFirst = 0;
+			this.DTICLast = 0;
+			this.commonFirst = 0;
+			this.commonLast = 0;
+			this.honorific = 0;
+			this.prefix = 0;
+			this.suffix = 0;
+			this.killWord = 0;
+			this.name = "null";
+			this.position = 0;
+		}
+		else {
 			this.lexeme = lexeme;
 			this.lexical = "";
 			this.partOfSpeech = "";
@@ -87,6 +107,7 @@ public class Token {
 			this.killWord = 0;
 			this.name = "";
 			this.distribution = new double[1];
+			this.position = 0;
 		}
 
 	}
