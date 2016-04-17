@@ -303,6 +303,14 @@ public class Trainer implements Serializable {
 	 * return tokens; }
 	 */
 
+	/**
+	 * Takes the input text and returns an arraylist of basic tokens, containing
+	 * only the lexemes Tokens later have features analyzed by
+	 * Trainer.getFeatures()
+	 * 
+	 * @param textBlock
+	 * @return
+	 */
 	public ArrayList<Token> tokenize(ArrayList<String> untokenizedwords) {
 		ArrayList<Token> tokens = new ArrayList<Token>();
 		int n = 0;
@@ -388,8 +396,11 @@ public class Trainer implements Serializable {
 		// }
 	}
 
-	// checks to see if the Token is a known name of a City or State in the
-	// United States
+	/**
+	 * checks to see if the Token is a known name of a City or State
+	 * @param token
+	 * @return
+	 */
 	public int isCityState(String token) {
 		if (CitiesStates.contains(token.toLowerCase())) {
 			return 1;
@@ -402,7 +413,11 @@ public class Trainer implements Serializable {
 		 */
 	}
 
-	// checks to see if the Token is a known common first name
+	/**
+	 * checks to see if the Token is a known common first name
+	 * @param token
+	 * @return
+	 */
 	public int isCommonFirstName(String token) {
 		if (CommonFirstNames.contains(token.toLowerCase())) {
 			return 1;
@@ -415,7 +430,11 @@ public class Trainer implements Serializable {
 		 */
 	}
 
-	// checks to see if the Token is a known common last name
+	/**
+	 * checks to see if the Token is a known common last name
+	 * @param token
+	 * @return
+	 */
 	public int isCommonLastName(String token) {
 		if (CommonLastNames.contains(token.toLowerCase())) {
 			return 1;
@@ -428,7 +447,11 @@ public class Trainer implements Serializable {
 		 */
 	}
 
-	// checks to see if the Token is a known name of a Country or Territory
+	/**
+	 * checks to see if the Token is a known name of a Country or Territory
+	 * @param token
+	 * @return
+	 */
 	public int isCountryTerritory(String token) {
 		if (CountriesTerritories.contains(token.toLowerCase())) {
 			return 1;
@@ -441,7 +464,11 @@ public class Trainer implements Serializable {
 		 */
 	}
 
-	// checks to see if the Token is a word found in the English dictionary
+	/**
+	 * checks to see if the Token is a word found in the English dictionary
+	 * @param token
+	 * @return
+	 */
 	public int isDictionaryWord(String token) {
 		if (DictionaryWords.contains(token.toLowerCase())) {
 			return 1;
@@ -454,7 +481,11 @@ public class Trainer implements Serializable {
 		 */
 	}
 
-	// checks to see if the Token is a known DTIC first name
+	/**
+	 * checks to see if the Token is a known DTIC first name
+	 * @param token
+	 * @return
+	 */
 	public int isDTICFirstName(String token) {
 		if (DTICFirstNames.contains(token.toLowerCase())) {
 			return 1;
@@ -469,7 +500,11 @@ public class Trainer implements Serializable {
 		 */
 	}
 
-	// checks to see if the Token is a known DTIC last name
+	/**
+	 * checks to see if the Token is a known DTIC last name
+	 * @param token
+	 * @return
+	 */
 	public int isDTICLastName(String token) {
 		if (DTICLastNames.contains(token.toLowerCase())) {
 			return 1;
@@ -482,7 +517,11 @@ public class Trainer implements Serializable {
 		 */
 	}
 
-	// checks to see if the Token is an honorific
+	/**
+	 * checks to see if the Token is an honorific
+	 * @param token
+	 * @return
+	 */
 	public int isHonorific(String token) {
 		if (Honorifics.contains(token.toLowerCase())) {
 			return 1;
@@ -495,7 +534,11 @@ public class Trainer implements Serializable {
 		 */
 	}
 
-	// checks to see if the Token is an kill word
+	/**
+	 * checks to see if the Token is an kill word
+	 * @param token
+	 * @return
+	 */
 	public int isKillWord(String token) {
 		if (KillWords.contains(token.toLowerCase())) {
 			return 1;
@@ -508,7 +551,11 @@ public class Trainer implements Serializable {
 		 */
 	}
 
-	// checks to see if the Token is a prefix
+	/**
+	 * checks to see if the Token is a prefix
+	 * @param token
+	 * @return
+	 */
 	public int isLastNamePrefix(String token) {
 		if (LastNamePrefixes.contains(token.toLowerCase())) {
 			return 1;
@@ -521,7 +568,11 @@ public class Trainer implements Serializable {
 		 */
 	}
 
-	// checks to see if the Token is a suffix
+	/**
+	 * checks to see if the Token is a suffix
+	 * @param token
+	 * @return
+	 */
 	public int isLastNameSuffix(String token) {
 		if (LastNameSuffixes.contains(token.toLowerCase())) {
 			return 1;
@@ -534,7 +585,11 @@ public class Trainer implements Serializable {
 		 */
 	}
 
-	// checks to see if the Token is a known place
+	/**
+	 * checks to see if the Token is a known place
+	 * @param token
+	 * @return
+	 */
 	public int isPlace(String token) {
 		if (Places.contains(token.toLowerCase())) {
 			return 1;
@@ -547,12 +602,11 @@ public class Trainer implements Serializable {
 		 */
 	}
 
-	// User Story #856
-	// Status - Completed
-	// Dictionary features identified correctly (L)
-	// User Story #854
-	// Status - Completed
-	// Misc features (honorifics, kill words, etc) identified correctly. (L)
+	/**
+	 * Sets the features of a token
+	 * @param token
+	 * @return
+	 */
 	public Token getFeatures(Token token) {
 		String lexeme = token.getLexeme();
 
@@ -573,7 +627,11 @@ public class Trainer implements Serializable {
 
 		return token;
 	}
-
+	/**
+	 * Sets the features of all tokens in a list
+	 * @param token
+	 * @return
+	 */
 	public void getFeatures(ArrayList<Token> tokens) {
 
 		for (int i = 0; i < tokens.size(); i++) {
@@ -597,8 +655,11 @@ public class Trainer implements Serializable {
 		}
 	}
 
-	// classify Tokens as either beginning, continuing, or other for names
-	// between <PER></PER>
+	/**
+	 * Sets the features of all tokens in a list and outputs a hashSet
+	 * @param token
+	 * @return
+	 */
 	public HashSet<Token> setFeatures(ArrayList<Token> tokens) {
 		boolean isPartOfName = false;
 		boolean taggedBeginning = false;
@@ -676,7 +737,11 @@ public class Trainer implements Serializable {
 
 		return arffTokens;
 	}
-
+	/**
+	 * Creates an ARFF file to train the learning machine
+	 * @param shingles
+	 * @return
+	 */
 	public boolean createArff(ArrayList<Shingle> shingles) {
 
 		PrintWriter writer;
@@ -910,7 +975,6 @@ public class Trainer implements Serializable {
 	 * Generates an arrayList of shingles from the tokenized input
 	 * 
 	 * @param tokens
-	 *            TODO Implement
 	 * @return
 	 */
 	public ArrayList<Shingle> getShingles(ArrayList<Token> tokens) {
@@ -951,9 +1015,11 @@ public class Trainer implements Serializable {
 		return shingles;
 	}
 
-	// User Story #1094
-	// Status - Completed
-	// As a librarian, I want Token Lexical features to be identified correctly.
+	/**
+	 * Idenfies lexical features of a lexeme
+	 * @param lexeme
+	 * @return
+	 */
 	public String getLexicalFeature(String lexeme) {
 		// ArrayList of puncts
 		HashSet<String> puncts = new HashSet<String>();
@@ -1011,7 +1077,11 @@ public class Trainer implements Serializable {
 
 	}
 
-	// returns the PartOfSpeech attribute for a given token
+	/**
+	 * Returns the part of speech of a token
+	 * @param token
+	 * @return
+	 */
 	public String getPartOfSpeech(String token) {
 		ArrayList<String> Articles = new ArrayList<String>();
 
@@ -1034,7 +1104,10 @@ public class Trainer implements Serializable {
 		}
 	}
 
-	// Loads gazetteer lists from WordLists into HashSet<String>
+	/**
+	 * Loads gazetteer lists from WordLists into HashSet<String>
+	 * @param
+	 */
 	private void loadGazetteer(HashSet<String> gazetteer, Iterable<String> wordlist) {
 		for (String word : wordlist) {
 			gazetteer.add(word.toLowerCase());
