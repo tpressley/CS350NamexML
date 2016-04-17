@@ -13,17 +13,19 @@ import edu.odu.cs.cs350.namex.PersonalName;
  * @author addy Alago User story 854: As a Librarian, I want miscellaneous words
  *         such as honorifics and kill words to be identified correctly.
  */
-public class TestPersonalName {
+public class TestPersonalName { 
 
 	/**
 	 * Tests default contructor
 	 */
 	@Test
 	public void testPersonalName() {
+		
 		PersonalName name = new PersonalName();
-		System.out.println(name.getName());
 
+		assertTrue(name != null);
 		assertEquals(name.getName(), "");
+		
 	}
 
 	/**
@@ -33,7 +35,8 @@ public class TestPersonalName {
 	public void testPersonalNameString() {
 
 		PersonalName name = new PersonalName("Mr.", "Addy", "", "Alago", "Jr.");
-
+		
+		assertTrue(name != null);
 		assertEquals(name.getName(), "Mr. Addy Alago Jr.");
 
 	}

@@ -18,7 +18,7 @@ public class PersonalName {
 
 	PersonalName() {
 
-		honorific = "";
+		honorific = ""; 
 		givenName = "";
 		middleNames = "";
 		surName = "";

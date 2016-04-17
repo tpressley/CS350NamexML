@@ -310,7 +310,7 @@ public class LearningMachine {
 		attributes.addElement(Suffix1);
 		attributes.addElement(Kill1);
 		// word two
-		attributes.addElement(Lexical2);
+		attributes.addElement(Lexical2); 
 		attributes.addElement(PartOfSpeech2);
 		attributes.addElement(DictionaryWord2);
 		attributes.addElement(City2);
