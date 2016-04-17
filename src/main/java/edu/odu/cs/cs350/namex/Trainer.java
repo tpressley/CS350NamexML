@@ -686,7 +686,7 @@ public class Trainer implements Serializable {
 
 
 		writer.println("@relation Classification");
-		writer.println('\n');
+		
 		writer.println(
 				"@attribute Lexical1 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
 		writer.println("@attribute PartOfSpeech1 {article,conjunction,period,comma,hyphen,other,null}");
@@ -870,15 +870,24 @@ public class Trainer implements Serializable {
 		writer.println("@attribute Name5 {beginning,continuing,other,null}");
 		writer.println("@attribute Name6 {beginning,continuing,other,null}");
 
-		writer.println('\n');
+		writer.print('\n');
 		
 		for (int i=0; i<shingles.size();i++)
 		{
+		  //System.out.println(shingles.size());
 		  for (int j=0;j<shingles.get(i).getTokens().size(); j++)
 		  {
 		    writer.print(shingles.get(i).getTokens().get(j).toString());
 		    System.out.print(shingles.get(i).getTokens().get(j).toString());
 		  }
+		  writer.print(shingles.get(1).getTokens().get(1).getName());
+		  writer.print(shingles.get(1).getTokens().get(2).getName());
+		  writer.print(shingles.get(1).getTokens().get(3).getName());
+		  writer.print(shingles.get(1).getTokens().get(4).getName());
+		  writer.print(shingles.get(1).getTokens().get(5).getName());
+		  writer.print(shingles.get(1).getTokens().get(6).getName());
+		  writer.print('\n');
+		  System.out.print('\n');
 		}
 
 		
