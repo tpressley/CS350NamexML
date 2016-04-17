@@ -991,35 +991,35 @@ public class Trainer implements Serializable {
 	 */
 	public ArrayList<Shingle> getShingles(ArrayList<Token> tokens) {
 		ArrayList<Shingle> shingles = new ArrayList<Shingle>();
-		int count = 0;
+		int count = 1;
 		Shingle shingle = new Shingle();
 		Token nullToken = new Token("null");
 		shingles.add(shingle);
 		for (int i = 0; i < (tokens.size() + (2 * 5 + 1)); i++) {
 			if (i > tokens.size() - 1) {
-				shingle.getTokens().remove(0);
-				shingle.getTokens().add(nullToken);
-				shingles.add(shingle);
-			} else /*if (tokens.get(i).getLexeme().equals("<NER>"))*/ {
-				//for (int j = 1; j < tokens.size(); j++) {
-					//if (tokens.get(j).getLexeme().equals("<\\NER>"))
-						//break;
+				Shingle shingleToAdd = new Shingle(shingle);
+				shingleToAdd.getTokens().remove(0);
+				shingleToAdd.getTokens().add(nullToken);
+				shingles.add(shingleToAdd);
+				shingle = shingleToAdd;
+				count++;
+			} else if (tokens.get(i).getLexeme().equals("<NER>")) {
+				int j = i + 1;
+				while (!tokens.get(j).getLexeme().equals("</NER>")) {
 					Shingle shingleToAdd = new Shingle(shingle);
-					
 					shingleToAdd.getTokens().remove(0);
-					shingleToAdd.getTokens().add(tokens.get(i));
-					
-					
+					shingleToAdd.getTokens().add(tokens.get(j));
 					shingles.add(shingleToAdd);
 					//System.out.println(tokens.get(j).toString());
 					//System.err.println(j);
 					count++;
+					j++;
 					shingle = shingleToAdd;
 					if(count % 10000 == 0)
 					{
 						System.err.println(count);
 					}
-				//}
+				}
 			}
 
 		}
