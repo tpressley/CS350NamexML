@@ -878,7 +878,7 @@ public class Trainer implements Serializable {
 		  for (int j=0;j<shingles.get(i).getTokens().size(); j++)
 		  {
 		    writer.print(shingles.get(i).getTokens().get(j).toString());
-		    System.out.print(shingles.get(i).getTokens().get(j).toString());
+		    //System.out.print(shingles.get(i).getTokens().get(j).toString());
 		  }
 		  writer.print(shingles.get(1).getTokens().get(1).getName());
 		  writer.print(shingles.get(1).getTokens().get(2).getName());
@@ -928,12 +928,17 @@ public class Trainer implements Serializable {
 				for (int j = 1; j < tokens.size(); j++) {
 					if (tokens.get(j).getLexeme().equals("<\\NER>"))
 						break;
-					shingle.getTokens().remove(0);
-					shingle.getTokens().add(tokens.get(j));
-					shingles.add(shingle);
+					Shingle shingleToAdd = new Shingle(shingle);
+					
+					shingleToAdd.getTokens().remove(0);
+					shingleToAdd.getTokens().add(tokens.get(j));
+					
+					
+					shingles.add(shingleToAdd);
 					//System.out.println(tokens.get(j).toString());
 					//System.err.println(j);
 					count++;
+					shingle = shingleToAdd;
 					if(count % 10000 == 0)
 					{
 						System.err.println(count);

@@ -2,7 +2,7 @@ package edu.odu.cs.cs350.namex;
 
 import java.util.ArrayList;
 
-public class Shingle {
+public class Shingle implements Cloneable {
 
 	private ArrayList<Token> tokens;
 
@@ -21,6 +21,26 @@ public class Shingle {
 		for (int i = 0; i < (5 * 2 + 1); i++) {
 			tokens.add(token);
 		}
+	}
+	/**
+	 * Shingle Copy Constructor
+	 */
+	public Shingle(Shingle shingle)
+	{
+		tokens = new ArrayList<Token>();
+		for(int i = 0; i < shingle.getTokens().size(); i++)
+		{
+			Token token = new Token();
+			if(shingle.getTokens().get(i) != null)
+			{
+				token = shingle.getTokens().get(i);
+			}
+			this.tokens.add(token);
+		}
+	}
+	public Object clone() throws CloneNotSupportedException
+	{
+		return super.clone();
 	}
 
 //	public Shingle(int k, int l) {
