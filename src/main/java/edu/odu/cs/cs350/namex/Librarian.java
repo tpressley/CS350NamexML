@@ -16,8 +16,7 @@ public class Librarian {
 
 	public Librarian() {
 		lm = new LearningMachine();
-		trainer = new Trainer();
-
+		trainer = new Trainer(); 
 	}
 
 	public static void main(String[] args) throws FileNotFoundException {
