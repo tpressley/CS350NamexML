@@ -11,10 +11,10 @@ public class TestToken {
 	// Tokens converted into a set of features (T)
 	@Test
 	public void testToString() {
-		Librarian librarian = new Librarian();
+		Trainer trainer = new Trainer();
 
 		Token token = new Token("Hello");
-		token = librarian.getFeatures(token);
+		token = trainer.getFeatures(token);
 
 		assertEquals("capitalized,other,1,0,0,0,0,0,0,0,0,0,0,0", token.toString());
 	}
