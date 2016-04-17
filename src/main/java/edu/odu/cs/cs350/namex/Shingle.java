@@ -16,15 +16,16 @@ public class Shingle {
 
 	// TODO Update shingle size logic
 	public Shingle() {
+		Token token = new Token("null");
 		for (int i = 0; i < (5 * 2 + 1); i++) {
-			tokens.add(null);
+			tokens.add(token);
 		}
 	}
 
-	public Shingle(int k, int l) {
-		for (int i = 0; i < (2 * k + 1 - l); i++) {
-			tokens.add(null);
-		}
-	}
+//	public Shingle(int k, int l) {
+//		for (int i = 0; i < (2 * k + 1 - l); i++) {
+//			tokens.add(null);
+//		}
+//	}
 
 }
