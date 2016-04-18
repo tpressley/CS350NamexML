@@ -1114,17 +1114,10 @@ public class TestToken {
 	 * test for public String toString()
 	 */
 	public void testToString() {
-		/*
-		 * sb.append(lexical + ","); sb.append(partOfSpeech + ",");
-		 * sb.append(dictionaryWord + ","); sb.append(cityState + ",");
-		 * sb.append(countryTerritory + ","); sb.append(place + ",");
-		 * sb.append(DTICFirst + ","); sb.append(DTICLast + ",");
-		 * sb.append(commonFirst + ","); sb.append(commonLast + ",");
-		 * sb.append(honorific + ","); sb.append(prefix + ","); sb.append(suffix
-		 * + ","); sb.append(killWord);
-		 */
 
 		Token tok1 = new Token("test1");
+		String tok1str = tok1.toString();
+		System.out.println(tok1str);
 		Token tok2 = new Token("");
 		Token tok3 = new Token();
 		Token tok4 = new Token("null");
@@ -1154,11 +1147,32 @@ public class TestToken {
 		Token tok2 = new Token("");
 		Token tok3 = new Token();
 		Token tok4 = new Token("null");
+		String tok1str = tok1.toString();
+		String tok1strQ = tok1.toStringQuotes();
+		//System.out.println(tok1strQ);
+		String tok2str = tok2.toString();
+		String tok2strQ = "\"" + tok2str + "\"";
+		//System.out.println(tok2strQ);
+		String tok3str = tok3.toString();
+		String tok3strQ = "\"" + tok3str + "\"";
+		//System.out.println(tok3strQ);
+		String tok4str = tok4.toString();
+		String tok4strQ = "\"" + tok4str + "\"";
+		//System.out.println(tok4strQ);
 
-		assertEquals("\"test1,,,0,0,0,0,0,0,0,0,0,0,0,0,,0,\",", tok1.toString());
-		assertEquals("\",,,0,0,0,0,0,0,0,0,0,0,0,0,,0,\",", tok2.toString());
-		assertEquals("\",,,0,0,0,0,0,0,0,0,0,0,0,0,,0,\",", tok3.toString());
-		assertEquals("\"null,,,0,0,0,0,0,0,0,0,0,0,0,0,,0,\",", tok4.toString());
+		assertEquals("\"test1,,,0,0,0,0,0,0,0,0,0,0,0,0,,0,\",", tok1.toStringQuotes());
+		assertEquals(tok1str , tok1.toString());
+		assertEquals("\",,,0,0,0,0,0,0,0,0,0,0,0,0,,0,\",", tok2.toStringQuotes());
+		assertEquals(tok2str , tok2.toString());
+		assertEquals("\",,,0,0,0,0,0,0,0,0,0,0,0,0,,0,\",", tok3.toStringQuotes());
+		assertEquals(tok3str , tok3.toString());
+		assertEquals("\"null,,,0,0,0,0,0,0,0,0,0,0,0,0,,0,\",", tok4.toStringQuotes());
+		assertEquals(tok4str , tok4.toString());
+		assertFalse(tok1str.equals(tok1strQ));
+		assertFalse(tok2str.equals(tok2strQ));
+		assertFalse(tok3str.equals(tok3strQ));
+		assertFalse(tok4str.equals(tok4strQ));
+		
 	}
 
 	@Test

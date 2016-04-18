@@ -22,7 +22,7 @@ public class TestTextBlock {
 		// empty TextBlock
 		TextBlock tb3 = new TextBlock("");
 		// TextBlock() constructor called with a concatenated string parameter
-		TextBlock tb4 = new TextBlock("Hello" + " Java");
+		TextBlock tb4 = new TextBlock("Hello" + " " + "Java");
 
 		assertEquals("", tb1.getTextBlock());
 		assertEquals("Hello World", tb2.getTextBlock());

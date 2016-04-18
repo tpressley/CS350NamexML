@@ -47,12 +47,13 @@ public class Token {
 	}
 
 	/**
-	 * Constructor
+	 * Constructor with String parameter
 	 * 
 	 * @param lexeme
 	 */
-	public Token(String lexeme) {
-		if (lexeme.equals("null")) {
+	public Token(String lex) {
+		
+		if (lex.equalsIgnoreCase("null")) {
 			this.lexeme = null;
 			this.lexical = null;
 			this.partOfSpeech = null;
@@ -70,7 +71,8 @@ public class Token {
 			this.killWord = 0;
 			this.name = "null";
 			this.position = 0;
-		} else if (lexeme.equals("")) {
+		} 
+		else if (lex.trim().equals("")) {
 			this.lexeme = "";
 			this.lexical = "";
 			this.partOfSpeech = "";
@@ -88,8 +90,9 @@ public class Token {
 			this.killWord = 0;
 			this.name = "null";
 			this.position = 0;
-		} else {
-			this.lexeme = lexeme;
+		} 
+		
+			this.lexeme = lex;
 			this.lexical = "";
 			this.partOfSpeech = "";
 			this.dictionaryWord = 0;
@@ -107,8 +110,6 @@ public class Token {
 			this.name = "";
 			this.distribution = new double[1];
 			this.position = 0;
-		}
-
 	}
 
 	/**
