@@ -41,7 +41,24 @@ public class TestLibrarian {
 		assertTrue(tom.trainer != null);
 		
 		assertFalse(cathy.lm.equals(tom.lm));
-
+	}
+	
+	
+	@Test
+	/**
+	 * test for copy constructor; public Librarian(Librarian toCopy)
+	 */
+	public void testLibrarianCopy(){
+		Librarian cat = new Librarian();
+		Librarian copycat = new Librarian(cat);
+		
+		assertTrue(cat != null);
+		assertTrue(copycat != null);
+		assertEquals(cat.getClass() , copycat.getClass());
+		assertTrue(cat.equals(copycat));
+		assertEquals(cat.lm , copycat.lm);
+		assertEquals(cat.trainer, copycat.trainer);
+		
 	}
 
 	@Test
@@ -53,10 +70,12 @@ public class TestLibrarian {
 		Librarian lana = new Librarian();
 		assertTrue(lana.trainer != null);
 		assertTrue(lana.lm != null);
-		assertTrue(lana.lm.getNumberOfAttributes() > 0);
-		assertEquals(71, lana.lm.getSizeOfAttributes());
+		assertFalse(lana.lm.getNumberOfAttributes() < 0);
+		
 		int lanalmsize = lana.lm.getSizeOfAttributes();
-		System.out.println("lana.lm.getSizeOfAttributes() = " + lanalmsize);
+		//System.out.println("lana.lm.getSizeOfAttributes() = " + lanalmsize);
+		assertEquals(71, lana.lm.getSizeOfAttributes());
+		
 		assertFalse(lana.lm.getEvalSummary().equals(""));
 		assertTrue(lana.lm.getTrainingInstances() != null);
 
