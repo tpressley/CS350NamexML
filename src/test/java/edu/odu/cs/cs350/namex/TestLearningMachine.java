@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import java.nio.file.*;
 import java.util.HashSet;
-
+import java.util.LinkedList;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -136,8 +136,100 @@ public class TestLearningMachine {
 		}
 	}
 	
+	
+	@Test
+	/**
+	 * test for public String getEvalSummary() throws Exception
+	 */
+	public void testGetEvalSummary() throws Exception{
+		
+		LearningMachine lm1 = new LearningMachine();
+		LearningMachine lm2 = new LearningMachine("two");
+		try{
+			lm1.train();
+			assertTrue(lm1.getEvalSummary() != null);
+			assertFalse(lm1.getEvalSummary().equals(""));
+			
+			lm2.train();
+			assertTrue(lm2.getEvalSummary() != null);
+			assertFalse(lm2.getEvalSummary().equals(""));
+			
+		}catch(Exception e462){
+			
+		}
+	}
+	
+	@Test
+	/**
+	 * test for public boolean printARFF()
+	 */
+	public void testPrintARFF() throws Exception{
+		LearningMachine lm = new LearningMachine();
+		assertTrue(lm.train());
+		assertTrue(lm.getTrainingInstances() != null);
+		assertTrue(lm.printARFF());
+	}
 
 
+	@Test
+	/**
+	 * test for public boolean exportARFF(String outputFilePath)
+	 */
+	public void testExportARFF() throws Exception{
+		LearningMachine lm = new LearningMachine();
+		assertTrue(lm.train());
+		assertTrue(lm.getTrainingInstances() != null);
+		
+		String outpath = "/src/main/data/testExportARFF.arff";
+		assertTrue(lm.exportARFF(outpath));
+	}
+	
+	
+	@Test
+	/**
+	 * test for public boolean importARFF(String filePath) throws Exception
+	 */
+	public void testImportARFFString() throws Exception{
+		
+		LearningMachine lm = new LearningMachine();
+		String inpath = "/src/main/data/testExportARFF.arff";
+		assertTrue(lm.importARFF(inpath));
+		
+	}
+	
+	
+	@Test
+	/**
+	 * test for public void importARFF(LinkedList<String> trainingData)
+	 */
+	public void testImportARFFLinkedList() throws Exception{
+		
+		fail("not yet implemented");
+	}
+	
+	
+	@Test
+	/**
+	 * test for public boolean importARFF(String[] trainingData) throws Exception
+	 */
+	public void testImportARFFStringArr() throws Exception{
+		
+		fail("not yet implemented");
+	}
+	
+	
+	@Test
+	/**
+	 * test for public Classifier getClassifier() 
+	 */
+	public void testGetClassifier(){
+		LearningMachine lm999 = new LearningMachine();
+		assertTrue(lm999.getClassifier() != null);
+		
+		LearningMachine lm472 = new LearningMachine();
+		assertTrue(lm472.getClassifier() != null);
+	}
+	
 /*
 	@Test
 	public void testSaveLoadLM() {

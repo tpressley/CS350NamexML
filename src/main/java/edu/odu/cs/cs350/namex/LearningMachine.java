@@ -1022,7 +1022,6 @@ public class LearningMachine {
 			
 		}catch(Exception e639){
 			return "error";
-			
 		}
 	}
 
@@ -1030,8 +1029,14 @@ public class LearningMachine {
 	/**
 	 * print the values of ARFF data from trainingInstances
 	 */
-	public void printARFF() {
-		System.out.println(this.trainInsts);
+	public boolean printARFF() {
+		
+		if(this.trainInsts != null)
+		{
+			System.out.println(this.trainInsts);
+			return true;
+		}
+		return false;
 	}
 
 	/**
