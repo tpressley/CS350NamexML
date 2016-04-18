@@ -325,15 +325,21 @@ public class TestToken {
 	public void testSetLexical() {
 
 		/*
-		 * Lexical features - number - punctuation mark; "punct" - single
-		 * capitalized letter; "CapLetter" - capitalized word (of more than one
-		 * letter); "capitalized" - ALL-CAPS word (of more than one letter) -
-		 * Line feed / new line - Null/nothing
+		 * NominalValLexical.addElement("punct");
+		 * NominalValLexical.addElement("capLetter");
+		 * NominalValLexical.addElement("capitalized");
+		 * NominalValLexical.addElement("allCaps");
+		 * NominalValLexical.addElement("lineFeed");
+		 * NominalValLexical.addElement("whiteSpace");
+		 * NominalValLexical.addElement("number");
+		 * NominalValLexical.addElement("other");
+		 * NominalValLexical.addElement("null");
 		 */
 		Token tok = new Token("no"); // other
 		Token tok2 = new Token("H"); // CapLetter
 		Token tok3 = new Token(","); // punct
 		Token tok4 = new Token("School"); // capitalized
+		Token tok5 = new Token(" "); //whiteSpace
 
 		tok.setLexical("other");
 		assertEquals("other", tok.getLexical());
@@ -346,6 +352,9 @@ public class TestToken {
 
 		tok4.setLexical("capitalized");
 		assertEquals("capitalized", tok4.getLexical());
+		
+		tok5.setLexical("whiteSpace");
+		assertEquals("whiteSpace", tok5.getLexical());
 	}
 
 	@Test

@@ -17,92 +17,19 @@ import weka.core.Instances;
 import weka.core.converters.ConverterUtils.DataSource;
 
 public class LearningMachine {
-	private Classifier classifier;
-	private FastVector attributes;
+	private Classifier clssf;
+	private FastVector attrs;
 	private int numAttr;
-	private Instances trainingInstances;
+	private Instances trainInsts;
 	private String evalSummary;
 
+	/**
+	 * default constructor for LearningMachine
+	 */
 	public LearningMachine() {
 		// Initialize the Classifier as a Naive Bayes Classifier
-		classifier = (Classifier) new NaiveBayes();
-		// Initialize Attributes
-		// Declare Lexical Attribute with its values
-		// OLD condtructor only added one word at a time.
-
-		// FastVector NominalValLexical = new FastVector(9);
-		//
-		// NominalValLexical.addElement("punct");
-		// NominalValLexical.addElement("capLetter");
-		// NominalValLexical.addElement("capitalized");
-		// NominalValLexical.addElement("allCaps");
-		// NominalValLexical.addElement("lineFeed");
-		// NominalValLexical.addElement("whiteSpace");
-		// NominalValLexical.addElement("number");
-		// NominalValLexical.addElement("other");
-		// NominalValLexical.addElement("null");
-		// Attribute Lexical = new Attribute("Lexical", NominalValLexical);
-		//
-		// // Declare PartOfSpeech Attribute with its values
-		// FastVector NominalValPoS = new FastVector(6);
-		// NominalValPoS.addElement("article");
-		// NominalValPoS.addElement("conjunction");
-		// NominalValPoS.addElement("period");
-		// NominalValPoS.addElement("comma");
-		// NominalValPoS.addElement("hyphen");
-		// NominalValPoS.addElement("other");
-		// Attribute PartOfSpeech = new Attribute("PartOfSpeech",
-		// NominalValPoS);
-		//
-		// // Declare Gazetteer Attributes with its values
-		// FastVector NominalValGazetteer = new FastVector(2);
-		// NominalValGazetteer.addElement("0");
-		// NominalValGazetteer.addElement("1");
-		// Attribute DictionaryWord = new Attribute("DictionaryWord",
-		// NominalValGazetteer);
-		// Attribute City = new Attribute("City", NominalValGazetteer);
-		// Attribute Country = new Attribute("Country", NominalValGazetteer);
-		// Attribute Places = new Attribute("Places", NominalValGazetteer);
-		// Attribute DTICFirst = new Attribute("DTICFirst",
-		// NominalValGazetteer);
-		// Attribute DTICLast = new Attribute("DTICLast", NominalValGazetteer);
-		// Attribute CommonFirst = new Attribute("CommonFirst",
-		// NominalValGazetteer);
-		// Attribute CommonLast = new Attribute("CommonLast",
-		// NominalValGazetteer);
-		// Attribute Honorific = new Attribute("Honorific",
-		// NominalValGazetteer);
-		// Attribute Prefix = new Attribute("Prefix", NominalValGazetteer);
-		// Attribute Suffix = new Attribute("Suffix", NominalValGazetteer);
-		// Attribute Kill = new Attribute("Kill", NominalValGazetteer);
-		//
-		// // Declare Name Attribute
-		// FastVector NominalValName = new FastVector(3);
-		// NominalValName.addElement("beginning");
-		// NominalValName.addElement("continuing");
-		// NominalValName.addElement("other");
-		// Attribute Name = new Attribute("Name", NominalValName);
-		//
-		// // Declare the Feature vector
-		// attributes = new FastVector(15);
-		// attributes.addElement(Lexical);
-		// attributes.addElement(PartOfSpeech);
-		// attributes.addElement(DictionaryWord);
-		// attributes.addElement(City);
-		// attributes.addElement(Country);
-		// attributes.addElement(Places);
-		// attributes.addElement(DTICFirst);
-		// attributes.addElement(DTICLast);
-		// attributes.addElement(CommonFirst);
-		// attributes.addElement(CommonLast);
-		// attributes.addElement(Honorific);
-		// attributes.addElement(Prefix);
-		// attributes.addElement(Suffix);
-		// attributes.addElement(Kill);
-		// attributes.addElement(Name);
-		//
-		// numAttr = attributes.size();
-
+		clssf = (Classifier) new NaiveBayes();
+		
 		FastVector NominalValLexical = new FastVector(9);
 		NominalValLexical.addElement("punct");
 		NominalValLexical.addElement("capLetter");
@@ -144,6 +71,8 @@ public class LearningMachine {
 		Attribute PartOfSpeech9 = new Attribute("PartOfSpeech", NominalValPoS);
 		Attribute PartOfSpeech10 = new Attribute("PartOfSpeech", NominalValPoS);
 		Attribute PartOfSpeech11 = new Attribute("PartOfSpeech", NominalValPoS);
+		
+		
 		// Declare Gazetteer Attributes with its values
 		FastVector NominalValGazetteer = new FastVector(2);
 		NominalValGazetteer.addElement("0");
@@ -281,6 +210,7 @@ public class LearningMachine {
 		Attribute Suffix11 = new Attribute("Suffix", NominalValGazetteer);
 		Attribute Kill11 = new Attribute("Kill", NominalValGazetteer);
 
+		
 		// Declare Name Attribute
 		FastVector NominalValName = new FastVector(3);
 		NominalValName.addElement("beginning");
@@ -294,189 +224,192 @@ public class LearningMachine {
 		Attribute Name6 = new Attribute("Name", NominalValName);
 
 		// Declare the Feature vector
-		attributes = new FastVector(71);
+		attrs = new FastVector(71);
 		// word one
-		attributes.addElement(Lexical1);
-		attributes.addElement(PartOfSpeech1);
-		attributes.addElement(DictionaryWord1);
-		attributes.addElement(City1);
-		attributes.addElement(Country1);
-		attributes.addElement(Places1);
-		attributes.addElement(DTICFirst1);
-		attributes.addElement(DTICLast1);
-		attributes.addElement(CommonFirst1);
-		attributes.addElement(CommonLast1);
-		attributes.addElement(Honorific1);
-		attributes.addElement(Prefix1);
-		attributes.addElement(Suffix1);
-		attributes.addElement(Kill1);
+		attrs.addElement(Lexical1);
+		attrs.addElement(PartOfSpeech1);
+		attrs.addElement(DictionaryWord1);
+		attrs.addElement(City1);
+		attrs.addElement(Country1);
+		attrs.addElement(Places1);
+		attrs.addElement(DTICFirst1);
+		attrs.addElement(DTICLast1);
+		attrs.addElement(CommonFirst1);
+		attrs.addElement(CommonLast1);
+		attrs.addElement(Honorific1);
+		attrs.addElement(Prefix1);
+		attrs.addElement(Suffix1);
+		attrs.addElement(Kill1);
 		// word two
-		attributes.addElement(Lexical2);
-		attributes.addElement(PartOfSpeech2);
-		attributes.addElement(DictionaryWord2);
-		attributes.addElement(City2);
-		attributes.addElement(Country2);
-		attributes.addElement(Places2);
-		attributes.addElement(DTICFirst2);
-		attributes.addElement(DTICLast2);
-		attributes.addElement(CommonFirst2);
-		attributes.addElement(CommonLast2);
-		attributes.addElement(Honorific2);
-		attributes.addElement(Prefix2);
-		attributes.addElement(Suffix2);
-		attributes.addElement(Kill2);
+		attrs.addElement(Lexical2);
+		attrs.addElement(PartOfSpeech2);
+		attrs.addElement(DictionaryWord2);
+		attrs.addElement(City2);
+		attrs.addElement(Country2);
+		attrs.addElement(Places2);
+		attrs.addElement(DTICFirst2);
+		attrs.addElement(DTICLast2);
+		attrs.addElement(CommonFirst2);
+		attrs.addElement(CommonLast2);
+		attrs.addElement(Honorific2);
+		attrs.addElement(Prefix2);
+		attrs.addElement(Suffix2);
+		attrs.addElement(Kill2);
 
 		// word three
-		attributes.addElement(Lexical3);
-		attributes.addElement(PartOfSpeech3);
-		attributes.addElement(DictionaryWord3);
-		attributes.addElement(City3);
-		attributes.addElement(Country3);
-		attributes.addElement(Places3);
-		attributes.addElement(DTICFirst3);
-		attributes.addElement(DTICLast3);
-		attributes.addElement(CommonFirst3);
-		attributes.addElement(CommonLast3);
-		attributes.addElement(Honorific3);
-		attributes.addElement(Prefix3);
-		attributes.addElement(Suffix3);
-		attributes.addElement(Kill3);
+		attrs.addElement(Lexical3);
+		attrs.addElement(PartOfSpeech3);
+		attrs.addElement(DictionaryWord3);
+		attrs.addElement(City3);
+		attrs.addElement(Country3);
+		attrs.addElement(Places3);
+		attrs.addElement(DTICFirst3);
+		attrs.addElement(DTICLast3);
+		attrs.addElement(CommonFirst3);
+		attrs.addElement(CommonLast3);
+		attrs.addElement(Honorific3);
+		attrs.addElement(Prefix3);
+		attrs.addElement(Suffix3);
+		attrs.addElement(Kill3);
 		// word four
-		attributes.addElement(Lexical4);
-		attributes.addElement(PartOfSpeech4);
-		attributes.addElement(DictionaryWord4);
-		attributes.addElement(City4);
-		attributes.addElement(Country4);
-		attributes.addElement(Places4);
-		attributes.addElement(DTICFirst4);
-		attributes.addElement(DTICLast4);
-		attributes.addElement(CommonFirst4);
-		attributes.addElement(CommonLast4);
-		attributes.addElement(Honorific4);
-		attributes.addElement(Prefix4);
-		attributes.addElement(Suffix4);
-		attributes.addElement(Kill4);
+		attrs.addElement(Lexical4);
+		attrs.addElement(PartOfSpeech4);
+		attrs.addElement(DictionaryWord4);
+		attrs.addElement(City4);
+		attrs.addElement(Country4);
+		attrs.addElement(Places4);
+		attrs.addElement(DTICFirst4);
+		attrs.addElement(DTICLast4);
+		attrs.addElement(CommonFirst4);
+		attrs.addElement(CommonLast4);
+		attrs.addElement(Honorific4);
+		attrs.addElement(Prefix4);
+		attrs.addElement(Suffix4);
+		attrs.addElement(Kill4);
 
 		// word five
-		attributes.addElement(Lexical5);
-		attributes.addElement(PartOfSpeech5);
-		attributes.addElement(DictionaryWord5);
-		attributes.addElement(City5);
-		attributes.addElement(Country5);
-		attributes.addElement(Places5);
-		attributes.addElement(DTICFirst5);
-		attributes.addElement(DTICLast5);
-		attributes.addElement(CommonFirst5);
-		attributes.addElement(CommonLast5);
-		attributes.addElement(Honorific5);
-		attributes.addElement(Prefix5);
-		attributes.addElement(Suffix5);
-		attributes.addElement(Kill5);
+		attrs.addElement(Lexical5);
+		attrs.addElement(PartOfSpeech5);
+		attrs.addElement(DictionaryWord5);
+		attrs.addElement(City5);
+		attrs.addElement(Country5);
+		attrs.addElement(Places5);
+		attrs.addElement(DTICFirst5);
+		attrs.addElement(DTICLast5);
+		attrs.addElement(CommonFirst5);
+		attrs.addElement(CommonLast5);
+		attrs.addElement(Honorific5);
+		attrs.addElement(Prefix5);
+		attrs.addElement(Suffix5);
+		attrs.addElement(Kill5);
 
 		// word six
-		attributes.addElement(Lexical6);
-		attributes.addElement(PartOfSpeech6);
-		attributes.addElement(DictionaryWord6);
-		attributes.addElement(City6);
-		attributes.addElement(Country6);
-		attributes.addElement(Places6);
-		attributes.addElement(DTICFirst6);
-		attributes.addElement(DTICLast6);
-		attributes.addElement(CommonFirst6);
-		attributes.addElement(CommonLast6);
-		attributes.addElement(Honorific6);
-		attributes.addElement(Prefix6);
-		attributes.addElement(Suffix6);
-		attributes.addElement(Kill6);
+		attrs.addElement(Lexical6);
+		attrs.addElement(PartOfSpeech6);
+		attrs.addElement(DictionaryWord6);
+		attrs.addElement(City6);
+		attrs.addElement(Country6);
+		attrs.addElement(Places6);
+		attrs.addElement(DTICFirst6);
+		attrs.addElement(DTICLast6);
+		attrs.addElement(CommonFirst6);
+		attrs.addElement(CommonLast6);
+		attrs.addElement(Honorific6);
+		attrs.addElement(Prefix6);
+		attrs.addElement(Suffix6);
+		attrs.addElement(Kill6);
 
 		// word seven
-		attributes.addElement(Lexical7);
-		attributes.addElement(PartOfSpeech7);
-		attributes.addElement(DictionaryWord7);
-		attributes.addElement(City7);
-		attributes.addElement(Country7);
-		attributes.addElement(Places7);
-		attributes.addElement(DTICFirst7);
-		attributes.addElement(DTICLast7);
-		attributes.addElement(CommonFirst7);
-		attributes.addElement(CommonLast7);
-		attributes.addElement(Honorific7);
-		attributes.addElement(Prefix7);
-		attributes.addElement(Suffix7);
-		attributes.addElement(Kill7);
+		attrs.addElement(Lexical7);
+		attrs.addElement(PartOfSpeech7);
+		attrs.addElement(DictionaryWord7);
+		attrs.addElement(City7);
+		attrs.addElement(Country7);
+		attrs.addElement(Places7);
+		attrs.addElement(DTICFirst7);
+		attrs.addElement(DTICLast7);
+		attrs.addElement(CommonFirst7);
+		attrs.addElement(CommonLast7);
+		attrs.addElement(Honorific7);
+		attrs.addElement(Prefix7);
+		attrs.addElement(Suffix7);
+		attrs.addElement(Kill7);
 		// word eight
-		attributes.addElement(Lexical8);
-		attributes.addElement(PartOfSpeech8);
-		attributes.addElement(DictionaryWord8);
-		attributes.addElement(City8);
-		attributes.addElement(Country8);
-		attributes.addElement(Places8);
-		attributes.addElement(DTICFirst8);
-		attributes.addElement(DTICLast8);
-		attributes.addElement(CommonFirst8);
-		attributes.addElement(CommonLast8);
-		attributes.addElement(Honorific8);
-		attributes.addElement(Prefix8);
-		attributes.addElement(Suffix8);
-		attributes.addElement(Kill8);
+		attrs.addElement(Lexical8);
+		attrs.addElement(PartOfSpeech8);
+		attrs.addElement(DictionaryWord8);
+		attrs.addElement(City8);
+		attrs.addElement(Country8);
+		attrs.addElement(Places8);
+		attrs.addElement(DTICFirst8);
+		attrs.addElement(DTICLast8);
+		attrs.addElement(CommonFirst8);
+		attrs.addElement(CommonLast8);
+		attrs.addElement(Honorific8);
+		attrs.addElement(Prefix8);
+		attrs.addElement(Suffix8);
+		attrs.addElement(Kill8);
 		// word nine
-		attributes.addElement(Lexical9);
-		attributes.addElement(PartOfSpeech9);
-		attributes.addElement(DictionaryWord9);
-		attributes.addElement(City9);
-		attributes.addElement(Country9);
-		attributes.addElement(Places9);
-		attributes.addElement(DTICFirst9);
-		attributes.addElement(DTICLast9);
-		attributes.addElement(CommonFirst9);
-		attributes.addElement(CommonLast9);
-		attributes.addElement(Honorific9);
-		attributes.addElement(Prefix9);
-		attributes.addElement(Suffix9);
-		attributes.addElement(Kill9);
+		attrs.addElement(Lexical9);
+		attrs.addElement(PartOfSpeech9);
+		attrs.addElement(DictionaryWord9);
+		attrs.addElement(City9);
+		attrs.addElement(Country9);
+		attrs.addElement(Places9);
+		attrs.addElement(DTICFirst9);
+		attrs.addElement(DTICLast9);
+		attrs.addElement(CommonFirst9);
+		attrs.addElement(CommonLast9);
+		attrs.addElement(Honorific9);
+		attrs.addElement(Prefix9);
+		attrs.addElement(Suffix9);
+		attrs.addElement(Kill9);
 		// word ten
-		attributes.addElement(Lexical10);
-		attributes.addElement(PartOfSpeech10);
-		attributes.addElement(DictionaryWord10);
-		attributes.addElement(City10);
-		attributes.addElement(Country10);
-		attributes.addElement(Places10);
-		attributes.addElement(DTICFirst10);
-		attributes.addElement(DTICLast10);
-		attributes.addElement(CommonFirst10);
-		attributes.addElement(CommonLast10);
-		attributes.addElement(Honorific10);
-		attributes.addElement(Prefix10);
-		attributes.addElement(Suffix10);
-		attributes.addElement(Kill10);
+		attrs.addElement(Lexical10);
+		attrs.addElement(PartOfSpeech10);
+		attrs.addElement(DictionaryWord10);
+		attrs.addElement(City10);
+		attrs.addElement(Country10);
+		attrs.addElement(Places10);
+		attrs.addElement(DTICFirst10);
+		attrs.addElement(DTICLast10);
+		attrs.addElement(CommonFirst10);
+		attrs.addElement(CommonLast10);
+		attrs.addElement(Honorific10);
+		attrs.addElement(Prefix10);
+		attrs.addElement(Suffix10);
+		attrs.addElement(Kill10);
 		// word eleven
-		attributes.addElement(Lexical11);
-		attributes.addElement(PartOfSpeech11);
-		attributes.addElement(DictionaryWord11);
-		attributes.addElement(City11);
-		attributes.addElement(Country11);
-		attributes.addElement(Places11);
-		attributes.addElement(DTICFirst11);
-		attributes.addElement(DTICLast11);
-		attributes.addElement(CommonFirst11);
-		attributes.addElement(CommonLast11);
-		attributes.addElement(Honorific11);
-		attributes.addElement(Prefix11);
-		attributes.addElement(Suffix11);
-		attributes.addElement(Kill11);
+		attrs.addElement(Lexical11);
+		attrs.addElement(PartOfSpeech11);
+		attrs.addElement(DictionaryWord11);
+		attrs.addElement(City11);
+		attrs.addElement(Country11);
+		attrs.addElement(Places11);
+		attrs.addElement(DTICFirst11);
+		attrs.addElement(DTICLast11);
+		attrs.addElement(CommonFirst11);
+		attrs.addElement(CommonLast11);
+		attrs.addElement(Honorific11);
+		attrs.addElement(Prefix11);
+		attrs.addElement(Suffix11);
+		attrs.addElement(Kill11);
 		// Middle word name classification
-		attributes.addElement(Name1);
-		attributes.addElement(Name2);
-		attributes.addElement(Name3);
-		attributes.addElement(Name4);
-		attributes.addElement(Name5);
-		attributes.addElement(Name6);
+		attrs.addElement(Name1);
+		attrs.addElement(Name2);
+		attrs.addElement(Name3);
+		attrs.addElement(Name4);
+		attrs.addElement(Name5);
+		attrs.addElement(Name6);
 
 	}
 
+	
+	
 	public LearningMachine(String machineModel) {
-		if (machineModel.equals("new"))
-			classifier = (Classifier) new NaiveBayes();
+		
+		if (machineModel.equalsIgnoreCase("new"))
+			clssf = (Classifier) new NaiveBayes();
 		else
 			loadLM(machineModel);
 
@@ -674,265 +607,185 @@ public class LearningMachine {
 		Attribute Name6 = new Attribute("Name", NominalValName);
 
 		// Declare the Feature vector
-		attributes = new FastVector(71);
+		attrs = new FastVector(71);
 		// word one
-		attributes.addElement(Lexical1);
-		attributes.addElement(PartOfSpeech1);
-		attributes.addElement(DictionaryWord1);
-		attributes.addElement(City1);
-		attributes.addElement(Country1);
-		attributes.addElement(Places1);
-		attributes.addElement(DTICFirst1);
-		attributes.addElement(DTICLast1);
-		attributes.addElement(CommonFirst1);
-		attributes.addElement(CommonLast1);
-		attributes.addElement(Honorific1);
-		attributes.addElement(Prefix1);
-		attributes.addElement(Suffix1);
-		attributes.addElement(Kill1);
+		attrs.addElement(Lexical1);
+		attrs.addElement(PartOfSpeech1);
+		attrs.addElement(DictionaryWord1);
+		attrs.addElement(City1);
+		attrs.addElement(Country1);
+		attrs.addElement(Places1);
+		attrs.addElement(DTICFirst1);
+		attrs.addElement(DTICLast1);
+		attrs.addElement(CommonFirst1);
+		attrs.addElement(CommonLast1);
+		attrs.addElement(Honorific1);
+		attrs.addElement(Prefix1);
+		attrs.addElement(Suffix1);
+		attrs.addElement(Kill1);
 		// word two
-		attributes.addElement(Lexical2);
-		attributes.addElement(PartOfSpeech2);
-		attributes.addElement(DictionaryWord2);
-		attributes.addElement(City2);
-		attributes.addElement(Country2);
-		attributes.addElement(Places2);
-		attributes.addElement(DTICFirst2);
-		attributes.addElement(DTICLast2);
-		attributes.addElement(CommonFirst2);
-		attributes.addElement(CommonLast2);
-		attributes.addElement(Honorific2);
-		attributes.addElement(Prefix2);
-		attributes.addElement(Suffix2);
-		attributes.addElement(Kill2);
+		attrs.addElement(Lexical2);
+		attrs.addElement(PartOfSpeech2);
+		attrs.addElement(DictionaryWord2);
+		attrs.addElement(City2);
+		attrs.addElement(Country2);
+		attrs.addElement(Places2);
+		attrs.addElement(DTICFirst2);
+		attrs.addElement(DTICLast2);
+		attrs.addElement(CommonFirst2);
+		attrs.addElement(CommonLast2);
+		attrs.addElement(Honorific2);
+		attrs.addElement(Prefix2);
+		attrs.addElement(Suffix2);
+		attrs.addElement(Kill2);
 
 		// word three
-		attributes.addElement(Lexical3);
-		attributes.addElement(PartOfSpeech3);
-		attributes.addElement(DictionaryWord3);
-		attributes.addElement(City3);
-		attributes.addElement(Country3);
-		attributes.addElement(Places3);
-		attributes.addElement(DTICFirst3);
-		attributes.addElement(DTICLast3);
-		attributes.addElement(CommonFirst3);
-		attributes.addElement(CommonLast3);
-		attributes.addElement(Honorific3);
-		attributes.addElement(Prefix3);
-		attributes.addElement(Suffix3);
-		attributes.addElement(Kill3);
+		attrs.addElement(Lexical3);
+		attrs.addElement(PartOfSpeech3);
+		attrs.addElement(DictionaryWord3);
+		attrs.addElement(City3);
+		attrs.addElement(Country3);
+		attrs.addElement(Places3);
+		attrs.addElement(DTICFirst3);
+		attrs.addElement(DTICLast3);
+		attrs.addElement(CommonFirst3);
+		attrs.addElement(CommonLast3);
+		attrs.addElement(Honorific3);
+		attrs.addElement(Prefix3);
+		attrs.addElement(Suffix3);
+		attrs.addElement(Kill3);
 		// word four
-		attributes.addElement(Lexical4);
-		attributes.addElement(PartOfSpeech4);
-		attributes.addElement(DictionaryWord4);
-		attributes.addElement(City4);
-		attributes.addElement(Country4);
-		attributes.addElement(Places4);
-		attributes.addElement(DTICFirst4);
-		attributes.addElement(DTICLast4);
-		attributes.addElement(CommonFirst4);
-		attributes.addElement(CommonLast4);
-		attributes.addElement(Honorific4);
-		attributes.addElement(Prefix4);
-		attributes.addElement(Suffix4);
-		attributes.addElement(Kill4);
+		attrs.addElement(Lexical4);
+		attrs.addElement(PartOfSpeech4);
+		attrs.addElement(DictionaryWord4);
+		attrs.addElement(City4);
+		attrs.addElement(Country4);
+		attrs.addElement(Places4);
+		attrs.addElement(DTICFirst4);
+		attrs.addElement(DTICLast4);
+		attrs.addElement(CommonFirst4);
+		attrs.addElement(CommonLast4);
+		attrs.addElement(Honorific4);
+		attrs.addElement(Prefix4);
+		attrs.addElement(Suffix4);
+		attrs.addElement(Kill4);
 
 		// word five
-		attributes.addElement(Lexical5);
-		attributes.addElement(PartOfSpeech5);
-		attributes.addElement(DictionaryWord5);
-		attributes.addElement(City5);
-		attributes.addElement(Country5);
-		attributes.addElement(Places5);
-		attributes.addElement(DTICFirst5);
-		attributes.addElement(DTICLast5);
-		attributes.addElement(CommonFirst5);
-		attributes.addElement(CommonLast5);
-		attributes.addElement(Honorific5);
-		attributes.addElement(Prefix5);
-		attributes.addElement(Suffix5);
-		attributes.addElement(Kill5);
+		attrs.addElement(Lexical5);
+		attrs.addElement(PartOfSpeech5);
+		attrs.addElement(DictionaryWord5);
+		attrs.addElement(City5);
+		attrs.addElement(Country5);
+		attrs.addElement(Places5);
+		attrs.addElement(DTICFirst5);
+		attrs.addElement(DTICLast5);
+		attrs.addElement(CommonFirst5);
+		attrs.addElement(CommonLast5);
+		attrs.addElement(Honorific5);
+		attrs.addElement(Prefix5);
+		attrs.addElement(Suffix5);
+		attrs.addElement(Kill5);
 
 		// word six
-		attributes.addElement(Lexical6);
-		attributes.addElement(PartOfSpeech6);
-		attributes.addElement(DictionaryWord6);
-		attributes.addElement(City6);
-		attributes.addElement(Country6);
-		attributes.addElement(Places6);
-		attributes.addElement(DTICFirst6);
-		attributes.addElement(DTICLast6);
-		attributes.addElement(CommonFirst6);
-		attributes.addElement(CommonLast6);
-		attributes.addElement(Honorific6);
-		attributes.addElement(Prefix6);
-		attributes.addElement(Suffix6);
-		attributes.addElement(Kill6);
+		attrs.addElement(Lexical6);
+		attrs.addElement(PartOfSpeech6);
+		attrs.addElement(DictionaryWord6);
+		attrs.addElement(City6);
+		attrs.addElement(Country6);
+		attrs.addElement(Places6);
+		attrs.addElement(DTICFirst6);
+		attrs.addElement(DTICLast6);
+		attrs.addElement(CommonFirst6);
+		attrs.addElement(CommonLast6);
+		attrs.addElement(Honorific6);
+		attrs.addElement(Prefix6);
+		attrs.addElement(Suffix6);
+		attrs.addElement(Kill6);
 
 		// word seven
-		attributes.addElement(Lexical7);
-		attributes.addElement(PartOfSpeech7);
-		attributes.addElement(DictionaryWord7);
-		attributes.addElement(City7);
-		attributes.addElement(Country7);
-		attributes.addElement(Places7);
-		attributes.addElement(DTICFirst7);
-		attributes.addElement(DTICLast7);
-		attributes.addElement(CommonFirst7);
-		attributes.addElement(CommonLast7);
-		attributes.addElement(Honorific7);
-		attributes.addElement(Prefix7);
-		attributes.addElement(Suffix7);
-		attributes.addElement(Kill7);
+		attrs.addElement(Lexical7);
+		attrs.addElement(PartOfSpeech7);
+		attrs.addElement(DictionaryWord7);
+		attrs.addElement(City7);
+		attrs.addElement(Country7);
+		attrs.addElement(Places7);
+		attrs.addElement(DTICFirst7);
+		attrs.addElement(DTICLast7);
+		attrs.addElement(CommonFirst7);
+		attrs.addElement(CommonLast7);
+		attrs.addElement(Honorific7);
+		attrs.addElement(Prefix7);
+		attrs.addElement(Suffix7);
+		attrs.addElement(Kill7);
 
-		attributes.addElement(Lexical8);
-		attributes.addElement(PartOfSpeech8);
-		attributes.addElement(DictionaryWord8);
-		attributes.addElement(City8);
-		attributes.addElement(Country8);
-		attributes.addElement(Places8);
-		attributes.addElement(DTICFirst8);
-		attributes.addElement(DTICLast8);
-		attributes.addElement(CommonFirst8);
-		attributes.addElement(CommonLast8);
-		attributes.addElement(Honorific8);
-		attributes.addElement(Prefix8);
-		attributes.addElement(Suffix8);
-		attributes.addElement(Kill8);
+		attrs.addElement(Lexical8);
+		attrs.addElement(PartOfSpeech8);
+		attrs.addElement(DictionaryWord8);
+		attrs.addElement(City8);
+		attrs.addElement(Country8);
+		attrs.addElement(Places8);
+		attrs.addElement(DTICFirst8);
+		attrs.addElement(DTICLast8);
+		attrs.addElement(CommonFirst8);
+		attrs.addElement(CommonLast8);
+		attrs.addElement(Honorific8);
+		attrs.addElement(Prefix8);
+		attrs.addElement(Suffix8);
+		attrs.addElement(Kill8);
 
-		attributes.addElement(Lexical9);
-		attributes.addElement(PartOfSpeech9);
-		attributes.addElement(DictionaryWord9);
-		attributes.addElement(City9);
-		attributes.addElement(Country9);
-		attributes.addElement(Places9);
-		attributes.addElement(DTICFirst9);
-		attributes.addElement(DTICLast9);
-		attributes.addElement(CommonFirst9);
-		attributes.addElement(CommonLast9);
-		attributes.addElement(Honorific9);
-		attributes.addElement(Prefix9);
-		attributes.addElement(Suffix9);
-		attributes.addElement(Kill9);
+		attrs.addElement(Lexical9);
+		attrs.addElement(PartOfSpeech9);
+		attrs.addElement(DictionaryWord9);
+		attrs.addElement(City9);
+		attrs.addElement(Country9);
+		attrs.addElement(Places9);
+		attrs.addElement(DTICFirst9);
+		attrs.addElement(DTICLast9);
+		attrs.addElement(CommonFirst9);
+		attrs.addElement(CommonLast9);
+		attrs.addElement(Honorific9);
+		attrs.addElement(Prefix9);
+		attrs.addElement(Suffix9);
+		attrs.addElement(Kill9);
 
-		attributes.addElement(Lexical10);
-		attributes.addElement(PartOfSpeech10);
-		attributes.addElement(DictionaryWord10);
-		attributes.addElement(City10);
-		attributes.addElement(Country10);
-		attributes.addElement(Places10);
-		attributes.addElement(DTICFirst10);
-		attributes.addElement(DTICLast10);
-		attributes.addElement(CommonFirst10);
-		attributes.addElement(CommonLast10);
-		attributes.addElement(Honorific10);
-		attributes.addElement(Prefix10);
-		attributes.addElement(Suffix10);
-		attributes.addElement(Kill10);
+		attrs.addElement(Lexical10);
+		attrs.addElement(PartOfSpeech10);
+		attrs.addElement(DictionaryWord10);
+		attrs.addElement(City10);
+		attrs.addElement(Country10);
+		attrs.addElement(Places10);
+		attrs.addElement(DTICFirst10);
+		attrs.addElement(DTICLast10);
+		attrs.addElement(CommonFirst10);
+		attrs.addElement(CommonLast10);
+		attrs.addElement(Honorific10);
+		attrs.addElement(Prefix10);
+		attrs.addElement(Suffix10);
+		attrs.addElement(Kill10);
 
-		attributes.addElement(Lexical11);
-		attributes.addElement(PartOfSpeech11);
-		attributes.addElement(DictionaryWord11);
-		attributes.addElement(City11);
-		attributes.addElement(Country11);
-		attributes.addElement(Places11);
-		attributes.addElement(DTICFirst11);
-		attributes.addElement(DTICLast11);
-		attributes.addElement(CommonFirst11);
-		attributes.addElement(CommonLast11);
-		attributes.addElement(Honorific11);
-		attributes.addElement(Prefix11);
-		attributes.addElement(Suffix11);
-		attributes.addElement(Kill11);
+		attrs.addElement(Lexical11);
+		attrs.addElement(PartOfSpeech11);
+		attrs.addElement(DictionaryWord11);
+		attrs.addElement(City11);
+		attrs.addElement(Country11);
+		attrs.addElement(Places11);
+		attrs.addElement(DTICFirst11);
+		attrs.addElement(DTICLast11);
+		attrs.addElement(CommonFirst11);
+		attrs.addElement(CommonLast11);
+		attrs.addElement(Honorific11);
+		attrs.addElement(Prefix11);
+		attrs.addElement(Suffix11);
+		attrs.addElement(Kill11);
 
-		attributes.addElement(Name1);
-		attributes.addElement(Name2);
-		attributes.addElement(Name3);
-		attributes.addElement(Name4);
-		attributes.addElement(Name5);
-		attributes.addElement(Name6);
+		attrs.addElement(Name1);
+		attrs.addElement(Name2);
+		attrs.addElement(Name3);
+		attrs.addElement(Name4);
+		attrs.addElement(Name5);
+		attrs.addElement(Name6);
 	}
-	// Removing the int constructor for simplicity
-	// public LearningMachine(int k) {
-	// int dimension = (((2 * k) + 1) * 14) + k + 1;
-	//
-	// // Initialize the Classifier as a Naive Bayes Classifier
-	// classifier = (Classifier) new NaiveBayes();
-	//
-	// // Initialize Attributes
-	// // Declare Lexical Attribute with its values
-	// FastVector NominalValLexical = new FastVector(9);
-	// NominalValLexical.addElement("punct");
-	// NominalValLexical.addElement("capLetter");
-	// NominalValLexical.addElement("capitalized");
-	// NominalValLexical.addElement("allCaps");
-	// NominalValLexical.addElement("lineFeed");
-	// NominalValLexical.addElement("whiteSpace");
-	// NominalValLexical.addElement("number");
-	// NominalValLexical.addElement("other");
-	// NominalValLexical.addElement("null");
-	// // Attribute Lexical = new Attribute("Lexical", NominalValLexical);
-	//
-	// // Declare PartOfSpeech Attribute with its values
-	// FastVector NominalValPoS = new FastVector(6);
-	// NominalValPoS.addElement("article");
-	// NominalValPoS.addElement("conjunction");
-	// NominalValPoS.addElement("period");
-	// NominalValPoS.addElement("comma");
-	// NominalValPoS.addElement("hyphen");
-	// NominalValPoS.addElement("other");
-	// // Attribute PartOfSpeech = new Attribute("PartOfSpeech",
-	// // NominalValPoS);
-	//
-	// // Declare Gazetteer Attributes with its values
-	// FastVector NominalValGazetteer = new FastVector(2);
-	// NominalValGazetteer.addElement("0");
-	// NominalValGazetteer.addElement("1");
-	//
-	// // Declare Name Attribute
-	// FastVector NominalValName = new FastVector(3);
-	// NominalValName.addElement("beginning");
-	// NominalValName.addElement("continuing");
-	// NominalValName.addElement("other");
-	// // Attribute Name = new Attribute("Name", NominalValName);
-	//
-	// // Declare ContainsName Attribute
-	// FastVector NominalValContainsName = new FastVector(3);
-	// NominalValContainsName.addElement("yes");
-	// NominalValContainsName.addElement("no");
-	// Attribute ContainsName = new Attribute("ContainsName",
-	// NominalValContainsName);
-	//
-	// // Declare the Feature vector
-	// attributes = new FastVector(dimension);
-	//
-	// for (int i = 0; i < ((2 * k) + 1); i++) {
-	// attributes.addElement(getAttribute("Lexical" + i, NominalValLexical));
-	// attributes.addElement(getAttribute("PartOfSpeech" + i, NominalValPoS));
-	// attributes.addElement(getAttribute("DictionaryWord" + i,
-	// NominalValGazetteer));
-	// attributes.addElement(getAttribute("City" + i, NominalValGazetteer));
-	// attributes.addElement(getAttribute("Country" + i, NominalValGazetteer));
-	// attributes.addElement(getAttribute("Places" + i, NominalValGazetteer));
-	// attributes.addElement(getAttribute("DTICFirst" + i,
-	// NominalValGazetteer));
-	// attributes.addElement(getAttribute("DTICLast" + i, NominalValGazetteer));
-	// attributes.addElement(getAttribute("CommonFirst" + i,
-	// NominalValGazetteer));
-	// attributes.addElement(getAttribute("CommonLast" + i,
-	// NominalValGazetteer));
-	// attributes.addElement(getAttribute("Honorific" + i,
-	// NominalValGazetteer));
-	// attributes.addElement(getAttribute("Prefix" + i, NominalValGazetteer));
-	// attributes.addElement(getAttribute("Suffix" + i, NominalValGazetteer));
-	// attributes.addElement(getAttribute("Kill" + i, NominalValGazetteer));
-	// attributes.addElement(getAttribute("Name" + i, NominalValName));
-	// }
-	// attributes.addElement(ContainsName);
-	//
-	// numAttr = attributes.size();
-	// }
-
+	
 	/**
 	 * Uses the training data to train the Learning Machine
 	 * 
@@ -942,11 +795,11 @@ public class LearningMachine {
 	public boolean train(Instances trainingData) throws Exception {
 
 		try {
-			classifier.buildClassifier(trainingData);
+			clssf.buildClassifier(trainingData);
 
 			// Test the Model
 			Evaluation evaluation = new Evaluation(trainingData);
-			evaluation.evaluateModel(classifier, trainingData);
+			evaluation.evaluateModel(clssf, trainingData);
 
 			// Print the Evaluation Summary:
 			String summary = evaluation.toSummaryString();
@@ -972,11 +825,11 @@ public class LearningMachine {
 		try {
 
 			// Build the Classifier
-			classifier.buildClassifier(this.trainingInstances);
+			clssf.buildClassifier(this.trainInsts);
 
 			// Test the Model
-			Evaluation eval = new Evaluation(this.trainingInstances);
-			eval.evaluateModel(classifier, this.trainingInstances);
+			Evaluation eval = new Evaluation(this.trainInsts);
+			eval.evaluateModel(clssf, this.trainInsts);
 
 			// Set the Evaluation Summary
 			evalSummary = eval.toSummaryString();
@@ -998,7 +851,7 @@ public class LearningMachine {
 	 * being other
 	 */
 	public double[] getDistribution(String input) throws Exception {
-		Instances classificationInstances = new Instances("toBeClassified", this.attributes, 1);
+		Instances classificationInstances = new Instances("toBeClassified", this.attrs, 1);
 
 		// Build the instance to be classified
 		String[] dataToClassify = input.split(",");
@@ -1006,27 +859,27 @@ public class LearningMachine {
 		Instance toClassify = new Instance(this.numAttr - 1);
 		toClassify.setDataset(classificationInstances);
 
-		toClassify.setValue((Attribute) attributes.elementAt(0), dataToClassify[0]);
-		toClassify.setValue((Attribute) attributes.elementAt(1), dataToClassify[1]);
-		toClassify.setValue((Attribute) attributes.elementAt(2), dataToClassify[2]);
-		toClassify.setValue((Attribute) attributes.elementAt(3), dataToClassify[3]);
-		toClassify.setValue((Attribute) attributes.elementAt(4), dataToClassify[4]);
-		toClassify.setValue((Attribute) attributes.elementAt(5), dataToClassify[5]);
-		toClassify.setValue((Attribute) attributes.elementAt(6), dataToClassify[6]);
-		toClassify.setValue((Attribute) attributes.elementAt(7), dataToClassify[7]);
-		toClassify.setValue((Attribute) attributes.elementAt(8), dataToClassify[8]);
-		toClassify.setValue((Attribute) attributes.elementAt(9), dataToClassify[9]);
-		toClassify.setValue((Attribute) attributes.elementAt(10), dataToClassify[10]);
-		toClassify.setValue((Attribute) attributes.elementAt(11), dataToClassify[11]);
-		toClassify.setValue((Attribute) attributes.elementAt(12), dataToClassify[12]);
-		toClassify.setValue((Attribute) attributes.elementAt(13), dataToClassify[13]);
+		toClassify.setValue((Attribute) attrs.elementAt(0), dataToClassify[0]);
+		toClassify.setValue((Attribute) attrs.elementAt(1), dataToClassify[1]);
+		toClassify.setValue((Attribute) attrs.elementAt(2), dataToClassify[2]);
+		toClassify.setValue((Attribute) attrs.elementAt(3), dataToClassify[3]);
+		toClassify.setValue((Attribute) attrs.elementAt(4), dataToClassify[4]);
+		toClassify.setValue((Attribute) attrs.elementAt(5), dataToClassify[5]);
+		toClassify.setValue((Attribute) attrs.elementAt(6), dataToClassify[6]);
+		toClassify.setValue((Attribute) attrs.elementAt(7), dataToClassify[7]);
+		toClassify.setValue((Attribute) attrs.elementAt(8), dataToClassify[8]);
+		toClassify.setValue((Attribute) attrs.elementAt(9), dataToClassify[9]);
+		toClassify.setValue((Attribute) attrs.elementAt(10), dataToClassify[10]);
+		toClassify.setValue((Attribute) attrs.elementAt(11), dataToClassify[11]);
+		toClassify.setValue((Attribute) attrs.elementAt(12), dataToClassify[12]);
+		toClassify.setValue((Attribute) attrs.elementAt(13), dataToClassify[13]);
 
 		// Specify that the instance belong to the training set
 		// in order to inherit from the set description
-		toClassify.setDataset(this.trainingInstances);
+		toClassify.setDataset(this.trainInsts);
 
 		// Get the likelihood of each classes
-		double[] distribution = this.classifier.distributionForInstance(toClassify);
+		double[] distribution = this.clssf.distributionForInstance(toClassify);
 
 		return distribution;
 	}
@@ -1039,7 +892,7 @@ public class LearningMachine {
 	 * @throws Exception
 	 */
 	public String classify(String input) throws Exception {
-		Instances classificationInstances = new Instances("toBeClassified", this.attributes, 1);
+		Instances classificationInstances = new Instances("toBeClassified", this.attrs, 1);
 
 		// Build the instance to be classified
 		String[] dataToClassify = input.split(",");
@@ -1048,15 +901,15 @@ public class LearningMachine {
 		toClassify.setDataset(classificationInstances);
 
 		for (int i = 0; i < (numAttr - 1); i++) {
-			toClassify.setValue((Attribute) attributes.elementAt(i), dataToClassify[i]);
+			toClassify.setValue((Attribute) attrs.elementAt(i), dataToClassify[i]);
 		}
 
 		// Specify that the instance belong to the training set
 		// in order to inherit from the set description
-		toClassify.setDataset(this.trainingInstances);
+		toClassify.setDataset(this.trainInsts);
 
 		// Get the likelihood of each classes
-		double[] distribution = this.classifier.distributionForInstance(toClassify);
+		double[] distribution = this.clssf.distributionForInstance(toClassify);
 
 		if (distribution[0] >= distribution[1] && distribution[0] >= distribution[2]) {
 			return "beginning";
@@ -1075,7 +928,7 @@ public class LearningMachine {
 	 * @throws Exception
 	 */
 	public String classifyShingle(String input) throws Exception {
-		Instances classificationInstances = new Instances("toBeClassified", this.attributes, 1);
+		Instances classificationInstances = new Instances("toBeClassified", this.attrs, 1);
 
 		// Build the instance to be classified
 		String[] dataToClassify = input.split(",");
@@ -1085,13 +938,13 @@ public class LearningMachine {
 
 		for (int i = 0; i < (numAttr - 1); i++) {
 			// System.out.println("Attribute " + i + " - " + dataToClassify[i]);
-			toClassify.setValue((Attribute) attributes.elementAt(i), dataToClassify[i]);
+			toClassify.setValue((Attribute) attrs.elementAt(i), dataToClassify[i]);
 		}
 
-		toClassify.setDataset(this.trainingInstances);
+		toClassify.setDataset(this.trainInsts);
 
 		// Get the likelihood of each classes
-		double[] distribution = this.classifier.distributionForInstance(toClassify);
+		double[] distribution = this.clssf.distributionForInstance(toClassify);
 
 		if (distribution[0] >= distribution[1]) {
 			return "yes";
@@ -1106,7 +959,7 @@ public class LearningMachine {
 	 * Shingle not containing a name
 	 */
 	public double[] getShingleDistribution(String input) throws Exception {
-		Instances classificationInstances = new Instances("toBeClassified", this.attributes, 1);
+		Instances classificationInstances = new Instances("toBeClassified", this.attrs, 1);
 
 		// Build the instance to be classified
 		String[] dataToClassify = input.split(",");
@@ -1116,15 +969,15 @@ public class LearningMachine {
 
 		for (int i = 0; i < (numAttr - 1); i++) {
 			// System.out.println("Attribute " + i + " - " + dataToClassify[i]);
-			toClassify.setValue((Attribute) attributes.elementAt(i), dataToClassify[i]);
+			toClassify.setValue((Attribute) attrs.elementAt(i), dataToClassify[i]);
 		}
 
 		// Specify that the instance belong to the training set
 		// in order to inherit from the set description
-		toClassify.setDataset(this.trainingInstances);
+		toClassify.setDataset(this.trainInsts);
 
 		// Get the likelihood of each classes
-		double[] distribution = this.classifier.distributionForInstance(toClassify);
+		double[] distribution = this.clssf.distributionForInstance(toClassify);
 
 		return distribution;
 	}
@@ -1132,18 +985,39 @@ public class LearningMachine {
 	/**
 	 * print the Evaluation Summary of the classifier
 	 */
-	public void printEvaluationSummary() {
-		System.out.println("\n*******************************");
-		System.out.println("      Evaluation Summary");
-		System.out.println("*******************************");
-		System.out.println(this.evalSummary);
+	public boolean printEvaluationSummary() throws Exception {
+
+		try {
+			System.out.println("\n*******************************");
+
+			System.out.println("      Evaluation Summary");
+			System.out.println("*******************************");
+			System.out.println(this.evalSummary);
+		} catch (Exception e47) {
+			return false;
+		}
+		return true;
+	}
+	
+	/**
+	 * returns evalSummary
+	 */
+	public String getEvalSummary() throws Exception {
+		
+		try {
+			return this.evalSummary;
+			
+		}catch(Exception e639){
+			return "error";
+			
+		}
 	}
 
 	/**
 	 * print the values of ARFF data from trainingInstances
 	 */
 	public void printARFF() {
-		System.out.println(this.trainingInstances);
+		System.out.println(this.trainInsts);
 	}
 
 	/**
@@ -1157,7 +1031,7 @@ public class LearningMachine {
 		PrintWriter writer;
 		try {
 			writer = new PrintWriter(outputFilePath, "UTF-8");
-			writer.println(trainingInstances);
+			writer.println(trainInsts);
 			writer.close();
 
 		} catch (FileNotFoundException | UnsupportedEncodingException e) {
@@ -1181,15 +1055,15 @@ public class LearningMachine {
 		try {
 
 			DataSource source = new DataSource(filePath);
-			trainingInstances = source.getDataSet();
+			trainInsts = source.getDataSet();
 
 			// setting class attribute if the data format does not provide this
 			// information
 			// For example, the XRFF format saves the class attribute
 			// information as
 			// well
-			if (trainingInstances.classIndex() == -1) {
-				trainingInstances.setClassIndex(trainingInstances.numAttributes() - 1);
+			if (trainInsts.classIndex() == -1) {
+				trainInsts.setClassIndex(trainInsts.numAttributes() - 1);
 			}
 			return true;
 		} catch (Exception e3) {
@@ -1206,10 +1080,10 @@ public class LearningMachine {
 	 */
 	public void importARFF(LinkedList<String> trainingData) {
 
-		this.trainingInstances = new Instances("Classification", attributes, trainingData.size());
+		this.trainInsts = new Instances("Classification", attrs, trainingData.size());
 
 		// Make the last attribute be the class
-		this.trainingInstances.setClassIndex(numAttr - 1);
+		this.trainInsts.setClassIndex(numAttr - 1);
 
 		for (String sdata : trainingData) {
 			// System.out.println(trainingData);
@@ -1219,10 +1093,10 @@ public class LearningMachine {
 			Instance instance = new Instance(numAttr);
 
 			for (int i = 0; i < numAttr; i++) {
-				instance.setValue((Attribute) attributes.elementAt(i), values[i]);
+				instance.setValue((Attribute) attrs.elementAt(i), values[i]);
 			}
 
-			this.trainingInstances.add(instance); // Add new instance to
+			this.trainInsts.add(instance); // Add new instance to
 													// training data
 		}
 	}
@@ -1236,10 +1110,10 @@ public class LearningMachine {
 	public boolean importARFF(String[] trainingData) throws Exception {
 
 		try {
-			this.trainingInstances = new Instances("Classification", attributes, trainingData.length);
+			this.trainInsts = new Instances("Classification", attrs, trainingData.length);
 
 			// Make the last attribute be the class
-			this.trainingInstances.setClassIndex(numAttr - 1);
+			this.trainInsts.setClassIndex(numAttr - 1);
 
 			for (String sdata : trainingData) {
 				// System.out.println(trainingData);
@@ -1249,10 +1123,10 @@ public class LearningMachine {
 				Instance instance = new Instance(numAttr);
 
 				for (int i = 0; i < numAttr; i++) {
-					instance.setValue((Attribute) attributes.elementAt(i), values[i]);
+					instance.setValue((Attribute) attrs.elementAt(i), values[i]);
 				}
 
-				this.trainingInstances.add(instance); // Add new instance to
+				this.trainInsts.add(instance); // Add new instance to
 														// training data
 			}
 			return true;
@@ -1260,15 +1134,29 @@ public class LearningMachine {
 			return false;
 		}
 	}
-
+	
+	
+	/**
+	 * returns Classifier
+	 * @return
+	 */
 	public Classifier getClassifier() {
-		return classifier;
+		
+		return clssf;
 	}
-
-	public Attribute getAttribute(String name, FastVector nominalVal) {
+	
+	
+	/**
+	 * returns copy of Attribute
+	 * @param name
+	 * @param nominalVal
+	 * @return
+	 */
+	public Attribute getCopyAttribute(String name, FastVector nominalVal) {
 		return new Attribute(name, nominalVal);
 	}
 
+	
 	/**
 	 * Returns the number of attributes being used by the file
 	 * 
@@ -1277,9 +1165,18 @@ public class LearningMachine {
 	public int getNumberOfAttributes() {
 		return numAttr;
 	}
+	
+	/**
+	 * returns size of attributes[]
+	 * @return
+	 */
+	public int getSizeOfAttributes(){
+		
+		return this.attrs.size();
+	}
 
 	public Instances getTrainingInstances() {
-		return trainingInstances;
+		return trainInsts;
 	}
 
 	/**
@@ -1289,7 +1186,7 @@ public class LearningMachine {
 
 		try {
 			System.out.print("Saving Learning Machine to trainedmachine.model");
-			weka.core.SerializationHelper.write("trainedmachine.model", classifier);
+			weka.core.SerializationHelper.write("trainedmachine.model", clssf);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -1310,7 +1207,7 @@ public class LearningMachine {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return classifier;
+		return clssf;
 
 	}
 }

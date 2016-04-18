@@ -2,24 +2,53 @@ package edu.odu.cs.cs350.namex;
 
 import static org.junit.Assert.*;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.file.*;
 import java.util.HashSet;
 
-//import java.nio.file.Path;
-//import java.nio.file.Paths;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import weka.classifiers.Classifier;
+import weka.classifiers.Evaluation;
+import weka.classifiers.bayes.NaiveBayes;
+import weka.core.Attribute;
+import weka.core.FastVector;
+import weka.core.Instance;
 import weka.core.Instances;
+import weka.core.converters.ConverterUtils.DataSource;
 
 public class TestLearningMachine {
 
 	@Before
 	public void setUp() throws Exception {
 	}
+	
+	@Test 
+	/**
+	 * test for constructor; public LearningMachine()
+	 */
+	public void testLearningMachine() throws Exception{
+		/*
+		 * private Classifier classifier; 
+		 * private FastVector attributes; 
+		 * private int numAttr; 
+		 * private Instances trainingInstances; 
+		 * private String evalSummary;
+		 */
+		
+		LearningMachine lm1 = new LearningMachine();
+		weka.classifiers.bayes.NaiveBayes nb1 = new weka.classifiers.bayes.NaiveBayes();
+		assertTrue(lm1.getClassifier().getClass().equals(nb1.getClass()));
+		assertTrue(lm1.getNumberOfAttributes() > 0);
+		assertEquals(71 , lm1.getSizeOfAttributes() );
+		assertFalse(lm1.getEvalSummary().equals(""));
+		assertTrue(lm1.getTrainingInstances() != null);
+
+	}
+	
+	
+	
 	
 	@Test
 	public void testGetSerialVersionUID() {
