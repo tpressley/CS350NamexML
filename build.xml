@@ -129,11 +129,11 @@
     <!-- Generate javadocs for current project into ${doc.dir} -->
     <target name = "generate-javadoc" depends="package" description="generate documentation">
     	
-		<javadoc packagenames="personalNameExtractor" sourcepath="${src.main.java}" 
+		<javadoc packagenames="personalNameExtractor" sourcepath="${src.main}" 
 			destdir = "${dist}/doc" version = "true" 
 			windowtitle = "Personal Name Extractor">
        	
-        <fileset dir = "${src.main.java}">
+        <fileset dir = "${src.main}">
 			<include name = "**/*.java"/>
 		</fileset>  
 			
