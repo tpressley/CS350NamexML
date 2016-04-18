@@ -6,7 +6,8 @@ import java.util.LinkedList;
 public class Shingle implements Cloneable {
 
 	private LinkedList<Token> tokens;
-
+	
+	
 	public LinkedList<Token> getTokens() {
 		return tokens;
 	}

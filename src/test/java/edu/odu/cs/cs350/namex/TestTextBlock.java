@@ -5,7 +5,11 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 
 import org.junit.Test;
-
+/**
+ * Test class for TextBlock.java
+ * @author Caroline Chey
+ *
+ */
 public class TestTextBlock {
 	@Test
 	public void testTextBlock() {

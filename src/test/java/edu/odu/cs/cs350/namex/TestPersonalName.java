@@ -10,8 +10,10 @@ import org.junit.Test;
 import edu.odu.cs.cs350.namex.PersonalName;
 
 /**
- * @author addy Alago User story 854: As a Librarian, I want miscellaneous words
- *         such as honorifics and kill words to be identified correctly.
+ * @author Caroline Chey
+ * 
+ * Addy Alago; User story 854: As a Librarian, I want miscellaneous words
+ * such as honorifics and kill words to be identified correctly.
  */
 public class TestPersonalName { 
 

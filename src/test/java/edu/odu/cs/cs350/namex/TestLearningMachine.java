@@ -18,6 +18,11 @@ import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.converters.ConverterUtils.DataSource;
 
+/**
+ * Test class for LearningMachine.java
+ * @author Caroline Chey
+ *
+ */
 public class TestLearningMachine {
 
 	@Before

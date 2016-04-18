@@ -12,7 +12,11 @@ import edu.odu.cs.cs350.namex.Trainer;
 import edu.odu.cs.extract.wordlists.WordLists;
 
 import java.util.*;
-
+/**
+ * Test class for Trainer.java
+ * @author Addy Alago, Caroline Chey, Tristan Pressley
+ *
+ */
 public class TestTrainer {
 
 	// member variables

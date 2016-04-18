@@ -12,6 +12,11 @@ import edu.odu.cs.cs350.namex.Librarian;
 
 //import edu.odu.cs.cs350.Librarian;
 
+/**
+ * Test class for Librarian.java
+ * @author Caroline Chey
+ *
+ */
 public class TestLibrarian {
 
 	
@@ -31,6 +36,28 @@ public class TestLibrarian {
 		
 	}
 	
+	@Test
+	/**
+	 * test for public static void main(String[] args) throws FileNotFoundException
+	 */
+	public void testMain() throws Exception{
+		Librarian lana = new Librarian();
+		assertTrue(lana.trainer != null);
+		assertTrue(lana.lm != null);
+		assertTrue(lana.lm.getNumberOfAttributes() > 0);
+		assertEquals(71 , lana.lm.getSizeOfAttributes() );
+		assertFalse(lana.lm.getEvalSummary().equals(""));
+		assertTrue(lana.lm.getTrainingInstances() != null);
+		
+		String[] args = { "train", "src/main/data/trainingMaterial002.txt", "trainingDatao.txt" };
+		
+		try{
+			lana.main(args);
+		}
+		catch(Exception e224){
+			e224.printStackTrace();
+		}
+	}
 	
 	
 	/*

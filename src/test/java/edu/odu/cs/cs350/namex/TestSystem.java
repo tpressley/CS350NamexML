@@ -10,7 +10,11 @@ import java.util.Scanner;
 
 import org.junit.Before;
 import org.junit.Test;
-
+/**
+ * Test class for the system
+ * @author Tristan Pressley, Caroline Chey
+ *
+ */
 public class TestSystem {
 
 	@Before
