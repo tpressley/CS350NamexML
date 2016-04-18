@@ -949,9 +949,9 @@ public class TestToken {
 	 */
 	public void testIsHonorificSetHonorific(){
 		
-		Token t1 = new Token("Mr");
-		Token t2 = new Token("Dr");
-		Token t3 = new Token("Rev");
+		Token t1 = new Token("Sir");
+		Token t2 = new Token("Mr");
+		Token t3 = new Token("Dr");
 		
 		t1.setHonorific(1);
 		t2.setHonorific(1);
@@ -970,7 +970,32 @@ public class TestToken {
 	 */
 	
 	public void testIsPrefixSetPrefix(){
+		Token p1 = new Token("von");
+		Token p2 = new Token("de");
+		Token p3 = new Token("di");
+		Token tok1 = new Token("bridge");
+		Token tok2 = new Token("3");
+		Token tok3 = new Token("desk");
+		Token l1 = new Token("Smith");
+		Token l2 = new Token("Jones");
 		
+		p1.setPrefix(1);
+		p2.setPrefix(1);
+		p3.setPrefix(1);
+		tok1.setPrefix(0);
+		tok2.setPrefix(0);
+		tok3.setPrefix(0);
+		l1.setPrefix(0);
+		l2.setPrefix(0);
+		
+		assertEquals(1, p1.isPrefix());
+		assertEquals(1, p2.isPrefix());
+		assertEquals(1, p3.isPrefix());
+		assertEquals(0, tok1.isPrefix());
+		assertEquals(0, tok2.isPrefix());
+		assertEquals(0, tok3.isPrefix());
+		assertEquals(0, l1.isPrefix());
+		assertEquals(0, l2.isPrefix());
 	}
 	
 	

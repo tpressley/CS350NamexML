@@ -14,7 +14,7 @@ public class Token {
 	private int commonFirst;
 	private int commonLast;
 	private int honorific;
-	private int prefix;
+	private int prefix; //last name prefix; 'von' 'de'
 	private int suffix;
 	private int killWord;
 	private String name;
