@@ -14,7 +14,7 @@ public class Token {
 	private int commonFirst;
 	private int commonLast;
 	private int honorific;
-	private int prefix; //last name prefix; 'von' 'de'
+	private int prefix; // last name prefix; 'von' 'de'
 	private int suffix;
 	private int killWord;
 	private String name;
@@ -243,7 +243,7 @@ public class Token {
 	 * @return
 	 */
 	public void setDictionaryWord(int i) {
-		if(i == 1 || i == 0)
+		if (i == 1 || i == 0)
 			this.dictionaryWord = i;
 	}
 
@@ -263,7 +263,7 @@ public class Token {
 	 * @param cityState
 	 */
 	public void setCityState(int i) {
-		if(i == 1 || i == 0)
+		if (i == 1 || i == 0)
 			this.cityState = i;
 	}
 
@@ -283,7 +283,7 @@ public class Token {
 	 * @param countryTerritory
 	 */
 	public void setCountryTerritory(int i) {
-		if(i == 1 || i == 0)
+		if (i == 1 || i == 0)
 			this.countryTerritory = i;
 	}
 
@@ -303,7 +303,7 @@ public class Token {
 	 * @param place
 	 */
 	public void setPlace(int i) {
-		if(i == 1 || i == 0)
+		if (i == 1 || i == 0)
 			this.place = i;
 
 	}
@@ -324,7 +324,7 @@ public class Token {
 	 * @param DTICFirst
 	 */
 	public void setDTICFirst(int i) {
-		if(i == 1 || i == 0)
+		if (i == 1 || i == 0)
 			this.DTICFirst = i;
 
 	}
@@ -345,7 +345,7 @@ public class Token {
 	 * @param DTICLast
 	 */
 	public void setDTICLast(int i) {
-		if(i == 1 || i == 0)
+		if (i == 1 || i == 0)
 			this.DTICLast = i;
 
 	}
@@ -366,7 +366,7 @@ public class Token {
 	 * @param commonFirst
 	 */
 	public void setCommonFirst(int i) {
-		if(i == 1 || i == 0)
+		if (i == 1 || i == 0)
 			this.commonFirst = i;
 	}
 
@@ -386,7 +386,7 @@ public class Token {
 	 * @param commonLast
 	 */
 	public void setCommonLast(int i) {
-		if(i == 1 || i == 0)
+		if (i == 1 || i == 0)
 			this.commonLast = i;
 	}
 
@@ -406,7 +406,7 @@ public class Token {
 	 * @param honorific
 	 */
 	public void setHonorific(int i) {
-		if(i == 1 || i == 0)
+		if (i == 1 || i == 0)
 			this.honorific = i;
 	}
 
@@ -426,7 +426,7 @@ public class Token {
 	 * @param prefix
 	 */
 	public void setPrefix(int i) {
-		if(i == 1 || i == 0)
+		if (i == 1 || i == 0)
 			this.prefix = i;
 	}
 
@@ -446,7 +446,7 @@ public class Token {
 	 * @param suffix
 	 */
 	public void setSuffix(int i) {
-		if(i == 1 || i == 0)
+		if (i == 1 || i == 0)
 			this.suffix = i;
 	}
 
@@ -466,7 +466,7 @@ public class Token {
 	 * @param killWord
 	 */
 	public void setKillWord(int i) {
-		if(i == 1 || i == 0)
+		if (i == 1 || i == 0)
 			this.killWord = i;
 	}
 
@@ -491,30 +491,21 @@ public class Token {
 
 	/*
 	 * returns the ARFF @data row for the Token
-	 
-	public String getARFFstring() {
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(lexical + ",");
-		sb.append(partOfSpeech + ",");
-		sb.append(dictionaryWord + ",");
-		sb.append(cityState + ",");
-		sb.append(countryTerritory + ",");
-		sb.append(place + ",");
-		sb.append(DTICFirst + ",");
-		sb.append(DTICLast + ",");
-		sb.append(commonFirst + ",");
-		sb.append(commonLast + ",");
-		sb.append(honorific + ",");
-		sb.append(prefix + ",");
-		sb.append(suffix + ",");
-		sb.append(killWord + ",");
-		sb.append(name);
-
-		return sb.toString();
-	}
-*/
+	 * 
+	 * public String getARFFstring() {
+	 * 
+	 * StringBuilder sb = new StringBuilder();
+	 * 
+	 * sb.append(lexical + ","); sb.append(partOfSpeech + ",");
+	 * sb.append(dictionaryWord + ","); sb.append(cityState + ",");
+	 * sb.append(countryTerritory + ","); sb.append(place + ",");
+	 * sb.append(DTICFirst + ","); sb.append(DTICLast + ",");
+	 * sb.append(commonFirst + ","); sb.append(commonLast + ",");
+	 * sb.append(honorific + ","); sb.append(prefix + ","); sb.append(suffix +
+	 * ","); sb.append(killWord + ","); sb.append(name);
+	 * 
+	 * return sb.toString(); }
+	 */
 	// User Story #850
 	// Status - Completed
 	// Tokens converted into a set of features (T)
@@ -567,30 +558,30 @@ public class Token {
 	}
 
 	public boolean printTokenData() throws Exception {
-		
-		try{
-		System.out.println("            lexeme:   " + lexeme);
-		System.out.println("    classification:   " + name);
 
-		System.out.println("         beginning:   " + Math.round(distribution[0] * 100.00) + "%");
-		System.out.println("        continuing:   " + Math.round(distribution[1] * 100.00) + "%");
-		System.out.println("             other:   " + Math.round(distribution[2] * 100.00) + "%");
+		try {
+			System.out.println("            lexeme:   " + lexeme);
+			System.out.println("    classification:   " + name);
 
-		System.out.println("           lexical:   " + lexical);
-		System.out.println("    part of speech:   " + partOfSpeech);
-		System.out.println("   dictionary word:   " + dictionaryWord);
-		System.out.println("        city/state:   " + cityState);
-		System.out.println(" country/territory:   " + countryTerritory);
-		System.out.println("             place:   " + place);
-		System.out.println("        DTIC first:   " + DTICFirst);
-		System.out.println("         DTIC last:   " + DTICLast);
-		System.out.println("      common first:   " + commonFirst);
-		System.out.println("       common last:   " + commonLast);
-		System.out.println("         honorific:   " + honorific);
-		System.out.println("            prefix:   " + prefix);
-		System.out.println("            suffix:   " + suffix);
-		System.out.println("         kill word:   " + killWord + "\n");
-		}catch(Exception e789){
+			System.out.println("         beginning:   " + Math.round(distribution[0] * 100.00) + "%");
+			System.out.println("        continuing:   " + Math.round(distribution[1] * 100.00) + "%");
+			System.out.println("             other:   " + Math.round(distribution[2] * 100.00) + "%");
+
+			System.out.println("           lexical:   " + lexical);
+			System.out.println("    part of speech:   " + partOfSpeech);
+			System.out.println("   dictionary word:   " + dictionaryWord);
+			System.out.println("        city/state:   " + cityState);
+			System.out.println(" country/territory:   " + countryTerritory);
+			System.out.println("             place:   " + place);
+			System.out.println("        DTIC first:   " + DTICFirst);
+			System.out.println("         DTIC last:   " + DTICLast);
+			System.out.println("      common first:   " + commonFirst);
+			System.out.println("       common last:   " + commonLast);
+			System.out.println("         honorific:   " + honorific);
+			System.out.println("            prefix:   " + prefix);
+			System.out.println("            suffix:   " + suffix);
+			System.out.println("         kill word:   " + killWord + "\n");
+		} catch (Exception e789) {
 			return false;
 		}
 		return true;

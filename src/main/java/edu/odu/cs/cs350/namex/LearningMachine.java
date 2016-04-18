@@ -29,7 +29,7 @@ public class LearningMachine {
 	public LearningMachine() {
 		// Initialize the Classifier as a Naive Bayes Classifier
 		clssf = (Classifier) new NaiveBayes();
-		
+
 		FastVector nominValLexi = new FastVector(9);
 		initNominValLexi(nominValLexi);
 		Attribute lexic1 = new Attribute("Lexical", nominValLexi);
@@ -58,8 +58,7 @@ public class LearningMachine {
 		Attribute PartOfSpeech9 = new Attribute("PartOfSpeech", nominValPoS);
 		Attribute PartOfSpeech10 = new Attribute("PartOfSpeech", nominValPoS);
 		Attribute PartOfSpeech11 = new Attribute("PartOfSpeech", nominValPoS);
-		
-		
+
 		// Declare Gazetteer Attributes with its values
 		FastVector NominalValGazetteer = new FastVector(2);
 		NominalValGazetteer.addElement("0");
@@ -197,7 +196,6 @@ public class LearningMachine {
 		Attribute Suffix11 = new Attribute("Suffix", NominalValGazetteer);
 		Attribute Kill11 = new Attribute("Kill", NominalValGazetteer);
 
-		
 		// Declare Name Attribute
 		FastVector NominalValName = new FastVector(3);
 		NominalValName.addElement("beginning");
@@ -391,10 +389,8 @@ public class LearningMachine {
 
 	}
 
-	
-	
 	public LearningMachine(String machineModel) {
-		
+
 		if (machineModel.equalsIgnoreCase("new"))
 			clssf = (Classifier) new NaiveBayes();
 		else
@@ -759,13 +755,12 @@ public class LearningMachine {
 		attrs.addElement(Name5);
 		attrs.addElement(Name6);
 	}
-	
-	
+
 	/**
 	 * initialize nominValLexi[] fastvector
 	 */
-	public void initNominValLexi(FastVector nvl){
-		
+	public void initNominValLexi(FastVector nvl) {
+
 		nvl.addElement("punct");
 		nvl.addElement("capLetter");
 		nvl.addElement("capitalized");
@@ -776,12 +771,12 @@ public class LearningMachine {
 		nvl.addElement("other");
 		nvl.addElement("null");
 	}
-	
+
 	/**
 	 * initialize nominValPos[] fastvector
 	 */
-	public void initNominValPos(FastVector nvp){
-		
+	public void initNominValPos(FastVector nvp) {
+
 		nvp.addElement("article");
 		nvp.addElement("conjunction");
 		nvp.addElement("period");
@@ -789,7 +784,7 @@ public class LearningMachine {
 		nvp.addElement("hyphen");
 		nvp.addElement("other");
 	}
-	
+
 	/**
 	 * Uses the training data to train the Learning Machine
 	 * 
@@ -924,11 +919,13 @@ public class LearningMachine {
 		}
 	}
 
-	/*/8
-	 * Creates the singling data from the tokenized input
+	/*
+	 * /8 Creates the singling data from the tokenized input
 	 * 
 	 * @param input
+	 * 
 	 * @return
+	 * 
 	 * @throws Exception
 	 */
 	public String classifyShingle(String input) throws Exception {
@@ -957,8 +954,6 @@ public class LearningMachine {
 		}
 	}
 
-	
-	
 	/**
 	 * Get the likelihood of each classes distribution[0] is the probability of
 	 * the Shingle containing a name distribution[1] is the probability of the
@@ -987,9 +982,6 @@ public class LearningMachine {
 
 		return distribution;
 	}
-	
-	
-	
 
 	/**
 	 * print the Evaluation Summary of the classifier
@@ -1008,31 +1000,26 @@ public class LearningMachine {
 		}
 		return true;
 	}
-	
-	
-	
-	
+
 	/**
 	 * returns evalSummary
 	 */
 	public String getEvalSummary() throws Exception {
-		
+
 		try {
 			return this.evalSummary;
-			
-		}catch(Exception e639){
+
+		} catch (Exception e639) {
 			return "error";
 		}
 	}
 
-	
 	/**
 	 * print the values of ARFF data from trainingInstances
 	 */
 	public boolean printARFF() {
-		
-		if(this.trainInsts != null)
-		{
+
+		if (this.trainInsts != null) {
 			System.out.println(this.trainInsts);
 			return true;
 		}
@@ -1116,7 +1103,7 @@ public class LearningMachine {
 			}
 
 			this.trainInsts.add(instance); // Add new instance to
-													// training data
+											// training data
 		}
 	}
 
@@ -1146,27 +1133,27 @@ public class LearningMachine {
 				}
 
 				this.trainInsts.add(instance); // Add new instance to
-														// training data
+												// training data
 			}
 			return true;
 		} catch (Exception e10) {
 			return false;
 		}
 	}
-	
-	
+
 	/**
 	 * returns Classifier
+	 * 
 	 * @return
 	 */
 	public Classifier getClassifier() {
-		
+
 		return clssf;
 	}
-	
-	
+
 	/**
 	 * returns copy of Attribute
+	 * 
 	 * @param name
 	 * @param nominalVal
 	 * @return
@@ -1175,7 +1162,6 @@ public class LearningMachine {
 		return new Attribute(name, nominalVal);
 	}
 
-	
 	/**
 	 * Returns the number of attributes being used by the file
 	 * 
@@ -1184,13 +1170,14 @@ public class LearningMachine {
 	public int getNumberOfAttributes() {
 		return numAttr;
 	}
-	
+
 	/**
 	 * returns size of attributes[]
+	 * 
 	 * @return
 	 */
-	public int getSizeOfAttributes(){
-		
+	public int getSizeOfAttributes() {
+
 		return this.attrs.size();
 	}
 

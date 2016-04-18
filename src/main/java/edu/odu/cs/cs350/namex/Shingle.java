@@ -6,28 +6,22 @@ import java.util.LinkedList;
 public class Shingle implements Cloneable {
 
 	private LinkedList<Token> tokens;
-	
-	
-	public LinkedList<Token> getTokens() {
-		return tokens;
-	}
 
-	public void setTokens(LinkedList<Token> tokens) {
-		this.tokens = tokens;
-	}
-
-	// // TODO Update shingle size logic
+	/**
+	 * default constructor
+	 */
 	public Shingle() {
 		tokens = new LinkedList<Token>();
+
 		Token token = new Token("null");
 		for (int i = 0; i < (5 * 2 + 1); i++) {
 			tokens.add(token);
 		}
 	}
 
-	// /*
-	// * Shingle Copy Constructor
-	// */
+	/**
+	 * Copy Constructor
+	 */
 	public Shingle(Shingle shingle) {
 		tokens = new LinkedList<Token>();
 		for (int i = 0; i < shingle.getTokens().size(); i++) {
@@ -39,6 +33,27 @@ public class Shingle implements Cloneable {
 		}
 	}
 
+	/**
+	 * returns member variable 'tokens' of type LinkedList<Token>
+	 * 
+	 * @return
+	 */
+	public LinkedList<Token> getTokens() {
+		return tokens;
+	}
+
+	/**
+	 * setter for member variable 'tokens', a LinkedList<Token>
+	 * 
+	 * @param tokens
+	 */
+	public void setTokens(LinkedList<Token> tokens) {
+		this.tokens = tokens;
+	}
+
+	/**
+	 * clones object
+	 */
 	public Object clone() throws CloneNotSupportedException {
 		return super.clone();
 	}

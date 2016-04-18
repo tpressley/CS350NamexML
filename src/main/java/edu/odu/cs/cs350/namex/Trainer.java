@@ -21,7 +21,7 @@ import edu.odu.cs.extract.wordlists.WordLists;
  *
  */
 public class Trainer implements Serializable {
-//Stores Gazetteer lists
+	// Stores Gazetteer lists
 	private HashSet<String> CitiesStates;
 	private HashSet<String> CommonFirstNames;
 	private HashSet<String> CommonLastNames;
@@ -285,13 +285,12 @@ public class Trainer implements Serializable {
 	 */
 
 	/**
-	 *  Takes the input text and returns an arraylist of basic tokens, containing
-	 * only the lexemes Tokens later have features analyzed by
-	 * Trainer.getFeatures() Verbose option outputs token.toString() after the
-	 * tokens are added to the arraylist
 	 * Takes the input text and returns an arraylist of basic tokens, containing
 	 * only the lexemes Tokens later have features analyzed by
-	 * Trainer.getFeatures()
+	 * Trainer.getFeatures() Verbose option outputs token.toString() after the
+	 * tokens are added to the arraylist Takes the input text and returns an
+	 * arraylist of basic tokens, containing only the lexemes Tokens later have
+	 * features analyzed by Trainer.getFeatures()
 	 * 
 	 * @param textBlock
 	 * @return
@@ -748,205 +747,207 @@ public class Trainer implements Serializable {
 	public LinkedList<String> createArff(LinkedList<Shingle> shingles) {
 		LinkedList<String> arffString = new LinkedList<String>();
 
-			arffString.add("@relation Classification");
+		arffString.add("@relation Classification");
 
-			arffString.add(
-					"@attribute Lexical1 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-			arffString.add("@attribute PartOfSpeech1 {article,conjunction,period,comma,hyphen,other,null}");
-			arffString.add("@attribute DictionaryWord1 {0,1}");
-			arffString.add("@attribute City1 {0,1}");
-			arffString.add("@attribute Country1 {0,1}");
-			arffString.add("@attribute Places1 {0,1}");
-			arffString.add("@attribute DTICFirst1 {0,1}");
-			arffString.add("@attribute DTICLast1 {0,1}");
-			arffString.add("@attribute CommonFirst1 {0,1}");
-			arffString.add("@attribute CommonLast1 {0,1}");
-			arffString.add("@attribute Honorific1 {0,1}");
-			arffString.add("@attribute Prefix1 {0,1}");
-			arffString.add("@attribute Suffix1 {0,1}");
-			arffString.add("@attribute Kill1 {0,1}");
+		arffString
+				.add("@attribute Lexical1 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+		arffString.add("@attribute PartOfSpeech1 {article,conjunction,period,comma,hyphen,other,null}");
+		arffString.add("@attribute DictionaryWord1 {0,1}");
+		arffString.add("@attribute City1 {0,1}");
+		arffString.add("@attribute Country1 {0,1}");
+		arffString.add("@attribute Places1 {0,1}");
+		arffString.add("@attribute DTICFirst1 {0,1}");
+		arffString.add("@attribute DTICLast1 {0,1}");
+		arffString.add("@attribute CommonFirst1 {0,1}");
+		arffString.add("@attribute CommonLast1 {0,1}");
+		arffString.add("@attribute Honorific1 {0,1}");
+		arffString.add("@attribute Prefix1 {0,1}");
+		arffString.add("@attribute Suffix1 {0,1}");
+		arffString.add("@attribute Kill1 {0,1}");
 
-			arffString.add(
-					"@attribute Lexical2 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-			arffString.add("@attribute PartOfSpeech2 {article,conjunction,period,comma,hyphen,other,null}");
-			arffString.add("@attribute DictionaryWord2 {0,1}");
-			arffString.add("@attribute City2 {0,1}");
-			arffString.add("@attribute Country2 {0,1}");
-			arffString.add("@attribute Places2 {0,1}");
-			arffString.add("@attribute DTICFirst2 {0,1}");
-			arffString.add("@attribute DTICLast2 {0,1}");
-			arffString.add("@attribute CommonFirst2 {0,1}");
-			arffString.add("@attribute CommonLast2 {0,1}");
-			arffString.add("@attribute Honorific2 {0,1}");
-			arffString.add("@attribute Prefix2 {0,1}");
-			arffString.add("@attribute Suffix2 {0,1}");
-			arffString.add("@attribute Kill2 {0,1}");
+		arffString
+				.add("@attribute Lexical2 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+		arffString.add("@attribute PartOfSpeech2 {article,conjunction,period,comma,hyphen,other,null}");
+		arffString.add("@attribute DictionaryWord2 {0,1}");
+		arffString.add("@attribute City2 {0,1}");
+		arffString.add("@attribute Country2 {0,1}");
+		arffString.add("@attribute Places2 {0,1}");
+		arffString.add("@attribute DTICFirst2 {0,1}");
+		arffString.add("@attribute DTICLast2 {0,1}");
+		arffString.add("@attribute CommonFirst2 {0,1}");
+		arffString.add("@attribute CommonLast2 {0,1}");
+		arffString.add("@attribute Honorific2 {0,1}");
+		arffString.add("@attribute Prefix2 {0,1}");
+		arffString.add("@attribute Suffix2 {0,1}");
+		arffString.add("@attribute Kill2 {0,1}");
 
-			arffString.add(
-					"@attribute Lexical3 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-			arffString.add("@attribute PartOfSpeech3 {article,conjunction,period,comma,hyphen,other,null}");
-			arffString.add("@attribute DictionaryWord3 {0,1}");
-			arffString.add("@attribute City3 {0,1}");
-			arffString.add("@attribute Country3 {0,1}");
-			arffString.add("@attribute Places3 {0,1}");
-			arffString.add("@attribute DTICFirst3 {0,1}");
-			arffString.add("@attribute DTICLast3 {0,1}");
-			arffString.add("@attribute CommonFirst3 {0,1}");
-			arffString.add("@attribute CommonLast3 {0,1}");
-			arffString.add("@attribute Honorific3 {0,1}");
-			arffString.add("@attribute Prefix3 {0,1}");
-			arffString.add("@attribute Suffix3 {0,1}");
-			arffString.add("@attribute Kill3 {0,1}");
+		arffString
+				.add("@attribute Lexical3 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+		arffString.add("@attribute PartOfSpeech3 {article,conjunction,period,comma,hyphen,other,null}");
+		arffString.add("@attribute DictionaryWord3 {0,1}");
+		arffString.add("@attribute City3 {0,1}");
+		arffString.add("@attribute Country3 {0,1}");
+		arffString.add("@attribute Places3 {0,1}");
+		arffString.add("@attribute DTICFirst3 {0,1}");
+		arffString.add("@attribute DTICLast3 {0,1}");
+		arffString.add("@attribute CommonFirst3 {0,1}");
+		arffString.add("@attribute CommonLast3 {0,1}");
+		arffString.add("@attribute Honorific3 {0,1}");
+		arffString.add("@attribute Prefix3 {0,1}");
+		arffString.add("@attribute Suffix3 {0,1}");
+		arffString.add("@attribute Kill3 {0,1}");
 
-			arffString.add(
-					"@attribute Lexical4 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-			arffString.add("@attribute PartOfSpeech4 {article,conjunction,period,comma,hyphen,other,null}");
-			arffString.add("@attribute DictionaryWord4 {0,1}");
-			arffString.add("@attribute City4 {0,1}");
-			arffString.add("@attribute Country4 {0,1}");
-			arffString.add("@attribute Places4 {0,1}");
-			arffString.add("@attribute DTICFirst4 {0,1}");
-			arffString.add("@attribute DTICLast4 {0,1}");
-			arffString.add("@attribute CommonFirst4 {0,1}");
-			arffString.add("@attribute CommonLast4 {0,1}");
-			arffString.add("@attribute Honorific4 {0,1}");
-			arffString.add("@attribute Prefix4 {0,1}");
-			arffString.add("@attribute Suffix4 {0,1}");
-			arffString.add("@attribute Kill4 {0,1}");
+		arffString
+				.add("@attribute Lexical4 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+		arffString.add("@attribute PartOfSpeech4 {article,conjunction,period,comma,hyphen,other,null}");
+		arffString.add("@attribute DictionaryWord4 {0,1}");
+		arffString.add("@attribute City4 {0,1}");
+		arffString.add("@attribute Country4 {0,1}");
+		arffString.add("@attribute Places4 {0,1}");
+		arffString.add("@attribute DTICFirst4 {0,1}");
+		arffString.add("@attribute DTICLast4 {0,1}");
+		arffString.add("@attribute CommonFirst4 {0,1}");
+		arffString.add("@attribute CommonLast4 {0,1}");
+		arffString.add("@attribute Honorific4 {0,1}");
+		arffString.add("@attribute Prefix4 {0,1}");
+		arffString.add("@attribute Suffix4 {0,1}");
+		arffString.add("@attribute Kill4 {0,1}");
 
-			arffString.add(
-					"@attribute Lexical5 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-			arffString.add("@attribute PartOfSpeech5 {article,conjunction,period,comma,hyphen,other,null}");
-			arffString.add("@attribute DictionaryWord5 {0,1}");
-			arffString.add("@attribute City5 {0,1}");
-			arffString.add("@attribute Country5 {0,1}");
-			arffString.add("@attribute Places5 {0,1}");
-			arffString.add("@attribute DTICFirst5 {0,1}");
-			arffString.add("@attribute DTICLast5 {0,1}");
-			arffString.add("@attribute CommonFirst5 {0,1}");
-			arffString.add("@attribute CommonLast5 {0,1}");
-			arffString.add("@attribute Honorific5 {0,1}");
-			arffString.add("@attribute Prefix5 {0,1}");
-			arffString.add("@attribute Suffix5 {0,1}");
-			arffString.add("@attribute Kill5 {0,1}");
+		arffString
+				.add("@attribute Lexical5 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+		arffString.add("@attribute PartOfSpeech5 {article,conjunction,period,comma,hyphen,other,null}");
+		arffString.add("@attribute DictionaryWord5 {0,1}");
+		arffString.add("@attribute City5 {0,1}");
+		arffString.add("@attribute Country5 {0,1}");
+		arffString.add("@attribute Places5 {0,1}");
+		arffString.add("@attribute DTICFirst5 {0,1}");
+		arffString.add("@attribute DTICLast5 {0,1}");
+		arffString.add("@attribute CommonFirst5 {0,1}");
+		arffString.add("@attribute CommonLast5 {0,1}");
+		arffString.add("@attribute Honorific5 {0,1}");
+		arffString.add("@attribute Prefix5 {0,1}");
+		arffString.add("@attribute Suffix5 {0,1}");
+		arffString.add("@attribute Kill5 {0,1}");
 
-			arffString.add(
-					"@attribute Lexical6 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-			arffString.add("@attribute PartOfSpeech6 {article,conjunction,period,comma,hyphen,other,null}");
-			arffString.add("@attribute DictionaryWord6 {0,1}");
-			arffString.add("@attribute City6 {0,1}");
-			arffString.add("@attribute Country6 {0,1}");
-			arffString.add("@attribute Places6 {0,1}");
-			arffString.add("@attribute DTICFirst6 {0,1}");
-			arffString.add("@attribute DTICLast6 {0,1}");
-			arffString.add("@attribute CommonFirst6 {0,1}");
-			arffString.add("@attribute CommonLast6 {0,1}");
-			arffString.add("@attribute Honorific6 {0,1}");
-			arffString.add("@attribute Prefix6 {0,1}");
-			arffString.add("@attribute Suffix6 {0,1}");
-			arffString.add("@attribute Kill6 {0,1}");
+		arffString
+				.add("@attribute Lexical6 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+		arffString.add("@attribute PartOfSpeech6 {article,conjunction,period,comma,hyphen,other,null}");
+		arffString.add("@attribute DictionaryWord6 {0,1}");
+		arffString.add("@attribute City6 {0,1}");
+		arffString.add("@attribute Country6 {0,1}");
+		arffString.add("@attribute Places6 {0,1}");
+		arffString.add("@attribute DTICFirst6 {0,1}");
+		arffString.add("@attribute DTICLast6 {0,1}");
+		arffString.add("@attribute CommonFirst6 {0,1}");
+		arffString.add("@attribute CommonLast6 {0,1}");
+		arffString.add("@attribute Honorific6 {0,1}");
+		arffString.add("@attribute Prefix6 {0,1}");
+		arffString.add("@attribute Suffix6 {0,1}");
+		arffString.add("@attribute Kill6 {0,1}");
 
-			arffString.add(
-					"@attribute Lexical7 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-			arffString.add("@attribute PartOfSpeech7 {article,conjunction,period,comma,hyphen,other,null}");
-			arffString.add("@attribute DictionaryWord7 {0,1}");
-			arffString.add("@attribute City7 {0,1}");
-			arffString.add("@attribute Country7 {0,1}");
-			arffString.add("@attribute Places7 {0,1}");
-			arffString.add("@attribute DTICFirst7 {0,1}");
-			arffString.add("@attribute DTICLast7 {0,1}");
-			arffString.add("@attribute CommonFirst7 {0,1}");
-			arffString.add("@attribute CommonLast7 {0,1}");
-			arffString.add("@attribute Honorific7 {0,1}");
-			arffString.add("@attribute Prefix7 {0,1}");
-			arffString.add("@attribute Suffix7 {0,1}");
-			arffString.add("@attribute Kill7 {0,1}");
+		arffString
+				.add("@attribute Lexical7 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+		arffString.add("@attribute PartOfSpeech7 {article,conjunction,period,comma,hyphen,other,null}");
+		arffString.add("@attribute DictionaryWord7 {0,1}");
+		arffString.add("@attribute City7 {0,1}");
+		arffString.add("@attribute Country7 {0,1}");
+		arffString.add("@attribute Places7 {0,1}");
+		arffString.add("@attribute DTICFirst7 {0,1}");
+		arffString.add("@attribute DTICLast7 {0,1}");
+		arffString.add("@attribute CommonFirst7 {0,1}");
+		arffString.add("@attribute CommonLast7 {0,1}");
+		arffString.add("@attribute Honorific7 {0,1}");
+		arffString.add("@attribute Prefix7 {0,1}");
+		arffString.add("@attribute Suffix7 {0,1}");
+		arffString.add("@attribute Kill7 {0,1}");
 
-			arffString.add(
-					"@attribute Lexical8 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-			arffString.add("@attribute PartOfSpeech8 {article,conjunction,period,comma,hyphen,other,null}");
-			arffString.add("@attribute DictionaryWord8 {0,1}");
-			arffString.add("@attribute City8 {0,1}");
-			arffString.add("@attribute Country8 {0,1}");
-			arffString.add("@attribute Places8 {0,1}");
-			arffString.add("@attribute DTICFirst8 {0,1}");
-			arffString.add("@attribute DTICLast8 {0,1}");
-			arffString.add("@attribute CommonFirst8 {0,1}");
-			arffString.add("@attribute CommonLast8 {0,1}");
-			arffString.add("@attribute Honorific8 {0,1}");
-			arffString.add("@attribute Prefix8 {0,1}");
-			arffString.add("@attribute Suffix8 {0,1}");
-			arffString.add("@attribute Kill8 {0,1}");
+		arffString
+				.add("@attribute Lexical8 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+		arffString.add("@attribute PartOfSpeech8 {article,conjunction,period,comma,hyphen,other,null}");
+		arffString.add("@attribute DictionaryWord8 {0,1}");
+		arffString.add("@attribute City8 {0,1}");
+		arffString.add("@attribute Country8 {0,1}");
+		arffString.add("@attribute Places8 {0,1}");
+		arffString.add("@attribute DTICFirst8 {0,1}");
+		arffString.add("@attribute DTICLast8 {0,1}");
+		arffString.add("@attribute CommonFirst8 {0,1}");
+		arffString.add("@attribute CommonLast8 {0,1}");
+		arffString.add("@attribute Honorific8 {0,1}");
+		arffString.add("@attribute Prefix8 {0,1}");
+		arffString.add("@attribute Suffix8 {0,1}");
+		arffString.add("@attribute Kill8 {0,1}");
 
-			arffString.add(
-					"@attribute Lexical9 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-			arffString.add("@attribute PartOfSpeech9 {article,conjunction,period,comma,hyphen,other,null}");
-			arffString.add("@attribute DictionaryWord9 {0,1}");
-			arffString.add("@attribute City9 {0,1}");
-			arffString.add("@attribute Country9 {0,1}");
-			arffString.add("@attribute Places9 {0,1}");
-			arffString.add("@attribute DTICFirst9 {0,1}");
-			arffString.add("@attribute DTICLast9 {0,1}");
-			arffString.add("@attribute CommonFirst9 {0,1}");
-			arffString.add("@attribute CommonLast9 {0,1}");
-			arffString.add("@attribute Honorific9 {0,1}");
-			arffString.add("@attribute Prefix9 {0,1}");
-			arffString.add("@attribute Suffix9 {0,1}");
-			arffString.add("@attribute Kill9 {0,1}");
+		arffString
+				.add("@attribute Lexical9 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+		arffString.add("@attribute PartOfSpeech9 {article,conjunction,period,comma,hyphen,other,null}");
+		arffString.add("@attribute DictionaryWord9 {0,1}");
+		arffString.add("@attribute City9 {0,1}");
+		arffString.add("@attribute Country9 {0,1}");
+		arffString.add("@attribute Places9 {0,1}");
+		arffString.add("@attribute DTICFirst9 {0,1}");
+		arffString.add("@attribute DTICLast9 {0,1}");
+		arffString.add("@attribute CommonFirst9 {0,1}");
+		arffString.add("@attribute CommonLast9 {0,1}");
+		arffString.add("@attribute Honorific9 {0,1}");
+		arffString.add("@attribute Prefix9 {0,1}");
+		arffString.add("@attribute Suffix9 {0,1}");
+		arffString.add("@attribute Kill9 {0,1}");
 
-			arffString.add(
-					"@attribute Lexical10 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-			arffString.add("@attribute PartOfSpeech10 {article,conjunction,period,comma,hyphen,other,null}");
-			arffString.add("@attribute DictionaryWord10 {0,1}");
-			arffString.add("@attribute City10 {0,1}");
-			arffString.add("@attribute Country10 {0,1}");
-			arffString.add("@attribute Places10 {0,1}");
-			arffString.add("@attribute DTICFirst10 {0,1}");
-			arffString.add("@attribute DTICLast10 {0,1}");
-			arffString.add("@attribute CommonFirst10 {0,1}");
-			arffString.add("@attribute CommonLast10 {0,1}");
-			arffString.add("@attribute Honorific10 {0,1}");
-			arffString.add("@attribute Prefix10 {0,1}");
-			arffString.add("@attribute Suffix10 {0,1}");
-			arffString.add("@attribute Kill10 {0,1}");
+		arffString.add(
+				"@attribute Lexical10 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+		arffString.add("@attribute PartOfSpeech10 {article,conjunction,period,comma,hyphen,other,null}");
+		arffString.add("@attribute DictionaryWord10 {0,1}");
+		arffString.add("@attribute City10 {0,1}");
+		arffString.add("@attribute Country10 {0,1}");
+		arffString.add("@attribute Places10 {0,1}");
+		arffString.add("@attribute DTICFirst10 {0,1}");
+		arffString.add("@attribute DTICLast10 {0,1}");
+		arffString.add("@attribute CommonFirst10 {0,1}");
+		arffString.add("@attribute CommonLast10 {0,1}");
+		arffString.add("@attribute Honorific10 {0,1}");
+		arffString.add("@attribute Prefix10 {0,1}");
+		arffString.add("@attribute Suffix10 {0,1}");
+		arffString.add("@attribute Kill10 {0,1}");
 
-			arffString.add(
-					"@attribute Lexical11 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
-			arffString.add("@attribute PartOfSpeech11 {article,conjunction,period,comma,hyphen,other,null}");
-			arffString.add("@attribute DictionaryWord11 {0,1}");
-			arffString.add("@attribute City11 {0,1}");
-			arffString.add("@attribute Country11 {0,1}");
-			arffString.add("@attribute Places11 {0,1}");
-			arffString.add("@attribute DTICFirst11 {0,1}");
-			arffString.add("@attribute DTICLast11 {0,1}");
-			arffString.add("@attribute CommonFirst11 {0,1}");
-			arffString.add("@attribute CommonLast11 {0,1}");
-			arffString.add("@attribute Honorific11 {0,1}");
-			arffString.add("@attribute Prefix11 {0,1}");
-			arffString.add("@attribute Suffix11 {0,1}");
-			arffString.add("@attribute Kill11 {0,1}");
+		arffString.add(
+				"@attribute Lexical11 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
+		arffString.add("@attribute PartOfSpeech11 {article,conjunction,period,comma,hyphen,other,null}");
+		arffString.add("@attribute DictionaryWord11 {0,1}");
+		arffString.add("@attribute City11 {0,1}");
+		arffString.add("@attribute Country11 {0,1}");
+		arffString.add("@attribute Places11 {0,1}");
+		arffString.add("@attribute DTICFirst11 {0,1}");
+		arffString.add("@attribute DTICLast11 {0,1}");
+		arffString.add("@attribute CommonFirst11 {0,1}");
+		arffString.add("@attribute CommonLast11 {0,1}");
+		arffString.add("@attribute Honorific11 {0,1}");
+		arffString.add("@attribute Prefix11 {0,1}");
+		arffString.add("@attribute Suffix11 {0,1}");
+		arffString.add("@attribute Kill11 {0,1}");
 
-			arffString.add("@attribute Name1 {beginning,continuing,other,null}");
-			arffString.add("@attribute Name2 {beginning,continuing,other,null}");
-			arffString.add("@attribute Name3 {beginning,continuing,other,null}");
-			arffString.add("@attribute Name4 {beginning,continuing,other,null}");
-			arffString.add("@attribute Name5 {beginning,continuing,other,null}");
-			arffString.add("@attribute Name6 {beginning,continuing,other,null}");
+		arffString.add("@attribute Name1 {beginning,continuing,other,null}");
+		arffString.add("@attribute Name2 {beginning,continuing,other,null}");
+		arffString.add("@attribute Name3 {beginning,continuing,other,null}");
+		arffString.add("@attribute Name4 {beginning,continuing,other,null}");
+		arffString.add("@attribute Name5 {beginning,continuing,other,null}");
+		arffString.add("@attribute Name6 {beginning,continuing,other,null}");
 
-			arffString.add("\n");
+		arffString.add("\n");
 
-			for (int i = 0; i < shingles.size(); i++) {
-				// System.out.println(shingles.size());
-				for (int j = 0; j < shingles.get(i).getTokens().size(); j++) {
-					arffString.add(shingles.get(i).getTokens().get(j).toString());
-					// System.out.print(shingles.get(i).getTokens().get(j).toString());
-				}
-				String tempString = shingles.get(1).getTokens().get(1).getName() + shingles.get(1).getTokens().get(2).getName() + shingles.get(1).getTokens().get(3).getName()
-								+ shingles.get(1).getTokens().get(4).getName() + shingles.get(1).getTokens().get(5).getName() + shingles.get(1).getTokens().get(6).getName();
-				arffString.add(tempString + "\n"); 
-				if (i % 500 == 0)
-					System.out.println("Added line" + i);
+		for (int i = 0; i < shingles.size(); i++) {
+			// System.out.println(shingles.size());
+			for (int j = 0; j < shingles.get(i).getTokens().size(); j++) {
+				arffString.add(shingles.get(i).getTokens().get(j).toString());
+				// System.out.print(shingles.get(i).getTokens().get(j).toString());
 			}
+			String tempString = shingles.get(1).getTokens().get(1).getName()
+					+ shingles.get(1).getTokens().get(2).getName() + shingles.get(1).getTokens().get(3).getName()
+					+ shingles.get(1).getTokens().get(4).getName() + shingles.get(1).getTokens().get(5).getName()
+					+ shingles.get(1).getTokens().get(6).getName();
+			arffString.add(tempString + "\n");
+			if (i % 500 == 0)
+				System.out.println("Added line" + i);
+		}
 		return arffString;
 	}
 

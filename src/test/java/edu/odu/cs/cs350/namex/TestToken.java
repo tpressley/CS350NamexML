@@ -3,8 +3,10 @@ package edu.odu.cs.cs350.namex;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
 /**
  * Test class for Token.java
+ * 
  * @author Caroline Chey
  *
  */
@@ -343,7 +345,7 @@ public class TestToken {
 		Token tok2 = new Token("H"); // CapLetter
 		Token tok3 = new Token(","); // punct
 		Token tok4 = new Token("School"); // capitalized
-		Token tok5 = new Token(" "); //whiteSpace
+		Token tok5 = new Token(" "); // whiteSpace
 
 		tok.setLexical("other");
 		assertEquals("other", tok.getLexical());
@@ -356,7 +358,7 @@ public class TestToken {
 
 		tok4.setLexical("capitalized");
 		assertEquals("capitalized", tok4.getLexical());
-		
+
 		tok5.setLexical("whiteSpace");
 		assertEquals("whiteSpace", tok5.getLexical());
 	}
@@ -879,17 +881,14 @@ public class TestToken {
 		assertEquals(0, tok4.isCommonFirst());
 
 	}
-	
-	
+
 	@Test
 	/**
-	 * test for public int isCommonLast()
-	 * and
-	 * public void setCommonLast(int i)
+	 * test for public int isCommonLast() and public void setCommonLast(int i)
 	 */
-	
-	public void testIsCommonLastSetCommonLast(){
-		
+
+	public void testIsCommonLastSetCommonLast() {
+
 		Token l1 = new Token("smith");
 		Token l2 = new Token("johnson");
 		Token l3 = new Token("williams");
@@ -910,7 +909,7 @@ public class TestToken {
 		Token l18 = new Token("garcia");
 		Token l19 = new Token("martinez");
 		Token l20 = new Token("robinson");
-		
+
 		l1.setCommonLast(1);
 		l2.setCommonLast(1);
 		l3.setCommonLast(1);
@@ -931,41 +930,39 @@ public class TestToken {
 		l18.setCommonLast(1);
 		l19.setCommonLast(1);
 		l20.setCommonLast(1);
-		
-		assertEquals(1 , l1.isCommonLast());
-		assertEquals(1 , l2.isCommonLast());
-		assertEquals(1 , l3.isCommonLast());
-		assertEquals(1 , l4.isCommonLast());
-		assertEquals(1 , l5.isCommonLast());
-		assertEquals(1 , l6.isCommonLast());
-		assertEquals(1 , l7.isCommonLast());
-		assertEquals(1 , l8.isCommonLast());
-		assertEquals(1 , l9.isCommonLast());
-		assertEquals(1 , l10.isCommonLast());
-		assertEquals(1 , l11.isCommonLast());
-		assertEquals(1 , l12.isCommonLast());
-		assertEquals(1 , l13.isCommonLast());
-		assertEquals(1 , l14.isCommonLast());
-		assertEquals(1 , l15.isCommonLast());
-		assertEquals(1 , l16.isCommonLast());
-		assertEquals(1 , l17.isCommonLast());
-		assertEquals(1 , l18.isCommonLast());
-		assertEquals(1 , l19.isCommonLast());
-		assertEquals(1 , l20.isCommonLast());
+
+		assertEquals(1, l1.isCommonLast());
+		assertEquals(1, l2.isCommonLast());
+		assertEquals(1, l3.isCommonLast());
+		assertEquals(1, l4.isCommonLast());
+		assertEquals(1, l5.isCommonLast());
+		assertEquals(1, l6.isCommonLast());
+		assertEquals(1, l7.isCommonLast());
+		assertEquals(1, l8.isCommonLast());
+		assertEquals(1, l9.isCommonLast());
+		assertEquals(1, l10.isCommonLast());
+		assertEquals(1, l11.isCommonLast());
+		assertEquals(1, l12.isCommonLast());
+		assertEquals(1, l13.isCommonLast());
+		assertEquals(1, l14.isCommonLast());
+		assertEquals(1, l15.isCommonLast());
+		assertEquals(1, l16.isCommonLast());
+		assertEquals(1, l17.isCommonLast());
+		assertEquals(1, l18.isCommonLast());
+		assertEquals(1, l19.isCommonLast());
+		assertEquals(1, l20.isCommonLast());
 	}
-	
+
 	@Test
 	/**
-	 * test for public int isHonorific()
-	 * and
-	 * public void setHonorific(int i)
+	 * test for public int isHonorific() and public void setHonorific(int i)
 	 */
-	public void testIsHonorificSetHonorific(){
-		
+	public void testIsHonorificSetHonorific() {
+
 		Token t1 = new Token("Sir");
 		Token t2 = new Token("Mr");
 		Token t3 = new Token("Dr");
-		
+
 		t1.setHonorific(1);
 		t2.setHonorific(1);
 		t3.setHonorific(1);
@@ -973,16 +970,13 @@ public class TestToken {
 		assertEquals(1, t2.isHonorific());
 		assertEquals(1, t3.isHonorific());
 	}
-	
-	
+
 	@Test
 	/**
-	 * test for public int isPrefix()
-	 * and
-	 * public void setPrefix(int i)
+	 * test for public int isPrefix() and public void setPrefix(int i)
 	 */
-	
-	public void testIsPrefixSetPrefix(){
+
+	public void testIsPrefixSetPrefix() {
 		Token p1 = new Token("von");
 		Token p2 = new Token("de");
 		Token p3 = new Token("di");
@@ -991,7 +985,7 @@ public class TestToken {
 		Token tok3 = new Token("desk");
 		Token l1 = new Token("Smith");
 		Token l2 = new Token("Jones");
-		
+
 		p1.setPrefix(1);
 		p2.setPrefix(1);
 		p3.setPrefix(1);
@@ -1000,7 +994,7 @@ public class TestToken {
 		tok3.setPrefix(0);
 		l1.setPrefix(0);
 		l2.setPrefix(0);
-		
+
 		assertEquals(1, p1.isPrefix());
 		assertEquals(1, p2.isPrefix());
 		assertEquals(1, p3.isPrefix());
@@ -1010,36 +1004,33 @@ public class TestToken {
 		assertEquals(0, l1.isPrefix());
 		assertEquals(0, l2.isPrefix());
 	}
-	
-	
+
 	@Test
 	/**
-	 * test for public int isSuffix()
-	 * and
-	 * public void setSuffix(int i)
+	 * test for public int isSuffix() and public void setSuffix(int i)
 	 */
-	public void testIsSufficSetSuffix(){
+	public void testIsSufficSetSuffix() {
 		Token s1 = new Token("III");
 		Token s2 = new Token("Jr");
 		Token s3 = new Token("Sr");
 		Token s4 = new Token("MD");
-		
+
 		Token l1 = new Token("Jones");
 		Token l2 = new Token("Johnson");
 		Token l3 = new Token("Morris");
-		
+
 		Token tok1 = new Token("game");
 		Token tok2 = new Token("carpet");
 		Token tok3 = new Token("speaker");
-		
+
 		s1.setSuffix(1);
 		s2.setSuffix(1);
 		s3.setSuffix(1);
 		s4.setSuffix(1);
-		
-		//shouldn't do anything
+
+		// shouldn't do anything
 		l1.setSuffix(555);
-		
+
 		assertEquals(1, s1.isSuffix());
 		assertEquals(1, s2.isSuffix());
 		assertEquals(1, s3.isSuffix());
@@ -1051,16 +1042,13 @@ public class TestToken {
 		assertEquals(0, tok2.isSuffix());
 		assertEquals(0, tok3.isSuffix());
 	}
-	
-	
+
 	@Test
 	/**
-	 * test for public int isKillWord()
-	 * and
-	 * public void setKillWord(int i)
+	 * test for public int isKillWord() and public void setKillWord(int i)
 	 */
-	public void testIsKillWordSetKillWord(){
-		
+	public void testIsKillWordSetKillWord() {
+
 		Token k1 = new Token("bridge");
 		Token k2 = new Token("university");
 		Token k3 = new Token("museum");
@@ -1072,7 +1060,7 @@ public class TestToken {
 		Token tok2 = new Token("sound");
 		Token tok3 = new Token("red");
 		Token tok4 = new Token("pencil");
-		
+
 		k1.setKillWord(1);
 		k2.setKillWord(1);
 		k3.setKillWord(1);
@@ -1083,7 +1071,7 @@ public class TestToken {
 		tok2.setKillWord(0);
 		tok3.setKillWord(0);
 		tok4.setKillWord(0);
-		
+
 		assertEquals(1, k1.isKillWord());
 		assertEquals(1, k2.isKillWord());
 		assertEquals(1, k3.isKillWord());
@@ -1095,128 +1083,102 @@ public class TestToken {
 		assertEquals(0, tok3.isKillWord());
 		assertEquals(0, tok4.isKillWord());
 	}
-	
-	
+
 	@Test
 	/**
-	 * test for public String getName()
-	 * and
-	 * public void setName(String name)
+	 * test for public String getName() and public void setName(String name)
 	 */
-	public void testGetNameSetName(){
+	public void testGetNameSetName() {
 		String str1 = "name1";
 		String str2 = "name2";
 		String str3 = "";
 		String str4 = null;
-		
+
 		Token t1 = new Token();
 		Token t2 = new Token("test2");
-		
+
 		t1.setName(str1);
-		assertEquals("name1" , t1.getName());
+		assertEquals("name1", t1.getName());
 		t1.setName(str2);
 		assertEquals("name2", t1.getName());
 		t2.setName(str3);
-		assertEquals("" , t2.getName());
+		assertEquals("", t2.getName());
 		t2.setName(str4);
-		assertEquals(null , t2.getName());
+		assertEquals(null, t2.getName());
 		t2.setName(str2);
-		assertEquals("name2" , t2.getName());
+		assertEquals("name2", t2.getName());
 	}
-	
-	
 
 	@Test
 	/**
 	 * test for public String toString()
 	 */
-	public void testToString(){
+	public void testToString() {
 		/*
-		 *  sb.append(lexical + ",");
-			sb.append(partOfSpeech + ",");
-			sb.append(dictionaryWord + ",");
-			sb.append(cityState + ",");
-			sb.append(countryTerritory + ",");
-			sb.append(place + ",");
-			sb.append(DTICFirst + ",");
-			sb.append(DTICLast + ",");
-			sb.append(commonFirst + ",");
-			sb.append(commonLast + ",");
-			sb.append(honorific + ",");
-			sb.append(prefix + ",");
-			sb.append(suffix + ",");
-			sb.append(killWord);
+		 * sb.append(lexical + ","); sb.append(partOfSpeech + ",");
+		 * sb.append(dictionaryWord + ","); sb.append(cityState + ",");
+		 * sb.append(countryTerritory + ","); sb.append(place + ",");
+		 * sb.append(DTICFirst + ","); sb.append(DTICLast + ",");
+		 * sb.append(commonFirst + ","); sb.append(commonLast + ",");
+		 * sb.append(honorific + ","); sb.append(prefix + ","); sb.append(suffix
+		 * + ","); sb.append(killWord);
 		 */
-		
+
 		Token tok1 = new Token("test1");
 		Token tok2 = new Token("");
 		Token tok3 = new Token();
 		Token tok4 = new Token("null");
-		
-		assertEquals(",,0,0,0,0,0,0,0,0,0,0,0,0" , tok1.toString());
-		assertEquals(",,0,0,0,0,0,0,0,0,0,0,0,0" , tok2.toString());
-		assertEquals(",,0,0,0,0,0,0,0,0,0,0,0,0" , tok3.toString());
-		assertEquals("null,null,0,0,0,0,0,0,0,0,0,0,0,0" , tok4.toString());
+
+		assertEquals(",,0,0,0,0,0,0,0,0,0,0,0,0", tok1.toString());
+		assertEquals(",,0,0,0,0,0,0,0,0,0,0,0,0", tok2.toString());
+		assertEquals(",,0,0,0,0,0,0,0,0,0,0,0,0", tok3.toString());
+		assertEquals("null,null,0,0,0,0,0,0,0,0,0,0,0,0", tok4.toString());
 	}
 
 	@Test
 	/**
 	 * test for public String toStringQuotes()
 	 */
-	public void testToStringQuotes(){
+	public void testToStringQuotes() {
 		/*
-		 *  String output = "\"" + lexeme + ",";
-			output += lexical + ",";
-			output += partOfSpeech + ",";
-			output += dictionaryWord + ",";
-			output += cityState + ",";
-			output += countryTerritory + ",";
-			output += place + ",";
-			output += DTICFirst + ",";
-			output += DTICLast + ",";
-			output += commonFirst + ",";
-			output += commonLast + ",";
-			output += honorific + ",";
-			output += prefix + ",";
-			output += suffix + ",";
-			output += killWord + ",";
-			output += name + ",";
-			output += position + ",\",";
+		 * String output = "\"" + lexeme + ","; output += lexical + ","; output
+		 * += partOfSpeech + ","; output += dictionaryWord + ","; output +=
+		 * cityState + ","; output += countryTerritory + ","; output += place +
+		 * ","; output += DTICFirst + ","; output += DTICLast + ","; output +=
+		 * commonFirst + ","; output += commonLast + ","; output += honorific +
+		 * ","; output += prefix + ","; output += suffix + ","; output +=
+		 * killWord + ","; output += name + ","; output += position + ",\",";
 		 */
-		
+
 		Token tok1 = new Token("test1");
 		Token tok2 = new Token("");
 		Token tok3 = new Token();
 		Token tok4 = new Token("null");
-		
-		assertEquals("\"test1,,,0,0,0,0,0,0,0,0,0,0,0,0,,0,\"," , tok1.toString());
-		assertEquals("\",,,0,0,0,0,0,0,0,0,0,0,0,0,,0,\"," , tok2.toString());
-		assertEquals("\",,,0,0,0,0,0,0,0,0,0,0,0,0,,0,\"," , tok3.toString());
-		assertEquals("\"null,,,0,0,0,0,0,0,0,0,0,0,0,0,,0,\"," , tok4.toString());
+
+		assertEquals("\"test1,,,0,0,0,0,0,0,0,0,0,0,0,0,,0,\",", tok1.toString());
+		assertEquals("\",,,0,0,0,0,0,0,0,0,0,0,0,0,,0,\",", tok2.toString());
+		assertEquals("\",,,0,0,0,0,0,0,0,0,0,0,0,0,,0,\",", tok3.toString());
+		assertEquals("\"null,,,0,0,0,0,0,0,0,0,0,0,0,0,,0,\",", tok4.toString());
 	}
-	
+
 	@Test
 	/**
 	 * test for public boolean printTokenData() throws Exception
 	 */
-	public void testPrintTokenData() throws Exception{
-		
-		try{
-		Token tok1 = new Token();
-		Token tok2 = new Token("two");
-		Token tok3 = new Token("null");
-		
-		assertTrue(tok1.printTokenData());
-		assertTrue(tok2.printTokenData());
-		assertTrue(tok3.printTokenData());
-		}catch(Exception e89){
-			
+	public void testPrintTokenData() throws Exception {
+
+		try {
+			Token tok1 = new Token();
+			Token tok2 = new Token("two");
+			Token tok3 = new Token("null");
+
+			assertTrue(tok1.printTokenData());
+			assertTrue(tok2.printTokenData());
+			assertTrue(tok3.printTokenData());
+		} catch (Exception e89) {
+
 		}
 	}
-	
-	
-	
-	
 
 	// User Story #850
 	// Status - Completed

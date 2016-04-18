@@ -12,8 +12,10 @@ import edu.odu.cs.cs350.namex.Trainer;
 import edu.odu.cs.extract.wordlists.WordLists;
 
 import java.util.*;
+
 /**
  * Test class for Trainer.java
+ * 
  * @author Addy Alago, Caroline Chey, Tristan Pressley
  *
  */
@@ -78,8 +80,8 @@ public class TestTrainer {
 		Token token = new Token("<NER>");
 		Trainer trainer = new Trainer();
 		tokens = trainer.tokenize(string);
-		
-		assertEquals(2,Trainer.getTokenCount(2, tokens));
+
+		assertEquals(2, Trainer.getTokenCount(2, tokens));
 		assertFalse(2 == Trainer.getTokenCount(2, tokens));
 	}
 
@@ -102,8 +104,8 @@ public class TestTrainer {
 		String string0 = "Norfolk";
 		String string1 = "Virginia";
 		String string2 = "television";
-		
-		assertEquals(1,trainer.isCityState(string0));
+
+		assertEquals(1, trainer.isCityState(string0));
 		assertTrue(trainer.isCityState(string0) == trainer.isCityState(string1));
 		assertFalse(1 == trainer.isCityState(string2));
 	}
@@ -241,7 +243,7 @@ public class TestTrainer {
 		tokens.add(tks3);
 		tokens.add(tks4);
 		tokens.add(tks5);
-		
+
 		Trainer trainer = new Trainer();
 		trainer.getFeatures(tokens);
 
@@ -285,14 +287,14 @@ public class TestTrainer {
 		tokens.add(tks8);
 		tokens.add(tks9);
 		tokens.add(tk10);
-		
+
 		Trainer trainer = new Trainer();
 		tokenSet = trainer.setFeatures(tokens);
 
 		// Test strings for common token variations to ensure the features are
 		// setting correctly
 
-		assertEquals(10,tokenSet.size());
+		assertEquals(10, tokenSet.size());
 	}
 
 	/**

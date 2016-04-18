@@ -20,6 +20,7 @@ import weka.core.converters.ConverterUtils.DataSource;
 
 /**
  * Test class for LearningMachine.java
+ * 
  * @author Caroline Chey
  *
  */
@@ -28,26 +29,24 @@ public class TestLearningMachine {
 	@Before
 	public void setUp() throws Exception {
 	}
-	
-	@Test 
+
+	@Test
 	/**
 	 * test for constructor; public LearningMachine()
 	 */
-	public void testLearningMachine() throws Exception{
+	public void testLearningMachine() throws Exception {
 		/*
-		 * private Classifier classifier; 
-		 * private FastVector attributes; 
-		 * private int numAttr; 
-		 * private Instances trainingInstances; 
-		 * private String evalSummary;
+		 * private Classifier classifier; private FastVector attributes; private
+		 * int numAttr; private Instances trainingInstances; private String
+		 * evalSummary;
 		 */
-		
+
 		try {
 			LearningMachine lm1 = new LearningMachine();
 			weka.classifiers.bayes.NaiveBayes nb1 = new weka.classifiers.bayes.NaiveBayes();
 			assertTrue(lm1.getClassifier().getClass().equals(nb1.getClass()));
 			assertTrue(lm1.getNumberOfAttributes() > 0);
-			assertEquals(71 , lm1.getSizeOfAttributes() );
+			assertEquals(71, lm1.getSizeOfAttributes());
 			assertFalse(lm1.getEvalSummary().equals(""));
 			assertTrue(lm1.getTrainingInstances() != null);
 		} catch (Exception e) {
@@ -55,12 +54,12 @@ public class TestLearningMachine {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Test
 	/**
 	 * test for public boolean train() throws Exception
 	 */
-	public void TestTrain() throws Exception{
+	public void TestTrain() throws Exception {
 		try {
 			LearningMachine lm1 = new LearningMachine();
 			assertTrue(lm1.train());
@@ -69,22 +68,19 @@ public class TestLearningMachine {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
-	
+
 	@Test
 	/**
 	 * test for constructor; public LearningMachine(String machineModel)
 	 */
-	public void testLearningMachineString() throws Exception{
-		
+	public void testLearningMachineString() throws Exception {
+
 		try {
 			LearningMachine lm1 = new LearningMachine("testing");
 			weka.classifiers.bayes.NaiveBayes nb1 = new weka.classifiers.bayes.NaiveBayes();
 			assertTrue(lm1.getClassifier().getClass().equals(nb1.getClass()));
 			assertTrue(lm1.getNumberOfAttributes() > 0);
-			assertEquals(71 , lm1.getSizeOfAttributes() );
+			assertEquals(71, lm1.getSizeOfAttributes());
 			assertFalse(lm1.getEvalSummary().equals(""));
 			assertTrue(lm1.getTrainingInstances() != null);
 		} catch (Exception e) {
@@ -92,22 +88,21 @@ public class TestLearningMachine {
 			e.printStackTrace();
 		}
 	}
-	
-	
+
 	@Test
 	/**
 	 * test for public boolean train(Instances trainingData) throws Exception
 	 */
-	public void TestTrainInstances() throws Exception{
+	public void TestTrainInstances() throws Exception {
 		fail("Not yet implemented");
 	}
-	
+
 	@Test
-	public void testGetDistribution() throws Exception{
-		
+	public void testGetDistribution() throws Exception {
+
 		try {
 			LearningMachine lm1 = new LearningMachine();
-			
+
 			assertTrue(lm1.getDistribution("This is a test input.") != null);
 			assertTrue(lm1.getDistribution("This is not a test.") != null);
 			assertTrue(lm1.getDistribution("") != null);
@@ -116,13 +111,12 @@ public class TestLearningMachine {
 			e.printStackTrace();
 		}
 	}
-	
-	
+
 	@Test
 	/**
-	 * test for public String classify(String input) throws Exception 
+	 * test for public String classify(String input) throws Exception
 	 */
-	public void testClassify() throws Exception{
+	public void testClassify() throws Exception {
 		try {
 			String in1 = "This";
 			String in2 = "";
@@ -130,7 +124,7 @@ public class TestLearningMachine {
 			String in4 = "is";
 			String in5 = "Caroline";
 			String in6 = "John";
-			
+
 			LearningMachine lm1 = new LearningMachine();
 			assertEquals("other", lm1.classify(in1));
 			assertEquals("other", lm1.classify(in2));
@@ -142,58 +136,56 @@ public class TestLearningMachine {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
-	
-	
+
 	@Test
 	/**
 	 * test for public boolean printEvaluationSummary() throws Exception
 	 */
-	public void testPrintEvaluationSummary() throws Exception{
-		
+	public void testPrintEvaluationSummary() throws Exception {
+
 		LearningMachine lm1 = new LearningMachine();
 		LearningMachine lm2 = new LearningMachine("test2");
-		try{
-			
+		try {
+
 			lm1.train();
 			assertTrue(lm1.printEvaluationSummary());
 			lm2.train();
 			assertTrue(lm2.printEvaluationSummary());
-			
-		}catch(Exception e375){
+
+		} catch (Exception e375) {
 			e375.printStackTrace();
 		}
 	}
-	
-	
+
 	@Test
 	/**
 	 * test for public String getEvalSummary() throws Exception
 	 */
-	public void testGetEvalSummary() throws Exception{
-		
+	public void testGetEvalSummary() throws Exception {
+
 		LearningMachine lm1 = new LearningMachine();
 		LearningMachine lm2 = new LearningMachine("two");
-		try{
+		try {
 			lm1.train();
 			assertTrue(lm1.getEvalSummary() != null);
 			assertFalse(lm1.getEvalSummary().equals(""));
-			
+
 			lm2.train();
 			assertTrue(lm2.getEvalSummary() != null);
 			assertFalse(lm2.getEvalSummary().equals(""));
-			
-		}catch(Exception e462){
+
+		} catch (Exception e462) {
 			e462.printStackTrace();
 		}
 	}
-	
+
 	@Test
 	/**
 	 * test for public boolean printARFF()
 	 */
-	public void testPrintARFF() throws Exception{
+	public void testPrintARFF() throws Exception {
 		try {
 			LearningMachine lm = new LearningMachine();
 			assertTrue(lm.train());
@@ -205,17 +197,16 @@ public class TestLearningMachine {
 		}
 	}
 
-
 	@Test
 	/**
 	 * test for public boolean exportARFF(String outputFilePath)
 	 */
-	public void testExportARFF() throws Exception{
+	public void testExportARFF() throws Exception {
 		try {
 			LearningMachine lm = new LearningMachine();
 			assertTrue(lm.train());
 			assertTrue(lm.getTrainingInstances() != null);
-			
+
 			String outpath = "/src/main/data/testExportARFF.arff";
 			assertTrue(lm.exportARFF(outpath));
 		} catch (Exception e) {
@@ -223,14 +214,13 @@ public class TestLearningMachine {
 			e.printStackTrace();
 		}
 	}
-	
-	
+
 	@Test
 	/**
 	 * test for public boolean importARFF(String filePath) throws Exception
 	 */
-	public void testImportARFFString() throws Exception{
-		
+	public void testImportARFFString() throws Exception {
+
 		try {
 			LearningMachine lm = new LearningMachine();
 			String inpath = "/src/main/data/trainingData.arff";
@@ -239,51 +229,49 @@ public class TestLearningMachine {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
-	
-	
+
 	@Test
 	/**
 	 * test for public void importARFF(LinkedList<String> trainingData)
 	 */
-	public void testImportARFFLinkedList() throws Exception{
-		
+	public void testImportARFFLinkedList() throws Exception {
+
 		fail("not yet implemented");
 	}
-	
-	
+
 	@Test
 	/**
-	 * test for public boolean importARFF(String[] trainingData) throws Exception
+	 * test for public boolean importARFF(String[] trainingData) throws
+	 * Exception
 	 */
-	public void testImportARFFStringArr() throws Exception{
-		
+	public void testImportARFFStringArr() throws Exception {
+
 		fail("not yet implemented");
 	}
-	
-	
+
 	@Test
 	/**
-	 * test for public Classifier getClassifier() 
+	 * test for public Classifier getClassifier()
 	 */
-	public void testGetClassifier(){
+	public void testGetClassifier() {
 		LearningMachine lm999 = new LearningMachine();
 		assertTrue(lm999.getClassifier() != null);
-		
+
 		LearningMachine lm472 = new LearningMachine();
 		assertTrue(lm472.getClassifier() != null);
 	}
-	
-	
+
 	@Test
 	/**
-	 * test for public Attribute getCopyAttribute(String name, FastVector nominalVal)
+	 * test for public Attribute getCopyAttribute(String name, FastVector
+	 * nominalVal)
 	 */
-	public void testGetCopyAttribute(){
+	public void testGetCopyAttribute() {
 		LearningMachine lm57 = new LearningMachine();
 		LearningMachine lm33 = new LearningMachine();
-		
+
 		String lm57name = "test_lm57";
 		FastVector lm57nv = new FastVector(9);
 		assertTrue(lm57.getCopyAttribute(lm57name, lm57nv) != null);
@@ -291,68 +279,64 @@ public class TestLearningMachine {
 		assertTrue(lm57.getCopyAttribute(lm57name, lm57nv2) != null);
 		FastVector lm57nv3 = new FastVector(1);
 		assertTrue(lm57.getCopyAttribute(lm57name, lm57nv3) != null);
-		
+
 		String lm33name = "test_lm33";
 		FastVector lm33nv = new FastVector(6);
 		assertTrue(lm57.getCopyAttribute(lm33name, lm33nv) != null);
 		FastVector lm33nv2 = new FastVector();
 		assertTrue(lm57.getCopyAttribute(lm33name, lm33nv2) != null);
-		
+
 	}
-	
+
 	@Test
 	/**
 	 * test for public int getNumberOfAttributes()
 	 */
-	public void testGetNumberOfAttributes(){
+	public void testGetNumberOfAttributes() {
 		LearningMachine lm57 = new LearningMachine();
 		LearningMachine lm33 = new LearningMachine("lm33");
-		
+
 		assertTrue(lm57.getNumberOfAttributes() != 0);
 		assertTrue(lm57.getNumberOfAttributes() > 0);
 		assertTrue(lm33.getNumberOfAttributes() != 0);
 		assertTrue(lm33.getNumberOfAttributes() > 0);
 	}
-	
-	
+
 	@Test
 	/**
 	 * test for public int getSizeOfAttributes()
 	 */
-	public void testGetSizeOfAttributes(){
+	public void testGetSizeOfAttributes() {
 		LearningMachine lm57 = new LearningMachine();
 		LearningMachine lm20 = new LearningMachine("lm20");
-		
+
 		assertTrue(lm57.getSizeOfAttributes() != 0);
 		assertTrue(lm57.getSizeOfAttributes() > 0);
 		assertTrue(lm20.getSizeOfAttributes() != 0);
 		assertTrue(lm20.getSizeOfAttributes() > 0);
 		assertEquals(71, lm57.getSizeOfAttributes());
 		assertEquals(71, lm20.getSizeOfAttributes());
-		assertEquals(lm57.getSizeOfAttributes() , lm20.getSizeOfAttributes() );
+		assertEquals(lm57.getSizeOfAttributes(), lm20.getSizeOfAttributes());
 	}
-	
-	
+
 	@Test
 	/**
 	 * test for public Instances getTrainingInstances()
 	 */
-	public void testGetTrainingInstances(){
+	public void testGetTrainingInstances() {
 		LearningMachine lm49 = new LearningMachine();
-		
+
 		assertTrue(lm49.getTrainingInstances() != null);
 		assertTrue(lm49.getTrainingInstances().lastInstance() != null);
 		assertTrue(lm49.getTrainingInstances().firstInstance() != null);
 		assertTrue(lm49.getTrainingInstances().numInstances() > 0);
 		assertTrue(lm49.getTrainingInstances().numAttributes() > 0);
 	}
-	
 
 	@Test
 	/**
-	 * test for public void saveLM()
-	 * and
-	 * public Classifier loadLM(String LMBrain)
+	 * test for public void saveLM() and public Classifier loadLM(String
+	 * LMBrain)
 	 */
 	public void testSaveLMLoadLM() throws Exception {
 
@@ -362,7 +346,7 @@ public class TestLearningMachine {
 		Path currRelaPath = Paths.get("");
 		String relaPath = currRelaPath.toAbsolutePath().toString();
 		String filePath = relaPath + "/learning_machines/" + lmFilename;
-		//arffPath = relaPath + "" + arffPath;
+		// arffPath = relaPath + "" + arffPath;
 
 		LearningMachine LM1 = new LearningMachine();
 		LearningMachine LM2 = new LearningMachine();
@@ -382,11 +366,4 @@ public class TestLearningMachine {
 		}
 	}
 
-
-
-
-	
-	
-
 }
-
