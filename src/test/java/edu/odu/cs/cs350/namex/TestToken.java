@@ -999,9 +999,56 @@ public class TestToken {
 	}
 	
 	
+	@Test
+	/**
+	 * test for public int isSuffix()
+	 * and
+	 * public void setSuffix(int i)
+	 */
+	public void testIsSufficSetSuffix(){
+		Token s1 = new Token("III");
+		Token s2 = new Token("Jr");
+		Token s3 = new Token("Sr");
+		Token s4 = new Token("MD");
+		
+		Token l1 = new Token("Jones");
+		Token l2 = new Token("Johnson");
+		Token l3 = new Token("Morris");
+		
+		Token tok1 = new Token("game");
+		Token tok2 = new Token("carpet");
+		Token tok3 = new Token("speaker");
+		
+		s1.setSuffix(1);
+		s2.setSuffix(1);
+		s3.setSuffix(1);
+		s4.setSuffix(1);
+		
+		//shouldn't do anything
+		l1.setSuffix(555);
+		
+		assertEquals(1, s1.isSuffix());
+		assertEquals(1, s2.isSuffix());
+		assertEquals(1, s3.isSuffix());
+		assertEquals(1, s4.isSuffix());
+		assertEquals(0, l1.isSuffix());
+		assertEquals(0, l2.isSuffix());
+		assertEquals(0, l3.isSuffix());
+		assertEquals(0, tok1.isSuffix());
+		assertEquals(0, tok2.isSuffix());
+		assertEquals(0, tok3.isSuffix());
+	}
 	
 	
-	
+	@Test
+	/**
+	 * test for public int isKillWord()
+	 * and
+	 * public void setKillWord(int i)
+	 */
+	public void testIsKillWordSetKillWord(){
+		
+	}
 	
 	
 	
