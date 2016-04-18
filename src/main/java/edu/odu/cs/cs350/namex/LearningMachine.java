@@ -30,47 +30,34 @@ public class LearningMachine {
 		// Initialize the Classifier as a Naive Bayes Classifier
 		clssf = (Classifier) new NaiveBayes();
 		
-		FastVector NominalValLexical = new FastVector(9);
-		NominalValLexical.addElement("punct");
-		NominalValLexical.addElement("capLetter");
-		NominalValLexical.addElement("capitalized");
-		NominalValLexical.addElement("allCaps");
-		NominalValLexical.addElement("lineFeed");
-		NominalValLexical.addElement("whiteSpace");
-		NominalValLexical.addElement("number");
-		NominalValLexical.addElement("other");
-		NominalValLexical.addElement("null");
-		Attribute Lexical1 = new Attribute("Lexical", NominalValLexical);
-		Attribute Lexical2 = new Attribute("Lexical", NominalValLexical);
-		Attribute Lexical3 = new Attribute("Lexical", NominalValLexical);
-		Attribute Lexical4 = new Attribute("Lexical", NominalValLexical);
-		Attribute Lexical5 = new Attribute("Lexical", NominalValLexical);
-		Attribute Lexical6 = new Attribute("Lexical", NominalValLexical);
-		Attribute Lexical7 = new Attribute("Lexical", NominalValLexical);
-		Attribute Lexical8 = new Attribute("Lexical", NominalValLexical);
-		Attribute Lexical9 = new Attribute("Lexical", NominalValLexical);
-		Attribute Lexical10 = new Attribute("Lexical", NominalValLexical);
-		Attribute Lexical11 = new Attribute("Lexical", NominalValLexical);
+		FastVector nominValLexi = new FastVector(9);
+		initNominValLexi(nominValLexi);
+		Attribute lexic1 = new Attribute("Lexical", nominValLexi);
+		Attribute lexic2 = new Attribute("Lexical", nominValLexi);
+		Attribute lexic3 = new Attribute("Lexical", nominValLexi);
+		Attribute lexic4 = new Attribute("Lexical", nominValLexi);
+		Attribute lexic5 = new Attribute("Lexical", nominValLexi);
+		Attribute lexic6 = new Attribute("Lexical", nominValLexi);
+		Attribute lexic7 = new Attribute("Lexical", nominValLexi);
+		Attribute lexic8 = new Attribute("Lexical", nominValLexi);
+		Attribute lexic9 = new Attribute("Lexical", nominValLexi);
+		Attribute lexic10 = new Attribute("Lexical", nominValLexi);
+		Attribute lexic11 = new Attribute("Lexical", nominValLexi);
 
 		// Declare PartOfSpeech Attribute with its values
-		FastVector NominalValPoS = new FastVector(6);
-		NominalValPoS.addElement("article");
-		NominalValPoS.addElement("conjunction");
-		NominalValPoS.addElement("period");
-		NominalValPoS.addElement("comma");
-		NominalValPoS.addElement("hyphen");
-		NominalValPoS.addElement("other");
-		Attribute PartOfSpeech1 = new Attribute("PartOfSpeech", NominalValPoS);
-		Attribute PartOfSpeech2 = new Attribute("PartOfSpeech", NominalValPoS);
-		Attribute PartOfSpeech3 = new Attribute("PartOfSpeech", NominalValPoS);
-		Attribute PartOfSpeech4 = new Attribute("PartOfSpeech", NominalValPoS);
-		Attribute PartOfSpeech5 = new Attribute("PartOfSpeech", NominalValPoS);
-		Attribute PartOfSpeech6 = new Attribute("PartOfSpeech", NominalValPoS);
-		Attribute PartOfSpeech7 = new Attribute("PartOfSpeech", NominalValPoS);
-		Attribute PartOfSpeech8 = new Attribute("PartOfSpeech", NominalValPoS);
-		Attribute PartOfSpeech9 = new Attribute("PartOfSpeech", NominalValPoS);
-		Attribute PartOfSpeech10 = new Attribute("PartOfSpeech", NominalValPoS);
-		Attribute PartOfSpeech11 = new Attribute("PartOfSpeech", NominalValPoS);
+		FastVector nominValPoS = new FastVector(6);
+		initNominValPos(nominValPoS);
+		Attribute PartOfSpeech1 = new Attribute("PartOfSpeech", nominValPoS);
+		Attribute PartOfSpeech2 = new Attribute("PartOfSpeech", nominValPoS);
+		Attribute PartOfSpeech3 = new Attribute("PartOfSpeech", nominValPoS);
+		Attribute PartOfSpeech4 = new Attribute("PartOfSpeech", nominValPoS);
+		Attribute PartOfSpeech5 = new Attribute("PartOfSpeech", nominValPoS);
+		Attribute PartOfSpeech6 = new Attribute("PartOfSpeech", nominValPoS);
+		Attribute PartOfSpeech7 = new Attribute("PartOfSpeech", nominValPoS);
+		Attribute PartOfSpeech8 = new Attribute("PartOfSpeech", nominValPoS);
+		Attribute PartOfSpeech9 = new Attribute("PartOfSpeech", nominValPoS);
+		Attribute PartOfSpeech10 = new Attribute("PartOfSpeech", nominValPoS);
+		Attribute PartOfSpeech11 = new Attribute("PartOfSpeech", nominValPoS);
 		
 		
 		// Declare Gazetteer Attributes with its values
@@ -226,7 +213,7 @@ public class LearningMachine {
 		// Declare the Feature vector
 		attrs = new FastVector(71);
 		// word one
-		attrs.addElement(Lexical1);
+		attrs.addElement(lexic1);
 		attrs.addElement(PartOfSpeech1);
 		attrs.addElement(DictionaryWord1);
 		attrs.addElement(City1);
@@ -241,7 +228,7 @@ public class LearningMachine {
 		attrs.addElement(Suffix1);
 		attrs.addElement(Kill1);
 		// word two
-		attrs.addElement(Lexical2);
+		attrs.addElement(lexic2);
 		attrs.addElement(PartOfSpeech2);
 		attrs.addElement(DictionaryWord2);
 		attrs.addElement(City2);
@@ -257,7 +244,7 @@ public class LearningMachine {
 		attrs.addElement(Kill2);
 
 		// word three
-		attrs.addElement(Lexical3);
+		attrs.addElement(lexic3);
 		attrs.addElement(PartOfSpeech3);
 		attrs.addElement(DictionaryWord3);
 		attrs.addElement(City3);
@@ -272,7 +259,7 @@ public class LearningMachine {
 		attrs.addElement(Suffix3);
 		attrs.addElement(Kill3);
 		// word four
-		attrs.addElement(Lexical4);
+		attrs.addElement(lexic4);
 		attrs.addElement(PartOfSpeech4);
 		attrs.addElement(DictionaryWord4);
 		attrs.addElement(City4);
@@ -288,7 +275,7 @@ public class LearningMachine {
 		attrs.addElement(Kill4);
 
 		// word five
-		attrs.addElement(Lexical5);
+		attrs.addElement(lexic5);
 		attrs.addElement(PartOfSpeech5);
 		attrs.addElement(DictionaryWord5);
 		attrs.addElement(City5);
@@ -304,7 +291,7 @@ public class LearningMachine {
 		attrs.addElement(Kill5);
 
 		// word six
-		attrs.addElement(Lexical6);
+		attrs.addElement(lexic6);
 		attrs.addElement(PartOfSpeech6);
 		attrs.addElement(DictionaryWord6);
 		attrs.addElement(City6);
@@ -320,7 +307,7 @@ public class LearningMachine {
 		attrs.addElement(Kill6);
 
 		// word seven
-		attrs.addElement(Lexical7);
+		attrs.addElement(lexic7);
 		attrs.addElement(PartOfSpeech7);
 		attrs.addElement(DictionaryWord7);
 		attrs.addElement(City7);
@@ -335,7 +322,7 @@ public class LearningMachine {
 		attrs.addElement(Suffix7);
 		attrs.addElement(Kill7);
 		// word eight
-		attrs.addElement(Lexical8);
+		attrs.addElement(lexic8);
 		attrs.addElement(PartOfSpeech8);
 		attrs.addElement(DictionaryWord8);
 		attrs.addElement(City8);
@@ -350,7 +337,7 @@ public class LearningMachine {
 		attrs.addElement(Suffix8);
 		attrs.addElement(Kill8);
 		// word nine
-		attrs.addElement(Lexical9);
+		attrs.addElement(lexic9);
 		attrs.addElement(PartOfSpeech9);
 		attrs.addElement(DictionaryWord9);
 		attrs.addElement(City9);
@@ -365,7 +352,7 @@ public class LearningMachine {
 		attrs.addElement(Suffix9);
 		attrs.addElement(Kill9);
 		// word ten
-		attrs.addElement(Lexical10);
+		attrs.addElement(lexic10);
 		attrs.addElement(PartOfSpeech10);
 		attrs.addElement(DictionaryWord10);
 		attrs.addElement(City10);
@@ -380,7 +367,7 @@ public class LearningMachine {
 		attrs.addElement(Suffix10);
 		attrs.addElement(Kill10);
 		// word eleven
-		attrs.addElement(Lexical11);
+		attrs.addElement(lexic11);
 		attrs.addElement(PartOfSpeech11);
 		attrs.addElement(DictionaryWord11);
 		attrs.addElement(City11);
@@ -416,15 +403,7 @@ public class LearningMachine {
 		// Initialize Attributes
 		// Declare Lexical Attribute with its values
 		FastVector NominalValLexical = new FastVector(9);
-		NominalValLexical.addElement("punct");
-		NominalValLexical.addElement("capLetter");
-		NominalValLexical.addElement("capitalized");
-		NominalValLexical.addElement("allCaps");
-		NominalValLexical.addElement("lineFeed");
-		NominalValLexical.addElement("whiteSpace");
-		NominalValLexical.addElement("number");
-		NominalValLexical.addElement("other");
-		NominalValLexical.addElement("null");
+		initNominValLexi(NominalValLexical);
 		Attribute Lexical1 = new Attribute("Lexical", NominalValLexical);
 		Attribute Lexical2 = new Attribute("Lexical", NominalValLexical);
 		Attribute Lexical3 = new Attribute("Lexical", NominalValLexical);
@@ -439,12 +418,7 @@ public class LearningMachine {
 
 		// Declare PartOfSpeech Attribute with its values
 		FastVector NominalValPoS = new FastVector(6);
-		NominalValPoS.addElement("article");
-		NominalValPoS.addElement("conjunction");
-		NominalValPoS.addElement("period");
-		NominalValPoS.addElement("comma");
-		NominalValPoS.addElement("hyphen");
-		NominalValPoS.addElement("other");
+		initNominValPos(NominalValPoS);
 		Attribute PartOfSpeech1 = new Attribute("PartOfSpeech", NominalValPoS);
 		Attribute PartOfSpeech2 = new Attribute("PartOfSpeech", NominalValPoS);
 		Attribute PartOfSpeech3 = new Attribute("PartOfSpeech", NominalValPoS);
@@ -784,6 +758,36 @@ public class LearningMachine {
 		attrs.addElement(Name4);
 		attrs.addElement(Name5);
 		attrs.addElement(Name6);
+	}
+	
+	
+	/**
+	 * initialize nominValLexi[] fastvector
+	 */
+	public void initNominValLexi(FastVector nvl){
+		
+		nvl.addElement("punct");
+		nvl.addElement("capLetter");
+		nvl.addElement("capitalized");
+		nvl.addElement("allCaps");
+		nvl.addElement("lineFeed");
+		nvl.addElement("whiteSpace");
+		nvl.addElement("number");
+		nvl.addElement("other");
+		nvl.addElement("null");
+	}
+	
+	/**
+	 * initialize nominValPos[] fastvector
+	 */
+	public void initNominValPos(FastVector nvp){
+		
+		nvp.addElement("article");
+		nvp.addElement("conjunction");
+		nvp.addElement("period");
+		nvp.addElement("comma");
+		nvp.addElement("hyphen");
+		nvp.addElement("other");
 	}
 	
 	/**

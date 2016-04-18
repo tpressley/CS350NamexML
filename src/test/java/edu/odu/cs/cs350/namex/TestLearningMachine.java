@@ -44,106 +44,95 @@ public class TestLearningMachine {
 		assertEquals(71 , lm1.getSizeOfAttributes() );
 		assertFalse(lm1.getEvalSummary().equals(""));
 		assertTrue(lm1.getTrainingInstances() != null);
-
+	}
+	
+	@Test
+	/**
+	 * test for public boolean train() throws Exception
+	 */
+	public void TestTrain() throws Exception{
+		LearningMachine lm1 = new LearningMachine();
+		assertTrue(lm1.train());
 	}
 	
 	
 	
 	
 	@Test
-	public void testGetSerialVersionUID() {
+	/**
+	 * test for constructor; public LearningMachine(String machineModel)
+	 */
+	public void testLearningMachineString() throws Exception{
+		
+		LearningMachine lm1 = new LearningMachine("testing");
+		weka.classifiers.bayes.NaiveBayes nb1 = new weka.classifiers.bayes.NaiveBayes();
+		assertTrue(lm1.getClassifier().getClass().equals(nb1.getClass()));
+		assertTrue(lm1.getNumberOfAttributes() > 0);
+		assertEquals(71 , lm1.getSizeOfAttributes() );
+		assertFalse(lm1.getEvalSummary().equals(""));
+		assertTrue(lm1.getTrainingInstances() != null);
+	}
+	
+	
+	@Test
+	/**
+	 * test for public boolean train(Instances trainingData) throws Exception
+	 */
+	public void TestTrainInstances() throws Exception{
 		fail("Not yet implemented");
+	}
+	
+	@Test
+	public void testGetDistribution() throws Exception{
+		
+		LearningMachine lm1 = new LearningMachine();
+		
+		assertTrue(lm1.getDistribution("This is a test input.") != null);
+		assertTrue(lm1.getDistribution("This is not a test.") != null);
+		assertTrue(lm1.getDistribution("") != null);
+	}
+	
+	
+	@Test
+	/**
+	 * test for public String classify(String input) throws Exception 
+	 */
+	public void testClassify() throws Exception{
+		String in1 = "This";
+		String in2 = "";
+		String in3 = null;
+		String in4 = "is";
+		String in5 = "Caroline";
+		String in6 = "John";
+		
+		LearningMachine lm1 = new LearningMachine();
+		assertEquals("other", lm1.classify(in1));
+		assertEquals("other", lm1.classify(in2));
+		assertEquals("other", lm1.classify(in3));
+		assertEquals("other", lm1.classify(in4));
+		assertEquals("beginning", lm1.classify(in5));
+		assertEquals("beginning", lm1.classify(in6));
+		
+	}
+	
+	
+	@Test
+	/**
+	 * test for public String classifyShingle(String input) throws Exception
+	 */
+	public void testClassifyShingle() throws Exception{
+		
+		LearningMachine lm1 = new LearningMachine();
+		String in1 = "This is Caroline.";
+		String in2 = "";
+		String in3 = "Dr Addy Alago";
+		String in4 = "Professor Zeil";
+		
+		assertEquals("yes", lm1.classifyShingle(in1));
+		
+		
 	}
 
-	@Test
-	public void testTrainInstances() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testTrain() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetDistribution() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testClassify() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testClassifyShingle() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetShingleDistribution() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testClassifyOld() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testPrintEvaluationSummary() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testPrintARFF() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testExportARFF() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testImportARFFString() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testImportARFFHashSetOfString() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testImportARFFStringArray() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetTrainingData() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetClassifier() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetAttribute() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetNumberOfAttributes() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetTrainingInstances() {
-		fail("Not yet implemented");
-	}
 
 	@Test
 	public void testSaveLoadLM() {
@@ -177,170 +166,11 @@ public class TestLearningMachine {
 		assertEquals(LM1,LM2);
 	}
 
-	/**
-	 * test for constructor of LearningMachine.java
-	 */
-	public void TestLearningMachine(){
-		
-		fail("Not yet implemented");
-		
-	}
-	
-	@Test
-	/**
-	 * test for constructor(String ) of LearningMachine.java
-	 */
-	public void TestLearningMachineString(){
-		fail("Not yet implemented");
-	}
+
+
+
 	
 	
-	@Test
-	/**
-	 * test for public boolean train(Instances trainingData) throws Exception
-	 */
-	public void TestTrainInstances() throws Exception{
-		fail("Not yet implemented");
-	}
-	
-	@Test
-	/**
-	 * test for public boolean train() throws Exception
-	 */
-	public void TestTrain() throws Exception{
-		fail("Not yet implemented");
-	
-	}
-	
-	
-	
-	@Test
-	/**
-	 * test for public double[] getDistribution(String input) throws Exception
-	 */
-	public void TestGetDistribution() throws Exception {
-		fail("Not yet implemented");
-	}
-	
-	@Test
-	/**
-	 * test for public String classify(String input) throws Exception 
-	 */
-	public void TestClassify() throws Exception{
-		fail("Not yet implemented");
-	}
-	
-	
-	@Test
-	/**
-	 * test for public String classifyShingle(String input) throws Exception
-	 */
-	public void TestClassifyShingle() throws Exception {
-		fail("Not yet implemented");
-	}
-	
-	
-	@Test
-	/**
-	 * test for public double[] getShingleDistribution(String input) throws Exception
-	 */
-	public void TestGetShingleDistribution() throws Exception {
-		fail("Not yet implemented");
-	}
-	
-	@Test
-	/**
-	 * test for public void printEvaluationSummary() 
-	 */
-	public void TestPrintEvaluationSummary(){
-		fail("Not yet implemented");
-	}
-	
-	
-	@Test
-	/**
-	 * test for public void printARFF()
-	 */
-	public void TestPrintARFF(){
-		fail("Not yet implemented");
-	}
-	
-	@Test
-	/**
-	 * test for public boolean exportARFF(String outputFilePath)
-	 */
-	public void TestExportARFF(){
-		fail("Not yet implemented");
-	}
-	
-	
-	@Test
-	/**
-	 * test for public boolean importARFF(String filePath) throws Exception
-	 */
-	public void TestImportARFFString() throws Exception{
-		fail("Not yet implemented");
-	}
-	
-	
-	@Test
-	/**
-	 * test for public void importARFF(HashSet<String> trainingData)
-	 */
-	public void TestImportARFFHashSet() {
-		fail("Not yet implemented");
-	}
-	
-	
-	@Test
-	/**
-	 * test for public boolean importARFF(String[] trainingData) throws Exception
-	 */
-	public void TestImportARFFStringArr() throws Exception{
-		fail("Not yet implemented");
-	}
-	
-	@Test
-	/**
-	 * test for public Classifier getClassifier()
-	 */
-	public void TestGetClassifier(){
-		fail("Not yet implemented");
-	}
-	
-	
-	@Test
-	/**
-	 * test for public int getNumberOfAttributes()
-	 */
-	public void TestGetNumberOfAttributes(){
-		fail("Not yet implemented");
-	}
-	
-	
-	@Test
-	/**
-	 * test for public Instances getTrainingInstances() 
-	 */
-	public void TestGetTrainingInstances(){
-		fail("Not yet implemented");
-	}
-	
-	
-	@Test
-	/**
-	 * test for public void saveLM()
-	 */
-	public void testSaveLM(){
-		fail("Not yet implemented");
-	}
-	
-	@Test
-	/**
-	 * test for public Classifier loadLM(String LMBrain) 
-	 */
-	public void testLoadLM(){
-		fail("Not yet implemented");
-	}
+
 }
 
