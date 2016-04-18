@@ -20,6 +20,42 @@ import edu.odu.cs.cs350.namex.Librarian;
  */
 public class TestLibrarian {
 
+	// User Story #844 - Gerard Silverio
+	// As a Librarian/application developer, I want a program that will
+	// accept standard input from command line interface
+	// User Story #845
+	// As a Librarian/application developer, I want a program that will
+	// send output to standard command line interface
+	@Test
+	public void testMain() throws FileNotFoundException {
+		// CLI String input
+		// Librarian.main(new String[] {"<NER>Hello, <PER>John Smith</PER> There
+		// are snakes on this plane! <PER>Mr. Samuel L Jackson, III</PER> I
+		// don't know what to do!</NER><NER>Hello World line 2</NER><NER>Goodbye
+		// world!</NER>"});
+		
+		// call to main with one textblock
+		Librarian.main(new String[] { "The authors of this textbook are John Smith, Amy R. Johnson and Mr. Samuel Jackson." });
+		
+		
+
+		// CLI .txt file input
+
+		// CLI generate ARFF training data
+		/*
+		String inputFilePath = "/data/training/trainingData.txt";
+		String outputFilePath = "/data/arff/trainingData.arff";
+
+		Path currentRelativePath = Paths.get("");
+		String relativePath = currentRelativePath.toAbsolutePath().toString();
+		inputFilePath = relativePath + "" + inputFilePath;
+		outputFilePath = relativePath + "" + outputFilePath;
+		
+		Librarian.main(new String[] { "train", inputFilePath, outputFilePath });
+		*/		
+	}
+	
+	
 	@Test
 	/**
 	 * test for Librarian constructor
@@ -29,7 +65,7 @@ public class TestLibrarian {
 		Librarian cathy = new Librarian();
 		Librarian tom = new Librarian();
 		
-		
+		/*
 		// cathy is not null
 		assertTrue(cathy != null);
 		assertTrue(tom != null);
@@ -41,13 +77,99 @@ public class TestLibrarian {
 		assertTrue(tom.trainer != null);
 		
 		assertFalse(cathy.lm.equals(tom.lm));
+		*/
 	}
 	
 	
+
 	@Test
+	public void testGetFeaturesToken() {
+
+		Token tks1 = new Token("Hello");
+		Token tks2 = new Token("hello");
+		Token tks3 = new Token("John");
+		Token tks4 = new Token("Alaska");
+		Token tks5 = new Token("Alaska");
+
+		Librarian librarian = new Librarian();
+		tks1 = librarian.getFeatures(tks1);
+		tks2 = librarian.getFeatures(tks2);
+		tks3 = librarian.getFeatures(tks3);
+		tks4 = librarian.getFeatures(tks4);
+		tks5 = librarian.getFeatures(tks5);
+
+		// Test strings for common token variations to ensure the features are
+		// setting correctly
+
+		assertEquals(tks1.toString(), "capitalized,other,1,0,0,0,0,0,0,0,0,0,0,0");
+		assertEquals(tks2.toString(), "other,other,1,0,0,0,0,0,0,0,0,0,0,0");
+		assertEquals(tks3.toString(), "capitalized,other,1,0,0,1,1,1,1,1,0,0,0,0");
+		assertEquals(tks4.toString(), "capitalized,other,1,0,0,1,0,0,0,0,0,0,0,0");
+		assertEquals(tks5.toString(), "capitalized,other,1,0,0,1,0,0,0,0,0,0,0,0");
+
+	}
+
+	/**
+	 * Test method for
+	 * {@link edu.odu.cs.cs350.namex.Trainer#getPartOfSpeech(java.lang.String)}.
+	 */
+	@Test
+	public void testGetPartOfSpeech() {
+		
+		Librarian librarian = new Librarian();
+		Token token1 = new Token("and");
+		Token token2 = new Token("an");
+		Token token3 = new Token("the");
+		Token token4 = new Token(".");
+		Token token5 = new Token(",");
+		Token token6 = new Token("-");
+		Token token7 = new Token("and");
+		Token token8 = new Token("test");
+		
+		token1 = librarian.getFeatures(token1);
+		token2 = librarian.getFeatures(token2);
+		token3 = librarian.getFeatures(token3);
+		token4 = librarian.getFeatures(token4);
+		token5 = librarian.getFeatures(token5);
+		token6 = librarian.getFeatures(token6);
+		token7 = librarian.getFeatures(token7);
+		token8 = librarian.getFeatures(token8);
+
+		assertEquals(token1.getPartOfSpeech(), "conjunction");
+		assertEquals(token2.getPartOfSpeech(), "article");
+		assertEquals(token3.getPartOfSpeech(), "article");
+		assertEquals(token4.getPartOfSpeech(), "period");
+		assertEquals(token5.getPartOfSpeech(), "comma");
+		assertEquals(token6.getPartOfSpeech(), "hyphen");
+		assertEquals(token6.getPartOfSpeech(), "conjunction");
+		assertEquals(token8.getPartOfSpeech(), "other");
+		assertFalse(token2.getPartOfSpeech() != "article");
+		assertTrue(token1.getPartOfSpeech() == token7.getPartOfSpeech());
+
+	}
+	
+	/**
+	 * Test method for
+	 * {@link edu.odu.cs.cs350.namex.Libarian#isCityState(java.lang.String)}.
+	 */
+	@Test
+	public void testIsCityState() {
+		Librarian librarian = new Librarian();
+		String string0 = "Norfolk";
+		String string1 = "Virginia";
+		String string2 = "television";
+
+		assertEquals(1, librarian.isCityState(string0));
+		assertTrue(librarian.isCityState(string0) == librarian.isCityState(string1));
+		assertFalse(1 == librarian.isCityState(string2));
+	}
+	
+	
 	/**
 	 * test for copy constructor; public Librarian(Librarian toCopy)
 	 */
+	/*
+	@Test
 	public void testLibrarianCopy(){
 		Librarian cat = new Librarian();
 		Librarian copycat = new Librarian(cat);
@@ -60,13 +182,16 @@ public class TestLibrarian {
 		assertEquals(cat.trainer, copycat.trainer);
 		
 	}
+	*/
 
-	@Test
 	/**
 	 * test for public static void main(String[] args) throws
 	 * FileNotFoundException
 	 */
-	public void testMain() throws Exception {
+	/*
+	@Test
+	public void testMain() throws Exception 
+	{
 		Librarian lana = new Librarian();
 		assertTrue(lana.trainer != null);
 		assertTrue(lana.lm != null);
@@ -87,6 +212,7 @@ public class TestLibrarian {
 			e224.printStackTrace();
 		}
 	}
+	*/
 
 	/*
 	 * 

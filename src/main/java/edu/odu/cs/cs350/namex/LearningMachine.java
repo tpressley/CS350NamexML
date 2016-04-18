@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 
@@ -16,16 +17,619 @@ import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.converters.ConverterUtils.DataSource;
 
-public class LearningMachine {
+public class LearningMachine implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -246225729791282722L;
 	private Classifier clssf;
 	private FastVector attrs;
 	private int numAttr;
 	private Instances trainInsts;
 	private String evalSummary;
+	
+	public LearningMachine() 
+	{
+		int k = 5;    // k value defaulted to 5
+		
+		int dimension = (((2 * k) + 1) * 14) + k + 1;
 
-	/**
-	 * default constructor for LearningMachine
-	 */
+		// Initialize the Classifier as a Naive Bayes Classifier
+		clssf = (Classifier) new NaiveBayes();
+
+		// Initialize Attributes
+		// Declare Lexical Attribute with its values
+		FastVector NominalValLexical = new FastVector(9);
+		NominalValLexical.addElement("punct");
+		NominalValLexical.addElement("capLetter");
+		NominalValLexical.addElement("capitalized");
+		NominalValLexical.addElement("allCaps");
+		NominalValLexical.addElement("lineFeed");
+		NominalValLexical.addElement("whiteSpace");
+		NominalValLexical.addElement("number");
+		NominalValLexical.addElement("other");
+		NominalValLexical.addElement("null");
+		// Attribute Lexical = new Attribute("Lexical", NominalValLexical);
+
+		// Declare PartOfSpeech Attribute with its values
+		FastVector NominalValPoS = new FastVector(6);
+		NominalValPoS.addElement("article");
+		NominalValPoS.addElement("conjunction");
+		NominalValPoS.addElement("period");
+		NominalValPoS.addElement("comma");
+		NominalValPoS.addElement("hyphen");
+		NominalValPoS.addElement("other");
+		// Attribute PartOfSpeech = new Attribute("PartOfSpeech",
+		// NominalValPoS);
+
+		// Declare Gazetteer Attributes with its values
+		FastVector NominalValGazetteer = new FastVector(2);
+		NominalValGazetteer.addElement("0");
+		NominalValGazetteer.addElement("1");
+
+		// Declare Name Attribute
+		FastVector NominalValName = new FastVector(3);
+		NominalValName.addElement("beginning");
+		NominalValName.addElement("continuing");
+		NominalValName.addElement("other");
+		// Attribute Name = new Attribute("Name", NominalValName);
+
+		// Declare the Feature vector
+		attrs = new FastVector(dimension);
+
+		// Dimensions for the first (2k + 1) tokens
+		for (int i = 0; i < ((2 * k) + 1); i++) {
+			attrs.addElement(getAttribute("Lexical" + i, NominalValLexical));
+			attrs.addElement(getAttribute("PartOfSpeech" + i, NominalValPoS));
+			attrs.addElement(getAttribute("DictionaryWord" + i, NominalValGazetteer));
+			attrs.addElement(getAttribute("City" + i, NominalValGazetteer));
+			attrs.addElement(getAttribute("Country" + i, NominalValGazetteer));
+			attrs.addElement(getAttribute("Places" + i, NominalValGazetteer));
+			attrs.addElement(getAttribute("DTICFirst" + i, NominalValGazetteer));
+			attrs.addElement(getAttribute("DTICLast" + i, NominalValGazetteer));
+			attrs.addElement(getAttribute("CommonFirst" + i, NominalValGazetteer));
+			attrs.addElement(getAttribute("CommonLast" + i, NominalValGazetteer));
+			attrs.addElement(getAttribute("Honorific" + i, NominalValGazetteer));
+			attrs.addElement(getAttribute("Prefix" + i, NominalValGazetteer));
+			attrs.addElement(getAttribute("Suffix" + i, NominalValGazetteer));
+			attrs.addElement(getAttribute("Kill" + i, NominalValGazetteer));
+		}
+		
+		// Dimensions for the first k classified tokens plus the token to be classified
+		for (int i = 0; i < (k + 1); i++)
+		{
+			attrs.addElement(getAttribute("Name" + i, NominalValName));
+		}
+		
+		numAttr = attrs.size();
+	}
+	
+	public String getShingle(ArrayList<Token> tokens, int k)
+	{	
+		// add k null tokens to the beginning of the arraylist and k null tokens at the end
+		for (int i = 0; i < k; i++)
+		{
+			tokens.add(0, new Token("null"));
+			tokens.add(new Token("null"));
+		}
+		
+		// build a shingle
+		for (int i = 5; i < (tokens.size() - k); i++)
+		{
+			StringBuilder b = new StringBuilder();
+			
+			b.append(tokens.get(i - 5).toString() + ",");
+			b.append(tokens.get(i - 4).toString() + ",");
+			b.append(tokens.get(i - 3).toString() + ",");
+			b.append(tokens.get(i - 2).toString() + ",");
+			b.append(tokens.get(i - 1).toString() + ",");
+			b.append(tokens.get(i).toString() + ",");
+			b.append(tokens.get(i + 1).toString() + ",");
+			b.append(tokens.get(i + 2).toString() + ",");
+			b.append(tokens.get(i + 3).toString() + ",");
+			b.append(tokens.get(i + 4).toString() + ",");
+			b.append(tokens.get(i + 5).toString() + ",");
+			b.append(tokens.get(i - 5).getName() + ",");
+			b.append(tokens.get(i - 4).getName() + ",");
+			b.append(tokens.get(i - 3).getName() + ",");
+			b.append(tokens.get(i - 2).getName() + ",");
+			b.append(tokens.get(i - 1).getName() + ",");
+			
+			try 
+			{
+				tokens.get(i).setName(classify(b.toString()));
+				
+				if (tokens.get(i).isKillWord() == 1)
+				{
+					boolean reachedBeginning = false;
+					
+					tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme());
+					tokens.get(i).setName("other");
+					
+					for (int j = 1; j < 6; j++)
+					{
+						if (reachedBeginning == false)
+						{
+							if (tokens.get(i - j).getName().equals("beginning"))
+							{
+								tokens.get(i - j).setTaggedLexeme(tokens.get(i - j).getLexeme());
+								tokens.get(i - j).setName("other");
+								reachedBeginning = true;
+							}
+							else
+							{
+								tokens.get(i - j).setTaggedLexeme(tokens.get(i - j).getLexeme());
+								tokens.get(i - j).setName("other");
+							}
+						}
+						else
+						{
+							tokens.get(i - j).setTaggedLexeme(tokens.get(i - j).getLexeme());
+							tokens.get(i - j).setName("other");
+						}
+					}
+				}
+				else if (tokens.get(i).isHonorific() == 1)
+				{
+					tokens.get(i).setTaggedLexeme("<PER>" + tokens.get(i).getLexeme());
+					//tokens.get(i).setTaggedLexeme("<PER>2" + tokens.get(i).getLexeme());
+					tokens.get(i).setName("beginning");
+				}
+				else if (tokens.get(i).getName().equals("beginning"))
+				{
+					if (tokens.get(i - 1).isHonorific() == 1)
+					{
+						tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme());
+					}
+					else if (tokens.get(i - 2).isHonorific() == 1)
+					{
+						tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme());
+					}
+					else if (tokens.get(i).isSuffix() == 1)
+					{
+						tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme());						
+					}
+					else if (tokens.get(i - 1).getName().equals("continuing"))
+					{
+						tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme());
+					}
+					else if (tokens.get(i).getLexical().equals("other"))
+					{
+						tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme());
+					}
+					/*
+					// J. Smith
+					else if ((tokens.get(i - 2).getName().equals("continuing") 
+							&& tokens.get(i - 2).getLexical().equals("capLetter"))
+					&& tokens.get(i - 1).getPartOfSpeech().equals("period")
+					&& (tokens.get(i).getName().equals("continuing")
+							|| tokens.get(i).getName().equals("beginning")))
+					{
+						tokens.get(i - 2).setTaggedLexeme("<PER>2" + tokens.get(i - 2).getLexeme());
+					}
+					// Smith, John
+					else if (tokens.get(i - 2).getName().equals("continuing") 
+					&& tokens.get(i - 1).getPartOfSpeech().equals("comma")
+					&& tokens.get(i).getName().equals("beginning"))
+					{
+						tokens.get(i - 2).setTaggedLexeme("<PER>2" + tokens.get(i - 2).getLexeme());
+						tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme());
+					}
+					*/
+					else
+					{
+						tokens.get(i).setTaggedLexeme("<PER>" + tokens.get(i).getLexeme());
+						//tokens.get(i).setTaggedLexeme("<PER>1" + tokens.get(i).getLexeme());
+					}
+				}
+				else
+				{
+					tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme());
+				}
+				//tokens.get(i).setDistribution(getDistribution(b.toString()));
+			} 
+			catch (Exception e) 
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			//System.out.println(tokens.get(i).getLexeme() + " - " + tokens.get(i).getName());
+			//double[] distribution = tokens.get(i).getDistribution();
+			
+			/*
+			System.out.println(" beginning: " + distribution[0]);
+			System.out.println("continuing: " + distribution[1]);
+			System.out.println("     other: " + distribution[2]);
+			System.out.print("    previous: " + tokens.get(i - 5).getName() + ",");
+			System.out.print(tokens.get(i - 4).getName() + ",");
+			System.out.print(tokens.get(i - 3).getName() + ",");
+			System.out.print(tokens.get(i - 2).getName() + ",");
+			System.out.print(tokens.get(i - 1).getName() + "\n");
+			*/
+			
+		}
+		
+		StringBuilder b = new StringBuilder();
+		b.append("<NER>");
+		for (int i = 5; i < (tokens.size() - k); i++)
+		{
+			// honorific first last
+			if (tokens.get(i + 1).getName().equals("other")
+					&& !tokens.get(i + 1).getPartOfSpeech().equals("comma")
+					&& !tokens.get(i + 1).getPartOfSpeech().equals("period")
+					&& tokens.get(i + 2).isSuffix() != 1
+					&& tokens.get(i).getName().equals("continuing")
+					&& tokens.get(i - 1).getName().equals("beginning")
+					&& tokens.get(i - 2).isHonorific() == 1)
+			{
+				tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>");
+				//tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>6");
+			}
+			// honorific period first last comma suffix period
+			else if (tokens.get(i + 1).getName().equals("other")
+					&& tokens.get(i).getPartOfSpeech().equals("period")
+					&& tokens.get(i - 1).isSuffix() == 1
+					&& tokens.get(i - 2).getPartOfSpeech().equals("comma")
+					&& tokens.get(i - 3).getName().equals("continuing"))
+			{
+				tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>");
+				//tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>5.5");
+				//tokens.get(i - 1).setTaggedLexeme(tokens.get(i - 1).getLexeme());
+				//tokens.get(i - 2).setTaggedLexeme(tokens.get(i - 2).getLexeme());
+				//tokens.get(i - 3).setTaggedLexeme(tokens.get(i - 3).getLexeme());
+			}
+			// honorific period first last
+			else if (!tokens.get(i + 1).getPartOfSpeech().equals("comma")
+					&& tokens.get(i + 2).isSuffix() != 1
+					&& tokens.get(i).getName().equals("continuing")
+					&& tokens.get(i - 1).getName().equals("beginning")
+					&& tokens.get(i - 2).getPartOfSpeech().equals("period")
+					&& tokens.get(i - 3).isHonorific() == 1)
+			{
+				tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>");
+				//tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>5.35");
+			}
+			// honorific period first mi period last
+			else if (tokens.get(i + 1).getName().equals("other")
+					&& !tokens.get(i + 1).getPartOfSpeech().equals("comma")
+					&& tokens.get(i + 2).isSuffix() != 1
+					&& tokens.get(i).getName().equals("continuing")
+					&& tokens.get(i - 1).getPartOfSpeech().equals("period")
+					&& tokens.get(i - 2).getName().equals("continuing")
+					&& tokens.get(i - 3).getName().equals("beginning"))
+			{
+				tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>");
+				//tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>5.35");
+			}
+			// honorific period first middle last
+			else if (tokens.get(i + 1).getName().equals("other")
+					&& !tokens.get(i + 1).getPartOfSpeech().equals("comma")
+					&& (tokens.get(i - 2).getName().equals("beginning")
+							|| tokens.get(i - 2).getName().equals("continuing"))
+					&& tokens.get(i).getLexical().equals("capitalized")
+					&& tokens.get(i - 1).getName().equals("continuing")
+					&& tokens.get(i - 2).getName().equals("beginning"))
+			{
+				tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>");
+				//tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>5.25");
+			}
+			// matches Dr. John Smith
+			else if ((tokens.get(i + 1).getName().equals("other")
+					&& !tokens.get(i + 1).getPartOfSpeech().equals("comma")
+					&& tokens.get(i + 2).isSuffix() != 1)
+					&& !tokens.get(i + 3).getPartOfSpeech().equals("period")
+					&& tokens.get(i + 4).getName().equals("continuing")
+					&& tokens.get(i).getName().equals("continuing")
+					&& tokens.get(i - 1).getName().equals("beginning")
+					&& tokens.get(i - 2).getPartOfSpeech().equals("period")
+					&& tokens.get(i - 3).isHonorific() == 1)
+			{
+				tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>");
+				//tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>5");
+			}
+			// honorific period first middle last comma honorific period
+			else if (tokens.get(i + 1).getName().equals("other")
+					&& tokens.get(i).getPartOfSpeech().equals("period")
+					&& tokens.get(i - 1).isSuffix() == 1
+					&& tokens.get(i - 2).getPartOfSpeech().equals("comma")
+					&& tokens.get(i - 3).getPartOfSpeech().equals("continuing")
+					&& tokens.get(i - 4).getPartOfSpeech().equals("continuing")
+					&& tokens.get(i - 5).getPartOfSpeech().equals("beginning"))
+			{
+				tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>");
+				//tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>4");
+			}
+			// first middle last
+			else if (tokens.get(i + 1).getName().equals("other")
+					&& tokens.get(i).getName().equals("continuing")
+					&& !tokens.get(i + 1).getPartOfSpeech().equals("comma")
+					&& tokens.get(i + 2).isSuffix() != 1
+					&& tokens.get(i - 1).getName().equals("continuing")
+					&& tokens.get(i - 2).getName().equals("beginning"))
+			{
+				tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>");
+				//tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>3");
+			}
+			// first last comma suffix period
+			else if (tokens.get(i + 1).getName().equals("other")
+					&& tokens.get(i).getPartOfSpeech().equals("period")
+					&& tokens.get(i + 1).isSuffix() == 1
+					&& tokens.get(i - 2).getPartOfSpeech().equals("comma")
+					&& tokens.get(i - 3).getName().equals("continuing")
+					&& tokens.get(i - 4).getName().equals("beginning"))
+			{
+				tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>");
+				//tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>2.75");
+			}
+			// first middleInitial period LastName
+			else if (tokens.get(i + 1).getName().equals("other")
+					&& !tokens.get(i + 1).getPartOfSpeech().equals("comma")
+					&& tokens.get(i + 1).isSuffix() != 1
+					&& tokens.get(i).getName().equals("continuing")
+					&& tokens.get(i - 1).getPartOfSpeech().equals("period")
+					&& tokens.get(i - 2).getName().equals("continuing")
+					&& tokens.get(i - 3).getName().equals("beginning"))
+			{
+				tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>");
+				//tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>2");
+			}
+			// first last
+			else if (tokens.get(i + 1).getName().equals("other")
+					&& (!tokens.get(i + 1).getPartOfSpeech().equals("period")
+							&& !tokens.get(i + 1).getPartOfSpeech().equals("comma"))
+					&& tokens.get(i).getName().equals("continuing")
+					&& tokens.get(i - 1).getName().equals("beginning"))
+			{
+				tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>");
+				//tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>1");
+			}		
+			// firstInitial period last
+			else if (tokens.get(i + 1).getName().equals("other")
+					&& !tokens.get(i + 1).getPartOfSpeech().equals("period")
+					&& !tokens.get(i + 1).getPartOfSpeech().equals("comma")
+					&& (tokens.get(i).getName().equals("continuing")
+							|| tokens.get(i).getName().equals("beginning"))
+					&& tokens.get(i - 1).getPartOfSpeech().equals("period")
+					&& tokens.get(i - 2).getLexical().equals("capLetter"))
+			{
+				tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>");
+				//tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>0");
+			}	
+			// last comma first period
+			else if (tokens.get(i + 1).getName().equals("other")
+					&& !tokens.get(i + 1).getPartOfSpeech().equals("period")
+					&& !tokens.get(i + 1).getPartOfSpeech().equals("comma")
+					&& tokens.get(i).getPartOfSpeech().equals("period")
+					&& tokens.get(i - 1).getName().equals("beginning")
+					&& tokens.get(i - 2).getPartOfSpeech().equals("comma")
+					&& tokens.get(i - 3).getName().equals("continuing"))
+			{
+				tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>");
+				//tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>0");
+			}
+			// last comma first
+			else if (tokens.get(i + 1).getName().equals("other")
+					&& !tokens.get(i + 1).getPartOfSpeech().equals("period")
+					&& !tokens.get(i + 1).getPartOfSpeech().equals("comma")
+					&& (tokens.get(i).getName().equals("continuing")
+							|| tokens.get(i).getName().equals("beginning"))
+					&& tokens.get(i - 1).getPartOfSpeech().equals("comma")
+					&& tokens.get(i - 2).getName().equals("continuing"))
+			{
+				tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>");
+				//tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>0");
+			}	
+			// first mi period last
+			else if (tokens.get(i + 1).getName().equals("other")
+					&& tokens.get(i).getName().equals("continuing")
+					&& tokens.get(i - 1).getPartOfSpeech().equals("period"))
+			{
+				tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>");
+				//tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>-0");
+			}	
+			// first last
+			else if (tokens.get(i + 1).getName().equals("other")
+					&& tokens.get(i).getName().equals("continuing")
+					&& tokens.get(i).getLexical().equals("capitalized")
+					&& tokens.get(i - 1).getName().equals("beginning"))
+			{
+				tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>");
+				//tokens.get(i).setTaggedLexeme(tokens.get(i).getLexeme() + "</PER>-0");
+			}	
+			
+			// Combine and mark shingles
+			if (!tokens.get(i).getLexeme().equals("null"))
+			{
+				if (tokens.get(i + 1).getPartOfSpeech().equals("comma")
+						|| tokens.get(i + 1).getPartOfSpeech().equals("period"))
+				{
+					b.append(tokens.get(i).getTaggedLexeme());
+					//System.out.print(tokens.get(i).getTaggedLexeme());
+					//System.out.print(tokens.get(i).getName() + " ");
+				}
+				else
+				{
+					b.append(tokens.get(i).getTaggedLexeme() + " ");
+					//System.out.print(tokens.get(i).getTaggedLexeme() + " ");
+					//System.out.print(tokens.get(i).getName() + " ");
+				}
+			}
+		}
+		b.append("</NER>");
+		System.out.println();
+		
+		return b.toString();
+	}
+	
+	public HashSet<String> getTrainingShingles(ArrayList<Token> tks, int k, boolean showOutput)
+	{
+		ArrayList<Token> tokens = new ArrayList<Token>();
+		HashSet<String> shingles = new HashSet<String>();
+		
+		for (int i = 0; i < tks.size(); i++)
+		{
+			if (tks.get(i).getLexeme().equals("<PER>"))
+			{
+				tks.get(i + 1).setName("beginning");
+				tks.get(i + 1).setPER("start");
+			}
+			else if (tks.get(i).getLexeme().equals("</PER>"))
+			{
+				tks.get(i - 1).setName("continuing");
+				tks.get(i - 1).setPER("end");
+			}
+			else
+			{
+				tokens.add(tks.get(i));
+			}
+		}
+		
+		// add k null tokens to the beginning of the arraylist and k null tokens at the end
+		for (int i = 0; i < k; i++)
+		{
+			tokens.add(0, new Token("null"));
+			tokens.add(new Token("null"));
+		}
+		
+		//System.out.println("Tokens size: " + tokens.size());
+		boolean withinPER = false;
+
+		
+		// build a shingle
+		for (int i = 5; i < (tokens.size() - k); i++)
+		{
+			//System.out.println("LEXEME TO BE CLASSIFIED: " + tokens.get(i).getLexeme());
+			if (tokens.get(i).getPER().equals("start"))
+			{
+				withinPER = true;
+			}			
+			
+			if (withinPER)
+			{
+				if (tokens.get(i).getLexical().equals("capitalized")
+					|| tokens.get(i).getLexical().equals("capLetter")
+					|| tokens.get(i).getLexical().equals("allCaps"))
+				{
+					
+					// set the classification of the token following a <PER> tag to beginning
+					if (tokens.get(i).getPER().equals("start"))
+					{
+						//System.out.println("<PER>start");
+						// if after PER and before a comma, the name is in the format lastname, firstname
+						if (tokens.get(i + 1).getPartOfSpeech().equals("comma"))
+						{
+							tokens.get(i).setName("continuing");
+						}
+						else
+						{
+							tokens.get(i).setName("beginning");							
+						}
+					}
+					
+					// if the token before previous token was an honorific then a period, set to beginning
+					else if (tokens.get(i - 2).isHonorific() == 1 && tokens.get(i - 1).getPartOfSpeech().equals("period"))
+					{
+						tokens.get(i).setName("beginning");
+					}
+					
+					// if the previous token was an honorific, set to beginning
+					else if (tokens.get(i - 1).isHonorific() == 1)
+					{
+						tokens.get(i).setName("beginning");		
+					}
+					
+					// if the next token is a comma, and the previous was a <PER> tag
+					else if (tokens.get(i + 1).getPartOfSpeech().equals("comma") && tokens.get(i - 1).getLexeme().equals("<PER>"))
+					{
+						tokens.get(i).setName("continuing");
+					}
+					
+					// if the previous token was a comma and the one before that was a continuing
+					else if (tokens.get(i - 1).getPartOfSpeech().equals("comma") && tokens.get(i - 2).getName().equals("continuing"))
+					{
+						// If the token is a suffix, then set it to continuing
+						if (tokens.get(i).isSuffix() == 1)
+						{
+							tokens.get(i).setName("continuing");
+						}
+						else
+						{
+							tokens.get(i).setName("beginning");							
+						}
+					}
+					
+					// if the previous token was a beginning 
+					else if (tokens.get(i - 1).getName().equals("beginning"))
+					{
+						tokens.get(i).setName("continuing");
+					}
+					
+					else if (!tokens.get(i - 1).getPartOfSpeech().equals("period"))
+					{
+						tokens.get(i).setName("beginning");
+					}
+					
+					else
+					{
+						tokens.get(i).setName("continuing");
+					}
+				}
+				else
+				{
+					tokens.get(i).setName("other");
+				}	
+			}
+			else
+			{
+				tokens.get(i).setName("other");
+			}
+			
+			// test output
+			if (showOutput)
+			//if (true)
+			{
+				System.out.println(tokens.get(i).getLexeme() + " | "
+						+ tokens.get(i).getName());
+			}
+			
+			StringBuilder b = new StringBuilder();
+			
+			b.append(tokens.get(i - 5).toString() + ",");
+			b.append(tokens.get(i - 4).toString() + ",");
+			b.append(tokens.get(i - 3).toString() + ",");
+			b.append(tokens.get(i - 2).toString() + ",");
+			b.append(tokens.get(i - 1).toString() + ",");
+			b.append(tokens.get(i).toString() + ",");
+			b.append(tokens.get(i + 1).toString() + ",");
+			b.append(tokens.get(i + 2).toString() + ",");
+			b.append(tokens.get(i + 3).toString() + ",");
+			b.append(tokens.get(i + 4).toString() + ",");
+			b.append(tokens.get(i + 5).toString() + ",");
+			b.append(tokens.get(i - 5).getName() + ",");
+			b.append(tokens.get(i - 4).getName() + ",");
+			b.append(tokens.get(i - 3).getName() + ",");
+			b.append(tokens.get(i - 2).getName() + ",");
+			b.append(tokens.get(i - 1).getName() + ",");	
+			b.append(tokens.get(i).getName() + ",");
+			
+			shingles.add(b.toString());
+			
+			if (tokens.get(i).getPER().equals("end"))
+			{
+				withinPER = false;
+			}
+		}
+		
+		return shingles;	
+}
+	
+	public Attribute getAttribute(String name, FastVector nominalVal) {
+		return new Attribute(name, nominalVal);
+	}
+	
+	/*
+	//default constructor for LearningMachine
 	public LearningMachine() {
 		// Initialize the Classifier as a Naive Bayes Classifier
 		clssf = (Classifier) new NaiveBayes();
@@ -388,6 +992,7 @@ public class LearningMachine {
 		attrs.addElement(Name6);
 
 	}
+*/
 
 	public LearningMachine(String machineModel) {
 
@@ -1084,6 +1689,37 @@ public class LearningMachine {
 	 * @param HashSet<string>
 	 *            trainingData
 	 */
+	public boolean importARFF(HashSet<String> trainingData) {
+
+		this.trainInsts = new Instances("Classification", attrs, trainingData.size());
+
+		// Make the last attribute be the class
+		this.trainInsts.setClassIndex(numAttr - 1);
+
+		for (String sdata : trainingData) {
+			// System.out.println(trainingData);
+
+			String[] values = sdata.split(",");
+
+			Instance instance = new Instance(numAttr);
+
+			for (int i = 0; i < numAttr; i++) {
+				instance.setValue((Attribute) attrs.elementAt(i), values[i]);
+			}
+
+			this.trainInsts.add(instance); // Add new instance to
+													// training data
+		}
+		
+		return true;
+	}
+
+	/**
+	 * Imports an arff file from the given trainingdata HashSet
+	 * 
+	 * @param HashSet<string>
+	 *            trainingData
+	 */
 	public void importARFF(LinkedList<String> trainingData) {
 
 		this.trainInsts = new Instances("Classification", attrs, trainingData.size());
@@ -1106,7 +1742,7 @@ public class LearningMachine {
 											// training data
 		}
 	}
-
+	
 	/**
 	 * Imports an arff file from the given training data string array
 	 * 

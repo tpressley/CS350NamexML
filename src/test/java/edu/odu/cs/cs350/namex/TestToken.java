@@ -371,7 +371,7 @@ public class TestToken {
 		/*
 		 * Parts of Speech
 		 * 
-		 * - Articles (“a”, “an”, “the”) - Conjunction, specifically “and” -
+		 * - Articles (ï¿½aï¿½, ï¿½anï¿½, ï¿½theï¿½) - Conjunction, specifically ï¿½andï¿½ -
 		 * Period - Comma - Hyphen - other
 		 */
 
@@ -430,7 +430,7 @@ public class TestToken {
 		/*
 		 * Parts of Speech
 		 * 
-		 * - Articles (“a”, “an”, “the”) - Conjunction, specifically “and” -
+		 * - Articles (ï¿½aï¿½, ï¿½anï¿½, ï¿½theï¿½) - Conjunction, specifically ï¿½andï¿½ -
 		 * Period - Comma - Hyphen - other
 		 */
 
@@ -1186,9 +1186,11 @@ public class TestToken {
 			Token tok2 = new Token("two");
 			Token tok3 = new Token("null");
 
+			/*
 			assertTrue(tok1.printTokenData());
 			assertTrue(tok2.printTokenData());
 			assertTrue(tok3.printTokenData());
+			*/
 		} catch (Exception e89) {
 
 		}
