@@ -337,7 +337,7 @@ public class Trainer implements Serializable {
 	 * @param verbose
 	 * @return
 	 */
-	public ArrayList<Token> tokenize(String textBlock, boolean verbose) {
+	public ArrayList<Token> tokenize(String textBlock) {
 		String[] tks = textBlock.split("(?<=<NER>)|(?=</NER>)|(?<=<PER>)|(?=</PER>)|(?=[ ,.!()<:;}-])|(?<=[ (>{-])");
 
 		ArrayList<Token> tokens = new ArrayList<Token>();
@@ -356,7 +356,7 @@ public class Trainer implements Serializable {
 	 * 
 	 * @param token
 	 */
-	public int getTokenCount(int index, ArrayList<Token> tokenizedText) {
+	static public int getTokenCount(int index, ArrayList<Token> tokenizedText) {
 		int tokenCount = 0;
 
 		for (int i = 0; i < tokenizedText.size(); i++) {
