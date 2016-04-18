@@ -3,6 +3,7 @@ package edu.odu.cs.cs350.namex;
 import static org.junit.Assert.*;
 
 import java.nio.file.*;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 
@@ -97,20 +98,23 @@ public class TestLearningMachine {
 		fail("Not yet implemented");
 	}
 
-	@Test
+	/*@Test
 	public void testGetDistribution() throws Exception {
-
+		double[] distribution = {};
+		ArrayList<Token> token = new ArrayList<Token>();
+		token.add(new Token("James"));
+		Trainer trainer = new Trainer();
+		trainer.setFeatures(token);
 		try {
 			LearningMachine lm1 = new LearningMachine();
-
-			assertTrue(lm1.getDistribution("This is a test input.") != null);
-			assertTrue(lm1.getDistribution("This is not a test.") != null);
-			assertTrue(lm1.getDistribution("") != null);
+			distribution = lm1.getDistribution(token.get(0).toString());
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
+		assertTrue(distribution[0] > 90);
+		assertFalse(distribution[1] > 10);
+		assertFalse(distribution[2] > 5);
+	}*/
 
 	@Test
 	/**

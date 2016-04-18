@@ -849,7 +849,7 @@ public class LearningMachine {
 	 * Token continuing a name distribution[2] is the probability of the Token
 	 * being other
 	 */
-	public double[] getDistribution(String input) throws Exception {
+	/*public double[] getDistribution(String input) throws Exception {
 		Instances classificationInstances = new Instances("toBeClassified", this.attrs, 1);
 
 		// Build the instance to be classified
@@ -881,7 +881,7 @@ public class LearningMachine {
 		double[] distribution = this.clssf.distributionForInstance(toClassify);
 
 		return distribution;
-	}
+	}*/
 
 	/**
 	 * Classifies tokens to create training data
@@ -928,7 +928,7 @@ public class LearningMachine {
 	 * 
 	 * @throws Exception
 	 */
-	public String classifyShingle(String input) throws Exception {
+	/*public String classifyShingle(String input) throws Exception {
 		Instances classificationInstances = new Instances("toBeClassified", this.attrs, 1);
 
 		// Build the instance to be classified
@@ -952,7 +952,7 @@ public class LearningMachine {
 		} else {
 			return "no";
 		}
-	}
+	}*/
 
 	/**
 	 * Get the likelihood of each classes distribution[0] is the probability of
