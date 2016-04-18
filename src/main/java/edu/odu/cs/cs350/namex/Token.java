@@ -53,26 +53,7 @@ public class Token {
 	 */
 	public Token(String lex) {
 		
-		if (lex.equalsIgnoreCase("null")) {
-			this.lexeme = null;
-			this.lexical = null;
-			this.partOfSpeech = null;
-			this.dictionaryWord = 0;
-			this.cityState = 0;
-			this.countryTerritory = 0;
-			this.place = 0;
-			this.DTICFirst = 0;
-			this.DTICLast = 0;
-			this.commonFirst = 0;
-			this.commonLast = 0;
-			this.honorific = 0;
-			this.prefix = 0;
-			this.suffix = 0;
-			this.killWord = 0;
-			this.name = "null";
-			this.position = 0;
-		} 
-		else if (lex.trim().equals("")) {
+		if (lex.equals("null") || lex.trim().equals("") || lex.equalsIgnoreCase("null")) {
 			this.lexeme = "";
 			this.lexical = "";
 			this.partOfSpeech = "";
@@ -88,10 +69,10 @@ public class Token {
 			this.prefix = 0;
 			this.suffix = 0;
 			this.killWord = 0;
-			this.name = "null";
+			this.name = "";
+			this.distribution = new double[1];
 			this.position = 0;
-		} 
-		
+		} else {
 			this.lexeme = lex;
 			this.lexical = "";
 			this.partOfSpeech = "";
@@ -110,6 +91,7 @@ public class Token {
 			this.name = "";
 			this.distribution = new double[1];
 			this.position = 0;
+		}
 	}
 
 	/**
@@ -118,10 +100,10 @@ public class Token {
 	 * @param lexeme
 	 * @param position
 	 */
-	public Token(String lexeme, int position) {
-		this.lexeme = lexeme;
-		this.lexical = "other";
-		this.partOfSpeech = "other";
+	public Token(String lex, int position) {
+		this.lexeme = lex;
+		this.lexical = "";
+		this.partOfSpeech = "";
 		this.dictionaryWord = 0;
 		this.cityState = 0;
 		this.countryTerritory = 0;

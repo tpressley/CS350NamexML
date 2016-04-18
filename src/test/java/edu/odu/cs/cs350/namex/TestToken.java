@@ -112,9 +112,9 @@ public class TestToken {
 		assertTrue(tok3.getDistribution() != null && tok3.getDistribution().length == 1);
 
 		assertTrue(tok4 != null);
-		assertTrue(tok4.getLexeme() == null);
-		assertTrue(tok4.getLexical() == null);
-		assertTrue(tok4.getPartOfSpeech() == null);
+		assertEquals("" , tok4.getLexeme());
+		assertEquals("" , tok4.getLexical());
+		assertEquals("" , tok4.getPartOfSpeech());
 		assertEquals(0, tok4.isDictionaryWord());
 		assertEquals(0, tok4.isCityState());
 		assertEquals(0, tok4.isCountryTerritory());
@@ -1125,7 +1125,7 @@ public class TestToken {
 		assertEquals(",,0,0,0,0,0,0,0,0,0,0,0,0", tok1.toString());
 		assertEquals(",,0,0,0,0,0,0,0,0,0,0,0,0", tok2.toString());
 		assertEquals(",,0,0,0,0,0,0,0,0,0,0,0,0", tok3.toString());
-		assertEquals("null,null,0,0,0,0,0,0,0,0,0,0,0,0", tok4.toString());
+		assertEquals(",,0,0,0,0,0,0,0,0,0,0,0,0", tok4.toString());
 	}
 
 	@Test
@@ -1166,7 +1166,7 @@ public class TestToken {
 		assertEquals(tok2str , tok2.toString());
 		assertEquals("\",,,0,0,0,0,0,0,0,0,0,0,0,0,,0,\",", tok3.toStringQuotes());
 		assertEquals(tok3str , tok3.toString());
-		assertEquals("\"null,,,0,0,0,0,0,0,0,0,0,0,0,0,,0,\",", tok4.toStringQuotes());
+		assertEquals("\",,,0,0,0,0,0,0,0,0,0,0,0,0,,0,\",", tok4.toStringQuotes());
 		assertEquals(tok4str , tok4.toString());
 		assertFalse(tok1str.equals(tok1strQ));
 		assertFalse(tok2str.equals(tok2strQ));
