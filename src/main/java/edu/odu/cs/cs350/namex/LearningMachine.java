@@ -993,6 +993,7 @@ public class LearningMachine {
 
 	/**
 	 * print the Evaluation Summary of the classifier
+	 *
 	 */
 	public boolean printEvaluationSummary() throws Exception {
 
@@ -1008,6 +1009,9 @@ public class LearningMachine {
 		return true;
 	}
 	
+	
+	
+	
 	/**
 	 * returns evalSummary
 	 */
@@ -1022,6 +1026,7 @@ public class LearningMachine {
 		}
 	}
 
+	
 	/**
 	 * print the values of ARFF data from trainingInstances
 	 */
