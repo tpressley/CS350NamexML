@@ -21,12 +21,11 @@ import edu.odu.cs.extract.wordlists.WordLists;
  *
  */
 public class Trainer implements Serializable {
-
+//Stores Gazetteer lists
 	private HashSet<String> CitiesStates;
 	private HashSet<String> CommonFirstNames;
 	private HashSet<String> CommonLastNames;
 	private HashSet<String> CountriesTerritories;
-	// Stores Gazetteer lists
 	private HashSet<String> DictionaryWords;
 	private HashSet<String> DTICFirstNames;
 	private HashSet<String> DTICLastNames;
