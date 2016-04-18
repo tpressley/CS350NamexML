@@ -116,22 +116,7 @@ public class TestLearningMachine {
 	}
 	
 	
-	@Test
-	/**
-	 * test for public String classifyShingle(String input) throws Exception
-	 */
-	public void testClassifyShingle() throws Exception{
-		
-		LearningMachine lm1 = new LearningMachine();
-		String in1 = "This is Caroline.";
-		String in2 = "";
-		String in3 = "Dr Addy Alago";
-		String in4 = "Professor Zeil";
-		
-		assertEquals("yes", lm1.classifyShingle(in1));
-		
-		
-	}
+
 
 
 	@Test

@@ -924,13 +924,13 @@ public class LearningMachine {
 		}
 	}
 
-	/**
+	/*
 	 * Creates the singling data from the tokenized input
 	 * 
 	 * @param input
 	 * @return
 	 * @throws Exception
-	 */
+	 
 	public String classifyShingle(String input) throws Exception {
 		Instances classificationInstances = new Instances("toBeClassified", this.attrs, 1);
 
@@ -955,8 +955,10 @@ public class LearningMachine {
 		} else {
 			return "no";
 		}
-	}
+	}*/
 
+	
+	
 	/**
 	 * Get the likelihood of each classes distribution[0] is the probability of
 	 * the Shingle containing a name distribution[1] is the probability of the
