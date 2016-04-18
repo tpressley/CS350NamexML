@@ -27,12 +27,20 @@ public class TestLibrarian {
 	public void testLibrarian() {
 
 		Librarian cathy = new Librarian();
+		Librarian tom = new Librarian();
+		
+		
 		// cathy is not null
 		assertTrue(cathy != null);
+		assertTrue(tom != null);
 
 		// cathy has working lm and trainer
 		assertFalse(cathy.lm == null);
 		assertTrue(cathy.trainer != null);
+		assertFalse(tom.lm == null);
+		assertTrue(tom.trainer != null);
+		
+		assertFalse(cathy.lm.equals(tom.lm));
 
 	}
 
@@ -47,6 +55,8 @@ public class TestLibrarian {
 		assertTrue(lana.lm != null);
 		assertTrue(lana.lm.getNumberOfAttributes() > 0);
 		assertEquals(71, lana.lm.getSizeOfAttributes());
+		int lanalmsize = lana.lm.getSizeOfAttributes();
+		System.out.println("lana.lm.getSizeOfAttributes() = " + lanalmsize);
 		assertFalse(lana.lm.getEvalSummary().equals(""));
 		assertTrue(lana.lm.getTrainingInstances() != null);
 
@@ -61,7 +71,6 @@ public class TestLibrarian {
 
 	/*
 	 * 
-	 * // USER STORIES UNDER DEVELOPMENT
 	 * 
 	 * // User Story #846 // Status - Development // PNE packaged for deployment
 	 * in fat jar (A)

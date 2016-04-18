@@ -15,11 +15,29 @@ public class Librarian {
 	LearningMachine lm;
 	Trainer trainer;
 
+	/**
+	 * default constructor
+	 */
 	public Librarian() {
 		lm = new LearningMachine();
 		trainer = new Trainer();
 	}
-
+	
+	/**
+	 * copy constructor
+	 */
+	public Librarian(Librarian toCopy){
+		this.lm = toCopy.lm;
+		this.trainer = toCopy.trainer;
+	}
+	
+	
+	
+	
+	/**
+	 * @param args
+	 * @throws FileNotFoundException
+	 */
 	public static void main(String[] args) throws FileNotFoundException {
 		// Test Output
 		/*
@@ -65,6 +83,18 @@ public class Librarian {
 
 			}
 		}
+	}
+	
+	
+	/**
+	 * returns true if two Librarian objects are equal 
+	 */
+	public boolean equals(Librarian two){
+		
+		if(two.lm.equals(this.lm) && two.trainer.equals(this.trainer))
+			return true;
+		
+		return false;
 	}
 
 	// User Story #861
