@@ -149,9 +149,11 @@ public class TestShingle {
 			assertEquals(sh1.getTokens().size(), clo.getTokens().size());
 			assertEquals(clo.getTokens().size(), copy.getTokens().size());
 
-			assertEquals(sh1.getTokens().getClass(), copy.getClass().getClass());
-			assertEquals(clo.getTokens().getClass(), copy.getClass().getClass());
-			assertEquals(sh1.getTokens().getClass(), clo.getClass().getClass());
+			assertEquals(sh1.getTokens().get(1) , clo.getTokens().get(1));
+			
+			assertEquals(sh1.getTokens().getClass(), copy.getTokens().getClass());
+			assertEquals(clo.getTokens().getClass(), copy.getTokens().getClass());
+			assertEquals(sh1.getTokens().getClass(), clo.getTokens().getClass());
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
