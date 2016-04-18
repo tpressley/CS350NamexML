@@ -489,10 +489,10 @@ public class Token {
 		this.name = name;
 	}
 
-	/**
+	/*
 	 * returns the ARFF @data row for the Token
-	 */
-	public String getARFF() {
+	 
+	public String getARFFstring() {
 
 		StringBuilder sb = new StringBuilder();
 
@@ -513,9 +513,8 @@ public class Token {
 		sb.append(name);
 
 		return sb.toString();
-
 	}
-
+*/
 	// User Story #850
 	// Status - Completed
 	// Tokens converted into a set of features (T)
@@ -567,7 +566,9 @@ public class Token {
 		return output;
 	}
 
-	public void printTokenData() {
+	public boolean printTokenData() throws Exception {
+		
+		try{
 		System.out.println("            lexeme:   " + lexeme);
 		System.out.println("    classification:   " + name);
 
@@ -589,5 +590,9 @@ public class Token {
 		System.out.println("            prefix:   " + prefix);
 		System.out.println("            suffix:   " + suffix);
 		System.out.println("         kill word:   " + killWord + "\n");
+		}catch(Exception e789){
+			return false;
+		}
+		return true;
 	}
 }

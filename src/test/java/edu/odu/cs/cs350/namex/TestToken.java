@@ -1048,185 +1048,165 @@ public class TestToken {
 	 */
 	public void testIsKillWordSetKillWord(){
 		
+		Token k1 = new Token("bridge");
+		Token k2 = new Token("university");
+		Token k3 = new Token("museum");
+		Token k4 = new Token("library");
+		Token k5 = new Token("laboratory");
+		Token k6 = new Token("highway");
+
+		Token tok1 = new Token("burger");
+		Token tok2 = new Token("sound");
+		Token tok3 = new Token("red");
+		Token tok4 = new Token("pencil");
+		
+		k1.setKillWord(1);
+		k2.setKillWord(1);
+		k3.setKillWord(1);
+		k4.setKillWord(1);
+		k5.setKillWord(1);
+		k6.setKillWord(1);
+		tok1.setKillWord(0);
+		tok2.setKillWord(0);
+		tok3.setKillWord(0);
+		tok4.setKillWord(0);
+		
+		assertEquals(1, k1.isKillWord());
+		assertEquals(1, k2.isKillWord());
+		assertEquals(1, k3.isKillWord());
+		assertEquals(1, k4.isKillWord());
+		assertEquals(1, k5.isKillWord());
+		assertEquals(1, k6.isKillWord());
+		assertEquals(0, tok1.isKillWord());
+		assertEquals(0, tok2.isKillWord());
+		assertEquals(0, tok3.isKillWord());
+		assertEquals(0, tok4.isKillWord());
+	}
+	
+	
+	@Test
+	/**
+	 * test for public String getName()
+	 * and
+	 * public void setName(String name)
+	 */
+	public void testGetNameSetName(){
+		String str1 = "name1";
+		String str2 = "name2";
+		String str3 = "";
+		String str4 = null;
+		
+		Token t1 = new Token();
+		Token t2 = new Token("test2");
+		
+		t1.setName(str1);
+		assertEquals("name1" , t1.getName());
+		t1.setName(str2);
+		assertEquals("name2", t1.getName());
+		t2.setName(str3);
+		assertEquals("" , t2.getName());
+		t2.setName(str4);
+		assertEquals(null , t2.getName());
+		t2.setName(str2);
+		assertEquals("name2" , t2.getName());
+	}
+	
+	
+
+	@Test
+	/**
+	 * test for public String toString()
+	 */
+	public void testToString(){
+		/*
+		 *  sb.append(lexical + ",");
+			sb.append(partOfSpeech + ",");
+			sb.append(dictionaryWord + ",");
+			sb.append(cityState + ",");
+			sb.append(countryTerritory + ",");
+			sb.append(place + ",");
+			sb.append(DTICFirst + ",");
+			sb.append(DTICLast + ",");
+			sb.append(commonFirst + ",");
+			sb.append(commonLast + ",");
+			sb.append(honorific + ",");
+			sb.append(prefix + ",");
+			sb.append(suffix + ",");
+			sb.append(killWord);
+		 */
+		
+		Token tok1 = new Token("test1");
+		Token tok2 = new Token("");
+		Token tok3 = new Token();
+		Token tok4 = new Token("null");
+		
+		assertEquals(",,0,0,0,0,0,0,0,0,0,0,0,0" , tok1.toString());
+		assertEquals(",,0,0,0,0,0,0,0,0,0,0,0,0" , tok2.toString());
+		assertEquals(",,0,0,0,0,0,0,0,0,0,0,0,0" , tok3.toString());
+		assertEquals("null,null,0,0,0,0,0,0,0,0,0,0,0,0" , tok4.toString());
+	}
+
+	@Test
+	/**
+	 * test for public String toStringQuotes()
+	 */
+	public void testToStringQuotes(){
+		/*
+		 *  String output = "\"" + lexeme + ",";
+			output += lexical + ",";
+			output += partOfSpeech + ",";
+			output += dictionaryWord + ",";
+			output += cityState + ",";
+			output += countryTerritory + ",";
+			output += place + ",";
+			output += DTICFirst + ",";
+			output += DTICLast + ",";
+			output += commonFirst + ",";
+			output += commonLast + ",";
+			output += honorific + ",";
+			output += prefix + ",";
+			output += suffix + ",";
+			output += killWord + ",";
+			output += name + ",";
+			output += position + ",\",";
+		 */
+		
+		Token tok1 = new Token("test1");
+		Token tok2 = new Token("");
+		Token tok3 = new Token();
+		Token tok4 = new Token("null");
+		
+		assertEquals("\"test1,,,0,0,0,0,0,0,0,0,0,0,0,0,,0,\"," , tok1.toString());
+		assertEquals("\",,,0,0,0,0,0,0,0,0,0,0,0,0,,0,\"," , tok2.toString());
+		assertEquals("\",,,0,0,0,0,0,0,0,0,0,0,0,0,,0,\"," , tok3.toString());
+		assertEquals("\"null,,,0,0,0,0,0,0,0,0,0,0,0,0,,0,\"," , tok4.toString());
+	}
+	
+	@Test
+	/**
+	 * test for public boolean printTokenData() throws Exception
+	 */
+	public void testPrintTokenData() throws Exception{
+		
+		try{
+		Token tok1 = new Token();
+		Token tok2 = new Token("two");
+		Token tok3 = new Token("null");
+		
+		assertTrue(tok1.printTokenData());
+		assertTrue(tok2.printTokenData());
+		assertTrue(tok3.printTokenData());
+		}catch(Exception e89){
+			
+		}
 	}
 	
 	
 	
 	
-	
-	
-	
-	
-	
-	
-/*
+
 	// User Story #850
 	// Status - Completed
 	// Tokens converted into a set of features (T)
-	@Test
-	public void testToString() {
-		Trainer trainer = new Trainer();
-
-		Token token = new Token("Hello");
-		token = trainer.getFeatures(token);
-
-		assertEquals("capitalized,other,1,0,0,0,0,0,0,0,0,0,0,0", token.toString());
-	}
-
-	// Name getter and setter methods
-	@Test
-	public void testName() {
-		Token token = new Token();
-
-		token.setName("beginning");
-		assertEquals("beginning", token.getName());
-	}
-
-	// KillWord getter and setter methods
-	@Test
-	public void testKillWord() {
-		Token token = new Token();
-
-		token.setKillWord(1);
-		;
-		assertEquals(1, token.isKillWord());
-	}
-
-	// Suffix getter and setter methods
-	@Test
-	public void testSuffix() {
-		Token token = new Token();
-
-		token.setSuffix(1);
-		;
-		assertEquals(1, token.isSuffix());
-	}
-
-	// Prefix getter and setter methods
-	@Test
-	public void testPrefix() {
-		Token token = new Token();
-
-		token.setPrefix(1);
-		;
-		assertEquals(1, token.isPrefix());
-	}
-
-	// Honorific getter and setter methods
-	@Test
-	public void testHonorific() {
-		Token token = new Token();
-
-		token.setHonorific(1);
-		;
-		assertEquals(1, token.isHonorific());
-	}
-
-	// CommonLast getter and setter methods
-	@Test
-	public void testCommonLast() {
-		Token token = new Token();
-
-		token.setCommonLast(1);
-		;
-		assertEquals(1, token.isCommonLast());
-	}
-
-	// CommonFirst getter and setter methods
-	@Test
-	public void testCommonFirst() {
-		Token token = new Token();
-
-		token.setCommonFirst(1);
-		;
-		assertEquals(1, token.isCommonFirst());
-	}
-
-	// DTICLast getter and setter methods
-	@Test
-	public void testDTICLast() {
-		Token token = new Token();
-
-		token.setDTICLast(1);
-		;
-		assertEquals(1, token.isDTICLast());
-	}
-
-	// DTICFirst getter and setter methods
-	@Test
-	public void testDTICFirst() {
-		Token token = new Token();
-
-		token.setDTICFirst(1);
-		;
-		assertEquals(1, token.isDTICFirst());
-	}
-
-	// Place getter and setter methods
-	@Test
-	public void testPlace() {
-		Token token = new Token();
-
-		token.setPlace(1);
-		;
-		assertEquals(1, token.isPlace());
-	}
-
-	// CountryTerritory getter and setter methods
-	@Test
-	public void testCountryTerritory() {
-		Token token = new Token();
-
-		token.setCountryTerritory(1);
-		;
-		assertEquals(1, token.isCountryTerritory());
-	}
-
-	// cityState getter and setter methods
-	@Test
-	public void testCityState() {
-		Token token = new Token();
-
-		token.setCityState(1);
-		;
-		assertEquals(1, token.isCityState());
-	}
-
-	// dictionaryWord getter and setter methods
-	@Test
-	public void testDictionaryWord() {
-		Token token = new Token();
-
-		token.setDictionaryWord(1);
-		;
-		assertEquals(1, token.isDictionaryWord());
-	}
-
-	// partOfSpeech getter and setter methods
-	@Test
-	public void testPartOfSpeech() {
-		Token token = new Token();
-
-		token.setPartOfSpeech("other");
-		assertEquals("other", token.getPartOfSpeech());
-	}
-
-	// lexical getter and setter methods
-	@Test
-	public void testLexical() {
-		Token token = new Token();
-
-		token.setLexical("other");
-		assertEquals("other", token.getLexical());
-	}
-
-	// lexeme getter and setter methods
-	@Test
-	public void testLexeme() {
-		Token token = new Token();
-
-		token.setLexeme("Hello");
-		assertEquals("Hello", token.getLexeme());
-	} */
 
 }
