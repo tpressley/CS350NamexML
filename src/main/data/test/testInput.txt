@@ -1,0 +1,2 @@
+<NER>The authors of this textbook are John Smith, Amy R. Johnson and Mr. Samuel Jackson</NER>
+<NER>John Smith will be going to George Washington University</NER>
