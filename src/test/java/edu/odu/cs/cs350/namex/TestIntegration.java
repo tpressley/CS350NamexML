@@ -8,12 +8,22 @@ import java.util.LinkedList;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * 
+ * @author Tristan Pressley
+ *
+ */
 public class TestIntegration {
 
 	@Before
 	public void setUp() throws Exception {
 	}
 
+	/**
+	 * integration test 
+	 * for constructors and 
+	 * Trainer.getShingles(), Trainer.createArff(), Trainer.tokenize()
+	 */
 	@Test
 	public void testArffCreation() {
 		String trainingMaterials = "<NER>! -- r 1 - (N- 1) + $2 N- 1)</NER>\n<NER>\"*</NER>\n<NER>\"China's Pursuit for World Power Status : Is the Transformation of the</NER>";
@@ -28,7 +38,7 @@ public class TestIntegration {
 		assertEquals(arffFile.get(0),"@attribute Lexical1 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
 		assertEquals(arffFile.get(161),arffFile.add(shingles.get(0).getTokens().get(0).toString()));
 		
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
 	}
 
 }

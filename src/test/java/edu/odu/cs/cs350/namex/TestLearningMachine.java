@@ -12,11 +12,17 @@ import org.junit.Test;
 /**
  * Test class for LearningMachine.java
  * 
- * @author Caroline Chey
  *
  */
 public class TestLearningMachine {
 
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	/**
+	 * test for loadLM() in LearningMachine.java
+	 */
 	@Test
 	public void testLoadLM()
 	{
@@ -36,6 +42,9 @@ public class TestLearningMachine {
 		}    // test output
 	}
 	
+	/**
+	 * test for saveLM() in LearningMachine.java
+	 */
 	@Test
 	public void testSaveLM()
 	{
@@ -54,6 +63,9 @@ public class TestLearningMachine {
 		trainer.saveLM(outputFilePath);	
 	}
 
+	/**
+	 * test  for classifyShingles() in LearningMachine.java
+	 */
 	@Test
 	public void testClassifyShingles()
 	{
@@ -71,19 +83,16 @@ public class TestLearningMachine {
 		LearningMachine lm = new LearningMachine();
 		try 
 		{
-			
 			for (int i = 1; i <= 51; i++)
 			{
 				lm.importARFF(arffFilePath + "" + i + ".arff");
 				System.out.println("Imported: " + arffFilePath + "" + i + ".arff");
 			}
 			
-			
 			//lm.importARFF(arffFilePath);
 			lm.train();
 			lm.printEvaluationSummary();
-			//lm.exportARFF(outputFilePath);
-			
+			//lm.exportARFF(outputFilePath);		
 			//lm.saveLM();
 			
 			Trainer trainer = new Trainer();
@@ -125,15 +134,15 @@ public class TestLearningMachine {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-
 	}
 	
+	/**
+	 * test for train() in LearningMAchine.java
+	 */
 	@Test
-	public void testTrainLM()
-	{
+	public void testTrainLM() {
 		int k = 5;
-		
+
 		long startTime = System.currentTimeMillis();
 
 		String inputFilePath = "/data/testTrainingData.txt";
@@ -145,75 +154,62 @@ public class TestLearningMachine {
 		outputFilePath = relativePath + "/src/main" + outputFilePath;
 
 		LearningMachine lm = new LearningMachine();
-		
+
 		HashSet<TextBlock> textBlocks = Librarian.importFileHash(inputFilePath);
 		HashSet<String> trainingShingles = new HashSet<String>();
-		
+
 		Trainer trainer = new Trainer();
 		Librarian librarian = new Librarian();
-		
-		//String input = "Hello my name is <PER>John Smith</PER> this is <PER>Mr. Samuel L. Jackson, Jr.</PER> who will be attending George Washington University next summer with <PER>Mrs. Jane M. Doe, Jr.</PER>.";
-		
+
+		// String input = "Hello my name is <PER>John Smith</PER> this is
+		// <PER>Mr. Samuel L. Jackson, Jr.</PER> who will be attending George
+		// Washington University next summer with <PER>Mrs. Jane M. Doe,
+		// Jr.</PER>.";
+
 		ArrayList<Token> featuredTokens = new ArrayList<Token>();
-		
+
 		/*
-		int count = 1;
-		int totalCount = 0;
-		int fileCount = 1;
-		*/
-		
-		for (TextBlock tb : textBlocks)
-		{
+		 * int count = 1; int totalCount = 0; int fileCount = 1;
+		 */
+
+		for (TextBlock tb : textBlocks) {
 			/*
-			if (count == 10000)
-			{	
-				totalCount += count;
-				System.out.println(totalCount + "/" + textBlocks.size());
-				System.out.println("Elapsed Time: " + ((System.currentTimeMillis() - startTime) / 1000) + " seconds.");
-				count = 0;
-				
-				lm.importARFF(trainingShingles);
-				lm.exportARFF(outputFilePath + "" + fileCount + ".arff");
-				trainingShingles = null;
-				trainingShingles = new HashSet<String>();
-				lm = null;
-				lm = new LearningMachine();
-				fileCount++;
-			}
-			count++;	
-			*/		
-			
+			 * if (count == 10000) { totalCount += count;
+			 * System.out.println(totalCount + "/" + textBlocks.size());
+			 * System.out.println("Elapsed Time: " +
+			 * ((System.currentTimeMillis() - startTime) / 1000) + " seconds.");
+			 * count = 0;
+			 * 
+			 * lm.importARFF(trainingShingles); lm.exportARFF(outputFilePath +
+			 * "" + fileCount + ".arff"); trainingShingles = null;
+			 * trainingShingles = new HashSet<String>(); lm = null; lm = new
+			 * LearningMachine(); fileCount++; } count++;
+			 */
+
 			ArrayList<Token> tokens = Trainer.tokenize(tb.getTextBlock());
-			
-			for (Token token : tokens)
-			{
-				token = librarian.getFeatures(token);	
-				
-				if (!token.getLexical().equals("whiteSpace")
-						|| !token.getLexeme().equals(" "))
-				{
+
+			for (Token token : tokens) {
+				token = librarian.getFeatures(token);
+
+				if (!token.getLexical().equals("whiteSpace") || !token.getLexeme().equals(" ")) {
 					featuredTokens.add(token);
 				}
-			}	
+			}
 
 			trainingShingles.addAll(lm.getTrainingShingles(featuredTokens, 5, false));
 		}
-		
+
 		// import the shingle data and train the LM
 		lm.importARFF(trainingShingles);
-		try 
-		{
+		try {
 			lm.train();
 			lm.printEvaluationSummary();
 			lm.exportARFF(outputFilePath);
-		} 
-		catch (Exception e) 
-		{
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+
 		long endTime = System.currentTimeMillis();
 		long elapsedTime = (endTime - startTime) / 1000;
 
@@ -226,12 +222,6 @@ public class TestLearningMachine {
 	
 	
 	
-	
-	
-	@Before
-	public void setUp() throws Exception {
-	}
-
 	@Test
 	/**
 	 * test for constructor; public LearningMachine()
@@ -299,23 +289,7 @@ public class TestLearningMachine {
 		fail("Not yet implemented");
 	}
 
-	/*@Test
-	public void testGetDistribution() throws Exception {
-		double[] distribution = {};
-		ArrayList<Token> token = new ArrayList<Token>();
-		token.add(new Token("James"));
-		Trainer trainer = new Trainer();
-		trainer.setFeatures(token);
-		try {
-			LearningMachine lm1 = new LearningMachine();
-			distribution = lm1.getDistribution(token.get(0).toString());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		assertTrue(distribution[0] > 90);
-		assertFalse(distribution[1] > 10);
-		assertFalse(distribution[2] > 5);
-	}*/
+
 
 	@Test
 	/**
@@ -403,6 +377,9 @@ public class TestLearningMachine {
 		}
 	}
 	
+	/**
+	 * test for getShingle() in LearningMachine.java
+	 */
 	@Test
 	public void testGetShingle()
 	{
@@ -529,7 +506,6 @@ public class TestLearningMachine {
 		LearningMachine lm57 = new LearningMachine();
 		LearningMachine lm20 = new LearningMachine("lm20");
 
-		/*
 		assertTrue(lm57.getSizeOfAttributes() != 0);
 		assertTrue(lm57.getSizeOfAttributes() > 0);
 		assertTrue(lm20.getSizeOfAttributes() != 0);
@@ -537,7 +513,7 @@ public class TestLearningMachine {
 		assertEquals(71, lm57.getSizeOfAttributes());
 		assertEquals(71, lm20.getSizeOfAttributes());
 		assertEquals(lm57.getSizeOfAttributes(), lm20.getSizeOfAttributes());
-		*/
+		
 	}
 
 	@Test
