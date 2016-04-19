@@ -335,31 +335,6 @@ public class Token {
 		this.name = name;
 	}
 
-	// returns the ARFF @data row for the Token
-	public String getARFF() {
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(lexical + ",");
-		sb.append(partOfSpeech + ",");
-		sb.append(dictionaryWord + ",");
-		sb.append(cityState + ",");
-		sb.append(countryTerritory + ",");
-		sb.append(place + ",");
-		sb.append(DTICFirst + ",");
-		sb.append(DTICLast + ",");
-		sb.append(commonFirst + ",");
-		sb.append(commonLast + ",");
-		sb.append(honorific + ",");
-		sb.append(prefix + ",");
-		sb.append(suffix + ",");
-		sb.append(killWord + ",");
-		sb.append(name);
-
-		return sb.toString();
-
-	}
-
 	// User Story #850
 	// Status - Completed
 	// Tokens converted into a set of features (T)
