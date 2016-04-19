@@ -1,5 +1,21 @@
 package edu.odu.cs.cs350.namex;
 
+/**
+ * @author addyb_000
+ *
+ */
+/**
+ * @author addyb_000
+ *
+ */
+/**
+ * @author addyb_000
+ *
+ */
+/**
+ * @author addyb_000
+ *
+ */
 public class Token {
 
 	private String lexeme;
@@ -45,6 +61,10 @@ public class Token {
 	{
 		this.taggedLexeme = taggedLexeme;
 	}
+	
+/**
+* Default constructor
+*/
 
 	public Token() {
 		this.lexeme = "";
@@ -69,6 +89,12 @@ public class Token {
 		taggedLexeme = "";
 	}
 
+	
+	
+	/**
+	 * String constructor
+	 * @param lexeme
+	 */
 	public Token(String lexeme) {
 		if (lexeme.equals("null")) {
 			this.lexeme = lexeme;
@@ -116,6 +142,11 @@ public class Token {
 
 	}
 
+	/**
+	 * Constructor with position index
+	 * @param lexeme
+	 * @param position
+	 */
 	public Token(String lexeme, int position) {
 		this.lexeme = lexeme;
 		this.lexical = "other";
@@ -221,58 +252,104 @@ public class Token {
 	/**
 	 * Sets whether or not the token is a dictionary word
 	 * 
-	 * @return
+	 *
 	 */
 	public void setDictionaryWord(int dictionaryWord) {
 		this.dictionaryWord = dictionaryWord;
 	}
 
-	// cityState
+	
+	/**
+	 * returns if the token is a city state
+	 * @return
+	 */
 	public int isCityState() {
 		return this.cityState;
 	}
 
+	 /**
+   * sets if the token is a city state 
+   * @return
+   */
 	public void setCityState(int cityState) {
 		this.cityState = cityState;
 	}
 
-	// countryTerritory
+	
+	/**
+	 * returns if this is a country territory
+	 * @return int
+	 */
 	public int isCountryTerritory() {
 		return this.countryTerritory;
 	}
 
+	
+	/**
+	 * sets if this is a countryTerritory
+	 * @param countryTerritory
+	 */
 	public void setCountryTerritory(int countryTerritory) {
 		this.countryTerritory = countryTerritory;
 	}
 
-	// place
+	
+	
+	/**
+	 * returns if this isa place
+	 * @return
+	 */
 	public int isPlace() {
 		return this.place;
 	}
 
+	/**
+	 * sets if this token is a place
+	 * @param place
+	 */
 	public void setPlace(int place) {
 		this.place = place;
 	}
 
-	// DTICFirst
+	
+	/**
+	 * returns if this is found in the DTICfirst name list
+	 * @return
+	 */
 	public int isDTICFirst() {
 		return this.DTICFirst;
 	}
 
+	/**
+	 * sets attribute for if this token is in the DTICfirst name list
+	 * @param DTICFirst
+	 */
 	public void setDTICFirst(int DTICFirst) {
 		this.DTICFirst = DTICFirst;
 	}
 
-	// DTICLast
+	
+	/**
+	 * returns attribute for if this is found in the DTICLast name list
+	 * @return
+	 */
 	public int isDTICLast() {
 		return this.DTICLast;
 	}
 
+	/**
+	 * sets attribute for if this is found in the DTICLast name list
+	 * @param DTICLast
+	 */
 	public void setDTICLast(int DTICLast) {
 		this.DTICLast = DTICLast;
 	}
 
-	// commonFirst
+	
+	/**
+	 * returns attribute for if this is a Commonfirstname
+	 * @return
+	 */
 	public int isCommonFirst() {
 		return this.commonFirst;
 	}
