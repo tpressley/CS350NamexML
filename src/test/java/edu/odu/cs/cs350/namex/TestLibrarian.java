@@ -36,25 +36,21 @@ public class TestLibrarian {
 		// don't know what to do!</NER><NER>Hello World line 2</NER><NER>Goodbye
 		// world!</NER>"});
 		
-		// call to main with one textblock
-		Librarian.main(new String[] { "This is Mr. Samuel L. Jackson, Jr and I am an author.The authors of this textbook are John Smith, Amy R. Johnson and Mr. Samuel Jackson." });
+		// CLI with 1 Argument
+		//Librarian.main(new String[] { "This is Mr. Samuel L. Jackson, Jr and I am an author.The authors of this textbook are John Smith, Amy R. Johnson and Mr. Samuel Jackson." });
 		
 		
-
-		// CLI .txt file input
-
-		// CLI generate ARFF training data
-		/*
-		String inputFilePath = "/data/training/trainingData.txt";
-		String outputFilePath = "/data/arff/trainingData.arff";
+		// CLI with 2 Argument
+		String inputFilePath = "/data/test/testInput.txt";
+		String outputFilePath = "/data/test/testOutput.txt";
 
 		Path currentRelativePath = Paths.get("");
 		String relativePath = currentRelativePath.toAbsolutePath().toString();
-		inputFilePath = relativePath + "" + inputFilePath;
-		outputFilePath = relativePath + "" + outputFilePath;
+		inputFilePath = relativePath + "/src/main" + inputFilePath;
+		outputFilePath = relativePath + "/src/main" + outputFilePath;
 		
-		Librarian.main(new String[] { "train", inputFilePath, outputFilePath });
-		*/		
+		Librarian.main(new String[] { inputFilePath, outputFilePath });
+				
 	}
 	
 	
