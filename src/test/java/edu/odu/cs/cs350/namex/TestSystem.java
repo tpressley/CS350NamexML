@@ -22,7 +22,7 @@ public class TestSystem {
 	}
 	@Test
 	public void testMainTrainData() {
-		String[] args = { "train", "src/main/data/trainingDataSmall.txt", "trainingDatao.txt" };
+		String[] args = {"src/main/data/trainingDataSmall.txt", "trainingDatao.txt" };
 		try {
 			// Temporarily removed -- takes way too long
 			Librarian.main(args);
@@ -37,10 +37,9 @@ public class TestSystem {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}*/
-		assertTrue(f.exists());
-		assertTrue(s.nextLine() == "@relation Classification");
+		
 
-		String[] argsB = { "trainB", "src/main/data/trainingMaterial003.txt", "trainingDataob.txt" };
+		String[] argsB = { "src/main/data/trainingMaterial003.txt", "trainingDataob.txt" };
 		try {
 			// Temporarily removed -- takes way too long
 			// Librarian.main(args);
@@ -55,6 +54,8 @@ public class TestSystem {
 		} catch (FileNotFoundException e3) {
 			e3.printStackTrace();
 		}
+		assertTrue(f.exists());
+		assertTrue(s.nextLine() == "@relation Classification");
 		assertTrue(fb.exists());
 		assertTrue(sb.nextLine() == "@relation Classification");
 	}
