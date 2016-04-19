@@ -28,9 +28,6 @@ public class Librarian {
 	private HashSet<String> LastNameSuffixes;
 	private HashSet<String> Places;
 	
-	LearningMachine lm;
-	Trainer trainer;
-
 	/**
 	 * default constructor
 	 */
@@ -71,7 +68,7 @@ public class Librarian {
 		//System.out.println("69");
 		loadGazetteer(LastNamePrefixes, WordLists.lastNamePrefixes());
 		//System.out.println("71");
-		loadGazetteer(LastNameSuffixes, WordLists.lastNamePrefixes());
+		loadGazetteer(LastNameSuffixes, WordLists.lastNameSuffixes());
 		//System.out.println("73");
 		loadGazetteer(KillWords, WordLists.nonPersonalIdentifierCues());
 		//System.out.println("75");
@@ -224,6 +221,9 @@ public class Librarian {
 		return textBlocks;
 	}
 	
+	/*
+	 * import contents of a file into a HashSet
+	 */
 	
 	// imports a file from filePath and returns the line values as a
 	// HashSet<String>
@@ -250,7 +250,8 @@ public class Librarian {
 	
 	// imports a file from filePath and returns the line values as a
 	// HashSet<String>
-	public static HashSet<TextBlock> importFileHash(String filePath) {
+	public static HashSet<TextBlock> importFileHash(String filePath) 
+	{
 		File file = new File(filePath);
 		Scanner s;
 
@@ -271,18 +272,12 @@ public class Librarian {
 	}
 
 
-	
 	// checks to see if the Token is a word found in the English dictionary
 	public int isDictionaryWord(String token) {
 		if (DictionaryWords.contains(token.toLowerCase())) {
 			return 1;
 		}
 		return 0;
-
-		/*
-		 * for (String s : DictionaryWords) { if (s.equalsIgnoreCase(token)) {
-		 * return 1; } } return 0;
-		 */
 	}
 
 	// checks to see if the Token is a known name of a City or State in the
@@ -292,11 +287,6 @@ public class Librarian {
 			return 1;
 		}
 		return 0;
-
-		/*
-		 * for (String s : CitiesStates) { if (s.equalsIgnoreCase(token)) {
-		 * return 1; } } return 0;
-		 */
 	}
 
 	// checks to see if the Token is a known name of a Country or Territory
@@ -305,11 +295,6 @@ public class Librarian {
 			return 1;
 		}
 		return 0;
-
-		/*
-		 * for (String s : CountriesTerritories) { if
-		 * (s.equalsIgnoreCase(token)) { return 1; } } return 0;
-		 */
 	}
 
 	// checks to see if the Token is a known place
@@ -318,11 +303,6 @@ public class Librarian {
 			return 1;
 		}
 		return 0;
-
-		/*
-		 * for (String s : Places) { if (s.equalsIgnoreCase(token)) { return 1;
-		 * } } return 0;
-		 */
 	}
 
 	// checks to see if the Token is a known DTIC first name
@@ -331,13 +311,6 @@ public class Librarian {
 			return 1;
 		}
 		return 0;
-
-		/*
-		 * for (String s : DTICFirstNames) { if (s.equalsIgnoreCase(token)) {
-		 * return 1; } }
-		 * 
-		 * return 0;
-		 */
 	}
 
 	// checks to see if the Token is a known DTIC last name
@@ -346,11 +319,6 @@ public class Librarian {
 			return 1;
 		}
 		return 0;
-
-		/*
-		 * for (String s : DTICLastNames) { if (s.equalsIgnoreCase(token)) {
-		 * return 1; } } return 0;
-		 */
 	}
 
 	// checks to see if the Token is a known common first name
@@ -359,11 +327,6 @@ public class Librarian {
 			return 1;
 		}
 		return 0;
-
-		/*
-		 * for (String s : CommonFirstNames) { if (s.equalsIgnoreCase(token)) {
-		 * return 1; } } return 0;
-		 */
 	}
 
 	// checks to see if the Token is a known common last name
@@ -372,11 +335,6 @@ public class Librarian {
 			return 1;
 		}
 		return 0;
-
-		/*
-		 * for (String s : CommonLastNames) { if (s.equalsIgnoreCase(token)) {
-		 * return 1; } } return 0;
-		 */
 	}
 
 	// checks to see if the Token is an honorific
@@ -385,11 +343,6 @@ public class Librarian {
 			return 1;
 		}
 		return 0;
-
-		/*
-		 * for (String s : Honorifics) { if (s.equalsIgnoreCase(token)) { return
-		 * 1; } } return 0;
-		 */
 	}
 
 	// checks to see if the Token is a prefix
@@ -398,11 +351,6 @@ public class Librarian {
 			return 1;
 		}
 		return 0;
-
-		/*
-		 * for (String s : LastNamePrefixes) { if (s.equalsIgnoreCase(token)) {
-		 * return 1; } } return 0;
-		 */
 	}
 
 	// checks to see if the Token is a suffix
@@ -411,11 +359,6 @@ public class Librarian {
 			return 1;
 		}
 		return 0;
-
-		/*
-		 * for (String s : LastNameSuffixes) { if (s.equalsIgnoreCase(token)) {
-		 * return 1; } } return 0;
-		 */
 	}
 
 	// checks to see if the Token is an kill word
@@ -424,14 +367,7 @@ public class Librarian {
 			return 1;
 		}
 		return 0;
-
-		/*
-		 * for (String s : KillWords) { if (s.equalsIgnoreCase(token)) { return
-		 * 1; } } return 0;
-		 */
 	}
-
-
 
 	/**
 	 * Idenfies lexical features of a lexeme
@@ -538,11 +474,12 @@ public class Librarian {
 	/**
 	 * returns true if two Librarian objects are equal 
 	 */
-	public boolean equals(Librarian two){
-		
-		if(two.lm.equals(this.lm) && two.trainer.equals(this.trainer))
+	public boolean equals(Librarian two)
+	{
+		if (this.equals(two))
+		{
 			return true;
-		
+		}
 		return false;
 	}
 
