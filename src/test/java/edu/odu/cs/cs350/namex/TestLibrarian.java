@@ -3,6 +3,8 @@ package edu.odu.cs.cs350.namex;
 import static org.junit.Assert.*;
 
 import java.io.FileNotFoundException;
+import java.util.HashSet;
+
 import org.junit.Test;
 
 import edu.odu.cs.cs350.namex.Librarian;
@@ -78,7 +80,9 @@ public class TestLibrarian {
 	}
 	
 	
-
+	/**
+	 * test for getFeatures method
+	 */
 	@Test
 	public void testGetFeaturesToken() {
 
@@ -131,6 +135,15 @@ public class TestLibrarian {
 		token6 = librarian.getFeatures(token6);
 		token7 = librarian.getFeatures(token7);
 		token8 = librarian.getFeatures(token8);
+		
+		System.out.println(token1.getPartOfSpeech());
+		System.out.println(token2.getPartOfSpeech());
+		System.out.println(token3.getPartOfSpeech());
+		System.out.println(token4.getPartOfSpeech());
+		System.out.println(token5.getPartOfSpeech());
+		System.out.println(token6.getPartOfSpeech());
+		System.out.println(token7.getPartOfSpeech());
+		System.out.println(token8.getPartOfSpeech());
 
 		assertEquals(token1.getPartOfSpeech(), "conjunction");
 		assertEquals(token2.getPartOfSpeech(), "article");
@@ -138,11 +151,11 @@ public class TestLibrarian {
 		assertEquals(token4.getPartOfSpeech(), "period");
 		assertEquals(token5.getPartOfSpeech(), "comma");
 		assertEquals(token6.getPartOfSpeech(), "hyphen");
-		assertEquals(token6.getPartOfSpeech(), "conjunction");
+		assertEquals(token7.getPartOfSpeech(), "conjunction");
 		assertEquals(token8.getPartOfSpeech(), "other");
+		
 		assertFalse(token2.getPartOfSpeech() != "article");
 		assertTrue(token1.getPartOfSpeech() == token7.getPartOfSpeech());
-
 	}
 	
 	/**
@@ -150,15 +163,239 @@ public class TestLibrarian {
 	 * {@link edu.odu.cs.cs350.namex.Libarian#isCityState(java.lang.String)}.
 	 */
 	@Test
-	public void testIsCityState() {
+	public void testIsCityState() 
+	{
 		Librarian librarian = new Librarian();
-		String string0 = "Norfolk";
-		String string1 = "Virginia";
+		String string0 = "Norfolk, Virginia";
+		String string1 = "Washington, DC";
 		String string2 = "television";
-
-		assertEquals(1, librarian.isCityState(string0));
-		assertTrue(librarian.isCityState(string0) == librarian.isCityState(string1));
-		assertFalse(1 == librarian.isCityState(string2));
+		
+		assertEquals(1, librarian.isCityState(string0.toLowerCase()));
+		assertEquals(1, librarian.isCityState(string1.toLowerCase()));
+		assertEquals(0, librarian.isCityState(string2.toLowerCase()));
+	}
+	
+	/**
+	 * Test method for
+	 * {@link edu.odu.cs.cs350.namex.Libarian#isCommonFirstName(java.lang.String)}.
+	 */
+	@Test
+	public void testIsCommonFirstName()
+	{
+		Librarian librarian = new Librarian();
+		String string1 = "John";
+		String string2 = "Mary";
+		String string3 = "Joseph";
+		String string4 = "lafsdjflasdf";
+		
+		assertEquals(1, librarian.isCommonFirstName(string1.toLowerCase()));
+		assertEquals(1, librarian.isCommonFirstName(string2.toLowerCase()));
+		assertEquals(1, librarian.isCommonFirstName(string3.toLowerCase()));
+		assertEquals(0, librarian.isCommonFirstName(string4.toLowerCase()));
+	}
+	
+	/**
+	 * Test method for
+	 * {@link edu.odu.cs.cs350.namex.Libarian#isCommonLastName(java.lang.String)}.
+	 */
+	@Test
+	public void testIsCommonLastName()
+	{
+		Librarian librarian = new Librarian();
+		String string1 = "Smith";
+		String string2 = "Brown";
+		String string3 = "Jackson";
+		String string4 = "lafsdjflasdf";
+		
+		assertEquals(1, librarian.isCommonLastName(string1.toLowerCase()));
+		assertEquals(1, librarian.isCommonLastName(string2.toLowerCase()));
+		assertEquals(1, librarian.isCommonLastName(string3.toLowerCase()));
+		assertEquals(0, librarian.isCommonLastName(string4.toLowerCase()));
+	}
+	
+	/**
+	 * Test method for
+	 * {@link edu.odu.cs.cs350.namex.Libarian#isCountryTerritory(java.lang.String)}.
+	 */
+	@Test
+	public void testIsCountryTerritory()
+	{
+		Librarian librarian = new Librarian();
+		String string1 = "Egypt";
+		String string2 = "United States";
+		String string3 = "Mexico";
+		String string4 = "lafsdjflasdf";
+		
+		assertEquals(1, librarian.isCountryTerritory(string1.toLowerCase()));
+		assertEquals(1, librarian.isCountryTerritory(string2.toLowerCase()));
+		assertEquals(1, librarian.isCountryTerritory(string3.toLowerCase()));
+		assertEquals(0, librarian.isCountryTerritory(string4.toLowerCase()));
+	}
+	
+	/**
+	 * Test method for
+	 * {@link edu.odu.cs.cs350.namex.Libarian#isDictionaryWord(java.lang.String)}.
+	 */
+	@Test
+	public void testIsDictionaryWord()
+	{
+		Librarian librarian = new Librarian();
+		String string1 = "stop";
+		String string2 = "hello";
+		String string3 = "welcome";
+		String string4 = "lafsdjflasdf";
+		
+		assertEquals(1, librarian.isDictionaryWord(string1.toLowerCase()));
+		assertEquals(1, librarian.isDictionaryWord(string2.toLowerCase()));
+		assertEquals(1, librarian.isDictionaryWord(string3.toLowerCase()));
+		assertEquals(0, librarian.isDictionaryWord(string4.toLowerCase()));
+	}
+	
+	/**
+	 * Test method for
+	 * {@link edu.odu.cs.cs350.namex.Libarian#isDTICFirstName(java.lang.String)}.
+	 */
+	@Test
+	public void testIsDTICFirstName()
+	{
+		Librarian librarian = new Librarian();
+		String string1 = "John";
+		String string2 = "Jacob";
+		String string3 = "Mary";
+		String string4 = "lafsdjflasdf";
+		
+		//librarian.getCityState();
+		
+		System.out.println(librarian.isDTICFirstName(string1.toLowerCase()));
+		System.out.println(librarian.isDTICFirstName(string2.toLowerCase()));
+		System.out.println(librarian.isDTICFirstName(string3.toLowerCase()));
+		System.out.println(librarian.isDTICFirstName(string4.toLowerCase()));
+		
+		assertEquals(1, librarian.isDTICFirstName(string1.toLowerCase()));
+		assertEquals(1, librarian.isDTICFirstName(string2.toLowerCase()));
+		assertEquals(1, librarian.isDTICFirstName(string3.toLowerCase()));
+		assertEquals(0, librarian.isDTICFirstName(string4.toLowerCase()));
+	}
+	
+	/**
+	 * Test method for
+	 * {@link edu.odu.cs.cs350.namex.Libarian#isDTICLastName(java.lang.String)}.
+	 */
+	@Test
+	public void testIsDTICLasttName()
+	{
+		Librarian librarian = new Librarian();
+		String string1 = "Smith";
+		String string2 = "Jackson";
+		String string3 = "Johnson";
+		String string4 = "lafsdjflasdf";
+		
+		assertEquals(1, librarian.isDTICLastName(string1.toLowerCase()));
+		assertEquals(1, librarian.isDTICLastName(string2.toLowerCase()));
+		assertEquals(1, librarian.isDTICLastName(string3.toLowerCase()));
+		assertEquals(0, librarian.isDTICLastName(string4.toLowerCase()));
+	}
+	
+	/**
+	 * Test method for
+	 * {@link edu.odu.cs.cs350.namex.Libarian#isHonorific(java.lang.String)}.
+	 */
+	@Test
+	public void testIsHonorific()
+	{
+		Librarian librarian = new Librarian();
+		String string1 = "Mr";
+		String string2 = "Professor";
+		String string3 = "Captain";
+		String string4 = "lafsdjflasdf";
+		
+		assertEquals(1, librarian.isHonorific(string1.toLowerCase()));
+		assertEquals(1, librarian.isHonorific(string2.toLowerCase()));
+		assertEquals(1, librarian.isHonorific(string3.toLowerCase()));
+		assertEquals(0, librarian.isHonorific(string4.toLowerCase()));
+	}
+	
+	/**
+	 * Test method for
+	 * {@link edu.odu.cs.cs350.namex.Libarian#isKillWord(java.lang.String)}.
+	 */
+	@Test
+	public void testIsKillWord()
+	{
+		Librarian librarian = new Librarian();
+		String string1 = "University";
+		String string2 = "Street";
+		String string3 = "School";
+		String string4 = "lafsdjflasdf";
+		
+		assertEquals(1, librarian.isKillWord(string1.toLowerCase()));
+		assertEquals(1, librarian.isKillWord(string2.toLowerCase()));
+		assertEquals(1, librarian.isKillWord(string3.toLowerCase()));
+		assertEquals(0, librarian.isKillWord(string4.toLowerCase()));
+	}
+	
+	/**
+	 * Test method for
+	 * {@link edu.odu.cs.cs350.namex.Libarian#isLastNamePrefix(java.lang.String)}.
+	 */
+	@Test
+	public void testIsLastNamePrefix()
+	{
+		Librarian librarian = new Librarian();
+		String string1 = "von";
+		String string2 = "de";
+		String string3 = "van";
+		String string4 = "lafsdjflasdf";
+		
+		//librarian.getCityState();
+		
+		System.out.println(librarian.isLastNamePrefix(string1.toLowerCase()));
+		System.out.println(librarian.isLastNamePrefix(string2.toLowerCase()));
+		System.out.println(librarian.isLastNamePrefix(string3.toLowerCase()));
+		System.out.println(librarian.isLastNamePrefix(string4.toLowerCase()));
+		
+		assertEquals(1, librarian.isLastNamePrefix(string1.toLowerCase()));
+		assertEquals(1, librarian.isLastNamePrefix(string2.toLowerCase()));
+		assertEquals(1, librarian.isLastNamePrefix(string3.toLowerCase()));
+		assertEquals(0, librarian.isLastNamePrefix(string4.toLowerCase()));
+	}
+	
+	/**
+	 * Test method for
+	 * {@link edu.odu.cs.cs350.namex.Libarian#isLastNameSuffix(java.lang.String)}.
+	 */
+	@Test
+	public void testIsLastNameSuffix()
+	{
+		Librarian librarian = new Librarian();
+		String string1 = "Jr";
+		String string2 = "II";
+		String string3 = "IV";
+		String string4 = "lafsdjflasdf";
+				
+		assertEquals(1, librarian.isLastNameSuffix(string1.toLowerCase()));
+		assertEquals(1, librarian.isLastNameSuffix(string2.toLowerCase()));
+		assertEquals(1, librarian.isLastNameSuffix(string3.toLowerCase()));
+		assertEquals(0, librarian.isLastNameSuffix(string4.toLowerCase()));
+	}
+	
+	/**
+	 * Test method for
+	 * {@link edu.odu.cs.cs350.namex.Libarian#isPlace(java.lang.String)}.
+	 */
+	@Test
+	public void testIsPlace()
+	{
+		Librarian librarian = new Librarian();
+		String string1 = "Potomac River";
+		String string2 = "Virginia Beach";
+		String string3 = "Lake Ontario";
+		String string4 = "lafsdjflasdf";
+		
+		assertEquals(1, librarian.isPlace(string1.toLowerCase()));
+		assertEquals(1, librarian.isPlace(string2.toLowerCase()));
+		assertEquals(1, librarian.isPlace(string3.toLowerCase()));
+		assertEquals(0, librarian.isPlace(string4.toLowerCase()));
 	}
 	
 	
