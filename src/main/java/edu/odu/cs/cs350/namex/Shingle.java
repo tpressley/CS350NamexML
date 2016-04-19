@@ -8,7 +8,7 @@ public class Shingle implements Cloneable {
 	private LinkedList<Token> tokens;
 
 	/**
-	 * default constructor
+	 * default constructor for Shingle
 	 */
 	public Shingle() {
 		tokens = new LinkedList<Token>();
@@ -20,7 +20,7 @@ public class Shingle implements Cloneable {
 	}
 
 	/**
-	 * Copy Constructor
+	 * Copy Constructor for Shingle
 	 */
 	public Shingle(Shingle shingle) {
 		tokens = new LinkedList<Token>();
@@ -52,16 +52,11 @@ public class Shingle implements Cloneable {
 	}
 
 	/**
-	 * clones object
+	 * clones a shingle
 	 */
 	public Object clone() throws CloneNotSupportedException {
 		return super.clone();
 	}
 
-	//// public Shingle(int k, int l) {
-	//// for (int i = 0; i < (2 * k + 1 - l); i++) {
-	//// tokens.add(null);
-	//// }
-	//// }
 
 }
