@@ -32,12 +32,10 @@ public class Librarian {
 	private HashSet<String> Places;
 	
 	/**
-	 * default constructor
+	 * default constructor for Librarian
+	 * 
 	 */
-	public Librarian() {
-		//lm = new LearningMachine();
-		//trainer = new Trainer();
-		
+	public Librarian() {		
 		DictionaryWords = new HashSet<String>();
 		CitiesStates = new HashSet<String>();
 		CountriesTerritories = new HashSet<String>();
@@ -78,20 +76,30 @@ public class Librarian {
 	}
 	
 	/**
-	 * copy constructor
+	 * copy constructor for Librarian
 	 */
-	/*
+	
 	public Librarian(Librarian toCopy){
-		this.lm = toCopy.lm;
-		this.trainer = toCopy.trainer;
+		this.CitiesStates = toCopy.CitiesStates;
+		this.DictionaryWords = toCopy.DictionaryWords;
+		this.CountriesTerritories = toCopy.CountriesTerritories;
+		this.Places = toCopy.Places;
+		this.DTICFirstNames = toCopy.DTICFirstNames;
+		this.DTICLastNames = toCopy.DTICLastNames;
+		this.CommonFirstNames = toCopy.CommonFirstNames;
+		this.CommonLastNames = toCopy.CommonLastNames;
+		this.Honorifics = toCopy.Honorifics;
+		this.LastNamePrefixes = toCopy.LastNamePrefixes;
+		this.LastNameSuffixes = toCopy.LastNameSuffixes;
+		this.KillWords = toCopy.KillWords;
 	}
-	*/
+	
 	
 	/**
+	 * main in Librarian.java
 	 * @param args
 	 * @throws FileNotFoundException
 	 */
-
 	public static void main(String[] args) throws FileNotFoundException {
 		
 		// ********** CONFIGURATIONS **********
@@ -127,10 +135,12 @@ public class Librarian {
 				e.printStackTrace();
 			}                                   // test output
 			// ********** End Initialize Variables **********
-			
-			ArrayList<Token> tokens = Trainer.tokenize(args[0]);           // Step 1: tokenize the input string
-			tokens = librarian.getAllFeatures(tokens);                     // Step 2: get the features for each token
-			String shingle = lm.getShingle(tokens, k);                     // Step 3: shingle and classify the tokens
+			// Step 1: tokenize the input string
+			ArrayList<Token> tokens = Trainer.tokenize(args[0]);  
+			// Step 2: get the features for each token
+			tokens = librarian.getAllFeatures(tokens);
+			// Step 3: shingle and classify the tokens
+			String shingle = lm.getShingle(tokens, k);                     
 
 			System.out.println(shingle);
 		}
@@ -158,7 +168,7 @@ public class Librarian {
 
 				File file = new File(args[1]);
 
-				// if file doesnt exists, then create it
+				// if file does not exists, create it
 				if (!file.exists()) {
 					file.createNewFile();
 				}
@@ -186,13 +196,12 @@ public class Librarian {
 		}
 	}
 
-	// User Story #861
-	// Status - Completed
-	
-	// CLI processes each <NER> block separately via Extractor
-	// User Story #861
-	// Status - Completed
-	// interface. (A, maybe L)
+
+	/**
+	 * returns ArrayList of separated <NER> blocks
+	 * @param input
+	 * @return
+	 */
 	public static ArrayList<TextBlock> separateNER(String input) {
 		String[] tbs = input.split("<NER>|</NER>");
 
@@ -207,13 +216,12 @@ public class Librarian {
 		return textBlocks;
 	}
 	
-	/*
-	 * import contents of a file into a HashSet
+
+	/**
+	 * returns ArrayList of imported file from given path
+	 * @param filePath
+	 * @return
 	 */
-	
-	// imports a file from filePath and returns the line values as a
-	// HashSet<String>
-	// public static HashSet<String> importFile(String filePath)
 	public static ArrayList<TextBlock> importFile(String filePath) {
 		File file = new File(filePath);
 		Scanner s;
@@ -234,8 +242,13 @@ public class Librarian {
 		return textBlocks;
 	}
 	
-	// imports a file from filePath and returns the line values as a
-	// HashSet<String>
+	
+	
+	/**
+	 * returns HashSet of imported file
+	 * @param filePath
+	 * @return
+	 */
 	public static HashSet<TextBlock> importFileHash(String filePath) 
 	{
 		File file = new File(filePath);
@@ -258,7 +271,12 @@ public class Librarian {
 	}
 
 
-	// checks to see if the Token is a word found in the English dictionary
+
+	/**
+	 * returns '1' if dictionary word
+	 * @param token
+	 * @return
+	 */
 	public int isDictionaryWord(String token) {
 		if (DictionaryWords.contains(token.toLowerCase())) {
 			return 1;
@@ -266,8 +284,12 @@ public class Librarian {
 		return 0;
 	}
 
-	// checks to see if the Token is a known name of a City or State in the
-	// United States
+	
+	/**
+	 * returns '1' if citystate
+	 * @param token
+	 * @return
+	 */
 	public int isCityState(String token) {
 		if (CitiesStates.contains(token.toLowerCase())) {
 			return 1;
@@ -275,7 +297,12 @@ public class Librarian {
 		return 0;
 	}
 
-	// checks to see if the Token is a known name of a Country or Territory
+	
+	/**
+	 * returns '1' if countryterritory
+	 * @param token
+	 * @return
+	 */
 	public int isCountryTerritory(String token) {
 		if (CountriesTerritories.contains(token.toLowerCase())) {
 			return 1;
@@ -283,7 +310,12 @@ public class Librarian {
 		return 0;
 	}
 
-	// checks to see if the Token is a known place
+	
+	/**
+	 * returns '1' if place
+	 * @param token
+	 * @return
+	 */
 	public int isPlace(String token) {
 		if (Places.contains(token.toLowerCase())) {
 			return 1;
@@ -291,7 +323,12 @@ public class Librarian {
 		return 0;
 	}
 
-	// checks to see if the Token is a known DTIC first name
+	
+	/**
+	 * returns '1' if DTIC first name
+	 * @param token
+	 * @return
+	 */
 	public int isDTICFirstName(String token) {
 		if (DTICFirstNames.contains(token.toLowerCase())) {
 			return 1;
@@ -299,7 +336,12 @@ public class Librarian {
 		return 0;
 	}
 
-	// checks to see if the Token is a known DTIC last name
+	
+	/**
+	 * returns '1' if DTIC last name
+	 * @param token
+	 * @return
+	 */
 	public int isDTICLastName(String token) {
 		if (DTICLastNames.contains(token.toLowerCase())) {
 			return 1;
@@ -307,7 +349,12 @@ public class Librarian {
 		return 0;
 	}
 
-	// checks to see if the Token is a known common first name
+	
+	/**
+	 * returns '1' if common first name
+	 * @param token
+	 * @return
+	 */
 	public int isCommonFirstName(String token) {
 		if (CommonFirstNames.contains(token.toLowerCase())) {
 			return 1;
@@ -315,7 +362,11 @@ public class Librarian {
 		return 0;
 	}
 
-	// checks to see if the Token is a known common last name
+	/**
+	 * returns '1' if common last name
+	 * @param token
+	 * @return
+	 */
 	public int isCommonLastName(String token) {
 		if (CommonLastNames.contains(token.toLowerCase())) {
 			return 1;
@@ -323,7 +374,12 @@ public class Librarian {
 		return 0;
 	}
 
-	// checks to see if the Token is an honorific
+	
+	/**
+	 * returns '1' if honorific
+	 * @param token
+	 * @return
+	 */
 	public int isHonorific(String token) {
 		if (Honorifics.contains(token.toLowerCase())) {
 			return 1;
@@ -331,7 +387,12 @@ public class Librarian {
 		return 0;
 	}
 
-	// checks to see if the Token is a prefix
+	
+	/**
+	 * returns '1' if prefix to last name
+	 * @param token
+	 * @return
+	 */
 	public int isLastNamePrefix(String token) {
 		if (LastNamePrefixes.contains(token.toLowerCase())) {
 			return 1;
@@ -339,7 +400,12 @@ public class Librarian {
 		return 0;
 	}
 
-	// checks to see if the Token is a suffix
+
+	/**
+	 * returns '1' if last name suffix
+	 * @param token
+	 * @return
+	 */
 	public int isLastNameSuffix(String token) {
 		if (LastNameSuffixes.contains(token.toLowerCase())) {
 			return 1;
@@ -347,7 +413,12 @@ public class Librarian {
 		return 0;
 	}
 
-	// checks to see if the Token is an kill word
+	
+	/**
+	 * returns '1' if killword
+	 * @param token
+	 * @return
+	 */
 	public int isKillWord(String token) {
 		if (KillWords.contains(token.toLowerCase())) {
 			return 1;
@@ -356,7 +427,7 @@ public class Librarian {
 	}
 
 	/**
-	 * Idenfies lexical features of a lexeme
+	 * identifies lexical features of a lexeme
 	 * 
 	 * @param lexeme
 	 * @return
@@ -419,7 +490,7 @@ public class Librarian {
 	}
 
 	/**
-	 * Returns the part of speech of a token
+	 * returns the part of speech of a token
 	 * 
 	 * @param token
 	 * @return
@@ -447,7 +518,7 @@ public class Librarian {
 	}
 
 	/**
-	 * Loads gazetteer lists from WordLists into HashSet<String>
+	 * loads gazetteer lists from WordLists into HashSet<String>
 	 * 
 	 * @param
 	 */
@@ -457,8 +528,11 @@ public class Librarian {
 		}
 	}
 	
+	
 	/**
-	 * returns true if two Librarian objects are equal 
+	 * returns true if two librarians are equal
+	 * @param two
+	 * @return
 	 */
 	public boolean equals(Librarian two)
 	{
@@ -470,12 +544,12 @@ public class Librarian {
 	}
 
 
-	// User Story #856
-	// Status - Completed
-	// Dictionary features identified correctly (L)
-	// User Story #854
-	// Status - Completed
-	// Misc features (honorifics, kill words, etc) identified correctly. (L)
+	
+	/**
+	 * returns Token with features set
+	 * @param token
+	 * @return
+	 */
 	public Token getFeatures(Token token) {
 		String lexeme = token.getLexeme();
 
@@ -497,6 +571,11 @@ public class Librarian {
 		return token;
 	}
 	
+	/**
+	 * returns ArrayList of tokens to set features
+	 * @param tokens
+	 * @return
+	 */
 	public ArrayList<Token> getAllFeatures(ArrayList<Token> tokens) {
 		
 		for (Token token : tokens)
