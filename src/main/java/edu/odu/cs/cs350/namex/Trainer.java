@@ -1,20 +1,13 @@
 package edu.odu.cs.cs350.namex;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.PrintWriter;
 import java.io.Serializable;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.LinkedList;
-
-import edu.odu.cs.extract.wordlists.WordLists;
 
 /**
  * @author Tristan
@@ -22,6 +15,11 @@ import edu.odu.cs.extract.wordlists.WordLists;
  */
 public class Trainer implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4496952151923577887L;
+	
 	LearningMachine lm;
 
 	public Trainer() {

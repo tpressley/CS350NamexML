@@ -1844,7 +1844,7 @@ public class LearningMachine implements Serializable {
 
 		System.out.print("Loading Learning machine from file.");
 		try {
-			Classifier classifier = (Classifier) weka.core.SerializationHelper.read(LMBrain);
+			clssf = (Classifier) weka.core.SerializationHelper.read(LMBrain);
 
 		} catch (Exception e) {
 			e.printStackTrace();

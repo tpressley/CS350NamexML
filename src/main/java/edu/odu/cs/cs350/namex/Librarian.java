@@ -5,7 +5,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -158,7 +157,7 @@ public class Librarian {
 			ArrayList<TextBlock> textBlocks = importFile(inputFileName);
 
 			for (TextBlock textBlock : textBlocks) {
-				tokens.addAll(trainer.tokenize(textBlock.getTextBlock()));
+				tokens.addAll(Trainer.tokenize(textBlock.getTextBlock()));
 			}
 
 			// System.out.println("Imported File Successfully!");

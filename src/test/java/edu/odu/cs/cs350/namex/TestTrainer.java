@@ -1,15 +1,10 @@
 package edu.odu.cs.cs350.namex;
 
-import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
 import edu.odu.cs.cs350.namex.Trainer;
-import edu.odu.cs.extract.wordlists.WordLists;
 
 import java.util.*;
 
@@ -79,7 +74,7 @@ public class TestTrainer {
 		String string = "<NER> Hello, I'm, home. </NER>";
 		Token token = new Token("<NER>");
 		Trainer trainer = new Trainer();
-		tokens = trainer.tokenize(string);
+		tokens = Trainer.tokenize(string);
 
 		assertEquals(2, Trainer.getTokenCount(2, tokens));
 		assertFalse(2 == Trainer.getTokenCount(2, tokens));

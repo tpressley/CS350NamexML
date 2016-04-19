@@ -5,19 +5,9 @@ import static org.junit.Assert.*;
 import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.LinkedList;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import weka.classifiers.Classifier;
-import weka.classifiers.Evaluation;
-import weka.classifiers.bayes.NaiveBayes;
-import weka.core.Attribute;
-import weka.core.FastVector;
-import weka.core.Instance;
-import weka.core.Instances;
-import weka.core.converters.ConverterUtils.DataSource;
 
 /**
  * Test class for LearningMachine.java
@@ -166,9 +156,11 @@ public class TestLearningMachine {
 		
 		ArrayList<Token> featuredTokens = new ArrayList<Token>();
 		
+		/*
 		int count = 1;
 		int totalCount = 0;
 		int fileCount = 1;
+		*/
 		
 		for (TextBlock tb : textBlocks)
 		{

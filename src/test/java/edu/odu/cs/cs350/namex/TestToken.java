@@ -734,6 +734,8 @@ public class TestToken {
 		Token gwu3 = new Token("University");
 
 		gwu3.setPlace(1);
+		assertEquals(1, gwu1.isPlace());
+		assertEquals(1, gwu2.isPlace());
 		assertEquals(1, gwu3.isPlace());
 	}
 

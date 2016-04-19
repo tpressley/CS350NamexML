@@ -1,14 +1,9 @@
 
 package edu.odu.cs.cs350.namex;
 
-import java.io.*;
 import java.util.*;
 import static org.junit.Assert.*;
 import org.junit.*;
-
-import weka.classifiers.*;
-
-import weka.core.*;
 
 /**
  * Test class for Shingle.java
