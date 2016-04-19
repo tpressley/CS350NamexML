@@ -35,12 +35,7 @@ public class TestSystem {
 		File f = new File("LearningMachine.model");
 		File f2 = new File("trainigDatao.txt");
 		Scanner s = null;
-		/*try {
-			s = new Scanner(f2);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}*/
-		 
+		
 		String[] argsB = { "src/main/data/trainingMaterial003.txt", "trainingDataob.txt" };
 		try {
 			// Temporarily removed -- takes way too long
