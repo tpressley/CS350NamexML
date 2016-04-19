@@ -16,6 +16,9 @@ public class PersonalName {
 	private String surName;
 	private String suffix;
 
+	/**
+	 * default constructor for PersonalName
+	 */
 	public PersonalName() {
 
 		honorific = "";
@@ -27,7 +30,8 @@ public class PersonalName {
 	}
 
 	/**
-	 * Assume 2 string constructor only has first and last name
+	 * constructor for PersonalName two-string constructor; only has first and
+	 * last name
 	 */
 	public PersonalName(String firstname, String lastname) {
 		honorific = "";
@@ -35,11 +39,10 @@ public class PersonalName {
 		middleNames = "";
 		surName = lastname;
 		suffix = "";
-
-	};
+	}
 
 	/**
-	 * Constructor to create one word personal names, e.g. Cher
+	 * constructor for PersonalName to create one word personal names, e.g. Cher
 	 * 
 	 * @param name
 	 */
@@ -53,7 +56,7 @@ public class PersonalName {
 	}
 
 	/**
-	 * Constructor to create multiple word personal names
+	 * constructor for PersonalName
 	 * 
 	 * @param honor
 	 * @param first
@@ -71,50 +74,46 @@ public class PersonalName {
 	};
 
 	/**
-	 * Returns full name
+	 * getter for full name returns full name in String
 	 * 
 	 * @return
 	 */
 	public String getName() {
-		// returns full name
 		return this.toString();
 	};
 
 	/**
-	 * Returns honorofic if it exists
+	 * getter for honorific; returns honorofic
 	 * 
 	 * @return
 	 */
 	public String getHonorific() {
-		// returns honorific if it exists
 		return honorific;
 	}
 
 	/**
-	 * returns second String of arraylist
+	 * getter for given name
 	 * 
 	 * @return
 	 */
 	public String getGivenName() {
-		// returns second String of arraylist
 		return givenName;
 
 	}
 
 	/**
-	 * returns all Strings between second and last Strings in array list
+	 * getter for middle names
 	 * 
 	 * @return
 	 */
 	public String getMiddleNames() {
-		// returns all Strings between second and
-		// last Strings in array list
+
 		return middleNames;
 
 	}
 
 	/**
-	 * returns final arraylist String
+	 * getter for surname
 	 * 
 	 * @return
 	 */
@@ -125,7 +124,7 @@ public class PersonalName {
 	}
 
 	/**
-	 * returns Suffix (ie jr, sr, II) if it exists.
+	 * getter for suffix
 	 * 
 	 * @return
 	 */
@@ -136,8 +135,9 @@ public class PersonalName {
 
 	}
 
-	/**
-	 * Returns the full name as a single string, same as getName()
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
 	 */
 	public String toString() {
 
