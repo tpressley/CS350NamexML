@@ -21,60 +21,28 @@ import edu.odu.cs.extract.wordlists.WordLists;
  *
  */
 public class Trainer implements Serializable {
-	// Stores Gazetteer lists
-	private HashSet<String> CitiesStates;
-	private HashSet<String> CommonFirstNames;
-	private HashSet<String> CommonLastNames;
-	private HashSet<String> CountriesTerritories;
-	private HashSet<String> DictionaryWords;
-	private HashSet<String> DTICFirstNames;
-	private HashSet<String> DTICLastNames;
-	private HashSet<String> Honorifics;
-	private HashSet<String> KillWords;
-	private HashSet<String> LastNamePrefixes;
-	private HashSet<String> LastNameSuffixes;
-	private HashSet<String> Places;
+
+	LearningMachine lm;
 
 	public Trainer() {
-
-		DictionaryWords = new HashSet<String>();
-		CitiesStates = new HashSet<String>();
-		CountriesTerritories = new HashSet<String>();
-		Places = new HashSet<String>();
-		DTICFirstNames = new HashSet<String>();
-		DTICLastNames = new HashSet<String>();
-		CommonFirstNames = new HashSet<String>();
-		CommonLastNames = new HashSet<String>();
-		Honorifics = new HashSet<String>();
-		LastNamePrefixes = new HashSet<String>();
-		LastNameSuffixes = new HashSet<String>();
-		KillWords = new HashSet<String>();
-
-		loadGazetteer(DictionaryWords, WordLists.englishDictionary());
-		System.out.println("53");
-		loadGazetteer(CitiesStates, WordLists.citiesAndStatesUS());
-		System.out.println("55");
-		loadGazetteer(CountriesTerritories, WordLists.countriesAndTerritories());
-		System.out.println("57");
-		loadGazetteer(Places, WordLists.places());
-		System.out.println("59");
-		loadGazetteer(DTICFirstNames, WordLists.firstNames());
-		System.out.println("61");
-		loadGazetteer(DTICLastNames, WordLists.lastNames());
-		System.out.println("63");
-		loadGazetteer(CommonFirstNames, WordLists.commonFirstNames());
-		System.out.println("65");
-		loadGazetteer(CommonLastNames, WordLists.commonLastNames());
-		System.out.println("67");
-		loadGazetteer(Honorifics, WordLists.honorifics());
-		System.out.println("69");
-		loadGazetteer(LastNamePrefixes, WordLists.lastNamePrefixes());
-		System.out.println("71");
-		loadGazetteer(LastNameSuffixes, WordLists.lastNamePrefixes());
-		System.out.println("73");
-		loadGazetteer(KillWords, WordLists.nonPersonalIdentifierCues());
-		System.out.println("75");
-
+		lm = new LearningMachine();
+	}
+	
+	public Trainer(String arffFilePath) 
+	{
+		lm = new LearningMachine();
+		
+		try 
+		{
+			lm.importARFF(arffFilePath);
+			lm.train();
+			lm.printEvaluationSummary();		
+		} 
+		catch (Exception e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -284,6 +252,8 @@ public class Trainer implements Serializable {
 	 * return tokens; }
 	 */
 
+
+	
 	/**
 	 * Takes the input text and returns an arraylist of basic tokens, containing
 	 * only the lexemes Tokens later have features analyzed by
@@ -336,14 +306,21 @@ public class Trainer implements Serializable {
 	 * @param verbose
 	 * @return
 	 */
-	public ArrayList<Token> tokenize(String textBlock) {
-		String[] tks = textBlock.split("(?<=<NER>)|(?=</NER>)|(?<=<PER>)|(?=</PER>)|(?=[ ,.!()<:;}-])|(?<=[ (>{-])");
-
+	public static ArrayList<Token> tokenize(String textBlock) {
+		
+		// old regex
+		//String[] tks = textBlock.split("(?<=<NER>)|(?=</NER>)|(?<=<PER>)|(?=</PER>)|(?=[ ,.!()<:;}-])|(?<=[ (>{-])");
+		
+		// regex to not include spaces
+		String[] tks = textBlock.split("(?<=<NER>)|(?=</NER>)|(?<=<PER>)|(?=</PER>)|(?=[,.!()<:;}-])|(?<=[ (>{-])");
+		
 		ArrayList<Token> tokens = new ArrayList<Token>();
 
 		for (int i = 0; i < tks.length; i++) {
-			tokens.add(new Token(tks[i], i));
-			System.out.println(tokens.get(i).toString());
+			if (!tks[i].isEmpty())
+			{
+				tokens.add(new Token(tks[i].trim(), i));
+			}
 		}
 
 		return tokens;
@@ -378,364 +355,6 @@ public class Trainer implements Serializable {
 		// } catch (Exception e) {
 		// e.printStackTrace();
 		// }
-	}
-
-	/**
-	 * checks to see if the Token is a known name of a City or State
-	 * 
-	 * @param token
-	 * @return
-	 */
-	public int isCityState(String token) {
-		if (CitiesStates.contains(token.toLowerCase())) {
-			return 1;
-		}
-		return 0;
-
-		/*
-		 * for (String s : CitiesStates) { if (s.equalsIgnoreCase(token)) {
-		 * return 1; } } return 0;
-		 */
-	}
-
-	/**
-	 * checks to see if the Token is a known common first name
-	 * 
-	 * @param token
-	 * @return
-	 */
-	public int isCommonFirstName(String token) {
-		if (CommonFirstNames.contains(token.toLowerCase())) {
-			return 1;
-		}
-		return 0;
-
-		/*
-		 * for (String s : CommonFirstNames) { if (s.equalsIgnoreCase(token)) {
-		 * return 1; } } return 0;
-		 */
-	}
-
-	/**
-	 * checks to see if the Token is a known common last name
-	 * 
-	 * @param token
-	 * @return
-	 */
-	public int isCommonLastName(String token) {
-		if (CommonLastNames.contains(token.toLowerCase())) {
-			return 1;
-		}
-		return 0;
-
-		/*
-		 * for (String s : CommonLastNames) { if (s.equalsIgnoreCase(token)) {
-		 * return 1; } } return 0;
-		 */
-	}
-
-	/**
-	 * checks to see if the Token is a known name of a Country or Territory
-	 * 
-	 * @param token
-	 * @return
-	 */
-	public int isCountryTerritory(String token) {
-		if (CountriesTerritories.contains(token.toLowerCase())) {
-			return 1;
-		}
-		return 0;
-
-		/*
-		 * for (String s : CountriesTerritories) { if
-		 * (s.equalsIgnoreCase(token)) { return 1; } } return 0;
-		 */
-	}
-
-	/**
-	 * checks to see if the Token is a word found in the English dictionary
-	 * 
-	 * @param token
-	 * @return
-	 */
-	public int isDictionaryWord(String token) {
-		if (DictionaryWords.contains(token.toLowerCase())) {
-			return 1;
-		}
-		return 0;
-
-		/*
-		 * for (String s : DictionaryWords) { if (s.equalsIgnoreCase(token)) {
-		 * return 1; } } return 0;
-		 */
-	}
-
-	/**
-	 * checks to see if the Token is a known DTIC first name
-	 * 
-	 * @param token
-	 * @return
-	 */
-	public int isDTICFirstName(String token) {
-		if (DTICFirstNames.contains(token.toLowerCase())) {
-			return 1;
-		}
-		return 0;
-
-		/*
-		 * for (String s : DTICFirstNames) { if (s.equalsIgnoreCase(token)) {
-		 * return 1; } }
-		 * 
-		 * return 0;
-		 */
-	}
-
-	/**
-	 * checks to see if the Token is a known DTIC last name
-	 * 
-	 * @param token
-	 * @return
-	 */
-	public int isDTICLastName(String token) {
-		if (DTICLastNames.contains(token.toLowerCase())) {
-			return 1;
-		}
-		return 0;
-
-		/*
-		 * for (String s : DTICLastNames) { if (s.equalsIgnoreCase(token)) {
-		 * return 1; } } return 0;
-		 */
-	}
-
-	/**
-	 * checks to see if the Token is an honorific
-	 * 
-	 * @param token
-	 * @return
-	 */
-	public int isHonorific(String token) {
-		if (Honorifics.contains(token.toLowerCase())) {
-			return 1;
-		}
-		return 0;
-
-		/*
-		 * for (String s : Honorifics) { if (s.equalsIgnoreCase(token)) { return
-		 * 1; } } return 0;
-		 */
-	}
-
-	/**
-	 * checks to see if the Token is an kill word
-	 * 
-	 * @param token
-	 * @return
-	 */
-	public int isKillWord(String token) {
-		if (KillWords.contains(token.toLowerCase())) {
-			return 1;
-		}
-		return 0;
-
-		/*
-		 * for (String s : KillWords) { if (s.equalsIgnoreCase(token)) { return
-		 * 1; } } return 0;
-		 */
-	}
-
-	/**
-	 * checks to see if the Token is a prefix
-	 * 
-	 * @param token
-	 * @return
-	 */
-	public int isLastNamePrefix(String token) {
-		if (LastNamePrefixes.contains(token.toLowerCase())) {
-			return 1;
-		}
-		return 0;
-
-		/*
-		 * for (String s : LastNamePrefixes) { if (s.equalsIgnoreCase(token)) {
-		 * return 1; } } return 0;
-		 */
-	}
-
-	/**
-	 * checks to see if the Token is a suffix
-	 * 
-	 * @param token
-	 * @return
-	 */
-	public int isLastNameSuffix(String token) {
-		if (LastNameSuffixes.contains(token.toLowerCase())) {
-			return 1;
-		}
-		return 0;
-
-		/*
-		 * for (String s : LastNameSuffixes) { if (s.equalsIgnoreCase(token)) {
-		 * return 1; } } return 0;
-		 */
-	}
-
-	/**
-	 * checks to see if the Token is a known place
-	 * 
-	 * @param token
-	 * @return
-	 */
-	public int isPlace(String token) {
-		if (Places.contains(token.toLowerCase())) {
-			return 1;
-		}
-		return 0;
-
-		/*
-		 * for (String s : Places) { if (s.equalsIgnoreCase(token)) { return 1;
-		 * } } return 0;
-		 */
-	}
-
-	/**
-	 * Sets the features of a token
-	 * 
-	 * @param token
-	 * @return
-	 */
-	public Token getFeatures(Token token) {
-		String lexeme = token.getLexeme();
-
-		token.setLexical(getLexicalFeature(lexeme));
-		token.setPartOfSpeech(getPartOfSpeech(lexeme));
-		token.setDictionaryWord(isDictionaryWord(lexeme));
-		token.setCityState(isCityState(lexeme));
-		token.setCountryTerritory(isCountryTerritory(lexeme));
-		token.setPlace(isPlace(lexeme));
-		token.setDTICFirst(isDTICFirstName(lexeme));
-		token.setDTICLast(isDTICLastName(lexeme));
-		token.setCommonFirst(isCommonFirstName(lexeme));
-		token.setCommonLast(isCommonLastName(lexeme));
-		token.setHonorific(isHonorific(lexeme));
-		token.setPrefix(isLastNamePrefix(lexeme));
-		token.setSuffix(isLastNameSuffix(lexeme));
-		token.setKillWord(isKillWord(lexeme));
-
-		return token;
-	}
-
-	/**
-	 * Sets the features of all tokens in a list
-	 * 
-	 * @param token
-	 * @return
-	 */
-	public void getFeatures(ArrayList<Token> tokens) {
-
-		for (int i = 0; i < tokens.size(); i++) {
-			String lexeme = tokens.get(i).getLexeme();
-
-			tokens.get(i).setLexical(getLexicalFeature(lexeme));
-			tokens.get(i).setPartOfSpeech(getPartOfSpeech(lexeme));
-			tokens.get(i).setDictionaryWord(isDictionaryWord(lexeme));
-			tokens.get(i).setCityState(isCityState(lexeme));
-			tokens.get(i).setCountryTerritory(isCountryTerritory(lexeme));
-			tokens.get(i).setPlace(isPlace(lexeme));
-			tokens.get(i).setDTICFirst(isDTICFirstName(lexeme));
-			tokens.get(i).setDTICLast(isDTICLastName(lexeme));
-			tokens.get(i).setCommonFirst(isCommonFirstName(lexeme));
-			tokens.get(i).setCommonLast(isCommonLastName(lexeme));
-			tokens.get(i).setHonorific(isHonorific(lexeme));
-			tokens.get(i).setPrefix(isLastNamePrefix(lexeme));
-			tokens.get(i).setSuffix(isLastNameSuffix(lexeme));
-			tokens.get(i).setKillWord(isKillWord(lexeme));
-
-		}
-	}
-
-	/**
-	 * Sets the features of all tokens in a list and outputs a hashSet
-	 * 
-	 * @param token
-	 * @return
-	 */
-	public HashSet<Token> setFeatures(ArrayList<Token> tokens) {
-		boolean isPartOfName = false;
-		boolean taggedBeginning = false;
-
-		HashSet<Token> arffTokens = new HashSet<Token>();
-		HashSet<Token> beginningTokens = new HashSet<Token>();
-
-		for (int i = 0; i < tokens.size(); i++) {
-			tokens.get(i).setName(getFeatures(tokens.get(i)).getName());
-
-			if (tokens.get(i).getLexical().equals("whiteSpace")) {
-				tokens.get(i).setName("other");
-			} else {
-				if (tokens.get(i).getLexeme().equals("<PER>")) {
-					isPartOfName = true;
-					tokens.get(i).setName("other");
-					tokens.remove(i);
-				} else if (tokens.get(i).getLexeme().equals("</PER>")) {
-					isPartOfName = false;
-					taggedBeginning = false;
-					tokens.remove(i);
-					tokens.get(i).setName("other");
-				}
-				if (isPartOfName == true) {
-					if (tokens.get(i).getLexical().equals("capitalized")
-							|| tokens.get(i).getLexical().equals("capLetter")
-							|| tokens.get(i).getLexical().equals("allCaps")) {
-						if (taggedBeginning == false) {
-							if ((i + 1) >= tokens.size()) {
-								if (tokens.get(i + 1).getPartOfSpeech().equals("comma")) {
-									tokens.get(i).setName("continuing");
-									break;
-								}
-							} else {
-								tokens.get(i).setName("beginning");
-								taggedBeginning = true;
-							}
-						} else if (taggedBeginning == true) {
-							if (tokens.get(i).isHonorific() == 1) {
-								tokens.get(i).setName("beginning");
-							} else if (tokens.get(i).isSuffix() == 1) {
-								tokens.get(i).setName("continuing");
-							} else {
-								tokens.get(i).setName("continuing");
-							}
-						}
-					} else if (tokens.get(i).isPrefix() == 1) {
-						tokens.get(i).setName("continuing");
-						beginningTokens.add(tokens.get(i));
-					} else if (tokens.get(i).isHonorific() == 1) {
-						tokens.get(i).setName("continuing");
-						beginningTokens.add(tokens.get(i));
-					} else {
-						tokens.get(i).setName("other");
-					}
-				} else {
-					tokens.get(i).setName("other");
-				}
-
-				arffTokens.add(tokens.get(i));
-				// System.out.println(token.getARFF());
-			}
-
-			for (Token t : arffTokens) {
-				if (!t.getName().equals("beginning") && !t.getName().equals("continuing")
-						&& !t.getName().equals("other")) {
-					// System.out.println(t.getLexeme() + " " +
-					// t.toStringQuotes());
-					System.out.println(t.getLexeme());
-				}
-			}
-
-		}
-		// System.out.println(token.toStringQuotes());
-
-		return arffTokens;
 	}
 
 	/**
@@ -994,107 +613,63 @@ public class Trainer implements Serializable {
 		return shingles;
 	}
 
+	
 	/**
-	 * Idenfies lexical features of a lexeme
+	 * Loads the training machine into the extractor
 	 * 
-	 * @param lexeme
+	 * @param fpath
 	 * @return
 	 */
-	public String getLexicalFeature(String lexeme) {
-		// ArrayList of puncts
-		HashSet<String> puncts = new HashSet<String>();
-		puncts.add("!");
-		puncts.add("?");
-		puncts.add(".");
-		puncts.add(",");
-		puncts.add(":");
-		puncts.add(";");
-		puncts.add("(");
-		puncts.add(")");
-		puncts.add("-");
-		puncts.add("\"");
-		puncts.add("<");
-		puncts.add(">");
-		puncts.add("\\");
-		puncts.add("/");
-		puncts.add("@");
-		puncts.add("#");
-		puncts.add("$");
-		puncts.add("%");
-		puncts.add("^");
-		puncts.add("&");
-		puncts.add("*");
-		puncts.add("=");
-		puncts.add("_");
-		puncts.add("+");
-		puncts.add("`");
-		puncts.add("~");
+	public static LearningMachine loadLM(String fpath) {
+		fpath += ".ser";
 
-		if (puncts.contains(lexeme)) // punct
-		{
-			return "punct";
-		} else if (lexeme.matches("^[A-Z]{1}$")) // CapLetter
-		{
-			return "capLetter";
-		} else if (lexeme.matches("^[A-Z]{1}[a-z]{1,}$")) // capitalized
-		{
-			return "capitalized";
-		} else if (lexeme.matches("^[A-Z]{1,}$")) // ALL-CAPS
-		{
-			return "allCaps";
-		} else if (lexeme.matches("^\n$")) // lineFeed
-		{
-			return "lineFeed";
-		} else if (lexeme.matches("^ $")) // whiteSpace
-		{
-			return "whiteSpace";
-		} else if (lexeme.matches("^[0-9]{1,}$")) // number
-		{
-			return "number";
-		} else {
-			return "other";
+		FileInputStream fInStr;
+
+		LearningMachine lm;
+
+		try {
+			fInStr = new FileInputStream(fpath);
+			ObjectInputStream objectInputStream = new ObjectInputStream(fInStr);
+			lm = (LearningMachine) objectInputStream.readObject();
+			fInStr.close();
+
+			//System.out.println("Loaded LearningMachine: " + fpath);
+
+			return lm; // return
+
+		} catch (ClassNotFoundException | IOException e) {
+			e.printStackTrace();
 		}
 
+		return null;
 	}
 
 	/**
-	 * Returns the part of speech of a token
+	 * Saves the Learning Machine to a file
 	 * 
-	 * @param token
+	 * @param fpath
 	 * @return
 	 */
-	public String getPartOfSpeech(String token) {
-		ArrayList<String> Articles = new ArrayList<String>();
+	public boolean saveLM(String fpath) {
+		fpath = fpath + ".ser"; // add the .ser extension
 
-		Articles.add("a");
-		Articles.add("an");
-		Articles.add("the");
+		FileOutputStream fOutStr;
 
-		if (Articles.contains(token)) {
-			return "article";
-		} else if (token.equals("and")) {
-			return "conjunction";
-		} else if (token.equals(".")) {
-			return "period";
-		} else if (token.equals(",")) {
-			return "comma";
-		} else if (token.equals("-")) {
-			return "hyphen";
-		} else {
-			return "other";
+		try {
+			fOutStr = new FileOutputStream(fpath);
+			ObjectOutputStream out = new ObjectOutputStream(fOutStr);
+			out.writeObject(lm);
+			out.close();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
 		}
-	}
 
-	/**
-	 * Loads gazetteer lists from WordLists into HashSet<String>
-	 * 
-	 * @param
-	 */
-	private void loadGazetteer(HashSet<String> gazetteer, Iterable<String> wordlist) {
-		for (String word : wordlist) {
-			gazetteer.add(word.toLowerCase());
-		}
+		System.out.println("Created Classifier: " + fpath);
+		return true;
 	}
+	
 }
 
 /**

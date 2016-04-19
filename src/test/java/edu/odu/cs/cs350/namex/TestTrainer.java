@@ -94,21 +94,7 @@ public class TestTrainer {
 		fail("Not yet implemented");
 	}
 
-	/**
-	 * Test method for
-	 * {@link edu.odu.cs.cs350.namex.Trainer#isCityState(java.lang.String)}.
-	 */
-	@Test
-	public void testIsCityState() {
-		Trainer trainer = new Trainer();
-		String string0 = "Norfolk";
-		String string1 = "Virginia";
-		String string2 = "television";
 
-		assertEquals(1, trainer.isCityState(string0));
-		assertTrue(trainer.isCityState(string0) == trainer.isCityState(string1));
-		assertFalse(1 == trainer.isCityState(string2));
-	}
 
 	/**
 	 * Test method for
@@ -243,9 +229,9 @@ public class TestTrainer {
 		tokens.add(tks3);
 		tokens.add(tks4);
 		tokens.add(tks5);
-
-		Trainer trainer = new Trainer();
-		trainer.getFeatures(tokens);
+		
+		Librarian librarian = new Librarian();
+		tokens = librarian.getAllFeatures(tokens);
 
 		// Test strings for common token variations to ensure the features are
 		// setting correctly
@@ -255,46 +241,6 @@ public class TestTrainer {
 		assertEquals(tokens.get(3).toString(), "capitalized,other,1,0,0,1,1,1,1,1,0,0,0,0");
 		assertEquals(tokens.get(4).toString(), "capitalized,other,1,0,0,1,0,0,0,0,0,0,0,0");
 		assertEquals(tokens.get(5).toString(), "capitalized,other,1,0,0,1,0,0,0,0,0,0,0,0");
-	}
-
-	/**
-	 * Test method for
-	 * {@link edu.odu.cs.cs350.namex.Trainer#setFeatures(java.util.ArrayList)}.
-	 */
-	@Test
-	public void testSetFeatures() {
-		Token tks1 = new Token("Hello");
-		Token tks2 = new Token("hello");
-		Token tks3 = new Token("<PER>");
-		Token tks4 = new Token("Mr");
-		Token tks5 = new Token(".");
-		Token tks6 = new Token("Jan");
-		Token tk65 = new Token("van");
-		Token tks7 = new Token("Brugen");
-		Token tks8 = new Token("</PER>");
-		Token tks9 = new Token("Alaska");
-		Token tk10 = new Token("Alaska");
-		HashSet<Token> tokenSet = new HashSet<Token>();
-		ArrayList<Token> tokens = new ArrayList<Token>();
-		tokens.add(tks1);
-		tokens.add(tks2);
-		tokens.add(tks3);
-		tokens.add(tks4);
-		tokens.add(tks5);
-		tokens.add(tks6);
-		tokens.add(tk65);
-		tokens.add(tks7);
-		tokens.add(tks8);
-		tokens.add(tks9);
-		tokens.add(tk10);
-
-		Trainer trainer = new Trainer();
-		tokenSet = trainer.setFeatures(tokens);
-
-		// Test strings for common token variations to ensure the features are
-		// setting correctly
-
-		assertEquals(10, tokenSet.size());
 	}
 
 	/**
@@ -325,69 +271,6 @@ public class TestTrainer {
 		fail("Not yet implemented");
 	}
 
-	/**
-	 * Test method for
-	 * {@link edu.odu.cs.cs350.namex.Trainer#getPartOfSpeech(java.lang.String)}.
-	 */
-	@Test
-	public void testGetPartOfSpeech() {
-		Trainer trainer = new Trainer();
-		Token token1 = new Token("and");
-		Token token2 = new Token("an");
-		Token token3 = new Token("the");
-		Token token4 = new Token(".");
-		Token token5 = new Token(",");
-		Token token6 = new Token("-");
-		Token token7 = new Token("and");
-		Token token8 = new Token("test");
-		trainer.getFeatures(token1);
-		trainer.getFeatures(token2);
-		trainer.getFeatures(token3);
-		trainer.getFeatures(token4);
-		trainer.getFeatures(token5);
-		trainer.getFeatures(token6);
-		trainer.getFeatures(token7);
-		trainer.getFeatures(token8);
-
-		assertEquals(token1.getPartOfSpeech(), "conjunction");
-		assertEquals(token2.getPartOfSpeech(), "article");
-		assertEquals(token3.getPartOfSpeech(), "article");
-		assertEquals(token4.getPartOfSpeech(), "period");
-		assertEquals(token5.getPartOfSpeech(), "comma");
-		assertEquals(token6.getPartOfSpeech(), "hyphen");
-		assertEquals(token6.getPartOfSpeech(), "conjunction");
-		assertEquals(token8.getPartOfSpeech(), "other");
-		assertFalse(token2.getPartOfSpeech() != "article");
-		assertTrue(token1.getPartOfSpeech() == token7.getPartOfSpeech());
-
-	}
-
-	@Test
-	public void testGetFeaturesToken() {
-
-		Token tks1 = new Token("Hello");
-		Token tks2 = new Token("hello");
-		Token tks3 = new Token("John");
-		Token tks4 = new Token("Alaska");
-		Token tks5 = new Token("Alaska");
-
-		Trainer trainer = new Trainer();
-		trainer.getFeatures(tks1);
-		trainer.getFeatures(tks2);
-		trainer.getFeatures(tks3);
-		trainer.getFeatures(tks4);
-		trainer.getFeatures(tks5);
-
-		// Test strings for common token variations to ensure the features are
-		// setting correctly
-
-		assertEquals(tks1.toString(), "capitalized,other,1,0,0,0,0,0,0,0,0,0,0,0");
-		assertEquals(tks2.toString(), "other,other,1,0,0,0,0,0,0,0,0,0,0,0");
-		assertEquals(tks3.toString(), "capitalized,other,1,0,0,1,1,1,1,1,0,0,0,0");
-		assertEquals(tks4.toString(), "capitalized,other,1,0,0,1,0,0,0,0,0,0,0,0");
-		assertEquals(tks5.toString(), "capitalized,other,1,0,0,1,0,0,0,0,0,0,0,0");
-
-	}
 
 	// Tests the constructors
 	@Test
