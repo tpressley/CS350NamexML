@@ -148,15 +148,17 @@
     ============
     -->
 	<target name="build" depends="generate-javadoc" description="Construct a jar and source files and assorted reports.">
-		<!--
-		<ivy:cachefileset conf="build" setid="runtime.fileset" />
-		<jar destfile="target/MyJavaApplication.jar" basedir="target/classes">                           
-			<zipgroupfileset refid="runtime.fileset"/>             
-			<manifest>
-				<attribute name="Main-Class" value="edu.odu.cs.cs350.MainClassName"/> 
-			</manifest>
-		</jar> -->
-		
+
+	<jar
+	   destfile="target/PNE.jar"
+
+	   basedir="target/classes">
+	   <manifest>
+	       <attribute name="Main-Class" value="edu.odu.cs.cs350.namex.Librarian"/>
+	   </manifest>
+	</jar>
+	<java jar="target/PNE.jar" fork="true"/>
+
 	</target>
 	
     <!--
