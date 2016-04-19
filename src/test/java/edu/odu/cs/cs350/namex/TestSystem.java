@@ -11,18 +11,13 @@ import org.junit.Test;
 
 /**
  * Test class for the system
+ * 
+ * @author Tristan Pressley, Caroline Chey
  *
  */
 public class TestSystem {
 
 	@Before
-	public void setUp() throws Exception {
-	}
-	
-	
-	/**
-	 * test for Librarian
-	 */
 	@Test
 	public void testMainTrainData() {
 		String[] args = {"src/main/data/trainingDataSmall.txt", "trainingDatao.txt" };
@@ -35,7 +30,13 @@ public class TestSystem {
 		File f = new File("LearningMachine.model");
 		File f2 = new File("trainigDatao.txt");
 		Scanner s = null;
+		/*try {
+			s = new Scanner(f2);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}*/
 		
+
 		String[] argsB = { "src/main/data/trainingMaterial003.txt", "trainingDataob.txt" };
 		try {
 			// Temporarily removed -- takes way too long
@@ -55,5 +56,6 @@ public class TestSystem {
 		assertTrue(s.nextLine() == "@relation Classification");
 		assertTrue(fb.exists());
 		assertTrue(sb.nextLine() == "@relation Classification");
+
 	}
 }
