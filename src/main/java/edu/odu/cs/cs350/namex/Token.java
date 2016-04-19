@@ -354,60 +354,104 @@ public class Token {
 		return this.commonFirst;
 	}
 
+	/**
+	 * sets the attribute for if this is a commonfirstname
+	 * @param commonFirst
+	 */
 	public void setCommonFirst(int commonFirst) {
 		this.commonFirst = commonFirst;
 	}
 
-	// commonLast
+	
+	/**
+	 * returns if this token is a commonlast name
+	 * @return
+	 */
 	public int isCommonLast() {
 		return this.commonLast;
 	}
 
+	/**
+	 * sets the attribute for commonlast name
+	 * @param commonLast
+	 */
 	public void setCommonLast(int commonLast) {
 		this.commonLast = commonLast;
 	}
 
-	// honorific
+
+	/**
+	 * returns the attribute for if this is an honorific
+	 * @return
+	 */
 	public int isHonorific() {
 		return this.honorific;
 	}
 
+	/**
+	 * sets the attribute for honorific
+	 * @param honorific
+	 */
 	public void setHonorific(int honorific) {
 		this.honorific = honorific;
 	}
 
-	// prefix
+	
+	/**
+	 * returns the attribute for isPrefix
+	 * @return
+	 */
 	public int isPrefix() {
 		return this.prefix;
 	}
-
+  /**
+   * sets the attribute for isPrefix
+   * @return
+   */
 	public void setPrefix(int prefix) {
 		this.prefix = prefix;
 	}
 
-	// suffix
+  /**
+   * returns the attribute for isSuffix
+   * @return
+   */
 	public int isSuffix() {
 		return this.suffix;
 	}
-
+	 /**
+   * sets the attribute for isSuffix
+   * @return
+   */
 	public void setSuffix(int suffix) {
 		this.suffix = suffix;
 	}
 
-	// killWord
+  /**
+  * returns the attribute for isKillWord
+  * @return
+  */
 	public int isKillWord() {
 		return this.killWord;
 	}
-
+	 /**
+	  * sets the attribute for isKillWord
+	  * @return
+	  */
 	public void setKillWord(int killWord) {
 		this.killWord = killWord;
 	}
-
-	// name
+  /**
+   * returns the attribute for getName
+   * @return
+   */
 	public String getName() {
 		return name;
 	}
-
+  /**
+   * sets the attribute for getName
+   * @return
+   */
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -415,7 +459,14 @@ public class Token {
 	// User Story #850
 	// Status - Completed
 	// Tokens converted into a set of features (T)
-	public String toString() {
+
+
+
+	/**@override
+	 * toString() override outputs the attributes list needed for
+	 * arff data
+	 */
+	@Override public String toString() {
 
 		StringBuilder sb = new StringBuilder();
 
@@ -438,8 +489,13 @@ public class Token {
 
 	}
 
-	// toString surrounded by quotes
-	// used for training
+	
+	/**
+   * toString() override outputs the attributes list needed for
+   * arff data
+   * @return String output
+   *
+   */
 	public String toStringQuotes() {
 
 		String output = "\"" + lexeme + ",";
@@ -464,6 +520,10 @@ public class Token {
 
 	}
 
+	/**
+	 * prints statistical classification data
+	 * 
+	 */
 	public void printTokenData() {
 		System.out.println("            lexeme:   " + lexeme);
 		System.out.println("    classification:   " + name);
