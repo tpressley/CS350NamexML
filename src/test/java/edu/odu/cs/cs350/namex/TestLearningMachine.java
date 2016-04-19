@@ -402,6 +402,18 @@ public class TestLearningMachine {
 			e.printStackTrace();
 		}
 	}
+	
+	@Test
+	public void testGetShingle()
+	{
+		LearningMachine lm = new LearningMachine();
+		String trainingMaterials = "<NER>! -- r John road + $2 N- 1)</NER>\n<NER>\"*</NER>\n<NER>\"China's Pursuit for World Power Status : Is the Transformation of the</NER>";
+		Trainer trainer = new Trainer();
+		ArrayList<Token> tokens = new ArrayList<Token>();
+		tokens = Trainer.tokenize(trainingMaterials);
+		String shingle = lm.getShingle(tokens, 11);
+		assertEquals(shingle.length(),tokens.size()+22);
+	}
 
 	@Test
 	/**

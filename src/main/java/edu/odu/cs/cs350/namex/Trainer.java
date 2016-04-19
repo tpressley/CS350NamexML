@@ -381,7 +381,6 @@ public class Trainer implements Serializable {
 		arffString.add("@attribute Prefix1 {0,1}");
 		arffString.add("@attribute Suffix1 {0,1}");
 		arffString.add("@attribute Kill1 {0,1}");
-
 		arffString
 				.add("@attribute Lexical2 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
 		arffString.add("@attribute PartOfSpeech2 {article,conjunction,period,comma,hyphen,other,null}");
@@ -397,7 +396,6 @@ public class Trainer implements Serializable {
 		arffString.add("@attribute Prefix2 {0,1}");
 		arffString.add("@attribute Suffix2 {0,1}");
 		arffString.add("@attribute Kill2 {0,1}");
-
 		arffString
 				.add("@attribute Lexical3 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
 		arffString.add("@attribute PartOfSpeech3 {article,conjunction,period,comma,hyphen,other,null}");
@@ -413,7 +411,6 @@ public class Trainer implements Serializable {
 		arffString.add("@attribute Prefix3 {0,1}");
 		arffString.add("@attribute Suffix3 {0,1}");
 		arffString.add("@attribute Kill3 {0,1}");
-
 		arffString
 				.add("@attribute Lexical4 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
 		arffString.add("@attribute PartOfSpeech4 {article,conjunction,period,comma,hyphen,other,null}");
@@ -429,7 +426,6 @@ public class Trainer implements Serializable {
 		arffString.add("@attribute Prefix4 {0,1}");
 		arffString.add("@attribute Suffix4 {0,1}");
 		arffString.add("@attribute Kill4 {0,1}");
-
 		arffString
 				.add("@attribute Lexical5 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
 		arffString.add("@attribute PartOfSpeech5 {article,conjunction,period,comma,hyphen,other,null}");
@@ -445,7 +441,6 @@ public class Trainer implements Serializable {
 		arffString.add("@attribute Prefix5 {0,1}");
 		arffString.add("@attribute Suffix5 {0,1}");
 		arffString.add("@attribute Kill5 {0,1}");
-
 		arffString
 				.add("@attribute Lexical6 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
 		arffString.add("@attribute PartOfSpeech6 {article,conjunction,period,comma,hyphen,other,null}");
@@ -461,7 +456,6 @@ public class Trainer implements Serializable {
 		arffString.add("@attribute Prefix6 {0,1}");
 		arffString.add("@attribute Suffix6 {0,1}");
 		arffString.add("@attribute Kill6 {0,1}");
-
 		arffString
 				.add("@attribute Lexical7 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
 		arffString.add("@attribute PartOfSpeech7 {article,conjunction,period,comma,hyphen,other,null}");
@@ -477,7 +471,6 @@ public class Trainer implements Serializable {
 		arffString.add("@attribute Prefix7 {0,1}");
 		arffString.add("@attribute Suffix7 {0,1}");
 		arffString.add("@attribute Kill7 {0,1}");
-
 		arffString
 				.add("@attribute Lexical8 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
 		arffString.add("@attribute PartOfSpeech8 {article,conjunction,period,comma,hyphen,other,null}");
@@ -493,7 +486,6 @@ public class Trainer implements Serializable {
 		arffString.add("@attribute Prefix8 {0,1}");
 		arffString.add("@attribute Suffix8 {0,1}");
 		arffString.add("@attribute Kill8 {0,1}");
-
 		arffString
 				.add("@attribute Lexical9 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
 		arffString.add("@attribute PartOfSpeech9 {article,conjunction,period,comma,hyphen,other,null}");
@@ -509,7 +501,6 @@ public class Trainer implements Serializable {
 		arffString.add("@attribute Prefix9 {0,1}");
 		arffString.add("@attribute Suffix9 {0,1}");
 		arffString.add("@attribute Kill9 {0,1}");
-
 		arffString.add(
 				"@attribute Lexical10 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
 		arffString.add("@attribute PartOfSpeech10 {article,conjunction,period,comma,hyphen,other,null}");
@@ -525,7 +516,6 @@ public class Trainer implements Serializable {
 		arffString.add("@attribute Prefix10 {0,1}");
 		arffString.add("@attribute Suffix10 {0,1}");
 		arffString.add("@attribute Kill10 {0,1}");
-
 		arffString.add(
 				"@attribute Lexical11 {punct,capLetter,capitalized,allCaps,lineFeed,whiteSpace,number,other,null}");
 		arffString.add("@attribute PartOfSpeech11 {article,conjunction,period,comma,hyphen,other,null}");
@@ -541,7 +531,6 @@ public class Trainer implements Serializable {
 		arffString.add("@attribute Prefix11 {0,1}");
 		arffString.add("@attribute Suffix11 {0,1}");
 		arffString.add("@attribute Kill11 {0,1}");
-
 		arffString.add("@attribute Name1 {beginning,continuing,other,null}");
 		arffString.add("@attribute Name2 {beginning,continuing,other,null}");
 		arffString.add("@attribute Name3 {beginning,continuing,other,null}");

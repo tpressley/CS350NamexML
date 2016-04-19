@@ -1198,6 +1198,42 @@ public class TestToken {
 		}
 	}
 
+	/*
+	 * test for getPER and setPER
+	 */
+	@Test
+	public void testGetSetPER()
+	{
+		Token token = new Token("Hello");
+		
+		token.setPER("start");
+		assertEquals("start", token.getPER());
+	}
+	
+	/*
+	 * test for getTaggedLexeme and setTaggedLexeme
+	 */
+	@Test
+	public void testGetSetTaggedLexeme()
+	{
+		Token token = new Token("John");
+		
+		token.setTaggedLexeme("<PER>" + token.getLexeme());
+		assertEquals("<PER>John", token.getTaggedLexeme());
+	}
+	
+	/*
+	 * test for getPosition and setPosition
+	 */
+	@Test
+	public void testGetSetPosition()
+	{
+		Token token = new Token("John");
+		
+		token.setPosition(1);
+		assertEquals(1, token.getPosition());
+	}
+	
 	// User Story #850
 	// Status - Completed
 	// Tokens converted into a set of features (T)

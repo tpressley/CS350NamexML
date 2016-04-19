@@ -6,8 +6,11 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import edu.odu.cs.cs350.namex.Trainer;
 import edu.odu.cs.extract.wordlists.WordLists;
@@ -28,9 +31,6 @@ public class Librarian {
 	private HashSet<String> LastNameSuffixes;
 	private HashSet<String> Places;
 	
-	LearningMachine lm;
-	Trainer trainer;
-
 	/**
 	 * default constructor
 	 */
@@ -71,7 +71,7 @@ public class Librarian {
 		//System.out.println("69");
 		loadGazetteer(LastNamePrefixes, WordLists.lastNamePrefixes());
 		//System.out.println("71");
-		loadGazetteer(LastNameSuffixes, WordLists.lastNamePrefixes());
+		loadGazetteer(LastNameSuffixes, WordLists.lastNameSuffixes());
 		//System.out.println("73");
 		loadGazetteer(KillWords, WordLists.nonPersonalIdentifierCues());
 		//System.out.println("75");
@@ -137,68 +137,51 @@ public class Librarian {
 
 		// if CLI contains two arguments
 		else if (args.length == 2) {
-			System.out.println("2 Arguments");
-
-			String inputFileName = args[0];
-			String outputFileName = args[1];
-
-			Trainer trainer = new Trainer();
-
-			ArrayList<Token> tokens = new ArrayList<Token>();
-
-			/*
-			 * ArrayList<TextBlock> textBlocks = new ArrayList<TextBlock>();
-			 * 
-			 * HashSet<String> fileLines = Librarian.importFile(inputFileName);
-			 * for (String line : fileLines) {
-			 * textBlocks.addAll(Librarian.separateNER(line)); }
-			 */
-
-			ArrayList<TextBlock> textBlocks = importFile(inputFileName);
-
-			for (TextBlock textBlock : textBlocks) {
-				tokens.addAll(Trainer.tokenize(textBlock.getTextBlock()));
-			}
-
-			// System.out.println("Imported File Successfully!");
-
+			
+			// ********** Initialize Variables **********
+			Librarian librarian = new Librarian();
+			LearningMachine lm = Trainer.loadLM(LMFilePath);
+			
+			ArrayList<TextBlock> inputs = Librarian.importFile(args[0]);
+			
 			try {
-				//trainer.prepareData(inputFileName, outputFileName, false);
+				//lm.printEvaluationSummary();
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
-		}
+			}                                            // test output
+			// ********** End Initialize Variables **********
+			
+			try {
 
-		// Generate ARFF Training Data
-		else if (args.length == 3) {
-			if (args[0].equalsIgnoreCase("train")) {
-				System.out.println("*******************************");
-				System.out.println(" Generating ARFF Training Data");
-				System.out.println("*******************************\n");
+				String content = "This is the content to write into file";
 
-				String inputFileName = args[1];
-				String outputFileName = args[2];
+				File file = new File(args[1]);
 
-				System.out.println(" Input FilePath: " + inputFileName);
-				System.out.println("Output FilePath: " + outputFileName);
-
-				Trainer trainer = new Trainer();
-
-				try {
-					//trainer.prepareData(inputFileName, outputFileName, false);
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+				// if file doesnt exists, then create it
+				if (!file.exists()) {
+					file.createNewFile();
 				}
-				try {
-					System.out.println("*******************************");
-					System.out.println(" Saving Learning Machine to LearningMachine.model");
-					System.out.println("*******************************\n");
-					// trainer.SaveClassifier();
-				} catch (Exception e) {
-					e.printStackTrace();
+
+				FileWriter fw = new FileWriter(file.getAbsoluteFile());
+				BufferedWriter bw = new BufferedWriter(fw);
+				
+				for (TextBlock input : inputs)
+				{
+					ArrayList<Token> tokens = Trainer.tokenize(input.getTextBlock());   // Step 1: tokenize the input string
+					tokens = librarian.getAllFeatures(tokens);                          // Step 2: get the features for each token
+					String shingle = lm.getShingle(tokens, k);                          // Step 3: shingle and classify the tokens
+					
+					System.out.print(shingle);
+					bw.write(shingle + "\n");
 				}
+				
+				bw.close();
+
+				System.out.println("Done");
+
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
 		}
 	}
@@ -224,6 +207,9 @@ public class Librarian {
 		return textBlocks;
 	}
 	
+	/*
+	 * import contents of a file into a HashSet
+	 */
 	
 	// imports a file from filePath and returns the line values as a
 	// HashSet<String>
@@ -250,7 +236,8 @@ public class Librarian {
 	
 	// imports a file from filePath and returns the line values as a
 	// HashSet<String>
-	public static HashSet<TextBlock> importFileHash(String filePath) {
+	public static HashSet<TextBlock> importFileHash(String filePath) 
+	{
 		File file = new File(filePath);
 		Scanner s;
 
@@ -271,18 +258,12 @@ public class Librarian {
 	}
 
 
-	
 	// checks to see if the Token is a word found in the English dictionary
 	public int isDictionaryWord(String token) {
 		if (DictionaryWords.contains(token.toLowerCase())) {
 			return 1;
 		}
 		return 0;
-
-		/*
-		 * for (String s : DictionaryWords) { if (s.equalsIgnoreCase(token)) {
-		 * return 1; } } return 0;
-		 */
 	}
 
 	// checks to see if the Token is a known name of a City or State in the
@@ -292,11 +273,6 @@ public class Librarian {
 			return 1;
 		}
 		return 0;
-
-		/*
-		 * for (String s : CitiesStates) { if (s.equalsIgnoreCase(token)) {
-		 * return 1; } } return 0;
-		 */
 	}
 
 	// checks to see if the Token is a known name of a Country or Territory
@@ -305,11 +281,6 @@ public class Librarian {
 			return 1;
 		}
 		return 0;
-
-		/*
-		 * for (String s : CountriesTerritories) { if
-		 * (s.equalsIgnoreCase(token)) { return 1; } } return 0;
-		 */
 	}
 
 	// checks to see if the Token is a known place
@@ -318,11 +289,6 @@ public class Librarian {
 			return 1;
 		}
 		return 0;
-
-		/*
-		 * for (String s : Places) { if (s.equalsIgnoreCase(token)) { return 1;
-		 * } } return 0;
-		 */
 	}
 
 	// checks to see if the Token is a known DTIC first name
@@ -331,13 +297,6 @@ public class Librarian {
 			return 1;
 		}
 		return 0;
-
-		/*
-		 * for (String s : DTICFirstNames) { if (s.equalsIgnoreCase(token)) {
-		 * return 1; } }
-		 * 
-		 * return 0;
-		 */
 	}
 
 	// checks to see if the Token is a known DTIC last name
@@ -346,11 +305,6 @@ public class Librarian {
 			return 1;
 		}
 		return 0;
-
-		/*
-		 * for (String s : DTICLastNames) { if (s.equalsIgnoreCase(token)) {
-		 * return 1; } } return 0;
-		 */
 	}
 
 	// checks to see if the Token is a known common first name
@@ -359,11 +313,6 @@ public class Librarian {
 			return 1;
 		}
 		return 0;
-
-		/*
-		 * for (String s : CommonFirstNames) { if (s.equalsIgnoreCase(token)) {
-		 * return 1; } } return 0;
-		 */
 	}
 
 	// checks to see if the Token is a known common last name
@@ -372,11 +321,6 @@ public class Librarian {
 			return 1;
 		}
 		return 0;
-
-		/*
-		 * for (String s : CommonLastNames) { if (s.equalsIgnoreCase(token)) {
-		 * return 1; } } return 0;
-		 */
 	}
 
 	// checks to see if the Token is an honorific
@@ -385,11 +329,6 @@ public class Librarian {
 			return 1;
 		}
 		return 0;
-
-		/*
-		 * for (String s : Honorifics) { if (s.equalsIgnoreCase(token)) { return
-		 * 1; } } return 0;
-		 */
 	}
 
 	// checks to see if the Token is a prefix
@@ -398,11 +337,6 @@ public class Librarian {
 			return 1;
 		}
 		return 0;
-
-		/*
-		 * for (String s : LastNamePrefixes) { if (s.equalsIgnoreCase(token)) {
-		 * return 1; } } return 0;
-		 */
 	}
 
 	// checks to see if the Token is a suffix
@@ -411,11 +345,6 @@ public class Librarian {
 			return 1;
 		}
 		return 0;
-
-		/*
-		 * for (String s : LastNameSuffixes) { if (s.equalsIgnoreCase(token)) {
-		 * return 1; } } return 0;
-		 */
 	}
 
 	// checks to see if the Token is an kill word
@@ -424,14 +353,7 @@ public class Librarian {
 			return 1;
 		}
 		return 0;
-
-		/*
-		 * for (String s : KillWords) { if (s.equalsIgnoreCase(token)) { return
-		 * 1; } } return 0;
-		 */
 	}
-
-
 
 	/**
 	 * Idenfies lexical features of a lexeme
@@ -538,11 +460,12 @@ public class Librarian {
 	/**
 	 * returns true if two Librarian objects are equal 
 	 */
-	public boolean equals(Librarian two){
-		
-		if(two.lm.equals(this.lm) && two.trainer.equals(this.trainer))
+	public boolean equals(Librarian two)
+	{
+		if (this.equals(two))
+		{
 			return true;
-		
+		}
 		return false;
 	}
 
