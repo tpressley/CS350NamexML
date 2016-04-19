@@ -10,15 +10,13 @@ import org.junit.Test;
 import edu.odu.cs.cs350.namex.PersonalName;
 
 /**
- * @author Caroline Chey
- * 
- *         Addy Alago; User story 854: As a Librarian, I want miscellaneous
- *         words such as honorifics and kill words to be identified correctly.
+ * test class for PersonalName.java
+ *
  */
 public class TestPersonalName {
 
 	/**
-	 * Tests default contructor
+	 * Tests default constructor
 	 */
 	@Test
 	public void testPersonalName() {
@@ -27,7 +25,6 @@ public class TestPersonalName {
 
 		assertTrue(name != null);
 		assertEquals(name.getName(), "");
-
 	}
 
 	@Test
@@ -39,7 +36,7 @@ public class TestPersonalName {
 		assertTrue(n1 != null);
 		assertEquals("John", n1.getGivenName());
 		assertEquals("Doe", n1.getSurName());
-		// below should remain empty after using the two-string constructor
+
 		assertEquals("", n1.getHonorific());
 		assertEquals("", n1.getMiddleNames());
 		assertEquals("", n1.getSuffix());
@@ -71,8 +68,8 @@ public class TestPersonalName {
 
 	@Test
 	/**
-	 * test for public PersonalName(String honor, String first, String middle,
-	 * String last, String suff)
+	 * test for public PersonalName
+	 * 			(String honor, String first, String middle, String last, String suff)
 	 */
 	public void testPersonalNameFiveString() {
 		PersonalName n1 = new PersonalName("Dr", "Jane", "X", "Doe", "III");

@@ -455,7 +455,6 @@ public class TestLibrarian {
 	 * test for public static void main(String[] args) throws
 	 * FileNotFoundException
 	 */
-	
 	@Test
 	public void testMain() throws Exception 
 	{
@@ -470,6 +469,4 @@ public class TestLibrarian {
 			e224.printStackTrace();
 		}
 	}
-	
-
 }

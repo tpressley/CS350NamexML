@@ -7,12 +7,13 @@ import java.util.ArrayList;
 import org.junit.Test;
 
 /**
- * Test class for TextBlock.java
- * 
- * @author Caroline Chey
+ * Test class for TextBlock
  *
  */
 public class TestTextBlock {
+	/**
+	 * test for constructor of TestBlock
+	 */
 	@Test
 	public void testTextBlock() {
 		// uninitialized TextBlock
@@ -30,6 +31,9 @@ public class TestTextBlock {
 		assertTrue(tb4.equals("Hello Java"));
 	}
 
+	/**
+	 * test for setTextBlock() and getTextBlock()
+	 */
 	@Test
 	public void testSetTextBlockGetTextBlock() {
 		TextBlock tb = new TextBlock();
@@ -39,6 +43,9 @@ public class TestTextBlock {
 		assertEquals("Hello World", tb.getTextBlock());
 	}
 
+	/**
+	 * test for getTokens()
+	 */
 	@Test
 	public void testGetTokens() {
 		TextBlock tb = new TextBlock();
@@ -55,6 +62,9 @@ public class TestTextBlock {
 
 	}
 
+	/**
+	 * test for setTokens()
+	 */
 	@Test
 	public void testSetTokens() {
 		TextBlock tb = new TextBlock();
@@ -73,6 +83,9 @@ public class TestTextBlock {
 		assertEquals(token2.toString(), tokens.get(1).toString());
 	}
 
+	/**
+	 * test for addToken()
+	 */
 	@Test
 	public void testAddToken() {
 		TextBlock tb = new TextBlock();
@@ -87,6 +100,9 @@ public class TestTextBlock {
 		assertEquals(token1.toString(), tb.getTokens().get(1).toString());
 	}
 
+	/**
+	 * test for removeToken()
+	 */
 	@Test
 	public void testRemoveToken() {
 		TextBlock tb = new TextBlock();
@@ -105,6 +121,9 @@ public class TestTextBlock {
 		assertEquals(1, tb.getTokens().size());
 	}
 
+	/**
+	 * test for toString()
+	 */
 	@Test
 	public void testToString() {
 		TextBlock tb = new TextBlock();

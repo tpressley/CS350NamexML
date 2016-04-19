@@ -7,9 +7,6 @@ import org.junit.*;
 
 /**
  * Test class for Shingle.java
- * 
- * @author Caroline Chey
- *
  */
 public class TestShingle {
 
@@ -68,9 +65,6 @@ public class TestShingle {
 	 * test for public LinkedList<Token> getTokens()
 	 */
 	public void testGetTokens() {
-		/*
-		 * private LinkedList<Token> tokens;
-		 */
 
 		Shingle sh1 = new Shingle();
 		assertTrue(sh1.getTokens() != null);
@@ -144,8 +138,8 @@ public class TestShingle {
 			assertEquals(sh1.getTokens().size(), clo.getTokens().size());
 			assertEquals(clo.getTokens().size(), copy.getTokens().size());
 
-			assertEquals(sh1.getTokens().get(1) , clo.getTokens().get(1));
-			
+			assertEquals(sh1.getTokens().get(1), clo.getTokens().get(1));
+
 			assertEquals(sh1.getTokens().getClass(), copy.getTokens().getClass());
 			assertEquals(clo.getTokens().getClass(), copy.getTokens().getClass());
 			assertEquals(sh1.getTokens().getClass(), clo.getTokens().getClass());
@@ -154,7 +148,6 @@ public class TestShingle {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
 
 }

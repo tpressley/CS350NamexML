@@ -11,15 +11,11 @@ import org.junit.Test;
 
 /**
  * Test class for the system
- * 
- * @author Tristan Pressley, Caroline Chey
  *
  */
 public class TestSystem {
 
 	@Before
-	public void setUp() throws Exception {
-	}
 	@Test
 	public void testMainTrainData() {
 		String[] args = {"src/main/data/trainingDataSmall.txt", "trainingDatao.txt" };
@@ -58,5 +54,6 @@ public class TestSystem {
 		assertTrue(s.nextLine() == "@relation Classification");
 		assertTrue(fb.exists());
 		assertTrue(sb.nextLine() == "@relation Classification");
+
 	}
 }
