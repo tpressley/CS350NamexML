@@ -6,8 +6,6 @@ import org.junit.Test;
 
 /**
  * Test class for Token.java
- * 
- * @author Caroline Chey
  *
  */
 public class TestToken {

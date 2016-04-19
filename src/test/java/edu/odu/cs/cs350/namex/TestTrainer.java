@@ -11,7 +11,6 @@ import java.util.*;
 /**
  * Test class for Trainer.java
  * 
- * @author Addy Alago, Caroline Chey, Tristan Pressley
  *
  */
 public class TestTrainer {
